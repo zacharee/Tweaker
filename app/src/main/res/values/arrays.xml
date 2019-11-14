@@ -11,4 +11,18 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="user_rotation_names">
+        <item>@string/option_user_rotation_0</item>
+        <item>@string/option_user_rotation_90</item>
+        <item>@string/option_user_rotation_180</item>
+        <item>@string/option_user_rotation_270</item>
+    </string-array>
+
+    <string-array name="user_rotation_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

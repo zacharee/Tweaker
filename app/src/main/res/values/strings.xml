@@ -105,4 +105,8 @@
     <string name="option_app_install_location_auto">Auto</string>
     <string name="option_app_install_location_internal">Internal Storage</string>
     <string name="option_app_install_location_sd">SD Card</string>
+    <string name="option_user_rotation_0">Portrait</string>
+    <string name="option_user_rotation_90">Landscape CCW</string>
+    <string name="option_user_rotation_180">Portrait Inverse</string>
+    <string name="option_user_rotation_270">Landscape CW</string>
 </resources>

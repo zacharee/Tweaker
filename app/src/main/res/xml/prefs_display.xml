@@ -32,4 +32,14 @@
         app:settings_type="system"
         />
 
+    <com.rw.tweaks.prefs.SecureListPreference
+        android:title="@string/feature_custom_rotation"
+        android:summary="@string/feature_custom_rotation_desc"
+        android:key="user_rotation"
+        android:defaultValue="0"
+        app:settings_type="system"
+        app:entries="@array/user_rotation_names"
+        app:entryValues="@array/user_rotation_values"
+        />
+
 </PreferenceScreen>
