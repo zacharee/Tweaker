@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                         .withName(R.string.home)
                 ),
                 NavigationDrawerItem(
-                    0,
+                    R.id.appsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_apps)
                 ),

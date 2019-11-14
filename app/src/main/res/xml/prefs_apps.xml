@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.SecureSwitchPreference
+        android:title="@string/feature_freeform"
+        android:summary="@string/feature_freeform_desc"
+        android:key="enable_freeform_support"
+        app:settings_type="global"
+        />
+
+</PreferenceScreen>

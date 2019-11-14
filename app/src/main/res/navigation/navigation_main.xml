@@ -23,4 +23,8 @@
         android:id="@+id/netMiscellaneousFragment"
         android:name="com.rw.tweaks.fragments.network.NetMiscellaneousFragment"
         android:label="MiscellaneousFragment" />
+    <fragment
+        android:id="@+id/appsFragment"
+        android:name="com.rw.tweaks.fragments.AppsFragment"
+        android:label="AppsFragment" />
 </navigation>
