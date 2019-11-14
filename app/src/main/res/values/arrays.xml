@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_install_location_names">
+        <item>@string/option_app_install_location_auto</item>
+        <item>@string/option_app_install_location_internal</item>
+        <item>@string/option_app_install_location_sd</item>
+    </string-array>
+
+    <string-array name="app_install_location_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

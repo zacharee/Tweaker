@@ -9,4 +9,14 @@
         app:settings_type="global"
         />
 
+    <com.rw.tweaks.prefs.SecureListPreference
+        android:title="@string/feature_app_install_location"
+        android:summary="@string/feature_app_install_location_desc"
+        android:key="default_install_location"
+        android:defaultValue="0"
+        app:entries="@array/app_install_location_names"
+        app:entryValues="@array/app_install_location_values"
+        app:settings_type="global"
+        />
+
 </PreferenceScreen>

@@ -31,4 +31,9 @@
         <attr name="settings_type" />
         <attr name="differing_key" />
     </declare-styleable>
+
+    <declare-styleable name="SecureListPreference">
+        <attr name="settings_type" />
+        <attr name="differing_key" />
+    </declare-styleable>
 </resources>

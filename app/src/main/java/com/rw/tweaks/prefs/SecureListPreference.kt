@@ -2,15 +2,14 @@ package com.rw.tweaks.prefs
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.preference.EditTextPreference
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
-import com.rw.tweaks.util.getSetting
 import com.rw.tweaks.util.writeSetting
 
-class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference {
+class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference {
     override var type = SettingsType.UNDEFINED
     override var writeKey: String? = null
         get() = field ?: key
@@ -18,20 +17,16 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
 
     init {
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureEditTextPreference, 0, 0)
+        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureListPreference, 0, 0)
 
-        type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureEditTextPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
-        writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
-
-        dialogMessage = summary
+        type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureListPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
+        writeKey = array.getString(R.styleable.SecureListPreference_differing_key)
 
         array.recycle()
 
-        super.setOnPreferenceChangeListener(this)
-    }
+//        dialogMessage = summary
 
-    override fun onSetInitialValue(defaultValue: Any?) {
-        this.text = context.getSetting(type, writeKey)
+        super.setOnPreferenceChangeListener(this)
     }
 
     override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
@@ -46,7 +41,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
 
         if (update) {
-            context.writeSetting(type, writeKey, newValue.toString().toBoolean())
+            context.writeSetting(type, writeKey, newValue.toString().toInt())
         }
 
         return update

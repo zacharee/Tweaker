@@ -102,4 +102,7 @@
     <string name="option_airplane_mode_radio_wifi">WiFi</string>
     <string name="option_airplane_mode_radio_nfc">NFC</string>
     <string name="option_airplane_mode_radio_wimax">WiMax</string>
+    <string name="option_app_install_location_auto">Auto</string>
+    <string name="option_app_install_location_internal">Internal Storage</string>
+    <string name="option_app_install_location_sd">SD Card</string>
 </resources>
