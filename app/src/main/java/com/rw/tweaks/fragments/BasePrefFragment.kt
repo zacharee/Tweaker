@@ -16,6 +16,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is AnimationScalesPreference -> OptionDialog.newInstance(preference.key, R.layout.animation_dialog)
             is KeepDeviceOnPluggedPreference -> OptionDialog.newInstance(preference.key, R.layout.keep_device_plugged_dialog)
             is StorageThresholdPreference -> OptionDialog.newInstance(preference.key, R.layout.storage_thresholds)
+            is CameraGesturesPreference -> OptionDialog.newInstance(preference.key, R.layout.camera_gestures)
             else -> null
         }
 

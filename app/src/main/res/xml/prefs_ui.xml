@@ -14,7 +14,7 @@
         />
 
     <com.rw.tweaks.prefs.KeepDeviceOnPluggedPreference />
-
     <com.rw.tweaks.prefs.AnimationScalesPreference />
+    <com.rw.tweaks.prefs.CameraGesturesPreference />
 
 </PreferenceScreen>

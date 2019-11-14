@@ -55,10 +55,6 @@
 
     <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
     <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. We can manually lower the threshold value to prevent this warning from showing.</string>
-    
-    <string name="feature_camera_gesture_double_power">Double-Tap Power Button</string>
-    <string name="feature_camera_gesture">Gesture</string>
-    <string name="feature_camera_gesture_twist">Flip Phone Back and Forth</string>
 
     <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
     <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. We can specify which power sources we want to have our phone\'s screen to stay on.</string>
@@ -78,13 +74,14 @@
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
     <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
 
+    <string name="feature_camera_gestures">Camera Gestures</string>
+    <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
+
     <string name="dangerous_feature_disable_recents_status">Disable Accessing Recents and Status Bar</string>
     <string name="dangerous_feature_disable_recents_status_desc">When enabled, the user will be unable to access the recent apps screen or pull down the status bar. This works by tricking the device into thinking the device is \"unprovisioned\" - a flag which is normally set after the user completes the first time setup process. If you do an OTA update and find that your device is unable to perform these actions, it\'s because this flag was somehow accidentally disabled during the update.</string>
 
     <string name="dangerous_feature_disable_home">Disable Home Button</string>
     <string name="dangerous_feature_disable_home_desc">Disable use of the home button. This tricks the device into thinking that the user has not completed the first time setup process.</string>
-
-    <string name="feature_header_camera_gestures">Camera Gestures</string>
 
     <string name="feature_header_airplane_mode_radios">Airplane Mode-Exempt Radios</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Airplane Mode Toggleable Radios</string>
@@ -97,4 +94,7 @@
     <string name="option_transition_animation_scale">Transition Animation Scale</string>
     <string name="option_storage_threshold_percentage">Storage Threshold Percentage</string>
     <string name="option_storage_threshold_max_bytes">Storage Threshold Max Bytes</string>
+    <string name="option_camera_gesture_double_power">Double-Tap Power Button</string>
+    <string name="option_camera_gesture">Gesture</string>
+    <string name="option_camera_gesture_twist">Flip Phone Back and Forth</string>
 </resources>
