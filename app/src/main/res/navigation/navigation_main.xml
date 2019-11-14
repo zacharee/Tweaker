@@ -31,4 +31,8 @@
         android:id="@+id/notificationsFragment"
         android:name="com.rw.tweaks.fragments.NotificationsFragment"
         android:label="NotificationsFragment" />
+    <fragment
+        android:id="@+id/developerFragment"
+        android:name="com.rw.tweaks.fragments.DeveloperFragment"
+        android:label="DeveloperFragment" />
 </navigation>

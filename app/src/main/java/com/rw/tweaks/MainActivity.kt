@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                         .withName(R.string.category_audio)
                 ),
                 NavigationDrawerItem(
-                    0,
+                    R.id.developerFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_developer)
                 ),
