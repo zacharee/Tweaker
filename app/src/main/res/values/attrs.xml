@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="settings_type" format="enum">
+        <enum name="undefined" value="-1" />
+        <enum name="global" value="0" />
+        <enum name="secure" value="1" />
+        <enum name="system" value="2" />
+    </attr>
+
+    <attr name="differing_key" format="string|reference" />
+
+    <attr name="dialog_layout" format="integer|reference" />
+
+    <declare-styleable name="SecureSwitchPreference">
+        <attr name="settings_type" />
+        <attr name="differing_key" />
+        <attr name="enabled_value" format="string|reference" />
+        <attr name="disabled_value" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SecureSeekBarPreference">
+        <attr name="settings_type" />
+        <attr name="differing_key" />
+        <attr name="minValue" />
+        <attr name="maxValue" />
+        <attr name="scale" />
+        <attr name="units" />
+    </declare-styleable>
+
+    <declare-styleable name="SecureEditTextPreference">
+        <attr name="settings_type" />
+        <attr name="differing_key" />
+    </declare-styleable>
+</resources>

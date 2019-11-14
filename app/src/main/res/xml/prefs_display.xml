@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.SecureEditTextPreference
+        android:title="@string/feature_lock_timeout"
+        android:summary="@string/feature_lock_timeout_desc"
+        android:key="lock_screen_lock_after_timeout"
+        android:defaultValue="5"
+        app:settings_type="secure"
+        />
+
+    <com.rw.tweaks.prefs.SecureSeekBarPreference
+        android:title="@string/feature_battery_saver_trigger"
+        android:summary="@string/feature_battery_saver_trigger_desc"
+        android:key="low_power_trigger_level"
+        android:defaultValue="5"
+        app:units="%"
+        app:minValue="0"
+        app:maxValue="100"
+        app:settings_type="global"
+        />
+
+    <com.rw.tweaks.prefs.SecureSeekBarPreference
+        android:title="@string/feature_font_scale"
+        android:summary="@string/feature_font_scale_desc"
+        android:key="font_scale"
+        android:defaultValue="100"
+        app:minValue="20"
+        app:maxValue="300"
+        app:scale="0.01"
+        app:settings_type="system"
+        />
+
+</PreferenceScreen>

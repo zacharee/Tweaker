@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.SecureSeekBarPreference
+        android:title="@string/feature_long_press_delay"
+        android:summary="@string/feature_long_press_delay_desc"
+        android:key="long_press_timeout"
+        android:defaultValue="400"
+        app:units="ms"
+        app:minValue="100"
+        app:maxValue="5000"
+        app:settings_type="secure"
+        />
+
+    <com.rw.tweaks.prefs.KeepDeviceOnPluggedPreference />
+
+    <com.rw.tweaks.prefs.AnimationScalesPreference />
+
+</PreferenceScreen>

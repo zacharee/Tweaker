@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.rw.tweaks"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/library_release.kotlin_module'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-rc01'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.preference:preference:1.1.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.1.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
+
+    implementation 'com.github.zacharee:Unblacklister:1.0'
+    implementation "com.mikepenz:materialdrawer:7.0.0-rc08"
+    implementation "com.mikepenz:materialdrawer-nav:7.0.0-rc08"
+    implementation 'co.zsmb:materialdrawer-kt:2.0.1'
+    implementation 'com.github.zacharee:SeekBarPreference:51cc0d1f7c'
+    implementation 'com.github.zacharee:material:a2ab4a2d3c'
+}

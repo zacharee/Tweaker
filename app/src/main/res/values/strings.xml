@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">Tweaker</string>
+
+    <string name="home">Home</string>
+    <string name="category_display">Display</string>
+    <string name="category_accessibility">Accessibility</string>
+    <string name="category_apps">Apps</string>
+    <string name="category_audio">Audio &amp; Sound</string>
+    <string name="category_developer">Developer</string>
+    <string name="category_easter_eggs">Easter Eggs</string>
+    <string name="category_network">Network</string>
+    <string name="category_notifications">Notifications &amp; Status Bar</string>
+    <string name="category_oem">OEM Features</string>
+    <string name="category_system">System</string>
+    <string name="category_ui">UI</string>
+
+    <string name="sub_cellular">Cellular</string>
+    <string name="sub_wifi">Wi-Fi</string>
+    <string name="sub_miscellaneous">Miscellaneous</string>
+    <string name="sub_htc">HTC</string>
+    <string name="sub_huawei">Huawei/Honor</string>
+    <string name="sub_lg">LG</string>
+    <string name="sub_oneplus">OnePlus</string>
+    <string name="sub_samsung">Samsung</string>
+    <string name="sub_sony">Sony</string>
+    <string name="sub_xiaomi">Xiaomi</string>
+    <string name="sub_security">Security</string>
+    <string name="sub_storage">Storage</string>
+    <string name="sub_power">Power</string>
+    <string name="sub_demo">Demo Mode</string>
+
+    <string name="special_sub_airplane_mode">Airplane Mode Tweaks</string>
+    <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. We can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, we can change which radios can be toggled manually when the device enters airplane mode.</string>
+
+    <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
+    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, we can see whatever value (in seconds) that we want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
+
+    <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
+    <string name="feature_battery_saver_trigger_desc">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5% or 15%. With this, you can set your own trigger percent.</string>
+
+    <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
+    <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" We can set our own delay.</string>
+
+    <string name="feature_font_scale">Set Custom Font Scale</string>
+    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, we can set our own custom value.</string>
+
+    <string name="feature_freeform">Enable Freeform Multiwindow</string>
+    <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
+
+    <string name="feature_app_install_location">Set Default App Install Location</string>
+    <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but we can choose to have them install to the adoptable storage medium if we want.</string>
+
+    <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
+    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
+
+    <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
+    <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. We can manually lower the threshold value to prevent this warning from showing.</string>
+    
+    <string name="feature_camera_gesture_double_power">Double-Tap Power Button</string>
+    <string name="feature_camera_gesture">Gesture</string>
+    <string name="feature_camera_gesture_twist">Flip Phone Back and Forth</string>
+
+    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
+    <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. We can specify which power sources we want to have our phone\'s screen to stay on.</string>
+
+    <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
+    <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, we can set custom values here.</string>
+
+    <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
+    <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, we can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
+
+    <string name="feature_skip_first_use">Skip First-Use Hints</string>
+    <string name="feature_skip_first_use_desc">If enabled, apps should try to skip any introductory hints on first launch. This might apply to users that are already familiar with the environment or temporary users. This flag is already enabled for devices that have gone through the setup process.</string>
+
+    <string name="feature_immersive_mode">Immersive Mode</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It is actually possible to set immersive mode to hide either/or the navigation bar or status bar on a per-app basis, however.</string>
+
+    <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
+    <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
+
+    <string name="dangerous_feature_disable_recents_status">Disable Accessing Recents and Status Bar</string>
+    <string name="dangerous_feature_disable_recents_status_desc">When enabled, the user will be unable to access the recent apps screen or pull down the status bar. This works by tricking the device into thinking the device is \"unprovisioned\" - a flag which is normally set after the user completes the first time setup process. If you do an OTA update and find that your device is unable to perform these actions, it\'s because this flag was somehow accidentally disabled during the update.</string>
+
+    <string name="dangerous_feature_disable_home">Disable Home Button</string>
+    <string name="dangerous_feature_disable_home_desc">Disable use of the home button. This tricks the device into thinking that the user has not completed the first time setup process.</string>
+
+    <string name="feature_header_camera_gestures">Camera Gestures</string>
+
+    <string name="feature_header_airplane_mode_radios">Airplane Mode-Exempt Radios</string>
+    <string name="feature_header_airplane_mode_toggleable_radios">Airplane Mode Toggleable Radios</string>
+
+    <string name="option_keep_awake_on_ac">On AC Power</string>
+    <string name="option_keep_awake_on_usb">On USB Power</string>
+    <string name="option_keep_awake_on_wireless">On Wireless Power</string>
+    <string name="option_animator_duration_scale">Animator Duration Scale</string>
+    <string name="option_window_animation_scale">Window Animation Scale</string>
+    <string name="option_transition_animation_scale">Transition Animation Scale</string>
+</resources>
