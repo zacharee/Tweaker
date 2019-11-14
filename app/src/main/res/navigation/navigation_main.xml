@@ -19,4 +19,8 @@
         android:id="@+id/storageFragment"
         android:name="com.rw.tweaks.fragments.system.StorageFragment"
         android:label="StorageFragment" />
+    <fragment
+        android:id="@+id/netMiscellaneousFragment"
+        android:name="com.rw.tweaks.fragments.network.NetMiscellaneousFragment"
+        android:label="MiscellaneousFragment" />
 </navigation>

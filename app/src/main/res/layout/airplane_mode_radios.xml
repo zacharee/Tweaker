@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rw.tweaks.views.AirplaneModeRadios
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="@string/feature_header_airplane_mode_radios"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:textColor="?android:textColorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <Switch
+                android:id="@+id/radio_cell"
+                android:text="@string/option_airplane_mode_radio_cell"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/radio_bt"
+                android:text="@string/option_airplane_mode_radio_bluetooth"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/radio_wifi"
+                android:text="@string/option_airplane_mode_radio_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/radio_nfc"
+                android:text="@string/option_airplane_mode_radio_nfc"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/radio_wimax"
+                android:text="@string/option_airplane_mode_radio_wimax"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <TextView
+                android:text="@string/feature_header_airplane_mode_toggleable_radios"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="?android:textColorPrimary"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <Switch
+                android:id="@+id/toggle_cell"
+                android:text="@string/option_airplane_mode_radio_cell"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/toggle_bluetooth"
+                android:text="@string/option_airplane_mode_radio_bluetooth"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/toggle_wifi"
+                android:text="@string/option_airplane_mode_radio_wifi"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/toggle_nfc"
+                android:text="@string/option_airplane_mode_radio_nfc"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+            <Switch
+                android:id="@+id/toggle_wimax"
+                android:text="@string/option_airplane_mode_radio_wimax"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</com.rw.tweaks.views.AirplaneModeRadios>

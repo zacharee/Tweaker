@@ -97,4 +97,9 @@
     <string name="option_camera_gesture_double_power">Double-Tap Power Button</string>
     <string name="option_camera_gesture">Gesture</string>
     <string name="option_camera_gesture_twist">Flip Phone Back and Forth</string>
+    <string name="option_airplane_mode_radio_cell">Cell</string>
+    <string name="option_airplane_mode_radio_bluetooth">Bluetooth</string>
+    <string name="option_airplane_mode_radio_wifi">WiFi</string>
+    <string name="option_airplane_mode_radio_nfc">NFC</string>
+    <string name="option_airplane_mode_radio_wimax">WiMax</string>
 </resources>

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                                 .withName(R.string.sub_wifi)
                         ),
                         NavigationDrawerItem(
-                            0,
+                            R.id.netMiscellaneousFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_miscellaneous)
                         )
