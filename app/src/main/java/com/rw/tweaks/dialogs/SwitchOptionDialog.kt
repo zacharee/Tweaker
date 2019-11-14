@@ -32,6 +32,7 @@ class SwitchOptionDialog : BaseOptionDialog() {
         super.onBindDialogView(view)
 
         view.secure_switch.apply {
+            text = preference.title
             isChecked = view.context.getSetting(type, writeKey) == enabled
             setOnCheckedChangeListener { _, isChecked ->
                 val newValue = if (isChecked) enabled else disabled
