@@ -22,6 +22,8 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureEditTextPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
         writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
 
+        dialogMessage = summary
+
         super.setOnPreferenceChangeListener(this)
     }
 
