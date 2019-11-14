@@ -17,4 +17,24 @@
     <com.rw.tweaks.prefs.specific.AnimationScalesPreference />
     <com.rw.tweaks.prefs.specific.CameraGesturesPreference />
 
+    <com.rw.tweaks.prefs.SecureSwitchPreference
+        android:title="@string/dangerous_feature_disable_recents_status"
+        android:summary="@string/dangerous_feature_disable_recents_status_desc"
+        android:key="device_provisioned"
+        app:dangerous="true"
+        app:settings_type="global"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        />
+
+    <com.rw.tweaks.prefs.SecureSwitchPreference
+        android:title="@string/dangerous_feature_disable_home"
+        android:summary="@string/dangerous_feature_disable_home_desc"
+        android:key="user_setup_complete"
+        app:dangerous="true"
+        app:settings_type="secure"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        />
+
 </PreferenceScreen>
