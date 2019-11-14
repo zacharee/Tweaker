@@ -7,6 +7,7 @@ import androidx.preference.Preference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
+import com.rw.tweaks.util.getSetting
 import com.rw.tweaks.util.writeSetting
 
 class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference {
@@ -27,6 +28,10 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
 //        dialogMessage = summary
 
         super.setOnPreferenceChangeListener(this)
+    }
+
+    override fun onSetInitialValue(defaultValue: Any?) {
+        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues[0].toString()
     }
 
     override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
