@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                         )
                     ),
                 NavigationDrawerItem(
-                    0,
+                    R.id.notificationsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_notifications)
                 ),

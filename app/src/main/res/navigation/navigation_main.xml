@@ -27,4 +27,8 @@
         android:id="@+id/appsFragment"
         android:name="com.rw.tweaks.fragments.AppsFragment"
         android:label="AppsFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.rw.tweaks.fragments.NotificationsFragment"
+        android:label="NotificationsFragment" />
 </navigation>

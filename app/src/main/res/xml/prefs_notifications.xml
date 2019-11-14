@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.SecureSwitchPreference
+        android:title="@string/feature_heads_up_notifications"
+        android:summary="@string/feature_heads_up_notifications_desc"
+        android:key="heads_up_notifications_enabled"
+        app:settings_type="global"
+        />
+
+</PreferenceScreen>
