@@ -9,4 +9,15 @@
         app:settings_type="global"
         />
 
+    <com.rw.tweaks.prefs.SecureSeekBarPreference
+        android:title="@string/feature_heads_up_snooze_length"
+        android:summary="@string/feature_heads_up_snooze_length_desc"
+        android:key="heads_up_snooze_length_ms"
+        android:defaultValue="60000"
+        app:units="ms"
+        app:settings_type="global"
+        app:minValue="0"
+        app:maxValue="600000"
+        />
+
 </PreferenceScreen>
