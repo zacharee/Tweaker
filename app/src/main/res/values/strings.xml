@@ -95,4 +95,6 @@
     <string name="option_animator_duration_scale">Animator Duration Scale</string>
     <string name="option_window_animation_scale">Window Animation Scale</string>
     <string name="option_transition_animation_scale">Transition Animation Scale</string>
+    <string name="option_storage_threshold_percentage">Storage Threshold Percentage</string>
+    <string name="option_storage_threshold_max_bytes">Storage Threshold Max Bytes</string>
 </resources>

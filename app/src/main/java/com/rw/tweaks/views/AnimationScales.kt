@@ -3,17 +3,11 @@ package com.rw.tweaks.views
 import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
-import android.view.View
 import android.widget.FrameLayout
-import com.rw.tweaks.R
-import kotlinx.android.synthetic.main.animation_duration.view.*
+import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
 class AnimationScales(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
-    init {
-        View.inflate(context, R.layout.animation_duration, this)
-    }
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 

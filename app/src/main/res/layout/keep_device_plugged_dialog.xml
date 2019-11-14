@@ -2,4 +2,32 @@
 <com.rw.tweaks.views.KeepOnPlugged xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Switch
+            android:id="@+id/on_ac"
+            android:text="@string/option_keep_awake_on_ac"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            />
+
+        <Switch
+            android:id="@+id/on_usb"
+            android:text="@string/option_keep_awake_on_usb"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            />
+
+        <Switch
+            android:id="@+id/on_wireless"
+            android:text="@string/option_keep_awake_on_wireless"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            />
+
+    </LinearLayout>
+
 </com.rw.tweaks.views.KeepOnPlugged>

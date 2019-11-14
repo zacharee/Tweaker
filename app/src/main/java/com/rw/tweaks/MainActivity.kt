@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                                 .withName(R.string.sub_security)
                         ),
                         NavigationDrawerItem(
-                            0,
+                            R.id.storageFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_storage)
                         ),

@@ -6,14 +6,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.rw.tweaks.fragments.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_displayFragment"
-            app:destination="@id/displayFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_UIFragment"
-            app:destination="@id/UIFragment" />
-    </fragment>
+        android:label="HomeFragment" />
     <fragment
         android:id="@+id/displayFragment"
         android:name="com.rw.tweaks.fragments.DisplayFragment"
@@ -22,4 +15,8 @@
         android:id="@+id/UIFragment"
         android:name="com.rw.tweaks.fragments.UIFragment"
         android:label="UIFragment" />
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.rw.tweaks.fragments.system.StorageFragment"
+        android:label="StorageFragment" />
 </navigation>

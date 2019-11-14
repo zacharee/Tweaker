@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rw.tweaks.views.StorageThresholds xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            />
+
+        <TextView
+            android:text="@string/option_storage_threshold_percentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <tk.zwander.seekbarpreference.SeekBarView
+            android:id="@+id/threshold_percent"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            app:view_defaultValue="5"
+            app:minValue="0"
+            app:maxValue="100"
+            app:units="%"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            />
+
+        <TextView
+            android:text="@string/option_storage_threshold_max_bytes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <tk.zwander.seekbarpreference.SeekBarView
+            android:id="@+id/threshold_bytes"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            app:view_defaultValue="500000000"
+            app:minValue="0"
+            app:maxValue="2000000000"
+            app:units="MB"
+            app:scale="0.000001"
+            />
+
+    </LinearLayout>
+
+</com.rw.tweaks.views.StorageThresholds>

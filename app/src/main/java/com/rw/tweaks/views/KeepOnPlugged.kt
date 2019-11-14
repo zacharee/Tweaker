@@ -4,18 +4,12 @@ import android.content.Context
 import android.os.BatteryManager
 import android.provider.Settings
 import android.util.AttributeSet
-import android.view.View
 import android.widget.CompoundButton
 import android.widget.FrameLayout
-import com.rw.tweaks.R
 import com.rw.tweaks.util.writeGlobal
-import kotlinx.android.synthetic.main.keep_device_plugged.view.*
+import kotlinx.android.synthetic.main.keep_device_plugged_dialog.view.*
 
 class KeepOnPlugged(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
-    init {
-        View.inflate(context, R.layout.keep_device_plugged, this)
-    }
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
