@@ -13,8 +13,8 @@
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.KeepDeviceOnPluggedPreference />
-    <com.rw.tweaks.prefs.AnimationScalesPreference />
-    <com.rw.tweaks.prefs.CameraGesturesPreference />
+    <com.rw.tweaks.prefs.specific.KeepDeviceOnPluggedPreference />
+    <com.rw.tweaks.prefs.specific.AnimationScalesPreference />
+    <com.rw.tweaks.prefs.specific.CameraGesturesPreference />
 
 </PreferenceScreen>

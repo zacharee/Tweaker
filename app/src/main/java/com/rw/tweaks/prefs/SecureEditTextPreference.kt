@@ -14,6 +14,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
     override var type = SettingsType.UNDEFINED
     override var writeKey: String? = null
         get() = field ?: key
+    override var dangerous = false
 
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
 
@@ -22,6 +23,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
 
         type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureEditTextPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
         writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
+        dangerous = array.getBoolean(R.styleable.SecureEditTextPreference_dangerous, false)
 
         dialogMessage = summary
 

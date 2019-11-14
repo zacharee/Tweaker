@@ -1,12 +1,20 @@
 package com.rw.tweaks.fragments
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceGroup
 import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
 import com.rw.tweaks.dialogs.SeekBarOptionDialog
 import com.rw.tweaks.dialogs.SwitchOptionDialog
-import com.rw.tweaks.prefs.*
+import com.rw.tweaks.prefs.SecureSeekBarPreference
+import com.rw.tweaks.prefs.SecureSwitchPreference
+import com.rw.tweaks.prefs.specific.*
+import com.rw.tweaks.util.ISecurePreference
 
 abstract class BasePrefFragment : PreferenceFragmentCompat() {
     override fun onDisplayPreferenceDialog(preference: Preference?) {
@@ -26,6 +34,25 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
         if (fragment == null) {
             super.onDisplayPreferenceDialog(preference)
+        }
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onBindPreferences() {
+        markDangerous(preferenceScreen)
+        super.onBindPreferences()
+    }
+
+    private fun markDangerous(group: PreferenceGroup) {
+        for (i in 0 until group.preferenceCount) {
+            val child = group.getPreference(i)
+
+            if (child is ISecurePreference && child.dangerous) {
+                child.title = SpannableString(child.title).apply {
+                    setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
+                }
+            }
+            if (child is PreferenceGroup) markDangerous(child)
         }
     }
 }

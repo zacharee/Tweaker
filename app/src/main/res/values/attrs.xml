@@ -8,12 +8,13 @@
     </attr>
 
     <attr name="differing_key" format="string|reference" />
-
     <attr name="dialog_layout" format="integer|reference" />
+    <attr name="dangerous" format="boolean|reference" />
 
     <declare-styleable name="SecureSwitchPreference">
         <attr name="settings_type" />
         <attr name="differing_key" />
+        <attr name="dangerous" />
         <attr name="enabled_value" format="string|reference" />
         <attr name="disabled_value" format="string|reference" />
     </declare-styleable>
@@ -25,15 +26,18 @@
         <attr name="maxValue" />
         <attr name="scale" />
         <attr name="units" />
+        <attr name="dangerous" />
     </declare-styleable>
 
     <declare-styleable name="SecureEditTextPreference">
         <attr name="settings_type" />
         <attr name="differing_key" />
+        <attr name="dangerous" />
     </declare-styleable>
 
     <declare-styleable name="SecureListPreference">
         <attr name="settings_type" />
         <attr name="differing_key" />
+        <attr name="dangerous" />
     </declare-styleable>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.rw.tweaks.prefs.AirplaneModeRadiosPreference />
+    <com.rw.tweaks.prefs.specific.AirplaneModeRadiosPreference />
 
 </PreferenceScreen>

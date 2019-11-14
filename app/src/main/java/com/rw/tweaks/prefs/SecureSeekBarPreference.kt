@@ -11,6 +11,7 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPre
     override var type = SettingsType.UNDEFINED
     override var writeKey: String? = null
         get() = field ?: key
+    override var dangerous = false
 
     var minValue: Int = 0
     var maxValue: Int = 100
@@ -29,6 +30,7 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPre
         defaultValue = android.getInt(R.styleable.Preference_android_defaultValue, defaultValue)
         scale = array.getFloat(R.styleable.SecureSeekBarPreference_scale, scale)
         units = array.getString(R.styleable.SecureSeekBarPreference_units)
+        dangerous = array.getBoolean(R.styleable.SecureSeekBarPreference_dangerous, false)
 
         dialogMessage = summary
 

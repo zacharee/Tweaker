@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs
+package com.rw.tweaks.prefs.specific
 
 import android.content.Context
 import android.util.AttributeSet
@@ -14,6 +14,7 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogP
     override var writeKey: String?
         get() = null
         set(value) {}
+    override var dangerous = false
 
     init {
         key = "anim"

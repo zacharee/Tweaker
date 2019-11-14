@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs
+package com.rw.tweaks.prefs.specific
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,19 +7,20 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 
-class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
+class StorageThresholdPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     override var type: SettingsType
         get() = SettingsType.UNDEFINED
         set(value) {}
     override var writeKey: String?
         get() = null
         set(value) {}
+    override var dangerous = false
 
     init {
-        key = "keep_device_on"
+        key = "storage"
 
-        setTitle(R.string.feature_keep_screen_on)
-        setSummary(R.string.feature_keep_screen_on_desc)
+        setTitle(R.string.feature_insufficient_storage_warning)
+        setSummary(R.string.feature_insufficient_storage_warning_desc)
 
         dialogTitle = title
         dialogMessage = summary

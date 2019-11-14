@@ -18,6 +18,7 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
     var disabled = DEFAULT_DISABLED
     override var writeKey: String? = null
         get() = field ?: key
+    override var dangerous = false
 
     init {
         isPersistent = false
@@ -27,6 +28,7 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
         enabled = array.getString(R.styleable.SecureSwitchPreference_enabled_value) ?: DEFAULT_ENABLED
         disabled = array.getString(R.styleable.SecureSwitchPreference_disabled_value) ?: DEFAULT_DISABLED
         writeKey = array.getString(R.styleable.SecureSwitchPreference_differing_key)
+        dangerous = array.getBoolean(R.styleable.SecureSwitchPreference_dangerous, false)
 
         dialogMessage = summary
     }
