@@ -5,6 +5,7 @@ import android.view.Menu
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.holder.DimenHolder
@@ -165,10 +166,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (searchView?.isIconified == false) {
-            searchView?.isIconified = true
-        } else {
-            super.onBackPressed()
+        when {
+            searchView?.isIconified == false -> {
+                searchView?.isIconified = true
+            }
+            navController.currentDestination?.id != R.id.homeFragment -> {
+                navController.navigate(
+                    R.id.homeFragment, null,
+                    NavOptions.Builder()
+                        .setLaunchSingleTop(true)
+                        .setEnterAnim(android.R.animator.fade_in)
+                        .setExitAnim(android.R.animator.fade_out)
+                        .setPopEnterAnim(android.R.animator.fade_in)
+                        .setPopExitAnim(android.R.animator.fade_out)
+                        .build()
+                )
+            }
+            else -> {
+                finish()
+            }
         }
     }
 }
