@@ -12,7 +12,6 @@
         />
 
     <FrameLayout
-        android:id="@+id/search_holder"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -29,6 +28,21 @@
 
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation_main" />
+
+        <FrameLayout
+            android:id="@+id/search_holder"
+            android:visibility="gone"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/search_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.rw.tweaks.fragments.SearchFragment" />
+
+        </FrameLayout>
 
     </FrameLayout>
 

@@ -26,7 +26,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
     }
 
     private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
-    private var alreadyHighlighted = false
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
@@ -69,12 +68,9 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     val item = getChildAt(index)
 
                     mainHandler.postDelayed({
-                        if (!alreadyHighlighted) {
-                            alreadyHighlighted = true
-                            item?.isPressed = true
+                        item?.isPressed = true
 
-                            mainHandler.postDelayed({ item?.isPressed = false }, 300)
-                        }
+                        mainHandler.postDelayed({ item?.isPressed = false }, 300)
                     }, 200)
                 }
             }

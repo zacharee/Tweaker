@@ -2,6 +2,7 @@ package com.rw.tweaks
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -14,6 +15,7 @@ import com.mikepenz.materialdrawer.model.NavigationDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
+import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
 import com.rw.tweaks.util.IndentedSecondaryDrawerItem
 import kotlinx.android.synthetic.main.activity_main.*
@@ -122,8 +124,7 @@ class MainActivity : AppCompatActivity() {
             .build()
     }
 
-    private val navFragment by lazy { nav_host_fragment }
-    private val searchFragment = SearchFragment()
+    private val searchFragment by lazy { search_fragment as SearchFragment }
 
     private val navController: NavController
         get() = findNavController(R.id.nav_host_fragment)
@@ -138,8 +139,20 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         drawer.setupWithNavController(navController)
-        navController.addOnDestinationChangedListener { _, _, _ ->
-            searchView?.setQuery("", false)
+//        navController.addOnDestinationChangedListener { _, _, _ ->
+//            mainHandler.post {
+//                searchView?.setQuery("", false)
+//                searchView?.isIconified = true
+//            }
+//        }
+
+        searchFragment.onItemClickListener = { action, key ->
+            navController.navigate(
+                    action,
+                    Bundle().apply {
+                        putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, key)
+                    }
+                )
             searchView?.isIconified = true
         }
     }
@@ -152,12 +165,22 @@ class MainActivity : AppCompatActivity() {
         searchView = searchItem?.actionView as SearchView?
 
         searchView?.setOnSearchClickListener {
-            searchFragment.show(navFragment.childFragmentManager, "search")
+            search_holder.apply {
+                visibility = View.VISIBLE
+                animate()
+                    .alpha(1f)
+            }
             searchView?.setOnQueryTextListener(searchFragment)
         }
 
         searchView?.setOnCloseListener {
-            searchFragment.dismiss(navFragment.childFragmentManager)
+            search_holder.apply {
+                animate()
+                    .alpha(0f)
+                    .withEndAction {
+                        visibility = View.GONE
+                    }
+            }
             searchView?.setOnQueryTextListener(null)
             false
         }

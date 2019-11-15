@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
 
 class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener {
-    var onItemClickListener: (() -> Unit)? = null
+    var onItemClickListener: ((action: Int, key: String?) -> Unit)? = null
 
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
 
@@ -21,23 +19,9 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
 
         preferenceScreen.removeAll()
         searchIndex.filter(null).forEach {
+            it.parent?.removePreference(it)
             preferenceScreen.addPreference(it)
         }
-    }
-
-    fun show(fragmentManager: FragmentManager, tag: String?) {
-        fragmentManager.beginTransaction()
-            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out, android.R.animator.fade_in, android.R.animator.fade_out)
-            .add(R.id.nav_host_fragment, this, tag)
-            .addToBackStack("search")
-            .commit()
-    }
-
-    fun dismiss(fragmentManager: FragmentManager) {
-        fragmentManager.beginTransaction()
-            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out, android.R.animator.fade_in, android.R.animator.fade_out)
-            .remove(this)
-            .commit()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,15 +32,7 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
 
     override fun onPreferenceTreeClick(preference: Preference?): Boolean {
         if (preference is SearchIndex.ActionedPreference) {
-            onItemClickListener?.invoke()
-
-            requireActivity().findNavController(R.id.nav_host_fragment)
-                .navigate(
-                    preference.action,
-                    Bundle().apply {
-                        putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, preference.key)
-                    }
-                )
+            onItemClickListener?.invoke(preference.action, preference.key)
         }
         return super.onPreferenceTreeClick(preference)
     }
