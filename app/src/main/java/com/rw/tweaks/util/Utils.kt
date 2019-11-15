@@ -1,6 +1,8 @@
 package com.rw.tweaks.util
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import androidx.fragment.app.Fragment
 
@@ -10,6 +12,8 @@ enum class SettingsType(val value: Int) {
     SECURE(1),
     SYSTEM(2),
 }
+
+val mainHandler = Handler(Looper.getMainLooper())
 
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
     when (type) {

@@ -2,11 +2,14 @@ package com.rw.tweaks.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.view.View
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
+import androidx.preference.PreferenceGroupAdapter
 import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
 import com.rw.tweaks.dialogs.SeekBarOptionDialog
@@ -15,8 +18,15 @@ import com.rw.tweaks.prefs.SecureSeekBarPreference
 import com.rw.tweaks.prefs.SecureSwitchPreference
 import com.rw.tweaks.prefs.specific.*
 import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.mainHandler
 
 abstract class BasePrefFragment : PreferenceFragmentCompat() {
+    companion object {
+        const val ARG_HIGHLIGHT_KEY = "highlight_key"
+    }
+
+    private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
+
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
             is SecureSwitchPreference -> SwitchOptionDialog.newInstance(preference.key, preference.disabled, preference.enabled)
@@ -41,6 +51,30 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
     override fun onBindPreferences() {
         markDangerous(preferenceScreen)
         super.onBindPreferences()
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (highlightKey != null) {
+            mainHandler.post {
+                listView.apply {
+                    val a = adapter as PreferenceGroupAdapter
+                    val index = a.getPreferenceAdapterPosition(highlightKey)
+
+                    scrollToPosition(index)
+
+                    val item = getChildAt(index)
+
+                    mainHandler.postDelayed({
+                        item?.isPressed = true
+
+                        mainHandler.postDelayed({ item?.isPressed = false }, 300)
+                    }, 200)
+                }
+            }
+        }
     }
 
     private fun markDangerous(group: PreferenceGroup) {

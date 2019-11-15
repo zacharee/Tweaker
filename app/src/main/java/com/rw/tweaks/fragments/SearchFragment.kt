@@ -51,7 +51,12 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
             onItemClickListener?.invoke()
 
             requireActivity().findNavController(R.id.nav_host_fragment)
-                .navigate(preference.action)
+                .navigate(
+                    preference.action,
+                    Bundle().apply {
+                        putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, preference.key)
+                    }
+                )
         }
         return super.onPreferenceTreeClick(preference)
     }
