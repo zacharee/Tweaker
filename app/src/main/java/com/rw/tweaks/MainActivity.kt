@@ -2,7 +2,6 @@ package com.rw.tweaks
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -122,7 +121,9 @@ class MainActivity : AppCompatActivity() {
             .build()
     }
 
+    private val navFragment by lazy { nav_host_fragment }
     private val searchFragment = SearchFragment()
+
     private val navController: NavController
         get() = findNavController(R.id.nav_host_fragment)
 
@@ -135,9 +136,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-
         drawer.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, _, _ ->
+            searchView?.setQuery("", false)
             searchView?.isIconified = true
         }
     }
@@ -150,13 +151,13 @@ class MainActivity : AppCompatActivity() {
         searchView = searchItem?.actionView as SearchView?
 
         searchView?.setOnSearchClickListener {
-            search_holder.visibility = View.VISIBLE
-            searchFragment.show(supportFragmentManager, "search")
+            searchFragment.show(navFragment.childFragmentManager, "search")
+            searchView?.setOnQueryTextListener(searchFragment)
         }
 
         searchView?.setOnCloseListener {
-            searchFragment.dismiss(supportFragmentManager)
-            search_holder.visibility = View.GONE
+            searchFragment.dismiss(navFragment.childFragmentManager)
+            searchView?.setOnQueryTextListener(null)
             false
         }
 

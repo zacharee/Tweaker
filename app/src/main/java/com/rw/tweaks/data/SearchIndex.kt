@@ -61,7 +61,9 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
 
         return ArrayList(
             preferences.filter {
-                lowercase == null || lowercase.isBlank() || it.title.contains(lowercase) || it.summary.contains(lowercase)
+                lowercase == null || lowercase.isBlank() ||
+                        it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
+                        it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
             }
         )
     }
