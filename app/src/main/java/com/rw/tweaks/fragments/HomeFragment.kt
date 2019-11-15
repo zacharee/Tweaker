@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import com.rw.tweaks.R
 import com.rw.tweaks.util.updateTitle
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(R.layout.home) {
     override fun onResume() {
         super.onResume()
 
