@@ -111,4 +111,6 @@
     <string name="option_user_rotation_270">Landscape CW</string>
 
     <string name="home_welcome_title">Welcome!</string>
+
+    <string name="search">Search</string>
 </resources>

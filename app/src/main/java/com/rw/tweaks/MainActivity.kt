@@ -1,7 +1,11 @@
 package com.rw.tweaks
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.View
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.holder.DimenHolder
@@ -10,17 +14,13 @@ import com.mikepenz.materialdrawer.model.NavigationDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
+import com.rw.tweaks.fragments.SearchFragment
 import com.rw.tweaks.util.IndentedSecondaryDrawerItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalNavController
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-
+    private val drawer by lazy {
         DrawerBuilder().withActivity(this)
             .withToolbar(toolbar)
             .withHeader(R.layout.drawer_header)
@@ -120,6 +120,54 @@ class MainActivity : AppCompatActivity() {
                 )
             )
             .build()
-            .setupWithNavController(findNavController(R.id.nav_host_fragment))
+    }
+
+    private val searchFragment = SearchFragment()
+    private val navController: NavController
+        get() = findNavController(R.id.nav_host_fragment)
+
+    private var searchView: SearchView? = null
+
+    @ExperimentalNavController
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+
+
+        drawer.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            searchView?.isIconified = true
+        }
+    }
+
+    @ExperimentalNavController
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_search, menu)
+
+        val searchItem = menu.findItem(R.id.search)
+        searchView = searchItem?.actionView as SearchView?
+
+        searchView?.setOnSearchClickListener {
+            search_holder.visibility = View.VISIBLE
+            searchFragment.show(supportFragmentManager, "search")
+        }
+
+        searchView?.setOnCloseListener {
+            searchFragment.dismiss(supportFragmentManager)
+            search_holder.visibility = View.GONE
+            false
+        }
+
+        return true
+    }
+
+    override fun onBackPressed() {
+        if (searchView?.isIconified == false) {
+            searchView?.isIconified = true
+        } else {
+            super.onBackPressed()
+        }
     }
 }
