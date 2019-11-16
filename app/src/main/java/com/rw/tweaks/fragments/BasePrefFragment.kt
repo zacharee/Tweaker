@@ -77,16 +77,20 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private fun markDangerous(group: PreferenceGroup) {
+    internal fun markDangerous(group: PreferenceGroup) {
         for (i in 0 until group.preferenceCount) {
             val child = group.getPreference(i)
 
             if (child is ISecurePreference && child.dangerous) {
-                child.title = SpannableString(child.title).apply {
-                    setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
-                }
+                markDangerous(child)
             }
             if (child is PreferenceGroup) markDangerous(child)
+        }
+    }
+
+    internal fun markDangerous(preference: Preference) {
+        preference.title = SpannableString(preference.title).apply {
+            setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
         }
     }
 }

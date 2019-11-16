@@ -5,11 +5,10 @@ import android.view.View
 import android.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
 import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
 
-class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener {
+class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     var onItemClickListener: ((action: Int, key: String?) -> Unit)? = null
 
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }

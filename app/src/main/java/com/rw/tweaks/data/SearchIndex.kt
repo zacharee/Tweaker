@@ -3,11 +3,15 @@ package com.rw.tweaks.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceScreen
 import com.rw.tweaks.R
+import com.rw.tweaks.util.ISecurePreference
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -80,6 +84,9 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
+                    if (preference is ISecurePreference){
+                        isDangerous = preference.dangerous
+                    }
                     this.action = action
                 }
             }
@@ -90,9 +97,24 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
 
         var action: Int = 0
+        var isDangerous = false
+            set(value) {
+                field = value
+                markDangerous()
+            }
 
         fun copy(): ActionedPreference {
             return fromPreference(context, this, action)
+        }
+
+        fun markDangerous() {
+            title = if (isDangerous) {
+                SpannableString(title).apply {
+                    setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
+                }
+            } else {
+                title.toString()
+            }
         }
     }
 }
