@@ -15,6 +15,9 @@ enum class SettingsType(val value: Int) {
 
 val mainHandler = Handler(Looper.getMainLooper())
 
+val Context.prefManager: PrefManager
+    get() = PrefManager.getInstance(this)
+
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
     when (type) {
         SettingsType.GLOBAL -> writeGlobal(key, value)
