@@ -56,4 +56,7 @@ dependencies {
     implementation 'co.zsmb:materialdrawer-kt:2.0.1'
     implementation 'com.github.zacharee:SeekBarPreference:51cc0d1f7c'
     implementation 'com.github.zacharee:material:a2ab4a2d3c'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2'
 }

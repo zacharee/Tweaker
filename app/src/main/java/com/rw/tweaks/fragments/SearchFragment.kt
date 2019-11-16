@@ -18,9 +18,17 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
 
         preferenceScreen.removeAll()
-        searchIndex.filter(null).forEach {
-            it.parent?.removePreference(it)
-            preferenceScreen.addPreference(it)
+        searchIndex.filter(null) {
+            it.forEach { pref ->
+                preferenceScreen.addPreference(
+                    SearchIndex.ActionedPreference(requireContext()).apply {
+                        key = pref.key
+                        title = pref.title
+                        summary = pref.summary
+                        action = pref.action
+                    }
+                )
+            }
         }
     }
 
@@ -38,12 +46,12 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        val display = searchIndex.filter(newText)
-        preferenceScreen.removeAll()
-
-        display.forEach {
-            preferenceScreen.addPreference(it)
+        searchIndex.filter(newText) {
+            it.forEach { pref ->
+                preferenceScreen.addPreference(pref)
+            }
         }
+        preferenceScreen.removeAll()
 
         return true
     }

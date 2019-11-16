@@ -8,11 +8,15 @@ import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceScreen
 import com.rw.tweaks.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
 @SuppressLint("RestrictedApi")
-class SearchIndex private constructor(context: Context) : ContextWrapper(context) {
+class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
         private var instance: SearchIndex? = null
 
@@ -26,13 +30,16 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     private val preferenceManager = PreferenceManager(this)
     private val preferences = ArrayList<ActionedPreference>()
 
-    val apps = inflate(R.xml.prefs_apps, R.id.appsFragment)
-    val developer = inflate(R.xml.prefs_developer, R.id.developerFragment)
-    val display = inflate(R.xml.prefs_display, R.id.displayFragment)
-    val netMisc = inflate(R.xml.prefs_net_misc, R.id.netMiscellaneousFragment)
-    val notifications = inflate(R.xml.prefs_notifications, R.id.notificationsFragment)
-    val storage = inflate(R.xml.prefs_storage, R.id.storageFragment)
-    val ui = inflate(R.xml.prefs_ui, R.id.UIFragment)
+    private var isLoaded = async {
+        inflate(R.xml.prefs_apps, R.id.appsFragment)
+        inflate(R.xml.prefs_developer, R.id.developerFragment)
+        inflate(R.xml.prefs_display, R.id.displayFragment)
+        inflate(R.xml.prefs_net_misc, R.id.netMiscellaneousFragment)
+        inflate(R.xml.prefs_notifications, R.id.notificationsFragment)
+        inflate(R.xml.prefs_storage, R.id.storageFragment)
+        inflate(R.xml.prefs_ui, R.id.UIFragment)
+        true
+    }
 
     private fun inflate(resource: Int, action: Int): PreferenceScreen {
         return preferenceManager.inflateFromResource(this, resource, null).also { process(it, action) }
@@ -56,16 +63,22 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    fun filter(query: String?): ArrayList<ActionedPreference> {
+    fun filter(query: String?, result: (ArrayList<ActionedPreference>) -> Unit) = launch {
         val lowercase = query?.toLowerCase(Locale.getDefault())
 
-        return ArrayList(
-            preferences.filter {
-                lowercase == null || lowercase.isBlank() ||
-                        it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
-                        it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
-            }
-        )
+        isLoaded.await()
+
+        val filter = async {
+            ArrayList(
+                preferences.filter {
+                    lowercase == null || lowercase.isBlank() ||
+                            it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
+                            it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
+                }
+            )
+        }
+
+        result(filter.await())
     }
 
     class ActionedPreference(context: Context) : Preference(context) {
