@@ -37,4 +37,6 @@
         app:disabled_value="1"
         />
 
+    <com.rw.tweaks.prefs.secure.specific.ImmersiveModePreference />
+
 </PreferenceScreen>

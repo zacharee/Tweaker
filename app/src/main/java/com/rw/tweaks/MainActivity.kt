@@ -1,6 +1,7 @@
 package com.rw.tweaks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
@@ -17,6 +18,7 @@ import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
+import com.rw.tweaks.util.ImmersiveManager
 import com.rw.tweaks.util.IndentedSecondaryDrawerItem
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -138,13 +140,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val imm = ImmersiveManager(this)
+
         drawer.setupWithNavController(navController)
-//        navController.addOnDestinationChangedListener { _, _, _ ->
-//            mainHandler.post {
-//                searchView?.setQuery("", false)
-//                searchView?.isIconified = true
-//            }
-//        }
 
         searchFragment.onItemClickListener = { action, key ->
             navController.navigate(

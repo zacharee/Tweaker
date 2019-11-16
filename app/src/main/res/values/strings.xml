@@ -113,4 +113,12 @@
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
+    <string name="immersive_none">None</string>
+    <string name="immersive_full">Full</string>
+    <string name="immersive_status">Status</string>
+    <string name="immersive_nav">Nav</string>
+    <string name="immersive_blacklist">Blacklist</string>
+    <string name="advanced">Advanced</string>
+    <string name="all_apps">All Apps</string>
+    <string name="select_apps">Select Apps</string>
 </resources>

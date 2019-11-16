@@ -3,14 +3,12 @@ package com.rw.tweaks.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
+import com.rw.tweaks.IImmersiveSelectionCallback
 import com.rw.tweaks.R
 import com.rw.tweaks.data.LoadedAppInfo
 import kotlinx.android.synthetic.main.activity_immersive_selector.*
@@ -25,10 +23,12 @@ import kotlin.collections.ArrayList
 class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope(), SearchView.OnQueryTextListener, SearchView.OnCloseListener {
     companion object {
         const val EXTRA_CHECKED = "checked_packages"
+        const val EXTRA_CALLBACK = "callback"
 
-        fun start(context: Context, checked: ArrayList<String>?) {
+        fun start(context: Context, checked: ArrayList<String>?, onResultListener: IImmersiveSelectionCallback) {
             val activity = Intent(context, ImmersiveListSelector::class.java)
             activity.putExtra(EXTRA_CHECKED, checked)
+            activity.putExtra(EXTRA_CALLBACK, Bundle().apply { putBinder(EXTRA_CALLBACK, onResultListener.asBinder()) })
 
             context.startActivity(activity)
         }
@@ -37,7 +37,10 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     private val checked by lazy {
         intent.getStringArrayListExtra(EXTRA_CHECKED) ?: ArrayList<String>()
     }
-    private val adapter by lazy { Adapter() }
+    private val callback by lazy {
+        IImmersiveSelectionCallback.Stub.asInterface(intent.getBundleExtra(EXTRA_CALLBACK).getBinder(EXTRA_CALLBACK))
+    }
+    private val adapter by lazy { Adapter(checked) }
 
     override fun onClose(): Boolean {
         adapter.currentQuery = null
@@ -70,6 +73,10 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
         setSupportActionBar(toolbar)
 
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_check_24)
+
         list.adapter = adapter
 
         launch {
@@ -92,7 +99,22 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
         }
     }
 
-    class Adapter : RecyclerView.Adapter<VH>() {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        callback?.onImmersiveResult(checked)
+    }
+
+    class Adapter(private val checked: ArrayList<String>) : RecyclerView.Adapter<VH>() {
         var currentQuery: String? = null
             set(value) {
                 field = value
@@ -235,6 +257,12 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                     val currentInfo = filteredItems.get(holder.adapterPosition)
                     currentInfo.isChecked = !currentInfo.isChecked
                     check.isChecked = currentInfo.isChecked
+
+                    if (!currentInfo.isChecked) {
+                        checked.remove(currentInfo.packageName)
+                    } else {
+                        checked.add(currentInfo.packageName)
+                    }
                 }
             }
         }

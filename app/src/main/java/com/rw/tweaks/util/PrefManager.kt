@@ -6,11 +6,6 @@ import androidx.preference.PreferenceManager
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
-        const val KEY_CHECKED_FULL_IMMERSIVE_APPS = "checked_full_immersive_apps"
-        const val KEY_CHECKED_STATUS_IMMERSIVE_APPS = "checked_status_immersive_apps"
-        const val KEY_CHECKED_NAV_IMMERSIVE_APPS = "checked_nav_immersive_apps"
-        const val KEY_CHECKED_BLACKLISTED_IMMERSIVE_APPS = "checked_blacklisted_immersive_apps"
-
         private var instance: PrefManager? = null
 
         fun getInstance(context: Context): PrefManager {
@@ -19,30 +14,6 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
             }
         }
     }
-
-    var checkedFullImmersiveApps: ArrayList<String>
-        get() = ArrayList(getStringSet(KEY_CHECKED_FULL_IMMERSIVE_APPS))
-        set(value) {
-            putStringSet(KEY_CHECKED_FULL_IMMERSIVE_APPS, HashSet(value))
-        }
-
-    var checkedStatusImmersiveApps: ArrayList<String>
-        get() = ArrayList(getStringSet(KEY_CHECKED_STATUS_IMMERSIVE_APPS))
-        set(value) {
-            putStringSet(KEY_CHECKED_STATUS_IMMERSIVE_APPS, HashSet(value))
-        }
-
-    var checkedNavImmersiveApps: ArrayList<String>
-        get() = ArrayList(getStringSet(KEY_CHECKED_NAV_IMMERSIVE_APPS))
-        set(value) {
-            putStringSet(KEY_CHECKED_NAV_IMMERSIVE_APPS, HashSet(value))
-        }
-
-    var checkedBlacklistedImmersiveApps: ArrayList<String>
-        get() = ArrayList(getStringSet(KEY_CHECKED_BLACKLISTED_IMMERSIVE_APPS))
-        set(value) {
-            putStringSet(KEY_CHECKED_BLACKLISTED_IMMERSIVE_APPS, HashSet(value))
-        }
 
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 

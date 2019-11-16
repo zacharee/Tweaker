@@ -36,6 +36,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is StorageThresholdPreference -> OptionDialog.newInstance(preference.key, R.layout.storage_thresholds)
             is CameraGesturesPreference -> OptionDialog.newInstance(preference.key, R.layout.camera_gestures)
             is AirplaneModeRadiosPreference -> OptionDialog.newInstance(preference.key, R.layout.airplane_mode_radios)
+            is ImmersiveModePreference -> OptionDialog.newInstance(preference.key, R.layout.immersive_mode)
             else -> null
         }
 

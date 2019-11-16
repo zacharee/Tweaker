@@ -13,12 +13,19 @@
         android:paddingBottom="16dp"
         />
 
-    <LinearLayout
+    <ScrollView
         android:orientation="horizontal"
-        android:id="@+id/wrapper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        />
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/wrapper"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </ScrollView>
 
 </LinearLayout>
