@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs.specific
+package com.rw.tweaks.prefs.secure.specific
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 
-class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
+class StorageThresholdPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     override var type: SettingsType
         get() = SettingsType.UNDEFINED
         set(value) {}
@@ -17,10 +17,11 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogP
     override var dangerous = false
 
     init {
-        key = "anim"
+        key = "storage"
 
-        setTitle(R.string.feature_custom_animation_scales)
-        setSummary(R.string.feature_custom_animation_scales_desc)
+        setTitle(R.string.feature_insufficient_storage_warning)
+        setSummary(R.string.feature_insufficient_storage_warning_desc)
+
         dialogTitle = title
         dialogMessage = summary
     }

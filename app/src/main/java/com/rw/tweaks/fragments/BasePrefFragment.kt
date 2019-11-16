@@ -14,9 +14,9 @@ import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
 import com.rw.tweaks.dialogs.SeekBarOptionDialog
 import com.rw.tweaks.dialogs.SwitchOptionDialog
-import com.rw.tweaks.prefs.SecureSeekBarPreference
-import com.rw.tweaks.prefs.SecureSwitchPreference
-import com.rw.tweaks.prefs.specific.*
+import com.rw.tweaks.prefs.secure.SecureSeekBarPreference
+import com.rw.tweaks.prefs.secure.SecureSwitchPreference
+import com.rw.tweaks.prefs.secure.specific.*
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.mainHandler
 

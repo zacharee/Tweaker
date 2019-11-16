@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs.specific
+package com.rw.tweaks.prefs.secure.specific
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 
-class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
+class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     override var type: SettingsType
         get() = SettingsType.UNDEFINED
         set(value) {}
@@ -17,11 +17,10 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Dial
     override var dangerous = false
 
     init {
-        key = "airplane_mode_radios"
+        key = "anim"
 
-        setTitle(R.string.special_sub_airplane_mode)
-        setSummary(R.string.special_sub_airplane_mode_desc)
-
+        setTitle(R.string.feature_custom_animation_scales)
+        setSummary(R.string.feature_custom_animation_scales_desc)
         dialogTitle = title
         dialogMessage = summary
     }

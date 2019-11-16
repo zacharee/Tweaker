@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs.specific
+package com.rw.tweaks.prefs.secure.specific
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 
-class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
+class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     override var type: SettingsType
         get() = SettingsType.UNDEFINED
         set(value) {}
@@ -17,10 +17,10 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPr
     override var dangerous = false
 
     init {
-        key = "camera_gestures"
+        key = "airplane_mode_radios"
 
-        setTitle(R.string.feature_camera_gestures)
-        setSummary(R.string.feature_camera_gestures_desc)
+        setTitle(R.string.special_sub_airplane_mode)
+        setSummary(R.string.special_sub_airplane_mode_desc)
 
         dialogTitle = title
         dialogMessage = summary

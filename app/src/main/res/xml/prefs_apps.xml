@@ -2,14 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.SecureSwitchPreference
+    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_freeform"
         android:summary="@string/feature_freeform_desc"
         android:key="enable_freeform_support"
         app:settings_type="global"
         />
 
-    <com.rw.tweaks.prefs.SecureListPreference
+    <com.rw.tweaks.prefs.secure.SecureListPreference
         android:title="@string/feature_app_install_location"
         android:summary="@string/feature_app_install_location_desc"
         android:key="default_install_location"

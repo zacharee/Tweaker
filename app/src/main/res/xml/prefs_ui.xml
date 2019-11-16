@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.SecureSeekBarPreference
+    <com.rw.tweaks.prefs.secure.SecureSeekBarPreference
         android:title="@string/feature_long_press_delay"
         android:summary="@string/feature_long_press_delay_desc"
         android:key="long_press_timeout"
@@ -13,11 +13,11 @@
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.specific.KeepDeviceOnPluggedPreference />
-    <com.rw.tweaks.prefs.specific.AnimationScalesPreference />
-    <com.rw.tweaks.prefs.specific.CameraGesturesPreference />
+    <com.rw.tweaks.prefs.secure.specific.KeepDeviceOnPluggedPreference />
+    <com.rw.tweaks.prefs.secure.specific.AnimationScalesPreference />
+    <com.rw.tweaks.prefs.secure.specific.CameraGesturesPreference />
 
-    <com.rw.tweaks.prefs.SecureSwitchPreference
+    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
         android:title="@string/dangerous_feature_disable_recents_status"
         android:summary="@string/dangerous_feature_disable_recents_status_desc"
         android:key="device_provisioned"
@@ -27,7 +27,7 @@
         app:disabled_value="1"
         />
 
-    <com.rw.tweaks.prefs.SecureSwitchPreference
+    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
         android:title="@string/dangerous_feature_disable_home"
         android:summary="@string/dangerous_feature_disable_home_desc"
         android:key="user_setup_complete"

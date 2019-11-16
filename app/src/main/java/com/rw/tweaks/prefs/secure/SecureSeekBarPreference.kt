@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs
+package com.rw.tweaks.prefs.secure
 
 import android.content.Context
 import android.util.AttributeSet

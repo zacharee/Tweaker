@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.SecureSwitchPreference
+    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_skip_first_use"
         android:summary="@string/feature_skip_first_use_desc"
         android:key="skip_first_use_hints"

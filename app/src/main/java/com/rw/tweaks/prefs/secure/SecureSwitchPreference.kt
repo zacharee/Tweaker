@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs
+package com.rw.tweaks.prefs.secure
 
 import android.content.Context
 import android.util.AttributeSet
@@ -14,8 +14,10 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
     }
 
     override var type = SettingsType.UNDEFINED
-    var enabled = DEFAULT_ENABLED
-    var disabled = DEFAULT_DISABLED
+    var enabled =
+        DEFAULT_ENABLED
+    var disabled =
+        DEFAULT_DISABLED
     override var writeKey: String? = null
         get() = field ?: key
     override var dangerous = false
