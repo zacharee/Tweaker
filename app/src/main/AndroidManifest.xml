@@ -25,6 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.ImmersiveListSelector"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

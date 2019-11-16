@@ -33,6 +33,18 @@ fun Context.getSetting(type: SettingsType, key: String?): String? {
     }
 }
 
+fun Context.resetAll() {
+    try {
+        Settings.Global.resetToDefaults(contentResolver, "tweaker")
+    } catch (e: SecurityException) {}
+
+    try {
+        Settings.Secure.resetToDefaults(contentResolver, "tweaker")
+    } catch (e: SecurityException) {}
+
+    //There doesn't seem to be a reset option for Settings.System
+}
+
 fun Context.writeGlobal(key: String?, value: Any?) {
     try {
         Settings.Global.putString(contentResolver, key, value?.toString())
