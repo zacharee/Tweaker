@@ -50,16 +50,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             val child = group.getPreference(i)
 
             if (child is PreferenceGroup) process(child, action)
-            else preferences.add(
-                ActionedPreference(this).apply {
-                    title = child.title
-                    summary = child.title
-                    icon = child.icon
-                    layoutResource = child.layoutResource
-                    key = child.key
-                    this.action = action
-                }
-            )
+            else preferences.add(ActionedPreference.fromPreference(this, child, action))
         }
     }
 
@@ -82,6 +73,26 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     }
 
     class ActionedPreference(context: Context) : Preference(context) {
+        companion object {
+            fun fromPreference(context: Context, preference: Preference, action: Int): ActionedPreference {
+                return ActionedPreference(context).apply {
+                    title = preference.title
+                    summary = preference.summary
+                    icon = preference.icon
+                    key = preference.key
+                    this.action = action
+                }
+            }
+
+            fun copy(context: Context, preference: ActionedPreference): ActionedPreference {
+                return fromPreference(context, preference, preference.action)
+            }
+        }
+
         var action: Int = 0
+
+        fun copy(): ActionedPreference {
+            return fromPreference(context, this, action)
+        }
     }
 }

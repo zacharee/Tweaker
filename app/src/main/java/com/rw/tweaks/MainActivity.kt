@@ -153,6 +153,7 @@ class MainActivity : AppCompatActivity() {
                         putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, key)
                     }
                 )
+            searchView?.setQuery("", false)
             searchView?.isIconified = true
         }
     }

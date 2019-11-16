@@ -21,12 +21,7 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
         searchIndex.filter(null) {
             it.forEach { pref ->
                 preferenceScreen.addPreference(
-                    SearchIndex.ActionedPreference(requireContext()).apply {
-                        key = pref.key
-                        title = pref.title
-                        summary = pref.summary
-                        action = pref.action
-                    }
+                    SearchIndex.ActionedPreference.copy(requireContext(), pref)
                 )
             }
         }
@@ -47,11 +42,13 @@ class SearchFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListene
 
     override fun onQueryTextChange(newText: String?): Boolean {
         searchIndex.filter(newText) {
+            preferenceScreen.removeAll()
             it.forEach { pref ->
-                preferenceScreen.addPreference(pref)
+                preferenceScreen.addPreference(
+                    SearchIndex.ActionedPreference.copy(requireContext(), pref)
+                )
             }
         }
-        preferenceScreen.removeAll()
 
         return true
     }
