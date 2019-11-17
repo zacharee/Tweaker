@@ -22,7 +22,19 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         val statusBl: ArrayList<String> = ArrayList(),
         val navApps: ArrayList<String> = ArrayList(),
         val navBl: ArrayList<String> = ArrayList()
-    )
+    ) {
+        fun clear() {
+            allFull = false
+            allStatus = false
+            allNav = false
+            fullApps.clear()
+            statusApps.clear()
+            navApps.clear()
+            fullBl.clear()
+            statusBl.clear()
+            navBl.clear()
+        }
+    }
 
     fun setAdvancedImmersive(info: ImmersiveInfo) {
         val modes = ArrayList<String?>()

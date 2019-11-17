@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?listPreferredItemHeight">
+
+    <TextView
+        android:id="@+id/immersive_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        tools:text="@string/immersive_full"
+        />
+
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="match_parent">
+
+        <com.rey.material.widget.CheckedImageView
+            android:id="@+id/all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?android:attr/listChoiceIndicatorMultiple"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <FrameLayout
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/whitelist"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_playlist_add_24"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <FrameLayout
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?selectableItemBackgroundBorderless">
+
+        <ImageView
+            android:id="@+id/blacklist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_playlist_remove_24dp"
+            />
+
+    </FrameLayout>
+
+</LinearLayout>

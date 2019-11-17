@@ -113,4 +113,5 @@
     <string name="all_apps">All Apps</string>
     <string name="select_apps">Select Apps</string>
     <string name="radio">Radio</string>
+    <string name="reset">Reset</string>
 </resources>
