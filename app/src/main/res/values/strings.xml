@@ -65,9 +65,6 @@
     <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, we can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
 
-    <string name="feature_skip_first_use">Skip First-Use Hints</string>
-    <string name="feature_skip_first_use_desc">If enabled, apps should try to skip any introductory hints on first launch. This might apply to users that are already familiar with the environment or temporary users. This flag is already enabled for devices that have gone through the setup process.</string>
-
     <string name="feature_immersive_mode">Immersive Mode</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It is actually possible to set immersive mode to hide either/or the navigation bar or status bar on a per-app basis, however.</string>
 
@@ -76,12 +73,6 @@
 
     <string name="feature_camera_gestures">Camera Gestures</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
-
-    <string name="dangerous_feature_disable_recents_status">Disable Accessing Recents and Status Bar</string>
-    <string name="dangerous_feature_disable_recents_status_desc">When enabled, the user will be unable to access the recent apps screen or pull down the status bar. This works by tricking the device into thinking the device is \"unprovisioned\" - a flag which is normally set after the user completes the first time setup process. If you do an OTA update and find that your device is unable to perform these actions, it\'s because this flag was somehow accidentally disabled during the update.</string>
-
-    <string name="dangerous_feature_disable_home">Disable Home Button</string>
-    <string name="dangerous_feature_disable_home_desc">Disable use of the home button. This tricks the device into thinking that the user has not completed the first time setup process.</string>
 
     <string name="feature_header_airplane_mode_radios">Airplane Mode-Exempt Radios</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Airplane Mode Toggleable Radios</string>
