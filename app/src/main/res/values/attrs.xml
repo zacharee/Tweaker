@@ -10,6 +10,7 @@
     <attr name="differing_key" format="string|reference" />
     <attr name="dialog_layout" format="integer|reference" />
     <attr name="dangerous" format="boolean|reference" />
+    <attr name="verifier" />
 
     <declare-styleable name="SecureSwitchPreference">
         <attr name="settings_type" />
@@ -39,5 +40,6 @@
         <attr name="settings_type" />
         <attr name="differing_key" />
         <attr name="dangerous" />
+        <attr name="verifier" />
     </declare-styleable>
 </resources>

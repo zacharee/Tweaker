@@ -36,7 +36,7 @@
     <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, we can see whatever value (in seconds) that we want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
 
     <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
-    <string name="feature_battery_saver_trigger_desc">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5% or 15%. With this, you can set your own trigger percent.</string>
+    <string name="feature_battery_saver_trigger_desc">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
 
     <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" We can set our own delay.</string>

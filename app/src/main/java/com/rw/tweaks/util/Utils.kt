@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 enum class SettingsType(val value: Int) {
@@ -17,6 +18,9 @@ val mainHandler = Handler(Looper.getMainLooper())
 
 val Context.prefManager: PrefManager
     get() = PrefManager.getInstance(this)
+
+val Context.hasSdCard: Boolean
+    get() = ContextCompat.getExternalFilesDirs(this, null).size >= 2
 
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
     when (type) {

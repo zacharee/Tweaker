@@ -17,6 +17,7 @@
         app:entries="@array/app_install_location_names"
         app:entryValues="@array/app_install_location_values"
         app:settings_type="global"
+        app:verifier="com.rw.tweaks.util.verifiers.StorageVerifier"
         />
 
 </PreferenceScreen>
