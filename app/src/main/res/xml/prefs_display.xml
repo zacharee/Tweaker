@@ -7,6 +7,7 @@
         android:summary="@string/feature_lock_timeout_desc"
         android:key="lock_screen_lock_after_timeout"
         android:defaultValue="5"
+        android:inputType="number"
         app:settings_type="secure"
         />
 

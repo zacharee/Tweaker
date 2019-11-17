@@ -1,6 +1,7 @@
 package com.rw.tweaks.prefs.secure
 
 import android.content.Context
+import android.text.InputType
 import android.util.AttributeSet
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
@@ -15,6 +16,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
     override var writeKey: String? = null
         get() = field ?: key
     override var dangerous = false
+    private var inputType: Int = InputType.TYPE_CLASS_TEXT
 
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
 
@@ -24,8 +26,13 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureEditTextPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
         writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
         dangerous = array.getBoolean(R.styleable.SecureEditTextPreference_dangerous, false)
+        inputType = array.getInt(R.styleable.SecureEditTextPreference_android_inputType, inputType)
 
         dialogMessage = summary
+
+        setOnBindEditTextListener {
+            it.inputType = inputType
+        }
 
         array.recycle()
 
@@ -48,7 +55,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
 
         if (update) {
-            context.writeSetting(type, writeKey, newValue.toString().toBoolean())
+            context.writeSetting(type, writeKey, newValue.toString())
         }
 
         return update

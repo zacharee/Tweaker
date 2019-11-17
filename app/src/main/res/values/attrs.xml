@@ -34,6 +34,7 @@
         <attr name="settings_type" />
         <attr name="differing_key" />
         <attr name="dangerous" />
+        <attr name="android:inputType" />
     </declare-styleable>
 
     <declare-styleable name="SecureListPreference">
