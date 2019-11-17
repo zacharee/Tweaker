@@ -50,7 +50,7 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-        requireContext().writeSetting(type, writeKey, newScaledValue)
+        requireContext().writeSetting(type, writeKey, if (scale == 1f) newValue else newScaledValue)
         notifyChanged(newScaledValue)
     }
 }
