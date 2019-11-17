@@ -5,11 +5,14 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceGroup
-import androidx.preference.PreferenceGroupAdapter
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.preference.*
+import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
 import com.rw.tweaks.dialogs.SeekBarOptionDialog
@@ -74,6 +77,26 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                         mainHandler.postDelayed({ item?.isPressed = false }, 300)
                     }, 200)
                 }
+            }
+        }
+    }
+
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+        return object : PreferenceGroupAdapter(preferenceScreen) {
+            @SuppressLint("RestrictedApi")
+            override fun onCreateViewHolder(
+                parent: ViewGroup,
+                viewType: Int
+            ): PreferenceViewHolder {
+                val vh = super.onCreateViewHolder(parent, viewType)
+                val cardView = LayoutInflater.from(parent.context).inflate(R.layout.pref_card, parent, false) as CardView
+
+                cardView.addView(vh.itemView)
+                cardView.findViewById<TextView>(android.R.id.title).apply {
+                    setSingleLine(false)
+                }
+
+                return PreferenceViewHolder.createInstanceForTests(cardView)
             }
         }
     }
