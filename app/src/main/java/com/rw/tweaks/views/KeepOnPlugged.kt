@@ -5,11 +5,11 @@ import android.os.BatteryManager
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.CompoundButton
-import android.widget.FrameLayout
+import android.widget.ScrollView
 import com.rw.tweaks.util.writeGlobal
 import kotlinx.android.synthetic.main.keep_device_plugged_dialog.view.*
 
-class KeepOnPlugged(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
+class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 

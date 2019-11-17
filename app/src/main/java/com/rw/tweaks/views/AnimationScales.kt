@@ -3,11 +3,11 @@ package com.rw.tweaks.views
 import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
-import android.widget.FrameLayout
+import android.widget.ScrollView
 import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
-class AnimationScales(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
+class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
