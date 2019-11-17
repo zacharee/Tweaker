@@ -1,6 +1,7 @@
 package com.rw.tweaks.util
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
@@ -21,6 +22,9 @@ val Context.prefManager: PrefManager
 
 val Context.hasSdCard: Boolean
     get() = ContextCompat.getExternalFilesDirs(this, null).size >= 2
+
+val Context.hasWss: Boolean
+    get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
 
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
     when (type) {
