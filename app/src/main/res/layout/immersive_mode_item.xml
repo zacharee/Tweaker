@@ -51,7 +51,8 @@
         android:clickable="true"
         android:background="?selectableItemBackgroundBorderless">
 
-        <ImageView
+        <com.rw.tweaks.views.DisableableImageView
+            android:id="@+id/whitelist_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -30,7 +30,10 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         }
     }
 
-    class ImmersiveAdapter(private val immInfo: ImmersiveManager.ImmersiveInfo, private val manager: ImmersiveManager) : RecyclerView.Adapter<ImmersiveAdapter.VH>() {
+    class ImmersiveAdapter(
+        private val immInfo: ImmersiveManager.ImmersiveInfo,
+        private val manager: ImmersiveManager
+    ) : RecyclerView.Adapter<ImmersiveAdapter.VH>() {
         private val items = arrayListOf(
             ItemInfo(
                 R.string.immersive_full,
@@ -51,7 +54,13 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-            return VH(LayoutInflater.from(parent.context).inflate(R.layout.immersive_mode_item, parent, false))
+            return VH(
+                LayoutInflater.from(parent.context).inflate(
+                    R.layout.immersive_mode_item,
+                    parent,
+                    false
+                )
+            )
         }
 
         override fun onBindViewHolder(holder: VH, position: Int) {
@@ -59,29 +68,37 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
 
             holder.itemView.apply {
                 immersive_name.text = resources.getText(info.name)
-                all.isChecked = when(info.type) {
+                all.isChecked = when (info.type) {
                     ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull
                     ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus
                     ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav
                     else -> false
                 }
+                whitelist_button.isEnabled = !all.isChecked
+                
                 all.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
                     all.isChecked = !all.isChecked
 
                     when (newInfo.type) {
-                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull = all.isChecked.also { if (it) immInfo.fullApps.clear() }
-                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus = all.isChecked.also { if (it) immInfo.statusApps.clear() }
-                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav = all.isChecked.also { if (it) immInfo.navApps.clear() }
-                        else -> {}
+                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull =
+                            all.isChecked.also { if (it) immInfo.fullApps.clear() }
+                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus =
+                            all.isChecked.also { if (it) immInfo.statusApps.clear() }
+                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav =
+                            all.isChecked.also { if (it) immInfo.navApps.clear() }
+                        else -> {
+                        }
                     }
+
+                    whitelist_button.isEnabled = !all.isChecked
 
                     update()
                 }
 
                 whitelist.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
-                    val apps = when(newInfo.type) {
+                    val apps = when (newInfo.type) {
                         ImmersiveManager.ImmersiveMode.FULL -> immInfo.fullApps
                         ImmersiveManager.ImmersiveMode.STATUS -> immInfo.statusApps
                         ImmersiveManager.ImmersiveMode.NAV -> immInfo.navApps
@@ -97,7 +114,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
 
                 blacklist.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
-                    val apps = when(newInfo.type) {
+                    val apps = when (newInfo.type) {
                         ImmersiveManager.ImmersiveMode.FULL -> immInfo.fullBl
                         ImmersiveManager.ImmersiveMode.STATUS -> immInfo.statusBl
                         ImmersiveManager.ImmersiveMode.NAV -> immInfo.navBl
@@ -125,7 +142,8 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         val type: ImmersiveManager.ImmersiveMode
     )
 
-    private class ImmersiveSelectionCallbackWrapper(private val callback: (checked: List<String>) -> Unit) : IImmersiveSelectionCallback.Stub() {
+    private class ImmersiveSelectionCallbackWrapper(private val callback: (checked: List<String>) -> Unit) :
+        IImmersiveSelectionCallback.Stub() {
         override fun onImmersiveResult(checked: MutableList<Any?>) {
             callback(checked.map { it.toString() })
         }
