@@ -74,8 +74,8 @@
     <string name="feature_camera_gestures">Camera Gestures</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
 
-    <string name="feature_header_airplane_mode_radios">Airplane Mode-Exempt Radios</string>
-    <string name="feature_header_airplane_mode_toggleable_radios">Airplane Mode Toggleable Radios</string>
+    <string name="feature_header_airplane_mode_radios">Exempt</string>
+    <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">On USB Power</string>
@@ -112,4 +112,5 @@
     <string name="advanced">Advanced</string>
     <string name="all_apps">All Apps</string>
     <string name="select_apps">Select Apps</string>
+    <string name="radio">Radio</string>
 </resources>
