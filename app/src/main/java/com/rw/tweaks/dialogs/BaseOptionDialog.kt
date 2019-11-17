@@ -29,7 +29,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        View.inflate(view.context, layoutRes, view.wrapper)
+         View.inflate(view.context, layoutRes, view.wrapper)
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {}

@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
+import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +15,10 @@ import androidx.preference.*
 import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
+import com.rw.tweaks.dialogs.SecureListDialog
 import com.rw.tweaks.dialogs.SeekBarOptionDialog
 import com.rw.tweaks.dialogs.SwitchOptionDialog
+import com.rw.tweaks.prefs.secure.SecureListPreference
 import com.rw.tweaks.prefs.secure.SecureSeekBarPreference
 import com.rw.tweaks.prefs.secure.SecureSwitchPreference
 import com.rw.tweaks.prefs.secure.specific.*
@@ -40,6 +42,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is CameraGesturesPreference -> OptionDialog.newInstance(preference.key, R.layout.camera_gestures)
             is AirplaneModeRadiosPreference -> OptionDialog.newInstance(preference.key, R.layout.airplane_mode_radios)
             is ImmersiveModePreference -> OptionDialog.newInstance(preference.key, R.layout.immersive_mode)
+            is SecureListPreference -> SecureListDialog.newInstance(preference.key)
             else -> null
         }
 
@@ -94,6 +97,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                 cardView.addView(vh.itemView)
                 cardView.findViewById<TextView>(android.R.id.title).apply {
                     setSingleLine(false)
+                }
+                cardView.findViewById<TextView>(android.R.id.summary).apply {
+                    maxLines = 2
+                    ellipsize = TextUtils.TruncateAt.END
                 }
 
                 return PreferenceViewHolder.createInstanceForTests(cardView)

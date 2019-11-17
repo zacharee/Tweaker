@@ -27,7 +27,7 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
 
         array.recycle()
 
-//        dialogMessage = summary
+        dialogMessage = summary
 
         super.setOnPreferenceChangeListener(this)
     }
