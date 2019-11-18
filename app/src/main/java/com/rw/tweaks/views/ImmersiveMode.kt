@@ -75,7 +75,8 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     else -> false
                 }
                 whitelist_button.isEnabled = !all.isChecked
-                
+                whitelist.isEnabled = !all.isChecked
+
                 all.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
                     all.isChecked = !all.isChecked
@@ -92,6 +93,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     }
 
                     whitelist_button.isEnabled = !all.isChecked
+                    whitelist.isEnabled = !all.isChecked
 
                     update()
                 }

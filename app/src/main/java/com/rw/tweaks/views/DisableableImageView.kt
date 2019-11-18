@@ -2,6 +2,7 @@ package com.rw.tweaks.views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatImageView
 
 
@@ -10,6 +11,7 @@ class DisableableImageView(context: Context, attrs: AttributeSet) : AppCompatIma
         if (this.isEnabled != enabled) {
             this.imageAlpha = if (enabled) 0xFF else 0x3F
         }
+        isClickable = enabled
         super.setEnabled(enabled)
     }
 }
