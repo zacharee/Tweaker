@@ -114,4 +114,15 @@
     <string name="select_apps">Select Apps</string>
     <string name="radio">Radio</string>
     <string name="reset">Reset</string>
+    <string name="grant">Grant</string>
+    <string name="help">Help</string>
+    <string name="no_root_title">No Root</string>
+    <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure Tweaker has root access. Otherwise, press the HELP button for ADB instructions.</string>
+    <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
+
+    <string name="intro_welcome">Welcome</string>
+    <string name="intro_welcome_desc">IDK</string>
+
+    <string name="intro_grant_wss">Grant WRITE_SECURE_SETTINGS</string>
+    <string name="intro_grant_wss_desc">Tweaker needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button.</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.rw.tweaks
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
@@ -16,11 +15,14 @@ import com.mikepenz.materialdrawer.model.NavigationDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
+import com.rw.tweaks.activities.Intro
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
-import com.rw.tweaks.util.ImmersiveManager
 import com.rw.tweaks.util.IndentedSecondaryDrawerItem
+import com.rw.tweaks.util.hasWss
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalNavController
@@ -137,10 +139,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (!hasWss) Intro.start(this)
+
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        val imm = ImmersiveManager(this)
 
         drawer.setupWithNavController(navController)
 
