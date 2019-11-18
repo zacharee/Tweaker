@@ -6,6 +6,7 @@ import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
+import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
 class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     companion object {
@@ -21,6 +22,7 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
     override var writeKey: String? = null
         get() = field ?: key
     override var dangerous = false
+    override var visibilityVerifier: BaseVisibilityVerifier? = null
 
     init {
         isPersistent = false
@@ -31,6 +33,17 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
         disabled = array.getString(R.styleable.SecureSwitchPreference_disabled_value) ?: DEFAULT_DISABLED
         writeKey = array.getString(R.styleable.SecureSwitchPreference_differing_key)
         dangerous = array.getBoolean(R.styleable.SecureSwitchPreference_dangerous, false)
+
+        val clazz = array.getString(R.styleable.SecureSwitchPreference_visibility_verifier)
+        if (clazz != null) {
+            visibilityVerifier = context.classLoader.loadClass(clazz)
+                .getConstructor(Context::class.java)
+                .newInstance(context) as BaseVisibilityVerifier
+        }
+
+        visibilityVerifier?.let {
+            isVisible = it.shouldShow
+        }
 
         dialogMessage = summary
     }

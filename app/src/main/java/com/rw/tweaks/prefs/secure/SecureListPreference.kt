@@ -9,6 +9,7 @@ import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.getSetting
 import com.rw.tweaks.util.verifiers.BaseListPreferenceVerifier
+import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 import com.rw.tweaks.util.writeSetting
 
 class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference {
@@ -16,6 +17,8 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
     override var writeKey: String? = null
         get() = field ?: key
     override var dangerous = false
+    override var visibilityVerifier: BaseVisibilityVerifier? = null
+
     private var verifier: BaseListPreferenceVerifier? = null
 
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
@@ -36,6 +39,17 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
                 entries = first
                 entryValues = second
             }
+        }
+
+        val clazz = array.getString(R.styleable.SecureListPreference_visibility_verifier)
+        if (clazz != null) {
+            visibilityVerifier = context.classLoader.loadClass(clazz)
+                .getConstructor(Context::class.java)
+                .newInstance(context) as BaseVisibilityVerifier
+        }
+
+        visibilityVerifier?.let {
+            isVisible = it.shouldShow
         }
 
         array.recycle()

@@ -6,11 +6,13 @@ import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
+import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
 class ImmersiveModePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
     override var type: SettingsType = SettingsType.UNDEFINED
     override var writeKey: String? = null
-    override var dangerous: Boolean = false
+    override var dangerous = false
+    override var visibilityVerifier: BaseVisibilityVerifier? = null
 
     init {
         key = "immersive_mode_pref"
