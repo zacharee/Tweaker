@@ -5,16 +5,11 @@ import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
-class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
-    override var type = SettingsType.UNDEFINED
-    override var writeKey: String? = null
-        get() = field ?: key
-    override var dangerous = false
-    override var visibilityVerifier: BaseVisibilityVerifier? = null
-
+class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference() {
     var minValue: Int = 0
     var maxValue: Int = 100
     var defaultValue = 0
@@ -33,6 +28,8 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPre
         scale = array.getFloat(R.styleable.SecureSeekBarPreference_scale, scale)
         units = array.getString(R.styleable.SecureSeekBarPreference_units)
         dangerous = array.getBoolean(R.styleable.SecureSeekBarPreference_dangerous, false)
+        lowApi = array.getInt(R.styleable.SecureSeekBarPreference_low_api, lowApi)
+        highApi = array.getInt(R.styleable.SecureSeekBarPreference_high_api, highApi)
 
         dialogMessage = summary
 
@@ -43,13 +40,9 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPre
                 .newInstance(context) as BaseVisibilityVerifier
         }
 
-        visibilityVerifier?.let {
-            isVisible = it.shouldShow
-        }
-
         array.recycle()
         android.recycle()
-    }
 
-    override fun onValueChanged(newValue: Any?, key: String?) {}
+        init(this)
+    }
 }

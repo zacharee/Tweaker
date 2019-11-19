@@ -10,6 +10,8 @@
     <attr name="differing_key" format="string|reference" />
     <attr name="dialog_layout" format="integer|reference" />
     <attr name="dangerous" format="boolean|reference" />
+    <attr name="low_api" format="integer|reference" />
+    <attr name="high_api" format="integer|reference" />
     <attr name="verifier" />
     <attr name="visibility_verifier" />
 
@@ -20,6 +22,8 @@
         <attr name="enabled_value" format="string|reference" />
         <attr name="disabled_value" format="string|reference" />
         <attr name="visibility_verifier" />
+        <attr name="low_api" />
+        <attr name="high_api" />
     </declare-styleable>
 
     <declare-styleable name="SecureSeekBarPreference">
@@ -31,6 +35,8 @@
         <attr name="units" />
         <attr name="dangerous" />
         <attr name="visibility_verifier" />
+        <attr name="low_api" />
+        <attr name="high_api" />
     </declare-styleable>
 
     <declare-styleable name="SecureEditTextPreference">
@@ -39,6 +45,8 @@
         <attr name="dangerous" />
         <attr name="android:inputType" />
         <attr name="visibility_verifier" />
+        <attr name="low_api" />
+        <attr name="high_api" />
     </declare-styleable>
 
     <declare-styleable name="SecureListPreference">
@@ -47,5 +55,7 @@
         <attr name="dangerous" />
         <attr name="verifier" />
         <attr name="visibility_verifier" />
+        <attr name="low_api" />
+        <attr name="high_api" />
     </declare-styleable>
 </resources>

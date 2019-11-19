@@ -5,15 +5,9 @@ import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SettingsType
-import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
+import com.rw.tweaks.util.SecurePreference
 
-class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference {
-    override var type: SettingsType = SettingsType.UNDEFINED
-    override var writeKey: String? = null
-    override var dangerous = false
-    override var visibilityVerifier: BaseVisibilityVerifier? = null
-
+class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference() {
     init {
         key = "anim"
 
@@ -21,7 +15,7 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogP
         setSummary(R.string.feature_custom_animation_scales_desc)
         dialogTitle = title
         dialogMessage = summary
-    }
 
-    override fun onValueChanged(newValue: Any?, key: String?) {}
+        init(this)
+    }
 }

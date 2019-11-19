@@ -2,6 +2,7 @@ package com.rw.tweaks.util
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
@@ -16,6 +17,8 @@ enum class SettingsType(val value: Int) {
 }
 
 val mainHandler = Handler(Looper.getMainLooper())
+
+val api: Int = Build.VERSION.SDK_INT
 
 val Context.prefManager: PrefManager
     get() = PrefManager.getInstance(this)

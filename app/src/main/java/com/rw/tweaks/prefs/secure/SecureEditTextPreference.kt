@@ -6,19 +6,10 @@ import android.util.AttributeSet
 import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SettingsType
-import com.rw.tweaks.util.getSetting
+import com.rw.tweaks.util.*
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
-import com.rw.tweaks.util.writeSetting
 
-class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference {
-    override var type = SettingsType.UNDEFINED
-    override var writeKey: String? = null
-        get() = field ?: key
-    override var dangerous = false
-    override var visibilityVerifier: BaseVisibilityVerifier? = null
-
+class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference by SecurePreference() {
     private var inputType: Int = InputType.TYPE_CLASS_TEXT
 
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
@@ -30,16 +21,14 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
         dangerous = array.getBoolean(R.styleable.SecureEditTextPreference_dangerous, false)
         inputType = array.getInt(R.styleable.SecureEditTextPreference_android_inputType, inputType)
+        lowApi = array.getInt(R.styleable.SecureEditTextPreference_low_api, lowApi)
+        highApi = array.getInt(R.styleable.SecureEditTextPreference_high_api, highApi)
 
         val clazz = array.getString(R.styleable.SecureEditTextPreference_visibility_verifier)
         if (clazz != null) {
             visibilityVerifier = context.classLoader.loadClass(clazz)
                 .getConstructor(Context::class.java)
                 .newInstance(context) as BaseVisibilityVerifier
-        }
-
-        visibilityVerifier?.let {
-            isVisible = it.shouldShow
         }
 
         dialogMessage = summary
@@ -51,6 +40,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         array.recycle()
 
         super.setOnPreferenceChangeListener(this)
+        init(this)
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
@@ -74,6 +64,4 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
 
         return update
     }
-
-    override fun onValueChanged(newValue: Any?, key: String?) {}
 }
