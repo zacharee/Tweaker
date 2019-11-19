@@ -39,4 +39,8 @@
         android:id="@+id/searchFragment"
         android:name="com.rw.tweaks.fragments.SearchFragment"
         android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/audioFragment"
+        android:name="com.rw.tweaks.fragments.AudioFragment"
+        android:label="AudioFragment" />
 </navigation>

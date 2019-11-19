@@ -73,6 +73,9 @@
 
     <string name="feature_camera_gestures">Camera Gestures</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
+    
+    <string name="feature_disable_safe_audio_warning">Disable Safe Audio Warning</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. The warning must be dismissed by the user manually, but through hidden commands we can automatically bypass the warning.</string>
 
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>

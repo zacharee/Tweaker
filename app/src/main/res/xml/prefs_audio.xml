@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+        android:title="@string/feature_disable_safe_audio_warning"
+        android:summary="@string/feature_disable_safe_audio_warning_desc"
+        android:key="audio_safe_volume_state"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:settings_type="global"
+        />
+
+</PreferenceScreen>

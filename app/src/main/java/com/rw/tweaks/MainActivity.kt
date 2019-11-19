@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                         .withName(R.string.category_apps)
                 ),
                 NavigationDrawerItem(
-                    0,
+                    R.id.audioFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_audio)
                 ),
