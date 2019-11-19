@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     .withSelectable(false)
                     .withSubItems(
                         NavigationDrawerItem(
-                            0,
+                            R.id.netCellFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_cellular)
                         ),

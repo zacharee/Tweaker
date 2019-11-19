@@ -47,4 +47,8 @@
         android:id="@+id/netWiFiFragment"
         android:name="com.rw.tweaks.fragments.network.NetWiFiFragment"
         android:label="NetWiFiFragment" />
+    <fragment
+        android:id="@+id/netCellFragment"
+        android:name="com.rw.tweaks.fragments.network.NetCellFragment"
+        android:label="NetCellFragment" />
 </navigation>

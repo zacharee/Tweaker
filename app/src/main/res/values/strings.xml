@@ -83,6 +83,9 @@
     <string name="feature_fix_tethering">Fix Tethering</string>
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
 
+    <string name="feature_shortcode_warning">Disable SMS Short Code Confirmation</string>
+    <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. This feature can be globally disabled with this key.</string>
+
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
