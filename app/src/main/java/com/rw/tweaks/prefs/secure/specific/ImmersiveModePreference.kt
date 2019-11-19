@@ -7,7 +7,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SecurePreference
 
-class ImmersiveModePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference() {
+class ImmersiveModePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     init {
         key = "immersive_mode_pref"
 

@@ -9,7 +9,7 @@ import com.rw.tweaks.util.*
 import com.rw.tweaks.util.verifiers.BaseListPreferenceVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
-class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference by SecurePreference() {
+class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     private var verifier: BaseListPreferenceVerifier? = null
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
 

@@ -1,6 +1,9 @@
 package com.rw.tweaks.util
 
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.preference.Preference
+import com.rw.tweaks.R
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
 interface ISecurePreference {
@@ -17,14 +20,10 @@ interface ISecurePreference {
 
     fun onValueChanged(newValue: Any?, key: String?)
 
-    fun judgeEnabled(pref: Preference) {
-        pref.isEnabled = (lowApi == API_UNDEFINED || api >= lowApi) && (highApi == API_UNDEFINED || api <= highApi)
-    }
-
     fun init(pref: Preference)
 }
 
-class SecurePreference : ISecurePreference {
+class SecurePreference(context: Context) : ContextWrapper(context), ISecurePreference {
     override var type: SettingsType = SettingsType.UNDEFINED
     override var writeKey: String? = null
     override var dangerous: Boolean = false
@@ -35,7 +34,20 @@ class SecurePreference : ISecurePreference {
     override fun onValueChanged(newValue: Any?, key: String?) {}
 
     override fun init(pref: Preference) {
-        judgeEnabled(pref)
+        val lowUndefined = lowApi == ISecurePreference.API_UNDEFINED
+        val highUndefined = highApi == ISecurePreference.API_UNDEFINED
+
+        pref.isEnabled = ((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
+            if (!it) {
+                val (toFormat, args) = when {
+                    lowUndefined -> R.string.compatibility_message_higher to arrayOf(apiToName(highApi))
+                    highUndefined -> R.string.compatibility_message_lower to arrayOf(apiToName(lowApi))
+                    else -> R.string.compatibility_message_both to arrayOf(apiToName(lowApi), apiToName(highApi))
+                }
+
+                pref.summary = resources.getString(toFormat, args)
+            }
+        }
 
         visibilityVerifier?.let {
             pref.isVisible = it.shouldShow

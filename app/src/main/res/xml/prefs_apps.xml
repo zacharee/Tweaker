@@ -7,6 +7,7 @@
         android:summary="@string/feature_freeform_desc"
         android:key="enable_freeform_support"
         app:settings_type="global"
+        app:low_api="24"
         />
 
     <com.rw.tweaks.prefs.secure.SecureListPreference

@@ -9,7 +9,7 @@ import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
-class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference() {
+class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     var minValue: Int = 0
     var maxValue: Int = 100
     var defaultValue = 0

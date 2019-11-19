@@ -8,6 +8,7 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.rw.tweaks.R
 
 enum class SettingsType(val value: Int) {
     UNDEFINED(-1),
@@ -89,4 +90,17 @@ fun Fragment.updateTitle(title: Int) {
 
 fun Fragment.updateTitle(title: CharSequence?) {
     activity?.title = title
+}
+
+fun Context.apiToName(api: Int): String {
+    return resources.getString(when (api) {
+        Build.VERSION_CODES.M -> R.string.android_marshmallow
+        Build.VERSION_CODES.N -> R.string.android_nougat
+        Build.VERSION_CODES.N_MR1 -> R.string.android_nougat_7_1
+        Build.VERSION_CODES.O -> R.string.android_oreo
+        Build.VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
+        Build.VERSION_CODES.P -> R.string.android_pie
+        29 -> R.string.android_10
+        else -> throw IllegalArgumentException("Invalid API level: $api")
+    })
 }

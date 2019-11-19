@@ -9,7 +9,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.*
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
-class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference by SecurePreference() {
+class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference by SecurePreference(context) {
     private var inputType: Int = InputType.TYPE_CLASS_TEXT
 
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null

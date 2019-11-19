@@ -9,7 +9,7 @@ import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
-class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference() {
+class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     companion object {
         const val DEFAULT_ENABLED = "1"
         const val DEFAULT_DISABLED = "0"
