@@ -156,9 +156,12 @@
     <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure Tweaker has root access. Otherwise, press the HELP button for ADB instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
 
-    <string name="intro_welcome">Welcome</string>
-    <string name="intro_welcome_desc">IDK</string>
+    <string name="intro_welcome">Welcome!</string>
+    <string name="intro_welcome_desc">Your Android device probably has a lot of settings to change, but did you know there\'s a lot of settings that are hidden? This app helps you change those hidden settings! You don\'t need root access, but you do have to follow a few steps to set this app up.</string>
 
-    <string name="intro_grant_wss">Grant WRITE_SECURE_SETTINGS</string>
-    <string name="intro_grant_wss_desc">Tweaker needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button.</string>
+    <string name="intro_grant_wss">Grant Write Secure Settings</string>
+    <string name="intro_grant_wss_desc">Tweaker needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don't worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
+
+    <string name="intro_last">Thanks for using our app!</string>
+    <string name="intro_last_desc">Follow us on Twitter for the latest updates.\nLeave a comment on the XDA Forums for any feedback.\nAnd last but not least, leave a rating on the Play Store if you like this app!</string>
 </resources>

@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.heinrichreimersoftware.materialintro.app.IntroActivity
-import com.heinrichreimersoftware.materialintro.app.OnNavigationBlockedListener
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
@@ -51,6 +50,15 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
             .build()
 
         addSlide(wss)
+
+        addSlide(
+            SimpleSlide.Builder()
+                .title(R.string.intro_last)
+                .description(R.string.intro_last_desc)
+                .background(R.color.slide_3)
+                .scrollable(true)
+                .build()
+        )
 
         addOnNavigationBlockedListener { position, _ ->
             if (position == getSlidePosition(wss)) {
