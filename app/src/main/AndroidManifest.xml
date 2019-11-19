@@ -34,6 +34,9 @@
             android:exported="false"
             android:theme="@style/Theme.Intro"
             />
+        <activity android:name=".activities.UISoundSelector"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

@@ -43,6 +43,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is AirplaneModeRadiosPreference -> OptionDialog.newInstance(preference.key, R.layout.airplane_mode_radios)
             is ImmersiveModePreference -> OptionDialog.newInstance(preference.key, R.layout.immersive_mode)
             is SecureListPreference -> SecureListDialog.newInstance(preference.key)
+            is UISoundsPreference -> OptionDialog.newInstance(preference.key, R.layout.ui_sounds)
             else -> null
         }
 

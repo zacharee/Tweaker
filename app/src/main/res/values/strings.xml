@@ -76,6 +76,9 @@
     
     <string name="feature_disable_safe_audio_warning">Disable Safe Audio Warning</string>
     <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. The warning must be dismissed by the user manually, but through hidden commands we can automatically bypass the warning.</string>
+    
+    <string name="feature_custom_ui_sounds">Set Custom UI Sounds</string>
+    <string name="feature_custom_ui_sounds_desc">TODO</string>
 
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
@@ -103,6 +106,36 @@
     <string name="option_user_rotation_90">Landscape CCW</string>
     <string name="option_user_rotation_180">Portrait Inverse</string>
     <string name="option_user_rotation_270">Landscape CW</string>
+
+    <string name="option_ui_sound_car_dock">Car Dock</string>
+    <string name="option_ui_sound_car_dock_desc">Audio that is played when the phone is docked in a car dock.</string>
+
+    <string name="option_ui_sound_car_undock">Car Undock</string>
+    <string name="option_ui_sound_car_undock_desc">Audio that is played when the phone is removed from a car dock.</string>
+
+    <string name="option_ui_sound_desk_dock">Desk Dock</string>
+    <string name="option_ui_sound_desk_dock_desc">Audio that is played when the phone is docked in a desk dock.</string>
+
+    <string name="option_ui_sound_desk_undock">Desk Undock</string>
+    <string name="option_ui_sound_desk_undock_desc">Audio that is played when the phone is removed from a desk dock.</string>
+
+    <string name="option_ui_sound_lock">Lock</string>
+    <string name="option_ui_sound_lock_desc">Audio that is played when the phone is locked.</string>
+
+    <string name="option_ui_sound_unlock">Unlock</string>
+    <string name="option_ui_sound_unlock_desc">Audio that is played when the device is unlocked.</string>
+
+    <string name="option_ui_sound_low_battery">Low Battery</string>
+    <string name="option_ui_sound_low_battery_desc">Audio that is played when the device is at low battery.</string>
+
+    <string name="option_ui_sound_trusted">Trusted</string>
+    <string name="option_ui_sound_trusted_desc">Audio that is played when the device enters the “trusted” state without unlocking.</string>
+
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being charged wirelessly.</string>
+
+    <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
+    <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
 
     <string name="home_welcome_title">Welcome!</string>
 

@@ -11,4 +11,6 @@
         app:settings_type="global"
         />
 
+    <com.rw.tweaks.prefs.secure.specific.UISoundsPreference />
+
 </PreferenceScreen>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:selectableItemBackground"
+    android:minHeight="?listPreferredItemHeight">
+
+    <com.android.internal.widget.PreferenceImageView
+        android:id="@+id/icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        tools:src="@mipmap/ic_launcher"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="?android:textColorPrimary"
+            tools:text="@string/option_ui_sound_disable_charging"
+            />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/option_ui_sound_disable_charging_desc"
+            />
+
+        <TextView
+            android:id="@+id/uri"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="file://yeet"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reset"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="48dp"
+        android:layout_height="48dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_undo_24"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

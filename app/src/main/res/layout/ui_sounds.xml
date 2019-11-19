@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rw.tweaks.views.UISounds xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Switch
+        android:id="@+id/disable_charging_sound"
+        android:text="@string/option_ui_sound_disable_charging"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeight"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sounds_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/ui_sounds_item"
+        />
+
+</com.rw.tweaks.views.UISounds>
