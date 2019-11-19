@@ -45,6 +45,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is SecureListPreference -> SecureListDialog.newInstance(preference.key)
             is UISoundsPreference -> OptionDialog.newInstance(preference.key, R.layout.ui_sounds)
             is TetheringPreference -> SwitchOptionDialog.newInstance(preference.key, "false", "true", preference.bothFixed)
+            is SMSLimitsPreference -> OptionDialog.newInstance(preference.key, R.layout.sms_limits)
             else -> null
         }
 

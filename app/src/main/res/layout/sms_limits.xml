@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rw.tweaks.views.SMSLimits xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/max_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/option_sms_limit_count"
+            android:layout_marginEnd="8dp"
+            app:startIconDrawable="@drawable/ic_undo_black_24dp"
+            app:endIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/option_sms_limit_interval"
+            android:layout_marginEnd="8dp"
+            app:suffixText="ms"
+            app:startIconDrawable="@drawable/ic_undo_black_24dp"
+            app:endIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</com.rw.tweaks.views.SMSLimits>
