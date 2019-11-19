@@ -21,8 +21,6 @@ import com.rw.tweaks.fragments.SearchFragment
 import com.rw.tweaks.util.IndentedSecondaryDrawerItem
 import com.rw.tweaks.util.hasWss
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalNavController
@@ -73,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                                 .withName(R.string.sub_cellular)
                         ),
                         NavigationDrawerItem(
-                            0,
+                            R.id.netWiFiFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_wifi)
                         ),

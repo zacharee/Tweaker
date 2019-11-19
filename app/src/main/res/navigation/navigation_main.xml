@@ -43,4 +43,8 @@
         android:id="@+id/audioFragment"
         android:name="com.rw.tweaks.fragments.AudioFragment"
         android:label="AudioFragment" />
+    <fragment
+        android:id="@+id/netWiFiFragment"
+        android:name="com.rw.tweaks.fragments.network.NetWiFiFragment"
+        android:label="NetWiFiFragment" />
 </navigation>

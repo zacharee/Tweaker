@@ -80,6 +80,9 @@
     <string name="feature_custom_ui_sounds">Set Custom UI Sounds</string>
     <string name="feature_custom_ui_sounds_desc">TODO</string>
 
+    <string name="feature_fix_tethering">Fix Tethering</string>
+    <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
+
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 

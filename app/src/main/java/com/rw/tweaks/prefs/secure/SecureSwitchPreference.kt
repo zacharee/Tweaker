@@ -8,8 +8,9 @@ import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
+import com.rw.tweaks.util.writeSetting
 
-class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
+open class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     companion object {
         const val DEFAULT_ENABLED = "1"
         const val DEFAULT_DISABLED = "0"
@@ -42,5 +43,9 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
         array.recycle()
 
         init(this)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String?) {
+        context.writeSetting(type, writeKey, newValue)
     }
 }
