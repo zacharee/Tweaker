@@ -16,7 +16,7 @@
     <com.rw.tweaks.prefs.secure.specific.KeepDeviceOnPluggedPreference />
     <com.rw.tweaks.prefs.secure.specific.AnimationScalesPreference />
     <com.rw.tweaks.prefs.secure.specific.CameraGesturesPreference />
-
     <com.rw.tweaks.prefs.secure.specific.ImmersiveModePreference />
+    <com.rw.tweaks.prefs.secure.specific.LockscreenShortcutsPref />
 
 </PreferenceScreen>

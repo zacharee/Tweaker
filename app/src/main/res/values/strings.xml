@@ -89,6 +89,9 @@
     <string name="feature_sms_limit">Custom SMS Limit</string>
     <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, we can customize however many SMS we want to be able to send without being bothered.</string>
 
+    <string name="feature_lockscreen_shortcuts">Lockscreen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lockscreen shortcuts. However, the preference value can still be set manually.</string>
+
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
@@ -117,6 +120,8 @@
     <string name="option_user_rotation_270">Landscape CW</string>
     <string name="option_sms_limit_count">Max Send Count</string>
     <string name="option_sms_limit_interval">Time Interval</string>
+    <string name="option_lockscreen_shortcut_left">Left Shortcut</string>
+    <string name="option_lockscreen_shortcut_right">Right Shortcut</string>
 
     <string name="option_ui_sound_car_dock">Car Dock</string>
     <string name="option_ui_sound_car_dock_desc">Audio that is played when the phone is docked in a car dock.</string>

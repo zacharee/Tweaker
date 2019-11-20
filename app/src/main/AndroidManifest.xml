@@ -37,6 +37,9 @@
         <activity android:name=".activities.UISoundSelector"
             android:exported="false"
             />
+        <activity android:name=".activities.LockscreenShortcutSelector"
+            android:exported="false"
+            />
     </application>
 
 </manifest>

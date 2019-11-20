@@ -45,7 +45,7 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
                     else -> R.string.compatibility_message_both to arrayOf(apiToName(lowApi), apiToName(highApi))
                 }
 
-                pref.summary = resources.getString(toFormat, args)
+                pref.summary = resources.getString(toFormat, *args)
             }
         }
 
