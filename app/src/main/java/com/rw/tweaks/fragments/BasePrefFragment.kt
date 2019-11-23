@@ -1,6 +1,7 @@
 package com.rw.tweaks.fragments
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
@@ -12,7 +13,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.preference.*
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rw.tweaks.R
 import com.rw.tweaks.dialogs.OptionDialog
 import com.rw.tweaks.dialogs.SecureListDialog
@@ -110,6 +113,21 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                 return PreferenceViewHolder.createInstanceForTests(cardView)
             }
         }
+    }
+
+    private val grid by lazy { StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL) }
+    private val linear by lazy { LinearLayoutManager(requireContext()) }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        listView?.layoutManager = if (newConfig.screenWidthDp >= 800)
+            grid else linear
+    }
+
+    override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
+        return if (resources.configuration.screenWidthDp >= 800)
+            grid else linear
     }
 
     internal fun markDangerous(group: PreferenceGroup) {
