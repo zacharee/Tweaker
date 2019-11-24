@@ -28,6 +28,7 @@ import com.rw.tweaks.prefs.secure.SecureSeekBarPreference
 import com.rw.tweaks.prefs.secure.SecureSwitchPreference
 import com.rw.tweaks.prefs.secure.specific.*
 import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.dpAsPx
 import com.rw.tweaks.util.mainHandler
 
 abstract class BasePrefFragment : PreferenceFragmentCompat() {
@@ -97,6 +98,20 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             override fun getItemViewType(position: Int): Int {
                 return position
+            }
+
+            @SuppressLint("RestrictedApi")
+            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
+                super.onBindViewHolder(holder, position)
+
+                val item = holder.itemView
+
+                if (item is CardView) {
+                    (item.layoutParams as ViewGroup.MarginLayoutParams).apply {
+                        topMargin = requireContext().dpAsPx(if (position == 0) 16 else 8)
+                        bottomMargin = requireContext().dpAsPx(if (position == itemCount - 1) 16 else 8)
+                    }
+                }
             }
 
             @SuppressLint("RestrictedApi")

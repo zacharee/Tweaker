@@ -6,9 +6,11 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rw.tweaks.R
+import kotlin.math.roundToInt
 
 enum class SettingsType(val value: Int) {
     UNDEFINED(-1),
@@ -104,3 +106,10 @@ fun Context.apiToName(api: Int): String {
         else -> throw IllegalArgumentException("Invalid API level: $api")
     })
 }
+
+fun Context.dpAsPx(dpVal: Number) =
+    TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        dpVal.toFloat(),
+        resources.displayMetrics
+    ).roundToInt()
