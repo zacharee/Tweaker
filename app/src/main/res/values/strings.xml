@@ -186,11 +186,11 @@
     <string name="compatibility_message_both">Sorry, this feature only works from Android %1$s to Android %2$s</string>
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
 
-    <string name="android_marshmallow">Marshmallow</string>
-    <string name="android_nougat">Nougat</string>
+    <string name="android_marshmallow">Marshmallow 6.0</string>
+    <string name="android_nougat">Nougat 7.0</string>
     <string name="android_nougat_7_1">Nougat 7.1</string>
-    <string name="android_oreo">Oreo</string>
+    <string name="android_oreo">Oreo 8.0</string>
     <string name="android_oreo_8_1">Oreo 8.1</string>
-    <string name="android_pie">Pie</string>
+    <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
 </resources>
