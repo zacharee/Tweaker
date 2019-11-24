@@ -17,6 +17,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
@@ -24,7 +25,7 @@
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:clipToPadding="false"
     android:baselineAligned="false">
 
@@ -37,20 +38,25 @@
             android:id="@+id/icon_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="56dp"
-            android:gravity="start|center_vertical"
+            android:minWidth="48dp"
+            android:elevation="4dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:paddingStart="0dp"
-            android:paddingEnd="8dp"
+            android:background="@drawable/circle_selector"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="4dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp">
 
-            <androidx.preference.internal.PreferenceImageView
+            <com.rw.tweaks.views.PreferenceImageView
                 android:id="@android:id/icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:maxWidth="48dp"
-                app:maxHeight="48dp"/>
+                app:maxHeight="48dp"
+                tools:src="@drawable/link"
+                />
 
         </LinearLayout>
 
@@ -87,8 +93,8 @@
     <!-- Preference should place its actual preference widget here. -->
     <LinearLayout
         android:id="@android:id/widget_frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="end|center_vertical"
         android:paddingStart="16dp"
         android:paddingEnd="0dp"

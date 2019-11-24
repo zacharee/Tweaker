@@ -137,7 +137,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     a.recycle()
 
                     val view: View =
-                        inflater.inflate(item.layoutResource, parent, false)
+                        inflater.inflate(R.layout.custom_preference, parent, false)
                     if (view.background == null) {
                         ViewCompat.setBackground(view, background)
                     }
