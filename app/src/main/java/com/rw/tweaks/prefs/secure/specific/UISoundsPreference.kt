@@ -16,6 +16,7 @@ class UISoundsPreference(context: Context, attrs: AttributeSet) : DialogPreferen
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_phonelink_ring_24)
 
         init(this)
     }

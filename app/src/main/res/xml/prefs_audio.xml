@@ -6,6 +6,7 @@
         android:title="@string/feature_disable_safe_audio_warning"
         android:summary="@string/feature_disable_safe_audio_warning_desc"
         android:key="audio_safe_volume_state"
+        android:icon="@drawable/ic_baseline_volume_off_24"
         app:enabled_value="0"
         app:disabled_value="1"
         app:settings_type="global"

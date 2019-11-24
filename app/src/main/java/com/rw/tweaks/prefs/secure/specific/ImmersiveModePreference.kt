@@ -16,6 +16,7 @@ class ImmersiveModePreference(context: Context, attrs: AttributeSet) : DialogPre
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_fullscreen_24)
 
         init(this)
     }

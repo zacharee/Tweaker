@@ -16,6 +16,7 @@ class SMSLimitsPreference(context: Context, attrs: AttributeSet) : DialogPrefere
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.message_text_lock)
 
         init(this)
     }

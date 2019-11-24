@@ -13,8 +13,10 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : DialogP
 
         setTitle(R.string.feature_custom_animation_scales)
         setSummary(R.string.feature_custom_animation_scales_desc)
+
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.animation)
 
         init(this)
     }

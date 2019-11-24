@@ -16,6 +16,7 @@ class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : Dia
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_visibility_24)
 
         init(this)
     }

@@ -17,6 +17,7 @@ class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : DialogPre
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.lock_open)
 
         lowApi = Build.VERSION_CODES.O
         highApi = Build.VERSION_CODES.O_MR1

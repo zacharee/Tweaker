@@ -16,6 +16,7 @@ class StorageThresholdPreference(context: Context, attrs: AttributeSet) : Dialog
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_disc_full_24)
 
         init(this)
     }

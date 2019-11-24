@@ -16,6 +16,7 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPr
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_camera_24)
 
         init(this)
     }

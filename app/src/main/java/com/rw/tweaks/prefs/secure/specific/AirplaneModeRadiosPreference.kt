@@ -16,6 +16,7 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Dial
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.ic_baseline_airplanemode_active_24)
 
         init(this)
     }

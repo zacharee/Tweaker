@@ -22,6 +22,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPrefere
 
         dialogTitle = title
         dialogMessage = summary
+        setIcon(R.drawable.link)
 
         init(this)
     }

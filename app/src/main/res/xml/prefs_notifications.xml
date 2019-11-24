@@ -6,6 +6,7 @@
         android:title="@string/feature_heads_up_notifications"
         android:summary="@string/feature_heads_up_notifications_desc"
         android:key="heads_up_notifications_enabled"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
         app:settings_type="global"
         />
 
@@ -14,6 +15,7 @@
         android:summary="@string/feature_heads_up_snooze_length_desc"
         android:key="heads_up_snooze_length_ms"
         android:defaultValue="60000"
+        android:icon="@drawable/ic_baseline_notifications_paused_24"
         app:units="ms"
         app:settings_type="global"
         app:minValue="0"
