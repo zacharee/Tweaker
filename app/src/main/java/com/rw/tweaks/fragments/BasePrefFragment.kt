@@ -11,7 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.cardview.widget.CardView
+import androidx.core.view.ViewCompat
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -93,24 +95,65 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
+            override fun getItemViewType(position: Int): Int {
+                return position
+            }
+
             @SuppressLint("RestrictedApi")
             override fun onCreateViewHolder(
                 parent: ViewGroup,
                 viewType: Int
             ): PreferenceViewHolder {
-                val vh = super.onCreateViewHolder(parent, viewType)
-                val cardView = LayoutInflater.from(parent.context).inflate(R.layout.pref_card, parent, false) as CardView
+                val item = getItem(viewType)
+                return run {
+                    val inflater = LayoutInflater.from(parent.context)
+                    val a = parent.context.obtainStyledAttributes(
+                        null,
+                        androidx.preference.R.styleable.BackgroundStyle
+                    )
+                    var background =
+                        a.getDrawable(androidx.preference.R.styleable.BackgroundStyle_android_selectableItemBackground)
+                    if (background == null) {
+                        background = AppCompatResources.getDrawable(
+                            parent.context,
+                            android.R.drawable.list_selector_background
+                        )
+                    }
+                    a.recycle()
 
-                cardView.addView(vh.itemView)
-                cardView.findViewById<TextView>(android.R.id.title).apply {
-                    setSingleLine(false)
-                }
-                cardView.findViewById<TextView>(android.R.id.summary).apply {
-                    maxLines = 2
-                    ellipsize = TextUtils.TruncateAt.END
-                }
+                    val view: View =
+                        inflater.inflate(item.layoutResource, parent, false)
+                    if (view.background == null) {
+                        ViewCompat.setBackground(view, background)
+                    }
 
-                return PreferenceViewHolder.createInstanceForTests(cardView)
+                    val widgetFrame =
+                        view.findViewById<ViewGroup>(android.R.id.widget_frame)
+                    if (widgetFrame != null) {
+                        if (item.widgetLayoutResource != 0) {
+                            inflater.inflate(item.widgetLayoutResource, widgetFrame)
+                        } else {
+                            widgetFrame.visibility = View.GONE
+                        }
+                    }
+
+                    val newView = if (item is PreferenceGroup) view else run {
+                        val cardView = LayoutInflater.from(parent.context).inflate(R.layout.pref_card, parent, false) as CardView
+
+                        cardView.addView(view)
+                        cardView.findViewById<TextView>(android.R.id.title).apply {
+                            setSingleLine(false)
+                        }
+                        cardView.findViewById<TextView>(android.R.id.summary).apply {
+                            maxLines = 2
+                            ellipsize = TextUtils.TruncateAt.END
+                        }
+
+                        cardView
+                    }
+
+                    PreferenceViewHolder.createInstanceForTests(newView)
+                }
             }
         }
     }
