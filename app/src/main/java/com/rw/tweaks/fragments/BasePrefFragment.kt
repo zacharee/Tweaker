@@ -187,7 +187,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             grid else linear
     }
 
-    internal fun markDangerous(group: PreferenceGroup) {
+    private fun markDangerous(group: PreferenceGroup) {
         for (i in 0 until group.preferenceCount) {
             val child = group.getPreference(i)
 
@@ -198,7 +198,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         }
     }
 
-    internal fun markDangerous(preference: Preference) {
+    private fun markDangerous(preference: Preference) {
         preference.title = SpannableString(preference.title).apply {
             setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
         }
