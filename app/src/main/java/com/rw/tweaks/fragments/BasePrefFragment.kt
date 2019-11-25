@@ -94,24 +94,23 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         }
     }
 
+    override fun onCreateRecyclerView(
+        inflater: LayoutInflater?,
+        parent: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): RecyclerView {
+        return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
+            val padding = requireContext().dpAsPx(8)
+
+            it.setPaddingRelative(0, padding, 0, padding)
+            it.clipToPadding = false
+        }
+    }
+
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             override fun getItemViewType(position: Int): Int {
                 return position
-            }
-
-            @SuppressLint("RestrictedApi")
-            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
-                super.onBindViewHolder(holder, position)
-
-                val item = holder.itemView
-
-                if (item is CardView) {
-                    (item.layoutParams as ViewGroup.MarginLayoutParams).apply {
-                        topMargin = requireContext().dpAsPx(if (position == 0) 16 else 8)
-                        bottomMargin = requireContext().dpAsPx(if (position == itemCount - 1) 16 else 8)
-                    }
-                }
             }
 
             @SuppressLint("RestrictedApi")
