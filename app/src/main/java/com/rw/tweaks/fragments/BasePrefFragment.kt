@@ -184,9 +184,11 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                         cardView.findViewById<TextView>(android.R.id.title).apply {
                             setSingleLine(false)
                         }
-                        cardView.findViewById<TextView>(android.R.id.summary).apply {
-                            maxLines = 2
-                            ellipsize = TextUtils.TruncateAt.END
+                        if (item.isEnabled) {
+                            cardView.findViewById<TextView>(android.R.id.summary).apply {
+                                maxLines = 2
+                                ellipsize = TextUtils.TruncateAt.END
+                            }
                         }
 
                         cardView
