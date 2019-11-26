@@ -12,6 +12,7 @@ import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceScreen
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.SecurePreference
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -76,7 +77,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         result(filter.await())
     }
 
-    class ActionedPreference(context: Context) : Preference(context) {
+    class ActionedPreference(context: Context) : Preference(context), ISecurePreference by SecurePreference(context) {
         companion object {
             fun fromPreference(context: Context, preference: Preference, action: Int): ActionedPreference {
                 return ActionedPreference(context).apply {
@@ -85,7 +86,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     icon = preference.icon
                     key = preference.key
                     if (preference is ISecurePreference){
-                        isDangerous = preference.dangerous
+                        dangerous = preference.dangerous
+                        iconColor = preference.iconColor
                     }
                     this.action = action
                 }
@@ -97,7 +99,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
 
         var action: Int = 0
-        var isDangerous = false
+
+        override var dangerous: Boolean = false
             set(value) {
                 field = value
                 markDangerous()
@@ -108,7 +111,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
 
         fun markDangerous() {
-            title = if (isDangerous) {
+            title = if (dangerous) {
                 SpannableString(title).apply {
                     setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
                 }
