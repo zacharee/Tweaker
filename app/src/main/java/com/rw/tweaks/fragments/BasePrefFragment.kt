@@ -3,6 +3,8 @@ package com.rw.tweaks.fragments
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
@@ -30,6 +32,7 @@ import com.rw.tweaks.prefs.secure.specific.*
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.dpAsPx
 import com.rw.tweaks.util.mainHandler
+import kotlinx.android.synthetic.main.custom_preference.view.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat() {
     companion object {
@@ -111,6 +114,29 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             override fun getItemViewType(position: Int): Int {
                 return position
+            }
+
+            @SuppressLint("RestrictedApi")
+            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
+                super.onBindViewHolder(holder, position)
+
+                val item = getItem(position)
+
+                if (item is ISecurePreference) {
+                    holder.itemView.icon_frame.apply {
+                        val color = item.iconColor
+
+                        (background as StateListDrawable).apply {
+                            val drawable = getStateDrawable(1)
+
+                            if (color != Int.MIN_VALUE) {
+                                drawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                            } else {
+                                drawable.clearColorFilter()
+                            }
+                        }
+                    }
+                }
             }
 
             @SuppressLint("RestrictedApi")

@@ -3,6 +3,7 @@ package com.rw.tweaks.prefs.secure.specific
 import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
@@ -23,6 +24,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPrefere
         dialogTitle = title
         dialogMessage = summary
         setIcon(R.drawable.link)
+        iconColor = ContextCompat.getColor(context, R.color.pref_color_1)
 
         init(this)
     }

@@ -30,6 +30,7 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : DialogPre
         dangerous = array.getBoolean(R.styleable.SecureSeekBarPreference_dangerous, false)
         lowApi = array.getInt(R.styleable.SecureSeekBarPreference_low_api, lowApi)
         highApi = array.getInt(R.styleable.SecureSeekBarPreference_high_api, highApi)
+        iconColor = array.getColor(R.styleable.SecureSeekBarPreference_icon_color, iconColor)
 
         dialogMessage = summary
 

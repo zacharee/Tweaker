@@ -2,6 +2,7 @@ package com.rw.tweaks.prefs.secure.specific
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
@@ -17,6 +18,7 @@ class ImmersiveModePreference(context: Context, attrs: AttributeSet) : DialogPre
         dialogTitle = title
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_fullscreen_24)
+        iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
 
         init(this)
     }

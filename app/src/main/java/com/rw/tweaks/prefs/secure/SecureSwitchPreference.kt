@@ -10,7 +10,7 @@ import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 import com.rw.tweaks.util.writeSetting
 
-open class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
+class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     companion object {
         const val DEFAULT_ENABLED = "1"
         const val DEFAULT_DISABLED = "0"
@@ -30,6 +30,7 @@ open class SecureSwitchPreference(context: Context, attrs: AttributeSet) : Dialo
         dangerous = array.getBoolean(R.styleable.SecureSwitchPreference_dangerous, false)
         lowApi = array.getInt(R.styleable.SecureSwitchPreference_low_api, lowApi)
         highApi = array.getInt(R.styleable.SecureSwitchPreference_high_api, highApi)
+        iconColor = array.getColor(R.styleable.SecureSwitchPreference_icon_color, iconColor)
 
         val clazz = array.getString(R.styleable.SecureSwitchPreference_visibility_verifier)
         if (clazz != null) {

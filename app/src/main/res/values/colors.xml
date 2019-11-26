@@ -11,4 +11,12 @@
     <color name="slide_4">#4500A8</color>
     <color name="slide_5">#552299</color>
     <color name="slide_6">#3300A8</color>
+
+    <color name="pref_color_1">#03a9f4</color>
+    <color name="pref_color_2">#5e35b1</color>
+    <color name="pref_color_3">#00796b</color>
+    <color name="pref_color_4">#311b92</color>
+    <color name="pref_color_5">#d84315</color>
+    <color name="pref_color_6">#fdd835</color>
+    <color name="pref_color_7">#388e3c</color>
 </resources>

@@ -2,6 +2,7 @@ package com.rw.tweaks.prefs.secure.specific
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
@@ -17,6 +18,7 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPr
         dialogTitle = title
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_camera_24)
+        iconColor = ContextCompat.getColor(context, R.color.pref_color_6)
 
         init(this)
     }

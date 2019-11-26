@@ -9,6 +9,7 @@
         android:defaultValue="5"
         android:inputType="number"
         android:icon="@drawable/progress_clock"
+        app:icon_color="@color/pref_color_6"
         app:settings_type="secure"
         />
 
@@ -18,6 +19,7 @@
         android:key="low_power_trigger_level"
         android:defaultValue="5"
         android:icon="@drawable/ic_baseline_battery_alert_24"
+        app:icon_color="@color/pref_color_3"
         app:units="%"
         app:minValue="0"
         app:maxValue="100"
@@ -30,6 +32,7 @@
         android:key="font_scale"
         android:defaultValue="100"
         android:icon="@drawable/ic_baseline_format_size_24"
+        app:icon_color="@color/pref_color_7"
         app:minValue="20"
         app:maxValue="300"
         app:scale="0.01"
@@ -42,6 +45,7 @@
         android:key="user_rotation"
         android:defaultValue="0"
         android:icon="@drawable/ic_baseline_screen_lock_rotation_24"
+        app:icon_color="@color/pref_color_6"
         app:settings_type="system"
         app:entries="@array/user_rotation_names"
         app:entryValues="@array/user_rotation_values"

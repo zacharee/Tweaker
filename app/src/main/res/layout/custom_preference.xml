@@ -45,17 +45,14 @@
             android:orientation="horizontal"
             android:background="@drawable/circle_selector"
             android:layout_marginEnd="12dp"
-            android:layout_marginStart="4dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp">
+            android:layout_marginStart="4dp">
 
             <com.rw.tweaks.views.PreferenceImageView
                 android:id="@android:id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="center"
                 android:elevation="8dp"
-                app:maxWidth="48dp"
-                app:maxHeight="48dp"
                 tools:src="@drawable/link"
                 />
 

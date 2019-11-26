@@ -17,6 +17,7 @@ interface ISecurePreference {
     var visibilityVerifier: BaseVisibilityVerifier?
     var lowApi: Int
     var highApi: Int
+    var iconColor: Int
 
     fun onValueChanged(newValue: Any?, key: String?)
 
@@ -30,6 +31,7 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
     override var visibilityVerifier: BaseVisibilityVerifier? = null
     override var lowApi: Int = ISecurePreference.API_UNDEFINED
     override var highApi: Int = ISecurePreference.API_UNDEFINED
+    override var iconColor: Int = Int.MIN_VALUE
 
     override fun onValueChanged(newValue: Any?, key: String?) {}
 

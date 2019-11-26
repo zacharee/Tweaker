@@ -7,6 +7,7 @@
         android:summary="@string/feature_shortcode_warning_desc"
         android:key="sms_short_code_confirmation"
         android:icon="@drawable/ic_baseline_sms_failed_24"
+        app:icon_color="@color/pref_color_5"
         app:enabled_value="false"
         app:disabled_value="true"
         app:settings_type="global"

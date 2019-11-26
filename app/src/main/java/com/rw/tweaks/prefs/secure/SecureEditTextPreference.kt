@@ -23,6 +23,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         inputType = array.getInt(R.styleable.SecureEditTextPreference_android_inputType, inputType)
         lowApi = array.getInt(R.styleable.SecureEditTextPreference_low_api, lowApi)
         highApi = array.getInt(R.styleable.SecureEditTextPreference_high_api, highApi)
+        iconColor = array.getColor(R.styleable.SecureEditTextPreference_icon_color, iconColor)
 
         val clazz = array.getString(R.styleable.SecureEditTextPreference_visibility_verifier)
         if (clazz != null) {

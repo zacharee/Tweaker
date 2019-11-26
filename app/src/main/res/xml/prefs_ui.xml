@@ -8,6 +8,7 @@
         android:key="long_press_timeout"
         android:defaultValue="400"
         android:icon="@drawable/tap_hold"
+        app:icon_color="@color/pref_color_3"
         app:units="ms"
         app:minValue="100"
         app:maxValue="5000"

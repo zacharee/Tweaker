@@ -21,6 +21,7 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
         dangerous = array.getBoolean(R.styleable.SecureListPreference_dangerous, false)
         lowApi = array.getInt(R.styleable.SecureListPreference_low_api, lowApi)
         highApi = array.getInt(R.styleable.SecureListPreference_high_api, highApi)
+        iconColor = array.getColor(R.styleable.SecureListPreference_icon_color, iconColor)
 
         array.getString(R.styleable.SecureListPreference_verifier)?.let {
             verifier = context.classLoader.loadClass(it)
