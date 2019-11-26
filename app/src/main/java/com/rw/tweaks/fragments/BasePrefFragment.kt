@@ -105,7 +105,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
             val padding = requireContext().dpAsPx(8)
 
-            it.setPaddingRelative(0, padding, 0, padding)
+            it.setPaddingRelative(padding, padding, padding, padding)
             it.clipToPadding = false
         }
     }
