@@ -5,7 +5,10 @@ import android.util.AttributeSet
 import com.qhutch.elevationimageview.ElevationImageView
 
 
-open class DisableableImageView(context: Context, attrs: AttributeSet, defStyleAttr: Int) : ElevationImageView(context, attrs, defStyleAttr) {
+open class DisableableImageView : ElevationImageView {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     override fun setEnabled(enabled: Boolean) {
         if (this.isEnabled != enabled) {
             this.imageAlpha = if (enabled) 0xFF else 0x3F

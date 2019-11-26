@@ -85,7 +85,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
-                    if (preference is ISecurePreference){
+                    if (preference is ISecurePreference) {
                         dangerous = preference.dangerous
                         iconColor = preference.iconColor
                     }
