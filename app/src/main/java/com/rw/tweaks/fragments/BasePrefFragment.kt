@@ -21,10 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rw.tweaks.R
-import com.rw.tweaks.dialogs.OptionDialog
-import com.rw.tweaks.dialogs.SecureListDialog
-import com.rw.tweaks.dialogs.SeekBarOptionDialog
-import com.rw.tweaks.dialogs.SwitchOptionDialog
+import com.rw.tweaks.dialogs.*
+import com.rw.tweaks.prefs.secure.SecureEditTextPreference
 import com.rw.tweaks.prefs.secure.SecureListPreference
 import com.rw.tweaks.prefs.secure.SecureSeekBarPreference
 import com.rw.tweaks.prefs.secure.SecureSwitchPreference
@@ -56,6 +54,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             is TetheringPreference -> SwitchOptionDialog.newInstance(preference.key, "false", "true", preference.bothFixed)
             is SMSLimitsPreference -> OptionDialog.newInstance(preference.key, R.layout.sms_limits)
             is LockscreenShortcutsPref -> OptionDialog.newInstance(preference.key, R.layout.lockscreen_shortcuts)
+            is SecureEditTextPreference -> SecureEditTextDialog.newInstance(preference.key)
             else -> null
         }
 

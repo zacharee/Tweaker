@@ -12,6 +12,9 @@
         <item name="alertDialogTheme">@style/DialogTheme</item>
         <item name="alertDialogStyle">@style/DialogTheme</item>
         <item name="dialogTheme">@style/DialogTheme</item>
+        <item name="android:dialogTheme">@style/DialogTheme</item>
+        <item name="android:alertDialogStyle">@style/DialogTheme</item>
+        <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="toolbarStyle">@style/ActionBarStyle</item>
 
         <item name="material_drawer_background">@color/material_drawer_dark_background</item>
@@ -36,6 +39,8 @@
         <item name="buttonBarPositiveButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNeutralButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNegativeButtonStyle">@style/AppTheme.Alert.Button</item>
+        <item name="android:windowEnterAnimation">@anim/scale_in</item>
+        <item name="android:windowExitAnimation">@anim/scale_out</item>
     </style>
 
     <style name="AppTheme.Alert.Button" parent="Widget.MaterialComponents.Button.TextButton">

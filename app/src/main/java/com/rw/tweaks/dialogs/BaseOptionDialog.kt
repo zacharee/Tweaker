@@ -1,6 +1,8 @@
 package com.rw.tweaks.dialogs
 
+import android.app.Dialog
 import android.content.Context
+import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
@@ -20,6 +22,12 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         get() = (preference as ISecurePreference).writeKey
     internal val type: SettingsType
         get() = (preference as ISecurePreference).type
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return super.onCreateDialog(savedInstanceState).also {
+            it.window.setWindowAnimations(R.style.DialogTheme)
+        }
+    }
 
     override fun onCreateDialogView(context: Context?): View {
         return View.inflate(context, R.layout.base_dialog_layout, null)

@@ -1,5 +1,6 @@
 package com.rw.tweaks.dialogs
 
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
@@ -26,6 +27,12 @@ class SecureListDialog : PreferenceDialogFragmentCompat() {
     }
 
     private var clickedIndex = -1
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return super.onCreateDialog(savedInstanceState).also {
+            it.window.setWindowAnimations(R.style.DialogTheme)
+        }
+    }
 
     override fun onCreateDialogView(context: Context?): View {
         return View.inflate(context, R.layout.list_dialog_layout, null)
