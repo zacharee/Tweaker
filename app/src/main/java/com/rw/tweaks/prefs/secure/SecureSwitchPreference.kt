@@ -4,11 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SecurePreference
-import com.rw.tweaks.util.SettingsType
+import com.rw.tweaks.util.*
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
-import com.rw.tweaks.util.writeSetting
 
 class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     companion object {
@@ -47,6 +44,7 @@ class SecureSwitchPreference(context: Context, attrs: AttributeSet) : DialogPref
     }
 
     override fun onValueChanged(newValue: Any?, key: String?) {
+        context.prefManager.putString(key!!, newValue?.toString())
         context.writeSetting(type, writeKey, newValue)
     }
 }

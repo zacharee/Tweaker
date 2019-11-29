@@ -65,6 +65,7 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
         val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
 
         if (update) {
+            context.prefManager.putInt(writeKey!!, newValue.toString().toInt())
             context.writeSetting(type, writeKey, newValue.toString().toInt())
         }
 

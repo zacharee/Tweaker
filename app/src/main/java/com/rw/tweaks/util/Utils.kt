@@ -1,8 +1,12 @@
 package com.rw.tweaks.util
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.N_MR1
+import android.os.Build.VERSION_CODES.O
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
@@ -10,18 +14,44 @@ import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rw.tweaks.R
+import java.util.*
 import kotlin.math.roundToInt
 
 enum class SettingsType(val value: Int) {
     UNDEFINED(-1),
     GLOBAL(0),
     SECURE(1),
-    SYSTEM(2),
+    SYSTEM(2);
+
+    companion object {
+        const val UNDEFINED_LITERAL = "undefined"
+        const val GLOBAL_LITERAL = "global"
+        const val SECURE_LITERAL = "secure"
+        const val SYSTEM_LITERAL = "system"
+
+        fun fromString(input: String): SettingsType {
+            return when (input.toLowerCase(Locale.getDefault())) {
+                GLOBAL_LITERAL -> GLOBAL
+                SECURE_LITERAL -> SECURE
+                SYSTEM_LITERAL -> SYSTEM
+                else -> UNDEFINED
+            }
+        }
+    }
+
+    override fun toString(): String {
+        return when (this) {
+            UNDEFINED -> UNDEFINED_LITERAL
+            GLOBAL -> GLOBAL_LITERAL
+            SECURE -> SECURE_LITERAL
+            SYSTEM -> SYSTEM_LITERAL
+        }
+    }
 }
 
 val mainHandler = Handler(Looper.getMainLooper())
 
-val api: Int = Build.VERSION.SDK_INT
+val api: Int = SDK_INT
 
 val Context.prefManager: PrefManager
     get() = PrefManager.getInstance(this)
@@ -113,3 +143,34 @@ fun Context.dpAsPx(dpVal: Number) =
         dpVal.toFloat(),
         resources.displayMetrics
     ).roundToInt()
+
+fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
+    val intent = Intent()
+    when {
+        SDK_INT >= Build.VERSION_CODES.P -> {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (channel != null) {
+                intent.action = Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS
+                intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel)
+            } else {
+                intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+            }
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        }
+        SDK_INT >= O -> {
+            if (channel != null) {
+                intent.action = Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS
+                intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel)
+            } else {
+                intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+            }
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        }
+        SDK_INT >= N_MR1 -> {
+            intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+            intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        }
+    }
+
+    return intent
+}

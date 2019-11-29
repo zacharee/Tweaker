@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeGlobal
 import kotlinx.android.synthetic.main.sms_limits.view.*
 
@@ -20,33 +21,41 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
         interval.editText?.setText(Settings.Global.getInt(context.contentResolver, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF).toString())
 
         max_count.setStartIconOnClickListener {
+            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
             max_count.editText?.setText(COUNT_DEF.toString())
         }
 
         interval.setStartIconOnClickListener {
+            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
             interval.editText?.setText(INTERVAL_DEF.toString())
         }
 
         max_count.setEndIconOnClickListener {
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, max_count.editText?.text.run {
+            val c = max_count.editText?.text.run {
                 when {
                     this == null -> COUNT_DEF
                     isBlank() -> COUNT_DEF
                     else -> this.toString().toInt()
                 }
-            })
+            }
+
+            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
+            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
         }
 
         interval.setEndIconOnClickListener {
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, interval.editText?.text.run {
+            val i = interval.editText?.text.run {
                 when {
                     this == null -> INTERVAL_DEF
                     isBlank() -> INTERVAL_DEF
                     else -> this.toString().toInt()
                 }
-            })
+            }
+
+            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
+            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
         }
     }
 }

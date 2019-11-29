@@ -142,8 +142,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         val type: ImmersiveManager.ImmersiveMode
     )
 
-    private class ImmersiveSelectionCallbackWrapper(private val callback: (checked: List<String>) -> Unit) :
-        IImmersiveSelectionCallback.Stub() {
+    private class ImmersiveSelectionCallbackWrapper(private val callback: (checked: List<String>) -> Unit) : IImmersiveSelectionCallback.Stub() {
         override fun onImmersiveResult(checked: MutableList<Any?>) {
             callback(checked.map { it.toString() })
         }

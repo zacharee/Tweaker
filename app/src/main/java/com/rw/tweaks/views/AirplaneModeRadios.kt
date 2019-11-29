@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.R
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeGlobal
 import kotlinx.android.synthetic.main.airplane_mode_radio.view.*
 import kotlinx.android.synthetic.main.airplane_mode_radios.view.*
@@ -115,8 +116,13 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
                 if (it.isToggleable) toggleable.add(it.id)
             }
 
-            context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, blacklisted.joinToString(separator = ","))
-            context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, toggleable.joinToString(separator = ","))
+            val blString = blacklisted.joinToString(",")
+            val toggleString = toggleable.joinToString(",")
+
+            context.prefManager.putString(Settings.Global.AIRPLANE_MODE_RADIOS, blString)
+            context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, blString)
+            context.prefManager.putString(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, toggleString)
+            context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, toggleString)
         }
     }
 }

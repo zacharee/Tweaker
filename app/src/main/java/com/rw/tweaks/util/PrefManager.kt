@@ -13,7 +13,19 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
                 PrefManager(context.applicationContext).also { instance = it }
             }
         }
+
+        const val PERSISTENT_OPTIONS = "persistent_options"
     }
+
+    /**
+     * Should be in format type:key
+     * @see [PersistentOption]
+     */
+    var persistentOptions: HashSet<PersistentOption>
+        get() = HashSet(getStringSet(PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
+        set(value) {
+            putStringSet(PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
+        }
 
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)
 

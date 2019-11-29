@@ -8,6 +8,7 @@ import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SecurePreference
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeGlobal
 
 class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
@@ -32,7 +33,9 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPrefere
     override fun onValueChanged(newValue: Any?, key: String?) {
         val enabled = newValue.toString().toBoolean()
 
+        context.prefManager.putInt(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
         context.writeGlobal(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
+        context.prefManager.putString(Settings.Global.TETHER_SUPPORTED, if (enabled) "true" else "false")
         context.writeGlobal(Settings.Global.TETHER_SUPPORTED, if (enabled) "true" else "false")
     }
 }

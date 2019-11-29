@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.IUISoundSelectionCallback
 import com.rw.tweaks.R
 import com.rw.tweaks.activities.UISoundSelector
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeGlobal
 import kotlinx.android.synthetic.main.ui_sounds.view.*
 import kotlinx.android.synthetic.main.ui_sounds_item.view.*
@@ -21,6 +22,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         disable_charging_sound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
         disable_charging_sound.setOnCheckedChangeListener { _, isChecked ->
+            context.prefManager.putInt(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
             context.writeGlobal(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
         }
 
@@ -87,7 +89,8 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         private val callback = object : IUISoundSelectionCallback.Stub() {
             override fun onSoundSelected(uri: String, key: String) {
-                context.writeGlobal(key, uri.toString())
+                context.prefManager.putString(key, uri)
+                context.writeGlobal(key, uri)
 
                 val index = items.indexOfFirst { it.key == key }
                 notifyItemChanged(index)
@@ -122,6 +125,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 reset.setOnClickListener {
                     val item = items[holder.adapterPosition]
 
+                    context.prefManager.putString(item.key, item.default)
                     context.writeGlobal(item.key, item.default)
                     notifyItemChanged(holder.adapterPosition)
                 }

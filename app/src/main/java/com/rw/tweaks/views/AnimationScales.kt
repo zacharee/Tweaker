@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
+import com.rw.tweaks.util.prefManager
 import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
@@ -18,6 +19,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
+                    context.prefManager.putFloat(Settings.Global.ANIMATOR_DURATION_SCALE, newScaledValue)
                     Settings.Global.putFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, newScaledValue)
                 }
             }
@@ -30,6 +32,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
+                    context.prefManager.putFloat(Settings.Global.WINDOW_ANIMATION_SCALE, newScaledValue)
                     Settings.Global.putFloat(context.contentResolver, Settings.Global.WINDOW_ANIMATION_SCALE, newScaledValue)
                 }
             }
@@ -42,6 +45,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
+                    context.prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, newScaledValue)
                     Settings.Global.putFloat(context.contentResolver, Settings.Global.TRANSITION_ANIMATION_SCALE, newScaledValue)
                 }
             }

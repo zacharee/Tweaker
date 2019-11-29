@@ -60,6 +60,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
 
         if (update) {
+            context.prefManager.putString(writeKey!!, newValue.toString())
             context.writeSetting(type, writeKey, newValue.toString())
         }
 

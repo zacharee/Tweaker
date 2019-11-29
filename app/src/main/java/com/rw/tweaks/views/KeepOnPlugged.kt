@@ -6,6 +6,7 @@ import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.CompoundButton
 import android.widget.ScrollView
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeGlobal
 import kotlinx.android.synthetic.main.keep_device_plugged_dialog.view.*
 
@@ -40,6 +41,7 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
                 else -> current
             }
 
+            context.prefManager.putInt(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, result)
             context.writeGlobal(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, result)
         }
 

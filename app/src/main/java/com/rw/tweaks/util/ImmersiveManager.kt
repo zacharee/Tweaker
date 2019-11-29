@@ -47,7 +47,10 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         if (statusMode.isNotBlank()) modes.add(statusMode)
         if (navMode.isNotBlank()) modes.add(navMode)
 
-        writeGlobal(Settings.Global.POLICY_CONTROL, if (modes.isEmpty()) ImmersiveMode.NONE.type else modes.joinToString(separator = ":"))
+        val string = if (modes.isEmpty()) ImmersiveMode.NONE.type else modes.joinToString(separator = ":")
+
+        prefManager.putString(Settings.Global.POLICY_CONTROL, string)
+        writeGlobal(Settings.Global.POLICY_CONTROL, string)
     }
 
     fun parseAdvancedImmersive(): ImmersiveInfo {

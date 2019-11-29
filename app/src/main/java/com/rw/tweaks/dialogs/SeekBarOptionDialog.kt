@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.rw.tweaks.R
 import com.rw.tweaks.util.getSetting
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeSetting
 import kotlinx.android.synthetic.main.seekbar_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
@@ -50,7 +51,14 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-        requireContext().writeSetting(type, writeKey, if (scale == 1f) newValue else newScaledValue)
+        val new: Number = if (scale == 1f) newValue else newScaledValue
+
+        when (new) {
+            is Int -> requireContext().prefManager.putInt(writeKey!!, new)
+            is Float -> requireContext().prefManager.putFloat(writeKey!!, new)
+        }
+
+        requireContext().writeSetting(type, writeKey, new)
         notifyChanged(newScaledValue)
     }
 }
