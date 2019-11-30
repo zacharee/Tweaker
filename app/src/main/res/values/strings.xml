@@ -37,7 +37,7 @@
     <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. We can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, we can change which radios can be toggled manually when the device enters airplane mode.</string>
 
     <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
-    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, we can see whatever value (in seconds) that we want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
+    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, we can set whatever value (in milliseconds) that we want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
 
     <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
