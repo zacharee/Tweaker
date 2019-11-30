@@ -30,12 +30,11 @@
     android:baselineAligned="false">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!--TODO: Make this a MaterialShadows wrapper again sometime (causes crashes when holders are recycleable)-->
         <FrameLayout
             android:id="@+id/icon_frame"
             android:layout_width="wrap_content"
@@ -56,6 +55,7 @@
                 android:scaleType="center"
                 android:elevation="8dp"
                 tools:src="@drawable/link"
+                android:background="@drawable/circle_shadow"
                 />
 
         </FrameLayout>

@@ -13,9 +13,6 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
     private val persistent by lazy { requireContext().prefManager.persistentOptions }
 
-    //TODO: MaterialShadows crashes if we allow recycling
-//    override val recycle = false
-
     override val widgetLayout: Int = R.layout.checkbox
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
