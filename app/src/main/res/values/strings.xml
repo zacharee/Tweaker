@@ -16,6 +16,7 @@
     <string name="category_oem">OEM Features</string>
     <string name="category_system">System</string>
     <string name="category_ui">UI</string>
+    <string name="screen_persistent">Persistent Options</string>
 
     <string name="sub_cellular">Cellular</string>
     <string name="sub_wifi">Wi-Fi</string>

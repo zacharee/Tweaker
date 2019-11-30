@@ -7,9 +7,17 @@ import androidx.core.content.ContextCompat
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.ISpecificPreference
 import com.rw.tweaks.util.SecurePreference
+import com.rw.tweaks.util.SettingsType
 
-class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
+class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context), ISpecificPreference {
+    override var type: SettingsType = SettingsType.SECURE
+    override val keys: Array<String> = arrayOf(
+        "sysui_keyguard_left",
+        "sysui_keyguard_right"
+    )
+
     init {
         key = "lockscreen_shortcuts"
 

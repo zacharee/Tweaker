@@ -39,6 +39,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
 
+    open val prefLayout: Int = R.layout.custom_preference
+    open val widgetLayout: Int = 0
+    open val recycle = true
+
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
             is SecureSwitchPreference -> SwitchOptionDialog.newInstance(preference.key, preference.disabled, preference.enabled)
@@ -121,6 +125,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
                 val item = getItem(position)
 
+                holder.setIsRecyclable(recycle)
+
                 if (item is ISecurePreference) {
                     holder.itemView.icon_frame.apply {
                         val color = item.iconColor
@@ -161,7 +167,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     a.recycle()
 
                     val view: View =
-                        inflater.inflate(R.layout.custom_preference, parent, false)
+                        inflater.inflate(prefLayout, parent, false)
                     if (view.background == null) {
                         ViewCompat.setBackground(view, background)
                     }
@@ -169,8 +175,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     val widgetFrame =
                         view.findViewById<ViewGroup>(android.R.id.widget_frame)
                     if (widgetFrame != null) {
-                        if (item.widgetLayoutResource != 0) {
-                            inflater.inflate(item.widgetLayoutResource, widgetFrame)
+                        if (widgetLayout != 0) {
+                            inflater.inflate(widgetLayout, widgetFrame)
                         } else {
                             widgetFrame.visibility = View.GONE
                         }

@@ -38,6 +38,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         observer.register()
+        prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -52,6 +53,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
             val notification = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                 .setContentTitle(resources.getText(R.string.app_name))
                 .setContentText(resources.getText(R.string.tap_to_disable))
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(
                     PendingIntent.getActivity(
                         this, 100, getNotificationSettingsForChannel(
@@ -69,6 +71,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onDestroy()
 
         observer.unregister()
+        prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     inner class ManagerImpl : IManager.Stub() {
@@ -79,17 +82,15 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         fun register() {
             unregister()
 
-            contentResolver.apply {
-                prefManager.persistentOptions.forEach {
-                    val uri = when (it.type) {
-                        SettingsType.GLOBAL -> Settings.Global.getUriFor(it.key)
-                        SettingsType.SECURE -> Settings.Secure.getUriFor(it.key)
-                        SettingsType.SYSTEM -> Settings.System.getUriFor(it.key)
-                        else -> return@forEach
-                    }
-
-                    registerContentObserver(uri, true, this@Observer)
+            prefManager.persistentOptions.forEach {
+                val uri = when (it.type) {
+                    SettingsType.GLOBAL -> Settings.Global.getUriFor(it.key)
+                    SettingsType.SECURE -> Settings.Secure.getUriFor(it.key)
+                    SettingsType.SYSTEM -> Settings.System.getUriFor(it.key)
+                    else -> return@forEach
                 }
+
+                contentResolver.registerContentObserver(uri, true, this@Observer)
             }
         }
 

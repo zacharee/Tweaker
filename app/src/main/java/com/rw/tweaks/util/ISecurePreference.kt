@@ -24,6 +24,10 @@ interface ISecurePreference {
     fun init(pref: Preference)
 }
 
+interface ISpecificPreference {
+    val keys: Array<String>
+}
+
 class SecurePreference(context: Context) : ContextWrapper(context), ISecurePreference {
     override var type: SettingsType = SettingsType.UNDEFINED
     override var writeKey: String? = null

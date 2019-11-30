@@ -6,12 +6,15 @@ import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import androidx.preference.DialogPreference
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SecurePreference
-import com.rw.tweaks.util.prefManager
-import com.rw.tweaks.util.writeGlobal
+import com.rw.tweaks.util.*
 
-class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
+class TetheringPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context), ISpecificPreference {
+    override var type: SettingsType = SettingsType.GLOBAL
+    override val keys: Array<String> = arrayOf(
+        Settings.Global.TETHER_DUN_REQUIRED,
+        Settings.Global.TETHER_SUPPORTED
+    )
+
     val bothFixed: Boolean
         get() = Settings.Global.getInt(context.contentResolver, Settings.Global.TETHER_DUN_REQUIRED, 1) == 0
                 && Settings.Global.getString(context.contentResolver, Settings.Global.TETHER_SUPPORTED) == "true"

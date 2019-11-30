@@ -30,11 +30,13 @@
     android:baselineAligned="false">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.sdsmdg.harjot.materialshadows.MaterialShadowFrameLayoutWrapper
+        <!--TODO: Make this a MaterialShadows wrapper again sometime (causes crashes when holders are recycleable)-->
+        <FrameLayout
             android:id="@+id/icon_frame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +58,7 @@
                 tools:src="@drawable/link"
                 />
 
-        </com.sdsmdg.harjot.materialshadows.MaterialShadowFrameLayoutWrapper>
+        </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
