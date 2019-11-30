@@ -33,6 +33,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
         }
 
         dialogMessage = summary
+        dialogLayoutResource = R.layout.better_edittext_dialog
 
         setOnBindEditTextListener {
             it.inputType = inputType
@@ -61,7 +62,7 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditText
 
         if (update) {
             context.prefManager.putString(writeKey!!, newValue.toString())
-            context.writeSetting(type, writeKey, newValue.toString())
+
         }
 
         return update

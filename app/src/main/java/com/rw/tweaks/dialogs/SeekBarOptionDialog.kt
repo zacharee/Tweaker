@@ -47,6 +47,7 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
         view.seekbar_view.onBind(min, max, progress.toInt(), default, scale, units, "", this@SeekBarOptionDialog)
     }
 
+
     override fun onProgressAdded() {}
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}

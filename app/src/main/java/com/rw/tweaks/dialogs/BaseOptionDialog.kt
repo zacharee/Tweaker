@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.PreferenceDialogFragmentCompat
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
@@ -27,6 +28,10 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         return super.onCreateDialog(savedInstanceState).also {
             it.window.setWindowAnimations(R.style.DialogTheme)
         }
+    }
+
+    override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {
+        builder.setNegativeButton(null, null)
     }
 
     override fun onCreateDialogView(context: Context?): View {

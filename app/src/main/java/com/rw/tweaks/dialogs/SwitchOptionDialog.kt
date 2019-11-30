@@ -2,6 +2,7 @@ package com.rw.tweaks.dialogs
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import com.rw.tweaks.R
 import com.rw.tweaks.util.getSetting
 import kotlinx.android.synthetic.main.secure_switch.view.*

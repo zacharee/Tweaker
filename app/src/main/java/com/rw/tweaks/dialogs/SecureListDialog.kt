@@ -39,7 +39,7 @@ class SecureListDialog : PreferenceDialogFragmentCompat() {
     }
 
     override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {
-        builder.setPositiveButton(null, null)
+        builder.setNegativeButton(null, null)
     }
 
     override fun onBindDialogView(view: View) {

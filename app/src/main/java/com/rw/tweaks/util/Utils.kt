@@ -13,6 +13,7 @@ import android.provider.Settings
 import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.preference.Preference
 import com.rw.tweaks.R
 import java.util.*
 import kotlin.math.roundToInt
@@ -61,6 +62,14 @@ val Context.hasSdCard: Boolean
 
 val Context.hasWss: Boolean
     get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
+
+val Preference.defaultValue: Any?
+    get() {
+        return Preference::class.java
+            .getDeclaredField("mDefaultValue")
+            .apply { isAccessible = true }
+            .get(this)
+    }
 
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
     when (type) {
