@@ -78,6 +78,7 @@ class SecureEditTextDialog : PreferenceDialogFragmentCompat() {
         view.edit_wrapper.apply {
             setStartIconOnClickListener {
                 apply(preference.defaultValue?.toString())
+                editText?.setText(preference.defaultValue?.toString())
             }
 
             setEndIconOnClickListener {
