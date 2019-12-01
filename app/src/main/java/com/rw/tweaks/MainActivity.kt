@@ -56,11 +56,11 @@ class MainActivity : AppCompatActivity() {
                     PrimaryDrawerItem()
                         .withName(R.string.category_display)
                 ),
-                NavigationDrawerItem(
-                    0,
-                    PrimaryDrawerItem()
-                        .withName(R.string.category_easter_eggs)
-                ),
+//                NavigationDrawerItem(
+//                    0,
+//                    PrimaryDrawerItem()
+//                        .withName(R.string.category_easter_eggs)
+//                ),
                 ExpandableDrawerItem()
                     .withName(R.string.category_network)
                     .withSelectable(false)
@@ -86,36 +86,36 @@ class MainActivity : AppCompatActivity() {
                     PrimaryDrawerItem()
                         .withName(R.string.category_notifications)
                 ),
-                ExpandableDrawerItem()
-                    .withSelectable(false)
-                    .withName(R.string.category_apps)
-                    .withSubItems(
-                        //TODO: Fill in
-                    ),
+//                ExpandableDrawerItem()
+//                    .withSelectable(false)
+//                    .withName(R.string.category_apps)
+//                    .withSubItems(
+//                        //TODO: Fill in
+//                    ),
                 ExpandableDrawerItem()
                     .withSelectable(false)
                     .withName(R.string.category_system)
                     .withSubItems(
-                        NavigationDrawerItem(
-                            0,
-                            IndentedSecondaryDrawerItem()
-                                .withName(R.string.sub_security)
-                        ),
+//                        NavigationDrawerItem(
+//                            0,
+//                            IndentedSecondaryDrawerItem()
+//                                .withName(R.string.sub_security)
+//                        ),
                         NavigationDrawerItem(
                             R.id.storageFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_storage)
-                        ),
-                        NavigationDrawerItem(
-                            0,
-                            IndentedSecondaryDrawerItem()
-                                .withName(R.string.sub_power)
-                        ),
-                        NavigationDrawerItem(
-                            0,
-                            IndentedSecondaryDrawerItem()
-                                .withName(R.string.sub_miscellaneous)
                         )
+//                        NavigationDrawerItem(
+//                            0,
+//                            IndentedSecondaryDrawerItem()
+//                                .withName(R.string.sub_power)
+//                        ),
+//                        NavigationDrawerItem(
+//                            0,
+//                            IndentedSecondaryDrawerItem()
+//                                .withName(R.string.sub_miscellaneous)
+//                        )
                     ),
                 NavigationDrawerItem(
                     R.id.UIFragment,
@@ -146,11 +146,11 @@ class MainActivity : AppCompatActivity() {
 
         searchFragment.onItemClickListener = { action, key ->
             navController.navigate(
-                    action,
-                    Bundle().apply {
-                        putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, key)
-                    }
-                )
+                action,
+                Bundle().apply {
+                    putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, key)
+                }
+            )
             searchView?.setQuery("", false)
             searchView?.isIconified = true
         }
