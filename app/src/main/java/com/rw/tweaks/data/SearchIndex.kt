@@ -23,6 +23,18 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     companion object {
         private var instance: SearchIndex? = null
 
+        private val toInflate = arrayOf(
+            R.xml.prefs_apps to R.id.appsFragment,
+            R.xml.prefs_developer to R.id.developerFragment,
+            R.xml.prefs_display to R.id.displayFragment,
+            R.xml.prefs_net_cellular to R.id.netCellFragment,
+            R.xml.prefs_net_misc to R.id.netMiscellaneousFragment,
+            R.xml.prefs_net_wifi to R.id.netWiFiFragment,
+            R.xml.prefs_notifications to R.id.notificationsFragment,
+            R.xml.prefs_storage to R.id.storageFragment,
+            R.xml.prefs_ui to R.id.UIFragment
+        )
+
         fun getInstance(context: Context): SearchIndex {
             return instance ?: kotlin.run {
                 SearchIndex(context.applicationContext).apply { instance = this }
@@ -34,13 +46,9 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     private val preferences = ArrayList<ActionedPreference>()
 
     private var isLoaded = async {
-        inflate(R.xml.prefs_apps, R.id.appsFragment)
-        inflate(R.xml.prefs_developer, R.id.developerFragment)
-        inflate(R.xml.prefs_display, R.id.displayFragment)
-        inflate(R.xml.prefs_net_misc, R.id.netMiscellaneousFragment)
-        inflate(R.xml.prefs_notifications, R.id.notificationsFragment)
-        inflate(R.xml.prefs_storage, R.id.storageFragment)
-        inflate(R.xml.prefs_ui, R.id.UIFragment)
+        toInflate.forEach {
+            inflate(it.first, it.second)
+        }
         true
     }
 
