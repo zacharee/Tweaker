@@ -96,6 +96,9 @@
     <string name="feature_lockscreen_shortcuts">Lockscreen Shortcuts</string>
     <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lockscreen shortcuts. However, the preference value can still be set manually.</string>
 
+    <string name="feature_enable_adb">Enable ADB</string>
+    <string name="feature_enable_adb_desc">Certain devices disable ADB automatically after a period of inactivity. Enable this option and set it as a Persistent Option to force-enable ADB.</string>
+
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
