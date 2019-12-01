@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
 import androidx.core.content.ContextCompat
+import androidx.preference.Preference
 import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
 import com.rw.tweaks.util.PersistentOption
+import com.rw.tweaks.util.forEach
+import com.rw.tweaks.util.hasPreference
 import com.rw.tweaks.util.prefManager
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
@@ -24,6 +27,8 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
                 preferenceScreen.addPreference(construct(pref))
             }
         }
+
+        preferenceScreen.isOrderingAsAdded = false
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,9 +39,24 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextChange(newText: String?): Boolean {
         searchIndex.filterPersistent(newText) {
-            preferenceScreen.removeAll()
+            val toRemove = ArrayList<Preference>()
+
+            preferenceScreen.forEach { _, child ->
+                if (!it.map { c -> c.key }.contains(child.key)) {
+                    toRemove.add(child)
+                }
+            }
+
+            toRemove.forEach { pref ->
+                preferenceScreen.removePreference(pref)
+            }
+
             it.forEach { pref ->
-                preferenceScreen.addPreference(construct(pref))
+                if (!preferenceScreen.hasPreference(pref.key)) {
+                    preferenceScreen.addPreference(
+                        SearchIndex.PersistentPreference.copy(requireContext(), pref)
+                    )
+                }
             }
         }
 

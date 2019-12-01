@@ -14,6 +14,7 @@ import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
+import androidx.preference.PreferenceGroup
 import com.rw.tweaks.R
 import java.util.*
 import kotlin.math.roundToInt
@@ -182,4 +183,18 @@ fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
     }
 
     return intent
+}
+
+inline fun PreferenceGroup.forEach(block: (index: Int, child: Preference) -> Unit) {
+    for (i in 0 until preferenceCount) {
+        block(i, getPreference(i))
+    }
+}
+
+fun PreferenceGroup.hasPreference(key: String): Boolean {
+    forEach { _, child ->
+        if (key == child.key) return@hasPreference true
+    }
+
+    return false
 }

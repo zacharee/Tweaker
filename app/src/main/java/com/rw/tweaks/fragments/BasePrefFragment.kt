@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rw.tweaks.R
+import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.dialogs.*
 import com.rw.tweaks.prefs.secure.SecureEditTextPreference
 import com.rw.tweaks.prefs.secure.SecureListPreference
@@ -46,19 +47,56 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
-            is SecureSwitchPreference -> SwitchOptionDialog.newInstance(preference.key, preference.disabled, preference.enabled)
-            is SecureSeekBarPreference -> SeekBarOptionDialog.newInstance(preference.key, preference.minValue, preference.maxValue, preference.defaultValue, preference.units, preference.scale)
-            is AnimationScalesPreference -> OptionDialog.newInstance(preference.key, R.layout.animation_dialog)
-            is KeepDeviceOnPluggedPreference -> OptionDialog.newInstance(preference.key, R.layout.keep_device_plugged_dialog)
-            is StorageThresholdPreference -> OptionDialog.newInstance(preference.key, R.layout.storage_thresholds)
-            is CameraGesturesPreference -> OptionDialog.newInstance(preference.key, R.layout.camera_gestures)
-            is AirplaneModeRadiosPreference -> OptionDialog.newInstance(preference.key, R.layout.airplane_mode_radios)
-            is ImmersiveModePreference -> OptionDialog.newInstance(preference.key, R.layout.immersive_mode)
+            is SecureSwitchPreference -> SwitchOptionDialog.newInstance(
+                preference.key,
+                preference.disabled,
+                preference.enabled
+            )
+            is SecureSeekBarPreference -> SeekBarOptionDialog.newInstance(
+                preference.key,
+                preference.minValue,
+                preference.maxValue,
+                preference.defaultValue,
+                preference.units,
+                preference.scale
+            )
+            is AnimationScalesPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.animation_dialog
+            )
+            is KeepDeviceOnPluggedPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.keep_device_plugged_dialog
+            )
+            is StorageThresholdPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.storage_thresholds
+            )
+            is CameraGesturesPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.camera_gestures
+            )
+            is AirplaneModeRadiosPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.airplane_mode_radios
+            )
+            is ImmersiveModePreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.immersive_mode
+            )
             is SecureListPreference -> SecureListDialog.newInstance(preference.key)
             is UISoundsPreference -> OptionDialog.newInstance(preference.key, R.layout.ui_sounds)
-            is TetheringPreference -> SwitchOptionDialog.newInstance(preference.key, "false", "true", preference.bothFixed)
+            is TetheringPreference -> SwitchOptionDialog.newInstance(
+                preference.key,
+                "false",
+                "true",
+                preference.bothFixed
+            )
             is SMSLimitsPreference -> OptionDialog.newInstance(preference.key, R.layout.sms_limits)
-            is LockscreenShortcutsPref -> OptionDialog.newInstance(preference.key, R.layout.lockscreen_shortcuts)
+            is LockscreenShortcutsPref -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.lockscreen_shortcuts
+            )
             is SecureEditTextPreference -> SecureEditTextDialog.newInstance(preference.key)
             else -> null
         }
@@ -111,11 +149,26 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
             it.setPaddingRelative(padding, padding, padding, padding)
             it.clipToPadding = false
+            it.itemAnimator = PrefAnimator().apply {
+                addDuration = 300
+                removeDuration = 300
+                moveDuration = 500
+                changeDuration = 500
+            }
         }
     }
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
+            init {
+                setHasStableIds(true)
+            }
+
+            @SuppressLint("RestrictedApi")
+            override fun getItemId(position: Int): Long {
+                return getItem(position).hashCode().toLong()
+            }
+
             override fun getItemViewType(position: Int): Int {
                 return position
             }
@@ -145,7 +198,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                 }
             }
 
-            @SuppressLint("RestrictedApi")
+            @SuppressLint("RestrictedApi", "PrivateResource")
             override fun onCreateViewHolder(
                 parent: ViewGroup,
                 viewType: Int
@@ -184,7 +237,11 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     }
 
                     val newView = if (item is PreferenceGroup) view else run {
-                        val cardView = LayoutInflater.from(parent.context).inflate(R.layout.pref_card, parent, false) as CardView
+                        val cardView = LayoutInflater.from(parent.context).inflate(
+                            R.layout.pref_card,
+                            parent,
+                            false
+                        ) as CardView
 
                         cardView.addView(view)
                         cardView.findViewById<TextView>(android.R.id.title).apply {
@@ -206,8 +263,20 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         }
     }
 
-    private val grid by lazy { StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL) }
-    private val linear by lazy { LinearLayoutManager(requireContext()) }
+    private val grid by lazy {
+        object : StaggeredGridLayoutManager(2, VERTICAL) {
+            override fun supportsPredictiveItemAnimations(): Boolean {
+                return true
+            }
+        }
+    }
+    private val linear by lazy {
+        object : LinearLayoutManager(requireContext()) {
+            override fun supportsPredictiveItemAnimations(): Boolean {
+                return true
+            }
+        }
+    }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)

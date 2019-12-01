@@ -7,6 +7,8 @@ import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
+import com.rw.tweaks.util.forEach
+import com.rw.tweaks.util.hasPreference
 
 class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     var onItemClickListener: ((action: Int, key: String?) -> Unit)? = null
@@ -26,6 +28,8 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
                 )
             }
         }
+
+        preferenceScreen.isOrderingAsAdded = false
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,11 +47,24 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override fun onQueryTextChange(newText: String?): Boolean {
         searchIndex.filter(newText) {
-            preferenceScreen.removeAll()
+            val toRemove = ArrayList<Preference>()
+
+            preferenceScreen.forEach { _, child ->
+                if (!it.map { c -> c.key }.contains(child.key)) {
+                    toRemove.add(child)
+                }
+            }
+
+            toRemove.forEach { pref ->
+                preferenceScreen.removePreference(pref)
+            }
+
             it.forEach { pref ->
-                preferenceScreen.addPreference(
-                    SearchIndex.ActionedPreference.copy(requireContext(), pref)
-                )
+                if (!preferenceScreen.hasPreference(pref.key)) {
+                    preferenceScreen.addPreference(
+                        SearchIndex.ActionedPreference.copy(requireContext(), pref)
+                    )
+                }
             }
         }
 
