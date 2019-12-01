@@ -42,6 +42,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
     open val prefLayout: Int = R.layout.custom_preference
     open val widgetLayout: Int = 0
     open val recycle = true
+    open val limitSummary = true
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
@@ -189,7 +190,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                         cardView.findViewById<TextView>(android.R.id.title).apply {
                             setSingleLine(false)
                         }
-                        if (item.isEnabled) {
+                        if (item.isEnabled && limitSummary) {
                             cardView.findViewById<TextView>(android.R.id.summary).apply {
                                 maxLines = 2
                                 ellipsize = TextUtils.TruncateAt.END

@@ -98,7 +98,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             fun fromPreference(context: Context, preference: Preference): PersistentPreference {
                 return PersistentPreference(context).apply {
                     title = preference.title
-                    summary = preference.summary
+//                    summary = preference.summary
                     icon = preference.icon
                     key = preference.key
                     isVisible = preference.isVisible

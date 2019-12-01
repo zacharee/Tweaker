@@ -13,6 +13,8 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
 
+    override val limitSummary: Boolean = false
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
 
