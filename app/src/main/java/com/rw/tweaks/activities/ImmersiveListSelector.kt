@@ -92,9 +92,9 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                     }
             }
 
-            progress.visibility = View.GONE
-
             selectorFragment.setItems(apps.await())
+
+            progress.visibility = View.GONE
         }
     }
 
