@@ -12,6 +12,7 @@ import com.rw.tweaks.IImmersiveSelectionCallback
 import com.rw.tweaks.R
 import com.rw.tweaks.data.LoadedAppInfo
 import com.rw.tweaks.fragments.ImmersiveSelectorFragment
+import com.rw.tweaks.util.getColorPrimary
 import kotlinx.android.synthetic.main.activity_immersive_selector.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
@@ -85,7 +86,8 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                             label = it.loadLabel(packageManager).toString(),
                             packageName = it.packageName,
                             icon = it.loadIcon(packageManager),
-                            isChecked = checked.contains(it.packageName)
+                            isChecked = checked.contains(it.packageName),
+                            colorPrimary = it.getColorPrimary(this@ImmersiveListSelector)
                         )
                     }
             }

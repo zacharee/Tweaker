@@ -6,6 +6,8 @@ import androidx.preference.CheckBoxPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.activities.ImmersiveListSelector
 import com.rw.tweaks.data.LoadedAppInfo
+import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.forEach
 import com.rw.tweaks.util.hasPreference
 import java.util.*
@@ -79,13 +81,17 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         context: Context,
         val info: LoadedAppInfo,
         val callback: (key: String, checked: Boolean) -> Unit
-    ) : CheckBoxPreference(context) {
+    ) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context) {
         init {
             title = info.label
             summary = info.packageName
             key = info.packageName
             icon = info.icon
             isChecked = checked.contains(info.packageName)
+
+            if (info.colorPrimary != 0) {
+                iconColor = info.colorPrimary
+            }
         }
 
         override fun isPersistent(): Boolean {

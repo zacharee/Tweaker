@@ -2,6 +2,7 @@ package com.rw.tweaks.util
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
@@ -95,11 +96,13 @@ fun Context.getSetting(type: SettingsType, key: String?): String? {
 fun Context.resetAll() {
     try {
         Settings.Global.resetToDefaults(contentResolver, "tweaker")
-    } catch (e: SecurityException) {}
+    } catch (e: SecurityException) {
+    }
 
     try {
         Settings.Secure.resetToDefaults(contentResolver, "tweaker")
-    } catch (e: SecurityException) {}
+    } catch (e: SecurityException) {
+    }
 
     //There doesn't seem to be a reset option for Settings.System
 }
@@ -137,16 +140,18 @@ fun Fragment.updateTitle(title: CharSequence?) {
 }
 
 fun Context.apiToName(api: Int): String {
-    return resources.getString(when (api) {
-        Build.VERSION_CODES.M -> R.string.android_marshmallow
-        Build.VERSION_CODES.N -> R.string.android_nougat
-        Build.VERSION_CODES.N_MR1 -> R.string.android_nougat_7_1
-        Build.VERSION_CODES.O -> R.string.android_oreo
-        Build.VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
-        Build.VERSION_CODES.P -> R.string.android_pie
-        29 -> R.string.android_10
-        else -> throw IllegalArgumentException("Invalid API level: $api")
-    })
+    return resources.getString(
+        when (api) {
+            Build.VERSION_CODES.M -> R.string.android_marshmallow
+            Build.VERSION_CODES.N -> R.string.android_nougat
+            Build.VERSION_CODES.N_MR1 -> R.string.android_nougat_7_1
+            Build.VERSION_CODES.O -> R.string.android_oreo
+            Build.VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
+            Build.VERSION_CODES.P -> R.string.android_pie
+            29 -> R.string.android_10
+            else -> throw IllegalArgumentException("Invalid API level: $api")
+        }
+    )
 }
 
 fun Context.dpAsPx(dpVal: Number) =
@@ -209,4 +214,50 @@ fun <T> SortedList<T>.toList(): ArrayList<T> {
     }
 
     return ret
+}
+
+fun ApplicationInfo.getColorPrimary(context: Context): Int {
+    val res = context.packageManager.getResourcesForApplication(this)
+    val theme = res.newTheme()
+    val arr = intArrayOf(
+        res.getIdentifier("colorPrimary", "attr", packageName),
+        android.R.attr.colorPrimary,
+        res.getIdentifier("colorPrimaryDark", "attr", packageName),
+        android.R.attr.colorPrimaryDark,
+        res.getIdentifier("colorAccent", "attr", packageName),
+        android.R.attr.colorAccent
+    )
+
+    var color = 0
+
+    try {
+        theme.applyStyle(
+            this.theme,
+            true
+        )
+
+        val attrs = theme.obtainStyledAttributes(arr)
+
+        color = attrs.getColor(
+            0,
+            attrs.getColor(
+                1,
+                attrs.getColor(
+                    2,
+                    attrs.getColor(
+                        3,
+                        attrs.getColor(
+                            4,
+                            attrs.getColor(5, 0)
+                        )
+                    )
+                )
+            )
+        )
+
+        attrs.recycle()
+    } catch (e: Exception) {
+    }
+
+    return color
 }
