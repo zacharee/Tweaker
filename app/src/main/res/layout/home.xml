@@ -5,10 +5,16 @@
     android:padding="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/welcome_card"
         android:layout_width="match_parent"
         android:layout_height="128dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeColor="?android:textColorSecondary"
+        app:strokeWidth="0.75dp"
+        app:cardForegroundColor="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -20,13 +26,19 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
             />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/persistent_card"
         android:layout_width="match_parent"
         android:layout_height="?listPreferredItemHeight"
         android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeColor="?android:textColorSecondary"
+        app:strokeWidth="0.75dp"
+        app:cardForegroundColor="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/welcome_card">
 
         <TextView
@@ -41,6 +53,6 @@
             android:gravity="center"
             />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
