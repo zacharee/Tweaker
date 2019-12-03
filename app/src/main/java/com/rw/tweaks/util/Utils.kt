@@ -15,8 +15,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
+import androidx.recyclerview.widget.SortedList
 import com.rw.tweaks.R
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
 enum class SettingsType(val value: Int) {
@@ -197,4 +199,14 @@ fun PreferenceGroup.hasPreference(key: String): Boolean {
     }
 
     return false
+}
+
+fun <T> SortedList<T>.toList(): ArrayList<T> {
+    val ret = ArrayList<T>()
+
+    for (i in 0 until size()) {
+        ret.add(this[i])
+    }
+
+    return ret
 }
