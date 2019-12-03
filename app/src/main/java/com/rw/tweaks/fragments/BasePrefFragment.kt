@@ -15,12 +15,12 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.card.MaterialCardView
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.dialogs.*
@@ -243,7 +243,11 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                             R.layout.pref_card,
                             parent,
                             false
-                        ) as CardView
+                        ) as MaterialCardView
+
+                        if (item is ISecurePreference && item.iconColor != Int.MIN_VALUE) {
+                            cardView.strokeColor = item.iconColor
+                        }
 
                         cardView.addView(view)
                         cardView.findViewById<TextView>(android.R.id.title).apply {
