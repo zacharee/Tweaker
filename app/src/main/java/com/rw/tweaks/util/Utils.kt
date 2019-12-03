@@ -232,7 +232,13 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
 
     try {
         theme.applyStyle(
-            this.theme,
+            context.packageManager.run {
+                getActivityInfo(
+                    getLaunchIntentForPackage(packageName)
+                        .component,
+                    0
+                ).theme
+            },
             true
         )
 
@@ -256,7 +262,36 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
         )
 
         attrs.recycle()
-    } catch (e: Exception) {
+    } catch (e: Exception) {}
+
+    if (color == 0) {
+        try {
+            theme.applyStyle(
+                this.theme,
+                true
+            )
+
+            val attrs = theme.obtainStyledAttributes(arr)
+
+            color = attrs.getColor(
+                0,
+                attrs.getColor(
+                    1,
+                    attrs.getColor(
+                        2,
+                        attrs.getColor(
+                            3,
+                            attrs.getColor(
+                                4,
+                                attrs.getColor(5, 0)
+                            )
+                        )
+                    )
+                )
+            )
+
+            attrs.recycle()
+        } catch (e: Exception) {}
     }
 
     return color

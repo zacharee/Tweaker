@@ -245,10 +245,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                             false
                         ) as MaterialCardView
 
-                        if (item is ISecurePreference && item.iconColor != Int.MIN_VALUE) {
-                            cardView.strokeColor = item.iconColor
-                        }
-
                         cardView.addView(view)
                         cardView.findViewById<TextView>(android.R.id.title).apply {
                             setSingleLine(false)
