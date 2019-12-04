@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Switch
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/disable_charging_sound"
         android:text="@string/option_ui_sound_disable_charging"
         android:layout_width="match_parent"
