@@ -70,6 +70,8 @@ class SecureEditTextDialog : BaseOptionDialog() {
             setEndIconOnClickListener {
                 apply(editText?.text?.toString())
             }
+
+            hint = preference.title
         }
     }
 
