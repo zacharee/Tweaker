@@ -52,4 +52,10 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="IntroTheme" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 </resources>

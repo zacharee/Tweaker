@@ -33,7 +33,7 @@
             />
         <activity android:name=".activities.Intro"
             android:exported="false"
-            android:theme="@style/Theme.Intro"
+            android:theme="@style/IntroTheme"
             />
         <activity android:name=".activities.UISoundSelector"
             android:exported="false"

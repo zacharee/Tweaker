@@ -148,7 +148,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (!hasWss) Intro.start(this)
+        if (!hasWss)
+            Intro.start(this)
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)

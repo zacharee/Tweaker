@@ -26,6 +26,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:baselineAligned="false"
     android:clipToPadding="false"
     android:fitsSystemWindows="false"
@@ -48,19 +49,27 @@
             android:src="@drawable/ic_baseline_adb_24"
             tools:ignore="ContentDescription" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/grant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/grant"
+            android:textColor="?android:textColorPrimary"
+            app:strokeColor="?android:textColorSecondary"
+            app:rippleColor="?android:textColorPrimary"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/help"
+            android:textColor="?android:textColorPrimary"
+            app:strokeColor="?android:textColorSecondary"
+            app:rippleColor="?android:textColorPrimary"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             />
 
     </LinearLayout>
