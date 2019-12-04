@@ -1,7 +1,8 @@
-package com.rw.tweaks.util
+package com.rw.tweaks.drawer
 
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialize.holder.DimenHolder
+import com.rw.tweaks.util.SecondaryStyle
 
 class IndentedSecondaryDrawerItem : SecondaryDrawerItem() {
     init {

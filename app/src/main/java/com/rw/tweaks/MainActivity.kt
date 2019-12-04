@@ -10,16 +10,13 @@ import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.holder.DimenHolder
-import com.mikepenz.materialdrawer.model.DividerDrawerItem
-import com.mikepenz.materialdrawer.model.ExpandableDrawerItem
-import com.mikepenz.materialdrawer.model.NavigationDrawerItem
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
+import com.mikepenz.materialdrawer.model.*
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.rw.tweaks.activities.Intro
+import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
-import com.rw.tweaks.util.IndentedSecondaryDrawerItem
 import com.rw.tweaks.util.hasWss
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,6 +29,9 @@ class MainActivity : AppCompatActivity() {
             .withHeaderPadding(true)
             .withHeaderHeight(DimenHolder.fromDp(172))
             .addDrawerItems(
+                SectionDrawerItem()
+                    .withDivider(false)
+                    .withName(R.string.tweaks),
                 NavigationDrawerItem(
                     R.id.homeFragment,
                     PrimaryDrawerItem()
@@ -124,17 +124,15 @@ class MainActivity : AppCompatActivity() {
                         .withName(R.string.category_ui)
                 ),
                 DividerDrawerItem(),
-                ExpandableDrawerItem()
-                    .withSelectable(false)
-                    .withName(R.string.more)
-                    .withSubItems(
-                        NavigationDrawerItem(
-                            R.id.persistentActivity,
-                            IndentedSecondaryDrawerItem()
-                                .withName(R.string.screen_persistent)
-                                .withSelectable(false)
-                        )
-                    )
+                SectionDrawerItem()
+                    .withDivider(false)
+                    .withName(R.string.more),
+                NavigationDrawerItem(
+                    R.id.persistentActivity,
+                    PrimaryDrawerItem()
+                        .withName(R.string.screen_persistent)
+                        .withSelectable(false)
+                )
             )
             .build()
     }
