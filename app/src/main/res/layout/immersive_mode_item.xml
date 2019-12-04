@@ -32,13 +32,13 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <FrameLayout
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
-            android:background="#fff"
+            android:background="#aaa"
             />
 
     </FrameLayout>
@@ -58,13 +58,13 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <FrameLayout
             android:layout_width="0.5dp"
             android:layout_height="match_parent"
-            android:background="#fff"
+            android:background="#aaa"
             />
 
     </FrameLayout>
