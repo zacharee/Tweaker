@@ -9,8 +9,8 @@ android {
         applicationId "com.rw.tweaks"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 12
-        versionName "0.0.0.12"
+        versionCode 13
+        versionName "0.0.0.13"
     }
 
     buildTypes {
