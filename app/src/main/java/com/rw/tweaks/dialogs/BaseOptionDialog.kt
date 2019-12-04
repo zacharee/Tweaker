@@ -5,8 +5,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.PreferenceDialogFragmentCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
@@ -25,13 +25,26 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         get() = (preference as ISecurePreference).type
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return super.onCreateDialog(savedInstanceState).also {
-            it.window.setWindowAnimations(R.style.DialogTheme)
-        }
-    }
+        val builder =
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(preference.dialogTitle)
+                .setIcon(preference.dialogIcon)
+                .setBackground(requireContext().getDrawable(R.drawable.rounded_rect))
+                .setPositiveButton(preference.positiveButtonText, this)
 
-    override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {
-        builder.setNegativeButton(null, null)
+        val contentView = onCreateDialogView(context)
+        onBindDialogView(contentView)
+        builder.setView(contentView)
+
+        onPrepareDialogBuilder(builder)
+
+        val dialog: Dialog = builder.create()
+        dialog.window.setWindowAnimations(R.style.DialogTheme)
+//        if (needInputMethod()) {
+//            requestInputMethod(dialog)
+//        }
+
+        return dialog
     }
 
     override fun onCreateDialogView(context: Context?): View {
@@ -42,7 +55,9 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-         View.inflate(view.context, layoutRes, view.wrapper)
+         if (layoutRes != 0) {
+             View.inflate(view.context, layoutRes, view.wrapper)
+         }
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {}

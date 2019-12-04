@@ -35,12 +35,17 @@
         <item name="android:background">@color/toolbarColor</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+    <style name="DialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
         <item name="buttonBarPositiveButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNeutralButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNegativeButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="android:windowEnterAnimation">@anim/scale_in</item>
         <item name="android:windowExitAnimation">@anim/scale_out</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/DialogTitle</item>
+    </style>
+
+    <style name="DialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
     </style>
 
     <style name="AppTheme.Alert.Button" parent="Widget.MaterialComponents.Button.TextButton">

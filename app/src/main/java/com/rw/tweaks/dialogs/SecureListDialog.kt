@@ -9,13 +9,12 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.ListPreference
-import androidx.preference.PreferenceDialogFragmentCompat
 import com.rw.tweaks.R
 import com.rw.tweaks.prefs.secure.SecureListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.list_dialog.view.*
 
-class SecureListDialog : PreferenceDialogFragmentCompat() {
+class SecureListDialog : BaseOptionDialog() {
     companion object {
         fun newInstance(key: String): SecureListDialog {
             return SecureListDialog().apply {
@@ -28,14 +27,12 @@ class SecureListDialog : PreferenceDialogFragmentCompat() {
 
     private var clickedIndex = -1
 
+    override val layoutRes: Int = 0
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return super.onCreateDialog(savedInstanceState).also {
             it.window.setWindowAnimations(R.style.DialogTheme)
         }
-    }
-
-    override fun onCreateDialogView(context: Context?): View {
-        return View.inflate(context, R.layout.list_dialog_layout, null)
     }
 
     override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {

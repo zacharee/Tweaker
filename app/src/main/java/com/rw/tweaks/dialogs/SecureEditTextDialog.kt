@@ -1,21 +1,20 @@
 package com.rw.tweaks.dialogs
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import androidx.appcompat.app.AlertDialog
 import androidx.preference.EditTextPreference
-import androidx.preference.PreferenceDialogFragmentCompat
-import com.rw.tweaks.R
 import com.rw.tweaks.prefs.secure.SecureEditTextPreference
 import com.rw.tweaks.util.defaultValue
 import com.rw.tweaks.util.writeSetting
 import kotlinx.android.synthetic.main.better_edittext_dialog.view.*
 
-class SecureEditTextDialog : PreferenceDialogFragmentCompat() {
+class SecureEditTextDialog : BaseOptionDialog() {
     private var editText: EditText? = null
     private var text: CharSequence? = null
+
+    override val layoutRes: Int
+        get() = preference.dialogLayoutResource
 
     private val editTextPreference: SecureEditTextPreference
         get() = preference as SecureEditTextPreference
@@ -39,19 +38,6 @@ class SecureEditTextDialog : PreferenceDialogFragmentCompat() {
         } else {
             savedInstanceState.getCharSequence(SAVE_STATE_TEXT)
         }
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return super.onCreateDialog(savedInstanceState).also {
-            it.window.setWindowAnimations(R.style.DialogTheme)
-            it.window.setTheme(R.style.DialogTheme)
-        }
-    }
-
-    override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {
-        super.onPrepareDialogBuilder(builder)
-
-        builder.setNegativeButton(null, null)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
