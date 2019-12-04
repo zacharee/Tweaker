@@ -51,4 +51,8 @@
         android:id="@+id/netCellFragment"
         android:name="com.rw.tweaks.fragments.network.NetCellFragment"
         android:label="NetCellFragment" />
+    <activity
+        android:id="@+id/persistentActivity"
+        android:name="com.rw.tweaks.activities.PersistentActivity"
+        android:label="PersistentActivity" />
 </navigation>
