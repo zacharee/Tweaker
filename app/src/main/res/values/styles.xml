@@ -52,11 +52,4 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
-    <style name="ImmersiveRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:minHeight">?listPreferredItemHeight</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:paddingStart">16dp</item>
-    </style>
-
 </resources>
