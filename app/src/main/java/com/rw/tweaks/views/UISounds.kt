@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.IUISoundSelectionCallback
 import com.rw.tweaks.R
@@ -113,6 +114,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 desc.text = resources.getText(info.desc)
                 uri.text = Settings.Global.getString(context.contentResolver, info.key)
                 if (info.icon != 0) icon.setImageResource(info.icon)
+                else icon.isVisible = false
 
                 setOnClickListener {
                     UISoundSelector.start(
