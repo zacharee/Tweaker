@@ -28,7 +28,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         val builder =
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(preference.dialogTitle)
-                .setIcon(preference.dialogIcon)
+                .setIcon(preference.icon)
                 .setBackground(requireContext().getDrawable(R.drawable.rounded_rect))
                 .setPositiveButton(preference.positiveButtonText, this)
 
