@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
-import androidx.preference.ListPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.prefs.secure.SecureListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
@@ -24,6 +23,9 @@ class SecureListDialog : BaseOptionDialog() {
             }
         }
     }
+
+    private val listPref: SecureListPreference
+        get() = preference as SecureListPreference
 
     private var clickedIndex = -1
 
@@ -49,7 +51,7 @@ class SecureListDialog : BaseOptionDialog() {
             (preference as SecureListPreference).entries)
 
         list.adapter = adapter
-        list.setItemChecked((preference as SecureListPreference).findIndexOfValue((preference as SecureListPreference).value), true)
+        list.setItemChecked(listPref.findIndexOfValue(listPref.value), true)
 
         list.setOnItemClickListener { _, _, position, _ ->
             clickedIndex = position
@@ -61,10 +63,11 @@ class SecureListDialog : BaseOptionDialog() {
 
     override fun onDialogClosed(positiveResult: Boolean) {
         if (positiveResult && clickedIndex >= 0) {
-            val preference = preference as ListPreference
-            val value = preference.entryValues[clickedIndex].toString()
+            val preference = preference as SecureListPreference
+            val value = preference.entryValues!![clickedIndex].toString()
             if (preference.callChangeListener(value)) {
                 preference.value = value
+                preference.onValueChanged(value, preference.writeKey)
             }
         }
     }

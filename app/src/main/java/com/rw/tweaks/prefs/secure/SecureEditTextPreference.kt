@@ -3,68 +3,33 @@ package com.rw.tweaks.prefs.secure
 import android.content.Context
 import android.text.InputType
 import android.util.AttributeSet
-import androidx.preference.EditTextPreference
-import androidx.preference.Preference
 import com.rw.tweaks.R
-import com.rw.tweaks.util.*
-import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
+import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
+import com.rw.tweaks.util.getSetting
+import com.rw.tweaks.util.prefManager
+import com.rw.tweaks.util.writeSetting
 
-class SecureEditTextPreference(context: Context, attrs: AttributeSet) : EditTextPreference(context, attrs), Preference.OnPreferenceChangeListener, ISecurePreference by SecurePreference(context) {
-    private var inputType: Int = InputType.TYPE_CLASS_TEXT
+class SecureEditTextPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
+    var inputType: Int = InputType.TYPE_CLASS_TEXT
 
-    private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
+    var text: CharSequence? = null
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureEditTextPreference, 0, 0)
-
-        type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureEditTextPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
-        writeKey = array.getString(R.styleable.SecureEditTextPreference_differing_key)
-        dangerous = array.getBoolean(R.styleable.SecureEditTextPreference_dangerous, false)
         inputType = array.getInt(R.styleable.SecureEditTextPreference_android_inputType, inputType)
-        lowApi = array.getInt(R.styleable.SecureEditTextPreference_low_api, lowApi)
-        highApi = array.getInt(R.styleable.SecureEditTextPreference_high_api, highApi)
-        iconColor = array.getColor(R.styleable.SecureEditTextPreference_icon_color, iconColor)
-
-        val clazz = array.getString(R.styleable.SecureEditTextPreference_visibility_verifier)
-        if (clazz != null) {
-            visibilityVerifier = context.classLoader.loadClass(clazz)
-                .getConstructor(Context::class.java)
-                .newInstance(context) as BaseVisibilityVerifier
-        }
-
-        dialogMessage = summary
-        dialogLayoutResource = R.layout.better_edittext_dialog
-
-        setOnBindEditTextListener {
-            it.inputType = inputType
-        }
-
         array.recycle()
 
-        super.setOnPreferenceChangeListener(this)
-        init(this)
+        dialogLayoutResource = R.layout.better_edittext_dialog
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
         this.text = context.getSetting(type, writeKey)
     }
 
-    override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
-        _onPreferenceChangeListener = onPreferenceChangeListener
-    }
+    override fun onValueChanged(newValue: Any?, key: String?) {
+        super.onValueChanged(newValue, key)
 
-    override fun getOnPreferenceChangeListener(): OnPreferenceChangeListener? {
-        return _onPreferenceChangeListener
-    }
-
-    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-        val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
-
-        if (update) {
-            context.prefManager.putString(writeKey!!, newValue.toString())
-
-        }
-
-        return update
+        context.prefManager.putString(writeKey!!, newValue.toString())
+        context.writeSetting(type, writeKey, text)
     }
 }

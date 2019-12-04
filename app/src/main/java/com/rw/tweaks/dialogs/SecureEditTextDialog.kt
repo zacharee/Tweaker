@@ -3,10 +3,8 @@ package com.rw.tweaks.dialogs
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import androidx.preference.EditTextPreference
 import com.rw.tweaks.prefs.secure.SecureEditTextPreference
 import com.rw.tweaks.util.defaultValue
-import com.rw.tweaks.util.writeSetting
 import kotlinx.android.synthetic.main.better_edittext_dialog.view.*
 
 class SecureEditTextDialog : BaseOptionDialog() {
@@ -48,18 +46,8 @@ class SecureEditTextDialog : BaseOptionDialog() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
         editText = view.findViewById(android.R.id.edit)
+        editText?.inputType = editTextPreference.inputType
         editText?.setText(text)
-
-        val listener = EditTextPreference::class.java
-            .getDeclaredMethod("getOnBindEditTextListener")
-            .apply { isAccessible = true }
-            .invoke(editTextPreference)
-
-        if (listener != null) {
-            EditTextPreference.OnBindEditTextListener::class.java
-                .getDeclaredMethod("onBindEditText", EditText::class.java)
-                .invoke(listener, editText)
-        }
 
         view.edit_wrapper.apply {
             setStartIconOnClickListener {
@@ -78,7 +66,7 @@ class SecureEditTextDialog : BaseOptionDialog() {
     private fun apply(text: String?) {
         if (preference.callChangeListener(text)) {
             editTextPreference.text = text
-            requireContext().writeSetting(editTextPreference.type, editTextPreference.writeKey, text)
+            editTextPreference.onValueChanged(text, writeKey)
         }
     }
 

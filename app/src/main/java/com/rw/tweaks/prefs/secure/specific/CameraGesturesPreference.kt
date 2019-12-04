@@ -4,14 +4,12 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
-import androidx.preference.DialogPreference
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
 import com.rw.tweaks.util.ISpecificPreference
-import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 
-class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context), ISpecificPreference {
+class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
     override var type: SettingsType = SettingsType.SECURE
     override val keys: Array<String> = arrayOf(
         Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
@@ -29,7 +27,5 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : DialogPr
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_camera_24)
         iconColor = ContextCompat.getColor(context, R.color.pref_color_6)
-
-        init(this)
     }
 }

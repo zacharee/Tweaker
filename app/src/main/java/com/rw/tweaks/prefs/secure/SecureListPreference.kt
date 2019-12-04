@@ -1,27 +1,43 @@
 package com.rw.tweaks.prefs.secure
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.TypedArray
+import android.text.TextUtils
 import android.util.AttributeSet
-import androidx.preference.ListPreference
-import androidx.preference.Preference
+import androidx.core.content.res.TypedArrayUtils
 import com.rw.tweaks.R
-import com.rw.tweaks.util.*
+import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
+import com.rw.tweaks.util.getSetting
+import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.verifiers.BaseListPreferenceVerifier
-import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
+import com.rw.tweaks.util.writeSetting
 
-class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.OnPreferenceChangeListener, ListPreference(context, attrs), ISecurePreference by SecurePreference(context) {
+@SuppressLint("RestrictedApi")
+class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
     private var verifier: BaseListPreferenceVerifier? = null
     private var _onPreferenceChangeListener: OnPreferenceChangeListener? = null
 
+    private var setValue: Boolean = false
+    var value: String? = null
+        set(value) {
+            // Always persist/notify the first time.
+            val changed = !TextUtils.equals(field, value)
+            if (changed || !setValue) {
+                field = value
+                setValue = true
+                persistString(value)
+                if (changed) {
+                    notifyChanged()
+                }
+            }
+        }
+
+    var entries: Array<CharSequence?>? = null
+    var entryValues: Array<CharSequence?>? = null
+
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureListPreference, 0, 0)
-
-        type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.SecureListPreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
-        writeKey = array.getString(R.styleable.SecureListPreference_differing_key)
-        dangerous = array.getBoolean(R.styleable.SecureListPreference_dangerous, false)
-        lowApi = array.getInt(R.styleable.SecureListPreference_low_api, lowApi)
-        highApi = array.getInt(R.styleable.SecureListPreference_high_api, highApi)
-        iconColor = array.getColor(R.styleable.SecureListPreference_icon_color, iconColor)
 
         array.getString(R.styleable.SecureListPreference_verifier)?.let {
             verifier = context.classLoader.loadClass(it)
@@ -34,23 +50,21 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
             }
         }
 
-        val clazz = array.getString(R.styleable.SecureListPreference_visibility_verifier)
-        if (clazz != null) {
-            visibilityVerifier = context.classLoader.loadClass(clazz)
-                .getConstructor(Context::class.java)
-                .newInstance(context) as BaseVisibilityVerifier
-        }
+        entries = TypedArrayUtils.getTextArray(
+            array, androidx.preference.R.styleable.ListPreference_entries,
+            androidx.preference.R.styleable.ListPreference_android_entries
+        )
+
+        entryValues = TypedArrayUtils.getTextArray(
+            array, androidx.preference.R.styleable.ListPreference_entryValues,
+            androidx.preference.R.styleable.ListPreference_android_entryValues
+        )
 
         array.recycle()
-
-        dialogMessage = summary
-
-        super.setOnPreferenceChangeListener(this)
-        init(this)
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues[0].toString()
+        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues!![0].toString()
     }
 
     override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
@@ -61,14 +75,23 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : Preference.O
         return _onPreferenceChangeListener
     }
 
-    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-        val update = _onPreferenceChangeListener?.onPreferenceChange(preference, newValue) ?: true
+    override fun onGetDefaultValue(a: TypedArray, index: Int): Any? {
+        return a.getString(index)
+    }
 
-        if (update) {
-            context.prefManager.putInt(writeKey!!, newValue.toString().toInt())
-            context.writeSetting(type, writeKey, newValue.toString().toInt())
+    override fun onValueChanged(newValue: Any?, key: String?) {
+        context.prefManager.putString(writeKey!!, newValue.toString())
+        context.writeSetting(type, writeKey, newValue.toString().toInt())
+    }
+
+    fun findIndexOfValue(value: String?): Int {
+        if (value != null && entryValues != null) {
+            for (i in entryValues!!.indices.reversed()) {
+                if (entryValues!!.get(i) == value) {
+                    return i
+                }
+            }
         }
-
-        return update
+        return -1
     }
 }

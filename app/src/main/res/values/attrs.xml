@@ -17,47 +17,33 @@
     <attr name="icon_color" format="color|reference" />
 
     <declare-styleable name="SecureSwitchPreference">
-        <attr name="settings_type" />
-        <attr name="differing_key" />
-        <attr name="dangerous" />
         <attr name="enabled_value" format="string|reference" />
         <attr name="disabled_value" format="string|reference" />
-        <attr name="visibility_verifier" />
-        <attr name="low_api" />
-        <attr name="high_api" />
-        <attr name="icon_color" />
     </declare-styleable>
 
     <declare-styleable name="SecureSeekBarPreference">
-        <attr name="settings_type" />
-        <attr name="differing_key" />
         <attr name="minValue" />
         <attr name="maxValue" />
         <attr name="scale" />
         <attr name="units" />
-        <attr name="dangerous" />
-        <attr name="visibility_verifier" />
-        <attr name="low_api" />
-        <attr name="high_api" />
-        <attr name="icon_color" />
     </declare-styleable>
 
     <declare-styleable name="SecureEditTextPreference">
-        <attr name="settings_type" />
-        <attr name="differing_key" />
-        <attr name="dangerous" />
         <attr name="android:inputType" />
-        <attr name="visibility_verifier" />
-        <attr name="low_api" />
-        <attr name="high_api" />
-        <attr name="icon_color" />
     </declare-styleable>
 
     <declare-styleable name="SecureListPreference">
+        <attr name="verifier" />
+        <attr name="entries" />
+        <attr name="android:entries" />
+        <attr name="entryValues" />
+        <attr name="android:entryValues" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseSecurePreference">
         <attr name="settings_type" />
         <attr name="differing_key" />
         <attr name="dangerous" />
-        <attr name="verifier" />
         <attr name="visibility_verifier" />
         <attr name="low_api" />
         <attr name="high_api" />

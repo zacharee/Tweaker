@@ -5,16 +5,18 @@ import com.rw.tweaks.util.hasSdCard
 
 abstract class BaseListPreferenceVerifier(internal val context: Context) {
     abstract fun verifyEntries(
-        entries: Array<out CharSequence>,
-        values: Array<out CharSequence>
-    ): Pair<Array<out CharSequence>, Array<out CharSequence>>
+        entries: Array<CharSequence?>?,
+        values: Array<CharSequence?>?
+    ): Pair<Array<CharSequence?>?, Array<CharSequence?>?>
 }
 
 class StorageVerifier(context: Context) : BaseListPreferenceVerifier(context) {
     override fun verifyEntries(
-        entries: Array<out CharSequence>,
-        values: Array<out CharSequence>
-    ): Pair<Array<CharSequence>, Array<CharSequence>> {
+        entries: Array<CharSequence?>?,
+        values: Array<CharSequence?>?
+    ): Pair<Array<CharSequence?>?, Array<CharSequence?>?> {
+        if (entries == null || values == null) return Pair<Array<CharSequence?>?, Array<CharSequence?>?>(null, null)
+
         val entryList = ArrayList(entries.toList())
         val valueList = ArrayList(values.toList())
 
