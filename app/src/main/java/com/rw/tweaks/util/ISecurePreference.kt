@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import androidx.preference.Preference
 import com.rw.tweaks.R
+import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
 interface ISecurePreference {
@@ -18,6 +19,7 @@ interface ISecurePreference {
     var lowApi: Int
     var highApi: Int
     var iconColor: Int
+    var enabledVerifier: BasePreferenceEnabledVerifier?
 
     fun onValueChanged(newValue: Any?, key: String?)
 
@@ -33,6 +35,7 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
     override var writeKey: String? = null
     override var dangerous: Boolean = false
     override var visibilityVerifier: BaseVisibilityVerifier? = null
+    override var enabledVerifier: BasePreferenceEnabledVerifier? = null
     override var lowApi: Int = ISecurePreference.API_UNDEFINED
     override var highApi: Int = ISecurePreference.API_UNDEFINED
     override var iconColor: Int = Int.MIN_VALUE
@@ -52,6 +55,10 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
                 }
 
                 pref.summary = resources.getString(toFormat, *args)
+            }
+        } && (enabledVerifier?.shouldBeEnabled != false).also {
+            if (!it) {
+                pref.summary = enabledVerifier?.message
             }
         }
 

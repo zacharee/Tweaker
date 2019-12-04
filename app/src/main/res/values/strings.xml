@@ -194,6 +194,7 @@
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Sorry, this feature only works from Android %1$s to Android %2$s</string>
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
+    <string name="compatibility_message_storage">Sorry, you need an SD card to change this option.</string>
 
     <string name="android_marshmallow">Marshmallow 6.0</string>
     <string name="android_nougat">Nougat 7.0</string>

@@ -22,7 +22,7 @@
         app:entries="@array/app_install_location_names"
         app:entryValues="@array/app_install_location_values"
         app:settings_type="global"
-        app:visibility_verifier="com.rw.tweaks.util.verifiers.ShowStorage"
+        app:enabled_verifier="com.rw.tweaks.util.verifiers.EnableStorage"
         />
 
 </PreferenceScreen>

@@ -7,6 +7,7 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
+import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
 open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
@@ -28,6 +29,13 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogP
             visibilityVerifier = context.classLoader.loadClass(clazz)
                 .getConstructor(Context::class.java)
                 .newInstance(context) as BaseVisibilityVerifier
+        }
+
+        val enabledClazz = array.getString(R.styleable.BaseSecurePreference_enabled_verifier)
+        if (enabledClazz != null) {
+            enabledVerifier = context.classLoader.loadClass(enabledClazz)
+                .getConstructor(Context::class.java)
+                .newInstance(context) as BasePreferenceEnabledVerifier
         }
 
         array.recycle()

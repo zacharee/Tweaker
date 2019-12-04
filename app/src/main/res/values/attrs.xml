@@ -14,6 +14,7 @@
     <attr name="high_api" format="integer|reference" />
     <attr name="verifier" />
     <attr name="visibility_verifier" />
+    <attr name="enabled_verifier" />
     <attr name="icon_color" format="color|reference" />
 
     <declare-styleable name="SecureSwitchPreference">
@@ -45,6 +46,7 @@
         <attr name="differing_key" />
         <attr name="dangerous" />
         <attr name="visibility_verifier" />
+        <attr name="enabled_verifier" />
         <attr name="low_api" />
         <attr name="high_api" />
         <attr name="icon_color" />
