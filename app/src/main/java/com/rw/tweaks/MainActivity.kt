@@ -176,6 +176,7 @@ class MainActivity : AppCompatActivity() {
 
     @ExperimentalNavController
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
 
         if (!hasWss)

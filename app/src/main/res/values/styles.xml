@@ -32,6 +32,10 @@
         <item name="material_drawer_legacy_style">false</item>
     </style>
 
+    <style name="Splash" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
     <style name="ActionBarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/toolbarColor</item>
     </style>
