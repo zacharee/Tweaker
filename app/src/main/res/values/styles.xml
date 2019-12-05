@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
         <item name="buttonBarButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="android:buttonBarButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="materialAlertDialogTheme">@style/DialogTheme</item>

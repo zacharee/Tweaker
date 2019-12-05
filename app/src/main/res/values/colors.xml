@@ -3,7 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="toolbarColor">#343434</color>
+    <color name="toolbarColor">#231f2e</color>
+    <color name="colorBackground">#060014</color>
 
     <color name="slide_1">@color/colorPrimary</color>
     <color name="slide_2">@color/colorPrimaryDark</color>

@@ -155,6 +155,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         drawer.setupWithNavController(navController)
+        drawer.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
 
         searchFragment.onItemClickListener = { action, key ->
             navController.navigate(
