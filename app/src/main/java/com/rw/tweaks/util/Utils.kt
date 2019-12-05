@@ -13,6 +13,7 @@ import android.os.Build.VERSION_CODES.O
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import android.util.Log
 import android.util.TypedValue
 import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
@@ -100,13 +101,14 @@ fun Context.getSetting(type: SettingsType, key: String?): String? {
 }
 
 fun Context.resetAll() {
-    try {
-        Settings.Global.resetToDefaults(contentResolver, "tweaker")
-    } catch (e: SecurityException) {
-    }
+    prefManager.reset()
 
     try {
-        Settings.Secure.resetToDefaults(contentResolver, "tweaker")
+        Settings.Global.resetToDefaults(contentResolver, null)
+    } catch (e: SecurityException) {}
+
+    try {
+        Settings.Secure.resetToDefaults(contentResolver, null)
     } catch (e: SecurityException) {
     }
 
@@ -118,6 +120,7 @@ fun Context.writeGlobal(key: String?, value: Any?) {
         Settings.Global.putString(contentResolver, key, value?.toString())
     } catch (e: SecurityException) {
         //TODO: Handle this
+        Log.e("Tweaker", "Failed to write to Global", e)
     }
 }
 
@@ -126,6 +129,7 @@ fun Context.writeSecure(key: String?, value: Any?) {
         Settings.Secure.putString(contentResolver, key, value?.toString())
     } catch (e: SecurityException) {
         //TODO: Handle this
+        Log.e("Tweaker", "Failed to write to Secure", e)
     }
 }
 
@@ -134,6 +138,7 @@ fun Context.writeSystem(key: String?, value: Any?) {
         Settings.System.putString(contentResolver, key, value?.toString())
     } catch (e: SecurityException) {
         //TODO: Handle this
+        Log.e("Tweaker", "Failed to write to System", e)
     }
 }
 
@@ -330,4 +335,12 @@ fun PreferenceGroupAdapter.updatePreferences() {
         .getDeclaredMethod("updatePreferences")
         .apply { isAccessible = true }
         .invoke(this)
+}
+
+//Remember to add any Settings.System options here!!
+fun Context.buildNonResettablePreferences(): ArrayList<String> {
+    return arrayListOf(
+        resources.getString(R.string.feature_font_scale),
+        resources.getString(R.string.feature_custom_rotation)
+    )
 }

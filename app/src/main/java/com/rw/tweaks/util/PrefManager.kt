@@ -2,6 +2,7 @@ package com.rw.tweaks.util
 
 import android.content.Context
 import android.content.ContextWrapper
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
@@ -42,4 +43,6 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
     fun putLong(key: String, value: Long) = prefs.edit().putLong(key, value).apply()
     fun putBoolean(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
     fun putStringSet(key: String, value: Set<String>) = prefs.edit().putStringSet(key, value).apply()
+
+    fun reset() = prefs.edit { clear() }
 }

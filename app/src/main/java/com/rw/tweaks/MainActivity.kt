@@ -8,9 +8,12 @@ import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.holder.DimenHolder
 import com.mikepenz.materialdrawer.model.*
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.rw.tweaks.activities.Intro
@@ -18,7 +21,9 @@ import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
 import com.rw.tweaks.util.addAnimation
+import com.rw.tweaks.util.buildNonResettablePreferences
 import com.rw.tweaks.util.hasWss
+import com.rw.tweaks.util.resetAll
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -133,7 +138,31 @@ class MainActivity : AppCompatActivity() {
                     PrimaryDrawerItem()
                         .withName(R.string.screen_persistent)
                         .withSelectable(false)
-                )
+                ),
+                PrimaryDrawerItem()
+                    .withName(R.string.reset)
+                    .withSelectable(false)
+                    .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                        override fun onItemClick(
+                            view: View?,
+                            position: Int,
+                            drawerItem: IDrawerItem<*>
+                        ): Boolean {
+                            MaterialAlertDialogBuilder(this@MainActivity)
+                                .setTitle(R.string.reset)
+                                .setMessage(
+                                    resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- "))
+                                )
+                                .setPositiveButton(R.string.reset) {_, _ ->
+                                    resetAll()
+                                }
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show()
+
+                            return true
+                        }
+
+                    })
             )
             .build()
     }
