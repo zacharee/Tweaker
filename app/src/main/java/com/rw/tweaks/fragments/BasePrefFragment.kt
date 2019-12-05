@@ -43,7 +43,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     open val prefLayout: Int = R.layout.custom_preference
     open val widgetLayout: Int = 0
-    open val recycle = true
     open val limitSummary = true
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
@@ -180,8 +179,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                 super.onBindViewHolder(holder, position)
 
                 val item = getItem(position)
-
-                holder.setIsRecyclable(recycle)
 
                 if (item is ISecurePreference) {
                     holder.itemView.icon_frame.apply {
