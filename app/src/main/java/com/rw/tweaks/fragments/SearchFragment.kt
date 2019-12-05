@@ -9,8 +9,12 @@ import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
 import com.rw.tweaks.util.forEach
 import com.rw.tweaks.util.hasPreference
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
-class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
+class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener, CoroutineScope by MainScope() {
     var onItemClickListener: ((action: Int, key: String?) -> Unit)? = null
 
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
@@ -19,17 +23,29 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         preferenceScreen.removeAll()
         searchIndex.filter(null) {
-            it.forEach { pref ->
-                preferenceScreen.addPreference(
-                    SearchIndex.ActionedPreference.copy(requireContext(), pref)
-                )
+            launch {
+                it.forEach { pref ->
+                    preferenceScreen.addPreference(
+                        SearchIndex.ActionedPreference.copy(requireContext(), pref)
+                    )
+                }
             }
         }
 
         preferenceScreen.isOrderingAsAdded = false
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
+        cancel()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

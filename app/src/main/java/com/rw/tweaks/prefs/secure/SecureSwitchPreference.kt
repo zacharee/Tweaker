@@ -7,7 +7,7 @@ import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
 import com.rw.tweaks.util.prefManager
 import com.rw.tweaks.util.writeSetting
 
-class SecureSwitchPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
+open class SecureSwitchPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
     companion object {
         const val DEFAULT_ENABLED = "1"
         const val DEFAULT_DISABLED = "0"
