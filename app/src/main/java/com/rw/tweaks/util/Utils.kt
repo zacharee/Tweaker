@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
+import androidx.preference.PreferenceGroupAdapter
 import androidx.recyclerview.widget.SortedList
 import com.rw.tweaks.R
 import java.util.*
@@ -314,4 +315,11 @@ fun Toolbar.addAnimation() {
     layoutTransition = LayoutTransition().apply {
         this.enableTransitionType(LayoutTransition.CHANGING)
     }
+}
+
+fun PreferenceGroupAdapter.updatePreferences() {
+    PreferenceGroupAdapter::class.java
+        .getDeclaredMethod("updatePreferences")
+        .apply { isAccessible = true }
+        .invoke(this)
 }

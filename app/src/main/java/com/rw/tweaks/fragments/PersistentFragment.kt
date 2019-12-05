@@ -5,12 +5,10 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
+import androidx.preference.PreferenceGroupAdapter
 import com.rw.tweaks.R
 import com.rw.tweaks.data.SearchIndex
-import com.rw.tweaks.util.PersistentOption
-import com.rw.tweaks.util.forEach
-import com.rw.tweaks.util.hasPreference
-import com.rw.tweaks.util.prefManager
+import com.rw.tweaks.util.*
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
@@ -53,9 +51,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
             it.forEach { pref ->
                 if (!preferenceScreen.hasPreference(pref.key)) {
-                    preferenceScreen.addPreference(
-                        SearchIndex.PersistentPreference.copy(requireContext(), pref)
-                    )
+                    preferenceScreen.addPreference(construct(pref))
                 }
             }
         }
@@ -78,10 +74,15 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
             isChecked = persistent.map { item -> item.key }.containsAll(pref.keys)
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as SearchIndex.PersistentPreference
+
                 if (newValue.toString().toBoolean()) {
                     persistent.addAll(preference.keys.map { PersistentOption(preference.type, it) })
                 } else {
                     persistent.removeAll { item -> preference.keys.contains(item.key) }
+                }
+
+                mainHandler.post {
+                    (listView.adapter as PreferenceGroupAdapter?)?.updatePreferences()
                 }
 
                 true

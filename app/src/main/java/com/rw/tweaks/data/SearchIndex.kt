@@ -149,6 +149,17 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             return false
         }
 
+        override fun compareTo(other: Preference): Int {
+            val sup = super.compareTo(other)
+
+            return if (other is TwoStatePreference) {
+                if (isChecked && !other.isChecked) -1
+                else if (isChecked && other.isChecked) sup
+                else if (!isChecked && other.isChecked) 1
+                else sup
+            } else sup
+        }
+
         fun copy(): PersistentPreference {
             return fromPreference(context, this)
         }

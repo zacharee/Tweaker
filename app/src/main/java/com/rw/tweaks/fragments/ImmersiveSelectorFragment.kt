@@ -3,13 +3,13 @@ package com.rw.tweaks.fragments
 import android.content.Context
 import android.os.Bundle
 import androidx.preference.CheckBoxPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceGroupAdapter
+import androidx.preference.TwoStatePreference
 import com.rw.tweaks.R
 import com.rw.tweaks.activities.ImmersiveListSelector
 import com.rw.tweaks.data.LoadedAppInfo
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SecurePreference
-import com.rw.tweaks.util.forEach
-import com.rw.tweaks.util.hasPreference
+import com.rw.tweaks.util.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -74,6 +74,10 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
             } else {
                 checked.remove(key)
             }
+
+            mainHandler.post {
+                (listView.adapter as PreferenceGroupAdapter?)?.updatePreferences()
+            }
         }
     }
 
@@ -102,6 +106,17 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
             super.setChecked(checked)
 
             callback(key, checked)
+        }
+
+        override fun compareTo(other: Preference): Int {
+            val sup = super.compareTo(other)
+
+            return if (other is TwoStatePreference) {
+                if (isChecked && !other.isChecked) -1
+                else if (isChecked && other.isChecked) sup
+                else if (!isChecked && other.isChecked) 1
+                else sup
+            } else sup
         }
 
         fun matchesQuery(query: String?): Boolean {
