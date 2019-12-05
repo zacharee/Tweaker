@@ -212,6 +212,14 @@ fun PreferenceGroup.hasPreference(key: String): Boolean {
     return false
 }
 
+fun PreferenceGroup.indexOf(preference: Preference): Int {
+    forEach { index, child ->
+        if (child == preference) return index
+    }
+
+    return -1
+}
+
 fun <T> SortedList<T>.toList(): ArrayList<T> {
     val ret = ArrayList<T>()
 

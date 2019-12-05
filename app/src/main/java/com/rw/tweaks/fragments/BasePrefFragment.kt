@@ -152,8 +152,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
             it.itemAnimator = PrefAnimator().apply {
                 addDuration = 300
                 removeDuration = 300
-                moveDuration = 500
-                changeDuration = 500
+                moveDuration = 0
+                changeDuration = 0
             }
             it.layoutAnimation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.list_initial_anim)
         }
@@ -161,14 +161,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
-            init {
-                setHasStableIds(true)
-            }
-
-            @SuppressLint("RestrictedApi")
-            override fun getItemId(position: Int): Long {
-                return getItem(position).hashCode().toLong()
-            }
 
             override fun getItemViewType(position: Int): Int {
                 return position

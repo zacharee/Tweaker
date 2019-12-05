@@ -34,4 +34,12 @@ class PrefAnimator : BaseItemAnimator() {
             .setStartDelay(getAddDelay(holder))
             .start()
     }
+
+    override fun getAddDelay(holder: RecyclerView.ViewHolder?): Long {
+        return 0L
+    }
+
+    override fun getRemoveDelay(holder: RecyclerView.ViewHolder?): Long {
+        return 0L
+    }
 }

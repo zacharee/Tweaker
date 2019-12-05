@@ -68,7 +68,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         return LoadedAppPreference(
             requireContext(),
             info
-        ) { key, isChecked ->
+        ) { key, isChecked, _ ->
             if (isChecked) {
                 checked.add(key)
             } else {
@@ -84,7 +84,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
     inner class LoadedAppPreference(
         context: Context,
         val info: LoadedAppInfo,
-        val callback: (key: String, checked: Boolean) -> Unit
+        val callback: (key: String, checked: Boolean, pref: Preference) -> Unit
     ) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context) {
         init {
             title = info.label
@@ -105,7 +105,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         override fun setChecked(checked: Boolean) {
             super.setChecked(checked)
 
-            callback(key, checked)
+            callback(key, checked, this)
         }
 
         override fun compareTo(other: Preference): Int {
