@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.rw.tweaks.IImmersiveSelectionCallback
 import com.rw.tweaks.R
 import com.rw.tweaks.data.LoadedAppInfo
 import com.rw.tweaks.fragments.ImmersiveSelectorFragment
+import com.rw.tweaks.util.addAnimation
 import com.rw.tweaks.util.getColorPrimary
 import kotlinx.android.synthetic.main.activity_immersive_selector.*
 import kotlinx.coroutines.CoroutineScope
@@ -64,6 +65,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
         val searchView = searchItem.actionView as SearchView?
         searchView?.setOnQueryTextListener(this)
         searchView?.setOnCloseListener(this)
+        searchView?.addAnimation()
 
         return true
     }
@@ -73,6 +75,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
         setContentView(R.layout.activity_immersive_selector)
 
         setSupportActionBar(toolbar)
+        toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -3,8 +3,8 @@ package com.rw.tweaks
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
@@ -17,6 +17,7 @@ import com.rw.tweaks.activities.Intro
 import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
+import com.rw.tweaks.util.addAnimation
 import com.rw.tweaks.util.hasWss
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -153,6 +154,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        toolbar.addAnimation()
 
         drawer.setupWithNavController(navController)
         drawer.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
@@ -175,6 +177,7 @@ class MainActivity : AppCompatActivity() {
 
         val searchItem = menu.findItem(R.id.search)
         searchView = searchItem?.actionView as SearchView?
+        searchView?.addAnimation()
 
         searchView?.setOnSearchClickListener {
             search_holder.apply {

@@ -1,5 +1,7 @@
 package com.rw.tweaks.util
 
+import android.animation.LayoutTransition
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -12,6 +14,9 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.TypedValue
+import android.widget.LinearLayout
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
@@ -216,6 +221,7 @@ fun <T> SortedList<T>.toList(): ArrayList<T> {
     return ret
 }
 
+@SuppressLint("ResourceType")
 fun ApplicationInfo.getColorPrimary(context: Context): Int {
     val res = context.packageManager.getResourcesForApplication(this)
     val theme = res.newTheme()
@@ -295,4 +301,17 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
     }
 
     return color
+}
+
+fun SearchView.addAnimation() {
+    val bar = findViewById<LinearLayout>(R.id.search_bar)
+    bar.layoutTransition = LayoutTransition().apply {
+        this.enableTransitionType(LayoutTransition.CHANGING)
+    }
+}
+
+fun Toolbar.addAnimation() {
+    layoutTransition = LayoutTransition().apply {
+        this.enableTransitionType(LayoutTransition.CHANGING)
+    }
 }

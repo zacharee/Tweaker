@@ -2,7 +2,7 @@ package com.rw.tweaks.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import com.rw.tweaks.R

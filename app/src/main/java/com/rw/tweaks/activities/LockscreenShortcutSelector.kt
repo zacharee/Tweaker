@@ -11,13 +11,14 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
 import com.rw.tweaks.ILockscreenShortcutSelectedCallback
 import com.rw.tweaks.R
+import com.rw.tweaks.util.addAnimation
 import kotlinx.android.synthetic.main.app_activity_item.view.*
 import kotlinx.android.synthetic.main.lockscreen_shortcut_selector.*
 import kotlinx.coroutines.CoroutineScope
@@ -85,6 +86,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
         setContentView(R.layout.lockscreen_shortcut_selector)
         setSupportActionBar(toolbar)
+        toolbar.addAnimation()
 
         app_selector.adapter = appAdapter
         activity_selector.adapter = activityAdapter
@@ -111,6 +113,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         searchView = menu.findItem(R.id.search).actionView as SearchView?
 
         searchView?.setOnQueryTextListener(this)
+        searchView?.addAnimation()
 
         return true
     }

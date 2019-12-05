@@ -3,11 +3,12 @@ package com.rw.tweaks.activities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.rw.tweaks.R
 import com.rw.tweaks.fragments.PersistentFragment
+import com.rw.tweaks.util.addAnimation
 import kotlinx.android.synthetic.main.activity_persistent.*
 
 class PersistentActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class PersistentActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_persistent)
         setSupportActionBar(toolbar)
+        toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -40,6 +42,7 @@ class PersistentActivity : AppCompatActivity() {
         searchView = searchItem?.actionView as SearchView?
 
         searchView?.setOnQueryTextListener(persistentFragment)
+        searchView?.addAnimation()
 
         return true
     }
