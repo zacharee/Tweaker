@@ -17,6 +17,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.rw.tweaks.activities.Intro
+import com.rw.tweaks.dialogs.AnimatedRoundedMaterialAlertDialogBuilder
 import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
@@ -148,7 +149,7 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             drawerItem: IDrawerItem<*>
                         ): Boolean {
-                            MaterialAlertDialogBuilder(this@MainActivity)
+                            AnimatedRoundedMaterialAlertDialogBuilder(this@MainActivity)
                                 .setTitle(R.string.reset)
                                 .setMessage(
                                     resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- "))

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
@@ -26,10 +25,9 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder =
-            MaterialAlertDialogBuilder(requireContext())
+            AnimatedRoundedMaterialAlertDialogBuilder(requireContext())
                 .setTitle(preference.dialogTitle)
                 .setIcon(preference.icon)
-                .setBackground(requireContext().getDrawable(R.drawable.rounded_rect))
                 .setPositiveButton(preference.positiveButtonText, this)
 
         val contentView = onCreateDialogView(context)
@@ -38,13 +36,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
 
         onPrepareDialogBuilder(builder)
 
-        val dialog: Dialog = builder.create()
-        dialog.window.setWindowAnimations(R.style.DialogTheme)
-//        if (needInputMethod()) {
-//            requestInputMethod(dialog)
-//        }
-
-        return dialog
+        return builder.create()
     }
 
     override fun onCreateDialogView(context: Context?): View {
