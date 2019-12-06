@@ -8,7 +8,6 @@ import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.holder.DimenHolder
@@ -38,7 +37,8 @@ class MainActivity : AppCompatActivity() {
             .addDrawerItems(
                 SectionDrawerItem()
                     .withDivider(false)
-                    .withName(R.string.tweaks),
+                    .withName(R.string.tweaks)
+                    .withTextColor(getColor(R.color.colorAccent)),
                 NavigationDrawerItem(
                     R.id.homeFragment,
                     PrimaryDrawerItem()
@@ -133,7 +133,8 @@ class MainActivity : AppCompatActivity() {
                 DividerDrawerItem(),
                 SectionDrawerItem()
                     .withDivider(false)
-                    .withName(R.string.more),
+                    .withName(R.string.more)
+                    .withTextColor(getColor(R.color.colorAccent)),
                 NavigationDrawerItem(
                     R.id.persistentActivity,
                     PrimaryDrawerItem()
