@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <solid
-        android:color="#212121"
+        android:color="@color/toolbarColor"
         />
 
 <!--    <stroke-->
