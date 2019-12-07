@@ -159,8 +159,8 @@
     <string name="option_ui_sound_trusted">Trusted</string>
     <string name="option_ui_sound_trusted_desc">Audio that is played when the device enters the “trusted” state without unlocking.</string>
 
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being charged wirelessly.</string>
+    <string name="option_ui_sound_wireless_charging">Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being charged.</string>
 
     <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
