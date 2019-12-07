@@ -3,7 +3,9 @@ package com.rw.tweaks.dialogs
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -20,6 +22,15 @@ class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.
 
     private var positiveListener: DialogInterface.OnClickListener? = null
     private var negativeListener: DialogInterface.OnClickListener? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val maxWidth = context.resources.getDimensionPixelSize(R.dimen.max_bottom_sheet_width)
+        val screenWidth = context.resources.displayMetrics.widthPixels
+
+        window.setLayout(if (screenWidth > maxWidth) maxWidth else ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+    }
 
     override fun setTitle(titleId: Int) {
         super.setTitle(titleId)
