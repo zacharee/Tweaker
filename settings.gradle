@@ -1,2 +1,4 @@
 rootProject.name='Tweaker'
-include ':app'
+include ':app', ':seekbar'
+
+project(':seekbar').projectDir = new File("..\\SeekBarPreference\\library")

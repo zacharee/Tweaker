@@ -44,7 +44,7 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
 
         val progress = (view.context.getSetting(type, writeKey)?.toFloat() ?: (default * scale)) / scale
 
-        view.seekbar_view.onBind(min, max, progress.toInt(), default, scale, units, "", this@SeekBarOptionDialog)
+        view.seekbar_view.onBind(min, max, progress.toInt(), default, scale, units, "",this@SeekBarOptionDialog)
     }
 
 

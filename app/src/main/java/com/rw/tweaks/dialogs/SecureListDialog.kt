@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import androidx.appcompat.app.AlertDialog
 import com.rw.tweaks.R
 import com.rw.tweaks.prefs.secure.SecureListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
@@ -35,10 +34,6 @@ class SecureListDialog : BaseOptionDialog() {
         return super.onCreateDialog(savedInstanceState).also {
             it.window.setWindowAnimations(R.style.DialogTheme)
         }
-    }
-
-    override fun onPrepareDialogBuilder(builder: AlertDialog.Builder) {
-        builder.setNegativeButton(null, null)
     }
 
     override fun onBindDialogView(view: View) {

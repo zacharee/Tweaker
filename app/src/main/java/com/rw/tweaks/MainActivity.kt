@@ -1,5 +1,6 @@
 package com.rw.tweaks
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -16,7 +17,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.rw.tweaks.activities.Intro
-import com.rw.tweaks.dialogs.AnimatedRoundedMaterialAlertDialogBuilder
+import com.rw.tweaks.dialogs.RoundedBottomSheetDialog
 import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
@@ -150,16 +151,15 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             drawerItem: IDrawerItem<*>
                         ): Boolean {
-                            AnimatedRoundedMaterialAlertDialogBuilder(this@MainActivity)
-                                .setTitle(R.string.reset)
-                                .setMessage(
-                                    resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- "))
-                                )
-                                .setPositiveButton(R.string.reset) {_, _ ->
-                                    resetAll()
-                                }
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show()
+                            val dialog = RoundedBottomSheetDialog(this@MainActivity)
+                            dialog.setTitle(R.string.reset)
+                            dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
+                            dialog.setPositiveButton(R.string.reset, DialogInterface.OnClickListener { _, _ ->
+                                resetAll()
+                            })
+                            dialog.setNegativeButton(android.R.string.cancel, null)
+
+                            dialog.show()
 
                             return true
                         }

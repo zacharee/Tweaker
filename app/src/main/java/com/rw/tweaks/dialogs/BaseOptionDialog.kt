@@ -2,11 +2,11 @@ package com.rw.tweaks.dialogs
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
-import com.rw.tweaks.R
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
@@ -24,32 +24,29 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         get() = (preference as ISecurePreference).type
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder =
-            AnimatedRoundedMaterialAlertDialogBuilder(requireContext())
-                .setTitle(preference.dialogTitle)
-                .setIcon(preference.icon)
-                .setPositiveButton(preference.positiveButtonText, this)
+        val builder = RoundedBottomSheetDialog(requireContext())
 
-        val contentView = onCreateDialogView(context)
-        onBindDialogView(contentView)
-        builder.setView(contentView)
+        builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
+        builder.setTitle(preference.dialogTitle)
+        builder.setIcon(preference.icon)
+        builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+            dismiss()
+        })
 
-        onPrepareDialogBuilder(builder)
-
-        return builder.create()
+        return builder
     }
 
-    override fun onCreateDialogView(context: Context?): View {
-        return View.inflate(context, R.layout.base_dialog_layout, null)
+    final override fun onCreateDialogView(context: Context?): View? {
+        return null
     }
 
     @CallSuper
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-         if (layoutRes != 0) {
-             View.inflate(view.context, layoutRes, view.wrapper)
-         }
+        if (layoutRes != 0) {
+            View.inflate(view.context, layoutRes, view.wrapper)
+        }
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {}

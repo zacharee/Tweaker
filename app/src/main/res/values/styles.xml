@@ -17,6 +17,7 @@
         <item name="android:alertDialogStyle">@style/DialogTheme</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="toolbarStyle">@style/ActionBarStyle</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
 
         <item name="material_drawer_background">@color/material_drawer_dark_background</item>
         <item name="material_drawer_primary_text">@color/material_drawer_dark_primary_text</item>
@@ -47,6 +48,15 @@
         <item name="android:windowEnterAnimation">@anim/scale_in</item>
         <item name="android:windowExitAnimation">@anim/scale_out</item>
         <item name="materialAlertDialogTitleTextStyle">@style/DialogTitle</item>
+    </style>
+
+    <style name="BottomSheetTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+        <item name="colorPrimarySurface">@color/toolbarColor</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/top_rounded_rect</item>
     </style>
 
     <style name="DialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
