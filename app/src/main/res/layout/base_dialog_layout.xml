@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.rw.tweaks.views.ListenerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listener"
     android:padding="16dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -69,4 +70,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</com.rw.tweaks.views.ListenerLinearLayout>

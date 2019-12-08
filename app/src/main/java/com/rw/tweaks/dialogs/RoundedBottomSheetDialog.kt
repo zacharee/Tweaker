@@ -26,6 +26,20 @@ class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        updateSize()
+
+        var oldOrientation = context.resources.configuration.orientation
+
+        listener.onConfigurationChangedListener = { newConfig ->
+            if (newConfig.orientation != oldOrientation) {
+                oldOrientation = newConfig.orientation
+
+                updateSize()
+            }
+        }
+    }
+
+    private fun updateSize() {
         val maxWidth = context.resources.getDimensionPixelSize(R.dimen.max_bottom_sheet_width)
         val screenWidth = context.resources.displayMetrics.widthPixels
 
