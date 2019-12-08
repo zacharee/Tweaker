@@ -8,6 +8,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="end"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -44,11 +47,18 @@
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/radio_recycler"
+    <com.rw.tweaks.views.RoundedFrameCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/radio_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+    </com.rw.tweaks.views.RoundedFrameCardView>
 
 </com.rw.tweaks.views.AirplaneModeRadios>

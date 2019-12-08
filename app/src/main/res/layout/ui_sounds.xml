@@ -13,13 +13,20 @@
         android:layout_height="?listPreferredItemHeight"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sounds_list"
+    <com.rw.tweaks.views.RoundedFrameCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/ui_sounds_item"
-        />
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sounds_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/ui_sounds_item"
+            />
+
+    </com.rw.tweaks.views.RoundedFrameCardView>
 
 </com.rw.tweaks.views.UISounds>
