@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="@string/reset"
-        android:layout_marginBottom="8dp"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        />
-
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="end"

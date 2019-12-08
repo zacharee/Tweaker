@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.IImmersiveSelectionCallback
 import com.rw.tweaks.R
 import com.rw.tweaks.activities.ImmersiveListSelector
 import com.rw.tweaks.util.ImmersiveManager
+import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.immersive_mode.view.*
 import kotlinx.android.synthetic.main.immersive_mode_item.view.*
 
@@ -21,12 +23,17 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        mode_list.adapter = ImmersiveAdapter(immersiveInfo, immersiveManager)
+        val list = mode_list
+        list.adapter = ImmersiveAdapter(immersiveInfo, immersiveManager)
 
-        reset.setOnClickListener {
-            immersiveInfo.clear()
-            immersiveManager.setAdvancedImmersive(immersiveInfo)
-            mode_list.adapter!!.notifyItemRangeChanged(0, mode_list.adapter!!.itemCount)
+        rootView.negative_button.apply {
+            isVisible = true
+            setText(R.string.reset)
+            setOnClickListener {
+                immersiveInfo.clear()
+                immersiveManager.setAdvancedImmersive(immersiveInfo)
+                list.adapter!!.notifyItemRangeChanged(0, list.adapter!!.itemCount)
+            }
         }
     }
 
