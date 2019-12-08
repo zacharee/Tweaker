@@ -1,6 +1,5 @@
 package com.rw.tweaks.dialogs
 
-import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
@@ -29,12 +28,6 @@ class SecureListDialog : BaseOptionDialog() {
     private var clickedIndex = -1
 
     override val layoutRes: Int = 0
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return super.onCreateDialog(savedInstanceState).also {
-            it.window.setWindowAnimations(R.style.DialogTheme)
-        }
-    }
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
