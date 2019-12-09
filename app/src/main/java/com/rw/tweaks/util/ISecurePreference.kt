@@ -2,10 +2,14 @@ package com.rw.tweaks.util
 
 import android.content.Context
 import android.content.ContextWrapper
+import android.graphics.PorterDuff
+import android.graphics.drawable.StateListDrawable
 import androidx.preference.Preference
+import androidx.preference.PreferenceViewHolder
 import com.rw.tweaks.R
 import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
+import kotlinx.android.synthetic.main.custom_preference.view.*
 
 interface ISecurePreference {
     companion object {
@@ -24,6 +28,7 @@ interface ISecurePreference {
     fun onValueChanged(newValue: Any?, key: String?)
 
     fun init(pref: Preference)
+    fun bindVH(holder: PreferenceViewHolder)
 }
 
 interface ISpecificPreference {
@@ -67,5 +72,19 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
         }
 
         if (writeKey == null) writeKey = pref.key
+    }
+
+    override fun bindVH(holder: PreferenceViewHolder) {
+        holder.itemView.icon_frame.apply {
+            (background as StateListDrawable).apply {
+                val drawable = getStateDrawable(1)
+
+                if (iconColor != Int.MIN_VALUE) {
+                    drawable.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
+                } else {
+                    drawable.clearColorFilter()
+                }
+            }
+        }
     }
 }

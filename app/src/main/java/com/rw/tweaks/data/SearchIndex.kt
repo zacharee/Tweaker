@@ -106,7 +106,6 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             fun fromPreference(context: Context, preference: Preference): PersistentPreference {
                 return PersistentPreference(context).apply {
                     title = preference.title
-//                    summary = preference.summary
                     icon = preference.icon
                     key = preference.key
                     isVisible = preference.isVisible
@@ -135,6 +134,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
 
         init {
             isPersistent = false
+            layoutResource = R.layout.custom_preference
+            widgetLayoutResource = R.layout.checkbox
         }
 
         val keys: ArrayList<String> = ArrayList()
@@ -158,6 +159,12 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                 else if (!isChecked && other.isChecked) 1
                 else sup
             } else sup
+        }
+
+        override fun onBindViewHolder(holder: PreferenceViewHolder) {
+            super.onBindViewHolder(holder)
+
+            bindVH(holder)
         }
 
         fun copy(): PersistentPreference {
@@ -213,6 +220,16 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                 field = value
                 markDangerous()
             }
+
+        init {
+            layoutResource = R.layout.custom_preference
+        }
+
+        override fun onBindViewHolder(holder: PreferenceViewHolder) {
+            super.onBindViewHolder(holder)
+
+            bindVH(holder)
+        }
 
         fun copy(): ActionedPreference {
             return fromPreference(context, this, action)

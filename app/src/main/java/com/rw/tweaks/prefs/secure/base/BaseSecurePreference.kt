@@ -1,8 +1,6 @@
 package com.rw.tweaks.prefs.secure.base
 
 import android.content.Context
-import android.graphics.PorterDuff
-import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import androidx.preference.PreferenceViewHolder
@@ -12,7 +10,6 @@ import com.rw.tweaks.util.SecurePreference
 import com.rw.tweaks.util.SettingsType
 import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
-import kotlinx.android.synthetic.main.custom_preference.view.*
 
 open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context) {
     override var writeKey: String? = null
@@ -58,17 +55,6 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogP
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
-
-        holder.itemView.icon_frame.apply {
-            (background as StateListDrawable).apply {
-                val drawable = getStateDrawable(1)
-
-                if (iconColor != Int.MIN_VALUE) {
-                    drawable.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
-                } else {
-                    drawable.clearColorFilter()
-                }
-            }
-        }
+        bindVH(holder)
     }
 }

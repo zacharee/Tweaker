@@ -2,10 +2,7 @@ package com.rw.tweaks.fragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.preference.CheckBoxPreference
-import androidx.preference.Preference
-import androidx.preference.PreferenceGroupAdapter
-import androidx.preference.TwoStatePreference
+import androidx.preference.*
 import com.rw.tweaks.R
 import com.rw.tweaks.activities.ImmersiveListSelector
 import com.rw.tweaks.data.LoadedAppInfo
@@ -87,6 +84,8 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         val callback: (key: String, checked: Boolean, pref: Preference) -> Unit
     ) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context) {
         init {
+            layoutResource = R.layout.custom_preference
+            widgetLayoutResource = R.layout.checkbox
             title = info.label
             summary = info.packageName
             key = info.packageName
@@ -117,6 +116,12 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
                 else if (!isChecked && other.isChecked) 1
                 else sup
             } else sup
+        }
+
+        override fun onBindViewHolder(holder: PreferenceViewHolder) {
+            super.onBindViewHolder(holder)
+
+            bindVH(holder)
         }
 
         fun matchesQuery(query: String?): Boolean {
