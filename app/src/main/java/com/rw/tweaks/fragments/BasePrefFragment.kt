@@ -3,8 +3,6 @@ package com.rw.tweaks.fragments
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
@@ -20,7 +18,6 @@ import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.card.MaterialCardView
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.dialogs.*
@@ -32,7 +29,6 @@ import com.rw.tweaks.prefs.secure.specific.*
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.dpAsPx
 import com.rw.tweaks.util.mainHandler
-import kotlinx.android.synthetic.main.custom_preference.view.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat() {
     companion object {
@@ -41,7 +37,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
 
-    open val prefLayout: Int = R.layout.custom_preference
     open val widgetLayout: Int = 0
     open val limitSummary = true
 
@@ -166,29 +161,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                 return position
             }
 
-            @SuppressLint("RestrictedApi")
-            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
-                super.onBindViewHolder(holder, position)
-
-                val item = getItem(position)
-
-                if (item is ISecurePreference) {
-                    holder.itemView.icon_frame.apply {
-                        val color = item.iconColor
-
-                        (background as StateListDrawable).apply {
-                            val drawable = getStateDrawable(1)
-
-                            if (color != Int.MIN_VALUE) {
-                                drawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-                            } else {
-                                drawable.clearColorFilter()
-                            }
-                        }
-                    }
-                }
-            }
-
             @SuppressLint("RestrictedApi", "PrivateResource")
             override fun onCreateViewHolder(
                 parent: ViewGroup,
@@ -212,7 +184,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     a.recycle()
 
                     val view: View =
-                        inflater.inflate(prefLayout, parent, false)
+                        inflater.inflate(item.layoutResource, parent, false)
                     if (view.background == null) {
                         ViewCompat.setBackground(view, background)
                     }
@@ -227,28 +199,16 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                         }
                     }
 
-                    val newView = if (item is PreferenceGroup) view else run {
-                        val cardView = LayoutInflater.from(parent.context).inflate(
-                            R.layout.pref_card,
-                            parent,
-                            false
-                        ) as MaterialCardView
-
-                        cardView.addView(view)
-                        cardView.findViewById<TextView>(android.R.id.title).apply {
-                            setSingleLine(false)
-                        }
+                    if (item !is PreferenceGroup) {
                         if (item.isEnabled && limitSummary) {
-                            cardView.findViewById<TextView>(android.R.id.summary).apply {
+                            view.findViewById<TextView>(android.R.id.summary).apply {
                                 maxLines = 2
                                 ellipsize = TextUtils.TruncateAt.END
                             }
                         }
-
-                        cardView
                     }
 
-                    PreferenceViewHolder.createInstanceForTests(newView)
+                    PreferenceViewHolder.createInstanceForTests(view)
                 }
             }
         }
