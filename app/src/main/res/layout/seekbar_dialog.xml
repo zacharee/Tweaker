@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tk.zwander.seekbarpreference.SeekBarView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/seekbar_view"
+<com.rw.tweaks.views.RoundedFrameCardView android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="?listPreferredItemHeightLarge"
-    app:isPreference="true" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <tk.zwander.seekbarpreference.SeekBarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/seekbar_view"
+        android:layout_width="match_parent"
+        android:layout_height="?listPreferredItemHeightLarge"
+        android:layout_margin="8dp"
+        app:isPreference="true" />
+
+</com.rw.tweaks.views.RoundedFrameCardView>

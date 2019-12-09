@@ -1,54 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rw.tweaks.views.SMSLimits xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+<com.rw.tweaks.views.RoundedFrameCardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <com.rw.tweaks.views.SMSLimits
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/max_count"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/option_sms_limit_count"
-            app:startIconDrawable="@drawable/ic_undo_black_24dp"
-            app:endIconDrawable="@drawable/ic_baseline_check_24"
-            app:endIconMode="custom">
+            android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/max_count"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:hint="@string/option_sms_limit_count"
+                app:startIconDrawable="@drawable/ic_undo_black_24dp"
+                app:endIconDrawable="@drawable/ic_baseline_check_24"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
                 />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/interval"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/option_sms_limit_interval"
-            app:suffixText="ms"
-            app:startIconDrawable="@drawable/ic_undo_black_24dp"
-            app:endIconDrawable="@drawable/ic_baseline_check_24"
-            app:endIconMode="custom">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/interval"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="number"
-                />
+                android:layout_height="wrap_content"
+                android:hint="@string/option_sms_limit_interval"
+                app:suffixText="ms"
+                app:startIconDrawable="@drawable/ic_undo_black_24dp"
+                app:endIconDrawable="@drawable/ic_baseline_check_24"
+                app:endIconMode="custom">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    />
 
-    </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-</com.rw.tweaks.views.SMSLimits>
+        </LinearLayout>
+
+    </com.rw.tweaks.views.SMSLimits>
+
+</com.rw.tweaks.views.RoundedFrameCardView>

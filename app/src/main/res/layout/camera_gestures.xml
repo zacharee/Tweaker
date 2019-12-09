@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rw.tweaks.views.CameraGestures
+<com.rw.tweaks.views.RoundedFrameCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
+    <com.rw.tweaks.views.CameraGestures
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/camera_gesture"
-            android:text="@string/option_camera_gesture"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?listPreferredItemHeight"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/camera_power_button"
-            android:text="@string/option_camera_gesture_double_power"
-            android:layout_width="match_parent"
-            android:layout_height="?listPreferredItemHeight"
-            />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/camera_gesture"
+                android:text="@string/option_camera_gesture"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/camera_twist"
-            android:text="@string/option_camera_gesture_twist"
-            android:layout_width="match_parent"
-            android:layout_height="?listPreferredItemHeight"
-            />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/camera_power_button"
+                android:text="@string/option_camera_gesture_double_power"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
 
-    </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/camera_twist"
+                android:text="@string/option_camera_gesture_twist"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                />
 
-</com.rw.tweaks.views.CameraGestures>
+        </LinearLayout>
+
+    </com.rw.tweaks.views.CameraGestures>
+
+</com.rw.tweaks.views.RoundedFrameCardView>

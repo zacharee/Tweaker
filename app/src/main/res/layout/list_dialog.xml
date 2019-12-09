@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/select_dialog_listview"
+<com.rw.tweaks.views.RoundedFrameCardView android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clipToPadding="false"
-    android:nestedScrollingEnabled="false"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    app:paddingBottomNoButtons="@dimen/abc_dialog_list_padding_bottom_no_buttons"
-    app:paddingTopNoTitle="@dimen/abc_dialog_list_padding_top_no_title"
-    tools:listitem="@layout/select_dialog_singlechoice_material"
-    tools:ignore="PrivateResource"
-    />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/select_dialog_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:paddingBottomNoButtons="@dimen/abc_dialog_list_padding_bottom_no_buttons"
+        app:paddingTopNoTitle="@dimen/abc_dialog_list_padding_top_no_title"
+        tools:listitem="@layout/select_dialog_singlechoice_material"
+        tools:ignore="PrivateResource"
+        />
+
+</com.rw.tweaks.views.RoundedFrameCardView>
