@@ -25,6 +25,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
 
         private val toInflate = arrayOf(
             R.xml.prefs_apps to R.id.appsFragment,
+            R.xml.prefs_audio to R.id.audioFragment,
             R.xml.prefs_developer to R.id.developerFragment,
             R.xml.prefs_display to R.id.displayFragment,
             R.xml.prefs_net_cellular to R.id.netCellFragment,
