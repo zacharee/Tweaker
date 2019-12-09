@@ -1,6 +1,7 @@
 package com.rw.tweaks
 
 import android.content.DialogInterface
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
@@ -141,31 +142,37 @@ class MainActivity : AppCompatActivity() {
                     PrimaryDrawerItem()
                         .withName(R.string.screen_persistent)
                         .withSelectable(false)
-                ),
-                PrimaryDrawerItem()
-                    .withName(R.string.reset)
-                    .withSelectable(false)
-                    .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
-                        override fun onItemClick(
-                            view: View?,
-                            position: Int,
-                            drawerItem: IDrawerItem<*>
-                        ): Boolean {
-                            val dialog = RoundedBottomSheetDialog(this@MainActivity)
-                            dialog.setTitle(R.string.reset)
-                            dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
-                            dialog.setPositiveButton(R.string.reset, DialogInterface.OnClickListener { _, _ ->
-                                resetAll()
-                            })
-                            dialog.setNegativeButton(android.R.string.cancel, null)
-
-                            dialog.show()
-
-                            return true
-                        }
-
-                    })
+                )
             )
+            .apply {
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1) {
+                    addDrawerItems(
+                        PrimaryDrawerItem()
+                            .withName(R.string.reset)
+                            .withSelectable(false)
+                            .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                                override fun onItemClick(
+                                    view: View?,
+                                    position: Int,
+                                    drawerItem: IDrawerItem<*>
+                                ): Boolean {
+                                    val dialog = RoundedBottomSheetDialog(this@MainActivity)
+                                    dialog.setTitle(R.string.reset)
+                                    dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
+                                    dialog.setPositiveButton(R.string.reset, DialogInterface.OnClickListener { _, _ ->
+                                        resetAll()
+                                    })
+                                    dialog.setNegativeButton(android.R.string.cancel, null)
+
+                                    dialog.show()
+
+                                    return true
+                                }
+
+                            })
+                    )
+                }
+            }
             .build()
     }
 
