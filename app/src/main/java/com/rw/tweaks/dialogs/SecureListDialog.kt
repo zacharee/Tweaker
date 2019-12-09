@@ -39,14 +39,7 @@ class SecureListDialog : BaseOptionDialog() {
         val adapter = Adapter(entries?.mapIndexed { index, charSequence -> ItemInfo(charSequence, index == checkedIndex) } ?: ArrayList()) {
             clickedIndex = it
             onClick(dialog, DialogInterface.BUTTON_POSITIVE)
-            dialog?.dismiss()
-        }
 
-        list.adapter = adapter
-    }
-
-    override fun onDialogClosed(positiveResult: Boolean) {
-        if (positiveResult && clickedIndex >= 0) {
             val preference = preference as SecureListPreference
             val value = preference.entryValues!![clickedIndex].toString()
             if (preference.callChangeListener(value)) {
@@ -54,6 +47,8 @@ class SecureListDialog : BaseOptionDialog() {
                 preference.onValueChanged(value, preference.writeKey)
             }
         }
+
+        list.adapter = adapter
     }
 
     private data class ItemInfo(
@@ -88,6 +83,7 @@ class SecureListDialog : BaseOptionDialog() {
                 setOnClickListener {
                     val pos = holder.adapterPosition
 
+                    clickCallback(pos)
                     setChecked(pos, true)
                 }
             }
