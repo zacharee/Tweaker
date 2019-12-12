@@ -77,13 +77,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private fun doInitialCheck() {
         prefManager.persistentOptions.forEach {
-            val value = when (it.type) {
-                SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, it.key)
-                SettingsType.SECURE -> Settings.Secure.getString(contentResolver, it.key)
-                SettingsType.SYSTEM -> Settings.System.getString(contentResolver, it.key)
-                else -> return@forEach
-            }
-
+            val value = getSetting(it.type, it.key)
             val prefValue = prefManager.prefs.all[it.key]?.toString()
 
             if (value != prefValue) {
