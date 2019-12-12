@@ -39,6 +39,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
         observer.register()
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+        doInitialCheck()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -72,6 +73,23 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
         observer.unregister()
         prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    private fun doInitialCheck() {
+        prefManager.persistentOptions.forEach {
+            val value = when (it.type) {
+                SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, it.key)
+                SettingsType.SECURE -> Settings.Secure.getString(contentResolver, it.key)
+                SettingsType.SYSTEM -> Settings.System.getString(contentResolver, it.key)
+                else -> return@forEach
+            }
+
+            val prefValue = prefManager.prefs.all[it.key]?.toString()
+
+            if (value != prefValue) {
+                writeSetting(it.type, it.key, prefValue)
+            }
+        }
     }
 
     inner class ManagerImpl : IManager.Stub() {
