@@ -25,7 +25,9 @@ import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceGroupAdapter
 import androidx.recyclerview.widget.SortedList
 import com.rw.tweaks.R
+import eu.chainfire.libsuperuser.Shell
 import java.util.*
+import java.util.regex.Pattern
 import kotlin.collections.ArrayList
 import kotlin.math.roundToInt
 
@@ -105,7 +107,8 @@ fun Context.resetAll() {
 
     try {
         Settings.Global.resetToDefaults(contentResolver, null)
-    } catch (e: SecurityException) {}
+    } catch (e: SecurityException) {
+    }
 
     try {
         Settings.Secure.resetToDefaults(contentResolver, null)
@@ -282,7 +285,8 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
         )
 
         attrs.recycle()
-    } catch (e: Exception) {}
+    } catch (e: Exception) {
+    }
 
     if (color == 0) {
         try {
@@ -311,7 +315,8 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
             )
 
             attrs.recycle()
-        } catch (e: Exception) {}
+        } catch (e: Exception) {
+        }
     }
 
     return color
@@ -343,4 +348,28 @@ fun Context.buildNonResettablePreferences(): ArrayList<String> {
         resources.getString(R.string.feature_font_scale),
         resources.getString(R.string.feature_custom_rotation)
     )
+}
+
+fun parseAutoIconBlacklistSlots(): ArrayList<String> {
+    val slots = ArrayList<String>()
+
+    val lines = ArrayList<String>()
+    val error = ArrayList<String>()
+
+    Shell.Pool.SH.run(
+        " dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
+        lines,
+        error,
+        false
+    )
+
+    val parenPattern = Pattern.compile("\\((.+?)\\)")
+
+    lines.forEach {
+        val matcher = parenPattern.matcher(it)
+        matcher.find()
+        slots.add(matcher.group().replace("(", "").replace(")", ""))
+    }
+
+    return slots
 }

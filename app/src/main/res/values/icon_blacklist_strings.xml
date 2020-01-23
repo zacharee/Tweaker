@@ -7,7 +7,10 @@
     <string name="category_icon_blacklist_htc">HTC</string>
     <string name="category_icon_blacklist_sony">Sony</string>
     <string name="category_icon_blacklist_lg">LG</string>
+    <string name="category_icon_blacklist_auto">Auto</string>
     <string name="category_icon_blacklist_custom">Custom</string>
+
+    <string name="category_icon_blacklist_auto_desc">Tap to expand/load</string>
 
     <string name="icon_blacklist_rotate">Rotate</string>
     <string name="icon_blacklist_airplane">Airplane Mode</string>
