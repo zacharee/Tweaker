@@ -52,8 +52,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.1.0"
 
     implementation 'com.github.zacharee:Unblacklister:1.0'
-    implementation "com.mikepenz:materialdrawer:7.0.0-rc08"
-    implementation "com.mikepenz:materialdrawer-nav:7.0.0-rc08"
+    implementation "com.mikepenz:materialdrawer:7.0.0"
+    implementation "com.mikepenz:materialdrawer-nav:7.0.0"
     implementation 'co.zsmb:materialdrawer-kt:2.0.1'
 //    implementation 'com.github.zacharee:SeekBarPreference:227afba0c9'
     implementation project(':seekbar')
