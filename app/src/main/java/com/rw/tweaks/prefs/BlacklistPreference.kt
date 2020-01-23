@@ -44,7 +44,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
     override fun onPreferenceChange(preference: Preference?, newValue: Any): Boolean {
         val isChecked = newValue.toString().toBoolean()
 
-        val currentlyBlacklisted = context.prefManager.blacklistedItems
+        val currentlyBlacklisted = HashSet(Settings.Secure.getString(context.contentResolver, "icon_blacklist")?.split(",") ?: HashSet<String>())
 
         if (!isChecked) {
             currentlyBlacklisted.addAll(allKeys)
