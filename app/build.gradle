@@ -57,6 +57,7 @@ dependencies {
     implementation 'co.zsmb:materialdrawer-kt:2.0.1'
 //    implementation 'com.github.zacharee:SeekBarPreference:227afba0c9'
     implementation project(':seekbar')
+    implementation project(':category')
     implementation 'com.github.zacharee:material:a2ab4a2d3c'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'

@@ -38,6 +38,9 @@
     <string name="special_sub_airplane_mode">Airplane Mode Tweaks</string>
     <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. We can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, we can change which radios can be toggled manually when the device enters airplane mode.</string>
 
+    <string name="special_sub_icon_blacklist">Icon Blacklist</string>
+    <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
+
     <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
     <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, we can set whatever value (in milliseconds) that we want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
 

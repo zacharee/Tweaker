@@ -82,7 +82,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         context: Context,
         val info: LoadedAppInfo,
         val callback: (key: String, checked: Boolean, pref: Preference) -> Unit
-    ) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context) {
+    ) : CheckBoxPreference(context), IColorPreference by ColorPreference(context, null) {
         init {
             layoutResource = R.layout.custom_preference
             widgetLayoutResource = R.layout.checkbox

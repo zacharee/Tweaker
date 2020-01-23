@@ -2,14 +2,11 @@ package com.rw.tweaks.util
 
 import android.content.Context
 import android.content.ContextWrapper
-import android.graphics.PorterDuff
-import android.graphics.drawable.StateListDrawable
+import android.util.AttributeSet
 import androidx.preference.Preference
-import androidx.preference.PreferenceViewHolder
 import com.rw.tweaks.R
 import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
-import kotlinx.android.synthetic.main.custom_preference.view.*
 
 interface ISecurePreference {
     companion object {
@@ -22,20 +19,18 @@ interface ISecurePreference {
     var visibilityVerifier: BaseVisibilityVerifier?
     var lowApi: Int
     var highApi: Int
-    var iconColor: Int
     var enabledVerifier: BasePreferenceEnabledVerifier?
 
     fun onValueChanged(newValue: Any?, key: String?)
 
     fun init(pref: Preference)
-    fun bindVH(holder: PreferenceViewHolder)
 }
 
 interface ISpecificPreference {
     val keys: Array<String>
 }
 
-class SecurePreference(context: Context) : ContextWrapper(context), ISecurePreference {
+class SecurePreference(context: Context, attrs: AttributeSet?) : ContextWrapper(context), ISecurePreference {
     override var type: SettingsType = SettingsType.UNDEFINED
     override var writeKey: String? = null
     override var dangerous: Boolean = false
@@ -43,7 +38,34 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
     override var enabledVerifier: BasePreferenceEnabledVerifier? = null
     override var lowApi: Int = ISecurePreference.API_UNDEFINED
     override var highApi: Int = ISecurePreference.API_UNDEFINED
-    override var iconColor: Int = Int.MIN_VALUE
+
+    init {
+        if (attrs != null) {
+            val array = context.theme.obtainStyledAttributes(attrs, R.styleable.BaseSecurePreference, 0, 0)
+
+            type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.BaseSecurePreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
+            writeKey = array.getString(R.styleable.BaseSecurePreference_differing_key)
+            dangerous = array.getBoolean(R.styleable.BaseSecurePreference_dangerous, false)
+            lowApi = array.getInt(R.styleable.BaseSecurePreference_low_api, lowApi)
+            highApi = array.getInt(R.styleable.BaseSecurePreference_high_api, highApi)
+
+            val clazz = array.getString(R.styleable.BaseSecurePreference_visibility_verifier)
+            if (clazz != null) {
+                visibilityVerifier = context.classLoader.loadClass(clazz)
+                    .getConstructor(Context::class.java)
+                    .newInstance(context) as BaseVisibilityVerifier
+            }
+
+            val enabledClazz = array.getString(R.styleable.BaseSecurePreference_enabled_verifier)
+            if (enabledClazz != null) {
+                enabledVerifier = context.classLoader.loadClass(enabledClazz)
+                    .getConstructor(Context::class.java)
+                    .newInstance(context) as BasePreferenceEnabledVerifier
+            }
+
+            array.recycle()
+        }
+    }
 
     override fun onValueChanged(newValue: Any?, key: String?) {}
 
@@ -72,19 +94,5 @@ class SecurePreference(context: Context) : ContextWrapper(context), ISecurePrefe
         }
 
         if (writeKey == null) writeKey = pref.key
-    }
-
-    override fun bindVH(holder: PreferenceViewHolder) {
-        holder.itemView.icon_frame.apply {
-            (background as StateListDrawable).apply {
-                val drawable = getStateDrawable(1)
-
-                if (iconColor != Int.MIN_VALUE) {
-                    drawable.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
-                } else {
-                    drawable.clearColorFilter()
-                }
-            }
-        }
     }
 }

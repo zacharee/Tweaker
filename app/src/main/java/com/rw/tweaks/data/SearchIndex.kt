@@ -8,9 +8,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.ISpecificPreference
-import com.rw.tweaks.util.SecurePreference
+import com.rw.tweaks.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -102,7 +100,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         result(filter.await())
     }
 
-    class PersistentPreference(context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context) {
+    class PersistentPreference(context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context, null), IColorPreference by ColorPreference(context, null) {
         companion object {
             fun fromPreference(context: Context, preference: Preference): PersistentPreference {
                 return PersistentPreference(context).apply {
@@ -118,12 +116,14 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     }
                     if (preference is ISecurePreference) {
                         dangerous = preference.dangerous
-                        iconColor = preference.iconColor
                         type = preference.type
 
                         if (keys.isEmpty()) {
                             keys.add(preference.key)
                         }
+                    }
+                    if (preference is IColorPreference) {
+                        iconColor = preference.iconColor
                     }
                 }
             }
@@ -183,7 +183,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    class ActionedPreference(context: Context) : Preference(context), ISecurePreference by SecurePreference(context), ISpecificPreference {
+    class ActionedPreference(context: Context) : Preference(context), ISecurePreference by SecurePreference(context, null), ISpecificPreference, IColorPreference by ColorPreference(context, null) {
         companion object {
             fun fromPreference(context: Context, preference: Preference, action: Int): ActionedPreference {
                 return ActionedPreference(context).apply {
@@ -194,11 +194,13 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     isVisible = preference.isVisible
                     if (preference is ISecurePreference) {
                         dangerous = preference.dangerous
-                        iconColor = preference.iconColor
                         type = preference.type
                     }
                     if (preference is ISpecificPreference) {
                         _keys.addAll(preference.keys)
+                    }
+                    if (preference is IColorPreference) {
+                        iconColor = preference.iconColor
                     }
                     this.action = action
                 }

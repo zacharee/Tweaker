@@ -46,6 +46,10 @@
             android:label="@string/screen_persistent"
             android:exported="false"
             />
+        <activity android:name=".activities.IconBlacklistActivity"
+            android:label="@string/special_sub_icon_blacklist"
+            android:exported="false"
+            />
 
         <service android:name=".services.Manager"
             android:exported="false"

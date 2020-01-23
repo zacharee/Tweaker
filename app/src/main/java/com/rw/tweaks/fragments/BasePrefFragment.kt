@@ -37,7 +37,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
 
-    open val widgetLayout: Int = 0
+    open val widgetLayout: Int = Int.MIN_VALUE
     open val limitSummary = true
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
@@ -156,7 +156,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
-
             override fun getItemViewType(position: Int): Int {
                 return position
             }
@@ -192,10 +191,16 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
                     val widgetFrame =
                         view.findViewById<ViewGroup>(android.R.id.widget_frame)
                     if (widgetFrame != null) {
-                        if (widgetLayout != 0) {
-                            inflater.inflate(widgetLayout, widgetFrame)
-                        } else {
-                            widgetFrame.visibility = View.GONE
+                        when {
+                            widgetLayout != Int.MIN_VALUE -> {
+                                inflater.inflate(widgetLayout, widgetFrame)
+                            }
+                            item.widgetLayoutResource != 0 -> {
+                                inflater.inflate(item.widgetLayoutResource, widgetFrame)
+                            }
+                            else -> {
+                                widgetFrame.visibility = View.GONE
+                            }
                         }
                     }
 

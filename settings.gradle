@@ -1,4 +1,5 @@
 rootProject.name='Tweaker'
-include ':app', ':seekbar'
+include ':app', ':seekbar', ':category'
 
 project(':seekbar').projectDir = new File("..\\SeekBarPreference\\library")
+project(':category').projectDir = new File("..\\CollapsiblePreferenceCategory\\library")

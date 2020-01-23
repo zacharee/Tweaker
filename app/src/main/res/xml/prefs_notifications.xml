@@ -24,4 +24,13 @@
         app:maxValue="600000"
         />
 
+    <com.rw.tweaks.prefs.ActivityPreference
+        android:title="@string/special_sub_icon_blacklist"
+        android:summary="@string/special_sub_icon_blacklist_desc"
+        android:key="icon_blacklist"
+        android:icon="@drawable/ic_baseline_visibility_off_24"
+        app:icon_color="@color/pref_color_5"
+        app:activity_class="com.rw.tweaks.activities.IconBlacklistActivity"
+        />
+
 </PreferenceScreen>

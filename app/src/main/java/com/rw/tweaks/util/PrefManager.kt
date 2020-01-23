@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.rw.tweaks.data.CustomBlacklistItemInfo
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
@@ -16,6 +17,8 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
         const val PERSISTENT_OPTIONS = "persistent_options"
+        const val BLACKLISTED_ITEMS = "blacklisted_items"
+        const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklist_items"
     }
 
     /**
@@ -26,6 +29,18 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = HashSet(getStringSet(PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
         set(value) {
             putStringSet(PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
+        }
+
+    var blacklistedItems: HashSet<String>
+        get() = HashSet(getStringSet(BLACKLISTED_ITEMS))
+        set(value) {
+            putStringSet(BLACKLISTED_ITEMS, HashSet(value))
+        }
+
+    var customBlacklistItems: HashSet<CustomBlacklistItemInfo>
+        get() = HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
+        set(value) {
+            putStringSet(CUSTOM_BLACKLIST_ITEMS, HashSet(value.map { it.toString() }))
         }
 
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)

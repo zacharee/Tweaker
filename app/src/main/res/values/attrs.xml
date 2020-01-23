@@ -15,6 +15,7 @@
     <attr name="verifier" />
     <attr name="visibility_verifier" />
     <attr name="enabled_verifier" />
+    <attr name="activity_class" />
     <attr name="icon_color" format="color|reference" />
 
     <declare-styleable name="SecureSwitchPreference">
@@ -49,6 +50,17 @@
         <attr name="enabled_verifier" />
         <attr name="low_api" />
         <attr name="high_api" />
+    </declare-styleable>
+
+    <declare-styleable name="ActivityPreference">
+        <attr name="activity_class" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorPreference">
         <attr name="icon_color" />
+    </declare-styleable>
+
+    <declare-styleable name="BlacklistPreference">
+        <attr name="additional_keys" format="string|reference" />
     </declare-styleable>
 </resources>
