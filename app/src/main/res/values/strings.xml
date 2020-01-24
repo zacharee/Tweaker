@@ -107,6 +107,15 @@
     <string name="feature_dark_mode">Enable Global Dark Mode</string>
     <string name="feature_dark_mode_desc">Android Pie and 10 introduced a global dark mode option, but this option has been part of Android for a while now. This option can enable dark mode in apps that support this feature (such as Instagram). A reboot may be required for changes to take effect.</string>
 
+    <string name="feature_clock_seconds">Show Clock Seconds</string>
+    <string name="feature_clock_seconds_desc">Enable seconds in the status bar clock. This won\'t work on all devices and configurations, including MIUI and One UI.</string>
+
+    <string name="feature_dnd_in_volume">Do Not Disturb Toggle in Volume Indicator</string>
+    <string name="feature_dnd_in_volume_desc">Allows you to toggle Do Not Disturb from the volume popup.</string>
+
+    <string name="feature_battery_percent">Show Battery Percentage in Status Bar</string>
+    <string name="feature_battery_percent_desc">Shows the current battery percentage in the battery icon on the status bar. May require root to activate.</string>
+
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
