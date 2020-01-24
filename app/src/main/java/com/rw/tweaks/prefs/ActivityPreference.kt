@@ -8,8 +8,10 @@ import androidx.preference.PreferenceViewHolder
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ColorPreference
 import com.rw.tweaks.util.IColorPreference
+import com.rw.tweaks.util.ISecurePreference
+import com.rw.tweaks.util.SecurePreference
 
-class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(context, attrs) {
+class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs) {
     private val activityIntent: Intent?
 
     init {

@@ -16,6 +16,8 @@ import androidx.core.app.NotificationCompat
 import com.rw.tweaks.IManager
 import com.rw.tweaks.R
 import com.rw.tweaks.util.*
+import com.rw.tweaks.util.persistence.BasePersistenceHandler
+import com.rw.tweaks.util.persistence.BlacklistPersistenceHandler
 
 class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
@@ -23,6 +25,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private val observer = Observer()
+    private val persistenceHandlers = HashSet<BasePersistenceHandler<*>>()
 
     override fun onBind(intent: Intent?): IBinder {
         return ManagerImpl()
@@ -38,6 +41,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         observer.register()
+        registerPersistenceHandlers()
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         doInitialCheck()
 
@@ -86,6 +90,10 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         }
     }
 
+    private fun registerPersistenceHandlers() {
+        persistenceHandlers.add(BlacklistPersistenceHandler(this))
+    }
+
     inner class ManagerImpl : IManager.Stub() {
 
     }
@@ -113,11 +121,20 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         override fun onChange(selfChange: Boolean, uri: Uri) {
             val type = SettingsType.fromString(uri.pathSegments.run { this[lastIndex - 1] })
             val key = uri.lastPathSegment
-            val savedValue = prefManager.prefs.all[key]?.toString()
-            val newValue = getSetting(type, key)
 
-            if (savedValue != newValue) {
-                writeSetting(type, key, savedValue)
+            val found = persistenceHandlers.find { it.settingsKey == key && it.settingsType == type }
+
+            if (found == null) {
+                val savedValue = prefManager.prefs.all[key]?.toString()
+                val newValue = getSetting(type, key)
+
+                if (savedValue != newValue) {
+                    writeSetting(type, key, savedValue)
+                }
+            } else {
+                if (!found.compareValues()) {
+                    writeSetting(type, key, found.getPreferenceValueAsString())
+                }
             }
         }
     }

@@ -31,6 +31,7 @@
         android:icon="@drawable/ic_baseline_visibility_off_24"
         app:icon_color="@color/pref_color_5"
         app:activity_class="com.rw.tweaks.activities.IconBlacklistActivity"
+        app:settings_type="secure"
         />
 
 </PreferenceScreen>
