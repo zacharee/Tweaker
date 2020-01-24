@@ -158,6 +158,9 @@ fun Context.writeSystem(key: String?, value: Any?) {
     } catch (e: SecurityException) {
         //TODO: Handle this
         Log.e("Tweaker", "Failed to write to System", e)
+    } catch (e: IllegalArgumentException) {
+        //TODO: Handle this
+        Log.e("Tweaker", "Failed to write to System", e)
     }
 }
 
