@@ -21,6 +21,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:digits="@string/icon_blacklist_custom_allowed_chars"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -37,6 +38,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:inputType="textNoSuggestions"
+                android:digits="@string/icon_blacklist_custom_allowed_chars"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -11,10 +11,10 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceViewHolder
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.data.CustomBlacklistItemInfo
+import com.rw.tweaks.dialogs.AnimatedMaterialAlertDialogBuilder
 import com.rw.tweaks.dialogs.CustomBlacklistItemDialogFragment
 import com.rw.tweaks.prefs.BlacklistPreference
 import com.rw.tweaks.prefs.CustomBlacklistAddPreference
@@ -246,13 +246,22 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
     }
     
     private fun createCategory(title: Int, key: String, initialSummary: CharSequence? = null, children: ((CollapsiblePreferenceCategory) -> Unit)?): CollapsiblePreferenceCategory {
-        return CollapsiblePreferenceCategory(requireContext(), null).apply { 
-            setTitle(title)
-            this.key = key
-            this.summary = initialSummary
+        return object : CollapsiblePreferenceCategory(requireContext(), null) {
+            init {
+                setTitle(title)
+                this.key = key
+                this.summary = initialSummary
 
-            preferenceScreen.addPreference(this)
-            children?.invoke(this)
+                preferenceScreen.addPreference(this)
+                children?.invoke(this)
+            }
+
+            override fun onBindViewHolder(holder: PreferenceViewHolder) {
+                super.onBindViewHolder(holder)
+
+                holder.isDividerAllowedAbove = false
+                holder.isDividerAllowedBelow = false
+            }
         }
     }
     
@@ -268,6 +277,8 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
                 this.addAdditionalKeys(additionalKeys.toList())
                 this.autoWriteKey = autoWriteKey
 
+                if (isCustom) summary = key
+
                 addPreference(this)
                 order = Preference.DEFAULT_ORDER
             }
@@ -277,7 +288,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
 
                 if (isCustom) {
                     holder.itemView.setOnLongClickListener {
-                        MaterialAlertDialogBuilder(context)
+                        AnimatedMaterialAlertDialogBuilder(context)
                             .setTitle(R.string.icon_blacklist_remove_custom)
                             .setMessage(R.string.icon_blacklist_remove_custom_desc)
                             .setPositiveButton(android.R.string.ok) { _, _ ->

@@ -5,9 +5,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.rw.tweaks.R
+import com.rw.tweaks.dialogs.AnimatedMaterialAlertDialogBuilder
 import com.rw.tweaks.fragments.PersistentFragment
 import com.rw.tweaks.util.addAnimation
 import kotlinx.android.synthetic.main.activity_persistent.*
@@ -48,7 +48,7 @@ class PersistentActivity : AppCompatActivity() {
         val helpItem = menu.findItem(R.id.help)
         helpItem.isVisible = true
         helpItem.setOnMenuItemClickListener {
-            MaterialAlertDialogBuilder(this)
+            AnimatedMaterialAlertDialogBuilder(this)
                 .setTitle(R.string.help)
                 .setMessage(R.string.persistent_options_desc)
                 .setPositiveButton(android.R.string.ok, null)

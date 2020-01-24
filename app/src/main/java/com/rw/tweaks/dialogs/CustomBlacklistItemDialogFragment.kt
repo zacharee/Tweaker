@@ -31,6 +31,19 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.title)
         builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { dialog, which ->
+            this.dialog?.findViewById<View>(android.R.id.content)?.apply {
+                val label = this.label?.editText?.text?.toString()
+                val key = this.key?.editText?.text?.toString() ?: return@apply
+
+                val item = CustomBlacklistItemInfo(label, key)
+
+                context.prefManager.apply {
+                    customBlacklistItems = customBlacklistItems.apply {
+                        remove(item)
+                        add(item)
+                    }
+                }
+            }
             onClick(dialog, which)
             dismiss()
         })
@@ -38,6 +51,10 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
             onClick(dialog, which)
             dismiss()
         })
+        builder.setOnCancelListener {
+            onClick(dialog, DialogInterface.BUTTON_NEGATIVE)
+            dismiss()
+        }
 
         return builder
     }
@@ -48,19 +65,5 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
         View.inflate(view.context, R.layout.custom_blacklist_dialog, view.wrapper)
     }
 
-    override fun onDialogClosed(positiveResult: Boolean) {
-        dialog?.findViewById<View>(android.R.id.content)?.apply {
-            val label = this.label?.editText?.text?.toString()
-            val key = this.key?.editText?.text?.toString() ?: return
-
-            val item = CustomBlacklistItemInfo(label, key)
-
-            context.prefManager.apply {
-                customBlacklistItems = customBlacklistItems.apply {
-                    remove(item)
-                    add(item)
-                }
-            }
-        }
-    }
+    override fun onDialogClosed(positiveResult: Boolean) {}
 }
