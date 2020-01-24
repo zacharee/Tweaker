@@ -3,7 +3,10 @@ package com.rw.tweaks.prefs
 import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
+import android.view.View
+import androidx.core.view.isVisible
 import androidx.preference.Preference
+import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreference
 import com.rw.tweaks.R
 import com.rw.tweaks.util.ColorPreference
@@ -37,6 +40,12 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
 
         val currentlyBlacklisted = HashSet(Settings.Secure.getString(context.contentResolver, "icon_blacklist")?.split(",") ?: HashSet<String>())
         isChecked = !currentlyBlacklisted.containsAll(allKeys)
+    }
+
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
+        super.onBindViewHolder(holder)
+
+        holder.itemView.findViewById<View>(R.id.icon_frame).isVisible = false
     }
 
     override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
