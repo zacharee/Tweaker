@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.prefs.BlacklistPreference
-import com.rw.tweaks.util.dpAsPx
-import com.rw.tweaks.util.forEach
-import com.rw.tweaks.util.parseAutoIconBlacklistSlots
+import com.rw.tweaks.util.*
 import kotlinx.coroutines.*
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceFragment
@@ -68,28 +66,66 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
             it.createPref(R.string.icon_blacklist_mute, key = "mute")
         }
         
-        createCategory(R.string.category_icon_blacklist_samsung, "icon_blacklist_samsung") {
-            it.createPref(R.string.icon_blacklist_knox_container, key = "knox_container")
-            it.createPref(R.string.icon_blacklist_smart_network, key = "smart_network")
-            it.createPref(R.string.icon_blacklist_glove, key = "glove")
-            it.createPref(R.string.icon_blacklist_gesture, key = "gesture")
-            it.createPref(R.string.icon_blacklist_smart_scroll, key = "smart_scroll")
-            it.createPref(R.string.icon_blacklist_face, key = "face")
-            it.createPref(R.string.icon_blacklist_gps, key = "gps")
-            it.createPref(R.string.icon_blacklist_lbs, key = "lbs")
-            it.createPref(R.string.icon_blacklist_wearable_gear, key = "wearable_gear")
-            it.createPref(R.string.icon_blacklist_femtoicon, key = "femtoicon")
-            it.createPref(R.string.icon_blacklist_comsamsungrcs, key = "com.samsung.rcs")
-            it.createPref(R.string.icon_blacklist_wifi_p2p, key = "wifi_p2p")
-            it.createPref(R.string.icon_blacklist_wifi_ap, key = "wifi_ap")
-            it.createPref(R.string.icon_blacklist_wifi_oxygen, key = "wifi_oxygen")
-            it.createPref(R.string.icon_blacklist_phone_signal_second_stub, key = "phone_signal_second_stub")
-            it.createPref(R.string.icon_blacklist_toddler, key = "toddler")
-            it.createPref(R.string.icon_blacklist_keyguard_wakeup, key = "keyguard_wakeup")
-            it.createPref(R.string.icon_blacklist_safezone, key = "safezone")
-            it.createPref(R.string.icon_blacklist_wimax, key = "wimax")
-            it.createPref(R.string.icon_blacklist_smart_bonding, key = "smart_bonding")
-            it.createPref(R.string.icon_blacklist_private_mode, key = "private_mode")
+        if (requireContext().isTouchWiz) {
+            createCategory(R.string.category_icon_blacklist_samsung, "icon_blacklist_samsung") {
+                it.createPref(R.string.icon_blacklist_knox_container, key = "knox_container")
+                it.createPref(R.string.icon_blacklist_smart_network, key = "smart_network")
+                it.createPref(R.string.icon_blacklist_glove, key = "glove")
+                it.createPref(R.string.icon_blacklist_gesture, key = "gesture")
+                it.createPref(R.string.icon_blacklist_smart_scroll, key = "smart_scroll")
+                it.createPref(R.string.icon_blacklist_face, key = "face")
+                it.createPref(R.string.icon_blacklist_gps, key = "gps")
+                it.createPref(R.string.icon_blacklist_lbs, key = "lbs")
+                it.createPref(R.string.icon_blacklist_wearable_gear, key = "wearable_gear")
+                it.createPref(R.string.icon_blacklist_femtoicon, key = "femtoicon")
+                it.createPref(R.string.icon_blacklist_comsamsungrcs, key = "com.samsung.rcs")
+                it.createPref(R.string.icon_blacklist_wifi_p2p, key = "wifi_p2p")
+                it.createPref(R.string.icon_blacklist_wifi_ap, key = "wifi_ap")
+                it.createPref(R.string.icon_blacklist_wifi_oxygen, key = "wifi_oxygen")
+                it.createPref(R.string.icon_blacklist_phone_signal_second_stub, key = "phone_signal_second_stub")
+                it.createPref(R.string.icon_blacklist_toddler, key = "toddler")
+                it.createPref(R.string.icon_blacklist_keyguard_wakeup, key = "keyguard_wakeup")
+                it.createPref(R.string.icon_blacklist_safezone, key = "safezone")
+                it.createPref(R.string.icon_blacklist_wimax, key = "wimax")
+                it.createPref(R.string.icon_blacklist_smart_bonding, key = "smart_bonding")
+                it.createPref(R.string.icon_blacklist_private_mode, key = "private_mode")
+            }
+        }
+
+        if (isHuawei) {
+            createCategory(R.string.category_icon_blacklist_huawei, "icon_blacklist_huawei") {
+                it.createPref(R.string.icon_blacklist_powersavingmode, key ="powersavingmode")
+                it.createPref(R.string.icon_blacklist_earphone, key ="earphone")
+                it.createPref(R.string.icon_blacklist_volte_call, key = "volte_call")
+                it.createPref(R.string.icon_blacklist_unicom_call, key = "unicom_call")
+                it.createPref(R.string.icon_blacklist_eyes_protect, key = "eyes_protect")
+            }
+        }
+
+        if (isXiaomi) {
+            createCategory(R.string.category_icon_blacklist_xiaomi, "icon_blacklist_xiaomi") {
+                it.createPref(R.string.icon_blacklist_mikey, key = "mikey")
+                it.createPref(R.string.icon_blacklist_call_record, key = "call_record")
+                it.createPref(R.string.icon_blacklist_privacy_mode, key = "privacy_mode")
+                it.createPref(R.string.icon_blacklist_ble_unlock_mode, key = "ble_unlock_mode")
+                it.createPref(R.string.icon_blacklist_quiet, key = "quiet")
+                it.createPref(R.string.icon_blacklist_gps, key = "gps")
+                it.createPref(R.string.icon_blacklist_missed_call, key = "missed_call")
+                it.createPref(R.string.icon_blacklist_bluetooth_handsfree_battery, key = "bluetooth_handsfree_battery")
+                it.createPref(R.string.icon_blacklist_wimax, key = "wimax")
+            }
+        }
+
+        if (isHTC) {
+            createCategory(R.string.category_icon_blacklist_htc, "icon_blacklist_htc") {
+                it.createPref(R.string.icon_blacklist_femtoicon, key = "femtoicon")
+            }
+        }
+
+        if (isLG) {
+            createCategory(R.string.category_icon_blacklist_lg, "icon_blacklist_lg") {
+                it.createPref(R.string.icon_blacklist_rtt, key = "rtt")
+            }
         }
         
         createCategory(R.string.category_icon_blacklist_auto, "icon_blacklist_auto", resources.getText(R.string.category_icon_blacklist_auto_desc), null).apply {

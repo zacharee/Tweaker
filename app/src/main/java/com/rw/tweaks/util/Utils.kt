@@ -12,6 +12,7 @@ import android.os.Build.VERSION_CODES.N_MR1
 import android.os.Build.VERSION_CODES.O
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import android.util.TypedValue
@@ -75,6 +76,21 @@ val Context.hasSdCard: Boolean
 
 val Context.hasWss: Boolean
     get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
+
+val Context.isTouchWiz: Boolean
+    get() = packageManager.hasSystemFeature("com.samsung.feature.samsung_experience_mobile")
+
+val isHTC: Boolean
+    get() = SystemProperties.get("ro.build.sense.version") != null
+
+val isLG: Boolean
+    get() = SystemProperties.get("ro.lge.lguiversion") != null
+
+val isHuawei: Boolean
+    get() = SystemProperties.get("ro.build.hw_emui_api_level") != null
+
+val isXiaomi: Boolean
+    get() = SystemProperties.get("ro.miui.ui.version.code") != null
 
 val Preference.defaultValue: Any?
     get() {
