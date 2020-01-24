@@ -31,11 +31,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                />
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/interval"
                 android:layout_width="match_parent"
