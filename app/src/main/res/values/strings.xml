@@ -196,6 +196,8 @@
     <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure Tweaker has root access. Otherwise, press the HELP button for ADB instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Mode</string>
+    <string name="key">Key</string>
+    <string name="label">Label</string>
 
     <string name="intro_welcome">Welcome!</string>
     <string name="intro_welcome_desc">Your Android device probably has a lot of settings to change, but did you know there\'s a lot of settings that are hidden? This app helps you change those hidden settings! You don\'t need root access, but you do have to follow a few steps to set this app up.</string>

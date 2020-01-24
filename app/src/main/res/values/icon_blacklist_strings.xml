@@ -12,6 +12,11 @@
 
     <string name="category_icon_blacklist_auto_desc">Tap to expand/load</string>
 
+    <string name="icon_blacklist_add_custom">Add Custom Item</string>
+    <string name="icon_blacklist_add_custom_desc">If you can\'t find the icon you want to hide, and you know its key, you can add it here.</string>
+    <string name="icon_blacklist_remove_custom">Remove This Item</string>
+    <string name="icon_blacklist_remove_custom_desc">Are you sure you want to remove this custom blacklist item?</string>
+
     <string name="icon_blacklist_rotate">Rotate</string>
     <string name="icon_blacklist_airplane">Airplane Mode</string>
     <string name="icon_blacklist_wifi">WiFi</string>

@@ -1,6 +1,7 @@
 package com.rw.tweaks.fragments
 
 import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,21 +9,28 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
+import androidx.preference.PreferenceViewHolder
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
+import com.rw.tweaks.data.CustomBlacklistItemInfo
+import com.rw.tweaks.dialogs.CustomBlacklistItemDialogFragment
 import com.rw.tweaks.prefs.BlacklistPreference
+import com.rw.tweaks.prefs.CustomBlacklistAddPreference
 import com.rw.tweaks.util.*
 import kotlinx.coroutines.*
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceFragment
 
 @SuppressLint("RestrictedApi")
-class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope() {
+class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val origExpansionStates = HashMap<String, Boolean>()
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_blacklist, rootKey)
+
+        requireContext().prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         
         createCategory(R.string.category_icon_blacklist_general, "icon_blacklist_general") {
             it.createPref(R.string.icon_blacklist_airplane, key = "airplane")
@@ -127,6 +135,10 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
                 it.createPref(R.string.icon_blacklist_rtt, key = "rtt")
             }
         }
+
+        createCategory(R.string.category_icon_blacklist_custom, "icon_blacklist_custom") {
+            buildCustomCategory(it)
+        }
         
         createCategory(R.string.category_icon_blacklist_auto, "icon_blacklist_auto", resources.getText(R.string.category_icon_blacklist_auto_desc), null).apply {
             onExpandChangeListener = {
@@ -168,6 +180,20 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         }
     }
 
+    override fun onDisplayPreferenceDialog(preference: Preference) {
+        val fragment = when (preference) {
+            is CustomBlacklistAddPreference -> CustomBlacklistItemDialogFragment.newInstance(preference.key)
+            else -> null
+        }
+
+        fragment?.setTargetFragment(this, 0)
+        fragment?.show(fragmentManager!!, null)
+
+        if (fragment == null) {
+            super.onDisplayPreferenceDialog(preference)
+        }
+    }
+
     override fun onQueryTextChange(newText: String?): Boolean {
         filter(newText, preferenceScreen)
         return true
@@ -184,6 +210,18 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         return false
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        when (key) {
+            PrefManager.CUSTOM_BLACKLIST_ITEMS -> buildCustomCategory(findPreference("icon_blacklist_custom")!!)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        requireContext().prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     private fun filter(query: String?, group: PreferenceGroup) {
@@ -218,20 +256,52 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         }
     }
     
-    private fun CollapsiblePreferenceCategory.createPref(titleRes: Int = 0, title: String? = null, key: String, additionalKeys: Array<String> = arrayOf(), autoWriteKey: String? = null): BlacklistPreference {
-        return BlacklistPreference(requireContext(), null).apply { 
-            if (titleRes != 0) {
-                setTitle(titleRes)
-            } else {
-                this.title = title
+    private fun CollapsiblePreferenceCategory.createPref(titleRes: Int = 0, title: String? = null, key: String, additionalKeys: Array<String> = arrayOf(), autoWriteKey: String? = null, isCustom: Boolean = false): BlacklistPreference {
+        return object : BlacklistPreference(requireContext(), null) {
+            init {
+                if (titleRes != 0) {
+                    setTitle(titleRes)
+                } else {
+                    this.title = title
+                }
+                this.key = key
+                this.addAdditionalKeys(additionalKeys.toList())
+                this.autoWriteKey = autoWriteKey
+
+                addPreference(this)
+                order = Preference.DEFAULT_ORDER
             }
-            this.key = key
-            this.addAdditionalKeys(additionalKeys.toList())
-            this.autoWriteKey = autoWriteKey
 
-            addPreference(this)
+            override fun onBindViewHolder(holder: PreferenceViewHolder) {
+                super.onBindViewHolder(holder)
 
-            order = Preference.DEFAULT_ORDER
+                if (isCustom) {
+                    holder.itemView.setOnLongClickListener {
+                        MaterialAlertDialogBuilder(context)
+                            .setTitle(R.string.icon_blacklist_remove_custom)
+                            .setMessage(R.string.icon_blacklist_remove_custom_desc)
+                            .setPositiveButton(android.R.string.ok) { _, _ ->
+                                context.prefManager.let {
+                                    val new = it.customBlacklistItems
+                                    new.remove(CustomBlacklistItemInfo(this.title, this.key))
+
+                                    it.customBlacklistItems = new
+                                }
+                            }
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show()
+
+                        true
+                    }
+                }
+            }
         }
+    }
+
+    private fun buildCustomCategory(category: CollapsiblePreferenceCategory) {
+        category.wrappedGroup.removeAll()
+        category.addPreference(CustomBlacklistAddPreference(requireContext(), null))
+        requireContext().prefManager.customBlacklistItems
+            .map { item -> category.createPref(title = item.label?.toString(), key = item.key, isCustom = true) }
     }
 }

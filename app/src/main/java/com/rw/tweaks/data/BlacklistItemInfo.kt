@@ -16,4 +16,12 @@ data class CustomBlacklistItemInfo(
     override fun toString(): String {
         return "$label:$key"
     }
+
+    override fun equals(other: Any?): Boolean {
+        return other is CustomBlacklistItemInfo && other.key == key
+    }
+
+    override fun hashCode(): Int {
+        return key.hashCode()
+    }
 }
