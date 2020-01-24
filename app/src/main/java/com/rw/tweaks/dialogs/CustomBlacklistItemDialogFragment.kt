@@ -35,6 +35,8 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
                 val label = this.label?.editText?.text?.toString()
                 val key = this.key?.editText?.text?.toString() ?: return@apply
 
+                if (key.isBlank()) return@apply
+
                 val item = CustomBlacklistItemInfo(label, key)
 
                 context.prefManager.apply {
