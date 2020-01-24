@@ -28,7 +28,9 @@
         <View
             android:layout_width="0.75dp"
             android:layout_height="0dp"
-            android:background="?android:textColorSecondary"
+            android:background="@android:color/black"
+            android:backgroundTint="?android:textColorSecondary"
+            android:backgroundTintMode="src_atop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
