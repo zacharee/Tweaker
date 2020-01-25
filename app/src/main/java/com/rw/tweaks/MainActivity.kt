@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.mikepenz.materialdrawer.Drawer
@@ -28,7 +29,8 @@ import com.rw.tweaks.util.hasWss
 import com.rw.tweaks.util.resetAll
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+@ExperimentalNavController
+class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
     @ExperimentalNavController
     private val drawer by lazy {
         DrawerBuilder().withActivity(this)
@@ -45,56 +47,67 @@ class MainActivity : AppCompatActivity() {
                     R.id.homeFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.home)
+                        .withIdentifier(R.id.homeFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.appsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_apps)
+                        .withIdentifier(R.id.appsFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.audioFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_audio)
+                        .withIdentifier(R.id.audioFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.developerFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_developer)
+                        .withIdentifier(R.id.developerFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.displayFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_display)
+                        .withIdentifier(R.id.displayFragment.toLong())
                 ),
 //                NavigationDrawerItem(
 //                    0,
 //                    PrimaryDrawerItem()
 //                        .withName(R.string.category_easter_eggs)
+//                        .withId(0L)
 //                ),
                 ExpandableDrawerItem()
                     .withName(R.string.category_network)
                     .withSelectable(false)
+                    .withIdentifier(R.string.category_network.toLong())
                     .withSubItems(
                         NavigationDrawerItem(
                             R.id.netCellFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_cellular)
+                                .withIdentifier(R.id.netCellFragment.toLong())
                         ),
                         NavigationDrawerItem(
                             R.id.netWiFiFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_wifi)
+                                .withIdentifier(R.id.netWiFiFragment.toLong())
                         ),
                         NavigationDrawerItem(
                             R.id.netMiscellaneousFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_miscellaneous)
+                                .withIdentifier(R.id.netMiscellaneousFragment.toLong())
                         )
                     ),
                 NavigationDrawerItem(
                     R.id.notificationsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_notifications)
+                        .withIdentifier(R.id.notificationsFragment.toLong())
                 ),
 //                ExpandableDrawerItem()
 //                    .withSelectable(false)
@@ -105,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                 ExpandableDrawerItem()
                     .withSelectable(false)
                     .withName(R.string.category_system)
+                    .withIdentifier(R.string.category_system.toLong())
                     .withSubItems(
 //                        NavigationDrawerItem(
 //                            0,
@@ -115,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                             R.id.storageFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_storage)
+                                .withIdentifier(R.id.storageFragment.toLong())
                         )
 //                        NavigationDrawerItem(
 //                            0,
@@ -131,6 +146,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.UIFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_ui)
+                        .withIdentifier(R.id.UIFragment.toLong())
                 ),
                 DividerDrawerItem(),
                 SectionDrawerItem()
@@ -142,6 +158,7 @@ class MainActivity : AppCompatActivity() {
                     PrimaryDrawerItem()
                         .withName(R.string.screen_persistent)
                         .withSelectable(false)
+                        .withIdentifier(R.id.persistentActivity.toLong())
                 )
             )
             .apply {
@@ -197,6 +214,7 @@ class MainActivity : AppCompatActivity() {
 
         drawer.setupWithNavController(navController)
         drawer.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
+        navController.addOnDestinationChangedListener(this)
 
         searchFragment.onItemClickListener = { action, key ->
             navController.navigate(
@@ -242,6 +260,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+        val item = findDrawerItemByDestinationId(destination.id) ?: return
+        drawer.setSelection(item)
+    }
+
     override fun onBackPressed() {
         when {
             searchView?.isIconified == false -> {
@@ -263,5 +290,17 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    private fun findDrawerItemByDestinationId(id: Int): IDrawerItem<*>? {
+//        return drawer.getDrawerItem(id.toLong())
+        drawer.drawerItems.forEach {
+            if (it is NavigationDrawerItem && it.resId == id) return it
+            it.subItems.forEach { sub ->
+                if (sub is NavigationDrawerItem && sub.resId == id) return sub
+            }
+        }
+
+        return null
     }
 }

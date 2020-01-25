@@ -108,6 +108,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
     override fun onBindPreferences() {
         markDangerous(preferenceScreen)
         super.onBindPreferences()
+
+        setDivider(resources.getDrawable(R.drawable.custom_divider, requireContext().theme))
     }
 
     @SuppressLint("RestrictedApi")

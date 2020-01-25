@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_apps"
+        android:key="go_to_apps"
+        app:navigation_action="@id/appsFragment"
+        />
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_audio"
+        android:key="go_to_audio"
+        app:navigation_action="@id/audioFragment"
+        />
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_developer"
+        android:key="go_to_developer"
+        app:navigation_action="@id/developerFragment"
+        />
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_display"
+        android:key="go_to_display"
+        app:navigation_action="@id/displayFragment"
+        />
+
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
+        android:title="@string/category_network"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"
+        android:key="category_network">
+
+        <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
+            android:title="@string/sub_cellular"
+            android:key="go_to_network_cellular"
+            app:navigation_action="@id/netCellFragment"
+            />
+
+        <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
+            android:title="@string/sub_wifi"
+            android:key="go_to_network_wifi"
+            app:navigation_action="@id/netWiFiFragment"
+            />
+
+        <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
+            android:title="@string/sub_miscellaneous"
+            android:key="go_to_network_misc"
+            app:navigation_action="@id/netMiscellaneousFragment"
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory>
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_notifications"
+        android:key="go_to_notifications"
+        app:navigation_action="@id/notificationsFragment"
+        />
+
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
+        android:title="@string/category_system"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"
+        android:key="category_system">
+
+        <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
+            android:title="@string/sub_storage"
+            android:key="go_to_system_storage"
+            app:navigation_action="@id/storageFragment"
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory>
+
+    <com.rw.tweaks.prefs.nav.NavigationPreference
+        android:title="@string/category_ui"
+        android:key="go_to_ui"
+        app:navigation_action="@id/UIFragment"
+        />
+
+</PreferenceScreen>

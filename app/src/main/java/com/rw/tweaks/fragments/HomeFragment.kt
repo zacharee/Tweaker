@@ -1,10 +1,14 @@
 package com.rw.tweaks.fragments
 
-import androidx.fragment.app.Fragment
+import android.os.Bundle
 import com.rw.tweaks.R
 import com.rw.tweaks.util.updateTitle
 
-class HomeFragment : Fragment(R.layout.home) {
+class HomeFragment : BasePrefFragment() {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.prefs_home, rootKey)
+    }
+
     override fun onResume() {
         super.onResume()
 

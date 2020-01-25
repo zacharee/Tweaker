@@ -63,4 +63,8 @@
     <declare-styleable name="BlacklistPreference">
         <attr name="additional_keys" format="string|reference" />
     </declare-styleable>
+
+    <declare-styleable name="NavigationPreference">
+        <attr name="navigation_action" format="reference" />
+    </declare-styleable>
 </resources>
