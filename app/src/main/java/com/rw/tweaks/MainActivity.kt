@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
@@ -28,6 +29,7 @@ import com.rw.tweaks.util.buildNonResettablePreferences
 import com.rw.tweaks.util.hasWss
 import com.rw.tweaks.util.resetAll
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 @ExperimentalNavController
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
@@ -194,6 +196,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     }
 
     private val searchFragment by lazy { search_fragment as SearchFragment }
+    private val titleSwitcher by lazy { toolbar.screen_title }
 
     private val navController: NavController
         get() = findNavController(R.id.nav_host_fragment)
@@ -211,6 +214,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         toolbar.addAnimation()
+
+        titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
+        titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
 
         drawer.setupWithNavController(navController)
         drawer.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
@@ -290,6 +296,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 finish()
             }
         }
+    }
+
+    override fun setTitle(title: CharSequence?) {
+        super.setTitle(null)
+
+        titleSwitcher.setText(title)
     }
 
     private fun findDrawerItemByDestinationId(id: Int): IDrawerItem<*>? {
