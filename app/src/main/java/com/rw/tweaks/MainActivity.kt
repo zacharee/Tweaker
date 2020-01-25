@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -24,10 +25,7 @@ import com.rw.tweaks.dialogs.RoundedBottomSheetDialog
 import com.rw.tweaks.drawer.IndentedSecondaryDrawerItem
 import com.rw.tweaks.fragments.BasePrefFragment
 import com.rw.tweaks.fragments.SearchFragment
-import com.rw.tweaks.util.addAnimation
-import com.rw.tweaks.util.buildNonResettablePreferences
-import com.rw.tweaks.util.hasWss
-import com.rw.tweaks.util.resetAll
+import com.rw.tweaks.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 
@@ -249,6 +247,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     .alpha(1f)
             }
             searchView?.setOnQueryTextListener(searchFragment)
+
+            titleSwitcher.isVisible = false
         }
 
         searchView?.setOnCloseListener {
@@ -260,6 +260,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     }
             }
             searchView?.setOnQueryTextListener(null)
+
+            titleSwitcher.scaleAnimatedVisible = true
             false
         }
 

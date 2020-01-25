@@ -16,10 +16,14 @@ import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import android.util.TypedValue
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
@@ -392,3 +396,23 @@ fun parseAutoIconBlacklistSlots(): ArrayList<String> {
 
     return slots
 }
+
+var View.scaleAnimatedVisible: Boolean
+    get() = isVisible
+    set(value) {
+        val anim = AnimationUtils.loadAnimation(context, if (value) R.anim.scale_in else R.anim.scale_out)
+        anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationRepeat(animation: Animation?) {}
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+                if (!value) isVisible = false
+            }
+        })
+        if (value) {
+            isVisible = true
+            alpha = 0f
+        } else {
+            alpha = 1f
+        }
+        startAnimation(anim)
+    }
