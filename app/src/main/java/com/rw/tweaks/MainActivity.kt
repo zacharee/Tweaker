@@ -47,30 +47,35 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     R.id.homeFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.home)
+                        .withIcon(R.drawable.ic_baseline_home_24)
                         .withIdentifier(R.id.homeFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.appsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_apps)
+                        .withIcon(R.drawable.ic_baseline_apps_24)
                         .withIdentifier(R.id.appsFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.audioFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_audio)
+                        .withIcon(R.drawable.ic_baseline_volume_up_24)
                         .withIdentifier(R.id.audioFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.developerFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_developer)
+                        .withIcon(R.drawable.ic_baseline_developer_mode_24)
                         .withIdentifier(R.id.developerFragment.toLong())
                 ),
                 NavigationDrawerItem(
                     R.id.displayFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_display)
+                        .withIcon(R.drawable.ic_baseline_tv_24)
                         .withIdentifier(R.id.displayFragment.toLong())
                 ),
 //                NavigationDrawerItem(
@@ -83,23 +88,27 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     .withName(R.string.category_network)
                     .withSelectable(false)
                     .withIdentifier(R.string.category_network.toLong())
+                    .withIcon(R.drawable.ic_network)
                     .withSubItems(
                         NavigationDrawerItem(
                             R.id.netCellFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_cellular)
+                                .withIcon(R.drawable.ic_baseline_signal_cellular_4_bar_24)
                                 .withIdentifier(R.id.netCellFragment.toLong())
                         ),
                         NavigationDrawerItem(
                             R.id.netWiFiFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_wifi)
+                                .withIcon(R.drawable.ic_baseline_signal_wifi_4_bar_24)
                                 .withIdentifier(R.id.netWiFiFragment.toLong())
                         ),
                         NavigationDrawerItem(
                             R.id.netMiscellaneousFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_miscellaneous)
+                                .withIcon(R.drawable.ic_baseline_more_horiz_24)
                                 .withIdentifier(R.id.netMiscellaneousFragment.toLong())
                         )
                     ),
@@ -107,6 +116,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     R.id.notificationsFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_notifications)
+                        .withIcon(R.drawable.ic_baseline_notifications_24)
                         .withIdentifier(R.id.notificationsFragment.toLong())
                 ),
 //                ExpandableDrawerItem()
@@ -118,6 +128,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 ExpandableDrawerItem()
                     .withSelectable(false)
                     .withName(R.string.category_system)
+                    .withIcon(R.drawable.ic_baseline_build_24)
                     .withIdentifier(R.string.category_system.toLong())
                     .withSubItems(
 //                        NavigationDrawerItem(
@@ -129,6 +140,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                             R.id.storageFragment,
                             IndentedSecondaryDrawerItem()
                                 .withName(R.string.sub_storage)
+                                .withIcon(R.drawable.ic_baseline_sd_storage_24)
                                 .withIdentifier(R.id.storageFragment.toLong())
                         )
 //                        NavigationDrawerItem(
@@ -146,6 +158,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     R.id.UIFragment,
                     PrimaryDrawerItem()
                         .withName(R.string.category_ui)
+                        .withIcon(R.drawable.ic_baseline_touch_app_24)
                         .withIdentifier(R.id.UIFragment.toLong())
                 ),
                 DividerDrawerItem(),
@@ -157,6 +170,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     R.id.persistentActivity,
                     PrimaryDrawerItem()
                         .withName(R.string.screen_persistent)
+                        .withIcon(R.drawable.ic_baseline_save_24)
                         .withSelectable(false)
                         .withIdentifier(R.id.persistentActivity.toLong())
                 )
@@ -166,6 +180,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     addDrawerItems(
                         PrimaryDrawerItem()
                             .withName(R.string.reset)
+                            .withIcon(R.drawable.ic_baseline_restore_24)
                             .withSelectable(false)
                             .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                                 override fun onItemClick(
