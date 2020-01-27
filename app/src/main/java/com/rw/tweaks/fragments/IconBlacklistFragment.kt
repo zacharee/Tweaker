@@ -252,6 +252,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                 this.key = key
                 this.summary = initialSummary
 
+                isIconSpaceReserved = false
                 arrowSide = ArrowSide.END
 
                 preferenceScreen.addPreference(this)
