@@ -5,24 +5,28 @@
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_apps"
         android:key="go_to_apps"
+        android:icon="@drawable/ic_baseline_apps_24"
         app:navigation_action="@id/appsFragment"
         />
 
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_audio"
         android:key="go_to_audio"
+        android:icon="@drawable/ic_baseline_volume_up_24"
         app:navigation_action="@id/audioFragment"
         />
 
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_developer"
         android:key="go_to_developer"
+        android:icon="@drawable/ic_baseline_developer_mode_24"
         app:navigation_action="@id/developerFragment"
         />
 
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_display"
         android:key="go_to_display"
+        android:icon="@drawable/ic_baseline_tv_24"
         app:navigation_action="@id/displayFragment"
         />
 
@@ -30,24 +34,28 @@
         android:title="@string/category_network"
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"
-        app:icon_side="end"
+        android:icon="@drawable/ic_network"
+        app:arrow_side="end"
         android:key="category_network">
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
             android:title="@string/sub_cellular"
             android:key="go_to_network_cellular"
+            android:icon="@drawable/ic_baseline_signal_cellular_4_bar_24"
             app:navigation_action="@id/netCellFragment"
             />
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
             android:title="@string/sub_wifi"
             android:key="go_to_network_wifi"
+            android:icon="@drawable/ic_baseline_signal_wifi_4_bar_24"
             app:navigation_action="@id/netWiFiFragment"
             />
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
             android:title="@string/sub_miscellaneous"
             android:key="go_to_network_misc"
+            android:icon="@drawable/ic_baseline_more_horiz_24"
             app:navigation_action="@id/netMiscellaneousFragment"
             />
 
@@ -56,18 +64,21 @@
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_notifications"
         android:key="go_to_notifications"
+        android:icon="@drawable/ic_baseline_notifications_24"
         app:navigation_action="@id/notificationsFragment"
         />
 
     <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
         android:title="@string/category_system"
+        android:icon="@drawable/ic_baseline_build_24"
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"
-        app:icon_side="end"
+        app:arrow_side="end"
         android:key="category_system">
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
             android:title="@string/sub_storage"
+            android:icon="@drawable/ic_baseline_sd_storage_24"
             android:key="go_to_system_storage"
             app:navigation_action="@id/storageFragment"
             />
@@ -77,6 +88,7 @@
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_ui"
         android:key="go_to_ui"
+        android:icon="@drawable/ic_baseline_touch_app_24"
         app:navigation_action="@id/UIFragment"
         />
 

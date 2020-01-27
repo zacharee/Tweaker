@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
 import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceViewHolder
 import androidx.recyclerview.widget.RecyclerView
@@ -21,10 +22,9 @@ import com.rw.tweaks.prefs.CustomBlacklistAddPreference
 import com.rw.tweaks.util.*
 import kotlinx.coroutines.*
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
-import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceFragment
 
 @SuppressLint("RestrictedApi")
-class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
+class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val origExpansionStates = HashMap<String, Boolean>()
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -252,7 +252,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
                 this.key = key
                 this.summary = initialSummary
 
-                iconSide = IconSide.END
+                arrowSide = ArrowSide.END
 
                 preferenceScreen.addPreference(this)
                 children?.invoke(this)
