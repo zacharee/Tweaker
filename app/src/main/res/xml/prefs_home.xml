@@ -26,10 +26,11 @@
         app:navigation_action="@id/displayFragment"
         />
 
-    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
         android:title="@string/category_network"
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"
+        app:icon_side="end"
         android:key="category_network">
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
@@ -50,7 +51,7 @@
             app:navigation_action="@id/netMiscellaneousFragment"
             />
 
-    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory>
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
 
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_notifications"
@@ -58,10 +59,11 @@
         app:navigation_action="@id/notificationsFragment"
         />
 
-    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
         android:title="@string/category_system"
         app:allowDividerAbove="true"
         app:allowDividerBelow="true"
+        app:icon_side="end"
         android:key="category_system">
 
         <com.rw.tweaks.prefs.nav.IndentedNavigationPreference
@@ -70,7 +72,7 @@
             app:navigation_action="@id/storageFragment"
             />
 
-    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory>
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
 
     <com.rw.tweaks.prefs.nav.NavigationPreference
         android:title="@string/category_ui"

@@ -20,7 +20,7 @@ import com.rw.tweaks.prefs.BlacklistPreference
 import com.rw.tweaks.prefs.CustomBlacklistAddPreference
 import com.rw.tweaks.util.*
 import kotlinx.coroutines.*
-import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategory
+import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceFragment
 
 @SuppressLint("RestrictedApi")
@@ -142,7 +142,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         
         createCategory(R.string.category_icon_blacklist_auto, "icon_blacklist_auto", resources.getText(R.string.category_icon_blacklist_auto_desc), null).apply {
             onExpandChangeListener = {
-                if (wrappedGroup.preferenceCount == 0 && it) {
+                if (preferenceCount == 0 && it) {
                     launch {
                         //TODO: we need to add a permission flow for DUMP and PACKAGE_USAGE_STATS
                         val icons = withContext(Dispatchers.Main) {
@@ -201,7 +201,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
 
     override fun onClose(): Boolean {
         origExpansionStates.forEach { (t, u) ->
-            findPreference<CollapsiblePreferenceCategory>(t)?.expanded = u
+            findPreference<CollapsiblePreferenceCategoryNew>(t)?.expanded = u
         }
 
         origExpansionStates.clear()
@@ -227,7 +227,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
     private fun filter(query: String?, group: PreferenceGroup) {
         group.forEach { _, child ->
             if (child is PreferenceGroup) {
-                if (child is CollapsiblePreferenceCategory) {
+                if (child is CollapsiblePreferenceCategoryNew) {
                     if (!origExpansionStates.containsKey(child.key)) origExpansionStates[child.key] = child.expanded
                     if (!child.expanded) child.expanded = true
                 }
@@ -245,12 +245,14 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         return query.isNullOrBlank() || pref.title.contains(query, true)
     }
     
-    private fun createCategory(title: Int, key: String, initialSummary: CharSequence? = null, children: ((CollapsiblePreferenceCategory) -> Unit)?): CollapsiblePreferenceCategory {
-        return object : CollapsiblePreferenceCategory(requireContext(), null) {
+    private fun createCategory(title: Int, key: String, initialSummary: CharSequence? = null, children: ((CollapsiblePreferenceCategoryNew) -> Unit)?): CollapsiblePreferenceCategoryNew {
+        return object : CollapsiblePreferenceCategoryNew(requireContext(), null) {
             init {
                 setTitle(title)
                 this.key = key
                 this.summary = initialSummary
+
+                iconSide = IconSide.END
 
                 preferenceScreen.addPreference(this)
                 children?.invoke(this)
@@ -265,7 +267,7 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         }
     }
     
-    private fun CollapsiblePreferenceCategory.createPref(titleRes: Int = 0, title: String? = null, key: String, additionalKeys: Array<String> = arrayOf(), autoWriteKey: String? = null, isCustom: Boolean = false): BlacklistPreference {
+    private fun CollapsiblePreferenceCategoryNew.createPref(titleRes: Int = 0, title: String? = null, key: String, additionalKeys: Array<String> = arrayOf(), autoWriteKey: String? = null, isCustom: Boolean = false): BlacklistPreference {
         return object : BlacklistPreference(requireContext(), null) {
             init {
                 if (titleRes != 0) {
@@ -309,8 +311,8 @@ class IconBlacklistFragment : CollapsiblePreferenceFragment(), SearchView.OnQuer
         }
     }
 
-    private fun buildCustomCategory(category: CollapsiblePreferenceCategory) {
-        category.wrappedGroup.removeAll()
+    private fun buildCustomCategory(category: CollapsiblePreferenceCategoryNew) {
+        category.removeAll()
         category.addPreference(CustomBlacklistAddPreference(requireContext(), null))
         requireContext().prefManager.customBlacklistItems
             .map { item -> category.createPref(title = item.label?.toString(), key = item.key, isCustom = true) }
