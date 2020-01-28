@@ -35,7 +35,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
         const val ARG_HIGHLIGHT_KEY = "highlight_key"
     }
 
-    private val highlightKey by lazy { arguments?.getString(ARG_HIGHLIGHT_KEY) }
+    private val highlightKey: String?
+        get() = arguments?.getString(ARG_HIGHLIGHT_KEY)
 
     open val widgetLayout: Int = Int.MIN_VALUE
     open val limitSummary = true

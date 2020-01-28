@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -238,9 +239,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         searchFragment.onItemClickListener = { action, key ->
             navController.navigate(
                 action,
-                Bundle().apply {
-                    putString(BasePrefFragment.ARG_HIGHLIGHT_KEY, key)
-                }
+                bundleOf(BasePrefFragment.ARG_HIGHLIGHT_KEY to key)
             )
             searchView?.setQuery("", false)
             searchView?.isIconified = true
@@ -289,7 +288,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         arguments: Bundle?
     ) {
         val item = findDrawerItemByDestinationId(destination.id) ?: return
-        drawer.setSelection(item)
+        drawer.setSelection(item, false)
     }
 
     override fun onBackPressed() {
