@@ -1,5 +1,8 @@
 package com.rw.tweaks.fragments
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Color
@@ -13,11 +16,13 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.animation.doOnEnd
 import androidx.core.view.ViewCompat
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.card.MaterialCardView
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.dialogs.*
@@ -29,8 +34,9 @@ import com.rw.tweaks.prefs.secure.specific.*
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.dpAsPx
 import com.rw.tweaks.util.mainHandler
+import kotlinx.coroutines.*
 
-abstract class BasePrefFragment : PreferenceFragmentCompat() {
+abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
     companion object {
         const val ARG_HIGHLIGHT_KEY = "highlight_key"
     }
@@ -125,13 +131,44 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
 
                     scrollToPosition(index)
 
-                    val item = getChildAt(index)
+                    launch {
+                        val item = layoutManager!!.findViewByPosition(index) as MaterialCardView? ?: return@launch
 
-                    mainHandler.postDelayed({
-                        item?.isPressed = true
+                        delay(200)
+                        val time = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
+                        item.isPressed = true
 
-                        mainHandler.postDelayed({ item?.isPressed = false }, 300)
-                    }, 200)
+                        val anim = ObjectAnimator.ofPropertyValuesHolder(
+                            item,
+                            PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f),
+                            PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f)
+                        )
+                        anim.repeatCount = 1
+                        anim.repeatMode = ValueAnimator.REVERSE
+                        anim.duration = time
+                        anim.doOnEnd {
+                            item.isPressed = false
+                        }
+                        anim.start()
+
+//                        item.animate()
+//                            .scaleY(1.2f)
+//                            .scaleX(1.2f)
+//                            .setDuration(time)
+//                            .setInterpolator(AnticipateOvershootInterpolator())
+//                            .withEndAction {
+//                                item.animate()
+//                                    .scaleX(1f)
+//                                    .scaleY(1f)
+//                                    .setDuration(time)
+//                                    .setInterpolator(OvershootInterpolator())
+//                                    .withEndAction {
+//                                        item.isPressed = false
+//                                    }
+//                                    .start()
+//                            }
+//                            .start()
+                    }
                 }
             }
         }
@@ -247,6 +284,12 @@ abstract class BasePrefFragment : PreferenceFragmentCompat() {
     override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
         return if (resources.configuration.screenWidthDp >= 800)
             grid else linear
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        cancel()
     }
 
     private fun markDangerous(group: PreferenceGroup) {
