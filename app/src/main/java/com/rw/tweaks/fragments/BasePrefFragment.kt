@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.view.animation.AnticipateInterpolator
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
@@ -146,6 +147,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                         anim.repeatCount = 1
                         anim.repeatMode = ValueAnimator.REVERSE
                         anim.duration = time
+                        anim.interpolator = AnticipateInterpolator()
                         anim.doOnEnd {
                             item.isPressed = false
                         }
