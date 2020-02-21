@@ -2,16 +2,16 @@ package com.rw.tweaks.fragments
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.widget.SearchView
-import androidx.preference.Preference
-import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceGroup
-import androidx.preference.PreferenceViewHolder
+import androidx.preference.*
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.data.CustomBlacklistItemInfo
@@ -215,6 +215,47 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
             PrefManager.CUSTOM_BLACKLIST_ITEMS -> buildCustomCategory(findPreference("icon_blacklist_custom")!!)
+        }
+    }
+
+    private val grid by lazy {
+        object : StaggeredGridLayoutManager(2, VERTICAL) {
+            override fun supportsPredictiveItemAnimations(): Boolean {
+                return true
+            }
+        }
+    }
+    private val linear by lazy {
+        object : LinearLayoutManager(requireContext()) {
+            override fun supportsPredictiveItemAnimations(): Boolean {
+                return true
+            }
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        listView?.layoutManager = if (newConfig.screenWidthDp >= 800)
+            grid else linear
+    }
+
+    override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
+        return if (resources.configuration.screenWidthDp >= 800)
+            grid else linear
+    }
+
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+        return object : PreferenceGroupAdapter(preferenceScreen) {
+            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
+                super.onBindViewHolder(holder, position)
+
+                val params = holder.itemView.layoutParams
+
+                if (params is StaggeredGridLayoutManager.LayoutParams) {
+                    params.isFullSpan = getItem(position) is PreferenceCategory
+                }
+            }
         }
     }
 

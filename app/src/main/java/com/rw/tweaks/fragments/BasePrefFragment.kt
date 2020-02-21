@@ -10,11 +10,13 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
@@ -47,6 +49,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     open val widgetLayout: Int = Int.MIN_VALUE
     open val limitSummary = true
+
+    open val supportsGrid = true
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
@@ -174,6 +178,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 }
             }
         }
+
+        updateListWidthAndGravity()
     }
 
     override fun onCreateRecyclerView(
@@ -279,12 +285,18 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
-        listView?.layoutManager = if (newConfig.screenWidthDp >= 800)
+        val widthDp = newConfig.screenWidthDp
+
+        listView?.layoutManager = if (supportsGrid && newConfig.screenWidthDp >= 800)
             grid else linear
+
+        updateListWidthAndGravity(widthDp)
     }
 
     override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
-        return if (resources.configuration.screenWidthDp >= 800)
+        val widthDp = resources.configuration.screenWidthDp
+
+        return if (supportsGrid && widthDp >= 800)
             grid else linear
     }
 
@@ -308,6 +320,15 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     private fun markDangerous(preference: Preference) {
         preference.title = SpannableString(preference.title).apply {
             setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
+        }
+    }
+
+    private fun updateListWidthAndGravity(widthDp: Int = resources.configuration.screenWidthDp) {
+        if (!supportsGrid) {
+            listView.layoutParams = (listView.layoutParams as FrameLayout.LayoutParams).apply {
+                width = if (widthDp >= 800) requireContext().dpAsPx(800) else ViewGroup.LayoutParams.MATCH_PARENT
+                gravity = if (widthDp >= 800) Gravity.CENTER_HORIZONTAL else Gravity.START
+            }
         }
     }
 }

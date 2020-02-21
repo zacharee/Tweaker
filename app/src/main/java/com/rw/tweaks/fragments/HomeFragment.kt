@@ -5,6 +5,8 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.updateTitle
 
 class HomeFragment : BasePrefFragment() {
+    override val supportsGrid = false
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_home, rootKey)
     }
