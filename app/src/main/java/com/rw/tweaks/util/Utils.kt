@@ -380,18 +380,24 @@ fun parseAutoIconBlacklistSlots(): ArrayList<String> {
     val error = ArrayList<String>()
 
     Shell.Pool.SH.run(
-        " dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
+        "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
         lines,
         error,
         false
     )
 
-    val parenPattern = Pattern.compile("\\((.+?)\\)")
+    val parenPattern = Pattern.compile("([0-9])+:\\((.+?)\\)")
 
     lines.forEach {
         val matcher = parenPattern.matcher(it)
         matcher.find()
-        slots.add(matcher.group().replace("(", "").replace(")", ""))
+        try {
+            slots.add(matcher.group()
+                .replace("(", "")
+                .replace(")", "")
+                .replace(Regex("([0-9])+:"), "")
+            )
+        } catch (e: IllegalStateException) {}
     }
 
     return slots
