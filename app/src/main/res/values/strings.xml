@@ -205,6 +205,9 @@
     <string name="intro_grant_wss">Grant Write Secure Settings</string>
     <string name="intro_grant_wss_desc">Tweaker needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
 
+    <string name="intro_grant_extra">Grant Extra Permissions</string>
+    <string name="intro_grant_extra_desc">For certain features, Tweaker needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
+
     <string name="intro_last">Thanks for using our app!</string>
     <string name="intro_last_desc">Follow us on Twitter for the latest updates.\nLeave a comment on the XDA Forums for any feedback.\nAnd last but not least, leave a rating on the Play Store if you like this app!</string>
 
