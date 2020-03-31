@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.rw.tweaks.R
+import com.rw.tweaks.activities.ExtraPermsRetroactive
 import com.rw.tweaks.anim.PrefAnimator
 import com.rw.tweaks.data.CustomBlacklistItemInfo
 import com.rw.tweaks.dialogs.AnimatedMaterialAlertDialogBuilder
 import com.rw.tweaks.dialogs.CustomBlacklistItemDialogFragment
+import com.rw.tweaks.fragments.intro.ExtraPermsSlide
 import com.rw.tweaks.prefs.BlacklistPreference
 import com.rw.tweaks.prefs.CustomBlacklistAddPreference
 import com.rw.tweaks.util.*
@@ -141,19 +143,24 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         }
         
         createCategory(R.string.category_icon_blacklist_auto, "icon_blacklist_auto", resources.getText(R.string.category_icon_blacklist_auto_desc), null).apply {
+            isPersistent = false
             onExpandChangeListener = {
                 if (preferenceCount == 0 && it) {
-                    launch {
-                        //TODO: we need to add a permission flow for DUMP and PACKAGE_USAGE_STATS
-                        val icons = withContext(Dispatchers.Main) {
-                            parseAutoIconBlacklistSlots()
-                        }
+                    if (!requireContext().run { hasDump && hasPackageUsageStats }) {
+                        ExtraPermsRetroactive.start(requireContext(), ExtraPermsSlide::class.java)
+                        expanded = false
+                    } else {
+                        launch {
+                            val icons = withContext(Dispatchers.Main) {
+                                parseAutoIconBlacklistSlots()
+                            }
 
-                        icons.forEach { key ->
-                            createPref(title = key, key = "auto_key_$key", autoWriteKey = key)
-                        }
+                            icons.forEach { key ->
+                                createPref(title = key, key = "auto_key_$key", autoWriteKey = key)
+                            }
 
-                        generateSummary(it)
+                            generateSummary(it)
+                        }
                     }
                 }
             }

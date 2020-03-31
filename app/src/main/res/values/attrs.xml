@@ -12,6 +12,10 @@
     <attr name="dangerous" format="boolean|reference" />
     <attr name="low_api" format="integer|reference" />
     <attr name="high_api" format="integer|reference" />
+    <attr name="minValue" format="integer|reference" />
+    <attr name="maxValue" format="integer|reference" />
+    <attr name="scale" format="float|reference" />
+    <attr name="units" format="string|reference" />
     <attr name="verifier" />
     <attr name="visibility_verifier" />
     <attr name="enabled_verifier" />

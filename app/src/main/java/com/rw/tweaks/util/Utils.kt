@@ -81,6 +81,12 @@ val Context.hasSdCard: Boolean
 val Context.hasWss: Boolean
     get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
 
+val Context.hasDump: Boolean
+    get() = checkCallingOrSelfPermission(android.Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED
+
+val Context.hasPackageUsageStats: Boolean
+    get() = checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED
+
 val Context.isTouchWiz: Boolean
     get() = packageManager.hasSystemFeature("com.samsung.feature.samsung_experience_mobile")
 

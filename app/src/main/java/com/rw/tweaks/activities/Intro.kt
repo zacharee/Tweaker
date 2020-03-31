@@ -12,6 +12,7 @@ import com.rw.tweaks.fragments.intro.SimpleSlideFragmentOverride
 import com.rw.tweaks.fragments.intro.WSSSlide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
 
 class Intro : IntroActivity(), CoroutineScope by MainScope() {
     companion object {
@@ -76,5 +77,11 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
             previousSlide()
             return
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        cancel()
     }
 }

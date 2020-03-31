@@ -53,6 +53,9 @@
             android:label="@string/special_sub_icon_blacklist"
             android:exported="false"
             />
+        <activity android:name=".activities.ExtraPermsRetroactive"
+            android:exported="false"
+            />
 
         <service android:name=".services.Manager"
             android:exported="false"
