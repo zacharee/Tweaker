@@ -5,10 +5,31 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.Settings
-import androidx.preference.PreferenceManager
 
 class DemoController(context: Context) : ContextWrapper(context) {
+    object Keys {
+        const val KEY_VOLUME = "volume"
+        const val KEY_BLUETOOTH = "bluetooth"
+        const val KEY_LOCATION = "location"
+        const val KEY_ALARM = "alarm"
+        const val KEY_SYNC = "sync"
+        const val KEY_TTY = "tty"
+        const val KEY_ERI = "eri"
+        const val KEY_SECURE = "secure"
+        const val KEY_MUTE = "mute"
+        const val KEY_SPEAKERPHONE = "speakerphone"
+        const val KEY_AIRPLANE = "airplane"
+        const val KEY_WIFI = "wifi"
+        const val KEY_MOBILE = "mobile"
+
+        const val KEY_LEVEL = "level"
+        const val KEY_FULLY = "fully"
+        const val KEY_DATATYPE = "datatype"
+        const val KEY_PLUGGED = "plugged"
+        const val KEY_HHMM = "hhmm"
+        const val KEY_MODE = "mode"
+    }
+
     companion object {
         const val DEMO_PREFS = "demo_prefs"
 
@@ -20,6 +41,9 @@ class DemoController(context: Context) : ContextWrapper(context) {
         const val COMMAND_EXIT = "exit"
         const val COMMAND_STATUS = "status"
         const val COMMAND_NETWORK = "network"
+        const val COMMAND_CLOCK = "clock"
+        const val COMMAND_BATTERY = "battery"
+        const val COMMAND_BARS = "bars"
     }
 
     val prefs = DemoPrefs(this)
@@ -31,6 +55,7 @@ class DemoController(context: Context) : ContextWrapper(context) {
     fun enterDemo() {
         ensureDemoAllowed()
         sendDemoCommand(COMMAND_ENTER)
+        updateAll()
     }
 
     fun exitDemo() {
@@ -45,7 +70,92 @@ class DemoController(context: Context) : ContextWrapper(context) {
         sendBroadcast(intent)
     }
 
+    fun updateAll() {
+        updateStatusState()
+        updateAirplaneState()
+        updateWiFiState()
+        updateMobileState()
+        updateBatteryState()
+        updateClockState()
+        updateBarState()
+    }
+
+    fun updateStatusState() {
+        sendDemoCommand(COMMAND_STATUS, Bundle().apply {
+            putString(Keys.KEY_VOLUME, prefs.volumeState)
+            putString(Keys.KEY_BLUETOOTH, prefs.btState)
+            putString(Keys.KEY_LOCATION, prefs.locationState)
+            putString(Keys.KEY_ALARM, prefs.alarmState)
+            putString(Keys.KEY_SYNC, prefs.syncState)
+            putString(Keys.KEY_TTY, prefs.ttyState)
+            putString(Keys.KEY_ERI, prefs.eriState)
+            putString(Keys.KEY_SECURE, prefs.secureState)
+            putString(Keys.KEY_MUTE, prefs.muteState)
+            putString(Keys.KEY_SPEAKERPHONE, prefs.speakerphoneState)
+        })
+    }
+
+    fun updateAirplaneState() {
+        sendDemoCommand(COMMAND_NETWORK, Bundle().apply {
+            putString(Keys.KEY_AIRPLANE, prefs.airplaneState)
+        })
+    }
+
+    fun updateWiFiState() {
+        sendDemoCommand(COMMAND_NETWORK, Bundle().apply {
+            putString(Keys.KEY_WIFI, prefs.wifiState)
+            putString(Keys.KEY_LEVEL, prefs.wifiLevel.toString())
+            putString(Keys.KEY_FULLY, prefs.wifiFully.toString())
+        })
+    }
+
+    fun updateMobileState() {
+        sendDemoCommand(COMMAND_NETWORK, Bundle().apply {
+            putString(Keys.KEY_MOBILE, prefs.mobileState)
+            putString(Keys.KEY_LEVEL, prefs.wifiLevel.toString())
+            putString(Keys.KEY_FULLY, prefs.wifiFully.toString())
+            putString(Keys.KEY_DATATYPE, prefs.mobileType)
+        })
+    }
+
+    fun updateBatteryState() {
+        sendDemoCommand(COMMAND_BATTERY, Bundle().apply {
+            putString(Keys.KEY_LEVEL, prefs.batteryLevel.toString())
+            putString(Keys.KEY_PLUGGED, prefs.batteryPlugged.toString())
+        })
+    }
+
+    fun updateClockState() {
+        sendDemoCommand(COMMAND_CLOCK, Bundle().apply {
+            putString(Keys.KEY_HHMM, prefs.clockTime)
+        })
+    }
+
+    fun updateBarState() {
+        sendDemoCommand(COMMAND_BARS, Bundle().apply {
+            putString(Keys.KEY_MODE, prefs.barMode)
+        })
+    }
+
     class DemoPrefs(context: Context) : ContextWrapper(context), SharedPreferences {
+        object MobileTypes {
+            const val TYPE_1X = "1x"
+            const val TYPE_3G = "3g"
+            const val TYPE_4G = "4g"
+            const val TYPE_E = "e"
+            const val TYPE_G = "g"
+            const val TYPE_H = "h"
+            const val TYPE_LTE = "lte"
+            const val TYPE_ROAM = "roam"
+            const val TYPE_NONE = ""
+        }
+
+        object BarModes {
+            const val MODE_OPAQUE = "opaque"
+            const val MODE_SEMI_TRANSPARENT = "semi-transparent"
+            const val MODE_TRANSLUCENT = "translucent"
+        }
+
         companion object {
             const val STATE_HIDE = "hide"
 
@@ -61,6 +171,19 @@ class DemoController(context: Context) : ContextWrapper(context) {
             const val AIRPLANE_STATE = "airplane_state"
             const val WIFI_STATE = "wifi_state"
             const val MOBILE_STATE = "mobile_state"
+            const val SPEAKERPHONE_STATE = "speakerphone_state"
+
+            const val WIFI_LEVEL = "wifi_level"
+            const val MOBILE_LEVEL = "mobile_level"
+            const val BATTERY_LEVEL = "battery_level"
+
+            const val WIFI_FULLY = "wifi_fully"
+            const val MOBILE_FULLY = "mobile_fully"
+            const val BATTERY_PLUGGED = "battery_plugged"
+
+            const val MOBILE_TYPE = "mobile_type"
+            const val CLOCK_TIME = "clock_time"
+            const val BAR_MODE = "bar_mode"
         }
 
         private val wrapped = getSharedPreferences(DEMO_PREFS, Context.MODE_PRIVATE)
@@ -89,6 +212,28 @@ class DemoController(context: Context) : ContextWrapper(context) {
             get() = getString(WIFI_STATE, STATE_HIDE)
         val mobileState: String
             get() = getString(MOBILE_STATE, STATE_HIDE)
+        val speakerphoneState: String
+            get() = getString(SPEAKERPHONE_STATE, STATE_HIDE)
+        val mobileType: String
+            get() = getString(MOBILE_TYPE, MobileTypes.TYPE_NONE)
+        val clockTime: String
+            get() = getString(CLOCK_TIME, "1200")
+        val barMode: String
+            get() = getString(BAR_MODE, BarModes.MODE_OPAQUE)
+
+        val wifiLevel: Int
+            get() = getInt(WIFI_LEVEL, 0)
+        val mobileLevel: Int
+            get() = getInt(MOBILE_LEVEL, 0)
+        val batteryLevel: Int
+            get() = getInt(BATTERY_LEVEL, 100)
+
+        val wifiFully: Boolean
+            get() = getBoolean(WIFI_FULLY, false)
+        val mobileFully: Boolean
+            get() = getBoolean(MOBILE_FULLY, false)
+        val batteryPlugged: Boolean
+            get() = getBoolean(BATTERY_PLUGGED, false)
 
         override fun contains(key: String?): Boolean {
             return wrapped.contains(key)
