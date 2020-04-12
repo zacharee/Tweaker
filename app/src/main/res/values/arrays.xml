@@ -25,4 +25,50 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="hide_show_names">
+        <item>@string/hide</item>
+        <item>@string/show</item>
+    </string-array>
+
+    <string-array name="hide_show_values">
+        <item>hide</item>
+        <item>show</item>
+    </string-array>
+
+    <string-array name="data_type_names">
+        <item>1X</item>
+        <item>3G</item>
+        <item>4G</item>
+        <item>E</item>
+        <item>G</item>
+        <item>H</item>
+        <item>LTE</item>
+        <item>Roaming</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="data_type_values">
+        <item>1x</item>
+        <item>3g</item>
+        <item>4g</item>
+        <item>e</item>
+        <item>g</item>
+        <item>h</item>
+        <item>lte</item>
+        <item>roam</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="bar_mode_names">
+        <item>Opaque</item>
+        <item>Semi-Transparent</item>
+        <item>Translucent</item>
+    </string-array>
+
+    <string-array name="bar_mode_values">
+        <item>opaque</item>
+        <item>semi-transparent</item>
+        <item>translucent</item>
+    </string-array>
 </resources>

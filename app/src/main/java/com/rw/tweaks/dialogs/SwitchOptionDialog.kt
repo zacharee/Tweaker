@@ -1,6 +1,7 @@
 package com.rw.tweaks.dialogs
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.rw.tweaks.R
@@ -29,14 +30,14 @@ class SwitchOptionDialog : BaseOptionDialog() {
 
     private val disabled by lazy { arguments?.getString(ARG_DISABLED) ?: "0" }
     private val enabled by lazy { arguments?.getString(ARG_ENABLED) ?: "1" }
-    private val shouldBeChecked by lazy { arguments?.getString(ARG_CHECKED)?.toBoolean() }
+    private val shouldBeChecked by lazy { arguments?.getString(ARG_CHECKED)?.toBoolean() ?: false }
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
         view.secure_switch.apply {
             text = preference.title
-            isChecked = shouldBeChecked ?: (view.context.getSetting(type, writeKey) == enabled)
+            isChecked = shouldBeChecked
             setOnCheckedChangeListener { _, isChecked ->
                 val newValue = if (isChecked) enabled else disabled
 

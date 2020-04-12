@@ -8,6 +8,30 @@ import com.rw.tweaks.R
 import com.rw.tweaks.util.verifiers.BasePreferenceEnabledVerifier
 import com.rw.tweaks.util.verifiers.BaseVisibilityVerifier
 
+interface IDialogPreference {
+    var writeKey: String?
+
+    fun onValueChanged(newValue: Any?, key: String)
+}
+
+interface IListPreference : IDialogPreference {
+    val entries: Array<CharSequence?>?
+    val entryValues: Array<CharSequence?>?
+    var value: String?
+
+    fun findIndexOfValue(value: String?): Int {
+        if (value != null && entryValues != null) {
+            for (i in entryValues!!.indices.reversed()) {
+                if (entryValues!!.get(i) == value) {
+                    return i
+                }
+            }
+        }
+        return -1
+    }
+    fun callChangeListener(newValue: Any?): Boolean
+}
+
 interface ISecurePreference {
     companion object {
         const val API_UNDEFINED = -1
@@ -20,8 +44,6 @@ interface ISecurePreference {
     var lowApi: Int
     var highApi: Int
     var enabledVerifier: BasePreferenceEnabledVerifier?
-
-    fun onValueChanged(newValue: Any?, key: String?)
 
     fun init(pref: Preference)
 }
@@ -66,8 +88,6 @@ class SecurePreference(context: Context, attrs: AttributeSet?) : ContextWrapper(
             array.recycle()
         }
     }
-
-    override fun onValueChanged(newValue: Any?, key: String?) {}
 
     override fun init(pref: Preference) {
         val lowUndefined = lowApi == ISecurePreference.API_UNDEFINED

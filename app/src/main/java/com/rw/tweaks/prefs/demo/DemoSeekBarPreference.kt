@@ -1,19 +1,23 @@
-package com.rw.tweaks.prefs.secure
+package com.rw.tweaks.prefs.demo
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.util.AttributeSet
+import android.util.Log
 import androidx.core.content.edit
+import androidx.preference.PreferenceManager
 import com.rw.tweaks.R
+import com.rw.tweaks.prefs.demo.base.BaseDemoPreference
 import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
-import com.rw.tweaks.util.prefManager
-import com.rw.tweaks.util.writeSetting
 
-class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
+class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs) {
     var minValue: Int = 0
     var maxValue: Int = 100
     var defaultValue = 0
     var scale = 1.0f
     var units: String? = null
+    override var writeKey: String? = null
+        get() = key
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureSeekBarPreference, 0, 0)
@@ -29,9 +33,17 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
         android.recycle()
     }
 
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+        super.onAttachedToHierarchy(preferenceManager)
+        val prefValue = sharedPreferences.all[key]?.toString()?.toFloat()
+
+        summary = prefValue?.toString() ?: (this.defaultValue * scale).toString()
+    }
+
     override fun onValueChanged(newValue: Any?, key: String) {
+        val value = newValue?.toString()?.toFloat()
+
         sharedPreferences.edit {
-            val value = newValue?.toString()?.toFloat()
             if (value != null) {
                 putFloat(writeKey!!, value)
             } else {
@@ -39,6 +51,6 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
             }
         }
 
-        context.writeSetting(type, writeKey, newValue?.toString())
+        summary = value.toString()
     }
 }

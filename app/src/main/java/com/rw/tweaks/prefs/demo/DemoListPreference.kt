@@ -1,4 +1,4 @@
-package com.rw.tweaks.prefs.secure
+package com.rw.tweaks.prefs.demo
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,18 +6,15 @@ import android.content.res.TypedArray
 import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.core.content.res.TypedArrayUtils
+import androidx.preference.DialogPreference
 import com.rw.tweaks.R
+import com.rw.tweaks.prefs.demo.base.BaseDemoPreference
 import com.rw.tweaks.prefs.secure.base.BaseSecurePreference
-import com.rw.tweaks.util.IListPreference
-import com.rw.tweaks.util.getSetting
-import com.rw.tweaks.util.prefManager
+import com.rw.tweaks.util.*
 import com.rw.tweaks.util.verifiers.BaseListPreferenceVerifier
-import com.rw.tweaks.util.writeSetting
 
 @SuppressLint("RestrictedApi")
-class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), IListPreference {
-    private var verifier: BaseListPreferenceVerifier? = null
-
+class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs), IListPreference {
     private var setValue: Boolean = false
     override var value: String? = null
         set(value) {
@@ -39,17 +36,6 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureListPreference, 0, 0)
 
-        array.getString(R.styleable.SecureListPreference_verifier)?.let {
-            verifier = context.classLoader.loadClass(it)
-                .getConstructor(Context::class.java)
-                .newInstance(context) as BaseListPreferenceVerifier
-
-            verifier!!.verifyEntries(entries, entryValues).apply {
-                entries = first
-                entryValues = second
-            }
-        }
-
         entries = TypedArrayUtils.getTextArray(
             array, androidx.preference.R.styleable.ListPreference_entries,
             androidx.preference.R.styleable.ListPreference_android_entries
@@ -64,10 +50,16 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues!![0].toString()
+        value = preferenceManager.sharedPreferences.getString(key, null) ?: defaultValue?.toString() ?: entryValues!![0].toString()
+        summary = entries?.get(findIndexOfValue(value))
     }
 
     override fun onGetDefaultValue(a: TypedArray, index: Int): Any? {
         return a.getString(index)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        summary = entries?.get(findIndexOfValue(newValue?.toString()))
+        super.onValueChanged(newValue, key)
     }
 }

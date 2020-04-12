@@ -56,6 +56,9 @@
         <activity android:name=".activities.ExtraPermsRetroactive"
             android:exported="false"
             />
+        <activity android:name=".activities.DemoModeActivity"
+            android:exported="false"
+            />
 
         <service android:name=".services.Manager"
             android:exported="false"

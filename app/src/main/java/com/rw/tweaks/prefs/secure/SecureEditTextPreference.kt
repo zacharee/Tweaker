@@ -25,11 +25,4 @@ class SecureEditTextPreference(context: Context, attrs: AttributeSet) : BaseSecu
     override fun onSetInitialValue(defaultValue: Any?) {
         this.text = context.getSetting(type, writeKey)
     }
-
-    override fun onValueChanged(newValue: Any?, key: String?) {
-        super.onValueChanged(newValue, key)
-
-        context.prefManager.putString(writeKey!!, newValue.toString())
-        context.writeSetting(type, writeKey, text)
-    }
 }

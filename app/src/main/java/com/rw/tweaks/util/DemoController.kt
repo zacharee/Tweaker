@@ -49,7 +49,7 @@ class DemoController(context: Context) : ContextWrapper(context) {
     val prefs = DemoPrefs(this)
 
     fun ensureDemoAllowed() {
-        writeGlobal(KEY_DEMO_ALLOWED, true)
+        writeGlobal(KEY_DEMO_ALLOWED, 1)
     }
 
     fun enterDemo() {
@@ -112,8 +112,8 @@ class DemoController(context: Context) : ContextWrapper(context) {
     fun updateMobileState() {
         sendDemoCommand(COMMAND_NETWORK, Bundle().apply {
             putString(Keys.KEY_MOBILE, prefs.mobileState)
-            putString(Keys.KEY_LEVEL, prefs.wifiLevel.toString())
-            putString(Keys.KEY_FULLY, prefs.wifiFully.toString())
+            putString(Keys.KEY_LEVEL, prefs.mobileLevel.toString())
+            putString(Keys.KEY_FULLY, prefs.mobileFully.toString())
             putString(Keys.KEY_DATATYPE, prefs.mobileType)
         })
     }
@@ -222,18 +222,18 @@ class DemoController(context: Context) : ContextWrapper(context) {
             get() = getString(BAR_MODE, BarModes.MODE_OPAQUE)
 
         val wifiLevel: Int
-            get() = getInt(WIFI_LEVEL, 0)
+            get() = getFloat(WIFI_LEVEL, 0f).toInt()
         val mobileLevel: Int
-            get() = getInt(MOBILE_LEVEL, 0)
+            get() = getFloat(MOBILE_LEVEL, 0f).toInt()
         val batteryLevel: Int
-            get() = getInt(BATTERY_LEVEL, 100)
+            get() = getFloat(BATTERY_LEVEL, 100f).toInt()
 
         val wifiFully: Boolean
-            get() = getBoolean(WIFI_FULLY, false)
+            get() = getString(WIFI_FULLY, "false").toBoolean()
         val mobileFully: Boolean
-            get() = getBoolean(MOBILE_FULLY, false)
+            get() = getString(MOBILE_FULLY, "false").toBoolean()
         val batteryPlugged: Boolean
-            get() = getBoolean(BATTERY_PLUGGED, false)
+            get() = getString(BATTERY_PLUGGED, "false").toBoolean()
 
         override fun contains(key: String?): Boolean {
             return wrapped.contains(key)
@@ -244,7 +244,7 @@ class DemoController(context: Context) : ContextWrapper(context) {
         }
 
         override fun getFloat(key: String?, defValue: Float): Float {
-            return getFloat(key, defValue)
+            return wrapped.getFloat(key, defValue)
         }
 
         override fun getInt(key: String?, defValue: Int): Int {
@@ -252,7 +252,7 @@ class DemoController(context: Context) : ContextWrapper(context) {
         }
 
         override fun getLong(key: String?, defValue: Long): Long {
-            return getLong(key, defValue)
+            return wrapped.getLong(key, defValue)
         }
 
         override fun getString(key: String?, defValue: String?): String {

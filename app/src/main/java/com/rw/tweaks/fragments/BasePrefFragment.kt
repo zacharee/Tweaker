@@ -28,15 +28,17 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.card.MaterialCardView
 import com.rw.tweaks.R
 import com.rw.tweaks.anim.PrefAnimator
+import com.rw.tweaks.data.PreferenceHolder
 import com.rw.tweaks.dialogs.*
+import com.rw.tweaks.prefs.demo.DemoListPreference
+import com.rw.tweaks.prefs.demo.DemoSeekBarPreference
+import com.rw.tweaks.prefs.demo.DemoSwitchPreference
 import com.rw.tweaks.prefs.secure.SecureEditTextPreference
 import com.rw.tweaks.prefs.secure.SecureListPreference
 import com.rw.tweaks.prefs.secure.SecureSeekBarPreference
 import com.rw.tweaks.prefs.secure.SecureSwitchPreference
 import com.rw.tweaks.prefs.secure.specific.*
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.dpAsPx
-import com.rw.tweaks.util.mainHandler
+import com.rw.tweaks.util.*
 import kotlinx.coroutines.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
@@ -57,7 +59,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             is SecureSwitchPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
                 preference.disabled,
-                preference.enabled
+                preference.enabled,
+                requireContext().getSetting(preference.type, preference.writeKey) == preference.enabled
             )
             is SecureSeekBarPreference -> SeekBarOptionDialog.newInstance(
                 preference.key,
@@ -65,7 +68,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.maxValue,
                 preference.defaultValue,
                 preference.units,
-                preference.scale
+                preference.scale,
+                ((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloat() ?: preference.defaultValue * preference.scale) / preference.scale).toInt()
             )
             is AnimationScalesPreference -> OptionDialog.newInstance(
                 preference.key,
@@ -105,6 +109,22 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 R.layout.lockscreen_shortcuts
             )
             is SecureEditTextPreference -> SecureEditTextDialog.newInstance(preference.key)
+            is DemoListPreference -> SecureListDialog.newInstance(preference.key)
+            is DemoSeekBarPreference -> SeekBarOptionDialog.newInstance(
+                preference.key,
+                preference.minValue,
+                preference.maxValue,
+                preference.defaultValue,
+                preference.units,
+                preference.scale,
+                (preference.sharedPreferences.getFloat(preference.key, preference.defaultValue * preference.scale) / preference.scale).toInt()
+            )
+            is DemoSwitchPreference -> SwitchOptionDialog.newInstance(
+                preference.key,
+                preference.disabled,
+                preference.enabled,
+                preference.sharedPreferences.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
+            )
             else -> null
         }
 
@@ -204,8 +224,19 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
+            private val descriptors = ArrayList<PreferenceHolder>()
+
+            @SuppressLint("RestrictedApi")
             override fun getItemViewType(position: Int): Int {
-                return position
+                val descriptor = PreferenceHolder(getItem(position))
+                val index = descriptors.indexOf(descriptor)
+
+                return if (index != -1) {
+                    index
+                } else {
+                    descriptors.add(descriptor)
+                    descriptors.lastIndex
+                }
             }
 
             @SuppressLint("RestrictedApi", "PrivateResource")
@@ -213,7 +244,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 parent: ViewGroup,
                 viewType: Int
             ): PreferenceViewHolder {
-                val item = getItem(viewType)
+                val item = descriptors[viewType]
                 return run {
                     val inflater = LayoutInflater.from(parent.context)
                     val a = parent.context.obtainStyledAttributes(
@@ -252,7 +283,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                         }
                     }
 
-                    if (item !is PreferenceGroup) {
+                    if (item.className != PreferenceGroup::class.java.canonicalName) {
                         if (item.isEnabled && limitSummary) {
                             view.findViewById<TextView>(android.R.id.summary).apply {
                                 maxLines = 2

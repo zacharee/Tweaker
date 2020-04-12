@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.rw.tweaks.prefs.demo.DemoSwitchPreference
+        android:title="@string/enabled"
+        android:key="demo_enabled"
+        android:persistent="false"
+        app:enabled_value="true"
+        app:disabled_value="false"
+        />
+
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
+        android:title="@string/status_bar_icons"
+        android:key="status_bar_icons_cat">
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/volume_visibility"
+            android:key="volume_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/bluetooth_visibility"
+            android:key="bt_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/location_visibility"
+            android:key="location_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/alarm_visibility"
+            android:key="alarm_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/sync_visibility"
+            android:key="sync_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/tty_visibility"
+            android:key="tty_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/eri_visibility"
+            android:key="eri_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/secure_visibility"
+            android:key="secure_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/mute_visibility"
+            android:key="mute_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/speakerphone_visibility"
+            android:key="speakerphone_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/airplane_visibility"
+            android:key="airplane_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/wifi_visibility"
+            android:key="wifi_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/mobile_visibility"
+            android:key="mobile_state"
+            android:entries="@array/hide_show_names"
+            android:entryValues="@array/hide_show_values"
+            android:defaultValue="hide"
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
+
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
+        android:title="@string/network_states"
+        android:key="network_states_cat">
+
+        <com.rw.tweaks.prefs.demo.DemoSeekBarPreference
+            android:title="@string/wifi_level"
+            android:key="wifi_level"
+            app:minValue="0"
+            app:maxValue="4"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoSeekBarPreference
+            android:title="@string/mobile_level"
+            android:key="mobile_level"
+            app:minValue="0"
+            app:maxValue="4"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoSwitchPreference
+            android:title="@string/wifi_fully_connected"
+            android:key="wifi_fully"
+            app:enabled_value="true"
+            app:disabled_value="false"  />
+
+        <com.rw.tweaks.prefs.demo.DemoSwitchPreference
+            android:title="@string/mobile_fully_connected"
+            android:key="mobile_fully"
+            app:enabled_value="true"
+            app:disabled_value="false"  />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/mobile_data_type"
+            android:key="mobile_type"
+            android:entries="@array/data_type_names"
+            android:entryValues="@array/data_type_values"
+            android:defaultValue=""
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
+
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
+        android:title="@string/sub_miscellaneous"
+        android:key="miscellaneous_cat">
+
+        <com.rw.tweaks.prefs.demo.DemoSeekBarPreference
+            android:title="@string/battery_level"
+            android:key="battery_level"
+            app:minValue="0"
+            app:maxValue="100"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoSwitchPreference
+            android:title="@string/battery_charging"
+            android:key="battery_plugged"
+            app:enabled_value="true"
+            app:disabled_value="false"
+            />
+
+        <com.rw.tweaks.prefs.demo.DemoListPreference
+            android:title="@string/status_bar_style"
+            android:key="bar_mode"
+            android:entries="@array/bar_mode_names"
+            android:entryValues="@array/bar_mode_values"
+            android:defaultValue="opaque"
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
+
+</PreferenceScreen>

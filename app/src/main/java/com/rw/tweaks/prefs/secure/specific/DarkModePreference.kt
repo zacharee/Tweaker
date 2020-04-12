@@ -33,7 +33,7 @@ class DarkModePreference(context: Context, attrs: AttributeSet) : SecureSwitchPr
         return UiModeManager.MODE_NIGHT_NO.toString()
     }
 
-    override fun onValueChanged(newValue: Any?, key: String?) {
+    override fun onValueChanged(newValue: Any?, key: String) {
         super.onValueChanged(newValue, key)
 
         uim.nightMode = newValue.toString().toInt()

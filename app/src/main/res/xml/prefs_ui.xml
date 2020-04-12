@@ -15,6 +15,15 @@
         app:settings_type="secure"
         />
 
+    <com.rw.tweaks.prefs.ActivityPreference
+        android:title="@string/sub_demo"
+        android:summary="@string/sub_demo_desc"
+        android:key="sub_demo"
+        android:icon="@drawable/ic_baseline_tv_24"
+        app:icon_color="@color/pref_color_5"
+        app:activity_class="com.rw.tweaks.activities.DemoModeActivity"
+        />
+
     <com.rw.tweaks.prefs.secure.specific.KeepDeviceOnPluggedPreference />
     <com.rw.tweaks.prefs.secure.specific.AnimationScalesPreference />
     <com.rw.tweaks.prefs.secure.specific.CameraGesturesPreference />

@@ -66,7 +66,7 @@ class SecureEditTextDialog : BaseOptionDialog() {
     private fun apply(text: String?) {
         if (preference.callChangeListener(text)) {
             editTextPreference.text = text
-            editTextPreference.onValueChanged(text, writeKey)
+            editTextPreference.onValueChanged(text, writeKey!!)
         }
     }
 

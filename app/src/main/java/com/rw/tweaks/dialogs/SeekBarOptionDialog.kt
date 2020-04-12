@@ -16,8 +16,10 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
         const val ARG_UNITS = "units"
         const val ARG_DEFAULT = "defaultValue"
         const val ARG_SCALE = "scale"
+        const val ARG_FOR_SECURE = "for_secure"
+        const val ARG_INITIAL_VALUE = "initial_value"
 
-        fun newInstance(key: String, min: Int = 0, max: Int = 100, default: Int = min, units: String? = null, scale: Float = 1.0f): SeekBarOptionDialog {
+        fun newInstance(key: String, min: Int = 0, max: Int = 100, default: Int = min, units: String? = null, scale: Float = 1.0f, initialValue: Int = 100): SeekBarOptionDialog {
             return SeekBarOptionDialog().apply {
                 arguments = Bundle().apply {
                     putString(ARG_KEY, key)
@@ -26,6 +28,7 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
                     putInt(ARG_DEFAULT, default)
                     putString(ARG_UNITS, units)
                     putFloat(ARG_SCALE, scale)
+                    putInt(ARG_INITIAL_VALUE, initialValue)
                 }
             }
         }
@@ -38,13 +41,12 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     private val default by lazy { arguments?.getInt(ARG_DEFAULT, min) ?: min }
     private val units by lazy { arguments?.getString(ARG_UNITS) }
     private val scale by lazy { arguments?.getFloat(ARG_SCALE, 1.0f) ?: 1.0f }
+    private val initialValue by lazy { arguments?.getInt(ARG_INITIAL_VALUE, default) ?: default }
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        val progress = (view.context.getSetting(type, writeKey)?.toFloat() ?: (default * scale)) / scale
-
-        view.seekbar_view.onBind(min, max, progress.toInt(), default, scale, units, "",this@SeekBarOptionDialog)
+        view.seekbar_view.onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
     }
 
 
@@ -52,14 +54,6 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-        val new: Number = if (scale == 1f) newValue else newScaledValue
-
-        when (new) {
-            is Int -> requireContext().prefManager.putInt(writeKey!!, new)
-            is Float -> requireContext().prefManager.putFloat(writeKey!!, new)
-        }
-
-        requireContext().writeSetting(type, writeKey, new)
         notifyChanged(newScaledValue)
     }
 }

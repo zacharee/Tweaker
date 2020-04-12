@@ -34,7 +34,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseSecurePre
         iconColor = ContextCompat.getColor(context, R.color.pref_color_1)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String?) {
+    override fun onValueChanged(newValue: Any?, key: String) {
         val enabled = newValue.toString().toBoolean()
 
         context.prefManager.putInt(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)

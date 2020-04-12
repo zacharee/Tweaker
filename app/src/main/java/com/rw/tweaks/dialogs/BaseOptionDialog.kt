@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
+import com.rw.tweaks.util.IDialogPreference
 import com.rw.tweaks.util.ISecurePreference
 import com.rw.tweaks.util.SettingsType
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
@@ -19,16 +20,16 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
 
     internal open val layoutRes by lazy { arguments!!.getInt(ARG_LAYOUT_RES, 0) }
     internal val writeKey: String?
-        get() = (preference as ISecurePreference).writeKey
+        get() = if (preference is ISecurePreference) (preference as ISecurePreference).writeKey else preference.key
     internal val type: SettingsType
-        get() = (preference as ISecurePreference).type
+        get() = if (preference is ISecurePreference) (preference as ISecurePreference).type else SettingsType.UNDEFINED
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = RoundedBottomSheetDialog(requireContext())
 
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.dialogTitle)
-        builder.setIcon(preference.icon)
+        if (preference.icon != null) builder.setIcon(preference.icon)
         builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
             dismiss()
         })
@@ -52,6 +53,6 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     override fun onDialogClosed(positiveResult: Boolean) {}
 
     fun notifyChanged(value: Any?) {
-        (preference as ISecurePreference).onValueChanged(value, writeKey)
+        (preference as IDialogPreference).onValueChanged(value, writeKey!!)
     }
 }

@@ -5,12 +5,9 @@ import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import androidx.preference.PreferenceViewHolder
 import com.rw.tweaks.R
-import com.rw.tweaks.util.ColorPreference
-import com.rw.tweaks.util.IColorPreference
-import com.rw.tweaks.util.ISecurePreference
-import com.rw.tweaks.util.SecurePreference
+import com.rw.tweaks.util.*
 
-open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs), IColorPreference by ColorPreference(context, attrs) {
+open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs), IColorPreference by ColorPreference(context, attrs), IDialogPreference {
     override var writeKey: String? = null
         get() = field ?: key
 
@@ -30,5 +27,10 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogP
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         bindVH(holder)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        context.prefManager.putString(writeKey!!, newValue.toString())
+        context.writeSetting(type, writeKey, newValue.toString().toInt())
     }
 }

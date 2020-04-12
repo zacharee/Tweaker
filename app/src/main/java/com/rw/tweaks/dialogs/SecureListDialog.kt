@@ -9,6 +9,8 @@ import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rw.tweaks.R
 import com.rw.tweaks.prefs.secure.SecureListPreference
+import com.rw.tweaks.util.IDialogPreference
+import com.rw.tweaks.util.IListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.list_dialog.view.*
 
@@ -23,8 +25,8 @@ class SecureListDialog : BaseOptionDialog() {
         }
     }
 
-    private val listPref: SecureListPreference
-        get() = preference as SecureListPreference
+    private val listPref: IListPreference
+        get() = preference as IListPreference
 
     private var clickedIndex = -1
 
@@ -34,17 +36,17 @@ class SecureListDialog : BaseOptionDialog() {
         super.onBindDialogView(view)
 
         val checkedIndex = listPref.findIndexOfValue(listPref.value)
-        val entries = (preference as SecureListPreference).entries
+        val entries = listPref.entries
         val list = View.inflate(requireContext(), R.layout.list_dialog, view.wrapper).select_dialog_listview as RecyclerView
         val adapter = Adapter(entries?.mapIndexed { index, charSequence -> ItemInfo(charSequence, index == checkedIndex) } ?: ArrayList()) {
             clickedIndex = it
             onClick(dialog, DialogInterface.BUTTON_POSITIVE)
 
-            val preference = preference as SecureListPreference
+            val preference = listPref
             val value = preference.entryValues!![clickedIndex].toString()
             if (preference.callChangeListener(value)) {
                 preference.value = value
-                preference.onValueChanged(value, preference.writeKey)
+                preference.onValueChanged(value, preference.writeKey!!)
             }
         }
 

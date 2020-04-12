@@ -54,6 +54,7 @@
         <attr name="enabled_verifier" />
         <attr name="low_api" />
         <attr name="high_api" />
+        <attr name="use_shared_prefs" format="boolean|reference" />
     </declare-styleable>
 
     <declare-styleable name="ActivityPreference">
