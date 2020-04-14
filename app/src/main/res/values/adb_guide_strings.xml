@@ -54,6 +54,7 @@
 
     <string name="adb_command_template_windows">.\\adb shell pm grant %s</string>
     <string name="adb_command_template_mac_linux">./adb shell pm grant %s</string>
+    <string name="adb_command_template_linux_installed">adb shell pm grant %s</string>
 
     <string name="adb_windows">Windows</string>
     <string name="adb_linux">Linux</string>
