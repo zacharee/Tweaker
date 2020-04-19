@@ -59,6 +59,9 @@
         <activity android:name=".activities.DemoModeActivity"
             android:exported="false"
             />
+        <activity android:name=".activities.tutorial.TutorialActivity"
+            android:exported="false"
+            />
 
         <service android:name=".services.Manager"
             android:exported="false"

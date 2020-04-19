@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="true"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:fadingEdgeLength="16dp"
+    android:fadingEdge="horizontal"
+    android:requiresFadingEdge="horizontal"
+    android:fadeScrollbars="false"
+    android:scrollbarTrackHorizontal="@drawable/step_track_drawable"
+    android:minHeight="?listPreferredItemHeightSmall">
+
+    <TextView
+        android:id="@+id/step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:typeface="monospace"
+        android:singleLine="true"
+        android:layout_gravity="center_vertical"
+        />
+
+</HorizontalScrollView>

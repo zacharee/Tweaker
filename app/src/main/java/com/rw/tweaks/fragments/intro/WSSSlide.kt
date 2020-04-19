@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.rw.tweaks.R
+import com.rw.tweaks.activities.tutorial.TutorialActivity
 import com.rw.tweaks.util.hasWss
 import eu.chainfire.libsuperuser.Shell
 import kotlinx.android.synthetic.main.wss_slide.*
@@ -43,6 +44,9 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
                             .show()
                     }
                 }
+            }
+            help.setOnClickListener {
+                TutorialActivity.start(requireContext(), android.Manifest.permission.WRITE_SECURE_SETTINGS)
             }
         }
     }

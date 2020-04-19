@@ -6,10 +6,10 @@
     <string name="adb_choose_computer_os">Choose your Operating System.</string>
     <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
 
-    <string name="adb_choose_linux_version">Choose your Linux Variant</string>
-    <string name="adb_choose_linux_version_desc">Which variant of Linux is your computer running?</string>
-
     <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
+
+    <string name="adb_final_title">All Done</string>
+    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
 
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
     <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
@@ -48,16 +48,15 @@
     <string name="adb_install_adb_linux_other_3">Open a terminal.</string>
     <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
 
-    <string name="adb_install_adb_general_end_1">A Command Prompt window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
+    <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
     <string name="adb_install_adb_general_end_2">If everything\'s gone right, there should be no output from the commands. If there is, make sure to scroll all the way up to where you entered the command to see the error.</string>
     <string name="adb_install_adb_general_end_3">The permissions should now be granted!</string>
 
-    <string name="adb_command_template_windows">.\\adb shell pm grant %s</string>
-    <string name="adb_command_template_mac_linux">./adb shell pm grant %s</string>
-    <string name="adb_command_template_linux_installed">adb shell pm grant %s</string>
+    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
 
     <string name="adb_windows">Windows</string>
-    <string name="adb_linux">Linux</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
     <string name="adb_linux_debian">Debian/Ubuntu</string>

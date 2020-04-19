@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.rw.tweaks.R
+import com.rw.tweaks.activities.tutorial.TutorialActivity
 import eu.chainfire.libsuperuser.Shell
-import kotlinx.android.synthetic.main.wss_slide.*
+import kotlinx.android.synthetic.main.extra_perms_slide.*
 import kotlinx.coroutines.*
 
 class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope() {
@@ -43,6 +44,9 @@ class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope() {
                             .show()
                     }
                 }
+            }
+            help.setOnClickListener {
+                TutorialActivity.start(requireContext(), android.Manifest.permission.PACKAGE_USAGE_STATS, android.Manifest.permission.DUMP)
             }
         }
     }
