@@ -32,15 +32,35 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
                 .background(R.color.slide_1)
                 .fragment(
                     SimpleSlideFragmentOverride.newInstance(
-                    0, null, R.string.intro_welcome,
-                    null, R.string.intro_welcome_desc, R.drawable.ic_baseline_emoji_people_24,
-                    R.color.slide_1, R.layout.mi_fragment_simple_slide, 0
-                ))
+                        0, null, R.string.intro_welcome,
+                        null, R.string.intro_welcome_desc, R.drawable.ic_baseline_emoji_people_24,
+                        R.color.slide_1, R.layout.mi_fragment_simple_slide_scrollable, 0
+                    )
+                )
+                .build()
+        )
+
+        addSlide(
+            FragmentSlide.Builder()
+                .background(R.color.slide_2)
+                .fragment(
+                    SimpleSlideFragmentOverride.newInstance(
+                        0,
+                        null,
+                        R.string.intro_disclaimer,
+                        null,
+                        R.string.intro_disclaimer_desc,
+                        R.drawable.ic_baseline_priority_high_24,
+                        R.color.slide_2,
+                        R.layout.mi_fragment_simple_slide_scrollable,
+                        0
+                    )
+                )
                 .build()
         )
 
         val wss = FragmentSlide.Builder()
-            .background(R.color.slide_2)
+            .background(R.color.slide_3)
             .fragment(WSSSlide())
             .build()
 
@@ -55,13 +75,14 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
 
         addSlide(
             FragmentSlide.Builder()
-                .background(R.color.slide_3)
+                .background(R.color.slide_5)
                 .fragment(
                     SimpleSlideFragmentOverride.newInstance(
-                    0, null, R.string.intro_last,
-                    null, R.string.intro_last_desc, R.drawable.foreground_unscaled,
-                    R.color.slide_3, R.layout.mi_fragment_simple_slide, 0
-                ))
+                        0, null, R.string.intro_last,
+                        null, R.string.intro_last_desc, R.drawable.foreground_unscaled,
+                        R.color.slide_3, R.layout.mi_fragment_simple_slide, 0
+                    )
+                )
                 .build()
         )
 
