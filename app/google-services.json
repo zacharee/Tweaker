@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "897924493891",
+    "firebase_url": "https://systemui-tuner.firebaseio.com",
+    "project_id": "systemui-tuner",
+    "storage_bucket": "systemui-tuner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897924493891:android:faa86233b0d6ca71",
+        "android_client_info": {
+          "package_name": "com.zacharee1.systemuituner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897924493891-fgertptk3ds24h5cqsan57rl272k3s77.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zacharee1.systemuituner",
+            "certificate_hash": "6cdaf7135ab324d00b1d0e68b5890cd3610ce308"
+          }
+        },
+        {
+          "client_id": "897924493891-u84e49hmgu8s0k06a77o3ne1953kotge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zacharee1.systemuituner",
+            "certificate_hash": "a965efb28ef371a0050ce510ec62a86f7d37d6cc"
+          }
+        },
+        {
+          "client_id": "897924493891-5hqqkiq5apum7iblqpdj8fcmurfqetaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWmEAAJbW-jRJeZDynHeTaysi00edJ1Wc"
+        },
+        {
+          "current_key": "AIzaSyA2XvIG_avlmj7iaix6idD1FqbowM72Xjs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897924493891-5hqqkiq5apum7iblqpdj8fcmurfqetaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
