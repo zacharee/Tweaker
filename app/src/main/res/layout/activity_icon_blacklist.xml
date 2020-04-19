@@ -24,7 +24,7 @@
             android:id="@+id/blacklist_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.rw.tweaks.fragments.IconBlacklistFragment" />
+            android:name="com.zacharee1.systemuituner.fragments.IconBlacklistFragment" />
 
     </FrameLayout>
 

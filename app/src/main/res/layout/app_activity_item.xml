@@ -41,7 +41,7 @@
             android:id="@+id/component"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="com.rw.tweaks"
+            tools:text="com.zacharee1.systemuituner"
             />
 
     </LinearLayout>

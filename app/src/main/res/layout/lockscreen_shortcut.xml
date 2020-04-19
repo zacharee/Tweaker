@@ -39,18 +39,18 @@
             tools:text="@string/option_lockscreen_shortcut_left"
             />
 
-        <com.rw.tweaks.views.ZeroHeightTextView
+        <com.zacharee1.systemuituner.views.ZeroHeightTextView
             android:id="@+id/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="@string/app_name"
             />
 
-        <com.rw.tweaks.views.ZeroHeightTextView
+        <com.zacharee1.systemuituner.views.ZeroHeightTextView
             android:id="@+id/component"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="com.rw.tweaks/.MainActivity"
+            tools:text="com.zacharee1.systemuituner/.MainActivity"
             />
 
     </LinearLayout>

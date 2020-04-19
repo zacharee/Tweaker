@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:breakStrategy="high_quality"
-            tools:text="com.rw.tweaks"
+            tools:text="com.zacharee1.systemuituner"
             />
 
     </LinearLayout>

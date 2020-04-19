@@ -62,7 +62,7 @@
                 android:minWidth="48dp"
                 android:orientation="horizontal">
 
-                <com.rw.tweaks.views.PreferenceImageView
+                <com.zacharee1.systemuituner.views.PreferenceImageView
                     android:id="@android:id/icon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"

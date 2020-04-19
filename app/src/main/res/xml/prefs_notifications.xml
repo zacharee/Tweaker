@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_heads_up_notifications"
         android:summary="@string/feature_heads_up_notifications_desc"
         android:key="heads_up_notifications_enabled"
@@ -11,7 +11,7 @@
         app:settings_type="global"
         />
 
-    <com.rw.tweaks.prefs.secure.SecureSeekBarPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
         android:title="@string/feature_heads_up_snooze_length"
         android:summary="@string/feature_heads_up_snooze_length_desc"
         android:key="heads_up_snooze_length_ms"
@@ -24,17 +24,17 @@
         app:maxValue="600000"
         />
 
-    <com.rw.tweaks.prefs.ActivityPreference
+    <com.zacharee1.systemuituner.prefs.ActivityPreference
         android:title="@string/special_sub_icon_blacklist"
         android:summary="@string/special_sub_icon_blacklist_desc"
         android:key="icon_blacklist"
         android:icon="@drawable/ic_baseline_visibility_off_24"
         app:icon_color="@color/pref_color_5"
-        app:activity_class="com.rw.tweaks.activities.IconBlacklistActivity"
+        app:activity_class="com.zacharee1.systemuituner.activities.IconBlacklistActivity"
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_clock_seconds"
         android:summary="@string/feature_clock_seconds_desc"
         android:key="clock_seconds"
@@ -43,7 +43,7 @@
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_dnd_in_volume"
         android:summary="@string/feature_dnd_in_volume_desc"
         android:key="sysui_show_full_zen"
@@ -52,7 +52,7 @@
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_battery_percent"
         android:summary="@string/feature_battery_percent_desc"
         android:key="status_bar_show_battery_percent"

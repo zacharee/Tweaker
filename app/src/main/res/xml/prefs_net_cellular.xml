@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_shortcode_warning"
         android:summary="@string/feature_shortcode_warning_desc"
         android:key="sms_short_code_confirmation"
@@ -13,6 +13,6 @@
         app:settings_type="global"
         />
 
-    <com.rw.tweaks.prefs.secure.specific.SMSLimitsPreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.SMSLimitsPreference />
 
 </PreferenceScreen>

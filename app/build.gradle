@@ -6,11 +6,11 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.rw.tweaks"
+        applicationId "com.zacharee1.systemuituner"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 16
-        versionName "0.0.0.16"
+        versionCode 293
+        versionName versionCode.toString()
     }
 
     buildTypes {

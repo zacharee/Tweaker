@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_enable_adb"
         android:summary="@string/feature_enable_adb_desc"
         android:key="adb_enabled"

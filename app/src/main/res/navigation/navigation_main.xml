@@ -5,54 +5,54 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.rw.tweaks.fragments.HomeFragment"
+        android:name="com.zacharee1.systemuituner.fragments.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/displayFragment"
-        android:name="com.rw.tweaks.fragments.DisplayFragment"
+        android:name="com.zacharee1.systemuituner.fragments.DisplayFragment"
         android:label="DisplayFragment" />
     <fragment
         android:id="@+id/UIFragment"
-        android:name="com.rw.tweaks.fragments.UIFragment"
+        android:name="com.zacharee1.systemuituner.fragments.UIFragment"
         android:label="UIFragment" />
     <fragment
         android:id="@+id/storageFragment"
-        android:name="com.rw.tweaks.fragments.system.StorageFragment"
+        android:name="com.zacharee1.systemuituner.fragments.system.StorageFragment"
         android:label="StorageFragment" />
     <fragment
         android:id="@+id/netMiscellaneousFragment"
-        android:name="com.rw.tweaks.fragments.network.NetMiscellaneousFragment"
+        android:name="com.zacharee1.systemuituner.fragments.network.NetMiscellaneousFragment"
         android:label="MiscellaneousFragment" />
     <fragment
         android:id="@+id/appsFragment"
-        android:name="com.rw.tweaks.fragments.AppsFragment"
+        android:name="com.zacharee1.systemuituner.fragments.AppsFragment"
         android:label="AppsFragment" />
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="com.rw.tweaks.fragments.NotificationsFragment"
+        android:name="com.zacharee1.systemuituner.fragments.NotificationsFragment"
         android:label="NotificationsFragment" />
     <fragment
         android:id="@+id/developerFragment"
-        android:name="com.rw.tweaks.fragments.DeveloperFragment"
+        android:name="com.zacharee1.systemuituner.fragments.DeveloperFragment"
         android:label="DeveloperFragment" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.rw.tweaks.fragments.SearchFragment"
+        android:name="com.zacharee1.systemuituner.fragments.SearchFragment"
         android:label="SearchFragment" />
     <fragment
         android:id="@+id/audioFragment"
-        android:name="com.rw.tweaks.fragments.AudioFragment"
+        android:name="com.zacharee1.systemuituner.fragments.AudioFragment"
         android:label="AudioFragment" />
     <fragment
         android:id="@+id/netWiFiFragment"
-        android:name="com.rw.tweaks.fragments.network.NetWiFiFragment"
+        android:name="com.zacharee1.systemuituner.fragments.network.NetWiFiFragment"
         android:label="NetWiFiFragment" />
     <fragment
         android:id="@+id/netCellFragment"
-        android:name="com.rw.tweaks.fragments.network.NetCellFragment"
+        android:name="com.zacharee1.systemuituner.fragments.network.NetCellFragment"
         android:label="NetCellFragment" />
     <activity
         android:id="@+id/persistentActivity"
-        android:name="com.rw.tweaks.activities.PersistentActivity"
+        android:name="com.zacharee1.systemuituner.activities.PersistentActivity"
         android:label="PersistentActivity" />
 </navigation>

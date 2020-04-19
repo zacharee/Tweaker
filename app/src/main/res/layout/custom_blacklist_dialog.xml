@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rw.tweaks.views.RoundedFrameCardView
+<com.zacharee1.systemuituner.views.RoundedFrameCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -56,4 +56,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.rw.tweaks.views.RoundedFrameCardView>
+</com.zacharee1.systemuituner.views.RoundedFrameCardView>

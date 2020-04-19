@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_freeform"
         android:summary="@string/feature_freeform_desc"
         android:key="enable_freeform_support"
@@ -12,7 +12,7 @@
         app:low_api="24"
         />
 
-    <com.rw.tweaks.prefs.secure.SecureListPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureListPreference
         android:title="@string/feature_app_install_location"
         android:summary="@string/feature_app_install_location_desc"
         android:key="default_install_location"
@@ -22,7 +22,7 @@
         app:entries="@array/app_install_location_names"
         app:entryValues="@array/app_install_location_values"
         app:settings_type="global"
-        app:enabled_verifier="com.rw.tweaks.util.verifiers.EnableStorage"
+        app:enabled_verifier="com.zacharee1.systemuituner.util.verifiers.EnableStorage"
         />
 
 </PreferenceScreen>

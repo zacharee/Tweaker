@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.rw.tweaks.views.ListenerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zacharee1.systemuituner.views.ListenerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/listener"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.rw.tweaks.views.PreferenceImageView
+            <com.zacharee1.systemuituner.views.PreferenceImageView
                 android:id="@+id/icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,4 +89,4 @@
 
     </LinearLayout>
 
-</com.rw.tweaks.views.ListenerLinearLayout>
+</com.zacharee1.systemuituner.views.ListenerLinearLayout>

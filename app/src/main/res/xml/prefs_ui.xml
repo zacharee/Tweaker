@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.rw.tweaks.prefs.secure.SecureSeekBarPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
         android:title="@string/feature_long_press_delay"
         android:summary="@string/feature_long_press_delay_desc"
         android:key="long_press_timeout"
@@ -15,20 +15,20 @@
         app:settings_type="secure"
         />
 
-    <com.rw.tweaks.prefs.ActivityPreference
+    <com.zacharee1.systemuituner.prefs.ActivityPreference
         android:title="@string/sub_demo"
         android:summary="@string/sub_demo_desc"
         android:key="sub_demo"
         android:icon="@drawable/ic_baseline_tv_24"
         app:icon_color="@color/pref_color_5"
-        app:activity_class="com.rw.tweaks.activities.DemoModeActivity"
+        app:activity_class="com.zacharee1.systemuituner.activities.DemoModeActivity"
         />
 
-    <com.rw.tweaks.prefs.secure.specific.KeepDeviceOnPluggedPreference />
-    <com.rw.tweaks.prefs.secure.specific.AnimationScalesPreference />
-    <com.rw.tweaks.prefs.secure.specific.CameraGesturesPreference />
-    <com.rw.tweaks.prefs.secure.specific.ImmersiveModePreference />
-    <com.rw.tweaks.prefs.secure.specific.DarkModePreference />
-    <com.rw.tweaks.prefs.secure.specific.LockscreenShortcutsPref />
+    <com.zacharee1.systemuituner.prefs.secure.specific.KeepDeviceOnPluggedPreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.AnimationScalesPreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.CameraGesturesPreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.ImmersiveModePreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.DarkModePreference />
+    <com.zacharee1.systemuituner.prefs.secure.specific.LockscreenShortcutsPref />
 
 </PreferenceScreen>

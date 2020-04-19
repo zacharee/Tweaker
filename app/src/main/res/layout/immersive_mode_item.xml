@@ -45,7 +45,7 @@
 
     </FrameLayout>
 
-    <com.rw.tweaks.views.DisableableImageView
+    <com.zacharee1.systemuituner.views.DisableableImageView
         android:id="@+id/whitelist_button"
         android:layout_width="75dp"
         android:layout_height="match_parent"
