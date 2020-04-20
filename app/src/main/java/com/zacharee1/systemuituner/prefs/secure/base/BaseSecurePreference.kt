@@ -31,6 +31,6 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogP
 
     override fun onValueChanged(newValue: Any?, key: String) {
         context.prefManager.putString(writeKey!!, newValue.toString())
-        context.writeSetting(type, writeKey, newValue.toString().toInt())
+        context.writeSetting(type, writeKey, newValue.toString())
     }
 }
