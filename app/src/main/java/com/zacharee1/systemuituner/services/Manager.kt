@@ -80,12 +80,22 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private fun doInitialCheck() {
-        prefManager.persistentOptions.forEach {
-            val value = getSetting(it.type, it.key)
-            val prefValue = prefManager.prefs.all[it.key]?.toString()
+        prefManager.persistentOptions.forEach { opt ->
+            val handler = persistenceHandlers.find { it.settingsKey == opt.key }
 
-            if (value != prefValue) {
-                writeSetting(it.type, it.key, prefValue)
+            if (handler != null) {
+                val prefValue = handler.getPreferenceValueAsString()
+
+                if (!handler.compareValues()) {
+                    writeSetting(opt.type, opt.key, prefValue)
+                }
+            } else {
+                val value = getSetting(opt.type, opt.key)
+                val prefValue = prefManager.prefs.all[opt.key]?.toString()
+
+                if (value != prefValue) {
+                    writeSetting(opt.type, opt.key, prefValue)
+                }
             }
         }
     }

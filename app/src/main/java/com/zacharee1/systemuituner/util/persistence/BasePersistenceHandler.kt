@@ -3,7 +3,7 @@ package com.zacharee1.systemuituner.util.persistence
 import android.content.Context
 import com.zacharee1.systemuituner.util.SettingsType
 
-abstract class BasePersistenceHandler<PreferenceValueType>(internal val context: Context) {
+abstract class BasePersistenceHandler<PreferenceValueType : Any>(internal val context: Context) {
     abstract val settingsType: SettingsType
     abstract val settingsKey: String
 
