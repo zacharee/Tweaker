@@ -167,17 +167,30 @@ fun Context.writeSecure(key: String?, value: Any?): Boolean {
 }
 
 fun Context.writeSystem(key: String?, value: Any?): Boolean {
+    fun onFail(e: Exception): Boolean {
+        return when {
+            Shell.SU.available() -> {
+                Shell.Pool.SU.run("settings put system $key $value")
+                true
+            }
+            isAddOnInstalled() -> {
+                writeSystemSettingsWithAddOnNoResult(key, value)
+                true
+            }
+            else -> {
+                Log.e("SystemUI Tuner", "Failed to write to System", e)
+                false
+            }
+        }
+    }
+
     return try {
         Settings.System.putString(contentResolver, key, value?.toString())
         true
     } catch (e: SecurityException) {
-        Log.e("SystemUI Tuner", "Failed to write to System", e)
-        writeSystemSettingsWithAddOnNoResult(key, value)
-        false
+        onFail(e)
     } catch (e: IllegalArgumentException) {
-        Log.e("SystemUI Tuner", "Failed to write to System", e)
-        writeSystemSettingsWithAddOnNoResult(key, value)
-        false
+        onFail(e)
     }
 }
 
@@ -476,4 +489,31 @@ fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
 
 fun Fragment.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
     requireActivity().writeSystemSettingsWithAddOnResult(key, value)
+}
+
+fun Context.isAddOnInstalled(): Boolean {
+    return try {
+        packageManager.getPackageInfo("tk.zwander.systemuituner.systemsettings", 0)
+        true
+    } catch (e: Exception) {
+        false
+    }
+}
+
+fun Context.launchUrl(url: String) {
+    try {
+        val browserIntent =
+            Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
+    } catch (e: Exception) {}
+}
+
+fun Context.launchEmail(to: String, subject: String) {
+    try {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.type = "text/plain"
+        intent.data = Uri.parse("mailto:${Uri.encode(to)}?subject=${Uri.encode(subject)}")
+
+        startActivity(intent)
+    } catch (e: Exception) {}
 }
