@@ -466,6 +466,7 @@ fun Context.writeSystemSettingsWithAddOnNoResult(key: String?, value: Any?) {
     val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
 
     try {
@@ -479,6 +480,7 @@ fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
     val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
 
     try {
