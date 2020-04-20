@@ -205,6 +205,70 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                             })
                     )
                 }
+
+                addDrawerItems(
+                    DividerDrawerItem(),
+                    SectionDrawerItem()
+                        .withDivider(false)
+                        .withName(R.string.social)
+                        .withTextColor(getColor(R.color.colorAccent)),
+                    PrimaryDrawerItem()
+                        .withName(R.string.twitter)
+                        .withIcon(R.drawable.twitter)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                            override fun onItemClick(
+                                view: View?,
+                                position: Int,
+                                drawerItem: IDrawerItem<*>
+                            ): Boolean {
+                                launchUrl("https://twitter.com/Wander1236")
+                                return true
+                            }
+                        }),
+                    PrimaryDrawerItem()
+                        .withName(R.string.website)
+                        .withIcon(R.drawable.earth)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                            override fun onItemClick(
+                                view: View?,
+                                position: Int,
+                                drawerItem: IDrawerItem<*>
+                            ): Boolean {
+                                launchUrl("https://zwander.dev")
+                                return true
+                            }
+                        }),
+                    PrimaryDrawerItem()
+                        .withName(R.string.more_apps)
+                        .withIcon(R.drawable.ic_baseline_get_app_24)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                            override fun onItemClick(
+                                view: View?,
+                                position: Int,
+                                drawerItem: IDrawerItem<*>
+                            ): Boolean {
+                                launchUrl("https://play.google.com/store/apps/dev?id=6168495537212917027")
+                                return true
+                            }
+                        }),
+                    PrimaryDrawerItem()
+                        .withName(R.string.email)
+                        .withIcon(R.drawable.ic_baseline_email_24)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                            override fun onItemClick(
+                                view: View?,
+                                position: Int,
+                                drawerItem: IDrawerItem<*>
+                            ): Boolean {
+                                launchEmail("zachary@zwander.dev", getString(R.string.app_name))
+                                return true
+                            }
+                        })
+                )
             }
             .build()
     }
