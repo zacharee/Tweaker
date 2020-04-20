@@ -46,6 +46,8 @@ class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPrefer
             androidx.preference.R.styleable.ListPreference_android_entryValues
         )
 
+        layoutResource = R.layout.custom_preference
+
         array.recycle()
     }
 

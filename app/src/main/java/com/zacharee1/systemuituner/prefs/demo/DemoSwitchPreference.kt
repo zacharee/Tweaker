@@ -27,6 +27,8 @@ open class DemoSwitchPreference(context: Context, attrs: AttributeSet) : BaseDem
         disabled = array.getString(R.styleable.SecureSwitchPreference_disabled_value) ?: DEFAULT_DISABLED
 
         array.recycle()
+
+        layoutResource = R.layout.custom_preference
     }
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {

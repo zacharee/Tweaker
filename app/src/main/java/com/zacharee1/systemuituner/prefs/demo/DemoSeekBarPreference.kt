@@ -31,6 +31,8 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
 
         array.recycle()
         android.recycle()
+
+        layoutResource = R.layout.custom_preference
     }
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
