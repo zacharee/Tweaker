@@ -263,4 +263,13 @@
     <string name="write_system_fail">Failed to write to Settings.System!</string>
     <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from XDA Labs, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Get Add-On</string>
+
+    <string name="donate">Donate</string>
+    <string name="donate_1" translatable="false">$1</string>
+    <string name="donate_10" translatable="false">$10</string>
+    <string name="donate_2" translatable="false">$2</string>
+    <string name="donate_5" translatable="false">$5</string>
+
+    <string name="paypal">PayPal</string>
+    <string name="google_play">Google Play</string>
 </resources>

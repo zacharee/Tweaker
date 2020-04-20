@@ -92,4 +92,10 @@
         app:navigation_action="@id/UIFragment"
         />
 
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/donate"
+        android:key="donate"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        />
+
 </PreferenceScreen>
