@@ -22,6 +22,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.zacharee1.systemuituner.activities.Intro
+import com.zacharee1.systemuituner.dialogs.DonateDialog
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.drawer.IndentedSecondaryDrawerItem
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
@@ -196,12 +197,38 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                                         resetAll()
                                     })
                                     dialog.setNegativeButton(android.R.string.cancel, null)
-
                                     dialog.show()
 
                                     return true
                                 }
 
+                            })
+                    )
+                }
+
+                if (isTouchWiz) {
+                    addDrawerItems(
+                        PrimaryDrawerItem()
+                            .withName(R.string.oneui_tuner)
+                            .withIcon(R.drawable.ic_baseline_android_24)
+                            .withSelectable(false)
+                            .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                                override fun onItemClick(
+                                    view: View?,
+                                    position: Int,
+                                    drawerItem: IDrawerItem<*>
+                                ): Boolean {
+                                    val dialog = RoundedBottomSheetDialog(this@MainActivity)
+                                    dialog.setTitle(R.string.oneui_tuner)
+                                    dialog.setMessage(R.string.oneui_tuner_desc)
+                                    dialog.setPositiveButton(R.string.check_it_out, DialogInterface.OnClickListener {_, _ ->
+                                        launchUrl("https://labs.xda-developers.com/store/app/tk.zwander.oneuituner")
+                                    })
+                                    dialog.setNegativeButton(android.R.string.cancel, null)
+                                    dialog.show()
+
+                                    return true
+                                }
                             })
                     )
                 }
@@ -212,6 +239,21 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                         .withDivider(false)
                         .withName(R.string.social)
                         .withTextColor(getColor(R.color.colorAccent)),
+                    PrimaryDrawerItem()
+                        .withName(R.string.donate)
+                        .withIcon(R.drawable.ic_baseline_attach_money_24)
+                        .withSelectable(false)
+                        .withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                            override fun onItemClick(
+                                view: View?,
+                                position: Int,
+                                drawerItem: IDrawerItem<*>
+                            ): Boolean {
+                                DonateDialog(this@MainActivity)
+                                    .show()
+                                return true
+                            }
+                        }),
                     PrimaryDrawerItem()
                         .withName(R.string.twitter)
                         .withIcon(R.drawable.twitter)
