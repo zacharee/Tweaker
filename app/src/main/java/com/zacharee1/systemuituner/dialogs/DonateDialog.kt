@@ -10,13 +10,13 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.BillingUtil
 import kotlinx.android.synthetic.main.layout_donate.view.*
 
-class DonateDialog(val activity: Activity) : MaterialAlertDialogBuilder(activity) {
+class DonateDialog(val activity: Activity) : RoundedBottomSheetDialog(activity) {
     val view: View = LayoutInflater.from(context).inflate(R.layout.layout_donate, null)
     private val billingUtil = BillingUtil(this)
 
     init {
         setTitle(R.string.donate)
-        setView(view)
+        setLayout(view)
 
         setPositiveButton(android.R.string.ok, null)
 

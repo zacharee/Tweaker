@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -12,7 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zacharee1.systemuituner.R
 import kotlinx.android.synthetic.main.base_dialog_layout.*
 
-class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
+open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
     init {
         setContentView(R.layout.base_dialog_layout)
 
@@ -86,11 +87,11 @@ class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.
         this.icon.setImageDrawable(icon)
     }
 
-    fun setPositiveButton(text: Int, listener: DialogInterface.OnClickListener) {
+    fun setPositiveButton(text: Int, listener: DialogInterface.OnClickListener?) {
         setPositiveButton(context.resources.getText(text), listener)
     }
 
-    fun setPositiveButton(text: CharSequence?, listener: DialogInterface.OnClickListener) {
+    fun setPositiveButton(text: CharSequence?, listener: DialogInterface.OnClickListener?) {
         positive_button.text = text
         positive_button.isVisible = text != null
 
@@ -114,5 +115,13 @@ class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.
 
     fun setMessage(msg: CharSequence?) {
         findViewById<TextView>(android.R.id.message)?.text = msg
+    }
+
+    fun setLayout(layout: Int) {
+        setLayout(LayoutInflater.from(context).inflate(layout, null))
+    }
+
+    fun setLayout(layout: View) {
+        findViewById<ViewGroup>(R.id.wrapper)?.addView(layout)
     }
 }
