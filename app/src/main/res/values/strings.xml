@@ -265,6 +265,8 @@
     <string name="write_system_fail_get_add_on">Get Add-On</string>
 
     <string name="donate">Donate</string>
+    <string name="donate_desc">I make this app in my free time. If you enjoy using it, consider buying me a cup of coffee (even though I don\'t drink coffee). Of course, this is a donation, and you don\'t have to do anything. There are no pay-walled features in SystemUI Tuner.</string>
+
     <string name="donate_1" translatable="false">$1</string>
     <string name="donate_10" translatable="false">$10</string>
     <string name="donate_2" translatable="false">$2</string>
@@ -283,4 +285,5 @@
     <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
 
     <string name="check_it_out">Check it Out</string>
+
 </resources>

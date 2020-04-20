@@ -7,12 +7,20 @@
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/donate_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/donate_desc"
+        />
+
+    <TextView
         android:id="@+id/paypal_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/paypal"
         android:textAlignment="center"
+        android:textStyle="bold"
         android:textSize="16sp" />
 
     <com.google.android.material.button.MaterialButton
@@ -23,6 +31,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:text="@string/donate"
+        android:textColor="?android:textColorPrimary"
         />
 
     <TextView
@@ -31,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/google_play"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="16sp"
         />
@@ -38,7 +48,7 @@
     <LinearLayout
         android:id="@+id/google_play_donate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
@@ -51,6 +61,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_1"
+            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -63,6 +74,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_2"
+            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -75,6 +87,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_5"
+            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -87,6 +100,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_10"
+            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
     </LinearLayout>
