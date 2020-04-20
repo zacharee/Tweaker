@@ -95,7 +95,7 @@
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
 
     <string name="feature_shortcode_warning">Disable SMS Short Code Confirmation</string>
-    <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. This feature can be globally disabled with this key.</string>
+    <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. You can disable that warning here.</string>
     
     <string name="feature_sms_limit">Custom SMS Limit</string>
     <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, you can customize however many SMS you want to be able to send without being bothered.</string>
