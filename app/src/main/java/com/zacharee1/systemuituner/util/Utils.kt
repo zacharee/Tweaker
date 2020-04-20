@@ -2,6 +2,8 @@ package com.zacharee1.systemuituner.util
 
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -110,8 +112,8 @@ val Preference.defaultValue: Any?
             .get(this)
     }
 
-fun Context.writeSetting(type: SettingsType, key: String?, value: Any?) {
-    when (type) {
+fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean {
+    return when (type) {
         SettingsType.GLOBAL -> writeGlobal(key, value)
         SettingsType.SECURE -> writeSecure(key, value)
         SettingsType.SYSTEM -> writeSystem(key, value)
@@ -144,33 +146,38 @@ fun Context.resetAll() {
     //There doesn't seem to be a reset option for Settings.System
 }
 
-fun Context.writeGlobal(key: String?, value: Any?) {
-    try {
+fun Context.writeGlobal(key: String?, value: Any?): Boolean {
+    return try {
         Settings.Global.putString(contentResolver, key, value?.toString())
+        true
     } catch (e: SecurityException) {
-        //TODO: Handle this
-        Log.e("Tweaker", "Failed to write to Global", e)
+        Log.e("SystemUI Tuner", "Failed to write to Global", e)
+        false
     }
 }
 
-fun Context.writeSecure(key: String?, value: Any?) {
-    try {
+fun Context.writeSecure(key: String?, value: Any?): Boolean {
+    return try {
         Settings.Secure.putString(contentResolver, key, value?.toString())
+        true
     } catch (e: SecurityException) {
-        //TODO: Handle this
-        Log.e("Tweaker", "Failed to write to Secure", e)
+        Log.e("SystemUI Tuner", "Failed to write to Secure", e)
+        false
     }
 }
 
-fun Context.writeSystem(key: String?, value: Any?) {
-    try {
+fun Context.writeSystem(key: String?, value: Any?): Boolean {
+    return try {
         Settings.System.putString(contentResolver, key, value?.toString())
+        true
     } catch (e: SecurityException) {
-        //TODO: Handle this
-        Log.e("Tweaker", "Failed to write to System", e)
+        Log.e("SystemUI Tuner", "Failed to write to System", e)
+        writeSystemSettingsWithAddOnNoResult(key, value)
+        false
     } catch (e: IllegalArgumentException) {
-        //TODO: Handle this
-        Log.e("Tweaker", "Failed to write to System", e)
+        Log.e("SystemUI Tuner", "Failed to write to System", e)
+        writeSystemSettingsWithAddOnNoResult(key, value)
+        false
     }
 }
 
@@ -428,3 +435,45 @@ var View.scaleAnimatedVisible: Boolean
         }
         startAnimation(anim)
     }
+
+object WriteSystemAddOnValues {
+    const val ACTION_WRITE_SYSTEM = "com.zacharee1.systemuituner.WRITE_SYSTEM"
+    const val ACTION_WRITE_SYSTEM_RESULT = "com.zacharee1.systemuituner.WRITE_SYSTEM_RESULT"
+
+    const val EXTRA_KEY = "WRITE_SYSTEM_KEY"
+    const val EXTRA_VALUE = "WRITE_SYSTEM_VALUE"
+    const val EXTRA_EXCEPTION = "WRITE_SYSTEM_EXCEPTION"
+
+    const val PERMISSION = "com.zacharee1.systemuituner.permission.WRITE_SETTINGS"
+    const val WRITE_SYSTEM_REQUEST_CODE = 123456
+}
+
+fun Context.writeSystemSettingsWithAddOnNoResult(key: String?, value: Any?) {
+    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
+    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
+    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
+    intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
+
+    try {
+        startActivity(intent)
+    } catch (e: ActivityNotFoundException) {
+        Log.e("SystemUITuner", "Add-on error", e)
+    }
+}
+
+fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
+    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
+    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
+    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
+    intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
+
+    try {
+        startActivityForResult(intent, WriteSystemAddOnValues.WRITE_SYSTEM_REQUEST_CODE)
+    } catch (e: ActivityNotFoundException) {
+        Log.e("SystemUITuner", "Add-on error", e)
+    }
+}
+
+fun Fragment.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
+    requireActivity().writeSystemSettingsWithAddOnResult(key, value)
+}
