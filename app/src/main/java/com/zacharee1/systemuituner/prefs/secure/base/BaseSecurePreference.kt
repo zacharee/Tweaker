@@ -5,9 +5,16 @@ import android.util.AttributeSet
 import androidx.preference.DialogPreference
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.interfaces.*
 import com.zacharee1.systemuituner.util.*
 
-open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs), IColorPreference by ColorPreference(context, attrs), IDialogPreference {
+open class BaseSecurePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), ISecurePreference by SecurePreference(
+    context,
+    attrs
+), IColorPreference by ColorPreference(
+    context,
+    attrs
+), IDialogPreference {
     override var writeKey: String? = null
         get() = field ?: key
 

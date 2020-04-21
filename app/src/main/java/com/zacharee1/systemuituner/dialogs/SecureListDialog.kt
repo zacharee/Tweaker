@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.prefs.secure.SecureListPreference
-import com.zacharee1.systemuituner.util.IDialogPreference
-import com.zacharee1.systemuituner.util.IListPreference
+import com.zacharee1.systemuituner.interfaces.IListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.list_dialog.view.*
 

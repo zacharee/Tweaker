@@ -6,15 +6,13 @@ import android.content.res.TypedArray
 import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.core.content.res.TypedArrayUtils
-import androidx.preference.DialogPreference
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.interfaces.IListPreference
 import com.zacharee1.systemuituner.prefs.demo.base.BaseDemoPreference
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.*
-import com.zacharee1.systemuituner.util.verifiers.BaseListPreferenceVerifier
 
 @SuppressLint("RestrictedApi")
-class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs), IListPreference {
+class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs),
+    IListPreference {
     private var setValue: Boolean = false
     override var value: String? = null
         set(value) {

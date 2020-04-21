@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
-import com.zacharee1.systemuituner.util.IDialogPreference
-import com.zacharee1.systemuituner.util.ISecurePreference
+import com.zacharee1.systemuituner.interfaces.IDialogPreference
+import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 

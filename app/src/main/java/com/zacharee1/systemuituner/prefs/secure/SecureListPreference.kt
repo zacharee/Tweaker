@@ -8,14 +8,13 @@ import android.util.AttributeSet
 import androidx.core.content.res.TypedArrayUtils
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.IListPreference
+import com.zacharee1.systemuituner.interfaces.IListPreference
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.BaseListPreferenceVerifier
-import com.zacharee1.systemuituner.util.writeSetting
 
 @SuppressLint("RestrictedApi")
-class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), IListPreference {
+class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
+    IListPreference {
     private var verifier: BaseListPreferenceVerifier? = null
 
     private var setValue: Boolean = false

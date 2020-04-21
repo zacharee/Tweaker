@@ -6,12 +6,18 @@ import android.util.AttributeSet
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.ColorPreference
-import com.zacharee1.systemuituner.util.IColorPreference
-import com.zacharee1.systemuituner.util.ISecurePreference
-import com.zacharee1.systemuituner.util.SecurePreference
+import com.zacharee1.systemuituner.interfaces.ColorPreference
+import com.zacharee1.systemuituner.interfaces.IColorPreference
+import com.zacharee1.systemuituner.interfaces.ISecurePreference
+import com.zacharee1.systemuituner.interfaces.SecurePreference
 
-class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs) {
+class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(
+    context,
+    attrs
+), ISecurePreference by SecurePreference(
+    context,
+    attrs
+) {
     private val activityIntent: Intent?
 
     init {

@@ -6,10 +6,11 @@ import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.ISpecificPreference
+import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.util.SettingsType
 
-class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
+class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
+    ISpecificPreference {
     override var type: SettingsType = SettingsType.SECURE
     override val keys: Array<String> = arrayOf(
         Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,

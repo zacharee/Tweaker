@@ -8,7 +8,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.*
+import com.zacharee1.systemuituner.interfaces.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -101,7 +101,13 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         result(filter.await())
     }
 
-    class PersistentPreference(context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(context, null), IColorPreference by ColorPreference(context, null) {
+    class PersistentPreference(context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(
+        context,
+        null
+    ), IColorPreference by ColorPreference(
+        context,
+        null
+    ) {
         companion object {
             fun fromPreference(context: Context, preference: Preference): PersistentPreference {
                 return PersistentPreference(context).apply {
@@ -184,7 +190,13 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    class ActionedPreference(context: Context) : Preference(context), ISecurePreference by SecurePreference(context, null), ISpecificPreference, IColorPreference by ColorPreference(context, null) {
+    class ActionedPreference(context: Context) : Preference(context), ISecurePreference by SecurePreference(
+        context,
+        null
+    ), ISpecificPreference, IColorPreference by ColorPreference(
+        context,
+        null
+    ) {
         companion object {
             fun fromPreference(context: Context, preference: Preference, action: Int): ActionedPreference {
                 return ActionedPreference(context).apply {

@@ -4,9 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.core.content.edit
 import androidx.preference.DialogPreference
-import com.zacharee1.systemuituner.util.IDialogPreference
+import com.zacharee1.systemuituner.interfaces.IDialogPreference
 
-open class BaseDemoPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), IDialogPreference {
+open class BaseDemoPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs),
+    IDialogPreference {
     override var writeKey: String? = null
         get() = key
 

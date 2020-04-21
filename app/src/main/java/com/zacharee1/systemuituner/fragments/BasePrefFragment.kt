@@ -30,6 +30,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
+import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.prefs.ReadSettingPreference
 import com.zacharee1.systemuituner.prefs.WriteSettingPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference

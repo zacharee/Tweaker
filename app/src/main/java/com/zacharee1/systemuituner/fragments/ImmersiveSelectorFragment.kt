@@ -6,6 +6,8 @@ import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ImmersiveListSelector
 import com.zacharee1.systemuituner.data.LoadedAppInfo
+import com.zacharee1.systemuituner.interfaces.ColorPreference
+import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.util.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -82,7 +84,10 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         context: Context,
         val info: LoadedAppInfo,
         val callback: (key: String, checked: Boolean, pref: Preference) -> Unit
-    ) : CheckBoxPreference(context), IColorPreference by ColorPreference(context, null) {
+    ) : CheckBoxPreference(context), IColorPreference by ColorPreference(
+        context,
+        null
+    ) {
         init {
             layoutResource = R.layout.custom_preference
             widgetLayoutResource = R.layout.checkbox

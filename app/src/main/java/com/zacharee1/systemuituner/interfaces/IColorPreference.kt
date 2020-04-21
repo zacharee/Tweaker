@@ -1,4 +1,4 @@
-package com.zacharee1.systemuituner.util
+package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
 import android.graphics.PorterDuff
@@ -14,7 +14,8 @@ interface IColorPreference {
     fun bindVH(holder: PreferenceViewHolder)
 }
 
-class ColorPreference(context: Context, attrs: AttributeSet?) : IColorPreference {
+class ColorPreference(context: Context, attrs: AttributeSet?) :
+    IColorPreference {
     override var iconColor: Int = Int.MIN_VALUE
 
     init {

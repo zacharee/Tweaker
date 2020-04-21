@@ -1,36 +1,15 @@
-package com.zacharee1.systemuituner.util
+package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
 import android.content.ContextWrapper
 import android.util.AttributeSet
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.api
+import com.zacharee1.systemuituner.util.apiToName
 import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
 import com.zacharee1.systemuituner.util.verifiers.BaseVisibilityVerifier
-
-interface IDialogPreference {
-    var writeKey: String?
-
-    fun onValueChanged(newValue: Any?, key: String)
-}
-
-interface IListPreference : IDialogPreference {
-    val entries: Array<CharSequence?>?
-    val entryValues: Array<CharSequence?>?
-    var value: String?
-
-    fun findIndexOfValue(value: String?): Int {
-        if (value != null && entryValues != null) {
-            for (i in entryValues!!.indices.reversed()) {
-                if (entryValues!!.get(i) == value) {
-                    return i
-                }
-            }
-        }
-        return -1
-    }
-    fun callChangeListener(newValue: Any?): Boolean
-}
 
 interface ISecurePreference {
     companion object {
@@ -52,14 +31,18 @@ interface ISpecificPreference {
     val keys: Array<String>
 }
 
-class SecurePreference(context: Context, attrs: AttributeSet?) : ContextWrapper(context), ISecurePreference {
-    override var type: SettingsType = SettingsType.UNDEFINED
+class SecurePreference(context: Context, attrs: AttributeSet?) : ContextWrapper(context),
+    ISecurePreference {
+    override var type: SettingsType =
+        SettingsType.UNDEFINED
     override var writeKey: String? = null
     override var dangerous: Boolean = false
     override var visibilityVerifier: BaseVisibilityVerifier? = null
     override var enabledVerifier: BasePreferenceEnabledVerifier? = null
-    override var lowApi: Int = ISecurePreference.API_UNDEFINED
-    override var highApi: Int = ISecurePreference.API_UNDEFINED
+    override var lowApi: Int =
+        ISecurePreference.API_UNDEFINED
+    override var highApi: Int =
+        ISecurePreference.API_UNDEFINED
 
     init {
         if (attrs != null) {
