@@ -44,10 +44,10 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onCreate() {
         super.onCreate()
 
-        observer.register()
         registerPersistenceHandlers()
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         doInitialCheck()
+        observer.register()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
