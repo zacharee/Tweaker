@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
@@ -464,7 +465,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                             .setPositiveButton(android.R.string.ok) { _, _ ->
                                 context.prefManager.let {
                                     val new = it.customBlacklistItems
-                                    new.remove(CustomBlacklistItemInfo(this.title, this.key))
+                                    new.remove(CustomBlacklistItemInfo(this.title.toString(), this.key))
 
                                     it.customBlacklistItems = new
                                 }

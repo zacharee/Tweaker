@@ -2,7 +2,7 @@ package com.zacharee1.systemuituner.data
 
 
 data class CustomBlacklistItemInfo(
-    var label: CharSequence?,
+    var label: String?,
     var key: String
 ) {
     companion object {
