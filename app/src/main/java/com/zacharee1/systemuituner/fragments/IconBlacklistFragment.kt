@@ -1,6 +1,8 @@
 package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
@@ -24,15 +26,63 @@ import com.zacharee1.systemuituner.prefs.CustomBlacklistAddPreference
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.*
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.io.StringWriter
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
 
 @SuppressLint("RestrictedApi")
 class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
+    companion object {
+        const val REQ_BACKUP = 1001
+        const val REQ_RESTORE = 1002
+
+        const val MIME = "text/*"
+    }
+
     private val origExpansionStates = HashMap<String, Boolean>()
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_blacklist, rootKey)
 
         requireContext().prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+
+        createCategory(R.string.backup_restore, "backup_restore_icon_blacklist") {
+            it.addPreference(
+                Preference(requireContext()).apply {
+                    key = "backup_blacklist"
+                    layoutResource = R.layout.custom_preference
+                    setTitle(R.string.back_up)
+                    setOnPreferenceClickListener {
+                        val formatter = SimpleDateFormat("yyyy-mm-dd_HH:mm:ss", Locale.getDefault())
+                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
+                        intent.type = MIME
+                        intent.putExtra(Intent.EXTRA_TITLE, "icon_blacklist_${formatter.format(Date())}.suit")
+
+                        startActivityForResult(intent, REQ_BACKUP)
+                        true
+                    }
+                }
+            )
+            it.addPreference(
+                Preference(requireContext()).apply {
+                    key = "restore_blacklist"
+                    layoutResource = R.layout.custom_preference
+                    setTitle(R.string.restore)
+                    setOnPreferenceClickListener {
+                        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+                        intent.type = MIME
+
+                        startActivityForResult(intent, REQ_RESTORE)
+                        true
+                    }
+                }
+            )
+        }
         
         createCategory(R.string.category_icon_blacklist_general, "icon_blacklist_general") {
             it.createPref(R.string.icon_blacklist_airplane, key = "airplane")
@@ -194,7 +244,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         }
 
         fragment?.setTargetFragment(this, 0)
-        fragment?.show(fragmentManager!!, null)
+        fragment?.show(parentFragmentManager, null)
 
         if (fragment == null) {
             super.onDisplayPreferenceDialog(preference)
@@ -222,6 +272,46 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
             PrefManager.CUSTOM_BLACKLIST_ITEMS -> buildCustomCategory(findPreference("icon_blacklist_custom")!!)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                REQ_BACKUP -> {
+                    val uri = data?.data
+
+                    if (uri != null) {
+                        requireContext().contentResolver.openOutputStream(uri).use { out ->
+                            OutputStreamWriter(out).use { writer ->
+                                writer.appendln(requireContext().prefManager.blacklistedItems.joinToString(","))
+                            }
+                        }
+                    }
+                }
+                REQ_RESTORE -> {
+                    val uri = data?.data
+                    val lines = ArrayList<String>()
+
+                    if (uri != null) {
+                        requireContext().contentResolver.openInputStream(uri).use {  input ->
+                            InputStreamReader(input).use { reader ->
+                                reader.forEachLine { line ->
+                                    lines.add(line)
+                                }
+                            }
+                        }
+                    }
+
+                    if (lines.isNotEmpty()) {
+                        requireContext().prefManager.blacklistedItems = HashSet(lines[0].apply {
+                            requireContext().writeSecure("icon_blacklist", this)
+                        }.split(","))
+                    }
+                }
+            }
         }
     }
 
