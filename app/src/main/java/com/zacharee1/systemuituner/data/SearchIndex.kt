@@ -31,11 +31,12 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             R.xml.prefs_net_wifi to R.id.netWiFiFragment,
             R.xml.prefs_notifications to R.id.notificationsFragment,
             R.xml.prefs_storage to R.id.storageFragment,
-            R.xml.prefs_ui to R.id.UIFragment
+            R.xml.prefs_ui to R.id.UIFragment,
+            R.xml.prefs_advanced to R.id.advancedFragment
         )
 
         fun getInstance(context: Context): SearchIndex {
-            return instance ?: kotlin.run {
+            return instance ?: run {
                 SearchIndex(context.applicationContext).apply { instance = this }
             }
         }
