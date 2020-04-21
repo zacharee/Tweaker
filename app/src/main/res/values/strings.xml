@@ -185,6 +185,9 @@
     <string name="option_advanced_write_setting">Write Setting</string>
     <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
 
+    <string name="option_qqs_tiles">Quick Settings Header Count</string>
+    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row.</string>
+
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
