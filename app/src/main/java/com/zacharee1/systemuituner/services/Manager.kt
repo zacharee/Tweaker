@@ -12,7 +12,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
@@ -44,8 +43,6 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onCreate() {
         super.onCreate()
-
-        Log.e("SystemUITuner", "Starting")
 
         observer.register()
         registerPersistenceHandlers()
