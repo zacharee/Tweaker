@@ -14,9 +14,12 @@ import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ExtraPermsRetroactive
 import com.zacharee1.systemuituner.anim.PrefAnimator
+import com.zacharee1.systemuituner.data.BlacklistBackupInfo
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.dialogs.AnimatedMaterialAlertDialogBuilder
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
@@ -29,6 +32,7 @@ import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.io.StringWriter
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -45,6 +49,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     }
 
     private val origExpansionStates = HashMap<String, Boolean>()
+    private val gson = GsonBuilder().create()
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_blacklist, rootKey)
@@ -286,16 +291,22 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     if (uri != null) {
                         requireContext().contentResolver.openOutputStream(uri).use { out ->
                             OutputStreamWriter(out).use { writer ->
-                                writer.appendln(requireContext().prefManager.blacklistedItems.joinToString(","))
+                                writer.appendln(
+                                    gson.toJson(BlacklistBackupInfo(
+                                        requireContext().prefManager.blacklistedItems,
+                                        requireContext().prefManager.customBlacklistItems
+                                    ))
+                                )
                             }
                         }
                     }
                 }
                 REQ_RESTORE -> {
                     val uri = data?.data
-                    val lines = ArrayList<String>()
 
                     if (uri != null) {
+                        val lines = ArrayList<String>()
+
                         requireContext().contentResolver.openInputStream(uri).use {  input ->
                             InputStreamReader(input).use { reader ->
                                 reader.forEachLine { line ->
@@ -303,12 +314,30 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                                 }
                             }
                         }
-                    }
 
-                    if (lines.isNotEmpty()) {
-                        requireContext().prefManager.blacklistedItems = HashSet(lines[0].apply {
-                            requireContext().writeSecure("icon_blacklist", this)
-                        }.split(","))
+                        if (lines.isNotEmpty()) {
+                            val firstLine = lines[0]
+
+                            val info = try {
+                                gson.fromJson<BlacklistBackupInfo>(
+                                    firstLine,
+                                    object : TypeToken<BlacklistBackupInfo>() {}.type
+                                )
+                            } catch (e: Exception) {
+                                null
+                            }
+
+                            if (info != null) {
+                                requireContext().apply {
+                                    prefManager.blacklistedItems = info.items
+                                    prefManager.customBlacklistItems = info.customItems
+                                    writeSecure("icon_blacklist", info.items.joinToString(","))
+                                }
+                            } else {
+                                requireContext().prefManager.blacklistedItems = HashSet(firstLine.split(","))
+                                requireContext().writeSecure("icon_blacklist", firstLine)
+                            }
+                        }
                     }
                 }
             }
