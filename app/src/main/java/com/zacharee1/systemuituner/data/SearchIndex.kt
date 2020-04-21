@@ -91,9 +91,9 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    lowercase == null || lowercase.isBlank() ||
+                    it.showAsPersistentOption && (lowercase == null || lowercase.isBlank() ||
                             it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
-                            it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
+                            it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase))
                 }.map { PersistentPreference.fromPreference(this@SearchIndex, it) }
             )
         }
@@ -203,6 +203,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
                     }
+                    showAsPersistentOption = preference !is INoPersistPreference
                     this.action = action
                 }
             }
@@ -224,6 +225,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                 field = value
                 markDangerous()
             }
+
+        var showAsPersistentOption = true
 
         init {
             layoutResource = R.layout.custom_preference
