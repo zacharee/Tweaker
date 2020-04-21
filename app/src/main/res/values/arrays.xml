@@ -71,4 +71,10 @@
         <item>semi-transparent</item>
         <item>translucent</item>
     </string-array>
+
+    <string-array name="settings_types_names">
+        <item>@string/global</item>
+        <item>@string/secure</item>
+        <item>@string/system</item>
+    </string-array>
 </resources>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
     app:startDestination="@id/homeFragment">
 
     <fragment
@@ -51,6 +53,10 @@
         android:id="@+id/netCellFragment"
         android:name="com.zacharee1.systemuituner.fragments.network.NetCellFragment"
         android:label="NetCellFragment" />
+    <fragment
+        android:id="@+id/advancedFragment"
+        android:name="com.zacharee1.systemuituner.fragments.AdvancedFragment"
+        tools:layout="AdvancedFragment" />
     <activity
         android:id="@+id/persistentActivity"
         android:name="com.zacharee1.systemuituner.activities.PersistentActivity"

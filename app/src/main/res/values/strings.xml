@@ -179,6 +179,12 @@
     <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
 
+    <string name="option_advanced_read_setting">Read Custom Setting</string>
+    <string name="option_advanced_read_setting_desc">If you know the key to a particular setting, you can use this to see its current value.</string>
+
+    <string name="option_advanced_write_setting">Write Setting</string>
+    <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
+
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
@@ -199,10 +205,14 @@
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Mode</string>
     <string name="key">Key</string>
+    <string name="value">Value</string>
     <string name="label">Label</string>
     <string name="hide">Hide</string>
     <string name="show">Show</string>
     <string name="enabled">Enabled</string>
+    <string name="global">Global</string>
+    <string name="secure">Secure</string>
+    <string name="system">System</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
@@ -285,5 +295,4 @@
     <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
 
     <string name="check_it_out">Check it Out</string>
-
 </resources>

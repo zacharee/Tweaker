@@ -163,6 +163,13 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                         .withIcon(R.drawable.ic_baseline_touch_app_24)
                         .withIdentifier(R.id.UIFragment.toLong())
                 ),
+                NavigationDrawerItem(
+                    R.id.advancedFragment,
+                    PrimaryDrawerItem()
+                        .withName(R.string.advanced)
+                        .withIcon(R.drawable.tools)
+                        .withIdentifier(R.id.advancedFragment.toLong())
+                ),
                 DividerDrawerItem(),
                 SectionDrawerItem()
                     .withDivider(false)

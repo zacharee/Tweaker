@@ -93,6 +93,13 @@
         />
 
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/advanced"
+        android:key="go_to_advanced"
+        android:icon="@drawable/tools"
+        app:navigation_action="@id/advancedFragment"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
         android:title="@string/donate"
         android:key="donate"
         android:icon="@drawable/ic_baseline_attach_money_24"

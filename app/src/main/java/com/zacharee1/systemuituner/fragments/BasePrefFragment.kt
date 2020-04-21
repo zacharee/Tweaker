@@ -30,6 +30,8 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
+import com.zacharee1.systemuituner.prefs.ReadSettingPreference
+import com.zacharee1.systemuituner.prefs.WriteSettingPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSwitchPreference
@@ -125,11 +127,19 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.enabled,
                 preference.sharedPreferences.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
             )
+            is ReadSettingPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.dialog_read_setting
+            )
+            is WriteSettingPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.dialog_write_setting
+            )
             else -> null
         }
 
         fragment?.setTargetFragment(this, 0)
-        fragment?.show(fragmentManager!!, null)
+        fragment?.show(parentFragmentManager, null)
 
         if (fragment == null) {
             super.onDisplayPreferenceDialog(preference)

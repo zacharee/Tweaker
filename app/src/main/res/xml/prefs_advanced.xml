@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.zacharee1.systemuituner.prefs.ReadSettingPreference
+        android:key="read_setting"
+        android:title="@string/option_advanced_read_setting"
+        android:summary="@string/option_advanced_read_setting_desc"
+        android:dialogTitle="@string/option_advanced_read_setting"
+        android:dialogMessage="@string/option_advanced_read_setting_desc"
+        android:icon="@drawable/ic_baseline_visibility_24"
+        app:icon_color="@color/pref_color_5"
+        />
+
+    <com.zacharee1.systemuituner.prefs.WriteSettingPreference
+        android:key="write_setting"
+        android:title="@string/option_advanced_write_setting"
+        android:summary="@string/option_advanced_write_setting_desc"
+        android:dialogTitle="@string/option_advanced_write_setting"
+        android:dialogMessage="@string/option_advanced_write_setting_desc"
+        android:icon="@drawable/ic_baseline_edit_24"
+        app:icon_color="@color/pref_color_2"
+        />
+
+</PreferenceScreen>
