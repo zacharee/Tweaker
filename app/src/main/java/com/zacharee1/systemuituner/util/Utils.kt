@@ -396,7 +396,8 @@ fun PreferenceGroupAdapter.updatePreferences() {
 fun Context.buildNonResettablePreferences(): ArrayList<String> {
     return arrayListOf(
         resources.getString(R.string.feature_font_scale),
-        resources.getString(R.string.feature_custom_rotation)
+        resources.getString(R.string.feature_custom_rotation),
+        resources.getString(R.string.feature_battery_percent)
     )
 }
 
