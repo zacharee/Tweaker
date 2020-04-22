@@ -74,4 +74,16 @@
         app:low_api="24"
         />
 
+    <com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
+        android:title="@string/option_oneui_clock_position"
+        android:summary="@string/option_oneui_clock_position_desc"
+        android:dialogTitle="@string/option_oneui_clock_position"
+        android:dialogMessage="@string/option_oneui_clock_position_desc"
+        android:key="oneui_clock_position"
+        android:icon="@drawable/progress_clock"
+        app:icon_color="@color/pref_color_7"
+        app:low_api="28"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowClockPosition"
+        />
+
 </PreferenceScreen>

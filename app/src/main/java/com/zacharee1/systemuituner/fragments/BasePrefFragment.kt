@@ -31,6 +31,7 @@ import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
+import com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
 import com.zacharee1.systemuituner.prefs.ReadSettingPreference
 import com.zacharee1.systemuituner.prefs.WriteSettingPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
@@ -135,6 +136,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             is WriteSettingPreference -> OptionDialog.newInstance(
                 preference.key,
                 R.layout.dialog_write_setting
+            )
+            is OneUIClockPositionPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.one_ui_clock_position
             )
             else -> null
         }
