@@ -86,4 +86,7 @@
         app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.specific.NotificationSnoozeTimesPreference
+        />
+
 </PreferenceScreen>

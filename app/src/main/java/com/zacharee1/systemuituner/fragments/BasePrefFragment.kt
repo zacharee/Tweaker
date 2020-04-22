@@ -145,6 +145,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.key,
                 R.layout.touchwiz_navigation_bar_color_dialog
             )
+            is NotificationSnoozeTimesPreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.notification_snooze_times
+            )
             else -> null
         }
 

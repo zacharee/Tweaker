@@ -4,13 +4,16 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
 import kotlinx.android.synthetic.main.one_ui_clock_position.view.*
 
-class OneUIClockPositionView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+class OneUIClockPositionView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs), IOptionDialogCallback {
+    override var callback: ((data: Any?) -> Unit)? = null
+
     companion object {
         const val POSITION_LEFT = "left_clock_position"
         const val POSITION_MIDDLE = "middle_clock_position"
@@ -46,8 +49,7 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
                 }
             }
 
-            context.prefManager.blacklistedItems = blacklistSet
-            context.writeSecure("icon_blacklist", blacklistSet.joinToString(","))
+            callback?.invoke(blacklistSet.joinToString(","))
         }
     }
 }

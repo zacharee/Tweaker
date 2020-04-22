@@ -194,6 +194,9 @@
     <string name="option_touchwiz_navbar_color">Navigation Bar Color</string>
     <string name="option_touchwiz_navbar_color_desc">On Samsung Experience and One UI it\'s possible to set the navigation bar color to your own custom color. Use this option to do that.</string>
 
+    <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
+    <string name="option_custom_notification_snooze_times_desc">Android Ore 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
+
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
@@ -225,6 +228,11 @@
     <string name="left">Left</string>
     <string name="middle">Middle</string>
     <string name="right">Right</string>
+    <string name="snooze_default">Default</string>
+    <string name="snooze_a">A</string>
+    <string name="snooze_b">B</string>
+    <string name="snooze_c">C</string>
+    <string name="snooze_d">D</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>

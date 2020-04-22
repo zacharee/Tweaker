@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
@@ -18,7 +20,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         const val ARG_KEY = "key"
     }
 
-    internal open val layoutRes by lazy { arguments!!.getInt(ARG_LAYOUT_RES, 0) }
+    internal open val layoutRes by lazy { requireArguments().getInt(ARG_LAYOUT_RES, 0) }
     internal val writeKey: String?
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).writeKey else preference.key
     internal val type: SettingsType
@@ -47,10 +49,31 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
 
         if (layoutRes != 0) {
             View.inflate(view.context, layoutRes, view.wrapper)
+
+            findCallbackView(view.wrapper)?.callback = { data ->
+                notifyChanged(data)
+            }
         }
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {}
+
+    private fun findCallbackView(top: ViewGroup): IOptionDialogCallback? {
+        for (i in 0 until top.childCount) {
+            val child = top.getChildAt(i)
+
+            if (child is IOptionDialogCallback) {
+                return child
+            }
+
+            if (child is ViewGroup) {
+                val result = findCallbackView(child)
+                if (result != null) return result
+            }
+        }
+
+        return null
+    }
 
     fun notifyChanged(value: Any?) {
         (preference as IDialogPreference).onValueChanged(value, writeKey!!)

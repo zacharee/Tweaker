@@ -14,7 +14,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener, CoroutineScope by MainScope() {
+class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     var onItemClickListener: ((action: Int, key: String?) -> Unit)? = null
 
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }

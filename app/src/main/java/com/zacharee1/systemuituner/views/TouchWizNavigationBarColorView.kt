@@ -9,11 +9,14 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.jaredrummler.android.colorpicker.ColorShape
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.*
 import kotlinx.android.synthetic.main.touchwiz_navigation_bar_color_dialog.view.*
 
 
-class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : RoundedFrameCardView(context, attrs), ColorPickerDialogListener {
+class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : RoundedFrameCardView(context, attrs), ColorPickerDialogListener, IOptionDialogCallback {
+    override var callback: ((data: Any?) -> Unit)? = null
+
     private val dialog: ColorPickerDialog = ColorPickerDialog.newBuilder()
         .setDialogType(ColorPickerDialog.TYPE_PRESETS)
         .setDialogTitle(R.string.option_touchwiz_navbar_color)
@@ -50,10 +53,7 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Ro
 
     private fun persistColor(color: Int?) {
         current_color.color = color ?: Color.WHITE
-        context.prefManager.putString("navigationbar_color", color?.toString())
-        context.prefManager.putString("navigationbar_current_color", color?.toString())
-        context.writeGlobal("navigationbar_color", color)
-        context.writeGlobal("navigationbar_current_color", color)
+        callback?.invoke(color)
     }
 
     private fun getActivity(): FragmentActivity {
