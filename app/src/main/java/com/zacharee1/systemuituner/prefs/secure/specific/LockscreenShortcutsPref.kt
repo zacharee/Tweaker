@@ -28,7 +28,7 @@ class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : BaseSecur
         setIcon(R.drawable.lock_open)
 
         lowApi = Build.VERSION_CODES.O
-        highApi = Build.VERSION_CODES.O_MR1
+//        highApi = Build.VERSION_CODES.O_MR1
         iconColor = ContextCompat.getColor(context, R.color.pref_color_3)
     }
 }
