@@ -71,6 +71,7 @@
         app:settings_type="secure"
         app:minValue="1"
         app:maxValue="12"
+        app:low_api="24"
         />
 
 </PreferenceScreen>
