@@ -20,7 +20,7 @@ class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSe
 
         dialogTitle = title
         dialogMessage = summary
-        iconColor = context.resources.getColor(R.color.pref_color_3, context.theme)
+        iconColor = context.resources.getColor(R.color.pref_color_5, context.theme)
         setIcon(R.drawable.ic_baseline_color_lens_24)
 
         visibilityVerifier = ShowForTouchWiz(context)
