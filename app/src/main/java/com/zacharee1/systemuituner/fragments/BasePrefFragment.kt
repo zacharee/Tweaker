@@ -141,6 +141,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.key,
                 R.layout.one_ui_clock_position
             )
+            is TouchWizNavigationBarColor -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.touchwiz_navigation_bar_color_dialog
+            )
             else -> null
         }
 

@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import com.google.android.material.card.MaterialCardView
 import com.zacharee1.systemuituner.util.dpAsPx
 
-class RoundedFrameCardView(context: Context, attrs: AttributeSet) : MaterialCardView(context, attrs) {
+open class RoundedFrameCardView(context: Context, attrs: AttributeSet) : MaterialCardView(context, attrs) {
     init {
         radius = context.dpAsPx(8).toFloat()
         strokeWidth = context.dpAsPx(0.75)
@@ -17,5 +17,8 @@ class RoundedFrameCardView(context: Context, attrs: AttributeSet) : MaterialCard
         }
         setCardBackgroundColor(Color.TRANSPARENT)
         elevation = 0f
+
+        val padding = context.dpAsPx(8)
+        setContentPadding(padding, padding, padding, padding)
     }
 }

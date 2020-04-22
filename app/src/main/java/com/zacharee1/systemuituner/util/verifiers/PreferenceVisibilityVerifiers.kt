@@ -13,7 +13,7 @@ class ShowStorage(context: Context) : BaseVisibilityVerifier(context) {
         get() = context.hasSdCard
 }
 
-class ShowClockPosition(context: Context) : BaseVisibilityVerifier(context) {
+class ShowForTouchWiz(context: Context) : BaseVisibilityVerifier(context) {
     override val shouldShow: Boolean
         get() = context.isTouchWiz
 }

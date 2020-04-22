@@ -83,7 +83,7 @@
         android:icon="@drawable/progress_clock"
         app:icon_color="@color/pref_color_7"
         app:low_api="28"
-        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowClockPosition"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
         />
 
 </PreferenceScreen>

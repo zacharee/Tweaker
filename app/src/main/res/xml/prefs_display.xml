@@ -51,4 +51,7 @@
         app:entryValues="@array/user_rotation_values"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.specific.TouchWizNavigationBarColor
+        />
+
 </PreferenceScreen>
