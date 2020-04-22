@@ -182,7 +182,7 @@
     <string name="option_advanced_read_setting">Read Custom Setting</string>
     <string name="option_advanced_read_setting_desc">If you know the key to a particular setting, you can use this to see its current value.</string>
 
-    <string name="option_advanced_write_setting">Write Setting</string>
+    <string name="option_advanced_write_setting">Write Custom Setting</string>
     <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
 
     <string name="option_qqs_tiles">Quick Settings Header Count</string>
