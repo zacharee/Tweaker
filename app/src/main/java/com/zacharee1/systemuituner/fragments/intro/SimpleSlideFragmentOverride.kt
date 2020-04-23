@@ -10,7 +10,7 @@ import androidx.annotation.StringRes
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
 import com.zacharee1.systemuituner.util.dpAsPx
 
-class SimpleSlideFragmentOverride() : SimpleSlide.SimpleSlideFragment() {
+class SimpleSlideFragmentOverride : SimpleSlide.SimpleSlideFragment() {
     companion object {
         private const val ARGUMENT_ID =
             "com.heinrichreimersoftware.materialintro.SimpleFragment.ARGUMENT_ID"

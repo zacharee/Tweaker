@@ -5,10 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
+import com.zacharee1.systemuituner.IOSSelectionCallback
 import com.zacharee1.systemuituner.R
 import kotlinx.android.synthetic.main.choose_os_slide.view.choose_os
 
-class OSChooseSlide(private val selectionCallback: (which: Int) -> Unit) : SlideFragment() {
+class OSChooseSlide : SlideFragment() {
+    companion object {
+        const val ARG_CALLBACK = "callback"
+
+        fun newInstance(callback: IOSSelectionCallback): OSChooseSlide {
+            val instance = OSChooseSlide()
+            instance.arguments = Bundle().apply {
+                putBinder(ARG_CALLBACK, callback.asBinder())
+            }
+
+            return instance
+        }
+    }
+
+    private val callback by lazy { IOSSelectionCallback.Stub.asInterface(requireArguments().getBinder(ARG_CALLBACK)) }
+
     private var previousSelected = -1
 
     override fun onCreateView(
@@ -24,7 +40,7 @@ class OSChooseSlide(private val selectionCallback: (which: Int) -> Unit) : Slide
             if (previousSelected != checkedId) {
                 previousSelected = checkedId
                 group.post {
-                    selectionCallback(checkedId)
+                    callback?.onSelected(checkedId)
                 }
             }
         }

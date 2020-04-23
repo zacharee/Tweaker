@@ -9,6 +9,7 @@ import com.heinrichreimersoftware.materialintro.app.IntroActivity
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
 import com.heinrichreimersoftware.materialintro.slide.Slide
+import com.zacharee1.systemuituner.IOSSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.TutorialStepInfo
 import com.zacharee1.systemuituner.fragments.tutorial.OSChooseSlide
@@ -81,35 +82,37 @@ class TutorialActivity : IntroActivity() {
     }
 
     private val osSlide by lazy {
-        OSChooseSlide { which ->
-            val osSlide = when (which) {
-                R.id.os_windows -> {
-                    windowsAdbSlideSteps to R.string.adb_windows
+        OSChooseSlide.newInstance(object : IOSSelectionCallback.Stub() {
+            override fun onSelected(which: Int) {
+                val osSlide = when (which) {
+                    R.id.os_windows -> {
+                        windowsAdbSlideSteps to R.string.adb_windows
+                    }
+                    R.id.os_mac -> {
+                        macAdbSlideSteps to R.string.adb_mac
+                    }
+                    R.id.os_fedora -> {
+                        fedoraAdbSlideSteps to R.string.adb_linux_fedora
+                    }
+                    R.id.os_debian -> {
+                        debianAdbSlideSteps to R.string.adb_linux_debian
+                    }
+                    R.id.os_rhel -> {
+                        rhelAdbSlideSteps to R.string.adb_linux_rhel
+                    }
+                    R.id.os_linux -> {
+                        linuxOtherAdbSlideSteps to R.string.adb_linux_other
+                    }
+                    else -> throw IllegalArgumentException("Given OS ID isn't valid! ${resources.getResourceName(which)}")
                 }
-                R.id.os_mac -> {
-                    macAdbSlideSteps to R.string.adb_mac
-                }
-                R.id.os_fedora -> {
-                    fedoraAdbSlideSteps to R.string.adb_linux_fedora
-                }
-                R.id.os_debian -> {
-                    debianAdbSlideSteps to R.string.adb_linux_debian
-                }
-                R.id.os_rhel -> {
-                    rhelAdbSlideSteps to R.string.adb_linux_rhel
-                }
-                R.id.os_linux -> {
-                    linuxOtherAdbSlideSteps to R.string.adb_linux_other
-                }
-                else -> throw IllegalArgumentException("Given OS ID isn't valid! ${resources.getResourceName(which)}")
-            }
 
-            adbSlide.setSteps(
-                getString(osSlide.second),
-                null,
-                osSlide.first
-            )
-        }
+                adbSlide.setSteps(
+                    getString(osSlide.second),
+                    null,
+                    osSlide.first
+                )
+            }
+        })
     }
 
     private val adbSlide by lazy {
