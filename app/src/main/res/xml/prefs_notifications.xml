@@ -64,7 +64,7 @@
     <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
         android:title="@string/option_qqs_tiles"
         android:summary="@string/option_qqs_tiles_desc"
-        android:key="sysui_qqs_tiles"
+        android:key="sysui_qqs_count"
         android:icon="@drawable/ic_baseline_more_horiz_24"
         android:defaultValue="5"
         app:icon_color="@color/pref_color_3"
