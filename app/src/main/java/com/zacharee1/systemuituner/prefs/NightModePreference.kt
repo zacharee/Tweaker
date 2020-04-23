@@ -22,7 +22,6 @@ class NightModePreference(context: Context, attrs: AttributeSet) : DialogPrefere
     init {
         layoutResource = R.layout.custom_preference
         key = "night_mode_option"
-        init(this)
 
         setTitle(R.string.option_night_mode)
         setSummary(R.string.option_night_mode_desc)
@@ -34,6 +33,8 @@ class NightModePreference(context: Context, attrs: AttributeSet) : DialogPrefere
         dialogTitle = title
         dialogMessage = summary
         iconColor = R.color.pref_color_4
+
+        init(this)
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
