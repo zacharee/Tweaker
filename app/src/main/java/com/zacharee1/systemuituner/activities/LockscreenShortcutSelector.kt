@@ -66,12 +66,12 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             val deferred = async {
                 val pInfo =
                     packageManager.getPackageInfo(it.packageName, PackageManager.GET_ACTIVITIES)
-                pInfo.activities.map { LoadedActivityInfo(packageManager, it) }
+                pInfo.activities?.map { LoadedActivityInfo(packageManager, it) }
             }
 
             activityAdapter.items.apply {
                 clear()
-                addAll(deferred.await())
+                addAll(deferred.await() ?: return@apply)
             }
 
             progress.visibility = View.GONE
