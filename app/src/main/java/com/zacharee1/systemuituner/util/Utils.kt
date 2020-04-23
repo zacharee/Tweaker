@@ -122,13 +122,13 @@ fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean
     }
 }
 
-fun Context.getSetting(type: SettingsType, key: String?): String? {
+fun Context.getSetting(type: SettingsType, key: String?, def: String? = null): String? {
     return when (type) {
         SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
         SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
         SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
         SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
-    }
+    }.orEmpty().ifBlank { def }
 }
 
 fun Context.resetAll() {

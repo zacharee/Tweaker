@@ -31,6 +31,7 @@ import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
+import com.zacharee1.systemuituner.prefs.NightModePreference
 import com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
 import com.zacharee1.systemuituner.prefs.ReadSettingPreference
 import com.zacharee1.systemuituner.prefs.WriteSettingPreference
@@ -148,6 +149,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             is NotificationSnoozeTimesPreference -> OptionDialog.newInstance(
                 preference.key,
                 R.layout.notification_snooze_times
+            )
+            is NightModePreference -> OptionDialog.newInstance(
+                preference.key,
+                R.layout.night_mode
             )
             else -> null
         }

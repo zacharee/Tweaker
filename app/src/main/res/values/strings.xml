@@ -197,6 +197,9 @@
     <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
 
+    <string name="option_night_mode">Night Mode</string>
+    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options.</string>
+
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
@@ -233,6 +236,8 @@
     <string name="snooze_b">B</string>
     <string name="snooze_c">C</string>
     <string name="snooze_d">D</string>
+    <string name="disabled">Disabled</string>
+    <string name="auto">Auto</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>

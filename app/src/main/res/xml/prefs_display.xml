@@ -54,4 +54,7 @@
     <com.zacharee1.systemuituner.prefs.secure.specific.TouchWizNavigationBarColor
         />
 
+    <com.zacharee1.systemuituner.prefs.NightModePreference
+        />
+
 </PreferenceScreen>
