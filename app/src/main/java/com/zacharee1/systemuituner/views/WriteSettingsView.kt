@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.writeSetting
-import kotlinx.android.synthetic.main.dialog_read_setting.view.*
 import kotlinx.android.synthetic.main.dialog_write_setting.view.*
 import kotlinx.android.synthetic.main.dialog_write_setting.view.key_entry
 import kotlinx.android.synthetic.main.dialog_write_setting.view.settings_type

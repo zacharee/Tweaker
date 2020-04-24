@@ -12,13 +12,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.*
-import com.zacharee1.systemuituner.util.persistence.BasePersistenceHandler
-import com.zacharee1.systemuituner.util.persistence.BlacklistPersistenceHandler
 
 //TODO: something weird is going on here where some settings are overridden incorrectly when first enabled as persistent.
 //TODO: Figure it out?
