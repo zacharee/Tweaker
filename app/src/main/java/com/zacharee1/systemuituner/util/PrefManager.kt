@@ -23,7 +23,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val PERSISTENT_OPTIONS = "persistent_options"
         const val CUSTOM_PERSISTENT_OPTIONS = "custom_persistent_options"
         const val BLACKLISTED_ITEMS = "blacklisted_items"
-        const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklist_items"
+        const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklisted_items"
         const val SAVED_OPTIONS = "saved_options"
     }
 
@@ -50,15 +50,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
     var customBlacklistItems: HashSet<CustomBlacklistItemInfo>
-        get() = try {
-            HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
-        } catch (e: ClassCastException) {
-            //This is a bit of a hack, since I accidentally used the same key as a preference that was a String before this redesign
-            prefs.edit {
-                remove(CUSTOM_BLACKLIST_ITEMS)
-            }
-            HashSet()
-        }
+        get() = HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
         set(value) {
             putStringSet(CUSTOM_BLACKLIST_ITEMS, HashSet(value.map { it.toString() }))
         }
