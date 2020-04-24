@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.SearchView
@@ -9,13 +10,16 @@ import androidx.preference.PreferenceGroupAdapter
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SearchIndex
+import com.zacharee1.systemuituner.dialogs.CustomPersistentOptionDialogFragment
 import com.zacharee1.systemuituner.util.*
 
-class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
+class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
     private val persistent by lazy { requireContext().prefManager.persistentOptions }
 
     override val widgetLayout: Int = R.layout.checkbox
+
+    private var currentQuery: String? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
@@ -28,6 +32,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
         }
 
         preferenceScreen.isOrderingAsAdded = false
+        requireContext().prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == PrefManager.CUSTOM_PERSISTENT_OPTIONS) {
+            onQueryTextChange(currentQuery)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,6 +48,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
+        currentQuery = newText
         searchIndex.filterPersistent(newText) {
             val toRemove = ArrayList<Preference>()
 
@@ -68,11 +80,18 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
         super.onDestroy()
 
         requireContext().prefManager.persistentOptions = persistent
+        requireContext().prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    fun addCustomItem() {
+        val fragment = CustomPersistentOptionDialogFragment()
+        fragment.setTargetFragment(this, 0)
+        fragment.show(parentFragmentManager, null)
     }
 
     private fun construct(pref: SearchIndex.PersistentPreference): SearchIndex.PersistentPreference {
-        return SearchIndex.PersistentPreference.copy(requireContext(), pref).apply {
-            isChecked = persistent.map { item -> item.key }.containsAll(pref.keys)
+        return SearchIndex.PersistentPreference.copy(pref, requireActivity()).apply {
+            isChecked = persistent.filter { it.type == type && keys.contains(it.key) }.size == keys.size
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as SearchIndex.PersistentPreference
 
@@ -84,7 +103,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
                         )
                     })
                 } else {
-                    persistent.removeAll { item -> preference.keys.contains(item.key) }
+                    persistent.removeAll { item -> item.type == preference.type && preference.keys.contains(item.key) }
                 }
 
                 mainHandler.post {

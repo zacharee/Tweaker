@@ -45,6 +45,13 @@ class PersistentActivity : AppCompatActivity() {
         searchView?.setOnQueryTextListener(persistentFragment)
         searchView?.addAnimation()
 
+        val addItem = menu.findItem(R.id.add)
+        addItem.isVisible = true
+        addItem.setOnMenuItemClickListener {
+            persistentFragment.addCustomItem()
+            true
+        }
+
         val helpItem = menu.findItem(R.id.help)
         helpItem.isVisible = true
         helpItem.setOnMenuItemClickListener {

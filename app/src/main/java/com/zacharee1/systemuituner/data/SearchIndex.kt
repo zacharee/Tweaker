@@ -3,12 +3,15 @@ package com.zacharee1.systemuituner.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.DialogInterface
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -16,6 +19,9 @@ import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
+/**
+ * TODO: Persistent Options were kind of just shoved in here. Clean this up.
+ */
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
@@ -74,8 +80,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             ArrayList(
                 preferences.filter {
                     lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
-                            it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
+                            it.title.toString().contains(lowercase, true) ||
+                            it.summary.toString().contains(lowercase, true)
                 }
             )
         }
@@ -92,16 +98,23 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             ArrayList(
                 preferences.filter {
                     it.showAsPersistentOption && (lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().toLowerCase(Locale.getDefault()).contains(lowercase) ||
-                            it.summary.toString().toLowerCase(Locale.getDefault()).contains(lowercase))
-                }.map { PersistentPreference.fromPreference(this@SearchIndex, it) }
+                            it.title.toString().contains(lowercase, true) ||
+                            it.summary.toString().contains(lowercase, true))
+                }.map { PersistentPreference.fromPreference(false, it) } +
+                        prefManager.customPersistentOptions.filter {
+                            lowercase == null || lowercase.isBlank() ||
+                                    it.label.contains(lowercase, true) ||
+                                    it.key.contains(lowercase, true)
+                        }.map {
+                            PersistentPreference.fromCustomPersistentOption(this@SearchIndex, it)
+                        }
             )
         }
 
         result(filter.await())
     }
 
-    class PersistentPreference(context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(
+    class PersistentPreference(val isCustom: Boolean, context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(
         context,
         null
     ), IColorPreference by ColorPreference(
@@ -109,8 +122,16 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         null
     ) {
         companion object {
-            fun fromPreference(context: Context, preference: Preference): PersistentPreference {
-                return PersistentPreference(context).apply {
+            fun fromCustomPersistentOption(context: Context, info: CustomPersistentOption): PersistentPreference {
+                return PersistentPreference(true, context).apply {
+                    title = info.label
+                    key = info.key
+                    type = info.type
+                    keys.add(key)
+                }
+            }
+            fun fromPreference(isCustom: Boolean, preference: Preference, newContext: Context = preference.context): PersistentPreference {
+                return PersistentPreference(isCustom, newContext).apply {
                     title = preference.title
                     icon = preference.icon
                     key = preference.key
@@ -135,8 +156,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                 }
             }
 
-            fun copy(context: Context, preference: PersistentPreference): PersistentPreference {
-                return fromPreference(context, preference)
+            fun copy(preference: PersistentPreference, newContext: Context = preference.context): PersistentPreference {
+                return fromPreference(preference.isCustom, preference, newContext)
             }
         }
 
@@ -169,14 +190,48 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             } else sup
         }
 
+        override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+            super.onAttachedToHierarchy(preferenceManager)
+
+            if (isCustom) {
+                summary = context.prefManager.customPersistentOptions.find { it.type == type && it.key == key }?.run {
+                    context.resources.getString(R.string.custom_persistent_option_summary_template, type, key, value)
+                }
+            }
+        }
+
         override fun onBindViewHolder(holder: PreferenceViewHolder) {
             super.onBindViewHolder(holder)
+
+            if (isCustom) {
+                holder.itemView.apply {
+                    setOnLongClickListener {
+                        RoundedBottomSheetDialog(context).apply {
+                            setTitle(R.string.remove_item)
+                            setMessage(R.string.remove_item_desc)
+                            setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                                context.prefManager.apply {
+                                    persistentOptions = persistentOptions.apply {
+                                        removeAll { it.type == type && it.key == key }
+                                    }
+                                    customPersistentOptions = customPersistentOptions.apply {
+                                        removeAll { it.type == type && it.key == key }
+                                    }
+                                }
+                                dismiss()
+                            })
+                            setNegativeButton(android.R.string.cancel, null)
+                        }.show()
+                        true
+                    }
+                }
+            }
 
             bindVH(holder)
         }
 
         fun copy(): PersistentPreference {
-            return fromPreference(context, this)
+            return fromPreference(isCustom,this)
         }
 
         fun markDangerous() {

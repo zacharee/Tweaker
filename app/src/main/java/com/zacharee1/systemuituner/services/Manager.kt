@@ -12,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
@@ -44,7 +45,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
-        doInitialCheck()
+        try {
+            doInitialCheck()
+        } catch (e: IllegalStateException) {}
         observer.register()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -133,7 +136,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
             val found = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
             if (found == null) {
-                val savedValue = prefManager.prefs.all[key]?.toString()
+                val savedValue = prefManager.savedOptions.find { it.key == key }?.value
                 val newValue = getSetting(type, key)
 
                 if (savedValue != newValue) {

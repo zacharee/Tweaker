@@ -5,6 +5,7 @@ import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
+import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SavedOption
 import kotlin.ClassCastException
@@ -36,8 +37,8 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
             putStringSet(PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
         }
 
-    var customPersistentOptions: HashSet<PersistentOption>
-        get() = HashSet(getStringSet(CUSTOM_PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
+    var customPersistentOptions: HashSet<CustomPersistentOption>
+        get() = HashSet(getStringSet(CUSTOM_PERSISTENT_OPTIONS).map { CustomPersistentOption.fromString(it) })
         set(value) {
             putStringSet(CUSTOM_PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
         }

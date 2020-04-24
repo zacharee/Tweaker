@@ -13,7 +13,7 @@ class ReadSettingsView(context: Context, attrs: AttributeSet) : ConstraintLayout
         super.onFinishInflate()
 
         key_entry.doOnTextChanged { text, _, _, _ ->
-            val type = SettingsType.fromString(settings_type.selectedItem.toString())
+            val type = SettingsType.fromValue(settings_type.selectedItemPosition)
             result.text = context.getSetting(type, text.toString()).toString()
         }
     }

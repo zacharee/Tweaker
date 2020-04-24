@@ -59,6 +59,15 @@ enum class SettingsType(val value: Int) {
                 else -> UNDEFINED
             }
         }
+
+        fun fromValue(value: Int): SettingsType {
+            return when(value) {
+                0 -> GLOBAL
+                1 -> SECURE
+                2 -> SYSTEM
+                else -> UNDEFINED
+            }
+        }
     }
 
     override fun toString(): String {
