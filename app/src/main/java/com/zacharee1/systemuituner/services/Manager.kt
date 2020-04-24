@@ -36,6 +36,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
             PrefManager.PERSISTENT_OPTIONS -> {
+                doInitialCheck()
                 observer.register()
             }
         }
