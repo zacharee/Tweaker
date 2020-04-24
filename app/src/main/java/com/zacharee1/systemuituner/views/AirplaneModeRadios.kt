@@ -9,12 +9,16 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.airplane_mode_radio.view.*
 import kotlinx.android.synthetic.main.airplane_mode_radios.view.*
 
-class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {
+    override var callback: ((data: Any?) -> Unit)? = null
+
     companion object {
         const val CELL = "cell"
         const val BT = "bluetooth"
@@ -69,11 +73,11 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
             )
         )
 
-        val adapter = RadioAdapter(items)
+        val adapter = RadioAdapter(items, callback)
         radio_recycler.adapter = adapter
     }
 
-    class RadioAdapter(private val items: ArrayList<RadioInfo>) : RecyclerView.Adapter<RadioAdapter.VH>() {
+    class RadioAdapter(private val items: ArrayList<RadioInfo>, private val callback: ((data: Any?) -> Unit)?) : RecyclerView.Adapter<RadioAdapter.VH>() {
         class VH(view: View) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -119,10 +123,12 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
             val blString = blacklisted.joinToString(",")
             val toggleString = toggleable.joinToString(",")
 
-            context.prefManager.putString(Settings.Global.AIRPLANE_MODE_RADIOS, blString)
-            context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, blString)
-            context.prefManager.putString(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, toggleString)
-            context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, toggleString)
+            val data = AirplaneModeRadiosData(
+                blString,
+                toggleString
+            )
+
+            callback?.invoke(data)
         }
     }
 }

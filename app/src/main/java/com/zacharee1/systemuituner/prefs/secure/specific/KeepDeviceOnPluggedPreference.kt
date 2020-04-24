@@ -8,6 +8,8 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeGlobal
 
 class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
     ISpecificPreference {
@@ -24,5 +26,12 @@ class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : Bas
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_visibility_24)
         iconColor = ContextCompat.getColor(context, R.color.pref_color_2)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        newValue as Int
+
+        context.prefManager.putInt(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
+        context.writeGlobal(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
     }
 }

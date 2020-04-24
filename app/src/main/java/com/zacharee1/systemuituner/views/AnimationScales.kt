@@ -4,49 +4,60 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
+import com.zacharee1.systemuituner.data.AnimationScalesData
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
+import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
-class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
+class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
+    override var callback: ((data: Any?) -> Unit)? = null
+    private val scaleData = AnimationScalesData()
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
+        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, "1.0")!!.toFloat()
+        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, "1.0")!!.toFloat()
+        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, "1.0")!!.toFloat()
+
         animator_sb.apply {
-            scaledProgress = Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f)
+            scaledProgress = scaleData.animatorScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    context.prefManager.putFloat(Settings.Global.ANIMATOR_DURATION_SCALE, newScaledValue)
-                    Settings.Global.putFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, newScaledValue)
+                    scaleData.animatorScale = newScaledValue
+                    callback?.invoke(scaleData)
                 }
             }
         }
 
         window_sb.apply {
-            scaledProgress = Settings.Global.getFloat(context.contentResolver, Settings.Global.WINDOW_ANIMATION_SCALE, 1.0f)
+            scaledProgress = scaleData.windowScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    context.prefManager.putFloat(Settings.Global.WINDOW_ANIMATION_SCALE, newScaledValue)
-                    Settings.Global.putFloat(context.contentResolver, Settings.Global.WINDOW_ANIMATION_SCALE, newScaledValue)
+                    scaleData.windowScale = newScaledValue
+                    callback?.invoke(scaleData)
                 }
             }
         }
 
         transition_sb.apply {
-            scaledProgress = Settings.Global.getFloat(context.contentResolver, Settings.Global.TRANSITION_ANIMATION_SCALE, 1.0f)
+            scaledProgress = scaleData.transitionScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    context.prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, newScaledValue)
-                    Settings.Global.putFloat(context.contentResolver, Settings.Global.TRANSITION_ANIMATION_SCALE, newScaledValue)
+                    scaleData.transitionScale = newScaledValue
+                    callback?.invoke(scaleData)
                 }
             }
         }

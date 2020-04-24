@@ -6,11 +6,14 @@ import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.CompoundButton
 import android.widget.ScrollView
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.keep_device_plugged_dialog.view.*
 
-class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
+class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
+    override var callback: ((data: Any?) -> Unit)? = null
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
@@ -41,8 +44,7 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
                 else -> current
             }
 
-            context.prefManager.putInt(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, result)
-            context.writeGlobal(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, result)
+            callback?.invoke(result)
         }
 
         ac.setOnCheckedChangeListener(listener)

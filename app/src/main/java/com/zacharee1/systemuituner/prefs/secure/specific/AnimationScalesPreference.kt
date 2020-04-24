@@ -5,9 +5,12 @@ import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.AnimationScalesData
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeGlobal
 
 class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
     ISpecificPreference {
@@ -24,5 +27,18 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseSec
         dialogMessage = summary
         setIcon(R.drawable.animation)
         iconColor = ContextCompat.getColor(context, R.color.pref_color_7)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        val data = newValue as AnimationScalesData
+
+        context.apply {
+            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.animatorScale)
+            writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.animatorScale)
+            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.windowScale)
+            writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.windowScale)
+            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
+            writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
+        }
     }
 }

@@ -5,9 +5,12 @@ import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.CameraGesturesData
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeSecure
 
 class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
     ISpecificPreference {
@@ -28,5 +31,20 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecu
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_camera_24)
         iconColor = ContextCompat.getColor(context, R.color.pref_color_6)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        val data = newValue as CameraGesturesData
+
+        context.apply {
+            prefManager.putInt(Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
+            writeSecure(Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
+
+            prefManager.putInt(Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
+            writeSecure(Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
+
+            prefManager.putInt(Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
+            writeSecure(Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
+        }
     }
 }

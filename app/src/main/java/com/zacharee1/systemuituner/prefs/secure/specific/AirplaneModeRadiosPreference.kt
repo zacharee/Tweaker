@@ -5,9 +5,12 @@ import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeGlobal
 
 class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
     ISpecificPreference {
@@ -24,5 +27,14 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Base
         dialogMessage = summary
         setIcon(R.drawable.ic_baseline_airplanemode_active_24)
         iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
+    }
+
+    override fun onValueChanged(newValue: Any?, key: String) {
+        val data = newValue as AirplaneModeRadiosData?
+
+        context.prefManager.putString(Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
+        context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
+        context.prefManager.putString(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
+        context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
     }
 }
