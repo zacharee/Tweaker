@@ -32,9 +32,11 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Base
     override fun onValueChanged(newValue: Any?, key: String) {
         val data = newValue as AirplaneModeRadiosData?
 
-        context.prefManager.putString(Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
+        context.prefManager.apply {
+            saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
+            saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
+        }
         context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
-        context.prefManager.putString(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
         context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
     }
 }

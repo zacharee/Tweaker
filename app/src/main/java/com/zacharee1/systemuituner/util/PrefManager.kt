@@ -5,6 +5,8 @@ import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
+import com.zacharee1.systemuituner.data.PersistentOption
+import com.zacharee1.systemuituner.data.SavedOption
 import kotlin.ClassCastException
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
@@ -20,6 +22,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val PERSISTENT_OPTIONS = "persistent_options"
         const val BLACKLISTED_ITEMS = "blacklisted_items"
         const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklist_items"
+        const val SAVED_OPTIONS = "saved_options"
     }
 
     /**
@@ -52,7 +55,32 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
             putStringSet(CUSTOM_BLACKLIST_ITEMS, HashSet(value.map { it.toString() }))
         }
 
+    var savedOptions: HashSet<SavedOption>
+        get() = HashSet(getStringSet(SAVED_OPTIONS).map { SavedOption.fromString(it) })
+        set(value) {
+            putStringSet(SAVED_OPTIONS, HashSet(value.map { it.toString() }))
+        }
+
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+
+    fun saveOption(type: SettingsType, key: String, value: Any?) {
+        val options = savedOptions
+        val found = options.find { it.type == type && it.key == key }
+
+        if (found != null) {
+            found.value = value?.toString()
+        } else {
+            options.add(SavedOption(type, key, value?.toString()))
+        }
+
+        savedOptions = options
+    }
+
+    fun removeOption(type: SettingsType, key: String) {
+        savedOptions = savedOptions.apply {
+            removeAll { it.type == type && it.key == key }
+        }
+    }
 
     fun getString(key: String, def: String? = null): String? = prefs.getString(key, def)
     fun getInt(key: String, def: Int = 0) = prefs.getInt(key, def)

@@ -1,4 +1,6 @@
-package com.zacharee1.systemuituner.util
+package com.zacharee1.systemuituner.data
+
+import com.zacharee1.systemuituner.util.SettingsType
 
 data class PersistentOption(
     val type: SettingsType,
@@ -8,7 +10,12 @@ data class PersistentOption(
         fun fromString(input: String): PersistentOption {
             val split = input.split(":")
 
-            return PersistentOption(SettingsType.fromString(split[0]), split[1])
+            return PersistentOption(
+                SettingsType.fromString(
+                    split[0]
+                ),
+                split[1]
+            )
         }
     }
 

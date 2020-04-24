@@ -7,13 +7,15 @@ import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfigHelperNoOutput
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
 import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
+import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
 import com.zacharee1.systemuituner.util.tasker.runners.IconBlacklistRunner
+import com.zacharee1.systemuituner.util.tasker.runners.WriteSettingRunner
 
-class IconBlacklistHelper(config: TaskerPluginConfig<TaskerIconBlacklistData>) : TaskerPluginConfigHelperNoOutput<TaskerIconBlacklistData, IconBlacklistRunner>(config) {
-    override val runnerClass: Class<IconBlacklistRunner> = IconBlacklistRunner::class.java
-    override val inputClass: Class<TaskerIconBlacklistData> = TaskerIconBlacklistData::class.java
+class WriteSettingHelper(config: TaskerPluginConfig<TaskerWriteSettingData>) : TaskerPluginConfigHelperNoOutput<TaskerWriteSettingData, WriteSettingRunner>(config) {
+    override val runnerClass: Class<WriteSettingRunner> = WriteSettingRunner::class.java
+    override val inputClass: Class<TaskerWriteSettingData> = TaskerWriteSettingData::class.java
 
-    override fun isInputValid(input: TaskerInput<TaskerIconBlacklistData>): SimpleResult {
+    override fun isInputValid(input: TaskerInput<TaskerWriteSettingData>): SimpleResult {
         return if (input.regular.key.isBlank()) SimpleResultError("Key must not be blank")
         else SimpleResultSuccess()
     }

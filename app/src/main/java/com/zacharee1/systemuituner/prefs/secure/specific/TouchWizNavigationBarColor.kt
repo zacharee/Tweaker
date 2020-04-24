@@ -30,8 +30,8 @@ class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSe
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        context.prefManager.putString("navigationbar_color", newValue?.toString())
-        context.prefManager.putString("navigationbar_current_color", newValue?.toString())
+        context.prefManager.saveOption(SettingsType.GLOBAL, "navigationbar_color", newValue)
+        context.prefManager.saveOption(SettingsType.GLOBAL, "navigationbar_current_color", newValue)
         context.writeGlobal("navigationbar_color", newValue)
         context.writeGlobal("navigationbar_current_color", newValue)
     }

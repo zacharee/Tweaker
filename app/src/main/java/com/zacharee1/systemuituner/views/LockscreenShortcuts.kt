@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.LockscreenShortcutSelector
+import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
 import kotlinx.android.synthetic.main.lockscreen_shortcut.view.*
@@ -71,7 +72,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 reset.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
 
-                    context.prefManager.putString(newInfo.key, null)
+                    context.prefManager.saveOption(SettingsType.SECURE, newInfo.key, null)
                     context.writeSecure(newInfo.key, null)
                     notifyItemChanged(holder.adapterPosition)
                 }
@@ -81,7 +82,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {
-                            context.prefManager.putString(key, component)
+                            context.prefManager.saveOption(SettingsType.SECURE, key, component)
                             context.writeSecure(key, component)
                             notifyItemChanged(items.indexOfFirst { it.key == key })
                         }

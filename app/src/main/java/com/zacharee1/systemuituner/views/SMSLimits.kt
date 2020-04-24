@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
+import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.sms_limits.view.*
@@ -21,13 +22,13 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
         interval.editText?.setText(Settings.Global.getInt(context.contentResolver, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF).toString())
 
         max_count.setStartIconOnClickListener {
-            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
+            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
             max_count.editText?.setText(COUNT_DEF.toString())
         }
 
         interval.setStartIconOnClickListener {
-            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
+            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
             interval.editText?.setText(INTERVAL_DEF.toString())
         }
@@ -41,7 +42,7 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
                 }
             }
 
-            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
+            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
         }
 
@@ -54,7 +55,7 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
                 }
             }
 
-            context.prefManager.putInt(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
+            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
         }
     }

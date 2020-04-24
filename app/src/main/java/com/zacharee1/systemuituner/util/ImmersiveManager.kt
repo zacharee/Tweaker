@@ -49,7 +49,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
 
         val string = if (modes.isEmpty()) ImmersiveMode.NONE.type else modes.joinToString(separator = ":")
 
-        prefManager.putString(Settings.Global.POLICY_CONTROL, string)
+        prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.POLICY_CONTROL, string)
         writeGlobal(Settings.Global.POLICY_CONTROL, string)
     }
 

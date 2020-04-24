@@ -1,4 +1,4 @@
-package com.zacharee1.systemuituner.data
+package com.zacharee1.systemuituner.data.tasker
 
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInputField
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInputRoot

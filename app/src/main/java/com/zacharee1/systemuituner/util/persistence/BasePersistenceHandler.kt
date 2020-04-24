@@ -11,6 +11,7 @@ abstract class BasePersistenceHandler<PreferenceValueType : Any>(internal val co
     abstract fun getPreferenceValue(): PreferenceValueType?
     abstract fun getSettingsValue(): String?
     abstract fun getPreferenceValueAsString(): String?
+    abstract fun savePreferenceValue(value: String?)
 
     fun compareValues(): Boolean {
         return areValuesTheSame(getPreferenceValue(), getSettingsValue())

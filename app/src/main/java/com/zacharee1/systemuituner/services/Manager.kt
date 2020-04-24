@@ -27,7 +27,6 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private val observer = Observer()
-    private val persistenceHandlers = HashSet<BasePersistenceHandler<*>>()
 
     override fun onBind(intent: Intent?): IBinder {
         return ManagerImpl()
@@ -44,7 +43,6 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onCreate() {
         super.onCreate()
 
-        registerPersistenceHandlers()
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         doInitialCheck()
         observer.register()
@@ -85,7 +83,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private fun doInitialCheck() {
         prefManager.persistentOptions.forEach { opt ->
-            val handler = persistenceHandlers.find { it.settingsKey == opt.key }
+            val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == opt.key }
 
             if (handler != null) {
                 val prefValue = handler.getPreferenceValueAsString()
@@ -95,17 +93,13 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
                 }
             } else {
                 val value = getSetting(opt.type, opt.key)
-                val prefValue = prefManager.prefs.all[opt.key]?.toString()
+                val prefValue = prefManager.savedOptions.find { it.key == opt.key }?.value
 
                 if (value != prefValue) {
                     writeSetting(opt.type, opt.key, prefValue)
                 }
             }
         }
-    }
-
-    private fun registerPersistenceHandlers() {
-        persistenceHandlers.add(BlacklistPersistenceHandler(this))
     }
 
     inner class ManagerImpl : IManager.Stub() {
@@ -136,7 +130,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
             val type = SettingsType.fromString(uri.pathSegments.run { this[lastIndex - 1] })
             val key = uri.lastPathSegment
 
-            val found = persistenceHandlers.find { it.settingsKey == key && it.settingsType == type }
+            val found = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
             if (found == null) {
                 val savedValue = prefManager.prefs.all[key]?.toString()

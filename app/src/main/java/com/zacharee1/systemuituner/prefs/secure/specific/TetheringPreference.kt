@@ -38,9 +38,11 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseSecurePre
     override fun onValueChanged(newValue: Any?, key: String) {
         val enabled = newValue.toString().toBoolean()
 
-        context.prefManager.putInt(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
+        context.prefManager.apply {
+            saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
+            saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled)
+        }
         context.writeGlobal(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
-        context.prefManager.putString(Settings.Global.TETHER_SUPPORTED, if (enabled) "true" else "false")
-        context.writeGlobal(Settings.Global.TETHER_SUPPORTED, if (enabled) "true" else "false")
+        context.writeGlobal(Settings.Global.TETHER_SUPPORTED, enabled)
     }
 }

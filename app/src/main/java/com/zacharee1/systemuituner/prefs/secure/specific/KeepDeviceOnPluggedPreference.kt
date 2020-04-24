@@ -31,7 +31,7 @@ class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : Bas
     override fun onValueChanged(newValue: Any?, key: String) {
         newValue as Int
 
-        context.prefManager.putInt(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
+        context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
         context.writeGlobal(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
     }
 }

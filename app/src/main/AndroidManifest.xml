@@ -85,6 +85,14 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.tasker.WriteSettingConfigureActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:label="@string/option_advanced_write_setting">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".services.Manager"
             android:exported="false"

@@ -5,7 +5,7 @@ import com.joaomgcd.taskerpluginlibrary.action.TaskerPluginRunnerActionNoOutput
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResult
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultSucess
-import com.zacharee1.systemuituner.data.TaskerIconBlacklistData
+import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
 

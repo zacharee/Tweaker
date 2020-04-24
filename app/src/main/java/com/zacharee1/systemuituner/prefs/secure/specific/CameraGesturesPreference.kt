@@ -37,13 +37,14 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseSecu
         val data = newValue as CameraGesturesData
 
         context.apply {
-            prefManager.putInt(Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
+            prefManager.apply {
+                saveOption(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
+                saveOption(SettingsType.SECURE, Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
+                saveOption(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
+            }
+
             writeSecure(Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
-
-            prefManager.putInt(Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
             writeSecure(Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
-
-            prefManager.putInt(Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
             writeSecure(Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
         }
     }

@@ -33,11 +33,11 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseSec
         val data = newValue as AnimationScalesData
 
         context.apply {
-            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.animatorScale)
+            prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, data.animatorScale)
             writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.animatorScale)
-            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.windowScale)
+            prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, data.windowScale)
             writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.windowScale)
-            prefManager.putFloat(Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
+            prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
             writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
         }
     }

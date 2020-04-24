@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.services.Manager
+import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
 import tk.zwander.unblacklister.disableApiBlacklist
@@ -14,6 +15,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         disableApiBlacklist()
+        PersistenceHandlerRegistry.register(this)
 
         updateServiceState()
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)

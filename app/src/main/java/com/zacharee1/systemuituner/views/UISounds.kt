@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.UISoundSelector
+import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.ui_sounds.view.*
@@ -23,7 +24,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         disable_charging_sound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
         disable_charging_sound.setOnCheckedChangeListener { _, isChecked ->
-            context.prefManager.putInt(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
+            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
             context.writeGlobal(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
         }
 
@@ -90,7 +91,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         private val callback = object : IUISoundSelectionCallback.Stub() {
             override fun onSoundSelected(uri: String, key: String) {
-                context.prefManager.putString(key, uri)
+                context.prefManager.saveOption(SettingsType.GLOBAL, key, uri)
                 context.writeGlobal(key, uri)
 
                 val index = items.indexOfFirst { it.key == key }
@@ -127,7 +128,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 reset.setOnClickListener {
                     val item = items[holder.adapterPosition]
 
-                    context.prefManager.putString(item.key, item.default)
+                    context.prefManager.saveOption(SettingsType.GLOBAL, item.key, item.default)
                     context.writeGlobal(item.key, item.default)
                     notifyItemChanged(holder.adapterPosition)
                 }

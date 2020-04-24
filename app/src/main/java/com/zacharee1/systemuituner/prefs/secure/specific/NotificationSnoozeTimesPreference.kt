@@ -31,7 +31,7 @@ class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) :
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        context.prefManager.putString("notification_snooze_options", newValue?.toString())
-        context.writeGlobal("notification_snooze_options", newValue?.toString())
+        context.prefManager.saveOption(SettingsType.GLOBAL, "notification_snooze_options", newValue)
+        context.writeGlobal("notification_snooze_options", newValue)
     }
 }

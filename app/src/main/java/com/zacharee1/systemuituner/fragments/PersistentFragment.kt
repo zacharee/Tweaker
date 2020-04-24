@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroupAdapter
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SearchIndex
 import com.zacharee1.systemuituner.util.*
 
@@ -76,7 +77,12 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
                 preference as SearchIndex.PersistentPreference
 
                 if (newValue.toString().toBoolean()) {
-                    persistent.addAll(preference.keys.map { PersistentOption(preference.type, it) })
+                    persistent.addAll(preference.keys.map {
+                        PersistentOption(
+                            preference.type,
+                            it
+                        )
+                    })
                 } else {
                     persistent.removeAll { item -> preference.keys.contains(item.key) }
                 }

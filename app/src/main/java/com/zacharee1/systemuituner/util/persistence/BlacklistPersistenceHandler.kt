@@ -17,6 +17,14 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
         return getPreferenceValue()?.joinToString(",")
     }
 
+    override fun savePreferenceValue(value: String?) {
+        if (value == null) {
+            context.prefManager.blacklistedItems = HashSet()
+        } else {
+            context.prefManager.blacklistedItems = HashSet(value.split(","))
+        }
+    }
+
     override fun getSettingsValue(): String? {
         return Settings.Secure.getString(context.contentResolver, settingsKey)
     }
