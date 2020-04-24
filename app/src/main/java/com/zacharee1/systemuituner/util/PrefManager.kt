@@ -20,6 +20,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
         const val PERSISTENT_OPTIONS = "persistent_options"
+        const val CUSTOM_PERSISTENT_OPTIONS = "custom_persistent_options"
         const val BLACKLISTED_ITEMS = "blacklisted_items"
         const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklist_items"
         const val SAVED_OPTIONS = "saved_options"
@@ -33,6 +34,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = HashSet(getStringSet(PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
         set(value) {
             putStringSet(PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
+        }
+
+    var customPersistentOptions: HashSet<PersistentOption>
+        get() = HashSet(getStringSet(CUSTOM_PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
+        set(value) {
+            putStringSet(CUSTOM_PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
         }
 
     var blacklistedItems: HashSet<String>
