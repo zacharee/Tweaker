@@ -5,6 +5,7 @@ import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
+import kotlin.ClassCastException
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
@@ -38,7 +39,15 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
     var customBlacklistItems: HashSet<CustomBlacklistItemInfo>
-        get() = HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
+        get() = try {
+            HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
+        } catch (e: ClassCastException) {
+            //This is a bit of a hack, since I accidentally used the same key as a preference that was a String before this redesign
+            prefs.edit {
+                remove(CUSTOM_BLACKLIST_ITEMS)
+            }
+            HashSet()
+        }
         set(value) {
             putStringSet(CUSTOM_BLACKLIST_ITEMS, HashSet(value.map { it.toString() }))
         }
