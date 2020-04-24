@@ -332,7 +332,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     @ExperimentalNavController
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.AppTheme)
+        setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
 
         if (!hasWss)

@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         android:name=".App"
         tools:ignore="AllowBackup">
         <activity
@@ -69,6 +69,22 @@
         <activity android:name=".activities.tutorial.TutorialActivity"
             android:exported="false"
             />
+        <activity android:name=".activities.tasker.AddToIconBlacklistConfigureActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:label="@string/add_to_blacklist">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.tasker.RemoveFromIconBlacklistConfigureActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme"
+            android:label="@string/remove_from_blacklist">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".services.Manager"
             android:exported="false"
