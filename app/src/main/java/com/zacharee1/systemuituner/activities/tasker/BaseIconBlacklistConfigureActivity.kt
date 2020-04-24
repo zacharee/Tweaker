@@ -37,6 +37,7 @@ open class BaseIconBlacklistConfigureActivity(private val isRemove: Boolean) : A
 
         setContentView(R.layout.activity_tasker_icon_blacklist_input)
 
+        input.setText(key)
         apply.setOnClickListener {
             helper.finishForTasker()
         }

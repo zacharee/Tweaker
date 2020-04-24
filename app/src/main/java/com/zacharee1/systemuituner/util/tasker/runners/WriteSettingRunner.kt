@@ -7,8 +7,8 @@ import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResult
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultError
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultSucess
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
-import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
+import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
 
@@ -19,12 +19,13 @@ class WriteSettingRunner : TaskerPluginRunnerActionNoOutput<TaskerWriteSettingDa
         val value = input.regular.value
 
         val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
+        val sType = SettingsType.fromString(type)
 
-        return if (context.writeSetting(type, key, value)) {
+        return if (context.writeSetting(sType, key, value)) {
             if (handler != null) {
                 handler.savePreferenceValue(value)
             } else {
-                context.prefManager.saveOption(type, key, value)
+                context.prefManager.saveOption(sType, key, value)
             }
             TaskerPluginResultSucess()
         } else {

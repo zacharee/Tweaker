@@ -6,7 +6,7 @@ import com.zacharee1.systemuituner.util.SettingsType
 
 @TaskerInputRoot
 class TaskerWriteSettingData @JvmOverloads constructor(
-    @field:TaskerInputField("type") var type: SettingsType = SettingsType.UNDEFINED,
+    @field:TaskerInputField("type") var type: String = SettingsType.UNDEFINED.toString(),
     @field:TaskerInputField("key") var key: String = "",
     @field:TaskerInputField("value") var value: String? = null
 )
