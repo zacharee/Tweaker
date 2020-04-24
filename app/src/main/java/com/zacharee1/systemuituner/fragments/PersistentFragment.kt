@@ -15,7 +15,6 @@ import com.zacharee1.systemuituner.util.*
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
     private val searchIndex by lazy { SearchIndex.getInstance(requireContext()) }
-    private val persistent by lazy { requireContext().prefManager.persistentOptions }
 
     override val widgetLayout: Int = R.layout.checkbox
 
@@ -79,7 +78,6 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     override fun onDestroy() {
         super.onDestroy()
 
-        requireContext().prefManager.persistentOptions = persistent
         requireContext().prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
 
@@ -91,19 +89,27 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
     private fun construct(pref: SearchIndex.PersistentPreference): SearchIndex.PersistentPreference {
         return SearchIndex.PersistentPreference.copy(pref, requireActivity()).apply {
-            isChecked = persistent.filter { it.type == type && keys.contains(it.key) }.size == keys.size
+            isChecked = context.prefManager.persistentOptions.filter { it.type == type && keys.contains(it.key) }.size == keys.size
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as SearchIndex.PersistentPreference
 
                 if (newValue.toString().toBoolean()) {
-                    persistent.addAll(preference.keys.map {
-                        PersistentOption(
-                            preference.type,
-                            it
-                        )
-                    })
+                    context.prefManager.apply {
+                        persistentOptions = persistentOptions.apply {
+                            addAll(preference.keys.map {
+                                PersistentOption(
+                                    preference.type,
+                                    it
+                                )
+                            })
+                        }
+                    }
                 } else {
-                    persistent.removeAll { item -> item.type == preference.type && preference.keys.contains(item.key) }
+                    context.prefManager.apply {
+                        persistentOptions = persistentOptions.apply {
+                            removeAll { item -> item.type == preference.type && preference.keys.contains(item.key) }
+                        }
+                    }
                 }
 
                 mainHandler.post {
