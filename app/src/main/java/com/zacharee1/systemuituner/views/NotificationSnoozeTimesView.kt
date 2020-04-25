@@ -16,55 +16,54 @@ class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) :
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        val times = HashMap<String, String>()
         val setting = context.getSetting(SettingsType.GLOBAL, "notification_snooze_options")
 
-        if (setting.isNullOrBlank()) {
-            times["default"] = "60"
-            times["a"] = "15"
-            times["b"] = "30"
-            times["c"] = "60"
-            times["d"] = "120"
-        } else {
+        var defTime = "60"
+        var aTime = "15"
+        var bTime = "30"
+        var cTime = "60"
+        var dTime = "120"
+
+        if (!setting.isNullOrBlank()) {
             try {
                 val parts = setting.split(",")
                 val default = parts[0].split("=")[1]
                 val options = parts[1].split("=")[1].split(":")
 
-                times["default"] = default
-                times["a"] = options[0]
-                times["b"] = options[1]
-                times["c"] = options[2]
-                times["d"] = options[3]
+                defTime = default
+                aTime = options[0]
+                bTime = options[1]
+                cTime = options[2]
+                dTime = options[3]
             } catch (e: IndexOutOfBoundsException) {
-                times["default"] = "60"
-                times["a"] = "15"
-                times["b"] = "30"
-                times["c"] = "60"
-                times["d"] = "120"
+                defTime = "60"
+                aTime = "15"
+                bTime = "30"
+                cTime = "60"
+                dTime = "120"
             }
         }
 
-        snooze_default.setText(times["default"])
-        snooze_a.setText(times["a"])
-        snooze_b.setText(times["b"])
-        snooze_c.setText(times["c"])
-        snooze_d.setText(times["d"])
+        snooze_default.setText(defTime)
+        snooze_a.setText(aTime)
+        snooze_b.setText(bTime)
+        snooze_c.setText(cTime)
+        snooze_d.setText(dTime)
 
         apply.setOnClickListener {
             callback?.invoke(
                 StringBuilder()
                     .append("default=")
-                    .append(snooze_default.textOrDefault(times["default"]!!))
+                    .append(snooze_default.textOrDefault(defTime))
                     .append(",")
                     .append("options_array=")
-                    .append(snooze_a.textOrDefault(times["a"]!!))
+                    .append(snooze_a.textOrDefault(aTime))
                     .append(":")
-                    .append(snooze_b.textOrDefault(times["b"]!!))
+                    .append(snooze_b.textOrDefault(bTime))
                     .append(":")
-                    .append(snooze_c.textOrDefault(times["c"]!!))
+                    .append(snooze_c.textOrDefault(cTime))
                     .append(":")
-                    .append(snooze_d.textOrDefault(times["d"]!!))
+                    .append(snooze_d.textOrDefault(dTime))
                     .toString()
             )
         }
