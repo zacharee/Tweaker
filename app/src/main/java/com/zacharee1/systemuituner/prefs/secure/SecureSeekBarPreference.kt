@@ -30,15 +30,7 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        sharedPreferences.edit {
-            val value = newValue?.toString()?.toFloat()
-            if (value != null) {
-                putFloat(writeKey!!, value)
-            } else {
-                remove(writeKey!!)
-            }
-        }
-
-        context.writeSetting(type, writeKey, newValue?.toString())
+        context.prefManager.saveOption(type, writeKey!!, newValue)
+        context.writeSetting(type, writeKey, newValue)
     }
 }
