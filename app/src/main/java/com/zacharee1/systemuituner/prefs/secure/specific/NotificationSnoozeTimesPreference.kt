@@ -14,7 +14,7 @@ import com.zacharee1.systemuituner.util.writeGlobal
 
 class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
     override val keys: Array<String>
-        get() = arrayOf(key, "notification_snooze_options")
+        get() = arrayOf(key)
     override var type = SettingsType.GLOBAL
 
     init {
