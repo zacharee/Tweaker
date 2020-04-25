@@ -53,10 +53,19 @@ class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) :
 
         apply.setOnClickListener {
             callback?.invoke(
-                "default=${snooze_default.textOrDefault(times["default"]!!)}," +
-                        "options_array=${snooze_a.textOrDefault(times["a"]!!)}:${snooze_b.textOrDefault(
-                            times["b"]!!
-                        )}:${snooze_c.textOrDefault(times["c"]!!)}:${snooze_d.textOrDefault(times["d"]!!)}"
+                StringBuilder()
+                    .append("default=")
+                    .append(snooze_default.textOrDefault(times["default"]!!))
+                    .append(",")
+                    .append("options_array=")
+                    .append(snooze_a.textOrDefault(times["a"]!!))
+                    .append(":")
+                    .append(snooze_b.textOrDefault(times["b"]!!))
+                    .append(":")
+                    .append(snooze_c.textOrDefault(times["c"]!!))
+                    .append(":")
+                    .append(snooze_d.textOrDefault(times["d"]!!))
+                    .toString()
             )
         }
     }
