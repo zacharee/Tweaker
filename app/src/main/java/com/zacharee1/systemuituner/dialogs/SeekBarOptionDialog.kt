@@ -54,6 +54,6 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-        notifyChanged(newScaledValue)
+        notifyChanged(if (scale == 1f) newValue else newScaledValue)
     }
 }

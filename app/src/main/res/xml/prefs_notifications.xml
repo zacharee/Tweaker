@@ -69,6 +69,7 @@
         android:defaultValue="5"
         app:icon_color="@color/pref_color_3"
         app:settings_type="secure"
+        app:scale="1"
         app:minValue="1"
         app:maxValue="12"
         app:low_api="24"
