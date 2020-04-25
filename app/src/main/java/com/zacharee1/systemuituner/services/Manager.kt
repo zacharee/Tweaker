@@ -84,21 +84,25 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private fun doInitialCheck() {
         prefManager.persistentOptions.forEach { opt ->
-            val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == opt.key }
+            runComparison(opt.type, opt.key)
+        }
+    }
 
-            if (handler != null) {
-                val prefValue = handler.getPreferenceValueAsString()
+    private fun runComparison(type: SettingsType, key: String) {
+        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
 
-                if (!handler.compareValues()) {
-                    writeSetting(opt.type, opt.key, prefValue)
-                }
-            } else {
-                val value = getSetting(opt.type, opt.key)
-                val prefValue = prefManager.savedOptions.find { it.key == opt.key }?.value
+        if (handler != null) {
+            val prefValue = handler.getPreferenceValueAsString()
 
-                if (value != prefValue) {
-                    writeSetting(opt.type, opt.key, prefValue)
-                }
+            if (!handler.compareValues()) {
+                writeSetting(type, key, prefValue)
+            }
+        } else {
+            val value = getSetting(type, key)
+            val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
+
+            if (value != prefValue) {
+                writeSetting(type, key, prefValue)
             }
         }
     }
@@ -131,20 +135,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
             val type = SettingsType.fromString(uri.pathSegments.run { this[lastIndex - 1] })
             val key = uri.lastPathSegment
 
-            val found = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
-
-            if (found == null) {
-                val savedValue = prefManager.savedOptions.find { it.key == key }?.value
-                val newValue = getSetting(type, key)
-
-                if (savedValue != newValue) {
-                    writeSetting(type, key, savedValue)
-                }
-            } else {
-                if (!found.compareValues()) {
-                    writeSetting(type, key, found.getPreferenceValueAsString())
-                }
-            }
+            runComparison(type, key)
         }
     }
 }
