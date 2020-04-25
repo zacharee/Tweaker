@@ -15,7 +15,7 @@
         app:settings_type="secure"
         />
 
-    <com.zacharee1.systemuituner.prefs.ActivityPreference
+    <com.zacharee1.systemuituner.prefs.NonPersistentActivityPreference
         android:title="@string/sub_demo"
         android:summary="@string/sub_demo_desc"
         android:key="sub_demo"

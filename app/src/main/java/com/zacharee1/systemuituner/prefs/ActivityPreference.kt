@@ -6,12 +6,11 @@ import android.util.AttributeSet
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.interfaces.ColorPreference
-import com.zacharee1.systemuituner.interfaces.IColorPreference
-import com.zacharee1.systemuituner.interfaces.ISecurePreference
-import com.zacharee1.systemuituner.interfaces.SecurePreference
+import com.zacharee1.systemuituner.interfaces.*
 
-class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(
+class NonPersistentActivityPreference(context: Context, attrs: AttributeSet) : ActivityPreference(context, attrs), INoPersistPreference
+
+open class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(
     context,
     attrs
 ), ISecurePreference by SecurePreference(
