@@ -26,15 +26,23 @@ class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) :
             times["c"] = "60"
             times["d"] = "120"
         } else {
-            val parts = setting.split(",")
-            val default = parts[0].split("=")[1]
-            val options = parts[1].split("=")[1].split(":")
+            try {
+                val parts = setting.split(",")
+                val default = parts[0].split("=")[1]
+                val options = parts[1].split("=")[1].split(":")
 
-            times["default"] = default
-            times["a"] = options[0]
-            times["b"] = options[1]
-            times["c"] = options[2]
-            times["d"] = options[3]
+                times["default"] = default
+                times["a"] = options[0]
+                times["b"] = options[1]
+                times["c"] = options[2]
+                times["d"] = options[3]
+            } catch (e: IndexOutOfBoundsException) {
+                times["default"] = "60"
+                times["a"] = "15"
+                times["b"] = "30"
+                times["c"] = "60"
+                times["d"] = "120"
+            }
         }
 
         snooze_default.setText(times["default"])
