@@ -12,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.provider.Settings
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
@@ -98,7 +99,11 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
                 writeSetting(type, key, prefValue)
             }
         } else {
-            val value = getSetting(type, key)
+            val value = try {
+                getSetting(type, key)
+            } catch (e: IllegalStateException) {
+                Log.e("SystemUITuner", "A persistent option has an undefined settings type. Please clear app data.", e)
+            }
             val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
 
             if (value != prefValue) {
