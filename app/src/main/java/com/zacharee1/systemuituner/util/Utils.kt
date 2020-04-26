@@ -302,7 +302,7 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
     val res = try {
         context.packageManager.getResourcesForApplication(this)
     } catch (e: PackageManager.NameNotFoundException) {
-        return context.getColor(R.color.colorPrimary)
+        return 0
     }
     val theme = res.newTheme()
     val arr = intArrayOf(
