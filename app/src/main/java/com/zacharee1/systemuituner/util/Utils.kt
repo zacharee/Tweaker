@@ -299,7 +299,11 @@ fun <T> SortedList<T>.toList(): ArrayList<T> {
 
 @SuppressLint("ResourceType")
 fun ApplicationInfo.getColorPrimary(context: Context): Int {
-    val res = context.packageManager.getResourcesForApplication(this)
+    val res = try {
+        context.packageManager.getResourcesForApplication(this)
+    } catch (e: PackageManager.NameNotFoundException) {
+        return context.getColor(R.color.colorPrimary)
+    }
     val theme = res.newTheme()
     val arr = intArrayOf(
         res.getIdentifier("colorPrimary", "attr", packageName),
