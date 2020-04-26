@@ -97,6 +97,56 @@
         <service android:name=".services.Manager"
             android:exported="false"
             />
+        <service
+            android:name=".services.tiles.BatteryTile"
+            android:icon="@drawable/battery_full"
+            android:label="@string/tile_battery"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.ClockTile"
+            android:icon="@drawable/progress_clock"
+            android:label="@string/tile_clock"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.DemoTile"
+            android:icon="@drawable/ic_baseline_tv_24"
+            android:label="@string/tile_demo"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.HeadsUpTile"
+            android:icon="@drawable/ic_baseline_notifications_active_24"
+            android:label="@string/tile_heads_up"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.NightModeTile"
+            android:icon="@drawable/ic_baseline_nights_stay_24"
+            android:label="@string/tile_night_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
 
         <receiver android:name=".receivers.BootReceiver"
             android:exported="true">

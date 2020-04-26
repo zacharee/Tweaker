@@ -332,4 +332,10 @@
     <string name="remove_item_desc">Are you sure you want to remove this item?</string>
 
     <string name="custom_persistent_option_summary_template">Settings Type: %s, Key: %s, Value: %s</string>
+
+    <string name="tile_battery">Battery</string>
+    <string name="tile_clock">Clock</string>
+    <string name="tile_demo">Demo Mode</string>
+    <string name="tile_heads_up">Heads Up Notifications</string>
+    <string name="tile_night_mode">Night Mode</string>
 </resources>

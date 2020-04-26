@@ -53,8 +53,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         writeGlobal(Settings.Global.POLICY_CONTROL, string)
     }
 
-    fun parseAdvancedImmersive(): ImmersiveInfo {
-        val value = Settings.Global.getString(contentResolver, Settings.Global.POLICY_CONTROL)
+    fun parseAdvancedImmersive(value: String? = getSetting(SettingsType.GLOBAL, Settings.Global.POLICY_CONTROL)): ImmersiveInfo {
         val info = ImmersiveInfo()
 
         if (value.isNullOrBlank() || value == ImmersiveMode.NONE.type) {

@@ -1,12 +1,9 @@
 package com.zacharee1.systemuituner.util
 
-import android.content.Context
-import android.content.ContextWrapper
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.os.Bundle
 
-class DemoController(context: Context) : ContextWrapper(context) {
+class DemoController private constructor(context: Context) : ContextWrapper(context) {
     object Keys {
         const val KEY_VOLUME = "volume"
         const val KEY_BLUETOOTH = "bluetooth"
@@ -44,9 +41,36 @@ class DemoController(context: Context) : ContextWrapper(context) {
         const val COMMAND_CLOCK = "clock"
         const val COMMAND_BATTERY = "battery"
         const val COMMAND_BARS = "bars"
+
+        private var instance: DemoController? = null
+
+        fun getInstance(context: Context): DemoController {
+            return instance ?: run {
+                instance = DemoController(context.applicationContext)
+                instance!!
+            }
+        }
     }
 
+    var isCurrentlyEnabled = false
+
     val prefs = DemoPrefs(this)
+    val updateListeners = HashSet<(enabled: Boolean) -> Unit>()
+
+    private val stateReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action == ACTION_DEMO) {
+                val mode = intent.getStringExtra(EXTRA_COMMAND)
+
+                isCurrentlyEnabled = mode != COMMAND_EXIT
+                updateListeners.forEach { it(isCurrentlyEnabled) }
+            }
+        }
+    }
+
+    init {
+        registerReceiver(stateReceiver, IntentFilter(ACTION_DEMO))
+    }
 
     fun ensureDemoAllowed() {
         writeGlobal(KEY_DEMO_ALLOWED, 1)

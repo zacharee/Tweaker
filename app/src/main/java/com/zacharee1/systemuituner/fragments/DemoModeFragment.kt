@@ -6,7 +6,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.DemoController
 
 class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenceChangeListener {
-    private val controller by lazy { DemoController(requireContext()) }
+    private val controller by lazy { DemoController.getInstance(requireContext()) }
     private val enabled: Boolean
         get() = preferenceManager.sharedPreferences.getString("demo_enabled", "false")!!.toBoolean()
 
