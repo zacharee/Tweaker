@@ -46,12 +46,11 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
             holder.itemView.apply {
                 val item = items[position]
                 val value = Settings.Secure.getString(context.contentResolver, item.key)
+                val cName = ComponentName.unflattenFromString(value ?: "")
 
                 type_name.text = resources.getText(item.label)
 
-                if (value != null) {
-                    val cName = ComponentName.unflattenFromString(value)
-
+                if (cName != null) {
                     app_icon.setImageDrawable(
                         try {
                             context.packageManager.getApplicationIcon(cName.packageName)
