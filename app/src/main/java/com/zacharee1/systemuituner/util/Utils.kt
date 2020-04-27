@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
@@ -533,4 +534,9 @@ fun Context.launchEmail(to: String, subject: String) {
 
         startActivity(intent)
     } catch (e: Exception) {}
+}
+
+fun Resources.getStringByName(name: String, pkg: String): String {
+    val id = getIdentifier(name, "string", pkg)
+    return getString(id)
 }

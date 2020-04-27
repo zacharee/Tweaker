@@ -13,6 +13,7 @@ import com.zacharee1.systemuituner.IUISoundSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.UISoundSelector
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.getStringByName
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.ui_sounds.view.*
@@ -32,60 +33,67 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
     }
 
     class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.VH>() {
+        companion object {
+            const val PROVIDER_PKG = "com.android.providers.settings"
+        }
+
+        private val settingsProviderResources = context.packageManager.getResourcesForApplication(
+            PROVIDER_PKG)
+
         private val items = arrayListOf(
             SoundItemInfo(
                 name = R.string.option_ui_sound_car_dock,
                 desc = R.string.option_ui_sound_car_dock_desc,
                 key = "car_dock_sound",
-                default = "/system/media/audio/ui/Dock.ogg"
+                default = settingsProviderResources.getStringByName("def_car_dock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_car_undock,
                 desc = R.string.option_ui_sound_car_undock_desc,
                 key = "car_undock_sound",
-                default = "/system/media/audio/ui/Undock.ogg"
+                default = settingsProviderResources.getStringByName("def_car_undock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_desk_dock,
                 desc = R.string.option_ui_sound_desk_dock_desc,
                 key = "desk_dock_sound",
-                default = "/system/media/audio/ui/Dock.ogg"
+                default = settingsProviderResources.getStringByName("def_desk_dock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_desk_undock,
                 desc = R.string.option_ui_sound_desk_undock_desc,
                 key = "desk_undock_sound",
-                default = "/system/media/audio/ui/Undock.ogg"
+                default = settingsProviderResources.getStringByName("def_desk_undock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_lock,
                 desc = R.string.option_ui_sound_lock_desc,
                 key = "lock_sound",
-                default = "/system/media/audio/ui/Lock.ogg"
+                default = settingsProviderResources.getStringByName("def_lock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_unlock,
                 desc = R.string.option_ui_sound_unlock_desc,
                 key = "unlock_sound",
-                default = "/system/media/audio/ui/Unlock.ogg"
+                default = settingsProviderResources.getStringByName("def_unlock_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_low_battery,
                 desc = R.string.option_ui_sound_low_battery_desc,
                 key = "low_battery_sound",
-                default = "/system/media/audio/ui/LowBattery.ogg"
+                default = settingsProviderResources.getStringByName("def_low_battery_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_trusted,
                 desc = R.string.option_ui_sound_trusted_desc,
                 key = "trusted_sound",
-                default = "/system/media/audio/ui/Trusted.ogg"
+                default = settingsProviderResources.getStringByName("def_trusted_sound", PROVIDER_PKG)
             ),
             SoundItemInfo(
                 name = R.string.option_ui_sound_wireless_charging,
                 desc = R.string.option_ui_sound_wireless_charging_desc,
                 key = "wireless_charging_started_sound",
-                default = "/system/media/audio/ui/ChargingStarted.ogg"
+                default = settingsProviderResources.getStringByName("def_wireless_charging_started_sound", PROVIDER_PKG)
             )
         )
 
