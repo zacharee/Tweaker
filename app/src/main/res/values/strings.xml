@@ -290,7 +290,7 @@
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
     <string name="compatibility_message_storage">Sorry, you need an SD card to change this option.</string>
 
-    <string name="reset_confirm">This will reset most changes made by Tweaker. The below options will have to be reset manually I recommend that you reboot after resetting.\n%s</string>
+    <string name="reset_confirm">This will reset most changes made by Tweaker. The below options will have to be reset manually. I recommend that you reboot after resetting.\n%s</string>
     <string name="persistent_options_desc">Select an option here to lock its values to those that have been set by Tweaker.</string>
 
     <string name="android_marshmallow">Marshmallow 6.0</string>
