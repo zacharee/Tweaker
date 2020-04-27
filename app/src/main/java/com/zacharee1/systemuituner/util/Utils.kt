@@ -406,13 +406,8 @@ fun PreferenceGroupAdapter.updatePreferences() {
         .invoke(this)
 }
 
-//Remember to add any Settings.System options here!!
-fun Context.buildNonResettablePreferences(): ArrayList<String> {
-    return arrayListOf(
-        resources.getString(R.string.feature_font_scale),
-        resources.getString(R.string.feature_custom_rotation),
-        resources.getString(R.string.feature_battery_percent)
-    )
+fun Context.buildNonResettablePreferences(): List<String> {
+    return prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key }
 }
 
 fun parseAutoIconBlacklistSlots(): ArrayList<String> {
