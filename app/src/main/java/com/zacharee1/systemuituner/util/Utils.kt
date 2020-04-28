@@ -38,6 +38,7 @@ import eu.chainfire.libsuperuser.Shell
 import java.util.*
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
+import kotlin.collections.HashSet
 import kotlin.math.roundToInt
 
 enum class SettingsType(val value: Int) {
@@ -181,7 +182,7 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
     fun onFail(e: Exception): Boolean {
         return when {
             Shell.SU.available() -> {
-                Shell.Pool.SU.run("settings put system $key $value")
+                Shell.Pool.SU.run("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
                 true
             }
             isAddOnInstalled() -> {
@@ -406,8 +407,18 @@ fun PreferenceGroupAdapter.updatePreferences() {
         .invoke(this)
 }
 
-fun Context.buildNonResettablePreferences(): List<String> {
-    return prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key }
+fun Context.buildNonResettablePreferences(): Set<String> {
+    val cursor = contentResolver.query(Uri.parse("content://settings/system"), arrayOf("name", "package"), null, null, null)
+    val names = HashSet<String>()
+    while (cursor.moveToNext()) {
+        val pkg = cursor.getString(1)
+        if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
+            names.add(cursor.getString(0))
+        }
+    }
+    cursor.close()
+    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key })
+    return names
 }
 
 fun parseAutoIconBlacklistSlots(): ArrayList<String> {
