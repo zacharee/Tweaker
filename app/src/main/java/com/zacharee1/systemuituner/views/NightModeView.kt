@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.views
 
 import android.content.Context
+import android.content.res.Resources
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
@@ -68,13 +69,25 @@ class NightModeView(context: Context, attrs: AttributeSet) : RoundedFrameCardVie
             }
 
             night_display_temp.minValue = resources.run {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
+                try {
+                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
+                } catch (e: Resources.NotFoundException) {
+                    0
+                }
             }
             night_display_temp.maxValue = resources.run {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
+                try {
+                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
+                } catch (e: Resources.NotFoundException) {
+                    10000
+                }
             }
             night_display_temp.defaultValue = resources.run {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
+                try {
+                    getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
+                } catch (e: Resources.NotFoundException) {
+                    5000
+                }
             }
             night_display_temp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
             night_display_temp.listener = object : SeekBarView.SeekBarListener {
