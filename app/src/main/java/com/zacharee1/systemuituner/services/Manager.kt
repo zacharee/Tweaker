@@ -85,7 +85,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private fun doInitialCheck() {
         prefManager.persistentOptions.forEach { opt ->
-            runComparison(opt.type, opt.key)
+            if (opt.type != SettingsType.UNDEFINED) {
+                runComparison(opt.type, opt.key)
+            }
         }
     }
 
@@ -103,6 +105,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
                 getSetting(type, key)
             } catch (e: IllegalStateException) {
                 Log.e("SystemUITuner", "A persistent option has an undefined settings type. Please clear app data.", e)
+                return
             }
             val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
 
