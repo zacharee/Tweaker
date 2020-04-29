@@ -1,8 +1,11 @@
 package com.zacharee1.systemuituner
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.customview.widget.ViewDragHelper
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -342,6 +346,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setSupportActionBar(toolbar)
         toolbar.addAnimation()
 
+        updateDragEdgeSize()
+
         titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
         titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
 
@@ -357,6 +363,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             searchView?.setQuery("", false)
             searchView?.isIconified = true
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        updateDragEdgeSize()
     }
 
     @ExperimentalNavController
@@ -443,5 +454,16 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         return null
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun updateDragEdgeSize() {
+        Log.e("SystemUITuner", "updating")
+        drawer.drawerLayout.also {
+            it::class.java.apply {
+                (getDeclaredField("mLeftDragger").apply { isAccessible = true }
+                    .get(it) as ViewDragHelper).edgeSize = dpAsPx(resources.configuration.screenWidthDp)
+            }
+        }
     }
 }

@@ -56,7 +56,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     open val widgetLayout: Int = Int.MIN_VALUE
     open val limitSummary = true
-
     open val supportsGrid = true
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
