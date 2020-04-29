@@ -1,15 +1,15 @@
 package com.zacharee1.systemuituner.drawer
 
+import com.mikepenz.materialdrawer.holder.DimenHolder
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
-import com.mikepenz.materialize.holder.DimenHolder
 import com.zacharee1.systemuituner.util.SecondaryStyle
 
 class IndentedSecondaryDrawerItem : SecondaryDrawerItem() {
     init {
-        withBadgeStyle(SecondaryStyle())
+        badgeStyle = SecondaryStyle()
     }
 
-    override fun bindView(holder: ViewHolder, payloads: MutableList<Any>) {
+    override fun bindView(holder: ViewHolder, payloads: List<Any>) {
         super.bindView(holder, payloads)
 
         holder.itemView.apply {
