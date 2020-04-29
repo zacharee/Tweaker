@@ -335,7 +335,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     name = StringHolder(R.string.reset)
                     icon = ImageHolder(R.drawable.ic_baseline_restore_24)
                     isSelectable = false
-                    onDrawerItemClickListener = { view, item, position ->
+                    onDrawerItemClickListener = { _, _, _ ->
                         val dialog = RoundedBottomSheetDialog(this@MainActivity)
                         dialog.setTitle(R.string.reset)
                         dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
@@ -357,7 +357,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     name = StringHolder(R.string.oneui_tuner)
                     icon = ImageHolder(R.drawable.ic_baseline_android_24)
                     isSelectable = false
-                    onDrawerItemClickListener = { view, item, position ->
+                    onDrawerItemClickListener = { _, _, _ ->
                         val dialog = RoundedBottomSheetDialog(this@MainActivity)
                         dialog.setTitle(R.string.oneui_tuner)
                         dialog.setMessage(R.string.oneui_tuner_desc)
@@ -384,7 +384,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 name = StringHolder(R.string.donate)
                 icon = ImageHolder(R.drawable.ic_baseline_attach_money_24)
                 isSelectable = false
-                onDrawerItemClickListener = { view, item, position ->
+                onDrawerItemClickListener = { _, _, _ ->
                     DonateDialog(this@MainActivity)
                         .show()
                     true
@@ -394,8 +394,26 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 name = StringHolder(R.string.twitter)
                 icon = ImageHolder(R.drawable.twitter)
                 isSelectable = false
-                onDrawerItemClickListener = { view, item, position ->
+                onDrawerItemClickListener = { _, _, _ ->
                     launchUrl("https://twitter.com/Wander1236")
+                    true
+                }
+            },
+            PrimaryDrawerItem().apply {
+                name = StringHolder(R.string.telegram)
+                icon = ImageHolder(R.drawable.telegram)
+                isSelectable = false
+                onDrawerItemClickListener = { _, _, _ ->
+                    launchUrl("https://bit.ly/ZachareeTG")
+                    true
+                }
+            },
+            PrimaryDrawerItem().apply {
+                name = StringHolder(R.string.email)
+                icon = ImageHolder(R.drawable.ic_baseline_email_24)
+                isSelectable = false
+                onDrawerItemClickListener = { _, _, _ ->
+                    launchEmail("zachary@zwander.dev", getString(R.string.app_name))
                     true
                 }
             },
@@ -414,15 +432,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 isSelectable = false
                 onDrawerItemClickListener = { _, _, _ ->
                     launchUrl("https://play.google.com/store/apps/dev?id=6168495537212917027")
-                    true
-                }
-            },
-            PrimaryDrawerItem().apply {
-                name = StringHolder(R.string.email)
-                icon = ImageHolder(R.drawable.ic_baseline_email_24)
-                isSelectable = false
-                onDrawerItemClickListener = { _, _, _ ->
-                    launchEmail("zachary@zwander.dev", getString(R.string.app_name))
                     true
                 }
             }
