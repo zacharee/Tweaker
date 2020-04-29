@@ -15,6 +15,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.customview.widget.ViewDragHelper
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -65,6 +66,18 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
         setUpDrawer()
+        root.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerClosed(drawerView: View) {
+                updateDragEdgeSize()
+            }
+
+            override fun onDrawerOpened(drawerView: View) {
+                updateDragEdgeSize()
+            }
+
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
+            override fun onDrawerStateChanged(newState: Int) {}
+        })
 
         titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
         titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
@@ -187,7 +200,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         root.also {
             it::class.java.apply {
                 (getDeclaredField("mLeftDragger").apply { isAccessible = true }
-                    .get(it) as ViewDragHelper).edgeSize = dpAsPx(resources.configuration.screenWidthDp)
+                    .get(it) as ViewDragHelper).edgeSize = if (root.isOpen) 0 else dpAsPx(resources.configuration.screenWidthDp)
             }
         }
     }
