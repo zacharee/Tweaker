@@ -64,6 +64,135 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
+        setUpDrawer()
+
+        titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
+        titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
+
+        slider.headerPadding = true
+        slider.headerHeight = DimenHolder.fromDp(172)
+        slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
+        slider.setupWithNavController(navController)
+        slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
+
+        updateDragEdgeSize()
+
+        slider.drawerLayout?.addDrawerListener(drawerToggle)
+
+        navController.addOnDestinationChangedListener(this)
+
+        searchFragment.onItemClickListener = { action, key ->
+            navController.navigate(
+                action,
+                bundleOf(BasePrefFragment.ARG_HIGHLIGHT_KEY to key)
+            )
+            searchView?.setQuery("", false)
+            searchView?.isIconified = true
+        }
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        drawerToggle.syncState()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        updateDragEdgeSize()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (drawerToggle.onOptionsItemSelected(item))
+            return true
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    @ExperimentalNavController
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_search, menu)
+
+        val searchItem = menu.findItem(R.id.search)
+        searchView = searchItem?.actionView as SearchView?
+        searchView?.addAnimation()
+
+        searchView?.setOnSearchClickListener {
+            search_holder.apply {
+                visibility = View.VISIBLE
+                animate()
+                    .alpha(1f)
+            }
+            searchView?.setOnQueryTextListener(searchFragment)
+
+            titleSwitcher.isVisible = false
+        }
+
+        searchView?.setOnCloseListener {
+            search_holder.apply {
+                animate()
+                    .alpha(0f)
+                    .withEndAction {
+                        visibility = View.GONE
+                    }
+            }
+            searchView?.setOnQueryTextListener(null)
+
+            titleSwitcher.scaleAnimatedVisible = true
+            false
+        }
+
+        return true
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+//        val item = findDrawerItemByDestinationId(destination.id) ?: return
+        slider.setSelection(destination.id.toLong(), false)
+    }
+
+    override fun onBackPressed() {
+        when {
+            searchView?.isIconified == false -> {
+                searchView?.isIconified = true
+            }
+            navController.currentDestination?.id != R.id.homeFragment -> {
+                navController.navigate(
+                    R.id.homeFragment, null,
+                    NavOptions.Builder()
+                        .setLaunchSingleTop(true)
+                        .setEnterAnim(android.R.animator.fade_in)
+                        .setExitAnim(android.R.animator.fade_out)
+                        .setPopEnterAnim(android.R.animator.fade_in)
+                        .setPopExitAnim(android.R.animator.fade_out)
+                        .build()
+                )
+            }
+            else -> {
+                finish()
+            }
+        }
+    }
+
+    override fun setTitle(title: CharSequence?) {
+        super.setTitle(null)
+
+        titleSwitcher.setText(title)
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun updateDragEdgeSize() {
+        root.also {
+            it::class.java.apply {
+                (getDeclaredField("mLeftDragger").apply { isAccessible = true }
+                    .get(it) as ViewDragHelper).edgeSize = dpAsPx(resources.configuration.screenWidthDp)
+            }
+        }
+    }
+
+    private fun setUpDrawer() {
         slider.addItems(
             SectionDrawerItem()
                 .apply {
@@ -298,130 +427,5 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 }
             }
         )
-
-        titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
-        titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
-
-        slider.headerPadding = true
-        slider.headerHeight = DimenHolder.fromDp(172)
-        slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
-        slider.setupWithNavController(navController)
-        slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
-
-        updateDragEdgeSize()
-
-        slider.drawerLayout?.addDrawerListener(drawerToggle)
-
-        navController.addOnDestinationChangedListener(this)
-
-        searchFragment.onItemClickListener = { action, key ->
-            navController.navigate(
-                action,
-                bundleOf(BasePrefFragment.ARG_HIGHLIGHT_KEY to key)
-            )
-            searchView?.setQuery("", false)
-            searchView?.isIconified = true
-        }
-    }
-
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        drawerToggle.syncState()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        updateDragEdgeSize()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (drawerToggle.onOptionsItemSelected(item))
-            return true
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    @ExperimentalNavController
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_search, menu)
-
-        val searchItem = menu.findItem(R.id.search)
-        searchView = searchItem?.actionView as SearchView?
-        searchView?.addAnimation()
-
-        searchView?.setOnSearchClickListener {
-            search_holder.apply {
-                visibility = View.VISIBLE
-                animate()
-                    .alpha(1f)
-            }
-            searchView?.setOnQueryTextListener(searchFragment)
-
-            titleSwitcher.isVisible = false
-        }
-
-        searchView?.setOnCloseListener {
-            search_holder.apply {
-                animate()
-                    .alpha(0f)
-                    .withEndAction {
-                        visibility = View.GONE
-                    }
-            }
-            searchView?.setOnQueryTextListener(null)
-
-            titleSwitcher.scaleAnimatedVisible = true
-            false
-        }
-
-        return true
-    }
-
-    override fun onDestinationChanged(
-        controller: NavController,
-        destination: NavDestination,
-        arguments: Bundle?
-    ) {
-//        val item = findDrawerItemByDestinationId(destination.id) ?: return
-        slider.setSelection(destination.id.toLong(), false)
-    }
-
-    override fun onBackPressed() {
-        when {
-            searchView?.isIconified == false -> {
-                searchView?.isIconified = true
-            }
-            navController.currentDestination?.id != R.id.homeFragment -> {
-                navController.navigate(
-                    R.id.homeFragment, null,
-                    NavOptions.Builder()
-                        .setLaunchSingleTop(true)
-                        .setEnterAnim(android.R.animator.fade_in)
-                        .setExitAnim(android.R.animator.fade_out)
-                        .setPopEnterAnim(android.R.animator.fade_in)
-                        .setPopExitAnim(android.R.animator.fade_out)
-                        .build()
-                )
-            }
-            else -> {
-                finish()
-            }
-        }
-    }
-
-    override fun setTitle(title: CharSequence?) {
-        super.setTitle(null)
-
-        titleSwitcher.setText(title)
-    }
-
-    @SuppressLint("RestrictedApi")
-    private fun updateDragEdgeSize() {
-        root.also {
-            it::class.java.apply {
-                (getDeclaredField("mLeftDragger").apply { isAccessible = true }
-                    .get(it) as ViewDragHelper).edgeSize = dpAsPx(resources.configuration.screenWidthDp)
-            }
-        }
     }
 }
