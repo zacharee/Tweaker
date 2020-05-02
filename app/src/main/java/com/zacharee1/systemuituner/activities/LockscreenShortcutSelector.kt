@@ -44,14 +44,15 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     private val callback by lazy {
-        ILockscreenShortcutSelectedCallback.Stub.asInterface(
-            intent.getBundleExtra(EXTRA_CALLBACK).getBinder(EXTRA_CALLBACK)
-        )
+        val binder = intent.getBundleExtra(EXTRA_CALLBACK)?.getBinder(EXTRA_CALLBACK)
+        if (binder != null) {
+            ILockscreenShortcutSelectedCallback.Stub.asInterface(binder)
+        } else null
     }
     private val key by lazy { intent.getStringExtra(EXTRA_KEY) }
 
     private val activityAdapter = ActivityAdapter {
-        callback.onSelected(it.componentName.flattenToShortString(), key)
+        callback!!.onSelected(it.componentName.flattenToShortString(), key)
         finish()
     }
 
@@ -83,6 +84,11 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (callback == null || key == null) {
+            finish()
+            return
+        }
 
         setContentView(R.layout.lockscreen_shortcut_selector)
         setSupportActionBar(toolbar)
