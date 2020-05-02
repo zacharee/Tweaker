@@ -111,7 +111,10 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
                     }
-                    showAsPersistentOption = preference !is INoPersistPreference
+                    if (preference is IVerifierPreference) {
+                        visibilityVerifier = preference.visibilityVerifier
+                        init(this)
+                    }
                     this.action = action
                 }
             }
@@ -133,8 +136,6 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                 field = value
                 markDangerous()
             }
-
-        var showAsPersistentOption = true
 
         init {
             layoutResource = R.layout.custom_preference

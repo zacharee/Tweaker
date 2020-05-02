@@ -227,6 +227,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
                     }
+                    if (preference is IVerifierPreference) {
+                        lowApi = preference.lowApi
+                        highApi = preference.highApi
+                        visibilityVerifier = preference.visibilityVerifier
+                        enabledVerifier = preference.enabledVerifier
+                        init(this)
+                    }
                 }
             }
 

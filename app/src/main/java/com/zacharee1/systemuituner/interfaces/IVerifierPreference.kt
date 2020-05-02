@@ -32,23 +32,25 @@ open class VerifierPreference(private val context: Context, attrs: AttributeSet?
         IVerifierPreference.API_UNDEFINED
 
     init {
-        val array = context.theme.obtainStyledAttributes(attrs, R.styleable.VerifiedPreference, 0, 0)
+        if (attrs != null) {
+            val array = context.theme.obtainStyledAttributes(attrs, R.styleable.VerifiedPreference, 0, 0)
 
-        lowApi = array.getInt(R.styleable.VerifiedPreference_low_api, lowApi)
-        highApi = array.getInt(R.styleable.VerifiedPreference_high_api, highApi)
+            lowApi = array.getInt(R.styleable.VerifiedPreference_low_api, lowApi)
+            highApi = array.getInt(R.styleable.VerifiedPreference_high_api, highApi)
 
-        val clazz = array.getString(R.styleable.VerifiedPreference_visibility_verifier)
-        if (clazz != null) {
-            visibilityVerifier = context.classLoader.loadClass(clazz)
-                .getConstructor(Context::class.java)
-                .newInstance(context) as BaseVisibilityVerifier
-        }
+            val clazz = array.getString(R.styleable.VerifiedPreference_visibility_verifier)
+            if (clazz != null) {
+                visibilityVerifier = context.classLoader.loadClass(clazz)
+                    .getConstructor(Context::class.java)
+                    .newInstance(context) as BaseVisibilityVerifier
+            }
 
-        val enabledClazz = array.getString(R.styleable.VerifiedPreference_enabled_verifier)
-        if (enabledClazz != null) {
-            enabledVerifier = context.classLoader.loadClass(enabledClazz)
-                .getConstructor(Context::class.java)
-                .newInstance(context) as BasePreferenceEnabledVerifier
+            val enabledClazz = array.getString(R.styleable.VerifiedPreference_enabled_verifier)
+            if (enabledClazz != null) {
+                enabledVerifier = context.classLoader.loadClass(enabledClazz)
+                    .getConstructor(Context::class.java)
+                    .newInstance(context) as BasePreferenceEnabledVerifier
+            }
         }
     }
 
