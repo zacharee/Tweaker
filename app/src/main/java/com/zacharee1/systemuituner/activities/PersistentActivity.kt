@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.dialogs.AnimatedMaterialAlertDialogBuilder
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.PersistentFragment
 import com.zacharee1.systemuituner.util.addAnimation
 import kotlinx.android.synthetic.main.activity_persistent.*
@@ -55,11 +55,12 @@ class PersistentActivity : AppCompatActivity() {
         val helpItem = menu.findItem(R.id.help)
         helpItem.isVisible = true
         helpItem.setOnMenuItemClickListener {
-            AnimatedMaterialAlertDialogBuilder(this)
-                .setTitle(R.string.help)
-                .setMessage(R.string.persistent_options_desc)
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
+            RoundedBottomSheetDialog(this).apply {
+                setTitle(R.string.help)
+                setMessage(R.string.persistent_options_desc)
+                setPositiveButton(android.R.string.ok, null)
+                show()
+            }
             false
         }
 

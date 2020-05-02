@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
@@ -22,8 +23,8 @@ import com.zacharee1.systemuituner.activities.ExtraPermsRetroactive
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.BlacklistBackupInfo
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
-import com.zacharee1.systemuituner.dialogs.AnimatedMaterialAlertDialogBuilder
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
 import com.zacharee1.systemuituner.prefs.BlacklistPreference
 import com.zacharee1.systemuituner.prefs.CustomBlacklistAddPreference
@@ -459,19 +460,21 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
                 if (isCustom) {
                     holder.itemView.setOnLongClickListener {
-                        AnimatedMaterialAlertDialogBuilder(context)
-                            .setTitle(R.string.icon_blacklist_remove_custom)
-                            .setMessage(R.string.icon_blacklist_remove_custom_desc)
-                            .setPositiveButton(android.R.string.ok) { _, _ ->
+                        RoundedBottomSheetDialog(context).apply {
+                            setTitle(R.string.icon_blacklist_remove_custom)
+                            setMessage(R.string.icon_blacklist_remove_custom_desc)
+                            setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
                                 context.prefManager.let {
                                     val new = it.customBlacklistItems
-                                    new.remove(CustomBlacklistItemInfo(this.title.toString(), this.key))
+                                    new.remove(CustomBlacklistItemInfo(title.toString(), key))
 
                                     it.customBlacklistItems = new
                                 }
-                            }
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show()
+                                dismiss()
+                            })
+                            setNegativeButton(android.R.string.cancel, null)
+                            show()
+                        }
 
                         true
                     }

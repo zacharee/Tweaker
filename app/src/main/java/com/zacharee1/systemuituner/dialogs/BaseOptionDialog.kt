@@ -32,9 +32,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.dialogTitle)
         if (preference.icon != null) builder.setIcon(preference.icon)
-        builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
-            dismiss()
-        })
+        builder.setPositiveButton(android.R.string.ok, null)
 
         return builder
     }

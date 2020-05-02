@@ -354,6 +354,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                         dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
                         dialog.setPositiveButton(R.string.reset, DialogInterface.OnClickListener { _, _ ->
                             resetAll()
+                            dialog.dismiss()
                         })
                         dialog.setNegativeButton(android.R.string.cancel, null)
                         dialog.show()
@@ -376,6 +377,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                         dialog.setMessage(R.string.oneui_tuner_desc)
                         dialog.setPositiveButton(R.string.check_it_out, DialogInterface.OnClickListener {_, _ ->
                             launchUrl("https://labs.xda-developers.com/store/app/tk.zwander.oneuituner")
+                            dialog.dismiss()
                         })
                         dialog.setNegativeButton(android.R.string.cancel, null)
                         dialog.show()
