@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.fragments
 
+import android.animation.LayoutTransition
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
@@ -10,10 +11,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
 import android.widget.FrameLayout
@@ -264,6 +262,43 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 } else {
                     descriptors.add(descriptor)
                     descriptors.lastIndex
+                }
+            }
+
+            @SuppressLint("RestrictedApi", "ClickableViewAccessibility")
+            override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
+                super.onBindViewHolder(holder, position)
+
+                (holder.itemView as ViewGroup).apply {
+                    val summaryView = findViewById<TextView>(android.R.id.summary)
+                    val oldMaxLines = summaryView.maxLines
+
+                    val expandAction = Runnable {
+                        summaryView.apply {
+                            maxLines = 10
+                        }
+                    }
+                    setOnTouchListener { v, event ->
+                        when (event.action) {
+                            MotionEvent.ACTION_DOWN -> {
+                                handler.postDelayed(expandAction, ViewConfiguration.getLongPressTimeout().toLong())
+                                false
+                            }
+                            MotionEvent.ACTION_UP,
+                            MotionEvent.ACTION_CANCEL -> {
+                                handler.removeCallbacks(expandAction)
+                                if (oldMaxLines != summaryView.maxLines) {
+                                    summaryView.maxLines = oldMaxLines
+                                    v.isSelected = false
+                                    v.isPressed = false
+                                    true
+                                } else {
+                                    false
+                                }
+                            }
+                            else -> false
+                        }
+                    }
                 }
             }
 
