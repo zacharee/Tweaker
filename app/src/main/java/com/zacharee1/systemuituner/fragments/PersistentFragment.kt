@@ -134,7 +134,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                 preferences.filter {
                     (lowercase == null || lowercase.isBlank() ||
                             it.title.toString().contains(lowercase, true) ||
-                            it.summary.toString().contains(lowercase, true))
+                            it.origSummary?.toString()?.contains(lowercase, true) == true)
                 }.map { PersistentPreference.fromPreference(false, it) } +
                         requireContext().prefManager.customPersistentOptions.filter {
                             lowercase == null || lowercase.isBlank() ||
@@ -206,6 +206,11 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     key = preference.key
                     isVisible = preference.isVisible
                     if (preference is PersistentPreference) {
+                        origSummary = preference.origSummary
+                    } else {
+                        origSummary = preference.summary
+                    }
+                    if (preference is PersistentPreference) {
                         keys.addAll(preference.keys)
                     }
                     if (preference is ISpecificPreference) {
@@ -237,6 +242,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         }
 
         val keys: ArrayList<String> = ArrayList()
+        var origSummary: CharSequence? = null
 
         override var dangerous: Boolean = false
             set(value) {
