@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.views
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.provider.Settings
 import android.util.AttributeSet
@@ -59,7 +60,11 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                         }
                     )
 
-                    app_name.text = context.packageManager.getActivityInfo(cName, 0).loadLabel(context.packageManager)
+                    app_name.text = try {
+                        context.packageManager.getActivityInfo(cName, 0).loadLabel(context.packageManager)
+                    } catch (e: PackageManager.NameNotFoundException) {
+                        null
+                    }
                     component.text = cName.flattenToShortString()
                 } else {
                     app_icon.setImageDrawable(null)
