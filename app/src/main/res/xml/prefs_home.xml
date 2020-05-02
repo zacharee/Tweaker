@@ -68,6 +68,13 @@
         app:navigation_action="@id/notificationsFragment"
         />
 
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/category_status_bar"
+        android:key="go_to_status_bar"
+        android:icon="@drawable/ic_baseline_space_bar_24"
+        app:navigation_action="@id/statusBarFragment"
+        />
+
     <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
         android:title="@string/category_system"
         android:icon="@drawable/ic_baseline_build_24"

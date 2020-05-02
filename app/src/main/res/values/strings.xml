@@ -12,7 +12,8 @@
     <string name="category_developer">Developer</string>
     <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">Network</string>
-    <string name="category_notifications">Notifications &amp; Status Bar</string>
+    <string name="category_notifications">Notifications</string>
+    <string name="category_status_bar">Status Bar</string>
     <string name="category_oem">OEM Features</string>
     <string name="category_system">System</string>
     <string name="category_ui">UI</string>

@@ -24,25 +24,6 @@
         app:maxValue="600000"
         />
 
-    <com.zacharee1.systemuituner.prefs.ActivityPreference
-        android:title="@string/special_sub_icon_blacklist"
-        android:summary="@string/special_sub_icon_blacklist_desc"
-        android:key="icon_blacklist"
-        android:icon="@drawable/ic_baseline_visibility_off_24"
-        app:icon_color="@color/pref_color_5"
-        app:activity_class="com.zacharee1.systemuituner.activities.IconBlacklistActivity"
-        app:settings_type="secure"
-        />
-
-    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
-        android:title="@string/feature_clock_seconds"
-        android:summary="@string/feature_clock_seconds_desc"
-        android:key="clock_seconds"
-        android:icon="@drawable/ic_seconds"
-        app:icon_color="@color/pref_color_4"
-        app:settings_type="secure"
-        />
-
     <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/feature_dnd_in_volume"
         android:summary="@string/feature_dnd_in_volume_desc"
@@ -50,63 +31,6 @@
         android:icon="@drawable/do_not_disturb"
         app:icon_color="@color/pref_color_1"
         app:settings_type="secure"
-        />
-
-    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
-        android:title="@string/feature_battery_percent"
-        android:summary="@string/feature_battery_percent_desc"
-        android:key="status_bar_show_battery_percent"
-        android:icon="@drawable/ic_percent"
-        app:icon_color="@color/pref_color_6"
-        app:settings_type="system"
-        />
-
-    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
-        android:title="@string/option_qqs_tiles"
-        android:summary="@string/option_qqs_tiles_desc"
-        android:key="sysui_qqs_count"
-        android:icon="@drawable/ic_baseline_more_horiz_24"
-        android:defaultValue="5"
-        app:icon_color="@color/pref_color_3"
-        app:settings_type="secure"
-        app:scale="1"
-        app:minValue="1"
-        app:maxValue="12"
-        app:low_api="24"
-        />
-
-    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
-        android:title="@string/option_touchwiz_qs_row_count"
-        android:summary="@string/option_touchwiz_qs_row_count_desc"
-        android:key="qs_tile_row"
-        android:icon="@drawable/ic_baseline_more_vert_24"
-        app:icon_color="@color/pref_color_1"
-        app:settings_type="secure"
-        app:high_api="27"
-        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
-        />
-
-    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
-        android:title="@string/option_touchwiz_qs_column_count"
-        android:summary="@string/option_touchwiz_qs_column_count_desc"
-        android:key="qs_tile_column"
-        android:icon="@drawable/ic_baseline_more_horiz_24"
-        app:icon_color="@color/pref_color_4"
-        app:settings_type="secure"
-        app:high_api="27"
-        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
-        />
-
-    <com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
-        android:title="@string/option_oneui_clock_position"
-        android:summary="@string/option_oneui_clock_position_desc"
-        android:dialogTitle="@string/option_oneui_clock_position"
-        android:dialogMessage="@string/option_oneui_clock_position_desc"
-        android:key="oneui_clock_position"
-        android:icon="@drawable/progress_clock"
-        app:icon_color="@color/pref_color_7"
-        app:low_api="28"
-        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
         />
 
     <com.zacharee1.systemuituner.prefs.secure.specific.NotificationSnoozeTimesPreference

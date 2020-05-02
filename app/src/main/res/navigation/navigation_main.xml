@@ -34,6 +34,11 @@
         android:name="com.zacharee1.systemuituner.fragments.NotificationsFragment"
         android:label="NotificationsFragment" />
     <fragment
+        android:id="@+id/statusBarFragment"
+        android:name="com.zacharee1.systemuituner.fragments.StatusBarFragment"
+        android:label="StatusBarFragment"
+        />
+    <fragment
         android:id="@+id/developerFragment"
         android:name="com.zacharee1.systemuituner.fragments.DeveloperFragment"
         android:label="DeveloperFragment" />

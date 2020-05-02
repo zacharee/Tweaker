@@ -33,6 +33,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             R.xml.prefs_net_misc to R.id.netMiscellaneousFragment,
             R.xml.prefs_net_wifi to R.id.netWiFiFragment,
             R.xml.prefs_notifications to R.id.notificationsFragment,
+            R.xml.prefs_status_bar to R.id.statusBarFragment,
             R.xml.prefs_storage to R.id.storageFragment,
             R.xml.prefs_ui to R.id.UIFragment,
             R.xml.prefs_advanced to R.id.advancedFragment

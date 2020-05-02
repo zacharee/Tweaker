@@ -293,6 +293,14 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     identifier = R.id.notificationsFragment.toLong()
                 }
             ),
+            NavigationDrawerItem(
+                R.id.statusBarFragment,
+                PrimaryDrawerItem().apply {
+                    name = StringHolder(R.string.category_status_bar)
+                    icon = ImageHolder(R.drawable.ic_baseline_space_bar_24)
+                    identifier = R.id.statusBarFragment.toLong()
+                }
+            ),
             ExpandableDrawerItem().apply {
                 isSelectable = false
                 name = StringHolder(R.string.category_system)
