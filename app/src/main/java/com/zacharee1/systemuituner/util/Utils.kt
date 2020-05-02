@@ -408,15 +408,17 @@ fun PreferenceGroupAdapter.updatePreferences() {
 }
 
 fun Context.buildNonResettablePreferences(): Set<String> {
-    val cursor = contentResolver.query(Uri.parse("content://settings/system"), arrayOf("name", "package"), null, null, null)
     val names = HashSet<String>()
-    while (cursor.moveToNext()) {
-        val pkg = cursor.getString(1)
-        if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
-            names.add(cursor.getString(0))
+    try {
+        val cursor = contentResolver.query(Uri.parse("content://settings/system"), arrayOf("name", "package"), null, null, null)
+        while (cursor.moveToNext()) {
+            val pkg = cursor.getString(1)
+            if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
+                names.add(cursor.getString(0))
+            }
         }
-    }
-    cursor.close()
+        cursor.close()
+    } catch (e: IllegalArgumentException) {}
     names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key })
     return names
 }
