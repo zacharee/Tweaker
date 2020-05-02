@@ -15,15 +15,6 @@
         app:settings_type="secure"
         />
 
-    <com.zacharee1.systemuituner.prefs.NonPersistentActivityPreference
-        android:title="@string/sub_demo"
-        android:summary="@string/sub_demo_desc"
-        android:key="sub_demo"
-        android:icon="@drawable/ic_baseline_tv_24"
-        app:icon_color="@color/pref_color_5"
-        app:activity_class="com.zacharee1.systemuituner.activities.DemoModeActivity"
-        />
-
     <com.zacharee1.systemuituner.prefs.secure.specific.KeepDeviceOnPluggedPreference />
     <com.zacharee1.systemuituner.prefs.secure.specific.AnimationScalesPreference />
     <com.zacharee1.systemuituner.prefs.secure.specific.CameraGesturesPreference />
