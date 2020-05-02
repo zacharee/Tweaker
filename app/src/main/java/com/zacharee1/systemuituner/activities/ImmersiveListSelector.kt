@@ -38,7 +38,10 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
         HashSet(intent.getStringArrayListExtra(EXTRA_CHECKED) ?: ArrayList<String>())
     }
     val callback by lazy {
-        IImmersiveSelectionCallback.Stub.asInterface(intent.getBundleExtra(EXTRA_CALLBACK).getBinder(EXTRA_CALLBACK))
+        val binder = intent.getBundleExtra(EXTRA_CALLBACK)?.getBinder(EXTRA_CALLBACK)
+        if (binder != null) {
+            IImmersiveSelectionCallback.Stub.asInterface(binder)
+        } else null
     }
 
     val selectorFragment: ImmersiveSelectorFragment
@@ -73,6 +76,11 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_immersive_selector)
+
+        if (callback == null) {
+            finish()
+            return
+        }
 
         setSupportActionBar(toolbar)
         toolbar.addAnimation()
