@@ -6,7 +6,6 @@ import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.util.PrefManager
-import com.zacharee1.systemuituner.util.prefManager
 
 class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSwitchPreference(context, attrs) {
     init {
@@ -17,6 +16,7 @@ class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSw
         disabled = "false"
         enabled = "true"
         isPersistent = true
+        dangerous = true
 
         dialogTitle = title
         dialogMessage = summary

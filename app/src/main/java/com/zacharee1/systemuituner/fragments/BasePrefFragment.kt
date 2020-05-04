@@ -28,6 +28,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
+import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
@@ -407,7 +408,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         for (i in 0 until group.preferenceCount) {
             val child = group.getPreference(i)
 
-            if (child is ISecurePreference && child.dangerous) {
+            if (child is IDangerousPreference && child.dangerous) {
                 markDangerous(child)
             }
             if (child is PreferenceGroup) markDangerous(child)

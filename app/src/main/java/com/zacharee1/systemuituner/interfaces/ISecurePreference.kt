@@ -11,18 +11,16 @@ import com.zacharee1.systemuituner.util.apiToName
 import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
 import com.zacharee1.systemuituner.util.verifiers.BaseVisibilityVerifier
 
-interface ISecurePreference : IVerifierPreference {
+interface ISecurePreference : IVerifierPreference, IDangerousPreference {
     var type: SettingsType
     var writeKey: String?
-    var dangerous: Boolean
 }
 
 class SecurePreference(context: Context, attrs: AttributeSet?) :
-    ISecurePreference, VerifierPreference(context, attrs) {
+    ISecurePreference, VerifierPreference(context, attrs), IDangerousPreference by DangerousPreference(context, attrs) {
     override var type: SettingsType =
         SettingsType.UNDEFINED
     override var writeKey: String? = null
-    override var dangerous: Boolean = false
 
     init {
         if (attrs != null) {
@@ -30,7 +28,6 @@ class SecurePreference(context: Context, attrs: AttributeSet?) :
 
             type = SettingsType.values().find { it.value ==  array.getInt(R.styleable.BaseSecurePreference_settings_type, SettingsType.UNDEFINED.value)} ?: SettingsType.UNDEFINED
             writeKey = array.getString(R.styleable.BaseSecurePreference_differing_key)
-            dangerous = array.getBoolean(R.styleable.BaseSecurePreference_dangerous, false)
 
             array.recycle()
         }
