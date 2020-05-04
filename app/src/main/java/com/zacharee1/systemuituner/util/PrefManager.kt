@@ -25,6 +25,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val BLACKLISTED_ITEMS = "blacklisted_items"
         const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklisted_items"
         const val SAVED_OPTIONS = "saved_options"
+        const val FORCE_ENABLE_ALL = "force_enable_all"
     }
 
     /**
@@ -59,6 +60,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = HashSet(getStringSet(SAVED_OPTIONS).map { SavedOption.fromString(it) })
         set(value) {
             putStringSet(SAVED_OPTIONS, HashSet(value.map { it.toString() }))
+        }
+
+    var forceEnableAll: Boolean
+        get() = getBoolean(FORCE_ENABLE_ALL, false)
+        set(value) {
+            putBoolean(FORCE_ENABLE_ALL, value)
         }
 
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)

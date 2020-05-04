@@ -3,16 +3,16 @@ package com.zacharee1.systemuituner.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import com.zacharee1.systemuituner.util.PrefManager
+import com.zacharee1.systemuituner.util.prefManager
+import kotlinx.coroutines.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -20,7 +20,7 @@ import kotlin.collections.ArrayList
  * TODO: Persistent Options were kind of just shoved in here. Clean this up.
  */
 @SuppressLint("RestrictedApi")
-class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
+class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
         private var instance: SearchIndex? = null
 
@@ -49,11 +49,26 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     private val preferenceManager = PreferenceManager(this)
     private val preferences = ArrayList<ActionedPreference>()
 
-    private var isLoaded = async {
-        toInflate.forEach {
-            inflate(it.first, it.second)
+    private var isLoaded = buildLoader()
+
+    init {
+        prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == PrefManager.FORCE_ENABLE_ALL) {
+            isLoaded = buildLoader()
         }
-        true
+    }
+
+    private fun buildLoader(): Deferred<Boolean> {
+        return async {
+            preferences.clear()
+            toInflate.forEach {
+                inflate(it.first, it.second)
+            }
+            true
+        }
     }
 
     private fun inflate(resource: Int, action: Int): PreferenceScreen {

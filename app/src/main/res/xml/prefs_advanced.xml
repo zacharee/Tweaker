@@ -22,4 +22,7 @@
         app:icon_color="@color/pref_color_2"
         />
 
+    <com.zacharee1.systemuituner.prefs.ForceEnableAllPreference
+        />
+
 </PreferenceScreen>
