@@ -16,9 +16,6 @@ import kotlinx.coroutines.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-/**
- * TODO: Persistent Options were kind of just shoved in here. Clean this up.
- */
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
