@@ -2,7 +2,6 @@ package com.zacharee1.systemuituner
 
 import android.content.DialogInterface
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.*
@@ -115,6 +114,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 visibility = View.VISIBLE
                 animate()
                     .alpha(1f)
+                    .withEndAction {
+                        searchFragment.onShow()
+                    }
             }
             searchView?.setOnQueryTextListener(searchFragment)
 

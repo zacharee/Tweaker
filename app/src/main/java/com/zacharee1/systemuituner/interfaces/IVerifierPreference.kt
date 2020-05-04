@@ -1,7 +1,6 @@
 package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
-import android.content.ContextWrapper
 import android.util.AttributeSet
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R

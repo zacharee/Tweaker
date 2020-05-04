@@ -3,21 +3,17 @@ package com.zacharee1.systemuituner.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
-import com.zacharee1.systemuituner.util.PrefManager
-import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.coroutines.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 @SuppressLint("RestrictedApi")
-class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
+class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
         private var instance: SearchIndex? = null
 
@@ -46,25 +42,18 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     private val preferenceManager = PreferenceManager(this)
     private val preferences = ArrayList<ActionedPreference>()
 
-    private var isLoaded = buildLoader()
-
     init {
-        prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
-    }
-
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if (key == PrefManager.FORCE_ENABLE_ALL) {
-            isLoaded = buildLoader()
+        launch {
+            load().await()
         }
     }
 
-    private fun buildLoader(): Deferred<Boolean> {
+    fun load(): Deferred<Unit> {
         return async {
             preferences.clear()
             toInflate.forEach {
                 inflate(it.first, it.second)
             }
-            true
         }
     }
 
@@ -82,16 +71,12 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     }
 
     fun filter(query: String?, result: (ArrayList<ActionedPreference>) -> Unit) = launch {
-        val lowercase = query?.toLowerCase(Locale.getDefault())
-
-        isLoaded.await()
-
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().contains(lowercase, true) ||
-                            it.summary.toString().contains(lowercase, true)
+                    query.isNullOrBlank() ||
+                            it.title.toString().contains(query, true) ||
+                            it.summary.toString().contains(query, true)
                 }
             )
         }
@@ -113,7 +98,6 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
-                    isVisible = preference.isVisible
                     if (preference is ISecurePreference) {
                         dangerous = preference.dangerous
                         type = preference.type
