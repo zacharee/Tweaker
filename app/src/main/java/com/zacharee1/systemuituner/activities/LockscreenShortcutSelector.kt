@@ -2,15 +2,10 @@ package com.zacharee1.systemuituner.activities
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.content.pm.ApplicationInfo
-import android.content.pm.PackageItemInfo
-import android.content.pm.PackageManager
+import android.content.pm.*
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
@@ -19,6 +14,7 @@ import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.addAnimation
+import com.zacharee1.systemuituner.util.scaleAnimatedVisible
 import kotlinx.android.synthetic.main.app_activity_item.view.*
 import kotlinx.android.synthetic.main.lockscreen_shortcut_selector.*
 import kotlinx.coroutines.CoroutineScope
@@ -61,22 +57,13 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             searchView?.setQuery("", false)
             searchView?.isIconified = true
 
-            app_selector.visibility = View.GONE
-            progress.visibility = View.VISIBLE
-
             val deferred = async {
-                val pInfo =
-                    packageManager.getPackageInfo(it.packageName, PackageManager.GET_ACTIVITIES)
-                pInfo.activities?.map { LoadedActivityInfo(packageManager, it) }
+                it.orig.activities?.map { LoadedActivityInfo(packageManager, it) }
             }
 
-            activityAdapter.items.apply {
-                clear()
-                addAll(deferred.await() ?: return@apply)
-            }
+            activityAdapter.items.addAll(deferred.await() ?: return@launch)
 
-            progress.visibility = View.GONE
-            activity_selector.visibility = View.VISIBLE
+            updateRecyclerVisibility(true)
         }
     }
 
@@ -94,12 +81,16 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         setSupportActionBar(toolbar)
         toolbar.addAnimation()
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         app_selector.adapter = appAdapter
         activity_selector.adapter = activityAdapter
 
         launch {
             val deferred = async {
-                packageManager.getInstalledApplications(0)
+                packageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES)
+                    .filter { it.activities != null && it.activities.isNotEmpty() }
                     .map { LoadedApplicationInfo(packageManager, it) }
             }
 
@@ -108,8 +99,8 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 addAll(deferred.await())
             }
 
-            progress.visibility = View.GONE
-            app_selector.visibility = View.VISIBLE
+            progress_wrapper.isVisible = false
+            updateRecyclerVisibility(false)
         }
     }
 
@@ -122,6 +113,15 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         searchView?.addAnimation()
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
@@ -143,7 +143,29 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         return false
     }
 
-    class AppAdapter(private val selectionCallback: (ApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {
+    override fun onBackPressed() {
+        if (activity_selector.isVisible) {
+            updateRecyclerVisibility(false)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun updateRecyclerVisibility(forActivity: Boolean) {
+        activity_selector.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
+            override fun onAnimationEnd(animation: Animation?) {
+                if (!activity_selector.isVisible) {
+                    activityAdapter.items.clear()
+                }
+            }
+
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationRepeat(animation: Animation?) {}
+        })
+        app_selector.scaleAnimatedVisible = !forActivity
+    }
+
+    class AppAdapter(private val selectionCallback: (LoadedApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {
         override val items = object : SortedList<LoadedApplicationInfo>(
             LoadedApplicationInfo::class.java,
             object : SortedList.Callback<LoadedApplicationInfo>() {
@@ -307,7 +329,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             }
         }
 
-        override val visibleItems = SortedList<LoadedActivityInfo>(
+        override val visibleItems = SortedList(
             LoadedActivityInfo::class.java,
             object : SortedList.Callback<LoadedActivityInfo>() {
                 override fun areItemsTheSame(
@@ -400,30 +422,27 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         }
 
         fun matchesQuery(item: PackageItemInfo, query: String? = this.query): Boolean {
-            val lowercase = query?.toLowerCase(Locale.getDefault())
-            return lowercase.isNullOrBlank() ||
+            return query.isNullOrBlank() ||
                     (item is LoadedActivityInfo
-                            && (item.label.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
-                            || item.packageName.toLowerCase(Locale.getDefault()).contains(lowercase)
-                            || item.componentName.flattenToShortString().toLowerCase(Locale.getDefault()).contains(lowercase)
+                            && (item.label.toString().contains(query, true)
+                            || item.packageName.contains(query, true)
+                            || item.componentName.flattenToShortString().contains(query, true)
                             ))
                     ||
                     (item is LoadedApplicationInfo
-                            && (item.label.toString().toLowerCase(Locale.getDefault()).contains(lowercase)
-                            || item.packageName.toLowerCase(Locale.getDefault()).contains(lowercase)
+                            && (item.label.toString().contains(query, true)
+                            || item.packageName.contains(query, true)
                     ))
         }
     }
 
     class VH(view: View) : RecyclerView.ViewHolder(view)
 
-    class LoadedApplicationInfo(packageManager: PackageManager, orig: ApplicationInfo) :
-        ApplicationInfo(orig) {
-        val label = loadLabel(packageManager)
+    class LoadedApplicationInfo(packageManager: PackageManager, val orig: PackageInfo) : ApplicationInfo(orig.applicationInfo) {
+        val label: CharSequence = loadLabel(packageManager)
     }
 
-    class LoadedActivityInfo(packageManager: PackageManager, orig: ActivityInfo) :
-        ActivityInfo(orig) {
-        val label = loadLabel(packageManager)
+    class LoadedActivityInfo(packageManager: PackageManager, orig: ActivityInfo) : ActivityInfo(orig) {
+        val label: CharSequence = loadLabel(packageManager)
     }
 }

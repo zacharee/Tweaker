@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             root.openPane()
+            return true
         }
 
         return super.onOptionsItemSelected(item)

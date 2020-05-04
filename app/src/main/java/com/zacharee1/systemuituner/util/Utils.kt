@@ -1,5 +1,8 @@
 package com.zacharee1.systemuituner.util
 
+import android.animation.Animator
+import android.animation.AnimatorInflater
+import android.animation.AnimatorListenerAdapter
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -23,7 +26,10 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.view.animation.TranslateAnimation
 import android.widget.LinearLayout
+import androidx.annotation.AnimRes
+import androidx.annotation.AnimatorRes
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -411,13 +417,15 @@ fun Context.buildNonResettablePreferences(): Set<String> {
     val names = HashSet<String>()
     try {
         val cursor = contentResolver.query(Uri.parse("content://settings/system"), arrayOf("name", "package"), null, null, null)
-        while (cursor.moveToNext()) {
-            val pkg = cursor.getString(1)
-            if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
-                names.add(cursor.getString(0))
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                val pkg = cursor.getString(1)
+                if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
+                    names.add(cursor.getString(0))
+                }
             }
+            cursor.close()
         }
-        cursor.close()
     } catch (e: IllegalArgumentException) {}
     names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key })
     return names
@@ -453,24 +461,38 @@ fun parseAutoIconBlacklistSlots(): ArrayList<String> {
     return slots
 }
 
+fun View.scaleAnimatedVisible(visible: Boolean, listener: Animation.AnimationListener? = null) {
+    val anim = AnimationUtils.loadAnimation(context, if (visible) R.anim.scale_in else R.anim.scale_out)
+    anim.setAnimationListener(object : Animation.AnimationListener {
+        override fun onAnimationRepeat(animation: Animation?) {
+            listener?.onAnimationRepeat(animation)
+        }
+        override fun onAnimationStart(animation: Animation?) {
+            listener?.onAnimationStart(animation)
+        }
+        override fun onAnimationEnd(animation: Animation?) {
+            if (!visible) {
+                isVisible = false
+                alpha = 0f
+            } else {
+                alpha = 1f
+            }
+            listener?.onAnimationEnd(animation)
+        }
+    })
+    if (visible) {
+        isVisible = true
+        alpha = 0f
+    } else {
+        alpha = 1f
+    }
+    startAnimation(anim)
+}
+
 var View.scaleAnimatedVisible: Boolean
     get() = isVisible
     set(value) {
-        val anim = AnimationUtils.loadAnimation(context, if (value) R.anim.scale_in else R.anim.scale_out)
-        anim.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {}
-            override fun onAnimationStart(animation: Animation?) {}
-            override fun onAnimationEnd(animation: Animation?) {
-                if (!value) isVisible = false
-            }
-        })
-        if (value) {
-            isVisible = true
-            alpha = 0f
-        } else {
-            alpha = 1f
-        }
-        startAnimation(anim)
+        scaleAnimatedVisible(value)
     }
 
 object WriteSystemAddOnValues {
