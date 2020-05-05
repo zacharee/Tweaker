@@ -9,16 +9,9 @@ import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import java.util.*
+import kotlinx.coroutines.*
 import kotlin.collections.ArrayList
 
-/**
- * TODO: Persistent Options were kind of just shoved in here. Clean this up.
- */
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
@@ -49,11 +42,19 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     private val preferenceManager = PreferenceManager(this)
     private val preferences = ArrayList<ActionedPreference>()
 
-    private var isLoaded = async {
-        toInflate.forEach {
-            inflate(it.first, it.second)
+    init {
+        launch {
+            load().await()
         }
-        true
+    }
+
+    fun load(): Deferred<Unit> {
+        return async {
+            preferences.clear()
+            toInflate.forEach {
+                inflate(it.first, it.second)
+            }
+        }
     }
 
     private fun inflate(resource: Int, action: Int): PreferenceScreen {
@@ -70,16 +71,12 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     }
 
     fun filter(query: String?, result: (ArrayList<ActionedPreference>) -> Unit) = launch {
-        val lowercase = query?.toLowerCase(Locale.getDefault())
-
-        isLoaded.await()
-
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().contains(lowercase, true) ||
-                            it.summary.toString().contains(lowercase, true)
+                    query.isNullOrBlank() ||
+                            it.title.toString().contains(query, true) ||
+                            it.summary.toString().contains(query, true)
                 }
             )
         }
@@ -101,9 +98,10 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
-                    isVisible = preference.isVisible
-                    if (preference is ISecurePreference) {
+                    if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
+                    }
+                    if (preference is ISecurePreference) {
                         type = preference.type
                     }
                     if (preference is ISpecificPreference) {

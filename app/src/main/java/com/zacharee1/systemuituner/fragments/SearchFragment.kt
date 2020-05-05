@@ -9,8 +9,6 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SearchIndex
 import com.zacharee1.systemuituner.util.forEach
 import com.zacharee1.systemuituner.util.hasPreference
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
@@ -25,25 +23,24 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
     }
 
-    override fun onResume() {
-        super.onResume()
+    fun onShow() {
+        launch {
+            searchIndex.load().await()
 
-        preferenceScreen.removeAll()
-        searchIndex.filter(null) {
-            launch {
+            preferenceScreen.removeAll()
+            searchIndex.filter(null) {
                 it.forEach { pref ->
                     preferenceScreen.addPreference(
                         SearchIndex.ActionedPreference.copy(requireContext(), pref)
                     )
                 }
             }
+            preferenceScreen.isOrderingAsAdded = false
         }
-
-        preferenceScreen.isOrderingAsAdded = false
     }
 
-    override fun onDetach() {
-        super.onDetach()
+    override fun onDestroy() {
+        super.onDestroy()
 
         cancel()
     }
@@ -72,7 +69,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
             }
 
             toRemove.forEach { pref ->
-                preferenceScreen.removePreference(pref)
+                preferenceScreen.removePreferenceRecursively(pref.key)
             }
 
             it.forEach { pref ->

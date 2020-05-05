@@ -1,12 +1,12 @@
 package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
-import android.content.ContextWrapper
 import android.util.AttributeSet
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.api
 import com.zacharee1.systemuituner.util.apiToName
+import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
 import com.zacharee1.systemuituner.util.verifiers.BaseVisibilityVerifier
 
@@ -58,7 +58,7 @@ open class VerifierPreference(private val context: Context, attrs: AttributeSet?
         val lowUndefined = lowApi == IVerifierPreference.API_UNDEFINED
         val highUndefined = highApi == IVerifierPreference.API_UNDEFINED
 
-        pref.isEnabled = ((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
+        pref.isEnabled = context.prefManager.forceEnableAll || (((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
             if (!it) {
                 val (toFormat, args) = when {
                     lowUndefined -> R.string.compatibility_message_higher to arrayOf(context.apiToName(highApi))
@@ -72,10 +72,10 @@ open class VerifierPreference(private val context: Context, attrs: AttributeSet?
             if (!it) {
                 pref.summary = enabledVerifier?.message
             }
-        }
+        })
 
         visibilityVerifier?.let {
-            pref.isVisible = it.shouldShow
+            pref.isVisible = context.prefManager.forceEnableAll || it.shouldShow
         }
     }
 }

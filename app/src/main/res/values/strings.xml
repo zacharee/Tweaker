@@ -204,10 +204,13 @@
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options.</string>
 
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
-    <string name="option_touchwiz_qs_row_count_desc">Sets the number of quick settings rows to a custom value. Please enable this as a Persistent Option.</string>
+    <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
 
     <string name="option_touchwiz_qs_column_count">Quick Settings Column Count</string>
-    <string name="option_touchwiz_qs_column_count_desc">Sets the number of quick settings columns to a custom value. Please enable this as a Persistent Option.</string>
+    <string name="option_touchwiz_qs_column_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the column count. Please enable this as a Persistent Option.</string>
+
+    <string name="option_advanced_force_enable_all">Enable All Disabled/Hidden Options</string>
+    <string name="option_advanced_force_enable_all_desc">Certain options in SystemUI Tuner are hidden or disabled depending on your device and what version of Android it\'s running. Enabling this will force those options to be visible and enabled. WARNING: there\'s usually a good reason these options are disabled or hidden. They may simply not work, or they may break your device. Proceed with caution!</string>
 
     <string name="home_welcome_title">Welcome!</string>
 

@@ -1,21 +1,16 @@
 package com.zacharee1.systemuituner
 
-import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.res.ColorStateList
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.customview.widget.ViewDragHelper
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -45,8 +40,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private val navController: NavController
         get() = findNavController(R.id.nav_host_fragment)
 
-    private val drawerToggle by lazy { ActionBarDrawerToggle(this, root, toolbar, R.string.material_drawer_open, R.string.material_drawer_close) }
-
     private var searchView: SearchView? = null
 
     @ExperimentalNavController
@@ -61,23 +54,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(DrawerArrowDrawable(this))
         toolbar.addAnimation()
 
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
         setUpDrawer()
-        root.addDrawerListener(object : DrawerLayout.DrawerListener {
-            override fun onDrawerClosed(drawerView: View) {
-                updateDragEdgeSize()
-            }
-
-            override fun onDrawerOpened(drawerView: View) {
-                updateDragEdgeSize()
-            }
-
-            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {}
-            override fun onDrawerStateChanged(newState: Int) {}
-        })
 
         titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
         titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
@@ -88,9 +70,15 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         slider.setupWithNavController(navController)
         slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
 
-        updateDragEdgeSize()
+        val currentListener = slider.onDrawerItemClickListener
+        slider.onDrawerItemClickListener = { view, item, position ->
+            if (item.isSelectable && item is NavigationDrawerItem) {
+                root.closePane()
+            }
+            currentListener?.invoke(view, item, position) ?: false
+        }
 
-        slider.drawerLayout?.addDrawerListener(drawerToggle)
+        root.sliderFadeColor = getColor(R.color.colorSliderFade)
 
         navController.addOnDestinationChangedListener(this)
 
@@ -104,19 +92,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
     }
 
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        drawerToggle.syncState()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        updateDragEdgeSize()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (drawerToggle.onOptionsItemSelected(item))
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            root.openPane()
             return true
+        }
 
         return super.onOptionsItemSelected(item)
     }
@@ -134,6 +114,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 visibility = View.VISIBLE
                 animate()
                     .alpha(1f)
+                    .withEndAction {
+                        searchFragment.onShow()
+                    }
             }
             searchView?.setOnQueryTextListener(searchFragment)
 
@@ -162,7 +145,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         destination: NavDestination,
         arguments: Bundle?
     ) {
-//        val item = findDrawerItemByDestinationId(destination.id) ?: return
         slider.setSelection(destination.id.toLong(), false)
     }
 
@@ -193,16 +175,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         super.setTitle(null)
 
         titleSwitcher.setText(title)
-    }
-
-    @SuppressLint("RestrictedApi")
-    private fun updateDragEdgeSize() {
-        root.also {
-            it::class.java.apply {
-                (getDeclaredField("mLeftDragger").apply { isAccessible = true }
-                    .get(it) as ViewDragHelper).edgeSize = if (root.isOpen) 0 else dpAsPx(resources.configuration.screenWidthDp)
-            }
-        }
     }
 
     private fun setUpDrawer() {

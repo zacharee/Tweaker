@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="toolbarColor">#231f2e</color>
     <color name="colorBackground">#060014</color>
+    <color name="colorSliderFade">#77000000</color>
 
     <color name="slide_1">@color/colorPrimary</color>
     <color name="slide_2">@color/colorPrimaryDark</color>

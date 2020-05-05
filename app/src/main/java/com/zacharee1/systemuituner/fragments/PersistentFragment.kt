@@ -216,8 +216,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     if (preference is ISpecificPreference) {
                         keys.addAll(preference.keys)
                     }
-                    if (preference is ISecurePreference) {
+                    if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
+                    }
+                    if (preference is ISecurePreference) {
                         type = preference.type
 
                         if (keys.isEmpty()) {

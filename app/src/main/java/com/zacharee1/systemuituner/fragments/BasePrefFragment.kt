@@ -27,11 +27,9 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
+import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
-import com.zacharee1.systemuituner.prefs.NightModePreference
-import com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
-import com.zacharee1.systemuituner.prefs.ReadSettingPreference
-import com.zacharee1.systemuituner.prefs.WriteSettingPreference
+import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSwitchPreference
@@ -57,6 +55,12 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     override fun onDisplayPreferenceDialog(preference: Preference?) {
         val fragment = when (preference) {
+            is ForceEnableAllPreference -> SwitchOptionDialog.newInstance(
+                preference.key,
+                preference.disabled,
+                preference.enabled,
+                requireContext().prefManager.forceEnableAll
+            )
             is SecureSwitchPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
                 preference.disabled,
@@ -403,7 +407,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         for (i in 0 until group.preferenceCount) {
             val child = group.getPreference(i)
 
-            if (child is ISecurePreference && child.dangerous) {
+            if (child is IDangerousPreference && child.dangerous) {
                 markDangerous(child)
             }
             if (child is PreferenceGroup) markDangerous(child)
