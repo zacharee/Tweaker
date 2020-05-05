@@ -50,6 +50,7 @@
             android:exported="false"
             />
         <activity android:name=".activities.LockscreenShortcutSelector"
+            android:label="@string/feature_lockscreen_shortcuts"
             android:exported="false"
             />
         <activity android:name=".activities.PersistentActivity"
