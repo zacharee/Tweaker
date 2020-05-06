@@ -13,9 +13,6 @@ class NonPersistentActivityPreference(context: Context, attrs: AttributeSet) : A
 open class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(
     context,
     attrs
-), ISecurePreference by SecurePreference(
-    context,
-    attrs
 ) {
     private val activityIntent: Intent?
 
@@ -37,7 +34,6 @@ open class ActivityPreference(context: Context, attrs: AttributeSet) : Preferenc
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
 
-        initSecure(this)
         bindVH(holder)
     }
 
