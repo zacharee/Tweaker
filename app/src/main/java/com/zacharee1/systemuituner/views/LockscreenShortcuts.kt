@@ -55,7 +55,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                     app_icon.setImageDrawable(
                         try {
                             context.packageManager.getApplicationIcon(cName.packageName)
-                        } catch (e: Resources.NotFoundException) {
+                        } catch (e: PackageManager.NameNotFoundException) {
                             null
                         }
                     )
