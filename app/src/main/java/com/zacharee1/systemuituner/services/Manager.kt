@@ -24,16 +24,6 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private val observer = Observer()
-    private val shutdownReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent) {
-            if (intent.action == Intent.ACTION_REBOOT || intent.action == Intent.ACTION_SHUTDOWN) {
-                if (prefManager.persistentOptions.find { it.type == SettingsType.SECURE && it.key == "icon_blacklist" } != null) {
-                    observer.unregister()
-                    writeSecure("icon_blacklist", null)
-                }
-            }
-        }
-    }
 
     override fun onBind(intent: Intent?): IBinder {
         return ManagerImpl()
@@ -52,10 +42,6 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
-        registerReceiver(shutdownReceiver, IntentFilter().apply {
-            addAction(Intent.ACTION_REBOOT)
-            addAction(Intent.ACTION_SHUTDOWN)
-        })
         try {
             doInitialCheck()
         } catch (e: IllegalStateException) {}
@@ -104,10 +90,12 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private fun runComparison(type: SettingsType, key: String) {
-        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
+        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
         if (handler != null) {
             val prefValue = handler.getPreferenceValueAsString()
+
+            handler.doInitialSet()
 
             if (!handler.compareValues()) {
                 writeSetting(type, key, prefValue)
@@ -148,7 +136,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         }
 
         fun unregister() {
-            contentResolver.unregisterContentObserver(this)
+            try {
+                contentResolver.unregisterContentObserver(this)
+            } catch (e: Exception) {}
         }
 
         override fun onChange(selfChange: Boolean, uri: Uri) {

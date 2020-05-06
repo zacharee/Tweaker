@@ -1,9 +1,9 @@
 package com.zacharee1.systemuituner.util.persistence
 
 import android.content.Context
-import android.provider.Settings
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeSecure
 
 class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<HashSet<String>>(context) {
     override val settingsKey: String = "icon_blacklist"
@@ -25,10 +25,6 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
         }
     }
 
-    override fun getSettingsValue(): String? {
-        return Settings.Secure.getString(context.contentResolver, settingsKey)
-    }
-
     override fun areValuesTheSame(preferenceValue: HashSet<String>?, settingsValue: String?): Boolean {
         if (preferenceValue.isNullOrEmpty()) return settingsValue.isNullOrBlank()
         if (settingsValue.isNullOrBlank()) return preferenceValue.isNullOrEmpty()
@@ -37,5 +33,9 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
         return split.size == preferenceValue.size
                 && preferenceValue.containsAll(split)
                 && split.containsAll(preferenceValue)
+    }
+
+    override fun doInitialSet() {
+        context.writeSecure(settingsKey, null)
     }
 }
