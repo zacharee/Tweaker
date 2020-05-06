@@ -7,11 +7,11 @@ import androidx.preference.DialogPreference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.writeSecure
 import com.zacharee1.systemuituner.views.NightModeView
 
-class NightModePreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs), IColorPreference by ColorPreference(context, attrs), IVerifierPreference by VerifierPreference(context, attrs), IDialogPreference, ISpecificPreference {
-    override var writeKey: String? = null
+class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference {
     override val keys: Array<String> = arrayOf(
         NightModeView.NIGHT_DISPLAY_ACTIVATED,
         NightModeView.NIGHT_DISPLAY_AUTO_MODE,
@@ -20,7 +20,6 @@ class NightModePreference(context: Context, attrs: AttributeSet) : DialogPrefere
     )
 
     init {
-        layoutResource = R.layout.custom_preference
         key = "night_mode_option"
 
         setTitle(R.string.option_night_mode)
@@ -33,8 +32,6 @@ class NightModePreference(context: Context, attrs: AttributeSet) : DialogPrefere
         dialogTitle = title
         dialogMessage = summary
         iconColor = R.color.pref_color_4
-
-        init(this)
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {

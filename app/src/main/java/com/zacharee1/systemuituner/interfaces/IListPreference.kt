@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.interfaces
 interface IListPreference : IDialogPreference {
     val entries: Array<CharSequence?>?
     val entryValues: Array<CharSequence?>?
+    var writeKey: String?
     var value: String?
 
     fun findIndexOfValue(value: String?): Int {

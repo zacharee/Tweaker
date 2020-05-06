@@ -20,7 +20,30 @@ interface IVerifierPreference {
     var lowApi: Int
     var highApi: Int
 
-    fun init(pref: Preference)
+    fun initVerify(pref: Preference) {
+        val lowUndefined = lowApi == API_UNDEFINED
+        val highUndefined = highApi == API_UNDEFINED
+
+        pref.isEnabled = pref.context.prefManager.forceEnableAll || (((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
+            if (!it) {
+                val (toFormat, args) = when {
+                    lowUndefined -> R.string.compatibility_message_higher to arrayOf(pref.context.apiToName(highApi))
+                    highUndefined -> R.string.compatibility_message_lower to arrayOf(pref.context.apiToName(lowApi))
+                    else -> R.string.compatibility_message_both to arrayOf(pref.context.apiToName(lowApi), pref.context.apiToName(highApi))
+                }
+
+                pref.summary = pref.context.resources.getString(toFormat, *args)
+            }
+        } && (enabledVerifier?.shouldBeEnabled != false).also {
+            if (!it) {
+                pref.summary = enabledVerifier?.message
+            }
+        })
+
+        visibilityVerifier?.let {
+            pref.isVisible = pref.context.prefManager.forceEnableAll || it.shouldShow
+        }
+    }
 }
 
 open class VerifierPreference(private val context: Context, attrs: AttributeSet?) : IVerifierPreference {
@@ -51,31 +74,6 @@ open class VerifierPreference(private val context: Context, attrs: AttributeSet?
                     .getConstructor(Context::class.java)
                     .newInstance(context) as BasePreferenceEnabledVerifier
             }
-        }
-    }
-
-    override fun init(pref: Preference) {
-        val lowUndefined = lowApi == IVerifierPreference.API_UNDEFINED
-        val highUndefined = highApi == IVerifierPreference.API_UNDEFINED
-
-        pref.isEnabled = context.prefManager.forceEnableAll || (((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
-            if (!it) {
-                val (toFormat, args) = when {
-                    lowUndefined -> R.string.compatibility_message_higher to arrayOf(context.apiToName(highApi))
-                    highUndefined -> R.string.compatibility_message_lower to arrayOf(context.apiToName(lowApi))
-                    else -> R.string.compatibility_message_both to arrayOf(context.apiToName(lowApi), context.apiToName(highApi))
-                }
-
-                pref.summary = context.resources.getString(toFormat, *args)
-            }
-        } && (enabledVerifier?.shouldBeEnabled != false).also {
-            if (!it) {
-                pref.summary = enabledVerifier?.message
-            }
-        })
-
-        visibilityVerifier?.let {
-            pref.isVisible = context.prefManager.forceEnableAll || it.shouldShow
         }
     }
 }

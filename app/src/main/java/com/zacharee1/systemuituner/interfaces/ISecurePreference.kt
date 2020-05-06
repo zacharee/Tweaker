@@ -11,13 +11,17 @@ import com.zacharee1.systemuituner.util.apiToName
 import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
 import com.zacharee1.systemuituner.util.verifiers.BaseVisibilityVerifier
 
-interface ISecurePreference : IVerifierPreference, IDangerousPreference {
+interface ISecurePreference : IDangerousPreference {
     var type: SettingsType
     var writeKey: String?
+
+    fun initSecure(pref: Preference) {
+        if (writeKey == null) writeKey = pref.key
+    }
 }
 
 class SecurePreference(context: Context, attrs: AttributeSet?) :
-    ISecurePreference, VerifierPreference(context, attrs), IDangerousPreference by DangerousPreference(context, attrs) {
+    ISecurePreference, IDangerousPreference by DangerousPreference(context, attrs) {
     override var type: SettingsType =
         SettingsType.UNDEFINED
     override var writeKey: String? = null
@@ -31,10 +35,5 @@ class SecurePreference(context: Context, attrs: AttributeSet?) :
 
             array.recycle()
         }
-    }
-
-    override fun init(pref: Preference) {
-        super.init(pref)
-        if (writeKey == null) writeKey = pref.key
     }
 }

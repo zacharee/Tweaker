@@ -28,6 +28,12 @@ class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPrefer
             }
         }
 
+    override var writeKey: String?
+        get() = key
+        set(value) {
+            key = value
+        }
+
     override var entries: Array<CharSequence?>? = null
     override var entryValues: Array<CharSequence?>? = null
 

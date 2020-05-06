@@ -26,6 +26,7 @@ import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
+import com.zacharee1.systemuituner.prefs.BlacklistBrokenBatteryAndroid10Preference
 import com.zacharee1.systemuituner.prefs.BlacklistPreference
 import com.zacharee1.systemuituner.prefs.CustomBlacklistAddPreference
 import com.zacharee1.systemuituner.util.*
@@ -247,6 +248,18 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment = when (preference) {
             is CustomBlacklistAddPreference -> CustomBlacklistItemDialogFragment.newInstance(preference.key)
+            is BlacklistBrokenBatteryAndroid10Preference -> {
+                RoundedBottomSheetDialog(requireContext()).apply {
+                    setTitle(preference.title)
+                    setMessage(preference.summary)
+                    setPositiveButton(R.string.hide_battery_android_bug_btn_view_issue, DialogInterface.OnClickListener { dialog, which ->
+                        requireContext().launchUrl("https://issuetracker.google.com/issues/141806620")
+                    })
+                    setNegativeButton(android.R.string.cancel, null)
+                    show()
+                }
+                return
+            }
             else -> null
         }
 

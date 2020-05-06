@@ -189,7 +189,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     ), IColorPreference by ColorPreference(
         context,
         null
-    ) {
+    ), IVerifierPreference by VerifierPreference(context, null) {
         companion object {
             fun fromCustomPersistentOption(context: Context, info: CustomPersistentOption): PersistentPreference {
                 return PersistentPreference(true, context).apply {
@@ -225,6 +225,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         if (keys.isEmpty()) {
                             keys.add(preference.key)
                         }
+                        initSecure(this)
                     }
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
@@ -234,7 +235,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         highApi = preference.highApi
                         visibilityVerifier = preference.visibilityVerifier
                         enabledVerifier = preference.enabledVerifier
-                        init(this)
+                        initVerify(this)
                     }
                 }
             }

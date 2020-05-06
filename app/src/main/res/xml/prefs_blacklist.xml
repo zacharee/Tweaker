@@ -3,4 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <com.zacharee1.systemuituner.prefs.BlacklistBrokenBatteryAndroid10Preference
+        android:title="@string/icon_blacklist_battery"
+        android:summary="@string/hide_battery_android_bug_msg"
+        android:icon="@drawable/battery_full"
+        app:icon_color="@color/pref_color_1"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForAndroid10"
+        />
+
 </PreferenceScreen>

@@ -8,9 +8,6 @@ import com.zacharee1.systemuituner.interfaces.IDialogPreference
 
 open class BaseDemoPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs),
     IDialogPreference {
-    override var writeKey: String? = null
-        get() = key
-
     override fun onValueChanged(newValue: Any?, key: String) {
         sharedPreferences.edit {
             putString(key, newValue?.toString())

@@ -16,8 +16,6 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
     var defaultValue = 0
     var scale = 1.0f
     var units: String? = null
-    override var writeKey: String? = null
-        get() = key
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.SecureSeekBarPreference, 0, 0)
@@ -47,9 +45,9 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
 
         sharedPreferences.edit {
             if (value != null) {
-                putFloat(writeKey!!, value)
+                putFloat(key, value)
             } else {
-                remove(writeKey!!)
+                remove(key)
             }
         }
 

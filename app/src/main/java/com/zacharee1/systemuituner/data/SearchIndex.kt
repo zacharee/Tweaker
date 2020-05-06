@@ -90,7 +90,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
     ), ISpecificPreference, IColorPreference by ColorPreference(
         context,
         null
-    ) {
+    ), IVerifierPreference by VerifierPreference(context, null) {
         companion object {
             fun fromPreference(context: Context, preference: Preference, action: Int): ActionedPreference {
                 return ActionedPreference(context).apply {
@@ -103,6 +103,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     }
                     if (preference is ISecurePreference) {
                         type = preference.type
+                        initSecure(this)
                     }
                     if (preference is ISpecificPreference) {
                         _keys.addAll(preference.keys)
@@ -112,7 +113,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     }
                     if (preference is IVerifierPreference) {
                         visibilityVerifier = preference.visibilityVerifier
-                        init(this)
+                        initVerify(this)
                     }
                     this.action = action
                 }

@@ -349,4 +349,7 @@
     <string name="tile_demo">Demo Mode</string>
     <string name="tile_heads_up">Heads Up Notifications</string>
     <string name="tile_night_mode">Night Mode</string>
+
+    <string name="hide_battery_android_bug_msg">Hiding the battery icon is no longer possible using the icon blacklist on Android 10. This is a bug in Android. It should be fixed in Android 11.</string>
+    <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
 </resources>

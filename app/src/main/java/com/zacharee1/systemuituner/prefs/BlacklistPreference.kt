@@ -9,15 +9,10 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreference
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.interfaces.ColorPreference
-import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
 
-open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs), IColorPreference by ColorPreference(
-    context,
-    attrs
-), Preference.OnPreferenceChangeListener {
+open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs), Preference.OnPreferenceChangeListener {
     private val additionalKeys by lazy { HashSet<String>() }
     private val allKeys: HashSet<String>
         get() = HashSet(additionalKeys).apply { add(autoWriteKey ?: key) }
