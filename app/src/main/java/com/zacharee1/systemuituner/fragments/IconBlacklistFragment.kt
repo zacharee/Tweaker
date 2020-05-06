@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
@@ -26,6 +27,8 @@ import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
+import com.zacharee1.systemuituner.interfaces.ColorPreference
+import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.prefs.BlacklistBrokenBatteryAndroid10Preference
 import com.zacharee1.systemuituner.prefs.BlacklistPreference
 import com.zacharee1.systemuituner.prefs.CustomBlacklistAddPreference
@@ -54,6 +57,17 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     private val origExpansionStates = HashMap<String, Boolean>()
     private val gson = GsonBuilder().create()
 
+    class BackupRestorePreference(context: Context) : Preference(context), IColorPreference by ColorPreference(context, null) {
+        init {
+            layoutResource = R.layout.custom_preference
+        }
+
+        override fun onBindViewHolder(holder: PreferenceViewHolder) {
+            super.onBindViewHolder(holder)
+            bindVH(holder)
+        }
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_blacklist, rootKey)
 
@@ -61,9 +75,10 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
         createCategory(R.string.backup_restore, "backup_restore_icon_blacklist") {
             it.addPreference(
-                Preference(requireContext()).apply {
+                BackupRestorePreference(requireContext()).apply {
                     key = "backup_blacklist"
-                    layoutResource = R.layout.custom_preference
+                    iconColor = requireContext().getColor(R.color.pref_color_2)
+                    setIcon(R.drawable.ic_baseline_save_24)
                     setTitle(R.string.back_up)
                     setOnPreferenceClickListener {
                         val formatter = SimpleDateFormat("yyyy-mm-dd_HH:mm:ss", Locale.getDefault())
@@ -77,9 +92,10 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                 }
             )
             it.addPreference(
-                Preference(requireContext()).apply {
+                BackupRestorePreference(requireContext()).apply {
                     key = "restore_blacklist"
-                    layoutResource = R.layout.custom_preference
+                    iconColor = requireContext().getColor(R.color.pref_color_3)
+                    setIcon(R.drawable.ic_baseline_restore_24)
                     setTitle(R.string.restore)
                     setOnPreferenceClickListener {
                         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
