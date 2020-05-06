@@ -27,8 +27,6 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
         setIcon(R.drawable.ic_baseline_nights_stay_24)
 
         lowApi = Build.VERSION_CODES.N
-        //technically supported on 10, but just makes the screen fade to black
-        highApi = Build.VERSION_CODES.P
         dialogTitle = title
         dialogMessage = summary
         iconColor = R.color.pref_color_4
