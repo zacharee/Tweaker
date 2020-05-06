@@ -4,9 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Build
@@ -26,6 +24,16 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private val observer = Observer()
+    private val shutdownReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            if (intent.action == Intent.ACTION_REBOOT || intent.action == Intent.ACTION_SHUTDOWN) {
+                if (prefManager.persistentOptions.find { it.type == SettingsType.SECURE && it.key == "icon_blacklist" } != null) {
+                    observer.unregister()
+                    writeSecure("icon_blacklist", null)
+                }
+            }
+        }
+    }
 
     override fun onBind(intent: Intent?): IBinder {
         return ManagerImpl()
@@ -44,6 +52,10 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
         super.onCreate()
 
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+        registerReceiver(shutdownReceiver, IntentFilter().apply {
+            addAction(Intent.ACTION_REBOOT)
+            addAction(Intent.ACTION_SHUTDOWN)
+        })
         try {
             doInitialCheck()
         } catch (e: IllegalStateException) {}
