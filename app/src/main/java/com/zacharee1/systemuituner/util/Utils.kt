@@ -7,9 +7,11 @@ import android.animation.LayoutTransition
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
+import android.content.pm.ComponentInfo
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.net.Uri
@@ -109,6 +111,9 @@ val Context.hasPackageUsageStats: Boolean
 
 val Context.isTouchWiz: Boolean
     get() = packageManager.hasSystemFeature("com.samsung.feature.samsung_experience_mobile")
+
+val ComponentInfo.component: ComponentName
+    get() = ComponentName(packageName, name)
 
 val isHTC: Boolean
     get() = !SystemProperties.get("ro.build.sense.version").isNullOrBlank()

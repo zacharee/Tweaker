@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.addAnimation
+import com.zacharee1.systemuituner.util.component
 import com.zacharee1.systemuituner.util.scaleAnimatedVisible
 import kotlinx.android.synthetic.main.app_activity_item.view.*
 import kotlinx.android.synthetic.main.lockscreen_shortcut_selector.*
@@ -48,7 +49,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     private val key by lazy { intent.getStringExtra(EXTRA_KEY) }
 
     private val activityAdapter = ActivityAdapter {
-        callback!!.onSelected(it.componentName.flattenToShortString(), key)
+        callback!!.onSelected(it.component.flattenToShortString(), key)
         finish()
     }
 
@@ -299,7 +300,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                     oldItem: LoadedActivityInfo,
                     newItem: LoadedActivityInfo
                 ): Boolean {
-                    return oldItem.componentName == newItem.componentName
+                    return oldItem.component == newItem.component
                 }
             }
         ) {
@@ -363,7 +364,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                     oldItem: LoadedActivityInfo,
                     newItem: LoadedActivityInfo
                 ): Boolean {
-                    return oldItem.componentName == newItem.componentName
+                    return oldItem.component == newItem.component
                 }
             }
         )
@@ -374,7 +375,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
                 icon.setImageDrawable(info.loadIcon(context.packageManager))
                 name.text = info.label
-                component.text = info.componentName.flattenToShortString()
+                component.text = info.component.flattenToShortString()
 
                 setOnClickListener {
                     val newInfo = visibleItems[holder.adapterPosition]
@@ -426,7 +427,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                     (item is LoadedActivityInfo
                             && (item.label.toString().contains(query, true)
                             || item.packageName.contains(query, true)
-                            || item.componentName.flattenToShortString().contains(query, true)
+                            || item.component.flattenToShortString().contains(query, true)
                             ))
                     ||
                     (item is LoadedApplicationInfo
