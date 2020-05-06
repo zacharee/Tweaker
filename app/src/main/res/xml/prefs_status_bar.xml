@@ -7,7 +7,7 @@
         android:summary="@string/special_sub_icon_blacklist_desc"
         android:key="icon_blacklist"
         android:icon="@drawable/ic_baseline_visibility_off_24"
-        app:icon_color="@color/pref_color_5"
+        app:icon_color="@color/pref_color_1"
         app:activity_class="com.zacharee1.systemuituner.activities.IconBlacklistActivity"
         app:settings_type="secure"
         />
