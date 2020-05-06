@@ -4,10 +4,11 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.interfaces.INoPersistPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.util.PrefManager
 
-class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSwitchPreference(context, attrs) {
+class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSwitchPreference(context, attrs), INoPersistPreference {
     init {
         setTitle(R.string.option_advanced_force_enable_all)
         setSummary(R.string.option_advanced_force_enable_all_desc)
