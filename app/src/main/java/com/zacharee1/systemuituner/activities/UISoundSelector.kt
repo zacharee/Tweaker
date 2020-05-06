@@ -26,7 +26,10 @@ class UISoundSelector : AppCompatActivity() {
 
     private val key by lazy { intent.getStringExtra(EXTRA_KEY) }
     private val callback by lazy {
-        IUISoundSelectionCallback.Stub.asInterface(intent.getBundleExtra(EXTRA_CALLBACK)!!.getBinder(EXTRA_CALLBACK))
+        val binder = intent.getBundleExtra(EXTRA_CALLBACK)?.getBinder(EXTRA_CALLBACK)
+        if (binder != null) {
+            IUISoundSelectionCallback.Stub.asInterface(binder)
+        } else null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +59,9 @@ class UISoundSelector : AppCompatActivity() {
                     }
                 }
 
-                callback.onSoundSelected(dest.absolutePath, key)
+                if (callback?.asBinder()?.isBinderAlive == true) {
+                    callback?.onSoundSelected(dest.absolutePath, key)
+                }
             }
         }
 
