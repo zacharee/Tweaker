@@ -37,6 +37,7 @@ open class ActivityPreference(context: Context, attrs: AttributeSet) : Preferenc
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
 
+        initSecure(this)
         bindVH(holder)
     }
 

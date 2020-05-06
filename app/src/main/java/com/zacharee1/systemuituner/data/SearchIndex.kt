@@ -103,7 +103,6 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     }
                     if (preference is ISecurePreference) {
                         type = preference.type
-                        initSecure(this)
                     }
                     if (preference is ISpecificPreference) {
                         _keys.addAll(preference.keys)
@@ -113,9 +112,11 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     }
                     if (preference is IVerifierPreference) {
                         visibilityVerifier = preference.visibilityVerifier
-                        initVerify(this)
                     }
                     this.action = action
+
+                    initSecure(this)
+                    initVerify(this)
                 }
             }
 

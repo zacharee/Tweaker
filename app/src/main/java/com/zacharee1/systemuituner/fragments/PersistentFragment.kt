@@ -205,10 +205,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     icon = preference.icon
                     key = preference.key
                     isVisible = preference.isVisible
-                    if (preference is PersistentPreference) {
-                        origSummary = preference.origSummary
+                    origSummary = if (preference is PersistentPreference) {
+                        preference.origSummary
                     } else {
-                        origSummary = preference.summary
+                        preference.summary
                     }
                     if (preference is PersistentPreference) {
                         keys.addAll(preference.keys)
@@ -225,7 +225,6 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         if (keys.isEmpty()) {
                             keys.add(preference.key)
                         }
-                        initSecure(this)
                     }
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
@@ -235,8 +234,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         highApi = preference.highApi
                         visibilityVerifier = preference.visibilityVerifier
                         enabledVerifier = preference.enabledVerifier
-                        initVerify(this)
                     }
+
+                    initSecure(this)
+                    initVerify(this)
                 }
             }
 
