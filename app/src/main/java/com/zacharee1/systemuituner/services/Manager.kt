@@ -84,18 +84,20 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     private fun doInitialCheck() {
         prefManager.persistentOptions.forEach { opt ->
             if (opt.type != SettingsType.UNDEFINED) {
-                runComparison(opt.type, opt.key)
+                runComparison(opt.type, opt.key, true)
             }
         }
     }
 
-    private fun runComparison(type: SettingsType, key: String) {
+    private fun runComparison(type: SettingsType, key: String, isInitialSetup: Boolean = false) {
         val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
         if (handler != null) {
             val prefValue = handler.getPreferenceValueAsString()
 
-            handler.doInitialSet()
+            Log.e("SystemUITuner", "$prefValue, $isInitialSetup")
+
+            if (isInitialSetup) handler.doInitialSet()
 
             if (!handler.compareValues()) {
                 writeSetting(type, key, prefValue)

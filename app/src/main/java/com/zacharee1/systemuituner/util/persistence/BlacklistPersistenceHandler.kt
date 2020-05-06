@@ -36,6 +36,9 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
     }
 
     override fun doInitialSet() {
+        val prefValue = getPreferenceValue()
+        context.prefManager.saveOption(settingsType, settingsKey, null)
         context.writeSecure(settingsKey, null)
+        context.prefManager.saveOption(settingsType, settingsKey, prefValue)
     }
 }
