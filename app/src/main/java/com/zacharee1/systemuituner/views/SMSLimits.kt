@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.widget.ScrollView
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.toIntOrNullOnError
 import com.zacharee1.systemuituner.util.writeGlobal
 import kotlinx.android.synthetic.main.sms_limits.view.*
 
@@ -34,26 +35,14 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
         }
 
         max_count.setEndIconOnClickListener {
-            val c = max_count.editText?.text.run {
-                when {
-                    this == null -> COUNT_DEF
-                    isBlank() -> COUNT_DEF
-                    else -> this.toString().toInt()
-                }
-            }
+            val c = max_count.editText?.text?.toString()?.toIntOrNullOnError() ?: COUNT_DEF
 
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
         }
 
         interval.setEndIconOnClickListener {
-            val i = interval.editText?.text.run {
-                when {
-                    this == null -> INTERVAL_DEF
-                    isBlank() -> INTERVAL_DEF
-                    else -> this.toString().toInt()
-                }
-            }
+            val i = interval.editText?.text?.toString()?.toIntOrNullOnError() ?: INTERVAL_DEF
 
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
             context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)

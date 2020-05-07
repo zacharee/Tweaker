@@ -575,3 +575,11 @@ fun Resources.getStringByName(name: String, pkg: String): String {
     val id = getIdentifier(name, "string", pkg)
     return getString(id)
 }
+
+fun String.toIntOrNullOnError(): Int? {
+    return try {
+        toInt()
+    } catch (e: NumberFormatException) {
+        null
+    }
+}
