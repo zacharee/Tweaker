@@ -58,7 +58,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.2.2"
 
-    implementation 'com.github.zacharee:Unblacklister:1.0'
+    implementation 'com.github.zacharee:Unblacklister:1.1'
     implementation "com.mikepenz:materialdrawer:8.0.1"
     implementation "com.mikepenz:materialdrawer-nav:8.0.1"
     implementation 'co.zsmb:materialdrawer-kt:2.0.1'
