@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
+import com.zacharee1.systemuituner.util.callSafely
 import java.io.File
 
 class UISoundSelector : AppCompatActivity() {
@@ -59,8 +60,8 @@ class UISoundSelector : AppCompatActivity() {
                     }
                 }
 
-                if (callback?.asBinder()?.isBinderAlive == true) {
-                    callback?.onSoundSelected(dest.absolutePath, key)
+                callback?.callSafely {
+                    it.onSoundSelected(dest.absolutePath, key)
                 }
             }
         }

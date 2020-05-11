@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.IOSSelectionCallback
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.util.callSafely
 import kotlinx.android.synthetic.main.choose_os_slide.view.choose_os
 
 class OSChooseSlide : SlideFragment() {
@@ -23,7 +24,12 @@ class OSChooseSlide : SlideFragment() {
         }
     }
 
-    private val callback by lazy { IOSSelectionCallback.Stub.asInterface(requireArguments().getBinder(ARG_CALLBACK)) }
+    private val callback by lazy {
+        val binder = requireArguments().getBinder(ARG_CALLBACK)
+        if (binder != null) {
+            IOSSelectionCallback.Stub.asInterface(binder)
+        } else null
+    }
 
     private var previousSelected = -1
 
@@ -40,7 +46,9 @@ class OSChooseSlide : SlideFragment() {
             if (previousSelected != checkedId) {
                 previousSelected = checkedId
                 group.post {
-                    callback?.onSelected(checkedId)
+                    callback?.callSafely {
+                        it.onSelected(checkedId)
+                    }
                 }
             }
         }

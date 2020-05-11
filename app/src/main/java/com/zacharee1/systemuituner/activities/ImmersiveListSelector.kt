@@ -13,6 +13,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.LoadedAppInfo
 import com.zacharee1.systemuituner.fragments.ImmersiveSelectorFragment
 import com.zacharee1.systemuituner.util.addAnimation
+import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.getColorPrimary
 import kotlinx.android.synthetic.main.activity_immersive_selector.*
 import kotlinx.coroutines.CoroutineScope
@@ -121,6 +122,8 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     override fun onDestroy() {
         super.onDestroy()
 
-        callback?.onImmersiveResult(ArrayList(checked))
+        callback?.callSafely {
+            it.onImmersiveResult(ArrayList(checked))
+        }
     }
 }

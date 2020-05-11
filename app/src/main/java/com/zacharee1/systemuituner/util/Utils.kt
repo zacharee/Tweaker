@@ -15,13 +15,10 @@ import android.content.pm.ComponentInfo
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.net.Uri
-import android.os.Build
+import android.os.*
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.N_MR1
 import android.os.Build.VERSION_CODES.O
-import android.os.Handler
-import android.os.Looper
-import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import android.util.TypedValue
@@ -585,4 +582,10 @@ fun String.toIntOrNullOnError(): Int? {
     } catch (e: NumberFormatException) {
         null
     }
+}
+
+inline fun <T : IInterface> T.callSafely(block: (T) -> Unit) {
+    try {
+        block(this)
+    } catch (e: Exception) {}
 }

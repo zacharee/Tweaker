@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.addAnimation
+import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.component
 import com.zacharee1.systemuituner.util.scaleAnimatedVisible
 import kotlinx.android.synthetic.main.app_activity_item.view.*
@@ -48,8 +49,10 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
     private val key by lazy { intent.getStringExtra(EXTRA_KEY) }
 
-    private val activityAdapter = ActivityAdapter {
-        callback!!.onSelected(it.component.flattenToShortString(), key)
+    private val activityAdapter = ActivityAdapter { act ->
+        callback?.callSafely {
+            it.onSelected(act.component.flattenToShortString(), key)
+        }
         finish()
     }
 
