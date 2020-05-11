@@ -170,6 +170,7 @@ fun Context.resetAll() {
 }
 
 fun Context.writeGlobal(key: String?, value: Any?): Boolean {
+    if (key.isNullOrBlank()) return false
     return try {
         Settings.Global.putString(contentResolver, key, value?.toString())
         true
@@ -180,6 +181,7 @@ fun Context.writeGlobal(key: String?, value: Any?): Boolean {
 }
 
 fun Context.writeSecure(key: String?, value: Any?): Boolean {
+    if (key.isNullOrBlank()) return false
     return try {
         Settings.Secure.putString(contentResolver, key, value?.toString())
         true
@@ -190,6 +192,7 @@ fun Context.writeSecure(key: String?, value: Any?): Boolean {
 }
 
 fun Context.writeSystem(key: String?, value: Any?): Boolean {
+    if (key.isNullOrBlank()) return false
     fun onFail(e: Exception): Boolean {
         return when {
             Shell.SU.available() -> {
