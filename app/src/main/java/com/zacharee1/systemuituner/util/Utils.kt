@@ -214,6 +214,8 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
         onFail(e)
     } catch (e: IllegalArgumentException) {
         onFail(e)
+    } catch (e: NullPointerException) {
+        onFail(e)
     }
 }
 
