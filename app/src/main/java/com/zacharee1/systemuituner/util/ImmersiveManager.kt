@@ -92,6 +92,36 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         return info
     }
 
+    fun loadInSavedLists(info: ImmersiveInfo) {
+        prefManager.apply {
+            info.fullApps.apply {
+                clear()
+                addAll(getImmersiveWhitelist(ImmersiveMode.FULL))
+            }
+            info.navApps.apply {
+                clear()
+                addAll(getImmersiveWhitelist(ImmersiveMode.NAV))
+            }
+            info.statusApps.apply {
+                clear()
+                addAll(getImmersiveWhitelist(ImmersiveMode.STATUS))
+            }
+
+            info.fullBl.apply {
+                clear()
+                addAll(getImmersiveBlacklist(ImmersiveMode.FULL))
+            }
+            info.navBl.apply {
+                clear()
+                addAll(getImmersiveBlacklist(ImmersiveMode.NAV))
+            }
+            info.statusBl.apply {
+                clear()
+                addAll(getImmersiveBlacklist(ImmersiveMode.STATUS))
+            }
+        }
+    }
+
     private fun buildModeString(type: String, all: Boolean, apps: ArrayList<String>, bl: ArrayList<String>): String {
         val builder = StringBuilder()
 

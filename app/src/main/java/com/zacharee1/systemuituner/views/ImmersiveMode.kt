@@ -19,7 +19,9 @@ import kotlinx.android.synthetic.main.immersive_mode_item.view.*
 
 class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private val immersiveManager = ImmersiveManager(context)
-    private val immersiveInfo = immersiveManager.parseAdvancedImmersive()
+    private val immersiveInfo = immersiveManager.parseAdvancedImmersive().apply {
+        immersiveManager.loadInSavedLists(this)
+    }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
