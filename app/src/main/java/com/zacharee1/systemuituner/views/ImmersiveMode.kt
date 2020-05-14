@@ -12,6 +12,7 @@ import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ImmersiveListSelector
 import com.zacharee1.systemuituner.util.ImmersiveManager
+import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.immersive_mode.view.*
 import kotlinx.android.synthetic.main.immersive_mode_item.view.*
@@ -115,6 +116,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     ImmersiveListSelector.start(context, apps, ImmersiveSelectionCallbackWrapper {
                         apps.clear()
                         apps.addAll(it)
+                        context.prefManager.putImmersiveWhitelist(newInfo.type, apps)
                         update()
                     })
                 }
@@ -131,6 +133,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     ImmersiveListSelector.start(context, apps, ImmersiveSelectionCallbackWrapper {
                         apps.clear()
                         apps.addAll(it)
+                        context.prefManager.putImmersiveBlacklist(newInfo.type, apps)
                         update()
                     })
                 }

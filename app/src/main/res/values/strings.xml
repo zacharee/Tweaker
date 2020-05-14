@@ -250,6 +250,9 @@
     <string name="snooze_d">D</string>
     <string name="disabled">Disabled</string>
     <string name="auto">Auto</string>
+    <string name="tile_full_immersive">Full Immersive</string>
+    <string name="tile_nav_immersive">Nav Immersive</string>
+    <string name="tile_status_immersive">Status Immersive</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>

@@ -4,11 +4,12 @@ import android.content.Context
 import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SavedOption
-import kotlin.ClassCastException
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
@@ -26,6 +27,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val CUSTOM_BLACKLIST_ITEMS = "custom_blacklisted_items"
         const val SAVED_OPTIONS = "saved_options"
         const val FORCE_ENABLE_ALL = "force_enable_all"
+        const val SAVED_FULL_IMMERSIVE_WHITELIST = "full_immersive_whitelist"
+        const val SAVED_FULL_IMMERSIVE_BLACKLIST = "full_immersive_blacklist"
+        const val SAVED_NAV_IMMERSIVE_WHITELIST = "nav_immersive_whitelist"
+        const val SAVED_NAV_IMMERSIVE_BLACKLIST = "nav_immersive_blacklist"
+        const val SAVED_STATUS_IMMERSIVE_WHITELIST = "status_immersive_whitelist"
+        const val SAVED_STATUS_IMMERSIVE_BLACKLIST = "status_immersive_blacklist"
     }
 
     /**
@@ -69,6 +76,8 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
     val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+    val gson = GsonBuilder()
+        .create()
 
     fun saveOption(type: SettingsType, key: String, value: Any?) {
         val options = savedOptions
@@ -87,6 +96,54 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         savedOptions = savedOptions.apply {
             removeAll { it.type == type && it.key == key }
         }
+    }
+
+    fun putImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode, blacklist: ArrayList<String>) {
+        putString(
+            when (type) {
+                ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_BLACKLIST
+                ImmersiveManager.ImmersiveMode.NAV -> SAVED_NAV_IMMERSIVE_BLACKLIST
+                ImmersiveManager.ImmersiveMode.STATUS -> SAVED_STATUS_IMMERSIVE_BLACKLIST
+                else -> throw IllegalArgumentException("$type is not a valid immersive type")
+            },
+            gson.toJson(blacklist)
+        )
+    }
+
+    fun getImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode): ArrayList<String> {
+        return gson.fromJson(
+            getString(when (type) {
+                ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_BLACKLIST
+                ImmersiveManager.ImmersiveMode.NAV -> SAVED_NAV_IMMERSIVE_BLACKLIST
+                ImmersiveManager.ImmersiveMode.STATUS -> SAVED_STATUS_IMMERSIVE_BLACKLIST
+                else -> throw IllegalArgumentException("$type is not a valid immersive type")
+            }),
+            object : TypeToken<ArrayList<String>>() {}.type
+        ) ?: ArrayList()
+    }
+
+    fun putImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode, whitelist: ArrayList<String>) {
+        putString(
+            when (type) {
+                ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_WHITELIST
+                ImmersiveManager.ImmersiveMode.NAV -> SAVED_NAV_IMMERSIVE_WHITELIST
+                ImmersiveManager.ImmersiveMode.STATUS -> SAVED_STATUS_IMMERSIVE_WHITELIST
+                else -> throw IllegalArgumentException("$type is not a valid immersive type")
+            },
+            gson.toJson(whitelist)
+        )
+    }
+
+    fun getImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode): ArrayList<String> {
+        return gson.fromJson(
+            getString(when (type) {
+                ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_WHITELIST
+                ImmersiveManager.ImmersiveMode.NAV -> SAVED_NAV_IMMERSIVE_WHITELIST
+                ImmersiveManager.ImmersiveMode.STATUS -> SAVED_STATUS_IMMERSIVE_WHITELIST
+                else -> throw IllegalArgumentException("$type is not a valid immersive type")
+            }),
+            object : TypeToken<ArrayList<String>>() {}.type
+        ) ?: ArrayList()
     }
 
     fun getString(key: String, def: String? = null): String? = prefs.getString(key, def)
