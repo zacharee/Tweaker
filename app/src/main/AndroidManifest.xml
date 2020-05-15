@@ -148,6 +148,36 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+        <service
+            android:name=".services.tiles.FullImmersiveTile"
+            android:icon="@drawable/ic_baseline_fullscreen_24"
+            android:label="@string/tile_full_immersive"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.NavImmersiveTile"
+            android:icon="@drawable/ic_baseline_vertical_align_bottom_24"
+            android:label="@string/tile_nav_immersive"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.tiles.StatusImmersiveTile"
+            android:icon="@drawable/ic_baseline_vertical_align_top_24"
+            android:label="@string/tile_status_immersive"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
 
         <receiver android:name=".receivers.BootReceiver"
             android:exported="true">

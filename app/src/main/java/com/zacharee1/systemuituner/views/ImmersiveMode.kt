@@ -33,7 +33,6 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
             isVisible = true
             setText(R.string.reset)
             setOnClickListener {
-                immersiveInfo.clear()
                 immersiveManager.setAdvancedImmersive(immersiveInfo)
                 list.adapter!!.notifyItemRangeChanged(0, list.adapter!!.itemCount)
             }
@@ -91,14 +90,10 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     all.isChecked = !all.isChecked
 
                     when (newInfo.type) {
-                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull =
-                            all.isChecked.also { if (it) immInfo.fullApps.clear() }
-                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus =
-                            all.isChecked.also { if (it) immInfo.statusApps.clear() }
-                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav =
-                            all.isChecked.also { if (it) immInfo.navApps.clear() }
-                        else -> {
-                        }
+                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull = all.isChecked
+                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus = all.isChecked
+                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav = all.isChecked
+                        else -> {}
                     }
 
                     whitelist_button.isEnabled = !all.isChecked
@@ -115,7 +110,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                         else -> ArrayList()
                     }
 
-                    ImmersiveListSelector.start(context, apps, ImmersiveSelectionCallbackWrapper {
+                    ImmersiveListSelector.start(context, context.prefManager.getImmersiveWhitelist(newInfo.type), ImmersiveSelectionCallbackWrapper {
                         apps.clear()
                         apps.addAll(it)
                         context.prefManager.putImmersiveWhitelist(newInfo.type, apps)
@@ -132,7 +127,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                         else -> ArrayList()
                     }
 
-                    ImmersiveListSelector.start(context, apps, ImmersiveSelectionCallbackWrapper {
+                    ImmersiveListSelector.start(context, context.prefManager.getImmersiveBlacklist(newInfo.type), ImmersiveSelectionCallbackWrapper {
                         apps.clear()
                         apps.addAll(it)
                         context.prefManager.putImmersiveBlacklist(newInfo.type, apps)
