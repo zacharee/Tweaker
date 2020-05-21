@@ -175,7 +175,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                 }
 
                 mainHandler.post {
-                    (listView.adapter as PreferenceGroupAdapter?)?.updatePreferences()
+                    (listView?.adapter as PreferenceGroupAdapter?)?.updatePreferences()
                 }
 
                 true
