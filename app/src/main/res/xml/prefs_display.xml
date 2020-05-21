@@ -54,6 +54,16 @@
     <com.zacharee1.systemuituner.prefs.secure.specific.TouchWizNavigationBarColor
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_touchwiz_disable_high_brightness_warning"
+        android:summary="@string/option_touchwiz_disable_high_brightness_warning_desc"
+        android:key="shown_max_brightness_dialog"
+        android:icon="@drawable/ic_baseline_brightness_7_24"
+        app:settings_type="system"
+        app:icon_color="@color/pref_color_1"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
+        />
+
     <com.zacharee1.systemuituner.prefs.NightModePreference
         />
 
