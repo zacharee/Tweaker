@@ -271,9 +271,12 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 component.text = info.packageName
 
                 setOnClickListener {
-                    val newInfo = visibleItems[holder.adapterPosition]
+                    val newPosition = holder.adapterPosition
+                    if (newPosition != -1) {
+                        val newInfo = visibleItems[newPosition]
 
-                    selectionCallback(newInfo)
+                        selectionCallback(newInfo)
+                    }
                 }
             }
         }
