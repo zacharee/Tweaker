@@ -5,13 +5,14 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
 import androidx.preference.PreferenceViewHolder
+import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import kotlinx.android.synthetic.main.custom_preference.view.*
 
 interface IColorPreference {
     var iconColor: Int
 
-    fun bindVH(holder: PreferenceViewHolder)
+    fun bindVH(holder: RecyclerView.ViewHolder)
 }
 
 class ColorPreference(context: Context, attrs: AttributeSet?) :
@@ -26,7 +27,7 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
         }
     }
 
-    override fun bindVH(holder: PreferenceViewHolder) {
+    override fun bindVH(holder: RecyclerView.ViewHolder) {
         holder.itemView.icon_frame.apply {
             (background as StateListDrawable).apply {
                 val drawable = getStateDrawable(1)

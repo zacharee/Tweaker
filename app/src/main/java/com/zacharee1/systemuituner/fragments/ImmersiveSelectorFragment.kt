@@ -1,14 +1,23 @@
 package com.zacharee1.systemuituner.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import androidx.preference.*
+import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ImmersiveListSelector
 import com.zacharee1.systemuituner.data.LoadedAppInfo
 import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.util.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -16,6 +25,10 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_blank, rootKey)
         preferenceScreen.isOrderingAsAdded = false
+    }
+
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+        return CustomPreferenceGroupAdapter(preferenceScreen)
     }
 
     override val widgetLayout: Int = R.layout.checkbox
@@ -39,30 +52,33 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
     }
 
     fun onFilter(query: String?) {
-        val toRemove = ArrayList<LoadedAppPreference>()
-        val toAdd = ArrayList<LoadedAppPreference>()
+        async {
+            val toRemove = ArrayList<LoadedAppPreference>()
+            val toAdd = ArrayList<LoadedAppPreference>()
 
-        preferenceScreen.forEach { index, child ->
-            child as LoadedAppPreference
+            preferenceScreen.forEach { _, child ->
+                child as LoadedAppPreference
 
-            if (!child.matchesQuery(query)) toRemove.add(child)
-        }
-
-        origItems.forEach {
-            if (it.matchesQuery(query) && !preferenceScreen.hasPreference(it.packageName)) {
-                toAdd.add(construct(it))
+                if (!child.matchesQuery(query)) toRemove.add(child)
             }
-        }
 
-        toRemove.forEach {
-            preferenceScreen.removePreference(it)
-        }
+            origItems.forEach {
+                if (it.matchesQuery(query) && !preferenceScreen.hasPreference(it.packageName)) {
+                    toAdd.add(construct(it))
+                }
+            }
 
-        toAdd.forEach {
-            preferenceScreen.addPreference(it)
+            toRemove.forEach {
+                preferenceScreen.removePreference(it)
+            }
+
+            toAdd.forEach {
+                preferenceScreen.addPreference(it)
+            }
         }
     }
 
+    @SuppressLint("RestrictedApi")
     private fun construct(info: LoadedAppInfo): LoadedAppPreference {
         return LoadedAppPreference(
             requireContext(),
@@ -74,8 +90,8 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
                 checked.remove(key)
             }
 
-            mainHandler.post {
-                (listView.adapter as PreferenceGroupAdapter?)?.updatePreferences()
+            async {
+                (listView.adapter as CustomPreferenceGroupAdapter?)?.updatePreferences()
             }
         }
     }
@@ -109,7 +125,9 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         override fun setChecked(checked: Boolean) {
             super.setChecked(checked)
 
-            callback(key, checked, this)
+            launch {
+                callback(key, checked, this@LoadedAppPreference)
+            }
         }
 
         override fun compareTo(other: Preference): Int {
@@ -132,5 +150,9 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         fun matchesQuery(query: String?): Boolean {
             return info.matchesQuery(query)
         }
+    }
+
+    @SuppressLint("RestrictedApi")
+    inner class CustomPreferenceGroupAdapter(preferenceGroup: PreferenceGroup?) : PreferenceGroupAdapter(preferenceGroup) {
     }
 }
