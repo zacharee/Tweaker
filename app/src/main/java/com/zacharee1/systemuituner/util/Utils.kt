@@ -20,6 +20,7 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.N_MR1
 import android.os.Build.VERSION_CODES.O
 import android.provider.Settings
+import android.text.TextUtils
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -27,6 +28,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.annotation.AnimatorRes
 import androidx.appcompat.widget.SearchView
@@ -130,6 +132,26 @@ val Preference.defaultValue: Any?
             .getDeclaredField("mDefaultValue")
             .apply { isAccessible = true }
             .get(this)
+    }
+
+val TextView.hasEllipsis: Boolean
+    get() {
+        val truncateAt = ellipsize
+        if (truncateAt == null || TextUtils.TruncateAt.MARQUEE == truncateAt) {
+            return false
+        }
+
+        if (layout == null) {
+            return false
+        }
+
+        for (line in 0 until layout.lineCount) {
+            if (layout.getEllipsisCount(line) > 0) {
+                return true
+            }
+        }
+
+        return false
     }
 
 fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean {

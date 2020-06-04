@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
@@ -18,6 +19,8 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
 import androidx.core.view.ViewCompat
+import androidx.core.view.doOnNextLayout
+import androidx.core.view.isVisible
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +31,6 @@ import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
 import com.zacharee1.systemuituner.interfaces.IDangerousPreference
-import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
@@ -39,6 +41,7 @@ import com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.prefs.secure.specific.*
 import com.zacharee1.systemuituner.util.*
+import kotlinx.android.synthetic.main.custom_preference.view.*
 import kotlinx.coroutines.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
@@ -276,30 +279,18 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                     val summaryView = findViewById<TextView>(android.R.id.summary)
                     val oldMaxLines = summaryView.maxLines
 
-                    val expandAction = Runnable {
-                        summaryView.apply {
-                            maxLines = 10
-                        }
-                    }
-                    setOnTouchListener { v, event ->
-                        when (event.action) {
-                            MotionEvent.ACTION_DOWN -> {
-                                handler.postDelayed(expandAction, ViewConfiguration.getLongPressTimeout().toLong())
-                                false
-                            }
-                            MotionEvent.ACTION_UP,
-                            MotionEvent.ACTION_CANCEL -> {
-                                handler.removeCallbacks(expandAction)
-                                if (oldMaxLines != summaryView.maxLines) {
-                                    summaryView.maxLines = oldMaxLines
-                                    v.isSelected = false
-                                    v.isPressed = false
-                                    true
+                    summaryView.post {
+                        expand_summary?.apply {
+                            expand_summary.isVisible = summaryView.hasEllipsis
+                            setOnClickListener {
+                                if (summaryView.maxLines == oldMaxLines) {
+                                    summaryView.maxLines = Int.MAX_VALUE
+                                    scaleY = 1f
                                 } else {
-                                    false
+                                    summaryView.maxLines = 2
+                                    scaleY = -1f
                                 }
                             }
-                            else -> false
                         }
                     }
                 }

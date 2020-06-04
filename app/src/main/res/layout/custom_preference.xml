@@ -103,6 +103,20 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/expand_summary"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_up"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:scaleY="-1"
+            android:layout_gravity="bottom|end"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+
         <!-- Preference should place its actual preference widget here. -->
         <LinearLayout
             android:id="@android:id/widget_frame"
