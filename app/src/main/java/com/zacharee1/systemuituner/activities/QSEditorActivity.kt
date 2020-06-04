@@ -5,12 +5,11 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import kotlinx.android.synthetic.main.activity_qs_editor.*
@@ -53,7 +52,8 @@ class QSEditorActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.add -> {
-                adapter.doAddTile()
+                AddQSTileDialog(this, adapter)
+                    .show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -73,7 +73,7 @@ class QSEditorActivity : AppCompatActivity() {
         }
 
         val currentTiles = ArrayList<QSTileInfo>()
-        private val availableTiles = ArrayList<String>()
+        val availableTiles = ArrayList<String>()
 
         fun populateTiles() {
             currentTiles.clear()
@@ -103,11 +103,7 @@ class QSEditorActivity : AppCompatActivity() {
             notifyItemMoved(from, to)
         }
 
-        fun doAddTile() {
-
-        }
-
-        private fun addTile(tile: QSTileInfo) {
+        fun addTile(tile: QSTileInfo) {
             currentTiles.add(tile)
             notifyItemInserted(currentTiles.lastIndex)
 
@@ -156,6 +152,7 @@ class QSEditorActivity : AppCompatActivity() {
 
                     if (newPos != -1) {
                         removeTile(newPos)
+                        itemView.remove.isVisible = false
                     }
                 }
             }
@@ -165,14 +162,6 @@ class QSEditorActivity : AppCompatActivity() {
                 itemView.icon.setImageDrawable(info.getIcon(itemView.context))
                 itemView.label.text = info.getLabel(itemView.context)
             }
-        }
-    }
-
-    class AddDialog(context: Context, adapter: QSEditorAdapter) : MaterialAlertDialogBuilder(context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
-
-        init {
-
         }
     }
 }
