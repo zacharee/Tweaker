@@ -92,7 +92,7 @@ class QSTileInfo(
         val (packageName, component) = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(ComponentName(packageName, component), 0).loadIcon(packageManager)
+            packageManager.getServiceInfo(ComponentName(packageName, "$packageName$component"), 0).loadIcon(packageManager)
         } catch (e: Exception) {
             getDefaultDrawable()
         }

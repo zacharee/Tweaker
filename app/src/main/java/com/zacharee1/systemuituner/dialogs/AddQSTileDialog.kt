@@ -11,11 +11,13 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.data.QSTileInfo
 import kotlinx.android.synthetic.main.add_qs_tile_item.view.*
+import kotlinx.android.synthetic.main.dialog_add_intent_qs.view.*
 import kotlinx.android.synthetic.main.dialog_add_qs_tile.view.*
 import java.util.*
 
 class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QSEditorAdapter) : MaterialAlertDialogBuilder(context) {
-        val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
+        private val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
+        private val intentString = context.resources.getString(R.string.intent)
 
         init {
             setTitle(R.string.add)
@@ -25,9 +27,25 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
 
         override fun create(): AlertDialog {
             return super.create().also { dialog ->
-                view.add_qs_tile_list.adapter = AddQSTileAdapter(adapter.availableTiles) {
+                view.add_qs_tile_list.adapter = AddQSTileAdapter(adapter.availableTiles + intentString) {
                     dialog.dismiss()
-                    adapter.addTile(QSTileInfo(it))
+
+                    if (it.equals(intentString, true)) {
+                        val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_intent_qs, null)
+                        MaterialAlertDialogBuilder(context)
+                            .setTitle(R.string.intent)
+                            .setView(intentView)
+                            .setPositiveButton(android.R.string.ok) { _, _ ->
+                                val text = intentView.intent_text.text?.toString()
+
+                                if (!text.isNullOrBlank()) {
+                                    adapter.addTile(QSTileInfo("intent($text)"))
+                                }
+                            }
+                            .show()
+                    } else {
+                        adapter.addTile(QSTileInfo(it))
+                    }
                 }
             }
         }

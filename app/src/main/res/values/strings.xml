@@ -215,6 +215,9 @@
     <string name="option_touchwiz_disable_high_brightness_warning">Disable High Brightness Warning</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">In some regions, Samsung devices will show a warning when you attempt to go above a certain screen brightness level. This setting is usually reset on reboot. Enable this and set it as a Persistent Option to permanently disable this warning.</string>
 
+    <string name="option_qs_editor">Quick Settings Editor</string>
+    <string name="option_qs_editor_desc">While custom QS tiles are only available on Android Nougat (7.0) and later, Marshmallow (6.0) still has limited QS editing available. You can reorder, remove, and add default QS tiles, as well as basic Intents.</string>
+
     <string name="home_welcome_title">Welcome!</string>
 
     <string name="search">Search</string>
@@ -257,6 +260,7 @@
     <string name="tile_nav_immersive">Nav Immersive</string>
     <string name="tile_status_immersive">Status Immersive</string>
     <string name="add">Add</string>
+    <string name="intent">Intent</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>

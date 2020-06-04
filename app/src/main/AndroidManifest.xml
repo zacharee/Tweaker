@@ -70,6 +70,10 @@
         <activity android:name=".activities.tutorial.TutorialActivity"
             android:exported="false"
             />
+        <activity android:name=".activities.QSEditorActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"
+            />
         <activity android:name=".activities.tasker.AddToIconBlacklistConfigureActivity"
             android:exported="true"
             android:theme="@style/AppTheme"

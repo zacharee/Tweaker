@@ -23,3 +23,8 @@ class ShowForAndroid10(context: Context) : BaseVisibilityVerifier(context) {
     override val shouldShow: Boolean
         get() = Build.VERSION.SDK_INT == Build.VERSION_CODES.Q
 }
+
+class ShowForBelowAndroidNougat(context: Context) : BaseVisibilityVerifier(context) {
+    override val shouldShow: Boolean
+        get() = Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+}

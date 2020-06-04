@@ -75,6 +75,17 @@
         app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
         />
 
+    <com.zacharee1.systemuituner.prefs.ActivityPreference
+        android:title="@string/option_qs_editor"
+        android:summary="@string/option_qs_editor_desc"
+        android:key="sysui_qs_tiles"
+        android:icon="@drawable/ic_baseline_view_grid_plus_24"
+        app:icon_color="@color/pref_color_2"
+        app:settings_type="secure"
+        app:activity_class="com.zacharee1.systemuituner.activities.QSEditorActivity"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForBelowAndroidNougat"
+        />
+
     <com.zacharee1.systemuituner.prefs.OneUIClockPositionPreference
         android:title="@string/option_oneui_clock_position"
         android:summary="@string/option_oneui_clock_position_desc"

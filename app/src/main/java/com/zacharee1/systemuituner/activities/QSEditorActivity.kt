@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.activities
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -12,6 +13,8 @@ import com.zacharee1.systemuituner.data.QSTileInfo
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeSecure
 import kotlinx.android.synthetic.main.activity_qs_editor.*
 import kotlinx.android.synthetic.main.qs_tile.view.*
 import java.util.*
@@ -38,6 +41,11 @@ class QSEditorActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_qs_editor)
 
+        supportActionBar?.apply {
+            setDisplayShowHomeEnabled(true)
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         qs_list.adapter = adapter
         ItemTouchHelper(touchHelperCallback).attachToRecyclerView(qs_list)
 
@@ -56,8 +64,20 @@ class QSEditorActivity : AppCompatActivity() {
                     .show()
                 true
             }
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.e("SystemUITuner", "${adapter.currentTiles}")
+
+        adapter.saveTiles()
     }
 
     class QSEditorAdapter(private val context: Context) : RecyclerView.Adapter<QSEditorAdapter.QSVH>() {
@@ -123,6 +143,13 @@ class QSEditorActivity : AppCompatActivity() {
             availableTiles.addAll(defaultTiles.filterNot {
                 currentTiles.map { tile -> tile.key }.contains(it)
             })
+        }
+
+        fun saveTiles() {
+            val tileString = currentTiles.map { it.key }.joinToString(",")
+
+            context.writeSecure("sysui_qs_tiles", tileString)
+            context.prefManager.saveOption(SettingsType.SECURE, "sysui_qs_tiles", tileString)
         }
 
         override fun getItemCount(): Int {
