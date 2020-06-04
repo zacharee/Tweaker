@@ -7,14 +7,16 @@
     android:clickable="true"
     android:focusable="true"
     android:background="?android:selectableItemBackground"
+    android:animateLayoutChanges="true"
     app:cardCornerRadius="8dp"
     app:cardBackgroundColor="@android:color/transparent"
-    app:cardForegroundColor="@android:color/transparent"
-    app:contentPadding="16dp">
+    app:cardForegroundColor="@android:color/transparent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
@@ -29,11 +31,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="?android:textColorPrimary"
             tools:text="SystemUI Tuner"
             />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/remove"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_baseline_remove_circle_24"
+        android:tint="@android:color/holo_red_dark"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="top|end"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
 
 </com.google.android.material.card.MaterialCardView>
