@@ -257,22 +257,38 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     )
                 )
             },
-            NavigationDrawerItem(
-                R.id.notificationsFragment,
-                PrimaryDrawerItem().apply {
-                    name = StringHolder(R.string.category_notifications)
-                    icon = ImageHolder(R.drawable.ic_baseline_notifications_24)
-                    identifier = R.id.notificationsFragment.toLong()
-                }
-            ),
-            NavigationDrawerItem(
-                R.id.statusBarFragment,
-                PrimaryDrawerItem().apply {
-                    name = StringHolder(R.string.category_status_bar)
-                    icon = ImageHolder(R.drawable.ic_baseline_space_bar_24)
-                    identifier = R.id.statusBarFragment.toLong()
-                }
-            ),
+            ExpandableDrawerItem().apply {
+                name = StringHolder(R.string.category_interaction)
+                isSelectable = false
+                identifier = R.string.category_interaction.toLong()
+                icon = ImageHolder(R.drawable.ic_baseline_touch_app_24)
+                subItems = mutableListOf(
+                    NavigationDrawerItem(
+                        R.id.notificationsFragment,
+                        IndentedSecondaryDrawerItem().apply {
+                            name = StringHolder(R.string.category_notifications)
+                            icon = ImageHolder(R.drawable.ic_baseline_notifications_24)
+                            identifier = R.id.notificationsFragment.toLong()
+                        }
+                    ),
+                    NavigationDrawerItem(
+                        R.id.statusBarFragment,
+                        IndentedSecondaryDrawerItem().apply {
+                            name = StringHolder(R.string.category_status_bar)
+                            icon = ImageHolder(R.drawable.ic_baseline_space_bar_24)
+                            identifier = R.id.statusBarFragment.toLong()
+                        }
+                    ),
+                    NavigationDrawerItem(
+                        R.id.qsFragment,
+                        IndentedSecondaryDrawerItem().apply {
+                            name = StringHolder(R.string.category_quick_settings)
+                            icon = ImageHolder(R.drawable.ic_baseline_view_grid_24)
+                            identifier = R.id.qsFragment.toLong()
+                        }
+                    )
+                )
+            },
             ExpandableDrawerItem().apply {
                 isSelectable = false
                 name = StringHolder(R.string.category_system)

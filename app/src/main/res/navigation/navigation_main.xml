@@ -31,12 +31,17 @@
         android:label="AppsFragment" />
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="com.zacharee1.systemuituner.fragments.NotificationsFragment"
+        android:name="com.zacharee1.systemuituner.fragments.interaction.NotificationsFragment"
         android:label="NotificationsFragment" />
     <fragment
         android:id="@+id/statusBarFragment"
-        android:name="com.zacharee1.systemuituner.fragments.StatusBarFragment"
+        android:name="com.zacharee1.systemuituner.fragments.interaction.StatusBarFragment"
         android:label="StatusBarFragment"
+        />
+    <fragment
+        android:id="@+id/qsFragment"
+        android:name="com.zacharee1.systemuituner.fragments.interaction.QSFragment"
+        android:label="QSFragment"
         />
     <fragment
         android:id="@+id/developerFragment"

@@ -17,7 +17,9 @@
     <string name="category_oem">OEM Features</string>
     <string name="category_system">System</string>
     <string name="category_ui">UI</string>
+    <string name="category_quick_settings">Quick Settings</string>
     <string name="screen_persistent">Persistent Options</string>
+    <string name="category_interaction">Interaction</string>
     <string name="more">More</string>
     <string name="tweaks">Tweaks</string>
 
@@ -217,6 +219,12 @@
 
     <string name="option_qs_editor">Quick Settings Editor</string>
     <string name="option_qs_editor_desc">While custom QS tiles are only available on Android Nougat (7.0) and later, Marshmallow (6.0) still has limited QS editing available. You can reorder, remove, and add default QS tiles, as well as basic Intents.</string>
+
+    <string name="option_qs_fancy_anim">QS Fancy Animation</string>
+    <string name="option_qs_fancy_anim_desc">On supported devices, you can use this to disable the fancy QS tile movement and fading when fully expanding the notification center. If this doesn\'t seem to have an effect on your device, keep it turned on to avoid other issues.</string>
+
+    <string name="option_qs_move_full_rows">QS Move Full Rows</string>
+    <string name="option_qs_move_full_rows_desc">What this actually does isn\'t explained very well, but it does something and you could try it if you want. It has something to do with pulling down the notification center.</string>
 
     <string name="home_welcome_title">Welcome!</string>
 

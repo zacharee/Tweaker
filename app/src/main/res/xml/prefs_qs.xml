@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
+        android:title="@string/option_qqs_tiles"
+        android:summary="@string/option_qqs_tiles_desc"
+        android:key="sysui_qqs_count"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:defaultValue="5"
+        app:icon_color="@color/pref_color_3"
+        app:settings_type="secure"
+        app:scale="1"
+        app:minValue="1"
+        app:maxValue="12"
+        app:low_api="24"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_qs_fancy_anim"
+        android:summary="@string/option_qs_fancy_anim"
+        android:key="sysui_qs_fancy_anim"
+        android:icon="@drawable/animation"
+        android:defaultValue="1"
+        app:icon_color="@color/pref_color_5"
+        app:settings_type="secure"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_qs_move_full_rows"
+        android:summary="@string/option_qs_move_full_rows_desc"
+        android:key="sysui_qs_move_whole_rows"
+        android:icon="@drawable/animation"
+        android:defaultValue="1"
+        app:icon_color="@color/pref_color_7"
+        app:settings_type="secure"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ActivityPreference
+        android:title="@string/option_qs_editor"
+        android:summary="@string/option_qs_editor_desc"
+        android:key="sysui_qs_tiles"
+        android:icon="@drawable/ic_baseline_view_grid_plus_24"
+        app:icon_color="@color/pref_color_2"
+        app:settings_type="secure"
+        app:activity_class="com.zacharee1.systemuituner.activities.QSEditorActivity"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForBelowAndroidNougat"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
+        android:title="@string/option_touchwiz_qs_row_count"
+        android:summary="@string/option_touchwiz_qs_row_count_desc"
+        android:key="qs_tile_row"
+        android:icon="@drawable/ic_baseline_more_vert_24"
+        app:icon_color="@color/pref_color_1"
+        app:settings_type="secure"
+        app:high_api="27"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
+        android:title="@string/option_touchwiz_qs_column_count"
+        android:summary="@string/option_touchwiz_qs_column_count_desc"
+        android:key="qs_tile_column"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        app:icon_color="@color/pref_color_4"
+        app:settings_type="secure"
+        app:high_api="27"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
+        />
+
+</PreferenceScreen>

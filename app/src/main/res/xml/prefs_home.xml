@@ -61,19 +61,36 @@
 
     </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
 
-    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
-        android:title="@string/category_notifications"
-        android:key="go_to_notifications"
-        android:icon="@drawable/ic_baseline_notifications_24"
-        app:navigation_action="@id/notificationsFragment"
-        />
+    <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
+        android:title="@string/category_interaction"
+        app:allowDividerAbove="true"
+        app:allowDividerBelow="true"
+        android:icon="@drawable/ic_baseline_touch_app_24"
+        app:arrow_side="end"
+        android:key="category_interaction">
 
-    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
-        android:title="@string/category_status_bar"
-        android:key="go_to_status_bar"
-        android:icon="@drawable/ic_baseline_space_bar_24"
-        app:navigation_action="@id/statusBarFragment"
-        />
+        <com.zacharee1.systemuituner.prefs.nav.IndentedNavigationPreference
+            android:title="@string/category_notifications"
+            android:key="go_to_notifications"
+            android:icon="@drawable/ic_baseline_notifications_24"
+            app:navigation_action="@id/notificationsFragment"
+            />
+
+        <com.zacharee1.systemuituner.prefs.nav.IndentedNavigationPreference
+            android:title="@string/category_status_bar"
+            android:key="go_to_status_bar"
+            android:icon="@drawable/ic_baseline_space_bar_24"
+            app:navigation_action="@id/statusBarFragment"
+            />
+
+        <com.zacharee1.systemuituner.prefs.nav.IndentedNavigationPreference
+            android:title="@string/category_quick_settings"
+            android:key="go_to_quick_settings"
+            android:icon="@drawable/ic_baseline_view_grid_24"
+            app:navigation_action="@id/qsFragment"
+            />
+
+    </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
 
     <tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
         android:title="@string/category_system"

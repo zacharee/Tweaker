@@ -1,7 +1,8 @@
-package com.zacharee1.systemuituner.fragments
+package com.zacharee1.systemuituner.fragments.interaction
 
 import android.os.Bundle
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.util.updateTitle
 
 class StatusBarFragment : BasePrefFragment() {
