@@ -18,7 +18,7 @@
 
     <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
         android:title="@string/option_qs_fancy_anim"
-        android:summary="@string/option_qs_fancy_anim"
+        android:summary="@string/option_qs_fancy_anim_desc"
         android:key="sysui_qs_fancy_anim"
         android:icon="@drawable/animation"
         android:defaultValue="1"
