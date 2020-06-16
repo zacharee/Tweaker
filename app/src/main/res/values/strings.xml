@@ -242,7 +242,7 @@
     <string name="grant">Grant</string>
     <string name="help">Help</string>
     <string name="no_root_title">No Root</string>
-    <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure Tweaker has root access. Otherwise, press the HELP button for ADB instructions.</string>
+    <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Mode</string>
     <string name="key">Key</string>
@@ -306,10 +306,10 @@
     <string name="intro_disclaimer_desc">SystemUI Tuner can change hidden settings. Unfortunately, since they\'re hidden, there\'s a chance that your particular device won\'t respond to certain changes. On heavily customized versions of Android, such as EMUI, MIUI, and ColorOS, there will be a lot of features that simply don\'t work. Please keep in mind that there\'s simply nothing I can do about this.</string>
 
     <string name="intro_grant_wss">Grant Write Secure Settings</string>
-    <string name="intro_grant_wss_desc">Tweaker needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
+    <string name="intro_grant_wss_desc">SystemUI Tuner needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
 
     <string name="intro_grant_extra">Grant Extra Permissions</string>
-    <string name="intro_grant_extra_desc">For certain features, Tweaker needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
+    <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
 
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
@@ -319,8 +319,8 @@
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
     <string name="compatibility_message_storage">Sorry, you need an SD card to change this option.</string>
 
-    <string name="reset_confirm">This will reset most changes made by Tweaker. The below options will have to be reset manually. I recommend that you reboot after resetting.\n%s</string>
-    <string name="persistent_options_desc">Select an option here to lock its values to those that have been set by Tweaker.</string>
+    <string name="reset_confirm">This will reset most changes made by SystemUI Tuner. The below options will have to be reset manually. I recommend that you reboot after resetting.\n%s</string>
+    <string name="persistent_options_desc">Select an option here to lock its values to those that have been set by SystemUI Tuner.</string>
 
     <string name="android_marshmallow">Marshmallow 6.0</string>
     <string name="android_nougat">Nougat 7.0</string>
