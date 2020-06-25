@@ -149,6 +149,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             it.createPref(R.string.icon_blacklist_hotspot, key = "hotspot")
             it.createPref(R.string.icon_blacklist_bluetooth, key = "bluetooth")
             it.createPref(R.string.icon_blacklist_mute, key = "mute")
+            it.createPref(R.string.icon_blacklist_rotate, key = "rotate")
         }
         
         if (requireContext().isTouchWiz) {
