@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
@@ -19,12 +18,12 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
 import androidx.core.view.ViewCompat
-import androidx.core.view.doOnNextLayout
 import androidx.core.view.isVisible
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import at.blogc.android.views.ExpandableTextView
 import com.google.android.material.card.MaterialCardView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
@@ -277,18 +276,29 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
                 (holder.itemView as ViewGroup).apply {
                     val summaryView = findViewById<TextView>(android.R.id.summary)
-                    val oldMaxLines = summaryView.maxLines
 
                     summaryView.post {
+                        title_summary_wrapper?.apply {
+                            val topPadding = paddingTop
+
+                            setPadding(
+                                0,
+                                topPadding,
+                                0,
+                                if (summaryView.hasEllipsis) 0 else topPadding
+                            )
+                        }
                         expand_summary?.apply {
-                            expand_summary.isVisible = summaryView.hasEllipsis
+                            summaryView as ExpandableTextView
+                            summaryView.collapse()
+                            isVisible = summaryView.hasEllipsis
                             setOnClickListener {
-                                if (summaryView.maxLines == oldMaxLines) {
-                                    summaryView.maxLines = Int.MAX_VALUE
-                                    scaleY = 1f
-                                } else {
-                                    summaryView.maxLines = 2
+                                if (summaryView.isExpanded) {
                                     scaleY = -1f
+                                    summaryView.collapse()
+                                } else {
+                                    scaleY = 1f
+                                    summaryView.expand()
                                 }
                             }
                         }

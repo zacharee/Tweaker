@@ -67,6 +67,8 @@ dependencies {
     implementation "com.mikepenz:materialdrawer-nav:8.0.1"
     implementation project(':seekbar')
     implementation project(':category')
+//    implementation 'com.github.zacharee:Android-ExpandableTextView:5007e77df0'
+    implementation project(':expandabletv')
     implementation 'com.github.zacharee:material:a2ab4a2d3c'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'
