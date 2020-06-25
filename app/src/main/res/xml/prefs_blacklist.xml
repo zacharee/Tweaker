@@ -11,4 +11,11 @@
         app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForAndroid10"
         />
 
+    <com.zacharee1.systemuituner.prefs.BlacklistRotationLockPreference
+        android:title="@string/icon_blacklist_rotation_lock"
+        android:summary="@string/icon_blacklist_rotation_lock_desc"
+        android:icon="@drawable/ic_baseline_smartphone_24"
+        app:icon_color="@color/pref_color_2"
+        />
+
 </PreferenceScreen>

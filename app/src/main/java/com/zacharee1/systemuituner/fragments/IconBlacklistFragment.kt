@@ -31,6 +31,7 @@ import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.prefs.BlacklistBrokenBatteryAndroid10Preference
 import com.zacharee1.systemuituner.prefs.BlacklistPreference
+import com.zacharee1.systemuituner.prefs.BlacklistRotationLockPreference
 import com.zacharee1.systemuituner.prefs.CustomBlacklistAddPreference
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.*
@@ -272,6 +273,15 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                         requireContext().launchUrl("https://issuetracker.google.com/issues/141806620")
                     })
                     setNegativeButton(android.R.string.cancel, null)
+                    show()
+                }
+                return
+            }
+            is BlacklistRotationLockPreference -> {
+                RoundedBottomSheetDialog(requireContext()).apply {
+                    setTitle(preference.title)
+                    setMessage(preference.summary)
+                    setPositiveButton(android.R.string.ok, null)
                     show()
                 }
                 return
