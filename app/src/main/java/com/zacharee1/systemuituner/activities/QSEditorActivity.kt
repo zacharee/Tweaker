@@ -171,8 +171,8 @@ class QSEditorActivity : AppCompatActivity() {
         fun saveTiles() {
             val tileString = currentTiles.joinToString(",") { it.key }
 
-            context.writeSecure("sysui_qs_tiles", tileString)
             context.prefManager.saveOption(SettingsType.SECURE, "sysui_qs_tiles", tileString)
+            context.writeSecure("sysui_qs_tiles", tileString)
         }
 
         override fun getItemCount(): Int {
