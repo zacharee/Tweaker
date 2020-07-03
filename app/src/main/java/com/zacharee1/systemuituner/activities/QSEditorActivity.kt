@@ -82,8 +82,19 @@ class QSEditorActivity : AppCompatActivity() {
             try {
                 val remRes = context.packageManager.getResourcesForApplication("com.android.systemui")
                 val id = remRes.getIdentifier("quick_settings_tiles_default", "string", "com.android.systemui")
+                val amazonId = try {
+                    remRes.getIdentifier("amazon_quick_settings_tiles_default", "string", "com.android.systemui")
+                } catch (e: Exception) {
+                    0
+                }
 
-                val items = remRes.getString(id)
+                val items = if (amazonId == 0) {
+                    remRes.getString(id)
+                } else {
+                    //Fire tablets have a lot of different default lists, so we're just
+                    //going to add them manually here.
+                    "wifi,bt,airplane,moonlight,privacy,home,dnd,smarthome,camera,lowpower,rotation,exitkft"
+                }
 
                 addAll(items.split(","))
             } catch (e: Exception) {}
