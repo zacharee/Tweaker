@@ -1,6 +1,9 @@
 package com.zacharee1.systemuituner.activities
 
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.QSTileInfo
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
-import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.*
 import kotlinx.android.synthetic.main.activity_qs_editor.*
 import kotlinx.android.synthetic.main.qs_tile.view.*
 import java.util.*
@@ -89,7 +89,18 @@ class QSEditorActivity : AppCompatActivity() {
             } catch (e: Exception) {}
         }
 
-        val currentTiles = ArrayList<QSTileInfo>()
+        private val customTiles = ArrayList<String>().apply {
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
+                val customTiles = context.packageManager
+                    .queryIntentServices(Intent("android.service.quicksettings.action.QS_TILE"), PackageManager.MATCH_ALL)
+
+                customTiles?.forEach {
+                    add("custom(${it.componentInfo.component.flattenToString()})")
+                }
+            }
+        }
+
+        private val currentTiles = ArrayList<QSTileInfo>()
         val availableTiles = ArrayList<String>()
 
         fun populateTiles() {
@@ -140,10 +151,14 @@ class QSEditorActivity : AppCompatActivity() {
             availableTiles.addAll(defaultTiles.filterNot {
                 currentTiles.map { tile -> tile.key }.contains(it)
             })
+
+            availableTiles.addAll(customTiles.filterNot {
+                currentTiles.map { tile -> tile.key }.contains(it)
+            })
         }
 
         fun saveTiles() {
-            val tileString = currentTiles.map { it.key }.joinToString(",")
+            val tileString = currentTiles.joinToString(",") { it.key }
 
             context.writeSecure("sysui_qs_tiles", tileString)
             context.prefManager.saveOption(SettingsType.SECURE, "sysui_qs_tiles", tileString)

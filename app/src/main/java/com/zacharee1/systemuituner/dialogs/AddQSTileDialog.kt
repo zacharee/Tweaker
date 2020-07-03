@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.zacharee1.systemuituner.R
@@ -79,7 +80,15 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
 
                 @ExperimentalStdlibApi
                 fun onBind(key: String) {
-                    itemView.qs_tile_name.text = key.capitalize(Locale.US)
+                    val info = QSTileInfo(key)
+
+                    itemView.qs_tile_name.text = info.getLabel(itemView.context)
+                    itemView.qs_tile_component.apply {
+                        if (info.type == QSTileInfo.Type.CUSTOM) {
+                            isVisible = true
+                            text = info.key
+                        }
+                    }
                 }
             }
         }
