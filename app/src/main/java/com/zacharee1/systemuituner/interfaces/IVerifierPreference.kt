@@ -40,9 +40,7 @@ interface IVerifierPreference {
             }
         })
 
-        visibilityVerifier?.let {
-            pref.isVisible = pref.context.prefManager.forceEnableAll || it.shouldShow
-        }
+        pref.isVisible = visibilityVerifier?.shouldShow != false
     }
 }
 
