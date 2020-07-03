@@ -2,7 +2,6 @@ package com.zacharee1.systemuituner.activities
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -74,8 +73,6 @@ class QSEditorActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-
-        Log.e("SystemUITuner", "${adapter.currentTiles}")
 
         adapter.saveTiles()
     }
