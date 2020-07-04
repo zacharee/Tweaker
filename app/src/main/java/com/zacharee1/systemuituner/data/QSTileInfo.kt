@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.data
 import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.Log
 import com.zacharee1.systemuituner.R
 import java.util.*
 import java.util.regex.Pattern
@@ -56,21 +57,21 @@ class QSTileInfo(
     }
 
     private fun Context.getCustomLabel(): String {
-        val (packageName, component) = getNameAndComponentForCustom()
+        val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(ComponentName(packageName, "$packageName$component"), 0).loadLabel(packageManager)
+            packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
                 .toString()
         } catch (e: Exception) {
             try {
-                component.split(".").run { this[size - 1] }
+                component.className.split(".").run { this[size - 1] }
             } catch (e: Exception) {
                 packageName
             }
         }
     }
 
-    private fun getNameAndComponentForCustom(): Pair<String, String> {
+    private fun getNameAndComponentForCustom(): ComponentName {
         val p = Pattern.compile("\\((.*?)\\)")
         val m = p.matcher(key)
 
@@ -82,19 +83,23 @@ class QSTileInfo(
 
         name = name.replace("(", "").replace(")", "")
 
-        val packageName = name.split("/")[0]
-        val component = name.split("/")[1]
-
-        return packageName to component
+        return ComponentName.unflattenFromString(name) ?: throw IllegalArgumentException("Invalid component name: $name")
     }
 
     private fun Context.getCustomDrawable(): Drawable {
-        val (packageName, component) = getNameAndComponentForCustom()
+        val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(ComponentName(packageName, "$packageName$component"), 0).loadIcon(packageManager)
+            packageManager.getServiceInfo(component, 0).loadIcon(packageManager)
         } catch (e: Exception) {
-            getDefaultDrawable()
+            Log.e("SystemUITuner", e.localizedMessage)
+            try {
+                packageManager.getApplicationInfo(packageName, 0).loadIcon(packageManager)
+            } catch (e: Exception) {
+                getDefaultDrawable()
+            }
+        }.mutate().apply {
+            setTint(resources.getColor(android.R.color.white, theme))
         }
     }
 
@@ -102,10 +107,10 @@ class QSTileInfo(
         return resources.getDrawable(
             when (key.toLowerCase(Locale.US)) {
                 "wifi" -> R.drawable.ic_baseline_signal_wifi_4_bar_24
-                "bluetooth" -> R.drawable.ic_baseline_bluetooth_24
+                "bluetooth", "bt" -> R.drawable.ic_baseline_bluetooth_24
                 "color_inversion" -> R.drawable.ic_baseline_invert_colors_24
                 "cell" -> R.drawable.ic_baseline_signal_cellular_4_bar_24
-                "do_not_disturb" -> R.drawable.do_not_disturb
+                "do_not_disturb", "dnd" -> R.drawable.do_not_disturb
                 "airplane" -> R.drawable.ic_baseline_airplanemode_active_24
                 "cast" -> R.drawable.ic_baseline_cast_24
                 "location" -> R.drawable.ic_baseline_location_on_24
@@ -117,6 +122,8 @@ class QSTileInfo(
                 "sync" -> R.drawable.ic_baseline_sync_24
                 "nfc" -> R.drawable.ic_baseline_nfc_24
                 "data" -> R.drawable.ic_baseline_data_usage_24
+                "night", "moonlight" -> R.drawable.ic_baseline_nights_stay_24
+                "smarthome" -> R.drawable.ic_baseline_home_24
                 else -> R.drawable.ic_baseline_android_24
             },
             null
