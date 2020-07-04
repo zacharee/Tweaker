@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.data
 import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.util.Log
 import com.zacharee1.systemuituner.R
 import java.util.*
 import java.util.regex.Pattern
@@ -92,7 +91,6 @@ class QSTileInfo(
         return try {
             packageManager.getServiceInfo(component, 0).loadIcon(packageManager)
         } catch (e: Exception) {
-            Log.e("SystemUITuner", e.localizedMessage)
             try {
                 packageManager.getApplicationInfo(packageName, 0).loadIcon(packageManager)
             } catch (e: Exception) {

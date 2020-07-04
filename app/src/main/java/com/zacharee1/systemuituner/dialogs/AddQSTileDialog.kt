@@ -87,6 +87,8 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                         if (info.type == QSTileInfo.Type.CUSTOM) {
                             isVisible = true
                             text = info.key
+                        } else {
+                            isVisible = false
                         }
                     }
                 }
