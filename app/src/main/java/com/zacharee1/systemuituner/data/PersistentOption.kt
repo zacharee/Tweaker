@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.data
 
+import com.google.gson.GsonBuilder
 import com.zacharee1.systemuituner.util.SettingsType
 
 class CustomPersistentOption(
@@ -9,7 +10,18 @@ class CustomPersistentOption(
     key: String
 ) : PersistentOption(type, key) {
     companion object {
+        private val gson = GsonBuilder().create()
+
         fun fromString(input: String): CustomPersistentOption {
+            val fromJson = gson.fromJson<CustomPersistentOption>(
+                input,
+                CustomPersistentOption::class.java
+            )
+
+            if (fromJson != null) {
+                return fromJson
+            }
+
             val split = input.split(":")
 
             return CustomPersistentOption(
@@ -24,18 +36,18 @@ class CustomPersistentOption(
     }
 
     override fun toString(): String {
-        return "$label:$value:$type:$key"
+        return gson.toJson(this)
     }
 
     override fun equals(other: Any?): Boolean {
         return other is CustomPersistentOption &&
-                other.label == label &&
                 other.type == type &&
                 other.key == key
     }
 
     override fun hashCode(): Int {
-        return label.hashCode() * super.hashCode()
+        return type.hashCode() +
+                key.hashCode()
     }
 }
 

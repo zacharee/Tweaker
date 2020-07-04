@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -33,28 +34,30 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     private val preferences = ArrayList<PersistentPreference>()
     private val isLoaded = async {
         SearchIndex.toInflate.forEach {
-            inflate(it.first, it.second)
+            inflate(it.first)
         }
+
+//        preferences.addAll(requireContext().prefManager.customPersistentOptions.map {
+//            PersistentPreference.fromCustomPersistentOption(requireContext(), it)
+//        })
         true
     }
 
     @SuppressLint("RestrictedApi")
-    private fun inflate(resource: Int, action: Int): PreferenceScreen {
-        return preferenceManager.inflateFromResource(requireContext(), resource, null).also { process(it, action) }
+    private fun inflate(resource: Int): PreferenceScreen {
+        return preferenceManager.inflateFromResource(requireContext(), resource, null).also { process(it) }
     }
 
-    private fun process(group: PreferenceGroup, action: Int) {
+    private fun process(group: PreferenceGroup) {
         for (i in 0 until group.preferenceCount) {
             val child = group.getPreference(i)
 
-            if (child is PreferenceGroup) process(child, action)
+            if (child is PreferenceGroup) process(child)
             else {
                 if (child is INoPersistPreference) continue
                 preferences.add(PersistentPreference.fromPreference(false, child))
             }
         }
-
-        preferences.addAll(requireContext().prefManager.customPersistentOptions.map { PersistentPreference.fromCustomPersistentOption(requireContext(), it) })
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
