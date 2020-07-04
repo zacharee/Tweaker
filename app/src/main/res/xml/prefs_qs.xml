@@ -44,7 +44,6 @@
         app:icon_color="@color/pref_color_2"
         app:settings_type="secure"
         app:activity_class="com.zacharee1.systemuituner.activities.QSEditorActivity"
-        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForBelowAndroidNougat"
         />
 
     <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
