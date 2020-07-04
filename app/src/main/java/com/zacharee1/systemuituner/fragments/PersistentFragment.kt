@@ -221,10 +221,6 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     }
                     if (preference is ISecurePreference) {
                         type = preference.type
-
-                        if (keys.isEmpty()) {
-                            keys.add(preference.key)
-                        }
                     }
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
@@ -234,6 +230,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         highApi = preference.highApi
                         visibilityVerifier = preference.visibilityVerifier
                         enabledVerifier = preference.enabledVerifier
+                    }
+
+                    if (keys.isEmpty()) {
+                        keys.add(preference.key)
                     }
 
                     initSecure(this)

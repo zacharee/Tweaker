@@ -15,10 +15,11 @@ import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.*
+import kotlinx.coroutines.*
 
 //TODO: something weird is going on here where some settings are overridden incorrectly when first enabled as persistent.
 //TODO: Figure it out?
-class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
+class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, CoroutineScope by MainScope() {
     companion object {
         const val NOTIFICATION_CHANNEL_ID = "manager_service"
     }
@@ -77,6 +78,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onDestroy() {
         super.onDestroy()
 
+        cancel()
         observer.unregister()
         prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
@@ -90,29 +92,34 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener {
     }
 
     private fun runComparison(type: SettingsType, key: String, isInitialSetup: Boolean = false) {
-        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
+        launch {
+            val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
-        if (handler != null) {
-            val prefValue = handler.getPreferenceValueAsString()
+            if (handler != null) {
+                val prefValue = handler.getPreferenceValueAsString()
 
-            Log.e("SystemUITuner", "$prefValue, $isInitialSetup")
+                if (isInitialSetup) {
+                    handler.doInitialSet()
+                }
 
-            if (isInitialSetup) handler.doInitialSet()
+                if (!handler.compareValues()) {
+                    writeSetting(type, key, prefValue)
+                }
+            } else {
+                val value = try {
+                    getSetting(type, key)
+                } catch (e: IllegalStateException) {
+                    Log.e("SystemUITuner", "A persistent option has an undefined settings type. Please clear app data.", e)
+                    return@launch
+                }
+                val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
 
-            if (!handler.compareValues()) {
-                writeSetting(type, key, prefValue)
-            }
-        } else {
-            val value = try {
-                getSetting(type, key)
-            } catch (e: IllegalStateException) {
-                Log.e("SystemUITuner", "A persistent option has an undefined settings type. Please clear app data.", e)
-                return
-            }
-            val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
-
-            if (value != prefValue) {
-                writeSetting(type, key, prefValue)
+                if (isInitialSetup || value != prefValue) {
+                    if (isInitialSetup) {
+                        writeSetting(type, key, null)
+                    }
+                    writeSetting(type, key, prefValue)
+                }
             }
         }
     }
