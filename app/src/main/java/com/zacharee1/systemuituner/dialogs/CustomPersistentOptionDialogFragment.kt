@@ -70,7 +70,13 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
 
                 context.prefManager.apply {
                     customPersistentOptions = customPersistentOptions.apply {
-                        removeAll { it.key == key && it.type == type }
+                        removeAll {
+                            if (isEditing) {
+                                it.key == initialKey && it.type == initialType
+                            } else {
+                                it.key == key && it.type == type
+                            }
+                        }
                         add(item)
                     }
                     saveOption(type, key, value)
