@@ -48,7 +48,7 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
         builder.findViewById<View>(android.R.id.content)?.let {
             View.inflate(it.context, R.layout.custom_persistent_option_dialog, it.wrapper)
         }
-        builder.setTitle(R.string.add_custom_item)
+        builder.setTitle(if (isEditing) R.string.edit_custom_item else R.string.add_custom_item)
         builder.wrapper.apply {
             if (isEditing) {
                 label_entry?.setText(initialLabel)

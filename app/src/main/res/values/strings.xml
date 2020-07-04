@@ -358,6 +358,7 @@
     <string name="check_it_out">Check it Out</string>
 
     <string name="add_custom_item">Add Custom Item</string>
+    <string name="edit_custom_item">Edit Custom Item</string>
     <string name="remove_item">Remove This Item</string>
     <string name="remove_item_desc">Are you sure you want to remove this item?</string>
 
