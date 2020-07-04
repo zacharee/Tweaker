@@ -48,7 +48,7 @@ class PersistentActivity : AppCompatActivity() {
         val addItem = menu.findItem(R.id.add)
         addItem.isVisible = true
         addItem.setOnMenuItemClickListener {
-            persistentFragment.addCustomItem()
+            persistentFragment.addOrEditCustomItem()
             true
         }
 

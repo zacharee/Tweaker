@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/check_wrapper"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp">
+
+    <ImageView
+        android:id="@+id/remove_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:layout_marginEnd="8dp"
+        />
+
+    <ImageView
+        android:id="@+id/edit_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_marginEnd="8dp"
+        />
+
+    <com.rey.material.widget.CheckedImageView
+        android:id="@android:id/checkbox"
+        android:layout_gravity="center"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="center"
+        android:src="?android:attr/listChoiceIndicatorMultiple"
+        />
+
+</LinearLayout>

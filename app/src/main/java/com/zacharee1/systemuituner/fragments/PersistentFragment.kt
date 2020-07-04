@@ -8,7 +8,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -21,13 +20,14 @@ import com.zacharee1.systemuituner.dialogs.CustomPersistentOptionDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.interfaces.*
 import com.zacharee1.systemuituner.util.*
+import kotlinx.android.synthetic.main.custom_persistent_option_widget.view.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    override val widgetLayout: Int = R.layout.checkbox
+    override val widgetLayout: Int = Int.MIN_VALUE
 
     private var currentQuery: String? = null
 
@@ -55,7 +55,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
             if (child is PreferenceGroup) process(child)
             else {
                 if (child is INoPersistPreference) continue
-                preferences.add(PersistentPreference.fromPreference(false, child))
+                preferences.add(PersistentPreference.fromPreference(false, child, this))
             }
         }
     }
@@ -121,8 +121,11 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         requireContext().prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    fun addCustomItem() {
-        val fragment = CustomPersistentOptionDialogFragment()
+    fun addOrEditCustomItem(label: String? = null, key: String? = null, value: String? = null, type: SettingsType? = null) {
+        val fragment = if (type == null || key == null || label == null) CustomPersistentOptionDialogFragment()
+        else CustomPersistentOptionDialogFragment.forEdit(
+            label, key, value, type
+        )
         fragment.setTargetFragment(this, 0)
         fragment.show(parentFragmentManager, null)
     }
@@ -138,13 +141,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     (lowercase == null || lowercase.isBlank() ||
                             it.title.toString().contains(lowercase, true) ||
                             it.origSummary?.toString()?.contains(lowercase, true) == true)
-                }.map { PersistentPreference.fromPreference(false, it) } +
+                }.map { PersistentPreference.fromPreference(false, it, this@PersistentFragment) } +
                         requireContext().prefManager.customPersistentOptions.filter {
                             lowercase == null || lowercase.isBlank() ||
                                     it.label.contains(lowercase, true) ||
                                     it.key.contains(lowercase, true)
                         }.map {
-                            PersistentPreference.fromCustomPersistentOption(requireContext(), it)
+                            PersistentPreference.fromCustomPersistentOption(this@PersistentFragment, it)
                         }
             )
         }
@@ -153,7 +156,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     }
 
     private fun construct(pref: PersistentPreference): PersistentPreference {
-        return PersistentPreference.copy(pref, requireActivity()).apply {
+        return PersistentPreference.copy(pref, this).apply {
             isChecked = context.prefManager.persistentOptions.filter { it.type == type && keys.contains(it.key) }.size == keys.size
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as PersistentPreference
@@ -186,7 +189,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         }
     }
 
-    class PersistentPreference(val isCustom: Boolean, context: Context) : CheckBoxPreference(context), ISecurePreference by SecurePreference(
+    class PersistentPreference(val isCustom: Boolean, val fragment: PersistentFragment, context: Context = fragment.requireContext()) : CheckBoxPreference(context), ISecurePreference by SecurePreference(
         context,
         null
     ), IColorPreference by ColorPreference(
@@ -194,16 +197,16 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         null
     ), IVerifierPreference by VerifierPreference(context, null) {
         companion object {
-            fun fromCustomPersistentOption(context: Context, info: CustomPersistentOption): PersistentPreference {
-                return PersistentPreference(true, context).apply {
+            fun fromCustomPersistentOption(fragment: PersistentFragment, info: CustomPersistentOption): PersistentPreference {
+                return PersistentPreference(true, fragment).apply {
                     title = info.label
                     key = info.key
                     type = info.type
                     keys.add(key)
                 }
             }
-            fun fromPreference(isCustom: Boolean, preference: Preference, newContext: Context = preference.context): PersistentPreference {
-                return PersistentPreference(isCustom, newContext).apply {
+            fun fromPreference(isCustom: Boolean, preference: Preference, fragment: PersistentFragment): PersistentPreference {
+                return PersistentPreference(isCustom, fragment).apply {
                     title = preference.title
                     icon = preference.icon
                     key = preference.key
@@ -244,19 +247,19 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                 }
             }
 
-            fun copy(preference: PersistentPreference, newContext: Context = preference.context): PersistentPreference {
-                return fromPreference(preference.isCustom, preference, newContext)
+            fun copy(preference: PersistentPreference, fragment: PersistentFragment): PersistentPreference {
+                return fromPreference(preference.isCustom, preference, fragment)
             }
-        }
-
-        init {
-            isPersistent = false
-            layoutResource = R.layout.custom_preference
-            widgetLayoutResource = R.layout.checkbox
         }
 
         val keys: ArrayList<String> = ArrayList()
         var origSummary: CharSequence? = null
+
+        init {
+            isPersistent = false
+            layoutResource = R.layout.custom_preference
+            widgetLayoutResource = if (isCustom) R.layout.custom_persistent_option_widget else R.layout.checkbox
+        }
 
         override var dangerous: Boolean = false
             set(value) {
@@ -294,7 +297,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
             if (isCustom) {
                 holder.itemView.apply {
-                    setOnLongClickListener {
+                    remove_button.setOnClickListener {
                         RoundedBottomSheetDialog(context).apply {
                             setTitle(R.string.remove_item)
                             setMessage(R.string.remove_item_desc)
@@ -307,11 +310,19 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                                         removeAll { it.type == type && it.key == key }
                                     }
                                 }
+                                fragment.preferenceScreen.removePreference(this@PersistentPreference)
                                 dismiss()
                             })
                             setNegativeButton(android.R.string.cancel, null)
                         }.show()
-                        true
+                    }
+
+                    edit_button.setOnClickListener {
+                        val customInfo = context.prefManager.customPersistentOptions.find {
+                            it.key == key && it.type == type
+                        } ?: return@setOnClickListener
+
+                        fragment.addOrEditCustomItem(customInfo.label, customInfo.key, customInfo.value, customInfo.type)
                     }
                 }
             }
@@ -320,10 +331,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         }
 
         fun copy(): PersistentPreference {
-            return fromPreference(isCustom,this)
+            return fromPreference(isCustom,this, fragment)
         }
 
-        fun markDangerous() {
+        private fun markDangerous() {
             title = if (dangerous) {
                 SpannableString(title).apply {
                     setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
