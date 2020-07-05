@@ -116,10 +116,10 @@ class QSTileInfo(
                 "flashlight" -> R.drawable.ic_baseline_highlight_24
                 "hotspot" -> R.drawable.ic_baseline_wifi_tethering_24
                 "battery" -> R.drawable.battery_full
-                "sound" -> R.drawable.ic_baseline_volume_up_24
+                "sound", "soundmode" -> R.drawable.ic_baseline_volume_up_24
                 "sync" -> R.drawable.ic_baseline_sync_24
                 "nfc" -> R.drawable.ic_baseline_nfc_24
-                "data" -> R.drawable.ic_baseline_data_usage_24
+                "data", "mobiledata" -> R.drawable.ic_baseline_data_usage_24
                 "night", "moonlight", "bluelightfilter" -> R.drawable.ic_baseline_nights_stay_24
                 "smarthome", "home" -> R.drawable.ic_baseline_home_24
                 "privacy" -> R.drawable.ic_baseline_security_24
