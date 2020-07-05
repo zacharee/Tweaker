@@ -109,10 +109,10 @@ class QSTileInfo(
                 "color_inversion" -> R.drawable.ic_baseline_invert_colors_24
                 "cell" -> R.drawable.ic_baseline_signal_cellular_4_bar_24
                 "do_not_disturb", "dnd" -> R.drawable.do_not_disturb
-                "airplane" -> R.drawable.ic_baseline_airplanemode_active_24
+                "airplane", "airplanemode" -> R.drawable.ic_baseline_airplanemode_active_24
                 "cast" -> R.drawable.ic_baseline_cast_24
                 "location" -> R.drawable.ic_baseline_location_on_24
-                "rotation" -> R.drawable.ic_baseline_screen_rotation_24
+                "rotation", "rotationlock" -> R.drawable.ic_baseline_screen_rotation_24
                 "flashlight" -> R.drawable.ic_baseline_highlight_24
                 "hotspot" -> R.drawable.ic_baseline_wifi_tethering_24
                 "battery" -> R.drawable.battery_full
@@ -120,8 +120,14 @@ class QSTileInfo(
                 "sync" -> R.drawable.ic_baseline_sync_24
                 "nfc" -> R.drawable.ic_baseline_nfc_24
                 "data" -> R.drawable.ic_baseline_data_usage_24
-                "night", "moonlight" -> R.drawable.ic_baseline_nights_stay_24
-                "smarthome" -> R.drawable.ic_baseline_home_24
+                "night", "moonlight", "bluelightfilter" -> R.drawable.ic_baseline_nights_stay_24
+                "smarthome", "home" -> R.drawable.ic_baseline_home_24
+                "privacy" -> R.drawable.ic_baseline_security_24
+                "camera" -> R.drawable.ic_baseline_camera_24
+                "lowpower", "battery_saver", "batterymode", "powerplanning" -> R.drawable.ic_baseline_battery_plus_24
+                "exitkft" -> R.drawable.ic_baseline_child_care_24
+                "recordscreentile", "screenrecorder" -> R.drawable.ic_baseline_videocam_24
+                "screencapture" -> R.drawable.ic_baseline_camera_24
                 else -> R.drawable.ic_baseline_android_24
             },
             null
