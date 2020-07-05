@@ -67,7 +67,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.key,
                 preference.disabled,
                 preference.enabled,
-                requireContext().getSetting(preference.type, preference.writeKey) == preference.enabled
+                requireContext().getSetting(preference.type, preference.writeKey, preference.defaultValue) == preference.enabled
             )
             is SecureSeekBarPreference -> SeekBarOptionDialog.newInstance(
                 preference.key,
