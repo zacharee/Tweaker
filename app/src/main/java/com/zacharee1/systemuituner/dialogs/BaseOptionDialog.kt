@@ -13,6 +13,7 @@ import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
+import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
 
 abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     companion object {
@@ -27,8 +28,9 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).type else SettingsType.UNDEFINED
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = RoundedBottomSheetDialog(requireContext())
+        val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
+        builder.create()
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.dialogTitle)
         if (preference.icon != null) builder.setIcon(preference.icon)

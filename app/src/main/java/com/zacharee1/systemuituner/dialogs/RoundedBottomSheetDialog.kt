@@ -14,18 +14,18 @@ import com.zacharee1.systemuituner.R
 import kotlinx.android.synthetic.main.base_dialog_layout.*
 
 open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
-    init {
-        setContentView(R.layout.base_dialog_layout)
-
-        positive_button.setOnClickListener(this)
-        negative_button.setOnClickListener(this)
-    }
-
     private var positiveListener: DialogInterface.OnClickListener? = null
     private var negativeListener: DialogInterface.OnClickListener? = null
 
+    init {
+        setContentView(R.layout.base_dialog_layout)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        positive_button.setOnClickListener(this)
+        negative_button.setOnClickListener(this)
 
         updateSize()
 
@@ -83,7 +83,7 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
         setIcon(context.getDrawable(icon))
     }
 
-    fun setIcon(icon: Drawable) {
+    fun setIcon(icon: Drawable?) {
         this.icon.setImageDrawable(icon)
     }
 
@@ -117,11 +117,11 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
         findViewById<TextView>(android.R.id.message)?.text = msg
     }
 
-    fun setLayout(layout: Int) {
+    open fun setLayout(layout: Int) {
         setLayout(LayoutInflater.from(context).inflate(layout, null))
     }
 
-    fun setLayout(layout: View) {
-        findViewById<ViewGroup>(R.id.wrapper)?.addView(layout)
+    open fun setLayout(layout: View) {
+        findViewById<ViewGroup>(R.id.content_wrapper)?.addView(layout)
     }
 }

@@ -11,6 +11,8 @@ import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.android.synthetic.main.base_dialog_layout.*
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
+import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.*
+import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
 import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.*
 import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.key_entry
 import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.settings_type
@@ -43,7 +45,7 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
     private val isEditing by lazy { arguments?.getBoolean(ARG_IS_EDITING) ?: false }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = RoundedBottomSheetDialog(requireContext())
+        val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
         builder.findViewById<View>(android.R.id.content)?.let {
             View.inflate(it.context, R.layout.custom_persistent_option_dialog, it.wrapper)

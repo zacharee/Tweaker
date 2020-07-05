@@ -9,6 +9,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.util.prefManager
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
+import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
 import kotlinx.android.synthetic.main.custom_blacklist_dialog.view.*
 
 class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
@@ -26,7 +27,7 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = RoundedBottomSheetDialog(requireContext())
+        val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.title)

@@ -14,6 +14,14 @@
     android:orientation="vertical"
     android:background="?selectableItemBackground">
 
+    <ImageView
+        android:id="@+id/qs_tile_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        tools:src="@drawable/ic_baseline_delete_24"
+        />
+
     <TextView
         android:id="@+id/qs_tile_name"
         android:layout_width="wrap_content"
@@ -34,6 +42,7 @@
         android:textAlignment="center"
         android:textSize="12sp"
         android:visibility="gone"
+        tools:visibility="visible"
         tools:text="custom(com.zacharee1.systemuituner/.services.tiles.BatteryTile)"
         />
 

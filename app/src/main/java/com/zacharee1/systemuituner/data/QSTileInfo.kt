@@ -70,7 +70,7 @@ class QSTileInfo(
         }
     }
 
-    private fun getNameAndComponentForCustom(): ComponentName {
+    fun getNameAndComponentForCustom(): ComponentName {
         val p = Pattern.compile("\\((.*?)\\)")
         val m = p.matcher(key)
 

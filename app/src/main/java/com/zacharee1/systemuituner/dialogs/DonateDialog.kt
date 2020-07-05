@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.BillingUtil
 import kotlinx.android.synthetic.main.layout_donate.view.*
 
-class DonateDialog(val activity: Activity) : RoundedBottomSheetDialog(activity) {
+class DonateDialog(val activity: Activity) : ScrolledRoundedBottomSheetDialog(activity) {
     val view: View = LayoutInflater.from(context).inflate(R.layout.layout_donate, null)
     private val billingUtil = BillingUtil(this)
 

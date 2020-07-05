@@ -7,61 +7,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="16dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <com.zacharee1.systemuituner.views.PreferenceImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:maxWidth="24dp"
+            app:maxHeight="24dp"
+            tools:src="@mipmap/ic_launcher"
+            />
+
+        <TextView
+            android:id="@android:id/title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            tools:text="Hue"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+            />
 
-            <com.zacharee1.systemuituner.views.PreferenceImageView
-                android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:maxWidth="24dp"
-                app:maxHeight="24dp"
-                tools:src="@mipmap/ic_launcher"
-                />
+        <TextView
+            android:id="@android:id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            />
 
-            <TextView
-                android:id="@android:id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                tools:text="Hue"
-                style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
-                />
+        <FrameLayout
+            android:id="@+id/content_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
-            <TextView
-                android:id="@android:id/message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                />
-
-            <LinearLayout
-                android:id="@+id/wrapper"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                />
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="8dp"

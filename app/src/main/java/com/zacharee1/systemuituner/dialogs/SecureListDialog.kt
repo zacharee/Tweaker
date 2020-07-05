@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IListPreference
 import kotlinx.android.synthetic.main.base_dialog_layout.view.*
+import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
 import kotlinx.android.synthetic.main.list_dialog.view.*
 
 class SecureListDialog : BaseOptionDialog() {
