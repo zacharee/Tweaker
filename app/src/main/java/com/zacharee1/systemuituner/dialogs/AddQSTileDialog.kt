@@ -24,7 +24,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
     private val intentString = context.resources.getString(R.string.intent)
 
     init {
-        setTitle(R.string.add)
+        setTitle(R.string.add_qs_tile)
         setNegativeButton(android.R.string.cancel, null)
     }
 

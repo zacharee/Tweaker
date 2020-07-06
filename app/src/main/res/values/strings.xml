@@ -268,6 +268,7 @@
     <string name="tile_nav_immersive">Nav Immersive</string>
     <string name="tile_status_immersive">Status Immersive</string>
     <string name="add">Add</string>
+    <string name="add_qs_tile">Add QS Tile</string>
     <string name="intent">Intent</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
