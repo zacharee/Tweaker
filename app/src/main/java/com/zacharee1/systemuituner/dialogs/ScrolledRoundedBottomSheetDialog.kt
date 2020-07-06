@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.zacharee1.systemuituner.R
 
 open class ScrolledRoundedBottomSheetDialog(context: Context) : RoundedBottomSheetDialog(context) {
@@ -14,7 +15,13 @@ open class ScrolledRoundedBottomSheetDialog(context: Context) : RoundedBottomShe
         )
     }
 
-    override fun setLayout(layout: View) {
-        findViewById<ViewGroup>(R.id.wrapper)!!.addView(layout)
+    override fun setLayout(layout: View?) {
+        findViewById<ViewGroup>(R.id.wrapper)?.apply {
+            isVisible = layout != null
+            removeAllViews()
+            if (layout != null) {
+                addView(layout)
+            }
+        }
     }
 }

@@ -110,18 +110,27 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setMessage(msg: Int) {
-        setMessage(context.getText(msg))
+        setMessage(if (msg == 0) null else context.getText(msg))
     }
 
     fun setMessage(msg: CharSequence?) {
-        findViewById<TextView>(android.R.id.message)?.text = msg
+        findViewById<TextView>(android.R.id.message)?.apply {
+            isVisible = msg != null
+            text = msg
+        }
     }
 
     open fun setLayout(layout: Int) {
-        setLayout(LayoutInflater.from(context).inflate(layout, null))
+        setLayout(if (layout == 0) null else LayoutInflater.from(context).inflate(layout, null))
     }
 
-    open fun setLayout(layout: View) {
-        findViewById<ViewGroup>(R.id.content_wrapper)?.addView(layout)
+    open fun setLayout(layout: View?) {
+        findViewById<ViewGroup>(R.id.content_wrapper)?.apply {
+            isVisible = layout != null
+            removeAllViews()
+            if (layout != null) {
+                addView(layout)
+            }
+        }
     }
 }
