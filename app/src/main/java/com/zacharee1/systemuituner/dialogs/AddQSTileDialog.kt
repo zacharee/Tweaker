@@ -6,21 +6,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.card.MaterialCardView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.data.QSTileInfo
-import kotlinx.android.synthetic.main.add_qs_tile_item.view.*
+import com.zacharee1.systemuituner.util.dpAsPx
 import kotlinx.android.synthetic.main.base_dialog_layout.*
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
 import kotlinx.android.synthetic.main.dialog_add_intent_qs.view.*
 import kotlinx.android.synthetic.main.dialog_add_qs_tile.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.qs_tile.view.*
 
 class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QSEditorAdapter) :
     RoundedBottomSheetDialog(context) {
@@ -75,7 +71,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddQSTileVH {
             return AddQSTileVH(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.add_qs_tile_item, parent, false)
+                    .inflate(R.layout.qs_tile, parent, false)
             )
         }
 
@@ -99,7 +95,15 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
             fun onBind(key: String) {
                 val info = QSTileInfo(key)
 
-                itemView.qs_tile_name.text = info.getLabel(itemView.context)
+                itemView.layoutParams = (itemView.layoutParams as ViewGroup.MarginLayoutParams).apply {
+                    val dp8= itemView.context.dpAsPx(8)
+                    val dp4 = itemView.context.dpAsPx(4)
+                    setMargins(dp8, dp4, dp8, dp4)
+                }
+                (itemView as MaterialCardView).apply {
+                    cardElevation = 0f
+                }
+                itemView.label.text = info.getLabel(itemView.context)
                 itemView.qs_tile_icon.setImageDrawable(info.getIcon(itemView.context))
                 itemView.qs_tile_component.apply {
                     if (info.type == QSTileInfo.Type.CUSTOM) {

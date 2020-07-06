@@ -209,8 +209,17 @@ class QSEditorActivity : AppCompatActivity() {
 
             @ExperimentalStdlibApi
             fun onBind(info: QSTileInfo) {
-                itemView.icon.setImageDrawable(info.getIcon(itemView.context))
+                itemView.qs_tile_icon.setImageDrawable(info.getIcon(itemView.context))
                 itemView.label.text = info.getLabel(itemView.context)
+                itemView.qs_tile_component.apply {
+                    if (info.type == QSTileInfo.Type.CUSTOM) {
+                        isVisible = true
+                        text = info.getNameAndComponentForCustom().flattenToShortString()
+                    } else {
+                        isVisible = false
+                        text = null
+                    }
+                }
             }
         }
     }

@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/qs_tile_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             tools:src="@mipmap/ic_launcher"
@@ -35,6 +35,19 @@
             android:textSize="16sp"
             android:textColor="?android:textColorPrimary"
             tools:text="SystemUI Tuner"
+            />
+
+        <TextView
+            android:id="@+id/qs_tile_component"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="custom(com.zacharee1.systemuituner/.services.tiles.BatteryTile)"
             />
 
     </LinearLayout>
