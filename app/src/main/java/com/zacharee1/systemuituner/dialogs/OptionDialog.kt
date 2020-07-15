@@ -16,5 +16,4 @@ class OptionDialog : BaseOptionDialog() {
             return instance
         }
     }
-
 }
