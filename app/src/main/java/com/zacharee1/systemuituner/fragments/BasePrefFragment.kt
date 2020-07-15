@@ -181,7 +181,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
         if (highlightKey != null) {
             listView?.post {
-                listView.apply {
+                listView?.apply {
                     val a = adapter as PreferenceGroupAdapter
                     val index = a.getPreferenceAdapterPosition(highlightKey)
 
