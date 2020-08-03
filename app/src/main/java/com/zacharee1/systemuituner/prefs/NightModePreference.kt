@@ -11,13 +11,14 @@ import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.writeSecure
 import com.zacharee1.systemuituner.views.NightModeView
 
-class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference {
+class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference, IDangerousPreference {
     override val keys: Array<String> = arrayOf(
         NightModeView.NIGHT_DISPLAY_ACTIVATED,
         NightModeView.NIGHT_DISPLAY_AUTO_MODE,
         NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE,
         NightModeView.TWILIGHT_MODE
     )
+    override var dangerous = true
 
     init {
         key = "night_mode_option"
