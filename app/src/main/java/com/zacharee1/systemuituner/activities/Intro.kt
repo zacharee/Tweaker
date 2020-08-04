@@ -9,6 +9,7 @@ import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
 import com.zacharee1.systemuituner.fragments.intro.SimpleSlideFragmentOverride
+import com.zacharee1.systemuituner.fragments.intro.TermsSlide
 import com.zacharee1.systemuituner.fragments.intro.WSSSlide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
@@ -43,6 +44,13 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
         addSlide(
             FragmentSlide.Builder()
                 .background(R.color.slide_2)
+                .fragment(TermsSlide())
+                .build()
+        )
+
+        addSlide(
+            FragmentSlide.Builder()
+                .background(R.color.slide_3)
                 .fragment(
                     SimpleSlideFragmentOverride.newInstance(
                         0,
@@ -51,7 +59,7 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
                         null,
                         R.string.intro_disclaimer_desc,
                         R.drawable.ic_baseline_priority_high_24,
-                        R.color.slide_2,
+                        R.color.slide_3,
                         R.layout.mi_fragment_simple_slide_scrollable,
                         0
                     )
@@ -60,14 +68,14 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
         )
 
         val wss = FragmentSlide.Builder()
-            .background(R.color.slide_3)
+            .background(R.color.slide_4)
             .fragment(WSSSlide())
             .build()
 
         addSlide(wss)
 
         val extra = FragmentSlide.Builder()
-            .background(R.color.slide_4)
+            .background(R.color.slide_5)
             .fragment(ExtraPermsSlide())
             .build()
 
@@ -75,12 +83,12 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
 
         addSlide(
             FragmentSlide.Builder()
-                .background(R.color.slide_5)
+                .background(R.color.slide_6)
                 .fragment(
                     SimpleSlideFragmentOverride.newInstance(
                         0, null, R.string.intro_last,
                         null, R.string.intro_last_desc, R.drawable.foreground_unscaled,
-                        R.color.slide_3, R.layout.mi_fragment_simple_slide, 0
+                        R.color.slide_6, R.layout.mi_fragment_simple_slide, 0
                     )
                 )
                 .build()

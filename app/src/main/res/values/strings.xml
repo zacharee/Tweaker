@@ -270,6 +270,7 @@
     <string name="add">Add</string>
     <string name="add_qs_tile">Add QS Tile</string>
     <string name="intent">Intent</string>
+    <string name="view_online">View Online</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
@@ -302,6 +303,9 @@
 
     <string name="intro_welcome">Welcome!</string>
     <string name="intro_welcome_desc">Your Android device probably has a lot of settings to change, but did you know there\'s a lot of settings that are hidden? This app helps you change those hidden settings! You don\'t need root access, but you do have to follow a few steps to set this app up.</string>
+
+    <string name="intro_terms">Terms of Use</string>
+    <string name="intro_terms_desc">Please read these terms. I promise they\'re worthwhile. For most of you, they\'ll save you an email.</string>
 
     <string name="intro_disclaimer">Disclaimer</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner can change hidden settings. Unfortunately, since they\'re hidden, there\'s a chance that your particular device won\'t respond to certain changes. On heavily customized versions of Android, such as EMUI, MIUI, and ColorOS, there will be a lot of features that simply don\'t work. Please keep in mind that there\'s simply nothing I can do about this.</string>
