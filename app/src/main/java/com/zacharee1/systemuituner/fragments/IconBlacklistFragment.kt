@@ -126,7 +126,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             it.createPref(R.string.icon_blacklist_remote_call, key = "remote_call")
             it.createPref(R.string.icon_blacklist_tty, key = "tty")
             it.createPref(R.string.icon_blacklist_clock, key = "clock")
-            it.createPref(R.string.icon_blacklist_alarm, key = "alarm")
+            it.createPref(R.string.icon_blacklist_alarm, key = "alarm", additionalKeys = arrayOf("alarm_clock"))
             it.createPref(R.string.icon_blacklist_zen, key = "zen")
             it.createPref(R.string.icon_blacklist_do_not_disturb, key = "do_not_disturb", additionalKeys = arrayOf("dnd"))
             it.createPref(R.string.icon_blacklist_managed_profile, key = "managed_profile")
