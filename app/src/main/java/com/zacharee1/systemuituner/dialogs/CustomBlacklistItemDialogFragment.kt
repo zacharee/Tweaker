@@ -31,7 +31,7 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
 
         builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
         builder.setTitle(preference.title)
-        builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { dialog, which ->
+        builder.setPositiveButton(android.R.string.ok) { dialog, which ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
                 val label = this.label?.editText?.text?.toString()
                 val key = this.key?.editText?.text?.toString() ?: return@apply
@@ -49,7 +49,7 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
             }
             onClick(dialog, which)
             dismiss()
-        })
+        }
         builder.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialog, which ->
             onClick(dialog, which)
             dismiss()
