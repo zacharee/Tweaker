@@ -4,10 +4,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
+import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.callSafely
 import java.io.File
+import java.io.IOException
 
 class UISoundSelector : AppCompatActivity() {
     companion object {
@@ -52,16 +55,21 @@ class UISoundSelector : AppCompatActivity() {
 
                 val dest = File(folder, "ui_sound_$key")
                 if (dest.exists()) dest.delete()
-                dest.createNewFile()
 
-                dest.outputStream().use { output ->
-                    contentResolver.openInputStream(uri).use { input ->
-                        input.copyTo(output)
+                try {
+                    dest.createNewFile()
+
+                    dest.outputStream().use { output ->
+                        contentResolver.openInputStream(uri).use { input ->
+                            input.copyTo(output)
+                        }
                     }
-                }
 
-                callback?.callSafely {
-                    it.onSoundSelected(dest.absolutePath, key)
+                    callback?.callSafely {
+                        it.onSoundSelected(dest.absolutePath, key)
+                    }
+                } catch (e: IOException) {
+                    Toast.makeText(this, resources.getString(R.string.error_creating_file_template, e.message), Toast.LENGTH_SHORT).show()
                 }
             }
         }
