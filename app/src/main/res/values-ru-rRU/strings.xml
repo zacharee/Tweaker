@@ -296,5 +296,5 @@
     <string name="icon_blacklist_rotation_lock_desc">Изменение чёрного списка значков может привести к тому, что значок появится в вашей строке состояния. Это значок «Отключение поворота». Вы можете добавить его в чёрный список ниже.</string>
     <string name="hide_battery_android_bug_msg">На Android 10 сокрытие значка батареи с помощью чёрного списка значков более не возможно. Это ошибка в Android. Она должна быть исправлена в Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">Посмотреть проблему</string>
-    <string name="error_creating_file_template">Error creating file: %s</string>
+    <string name="error_creating_file_template">Ошибка создания файла: %s</string>
 </resources>
