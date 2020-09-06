@@ -17,7 +17,7 @@
     <string name="category_system">Sistema</string>
     <string name="category_ui">Interfaccia utente</string>
     <string name="category_quick_settings">Impostazioni Rapide</string>
-    <string name="screen_persistent">Opzioni Persistenti</string>
+    <string name="screen_persistent">Opzioni persistenti</string>
     <string name="category_interaction">Interazione</string>
     <string name="more">Altro</string>
     <string name="tweaks">Tweaks</string>
@@ -47,11 +47,11 @@
     <string name="feature_battery_saver_trigger">Imposta percentuale personalizzata di attivazione risparmio batteria</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">La funzione risparmio energetico di Google può attivarsi automaticamente quando il livello della batteria è del 5\% o del 15\%. Qui è possibile impostare una percentuale di attivazione personalizzata.</string>
     <string name="feature_long_press_delay">Imposta ritardo personalizzato pressione lunga</string>
-    <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
-    <string name="feature_freeform">Enable Freeform Multiwindow</string>
-    <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
+    <string name="feature_long_press_delay_desc">Nelle impostazioni di accessibilità, c\'è una funzionalità chiamata \"ritardo tocco prolungato\" che consente di specificare quanto tempo è necessario tenere premuto sullo schermo perché Android riconosca un evento a pressione prolungata. Tuttavia, le uniche opzioni per impostazione predefinita sono \"breve\", \"medio\" e \"lungo\". Qui è possibile impostare un ritardo personalizzato.</string>
+    <string name="feature_font_scale">Imposta dimensione personalizzata font</string>
+    <string name="feature_font_scale_desc">Android consente di impostare la dimensione del testo mostrato sul dispositivo specificando una scala di font per tutto il sistema. Questo valore è tipicamente rappresentato come \"piccolo\", \"normale\", \"grande\", \"molto grande\" e \"enorme\". Tuttavia, è possibile impostare il proprio valore personalizzato.</string>
+    <string name="feature_freeform">Attiva finestre a forma libera</string>
+    <string name="feature_freeform_desc">Indica se abilitare il supporto di finestre a forma libera. Richiede il riavvio. Funziona solo su dispositivi Android 7.0+.</string>
     <string name="feature_app_install_location">Set Default App Install Location</string>
     <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
