@@ -296,5 +296,5 @@
     <string name="icon_blacklist_rotation_lock_desc">Modifying the icon blacklist may cause the icon shown here to show up in your status bar. This is the Rotation Lock icon. You can blacklist it below.</string>
     <string name="hide_battery_android_bug_msg">Hiding the battery icon is no longer possible using the icon blacklist on Android 10. This is a bug in Android. It should be fixed in Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
-    <string name="error_creating_file_template">Error creating file: %s</string>
+    <string name="error_creating_file_template">Fout bij maken van bestand: %s</string>
 </resources>
