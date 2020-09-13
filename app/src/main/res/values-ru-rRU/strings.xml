@@ -169,6 +169,10 @@
     <string name="option_qs_fancy_anim_desc">На поддерживаемых устройствах вы можете использовать это для отключения модной анимации передвижения и затухания плиток быстрых настроек при полном открытии шторки. Если это не влияет на ваше устройство, держите его включенным во избежание других проблем.</string>
     <string name="option_qs_move_full_rows">Перемещение полных строк быстрых настроек</string>
     <string name="option_qs_move_full_rows_desc">Что это такое объясняется не очень хорошо, но это делает что-то, и вы можете попробовать, если хотите. Это как-то связано с полным открытием шторки с центром уведомлений.</string>
+    <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
+    <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
+    <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
+    <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
     <string name="home_welcome_title">Добро пожаловать!</string>
     <string name="search">Поиск</string>
     <string name="immersive_none">Нет</string>
@@ -266,6 +270,7 @@
     <string name="android_oreo_8_1">Oreo 8.1</string>
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
+    <string name="android_11">11</string>
     <string name="write_system_fail">Не удалось записать в Settings.System!</string>
     <string name="write_system_fail_desc">К сожалению, Android добавил некоторые ограничения на то, что можно написать в Settings.System и похоже, что вы достигли одной из этих настроек ограниченного доступа. К счастью, это ограничение может обойти через использование аддона. Вам придётся скачать его из XDA Labs, он так же бесплатен и с открытым исходным кодом.</string>
     <string name="write_system_fail_get_add_on">Получить аддон</string>
