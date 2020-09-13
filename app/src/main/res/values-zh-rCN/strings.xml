@@ -169,6 +169,10 @@
     <string name="option_qs_fancy_anim_desc">在支持的设备上，当通知中心完全扩展时，您可以使用这个功能来禁用漂亮的快速设置瓷块移动和淡入。 如果这似乎对您的设备没有影响，请保持开启以避免其他问题。</string>
     <string name="option_qs_move_full_rows">快速移动完整行</string>
     <string name="option_qs_move_full_rows_desc">这实际上没有很好地解释，但它做了一些事情，如果你愿意，你可以尝试它。 它与撤销通知中心有些关系。</string>
+    <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
+    <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
+    <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
+    <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
     <string name="home_welcome_title">欢迎！</string>
     <string name="search">搜索​​​​</string>
     <string name="immersive_none">无</string>
@@ -266,6 +270,7 @@
     <string name="android_oreo_8_1">奥利奥8.1</string>
     <string name="android_pie">饼（Pie）9.0</string>
     <string name="android_10">10</string>
+    <string name="android_11">11</string>
     <string name="write_system_fail">无法写入 Settings.System!</string>
     <string name="write_system_fail_desc">不幸的是，安卓系统添加了一些可以写入设置的限制。看起来您已经点击了其中一个受限制的设置。 幸运的是，可以通过使用附加组件应用来绕过这种限制。 您必须从 XDA 实验室下载，但它是免费和开源的。</string>
     <string name="write_system_fail_get_add_on">获取附加组件</string>
