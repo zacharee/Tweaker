@@ -258,7 +258,8 @@ fun Context.apiToName(api: Int): String {
             Build.VERSION_CODES.O -> R.string.android_oreo
             Build.VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
             Build.VERSION_CODES.P -> R.string.android_pie
-            29 -> R.string.android_10
+            Build.VERSION_CODES.Q -> R.string.android_10
+            30 -> R.string.android_11
             else -> throw IllegalArgumentException("Invalid API level: $api")
         }
     )

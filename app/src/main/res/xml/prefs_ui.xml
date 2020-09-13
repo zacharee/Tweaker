@@ -15,6 +15,34 @@
         app:settings_type="secure"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
+        android:title="@string/option_back_gesture_inset_scale_left"
+        android:summary="@string/option_back_gesture_inset_scale_left_desc"
+        android:key="back_gesture_inset_scale_left"
+        android:defaultValue="100"
+        android:icon="@drawable/border_left_variant"
+        app:icon_color="@color/pref_color_5"
+        app:scale="0.01"
+        app:minValue="0"
+        app:maxValue="500"
+        app:settings_type="secure"
+        app:low_api="30"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
+        android:title="@string/option_back_gesture_inset_scale_right"
+        android:summary="@string/option_back_gesture_inset_scale_right_desc"
+        android:key="back_gesture_inset_scale_right"
+        android:defaultValue="100"
+        android:icon="@drawable/border_right_variant"
+        app:icon_color="@color/pref_color_6"
+        app:scale="0.01"
+        app:minValue="0"
+        app:maxValue="500"
+        app:settings_type="secure"
+        app:low_api="30"
+        />
+
     <com.zacharee1.systemuituner.prefs.secure.specific.KeepDeviceOnPluggedPreference />
     <com.zacharee1.systemuituner.prefs.secure.specific.AnimationScalesPreference />
     <com.zacharee1.systemuituner.prefs.secure.specific.CameraGesturesPreference />
