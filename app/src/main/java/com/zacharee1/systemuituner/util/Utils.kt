@@ -1,8 +1,5 @@
 package com.zacharee1.systemuituner.util
 
-import android.animation.Animator
-import android.animation.AnimatorInflater
-import android.animation.AnimatorListenerAdapter
 import android.animation.LayoutTransition
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -26,11 +23,8 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.view.animation.TranslateAnimation
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.AnimRes
-import androidx.annotation.AnimatorRes
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
