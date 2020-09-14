@@ -169,10 +169,10 @@
     <string name="option_qs_fancy_anim_desc">On supported devices, you can use this to disable the fancy QS tile movement and fading when fully expanding the notification center. If this doesn\'t seem to have an effect on your device, keep it turned on to avoid other issues.</string>
     <string name="option_qs_move_full_rows">QS Move Full Rows</string>
     <string name="option_qs_move_full_rows_desc">What this actually does isn\'t explained very well, but it does something and you could try it if you want. It has something to do with pulling down the notification center.</string>
-    <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
-    <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
-    <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
-    <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
+    <string name="option_back_gesture_inset_scale_left">Largura da borda do gesto traseiro (esquerda)</string>
+    <string name="option_back_gesture_inset_scale_left_desc">O Android 11 introduz uma opção para definir a sensibilidade para o gesto traseiro da tela, ajustando a largura da área de detecção. Use esta opção para definir a largura da borda esquerda final, ou remova-a completamente.</string>
+    <string name="option_back_gesture_inset_scale_right">Largura da borda do gesto traseiro (direita)</string>
+    <string name="option_back_gesture_inset_scale_right_desc">O Android 11 introduz uma opção para definir a sensibilidade para o gesto traseiro da tela, ajustando a largura da área de detecção. Use esta opção para definir a largura da borda direita mais finalmente, ou remova-a completamente.</string>
     <string name="home_welcome_title">Welcome!</string>
     <string name="search">Search</string>
     <string name="immersive_none">None</string>
