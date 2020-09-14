@@ -148,7 +148,7 @@
     <string name="option_qqs_tiles">Quick Settings Header Count</string>
     <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row.</string>
     <string name="option_oneui_clock_position">Ubicación del reloj</string>
-    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. Alternatively, you can use OneUI Tuner. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
+    <string name="option_oneui_clock_position_desc">En One UI de Samsung (Android Pie o posterior), es posible cambiar la posición del reloj en la barra de estado. El QuickStar de Good Lock le permitirá hacerlo, pero las opciones puden ser limitadas, dependiendo del dispositivo. Esto pude colocarlo a la izquierda, centro o derecha. Tenga en cuenta que en One UI 2.0 (Android 10) es necesario que QuickStar se encuentre instalada para que esta opción funcione. Alternativamente puede usar OneUI Tuner. Para mantener persistente esta opción, habilite la lista negra de íconos, en opciones de persistencia.</string>
     <string name="option_touchwiz_navbar_color">Navigation Bar Color</string>
     <string name="option_touchwiz_navbar_color_desc">On Samsung Experience and One UI it\'s possible to set the navigation bar color to your own custom color. Use this option to do that.</string>
     <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
@@ -285,7 +285,7 @@
     <string name="more_apps">Otras apps</string>
     <string name="telegram">Telegram</string>
     <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
+    <string name="oneui_tuner_desc">Si tienes un dispositivo Samsung con Android Pie o posterior que utiliza One UI, quizá hayas notado que algunas opciones que funcionaban en Android Oreo ya no funcionan, como por ejemplo mostrar los segundos en el reloj. He hecho una app por separado que hace uso de capas del sistema para volver a hacer disponibles algunas de estas opciones. No necesita ADB ni ser root.</string>
     <string name="check_it_out">Check it Out</string>
     <string name="add_custom_item">Añadir elemento personalizado</string>
     <string name="edit_custom_item">Editar elemento personalizado</string>
