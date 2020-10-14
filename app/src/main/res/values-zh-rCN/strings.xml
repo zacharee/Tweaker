@@ -169,7 +169,7 @@
     <string name="option_qs_fancy_anim_desc">在支持的设备上，当通知中心完全扩展时，您可以使用这个功能来禁用漂亮的快速设置瓷块移动和淡入。 如果这似乎对您的设备没有影响，请保持开启以避免其他问题。</string>
     <string name="option_qs_move_full_rows">快速移动完整行</string>
     <string name="option_qs_move_full_rows_desc">这实际上没有很好地解释，但它做了一些事情，如果你愿意，你可以尝试它。 它与撤销通知中心有些关系。</string>
-    <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
+    <string name="option_back_gesture_inset_scale_left">背面手势边缘宽度(左)</string>
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
     <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
