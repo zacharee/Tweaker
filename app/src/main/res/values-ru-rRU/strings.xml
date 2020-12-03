@@ -302,4 +302,5 @@
     <string name="hide_battery_android_bug_msg">На Android 10 сокрытие значка батареи с помощью чёрного списка значков более не возможно. Это ошибка в Android. Она должна быть исправлена в Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">Посмотреть проблему</string>
     <string name="error_creating_file_template">Ошибка создания файла: %s</string>
+    <string name="error_restoring_icon_blacklist">Ошибка восстановления: %s</string>
 </resources>
