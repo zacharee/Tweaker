@@ -608,3 +608,11 @@ inline fun <T : IInterface> T.callSafely(block: (T) -> Unit) {
         block(this)
     } catch (e: Exception) {}
 }
+
+fun String.toFloatOrDefault(default: Float): Float {
+    return try {
+        this.toFloat()
+    } catch (e: NumberFormatException) {
+        default
+    }
+}

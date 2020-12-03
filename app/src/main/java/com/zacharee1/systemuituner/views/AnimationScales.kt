@@ -8,6 +8,7 @@ import com.zacharee1.systemuituner.data.AnimationScalesData
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.toFloatOrDefault
 import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
@@ -18,9 +19,9 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)!!.toFloat()
-        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)!!.toFloat()
-        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)!!.toFloat()
+        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)!!.toFloatOrDefault(1f)
+        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
+        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
 
         animator_sb.apply {
             scaledProgress = scaleData.animatorScale
