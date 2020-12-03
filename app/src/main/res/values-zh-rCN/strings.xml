@@ -302,4 +302,5 @@
     <string name="hide_battery_android_bug_msg">不再可能使用安卓10上的图标黑名单隐藏电池图标。 这是Android中的一个错误。它应该在 Android 11 中修复。</string>
     <string name="hide_battery_android_bug_btn_view_issue">查看问题</string>
     <string name="error_creating_file_template">Error creating file: %s</string>
+    <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
 </resources>
