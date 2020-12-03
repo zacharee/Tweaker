@@ -8,10 +8,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,27 +38,27 @@ import kotlinx.coroutines.*
 import tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
-import java.io.StringWriter
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.Exception
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
 
 @SuppressLint("RestrictedApi")
-class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, CoroutineScope by MainScope(), SharedPreferences.OnSharedPreferenceChangeListener {
+class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener,
+    SearchView.OnCloseListener, CoroutineScope by MainScope(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
         const val REQ_BACKUP = 1001
         const val REQ_RESTORE = 1002
-
-        const val MIME = "text/*"
     }
 
     private val origExpansionStates = HashMap<String, Boolean>()
     private val gson = GsonBuilder().create()
 
-    class BackupRestorePreference(context: Context) : Preference(context), IColorPreference by ColorPreference(context, null) {
+    class BackupRestorePreference(context: Context) : Preference(context),
+        IColorPreference by ColorPreference(context, null) {
         init {
             layoutResource = R.layout.custom_preference
         }
@@ -84,8 +84,12 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setOnPreferenceClickListener {
                         val formatter = SimpleDateFormat("yyyy-mm-dd_HH:mm:ss", Locale.getDefault())
                         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
-                        intent.type = MIME
-                        intent.putExtra(Intent.EXTRA_TITLE, "icon_blacklist_${formatter.format(Date())}.suit")
+
+                        intent.type = "*/*"
+                        intent.putExtra(
+                            Intent.EXTRA_TITLE,
+                            "icon_blacklist_${formatter.format(Date())}.suit"
+                        )
 
                         startActivityForResult(intent, REQ_BACKUP)
                         true
@@ -100,19 +104,23 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setTitle(R.string.restore)
                     setOnPreferenceClickListener {
                         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-                        intent.type = MIME
 
+                        intent.type = "*/*"
                         startActivityForResult(intent, REQ_RESTORE)
                         true
                     }
                 }
             )
         }
-        
+
         createCategory(R.string.category_icon_blacklist_general, "icon_blacklist_general") {
             it.createPref(R.string.icon_blacklist_airplane, key = "airplane")
             it.createPref(R.string.icon_blacklist_vpn, key = "vpn")
-            it.createPref(R.string.icon_blacklist_volte, key = "volte", additionalKeys = arrayOf("ims_volte"))
+            it.createPref(
+                R.string.icon_blacklist_volte,
+                key = "volte",
+                additionalKeys = arrayOf("ims_volte")
+            )
             it.createPref(R.string.icon_blacklist_wifi_calling, key = "wifi_calling")
             it.createPref(R.string.icon_blacklist_vowifi, key = "vowifi")
             it.createPref(R.string.icon_blacklist_dmb, key = "dmb")
@@ -126,11 +134,23 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             it.createPref(R.string.icon_blacklist_remote_call, key = "remote_call")
             it.createPref(R.string.icon_blacklist_tty, key = "tty")
             it.createPref(R.string.icon_blacklist_clock, key = "clock")
-            it.createPref(R.string.icon_blacklist_alarm, key = "alarm", additionalKeys = arrayOf("alarm_clock"))
+            it.createPref(
+                R.string.icon_blacklist_alarm,
+                key = "alarm",
+                additionalKeys = arrayOf("alarm_clock")
+            )
             it.createPref(R.string.icon_blacklist_zen, key = "zen")
-            it.createPref(R.string.icon_blacklist_do_not_disturb, key = "do_not_disturb", additionalKeys = arrayOf("dnd"))
+            it.createPref(
+                R.string.icon_blacklist_do_not_disturb,
+                key = "do_not_disturb",
+                additionalKeys = arrayOf("dnd")
+            )
             it.createPref(R.string.icon_blacklist_managed_profile, key = "managed_profile")
-            it.createPref(R.string.icon_blacklist_nfc, key = "nfc", additionalKeys = arrayOf("nfc_on"))
+            it.createPref(
+                R.string.icon_blacklist_nfc,
+                key = "nfc",
+                additionalKeys = arrayOf("nfc_on")
+            )
             it.createPref(R.string.icon_blacklist_cast, key = "cast")
             it.createPref(R.string.icon_blacklist_battery, key = "battery")
             it.createPref(R.string.icon_blacklist_location, key = "location")
@@ -151,7 +171,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             it.createPref(R.string.icon_blacklist_mute, key = "mute")
             it.createPref(R.string.icon_blacklist_rotate, key = "rotate")
         }
-        
+
         if (requireContext().isTouchWiz) {
             createCategory(R.string.category_icon_blacklist_samsung, "icon_blacklist_samsung") {
                 it.createPref(R.string.icon_blacklist_knox_container, key = "knox_container")
@@ -168,7 +188,10 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                 it.createPref(R.string.icon_blacklist_wifi_p2p, key = "wifi_p2p")
                 it.createPref(R.string.icon_blacklist_wifi_ap, key = "wifi_ap")
                 it.createPref(R.string.icon_blacklist_wifi_oxygen, key = "wifi_oxygen")
-                it.createPref(R.string.icon_blacklist_phone_signal_second_stub, key = "phone_signal_second_stub")
+                it.createPref(
+                    R.string.icon_blacklist_phone_signal_second_stub,
+                    key = "phone_signal_second_stub"
+                )
                 it.createPref(R.string.icon_blacklist_toddler, key = "toddler")
                 it.createPref(R.string.icon_blacklist_keyguard_wakeup, key = "keyguard_wakeup")
                 it.createPref(R.string.icon_blacklist_safezone, key = "safezone")
@@ -180,8 +203,8 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
         if (isHuawei) {
             createCategory(R.string.category_icon_blacklist_huawei, "icon_blacklist_huawei") {
-                it.createPref(R.string.icon_blacklist_powersavingmode, key ="powersavingmode")
-                it.createPref(R.string.icon_blacklist_earphone, key ="earphone")
+                it.createPref(R.string.icon_blacklist_powersavingmode, key = "powersavingmode")
+                it.createPref(R.string.icon_blacklist_earphone, key = "earphone")
                 it.createPref(R.string.icon_blacklist_volte_call, key = "volte_call")
                 it.createPref(R.string.icon_blacklist_unicom_call, key = "unicom_call")
                 it.createPref(R.string.icon_blacklist_eyes_protect, key = "eyes_protect")
@@ -197,7 +220,10 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                 it.createPref(R.string.icon_blacklist_quiet, key = "quiet")
                 it.createPref(R.string.icon_blacklist_gps, key = "gps")
                 it.createPref(R.string.icon_blacklist_missed_call, key = "missed_call")
-                it.createPref(R.string.icon_blacklist_bluetooth_handsfree_battery, key = "bluetooth_handsfree_battery")
+                it.createPref(
+                    R.string.icon_blacklist_bluetooth_handsfree_battery,
+                    key = "bluetooth_handsfree_battery"
+                )
                 it.createPref(R.string.icon_blacklist_wimax, key = "wimax")
             }
         }
@@ -217,8 +243,13 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         createCategory(R.string.category_icon_blacklist_custom, "icon_blacklist_custom") {
             buildCustomCategory(it)
         }
-        
-        createCategory(R.string.category_icon_blacklist_auto, "icon_blacklist_auto", resources.getText(R.string.category_icon_blacklist_auto_desc), null).apply {
+
+        createCategory(
+            R.string.category_icon_blacklist_auto,
+            "icon_blacklist_auto",
+            resources.getText(R.string.category_icon_blacklist_auto_desc),
+            null
+        ).apply {
             isPersistent = false
             onExpandChangeListener = {
                 if (preferenceCount == 0 && it) {
@@ -259,20 +290,25 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                 moveDuration = 0
                 changeDuration = 0
             }
-            it.layoutAnimation = AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.list_initial_anim)
+            it.layoutAnimation =
+                AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.list_initial_anim)
         }
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment = when (preference) {
-            is CustomBlacklistAddPreference -> CustomBlacklistItemDialogFragment.newInstance(preference.key)
+            is CustomBlacklistAddPreference -> CustomBlacklistItemDialogFragment.newInstance(
+                preference.key
+            )
             is BlacklistBrokenBatteryAndroid10Preference -> {
                 RoundedBottomSheetDialog(requireContext()).apply {
                     setTitle(preference.title)
                     setMessage(preference.summary)
-                    setPositiveButton(R.string.hide_battery_android_bug_btn_view_issue, DialogInterface.OnClickListener { dialog, which ->
+                    setPositiveButton(
+                        R.string.hide_battery_android_bug_btn_view_issue
+                    ) { _, _ ->
                         requireContext().launchUrl("https://issuetracker.google.com/issues/141806620")
-                    })
+                    }
                     setNegativeButton(android.R.string.cancel, null)
                     show()
                 }
@@ -334,52 +370,70 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                         requireContext().contentResolver.openOutputStream(uri).use { out ->
                             OutputStreamWriter(out).use { writer ->
                                 writer.appendln(
-                                    gson.toJson(BlacklistBackupInfo(
-                                        requireContext().prefManager.blacklistedItems,
-                                        requireContext().prefManager.customBlacklistItems
-                                    ))
+                                    gson.toJson(
+                                        BlacklistBackupInfo(
+                                            requireContext().prefManager.blacklistedItems,
+                                            requireContext().prefManager.customBlacklistItems
+                                        )
+                                    )
                                 )
                             }
                         }
                     }
                 }
                 REQ_RESTORE -> {
-                    val uri = data?.data
+                    try {
+                        val uri = data?.data
 
-                    if (uri != null) {
-                        val lines = ArrayList<String>()
+                        if (uri != null) {
+                            val lines = ArrayList<String>()
 
-                        requireContext().contentResolver.openInputStream(uri).use {  input ->
-                            InputStreamReader(input).use { reader ->
-                                reader.forEachLine { line ->
-                                    lines.add(line)
+                            requireContext().contentResolver.openInputStream(uri).use { input ->
+                                InputStreamReader(input).use { reader ->
+                                    reader.forEachLine { line ->
+                                        lines.add(line)
+                                    }
+                                }
+                            }
+
+                            if (lines.isNotEmpty()) {
+                                if (lines.size > 1) {
+                                    throw Exception("Invalid format!")
+                                }
+
+                                val firstLine = lines[0]
+
+                                val info = try {
+                                    gson.fromJson<BlacklistBackupInfo>(
+                                        firstLine,
+                                        object : TypeToken<BlacklistBackupInfo>() {}.type
+                                    )
+                                } catch (e: Exception) {
+                                    null
+                                }
+
+                                if (info != null) {
+                                    requireContext().apply {
+                                        prefManager.blacklistedItems = info.items
+                                        prefManager.customBlacklistItems = info.customItems
+                                        writeSecure("icon_blacklist", info.items.joinToString(","))
+                                    }
+                                } else {
+                                    requireContext().prefManager.blacklistedItems =
+                                        HashSet(firstLine.split(","))
+                                    requireContext().writeSecure("icon_blacklist", firstLine)
                                 }
                             }
                         }
-
-                        if (lines.isNotEmpty()) {
-                            val firstLine = lines[0]
-
-                            val info = try {
-                                gson.fromJson<BlacklistBackupInfo>(
-                                    firstLine,
-                                    object : TypeToken<BlacklistBackupInfo>() {}.type
-                                )
-                            } catch (e: Exception) {
-                                null
-                            }
-
-                            if (info != null) {
-                                requireContext().apply {
-                                    prefManager.blacklistedItems = info.items
-                                    prefManager.customBlacklistItems = info.customItems
-                                    writeSecure("icon_blacklist", info.items.joinToString(","))
-                                }
-                            } else {
-                                requireContext().prefManager.blacklistedItems = HashSet(firstLine.split(","))
-                                requireContext().writeSecure("icon_blacklist", firstLine)
-                            }
-                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(
+                            context,
+                            resources.getString(
+                                R.string.error_restoring_icon_blacklist,
+                                e.localizedMessage
+                            ),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
@@ -437,7 +491,8 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         group.forEach { _, child ->
             if (child is PreferenceGroup) {
                 if (child is CollapsiblePreferenceCategoryNew) {
-                    if (!origExpansionStates.containsKey(child.key)) origExpansionStates[child.key] = child.expanded
+                    if (!origExpansionStates.containsKey(child.key)) origExpansionStates[child.key] =
+                        child.expanded
                     if (!child.expanded) child.expanded = true
                 }
 
@@ -453,8 +508,13 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     private fun matches(query: String?, pref: Preference): Boolean {
         return query.isNullOrBlank() || pref.title.contains(query, true)
     }
-    
-    private fun createCategory(title: Int, key: String, initialSummary: CharSequence? = null, children: ((CollapsiblePreferenceCategoryNew) -> Unit)?): CollapsiblePreferenceCategoryNew {
+
+    private fun createCategory(
+        title: Int,
+        key: String,
+        initialSummary: CharSequence? = null,
+        children: ((CollapsiblePreferenceCategoryNew) -> Unit)?
+    ): CollapsiblePreferenceCategoryNew {
         return object : CollapsiblePreferenceCategoryNew(requireContext(), null) {
             init {
                 setTitle(title)
@@ -476,8 +536,15 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             }
         }
     }
-    
-    private fun CollapsiblePreferenceCategoryNew.createPref(titleRes: Int = 0, title: String? = null, key: String, additionalKeys: Array<String> = arrayOf(), autoWriteKey: String? = null, isCustom: Boolean = false): BlacklistPreference {
+
+    private fun CollapsiblePreferenceCategoryNew.createPref(
+        titleRes: Int = 0,
+        title: String? = null,
+        key: String,
+        additionalKeys: Array<String> = arrayOf(),
+        autoWriteKey: String? = null,
+        isCustom: Boolean = false
+    ): BlacklistPreference {
         return object : BlacklistPreference(requireContext(), null) {
             init {
                 if (titleRes != 0) {
@@ -503,15 +570,17 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                         RoundedBottomSheetDialog(context).apply {
                             setTitle(R.string.icon_blacklist_remove_custom)
                             setMessage(R.string.icon_blacklist_remove_custom_desc)
-                            setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
-                                context.prefManager.let {
-                                    val new = it.customBlacklistItems
-                                    new.remove(CustomBlacklistItemInfo(title.toString(), key))
+                            setPositiveButton(
+                                android.R.string.ok,
+                                DialogInterface.OnClickListener { _, _ ->
+                                    context.prefManager.let {
+                                        val new = it.customBlacklistItems
+                                        new.remove(CustomBlacklistItemInfo(title.toString(), key))
 
-                                    it.customBlacklistItems = new
-                                }
-                                dismiss()
-                            })
+                                        it.customBlacklistItems = new
+                                    }
+                                    dismiss()
+                                })
                             setNegativeButton(android.R.string.cancel, null)
                             show()
                         }
@@ -527,6 +596,12 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         category.removeAll()
         category.addPreference(CustomBlacklistAddPreference(requireContext(), null))
         requireContext().prefManager.customBlacklistItems
-            .map { item -> category.createPref(title = item.label?.toString(), key = item.key, isCustom = true) }
+            .map { item ->
+                category.createPref(
+                    title = item.label?.toString(),
+                    key = item.key,
+                    isCustom = true
+                )
+            }
     }
 }

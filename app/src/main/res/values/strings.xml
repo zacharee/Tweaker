@@ -389,4 +389,5 @@
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
 
     <string name="error_creating_file_template">Error creating file: %s</string>
+    <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
 </resources>
