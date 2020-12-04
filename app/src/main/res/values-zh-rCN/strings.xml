@@ -170,9 +170,9 @@
     <string name="option_qs_move_full_rows">快速移动完整行</string>
     <string name="option_qs_move_full_rows_desc">这实际上没有很好地解释，但它做了一些事情，如果你愿意，你可以尝试它。 它与撤销通知中心有些关系。</string>
     <string name="option_back_gesture_inset_scale_left">背面手势边缘宽度(左)</string>
-    <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
-    <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
-    <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
+    <string name="option_back_gesture_inset_scale_left_desc">Android 11引入了一个选项，可通过调整检测区域的宽度来设置屏幕边缘后手势的灵敏度。使用此选项可以更精细地设置左边缘的宽度，或者将其完全删除。</string>
+    <string name="option_back_gesture_inset_scale_right">后手势边缘宽度(Right)</string>
+    <string name="option_back_gesture_inset_scale_right_desc">Android 11引入了一个选项，可通过调整检测区域的宽度来设置屏幕边缘后手势的灵敏度。使用此选项可以更精细地设置右边缘的宽度，或者将其完全删除。</string>
     <string name="home_welcome_title">欢迎！</string>
     <string name="search">搜索​​​​</string>
     <string name="immersive_none">无</string>
@@ -301,6 +301,6 @@
     <string name="icon_blacklist_rotation_lock_desc">修改图标黑名单可能会导致此处显示的图标出现在您的状态栏中。 这是旋转锁图标。您可以在下方黑名单。</string>
     <string name="hide_battery_android_bug_msg">不再可能使用安卓10上的图标黑名单隐藏电池图标。 这是Android中的一个错误。它应该在 Android 11 中修复。</string>
     <string name="hide_battery_android_bug_btn_view_issue">查看问题</string>
-    <string name="error_creating_file_template">Error creating file: %s</string>
-    <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
+    <string name="error_creating_file_template">创建文件时出错: %s</string>
+    <string name="error_restoring_icon_blacklist">错误还原: %s</string>
 </resources>
