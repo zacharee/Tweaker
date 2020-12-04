@@ -3,7 +3,7 @@
     <string name="app_name">SystemUI 튜너</string>
     <string name="manager_channel">Manager (Turn Off)</string>
     <string name="tap_to_disable">Tap to disable this notification</string>
-    <string name="home">Home</string>
+    <string name="home">홈</string>
     <string name="category_display">Display</string>
     <string name="category_accessibility">Accessibility</string>
     <string name="category_apps">Apps</string>
@@ -302,5 +302,5 @@
     <string name="hide_battery_android_bug_msg">Hiding the battery icon is no longer possible using the icon blacklist on Android 10. This is a bug in Android. It should be fixed in Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
     <string name="error_creating_file_template">Error creating file: %s</string>
-    <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
+    <string name="error_restoring_icon_blacklist">복원 중 오류 발생: %s</string>
 </resources>
