@@ -335,7 +335,8 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
         context.packageManager.getResourcesForApplication(this)
     } catch (e: PackageManager.NameNotFoundException) {
         return 0
-    }
+    } ?: return 0
+
     val theme = res.newTheme()
     val arr = intArrayOf(
         res.getIdentifier("colorPrimary", "attr", packageName),
