@@ -455,18 +455,27 @@ fun Context.buildNonResettablePreferences(): Set<String> {
     return names
 }
 
-fun parseAutoIconBlacklistSlots(): ArrayList<String> {
+fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
     val slots = ArrayList<String>()
 
     val lines = ArrayList<String>()
     val error = ArrayList<String>()
 
-    Shell.Pool.SH.run(
-        "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
-        lines,
-        error,
-        false
-    )
+    if (!alternate) {
+        Shell.Pool.SH.run(
+            "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
+            lines,
+            error,
+            false
+        )
+    } else {
+        Shell.Pool.SH.run(
+            "dumpsys activity service com.android.systemui/.SystemUIService | grep -E '^.*([0-9])+:\\(.*\\).*\$'\n",
+            lines,
+            error,
+            false
+        )
+    }
 
     val parenPattern = Pattern.compile("([0-9])+:\\((.+?)\\)")
 
@@ -482,7 +491,7 @@ fun parseAutoIconBlacklistSlots(): ArrayList<String> {
         } catch (e: IllegalStateException) {}
     }
 
-    return slots
+    return if (slots.isEmpty() && !alternate) parseAutoIconBlacklistSlots(true) else slots
 }
 
 fun View.scaleAnimatedVisible(visible: Boolean, listener: Animation.AnimationListener? = null) {
