@@ -103,6 +103,9 @@ class TutorialActivity : IntroActivity() {
                     R.id.os_linux -> {
                         linuxOtherAdbSlideSteps to R.string.adb_linux_other
                     }
+                    R.id.os_local -> {
+                        localSlideSteps to R.string.adb_local
+                    }
                     else -> throw IllegalArgumentException("Given OS ID isn't valid! ${resources.getResourceName(which)}")
                 }
 
@@ -303,6 +306,20 @@ class TutorialActivity : IntroActivity() {
                         getString(R.string.adb_install_adb_general_end_3)
                     )
                 )
+    }
+
+    private val localSlideSteps by lazy {
+        arrayOf(
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_1)
+            ),
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_2)
+            ),
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_3)
+            )
+        )
     }
 
     private val finalSlide by lazy {

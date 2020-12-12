@@ -3,15 +3,20 @@ package com.zacharee1.systemuituner.fragments.tutorial
 import android.annotation.SuppressLint
 import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.SpannedString
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.HorizontalScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.TutorialStepInfo
 import io.noties.markwon.Markwon
+import io.noties.markwon.html.HtmlPlugin
+import io.noties.markwon.movement.MovementMethodPlugin
 import kotlinx.android.synthetic.main.steps_list.view.*
 import kotlinx.android.synthetic.main.steps_list_item.view.*
 
@@ -89,11 +94,20 @@ class StepsListSlide : SlideFragment() {
 
         open class BaseVH(view: View) : RecyclerView.ViewHolder(view) {
             //TODO: maybe make this global to the adapter?
-            private val markwon = Markwon.create(itemView.context)
+            private val markwon = Markwon.builder(itemView.context)
+                .usePlugin(MovementMethodPlugin.link())
+                .build()
 
             @SuppressLint("SetTextI18n")
             open fun onBind(text: TutorialStepInfo) {
-                itemView.step.text = "${if (text.isCommand) "" else "- "}${markwon.toMarkdown(text.text.toString())}"
+                itemView.step.text = SpannableStringBuilder().apply {
+                    if (text.isCommand) {
+                        append("- ")
+                    }
+
+                    append(markwon.toMarkdown(text.text.toString()))
+                }
+                itemView.step.movementMethod = LinkMovementMethod.getInstance()
             }
         }
     }

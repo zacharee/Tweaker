@@ -73,7 +73,9 @@ dependencies {
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.1'
-    implementation 'io.noties.markwon:core:4.5.1'
+    implementation 'io.noties.markwon:core:4.6.0'
+    implementation "io.noties.markwon:html:4.6.0"
     implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.3'
+    implementation 'moe.shizuku.privilege:api:5.0.0-alpha03'
 }

@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.ComponentInfo
+import android.content.pm.IPackageManager
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.net.Uri
@@ -36,6 +37,7 @@ import androidx.preference.PreferenceGroupAdapter
 import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.R
 import eu.chainfire.libsuperuser.Shell
+import moe.shizuku.api.*
 import java.util.*
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
@@ -626,3 +628,12 @@ fun String.toFloatOrDefault(default: Float): Float {
         default
     }
 }
+
+fun Context.grantPermissionThroughShizuku(permission: String) {
+    val ipm = IPackageManager.Stub.asInterface(ShizukuBinderWrapper(SystemServiceHelper.getSystemService("package")))
+
+    ipm.grantRuntimePermission(packageName, permission, UserHandle.USER_SYSTEM)
+}
+
+val Context.hasShizukuPermission: Boolean
+    get() = checkCallingOrSelfPermission(ShizukuApiConstants.PERMISSION) == PackageManager.PERMISSION_GRANTED

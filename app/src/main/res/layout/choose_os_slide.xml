@@ -70,6 +70,14 @@
             android:layout_marginTop="16dp">
 
             <RadioButton
+                android:id="@+id/os_local"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/adb_local"
+                />
+
+            <RadioButton
                 android:id="@+id/os_windows"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
