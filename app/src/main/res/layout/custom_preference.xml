@@ -127,12 +127,12 @@
 
         <ImageView
             android:id="@+id/expand_summary"
-            android:layout_width="24dp"
+            android:layout_width="match_parent"
             android:layout_height="24dp"
             android:src="@drawable/arrow_up"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:selectableItemBackgroundBorderless"
+            android:background="@drawable/rounded_corner_ripple"
             android:scaleY="-1"
             android:layout_gravity="bottom|center"
             android:visibility="gone"
