@@ -114,9 +114,9 @@
     <string name="option_app_install_location_internal">Внутренняя память</string>
     <string name="option_app_install_location_sd">Карта памяти</string>
     <string name="option_user_rotation_0">Портретная ориентация</string>
-    <string name="option_user_rotation_90">Горизонтальная 90&deg; против часовой стрелки</string>
-    <string name="option_user_rotation_180">Горизонтальная 180&deg;</string>
-    <string name="option_user_rotation_270">Горизонтальная 90&deg; по часовой стрелке</string>
+    <string name="option_user_rotation_90">Горизонтальная 90&#176; против часовой стрелки</string>
+    <string name="option_user_rotation_180">Горизонтальная 180&#176;</string>
+    <string name="option_user_rotation_270">Горизонтальная 90&#176; по часовой стрелке</string>
     <string name="option_sms_limit_count">Макс. число отправлений</string>
     <string name="option_sms_limit_interval">Временной интервал</string>
     <string name="option_lockscreen_shortcut_left">Ярлык слева</string>
