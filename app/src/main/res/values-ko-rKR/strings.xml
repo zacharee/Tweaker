@@ -303,4 +303,6 @@
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
     <string name="error_creating_file_template">Error creating file: %s</string>
     <string name="error_restoring_icon_blacklist">복원 중 오류 발생: %s</string>
+    <string name="supporters">Supporters</string>
+    <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
