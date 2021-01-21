@@ -303,4 +303,6 @@
     <string name="hide_battery_android_bug_btn_view_issue">Посмотреть проблему</string>
     <string name="error_creating_file_template">Ошибка создания файла: %s</string>
     <string name="error_restoring_icon_blacklist">Ошибка восстановления: %s</string>
+    <string name="supporters">Supporters</string>
+    <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
