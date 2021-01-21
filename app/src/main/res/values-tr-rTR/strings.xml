@@ -312,4 +312,6 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="hide_battery_android_bug_btn_view_issue">Sorunları Göster</string>
     <string name="error_creating_file_template">%s Dosya gönderiminde hata</string>
     <string name="error_restoring_icon_blacklist">Yedeği geri yükleme hatası</string>
+    <string name="supporters">Supporters</string>
+    <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
