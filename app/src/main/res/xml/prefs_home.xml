@@ -129,4 +129,10 @@
         android:icon="@drawable/ic_baseline_attach_money_24"
         />
 
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/supporters"
+        android:key="supporters"
+        android:icon="@drawable/heart_outline"
+        />
+
 </PreferenceScreen>

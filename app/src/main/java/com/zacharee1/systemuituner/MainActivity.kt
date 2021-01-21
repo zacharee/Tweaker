@@ -25,6 +25,7 @@ import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.zacharee1.systemuituner.activities.Intro
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
+import com.zacharee1.systemuituner.dialogs.SupportersDialog
 import com.zacharee1.systemuituner.drawer.IndentedSecondaryDrawerItem
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.fragments.SearchFragment
@@ -397,6 +398,16 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 isSelectable = false
                 onDrawerItemClickListener = { _, _, _ ->
                     DonateDialog(this@MainActivity)
+                        .show()
+                    true
+                }
+            },
+            PrimaryDrawerItem().apply {
+                name = StringHolder(R.string.supporters)
+                icon = ImageHolder(R.drawable.heart_outline)
+                isSelectable = false
+                onDrawerItemClickListener = { _, _, _ ->
+                    SupportersDialog(this@MainActivity)
                         .show()
                     true
                 }

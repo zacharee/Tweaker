@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.dialogs.DonateDialog
+import com.zacharee1.systemuituner.dialogs.SupportersDialog
 import com.zacharee1.systemuituner.util.updateTitle
 
 class HomeFragment : BasePrefFragment() {
@@ -14,6 +15,12 @@ class HomeFragment : BasePrefFragment() {
 
         findPreference<Preference>("donate")?.setOnPreferenceClickListener {
             DonateDialog(requireActivity())
+                .show()
+            true
+        }
+
+        findPreference<Preference>("supporters")?.setOnPreferenceClickListener {
+            SupportersDialog(requireActivity())
                 .show()
             true
         }

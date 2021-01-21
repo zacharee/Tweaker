@@ -78,4 +78,5 @@ dependencies {
     implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.3'
     implementation 'moe.shizuku.privilege:api:5.0.0-alpha03'
+    implementation 'com.github.zacharee:PatreonSupportersRetrieval:e1e07e9ec2'
 }
