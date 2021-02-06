@@ -39,7 +39,7 @@
     <string name="sub_demo">Modo de Demonstração</string>
     <string name="sub_demo_desc">O Modo de Demonstração permite que você force a barra de status do seu dispositivo de diferentes maneiras. Você pode usá-lo para mostrar ou ocultar ícones específicos, especificar forças do sinal e algumas outras coisas. Útil ao tirar uma printscreen, para não mostrar seus dados.</string>
     <string name="special_sub_airplane_mode">Ajustes do Modo Avião</string>
-    <string name="special_sub_airplane_mode_desc">O modo avião desativa automaticamente todos as conexões no seu dispositivo quando ele é ativado. Você pode especificar quais conexões devem ser desativados (como, por exemplo, manter o Wi-Fi ligado quando habilitar o modo avião). Além disso, você pode alterar quais conexões podem ser alternados manualmente quando o dispositivo entrar em modo avião.</string>
+    <string name="special_sub_airplane_mode_desc">O modo avião desativa automaticamente todas as conexões no seu dispositivo quando ele é ativado. Você pode especificar quais conexões devem ser desativados (como, por exemplo, manter o Wi-Fi ligado quando habilitar o modo avião). Além disso, você pode alterar quais conexões podem ser alternados manualmente quando o dispositivo entrar em modo avião.</string>
     <string name="special_sub_icon_blacklist">Lista Negra de Ícones</string>
     <string name="special_sub_icon_blacklist_desc">Escolha ícones específicos para ocultar da barra de status. Observe que esta funcionalidade não funcionará em todos os dispositivos ou com todos os ícones. Ícones das notificação de aplicativos não podem ser ocultados usando este recurso.</string>
     <string name="feature_lock_timeout">Definir um limite de tempo para bloquear a tela do dispositivo</string>
@@ -48,8 +48,8 @@
     <string name="feature_battery_saver_trigger_desc" formatted="false">O recurso de Economia de Bateria do Google pode ser ativado automaticamente quando o nível de bateria for de 5\% ou 15\%. Com isso, você pode definir a sua própria porcentagem em que o recurso será ativado.</string>
     <string name="feature_long_press_delay">Definir atraso de toque longo personalizado</string>
     <string name="feature_long_press_delay_desc">Configurações de Acessibilidade, Há um recurso chamado \"toque &amp; segurar atraso\" que permite que você especifique quanto tempo você precisa segurar na tela para que o Android reconheça um evento de pressionamento longo. No entanto, as únicas opções, por padrão, são \"curtas\", \"médio\" e \"longas\". Você pode definir seu próprio atraso.</string>
-    <string name="feature_font_scale">Definir uma escala de fonte personalizada</string>
-    <string name="feature_font_scale_desc">O Android permite que você defina o tamanho do texto mostrado no seu dispositivo, especificando uma escala de fonte em todo o sistema. Esse valor é normalmente representado como \"pequeno\", \"normal\", \"grande\", \"grande\" e \"extra grande\". No entanto, você pode definir seu próprio valor personalizado.</string>
+    <string name="feature_font_scale">Definir uma escala personalizada para a fonte</string>
+    <string name="feature_font_scale_desc">O Android permite que você defina o tamanho do texto mostrado no seu dispositivo, especificando uma escala para a fonte em todo o sistema. Esse valor é normalmente representado como \"pequeno\", \"normal\", \"grande\" e \"extra grande\". No entanto, você pode definir seu próprio valor personalizado.</string>
     <string name="feature_freeform">Ativar janelas de forma livre</string>
     <string name="feature_freeform_desc">Se deseja ativar o suporte de múltiplas janelas livres. Requer reinicialização. Só funciona em dispositivos Android 7.0+.</string>
     <string name="feature_app_install_location">Definir local de instalação padrão</string>
@@ -63,7 +63,7 @@
     <string name="feature_custom_animation_scales">Definir escalas de animação personalizadas</string>
     <string name="feature_custom_animation_scales_desc">Nas Configurações de Desenvolvedor do Android, pode definir escalões de animação para controlar a duração das animações. Se as opções disponíveis forem muito rápidas ou lentas para você, você pode definir valores personalizados aqui.</string>
     <string name="feature_custom_rotation">Bloquear a rotação da tela para um valor personalizado</string>
-    <string name="feature_custom_rotation_desc">A maioria dos telefones só permite que você bloqueie a rotação da tela do seu telefone para o Modo Retrato. Com essa configuração, você pode bloquear a rotação da tela em qualquer orientação. Primeiro, você terá que desativar a rotação automática antes que isso funcione.</string>
+    <string name="feature_custom_rotation_desc">A maioria dos telefones só permite que você bloqueie a rotação da tela do seu telefone para o Modo Retrato. Com essa configuração, você pode bloquear a rotação da tela em qualquer orientação. Primeiro, você terá que desativar a rotação automática para que isto funcione.</string>
     <string name="feature_immersive_mode">Modo imersivo</string>
     <string name="feature_immersive_mode_desc">A maioria dos outros aplicativos que permitem a você alternar o modo imersivo só tem algumas opções: ocultar a barra de navegação ou ocultar a barra de status. Na verdade, é possível definir isso por aplicativo, em modo lista branca ou lista negra.</string>
     <string name="feature_heads_up_snooze_length">Duração da notificação flutuante</string>
@@ -77,9 +77,9 @@
     <string name="feature_fix_tethering">Corrigir o tethering</string>
     <string name="feature_fix_tethering_desc">Em alguns dispositivos e versões do Android, isso pode ignorar as restrições da operadora sobre tethering.</string>
     <string name="feature_shortcode_warning">Desativar aviso para o envio de SMS</string>
-    <string name="feature_shortcode_warning_desc">Ao enviar SMS para alguns númeors, o sistema avisa que você poderá receber uma cobrança da operadora. Você pode desativar este aviso aqui.</string>
+    <string name="feature_shortcode_warning_desc">Ao enviar SMS para alguns números, o sistema avisa que você poderá receber uma cobrança da sua operadora. Você pode desativar este aviso aqui.</string>
     <string name="feature_sms_limit">Limite de SMS personalizado</string>
-    <string name="feature_sms_limit_desc">Por padrão, o Android limita você a enviar 30 SMS a cada 30 minutos antes de incomodá-lo com uma notificação pop-up. Usando estes dois valores, você pode personalizar quantos SMS você deseja enviar sem ficar incomodado.</string>
+    <string name="feature_sms_limit_desc">Por padrão, o Android limita você a enviar 30 SMS a cada 30 minutos antes de incomodá-lo com uma notificação pop-up. Usando estes dois valores, você pode personalizar quantos SMS e em qual período você deseja enviar sem ser alertado.</string>
     <string name="feature_lockscreen_shortcuts">Atalhos na tela de bloqueio</string>
     <string name="feature_lockscreen_shortcuts_desc">A partir da pré-visualização de desenvolvedor do Android Oreo 3, o Google removeu a capacidade de personalizar os atalhos de tela de bloqueio. No entanto, o valor da preferência ainda pode ser definido manualmente.</string>
     <string name="feature_enable_adb">Ativar ADB</string>
@@ -114,9 +114,9 @@
     <string name="option_app_install_location_internal">Armazenamento interno</string>
     <string name="option_app_install_location_sd">Cartão SD</string>
     <string name="option_user_rotation_0">Retrato</string>
-    <string name="option_user_rotation_90">Paisagem CCW</string>
+    <string name="option_user_rotation_90">Paisagem no sentido anti-horário</string>
     <string name="option_user_rotation_180">Retrato Invertido</string>
-    <string name="option_user_rotation_270">Paisagem CW</string>
+    <string name="option_user_rotation_270">Paisagem no sentido horário</string>
     <string name="option_sms_limit_count">Total de envios</string>
     <string name="option_sms_limit_interval">Intervalo de tempo</string>
     <string name="option_lockscreen_shortcut_left">Atalho da esquerda</string>
