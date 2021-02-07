@@ -571,16 +571,16 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                             setTitle(R.string.icon_blacklist_remove_custom)
                             setMessage(R.string.icon_blacklist_remove_custom_desc)
                             setPositiveButton(
-                                android.R.string.ok,
-                                DialogInterface.OnClickListener { _, _ ->
-                                    context.prefManager.let {
-                                        val new = it.customBlacklistItems
-                                        new.remove(CustomBlacklistItemInfo(title.toString(), key))
+                                android.R.string.ok
+                            ) { _, _ ->
+                                context.prefManager.let {
+                                    val new = it.customBlacklistItems
+                                    new.remove(CustomBlacklistItemInfo(title.toString(), key))
 
-                                        it.customBlacklistItems = new
-                                    }
-                                    dismiss()
-                                })
+                                    it.customBlacklistItems = new
+                                }
+                                dismiss()
+                            }
                             setNegativeButton(android.R.string.cancel, null)
                             show()
                         }
@@ -598,7 +598,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         requireContext().prefManager.customBlacklistItems
             .map { item ->
                 category.createPref(
-                    title = item.label?.toString(),
+                    title = item.label,
                     key = item.key,
                     isCustom = true
                 )
