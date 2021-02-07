@@ -21,6 +21,7 @@
     <string name="category_interaction">交互</string>
     <string name="more">更多</string>
     <string name="tweaks">微调</string>
+    <string name="failure">Failure</string>
     <string name="sub_cellular">移动网络</string>
     <string name="sub_wifi">WLAN</string>
     <string name="sub_miscellaneous">其它选项</string>
@@ -303,6 +304,10 @@
     <string name="hide_battery_android_bug_btn_view_issue">查看问题</string>
     <string name="error_creating_file_template">创建文件时出错: %s</string>
     <string name="error_restoring_icon_blacklist">错误还原: %s</string>
+    <string name="permission_grant_success">Successfully granted permissions.</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="patreon">Patreon</string>
+    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Supporters</string>
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
