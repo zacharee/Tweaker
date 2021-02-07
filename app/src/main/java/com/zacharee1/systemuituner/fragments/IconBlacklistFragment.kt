@@ -369,7 +369,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     if (uri != null) {
                         requireContext().contentResolver.openOutputStream(uri).use { out ->
                             OutputStreamWriter(out).use { writer ->
-                                writer.appendln(
+                                writer.appendLine(
                                     gson.toJson(
                                         BlacklistBackupInfo(
                                             requireContext().prefManager.blacklistedItems,
