@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tuner SystemUI</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">Manager (Disattiva)</string>
     <string name="tap_to_disable">Tocca per disabilitare questa notifica</string>
     <string name="home">Pagina iniziale</string>
     <string name="category_display">Schermo</string>
@@ -21,7 +21,7 @@
     <string name="category_interaction">Interazione</string>
     <string name="more">Altro</string>
     <string name="tweaks">Tweaks</string>
-    <string name="failure">Failure</string>
+    <string name="failure">Operazione non riuscita</string>
     <string name="sub_cellular">Cellulare</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Altro</string>
@@ -307,7 +307,7 @@
     <string name="permission_grant_success">Successfully granted permissions.</string>
     <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
     <string name="patreon">Patreon</string>
-    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
+    <string name="patreon_desc">Con solo $1 al mese hai accesso a tutte le mie app a pagamento e più.</string>
     <string name="supporters">Supporters</string>
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
