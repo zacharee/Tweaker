@@ -38,6 +38,7 @@ import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.R
 import eu.chainfire.libsuperuser.Shell
 import moe.shizuku.api.*
+import rikka.shizuku.*
 import java.util.*
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
@@ -629,11 +630,33 @@ fun String.toFloatOrDefault(default: Float): Float {
     }
 }
 
-fun Context.grantPermissionThroughShizuku(permission: String) {
-    val ipm = IPackageManager.Stub.asInterface(ShizukuBinderWrapper(SystemServiceHelper.getSystemService("package")))
+fun Context.grantPermissionThroughShizuku(permission: String): Boolean {
+    return try {
+        val ipm = IPackageManager.Stub.asInterface(ShizukuBinderWrapper(SystemServiceHelper.getSystemService("package")))
 
-    ipm.grantRuntimePermission(packageName, permission, UserHandle.USER_SYSTEM)
+        ipm.grantRuntimePermission(packageName, permission, UserHandle.USER_SYSTEM)
+
+        true
+    } catch (e: IllegalStateException) {
+        false
+    }
+}
+
+fun Context.requestShizukuPermission(code: Int) {
+    if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) {
+        if (this is Activity) {
+            requestPermissions(arrayOf(ShizukuProvider.PERMISSION), code)
+        } else if (this is Fragment) {
+            requestPermissions(arrayOf(ShizukuProvider.PERMISSION), code)
+        }
+    } else {
+        Shizuku.requestPermission(code)
+    }
 }
 
 val Context.hasShizukuPermission: Boolean
-    get() = checkCallingOrSelfPermission(ShizukuApiConstants.PERMISSION) == PackageManager.PERMISSION_GRANTED
+    get() = if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) {
+        checkCallingOrSelfPermission(ShizukuProvider.PERMISSION) == PackageManager.PERMISSION_GRANTED
+    } else {
+        Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
+    }

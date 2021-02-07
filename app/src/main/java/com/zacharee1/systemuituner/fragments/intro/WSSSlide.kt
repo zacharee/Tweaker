@@ -1,26 +1,26 @@
 package com.zacharee1.systemuituner.fragments.intro
 
-import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
 import com.zacharee1.systemuituner.util.grantPermissionThroughShizuku
 import com.zacharee1.systemuituner.util.hasShizukuPermission
 import com.zacharee1.systemuituner.util.hasWss
+import com.zacharee1.systemuituner.util.requestShizukuPermission
 import eu.chainfire.libsuperuser.Shell
 import kotlinx.android.synthetic.main.wss_slide.*
 import kotlinx.coroutines.*
-import moe.shizuku.api.ShizukuApiConstants
-import moe.shizuku.api.ShizukuProvider
+import rikka.shizuku.Shizuku
 
-class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
+class WSSSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.OnRequestPermissionResultListener {
     companion object {
         const val REQ_SHIZUKU = 3003
     }
@@ -38,7 +38,7 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
             grant.setOnClickListener {
                 launch {
                     val hasRoot = async { Shell.SU.available() }
-                    val hasShizuku = async { ShizukuProvider.isShizukuInstalled(requireContext()) }
+                    val hasShizuku = async { Shizuku.pingBinder() }
 
                     if (hasRoot.await()) {
                         val result = async {
@@ -50,7 +50,8 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
                         if (requireContext().hasShizukuPermission) {
                             requireContext().grantPermissionThroughShizuku(android.Manifest.permission.WRITE_SECURE_SETTINGS)
                         } else {
-                            requestPermissions(arrayOf(ShizukuApiConstants.PERMISSION), REQ_SHIZUKU)
+                            Shizuku.addRequestPermissionResultListener(this@WSSSlide)
+                            requireContext().requestShizukuPermission(REQ_SHIZUKU)
                         }
                     } else {
                         AlertDialog.Builder(
@@ -69,6 +70,21 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
         }
     }
 
+    override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
+        if (requestCode == REQ_SHIZUKU && grantResult == PackageManager.PERMISSION_GRANTED) {
+            try {
+                requireContext().grantPermissionThroughShizuku(android.Manifest.permission.WRITE_SECURE_SETTINGS)
+                Toast.makeText(requireContext(), R.string.permission_grant_success, Toast.LENGTH_SHORT).show()
+            } catch (e: SecurityException) {
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.failure)
+                    .setMessage(R.string.permission_grant_failure)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+            }
+        }
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -76,9 +92,7 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-        if (requestCode == REQ_SHIZUKU && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            requireContext().grantPermissionThroughShizuku(android.Manifest.permission.WRITE_SECURE_SETTINGS)
-        }
+        onRequestPermissionResult(requestCode, grantResults[0])
     }
 
     override fun canGoForward(): Boolean {
