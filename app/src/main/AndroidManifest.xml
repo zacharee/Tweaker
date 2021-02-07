@@ -192,7 +192,7 @@
         </receiver>
 
         <provider
-            android:name="moe.shizuku.api.ShizukuProvider"
+            android:name="rikka.shizuku.ShizukuProvider"
             android:authorities="${applicationId}.shizuku"
             android:multiprocess="false"
             android:enabled="true"
