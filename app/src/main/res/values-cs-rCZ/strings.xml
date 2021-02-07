@@ -21,6 +21,7 @@
     <string name="category_interaction">Interakce</string>
     <string name="more">Více</string>
     <string name="tweaks">Vylepšení</string>
+    <string name="failure">Failure</string>
     <string name="sub_cellular">Mobilní data</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Různé</string>
@@ -303,6 +304,10 @@
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
     <string name="error_creating_file_template">Error creating file: %s</string>
     <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
+    <string name="permission_grant_success">Successfully granted permissions.</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="patreon">Patreon</string>
+    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Supporters</string>
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>
