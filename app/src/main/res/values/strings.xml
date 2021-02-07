@@ -391,6 +391,9 @@
     <string name="error_creating_file_template">Error creating file: %s</string>
     <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
 
+    <string name="patreon">Patreon</string>
+    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
+
     <string name="supporters">Supporters</string>
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
 </resources>

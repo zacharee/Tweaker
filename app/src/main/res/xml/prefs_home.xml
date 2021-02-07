@@ -130,6 +130,12 @@
         />
 
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/patreon"
+        android:key="patreon"
+        android:icon="@drawable/patreon"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
         android:title="@string/supporters"
         android:key="supporters"
         android:icon="@drawable/heart_outline"
