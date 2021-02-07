@@ -52,15 +52,15 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'com.google.firebase:firebase-analytics:18.0.1'
-    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.2'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
     implementation 'com.google.code.gson:gson:2.8.6'
 
     implementation 'com.android.billingclient:billing:3.0.2'
     implementation 'com.android.billingclient:billing-ktx:3.0.2'
 
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.3"
 
     implementation 'com.github.zacharee:Unblacklister:1.1'
     implementation "com.mikepenz:materialdrawer:8.0.1"
@@ -78,5 +78,5 @@ dependencies {
     implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.3'
     implementation 'moe.shizuku.privilege:api:5.0.0-alpha03'
-    implementation 'com.github.zacharee:PatreonSupportersRetrieval:e1e07e9ec2'
+    implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
 }
