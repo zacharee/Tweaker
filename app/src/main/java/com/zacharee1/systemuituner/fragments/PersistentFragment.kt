@@ -297,7 +297,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
             if (isCustom) {
                 holder.itemView.apply {
-                    val binding = CustomPersistentOptionWidgetBinding.bind(this)
+                    val binding = CustomPersistentOptionWidgetBinding.bind(findViewById(R.id.check_wrapper))
 
                     binding.removeButton.setOnClickListener {
                         RoundedBottomSheetDialog(context).apply {
