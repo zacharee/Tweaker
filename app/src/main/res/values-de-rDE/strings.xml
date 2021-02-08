@@ -21,7 +21,7 @@
     <string name="category_interaction">Interaktion</string>
     <string name="more">Mehr</string>
     <string name="tweaks">Optimierungen</string>
-    <string name="failure">Failure</string>
+    <string name="failure">Fehlgeschlagen</string>
     <string name="sub_cellular">Mobile Daten</string>
     <string name="sub_wifi">Wlan</string>
     <string name="sub_miscellaneous">Sonstiges</string>
@@ -304,8 +304,8 @@
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
     <string name="error_creating_file_template">Fehler beim Erstellen der Datei %s</string>
     <string name="error_restoring_icon_blacklist">Fehler beim Wiederherstellen: %s</string>
-    <string name="permission_grant_success">Successfully granted permissions.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_success">Berechtigungen wurden erfolgreich erteilt.</string>
+    <string name="permission_grant_failure">Es konnten keine Berechtigungen erteilt werden. Wenn Sie ein Xiaomi- oder OPPO/Realme-Gerät besitzen, stellen Sie bitte sicher, dass Sie „USB-Debugging (Sicherheitseinstellungen)” aktivieren oder \"Berechtigungsüberwachung deaktivieren\" aktivieren.</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Unterstützer</string>
