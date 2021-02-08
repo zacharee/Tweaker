@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
-import kotlinx.android.synthetic.main.terms_slide.*
+import com.zacharee1.systemuituner.databinding.TermsSlideBinding
 
 class TermsSlide : SlideFragment() {
     override fun onCreateView(
@@ -18,6 +18,7 @@ class TermsSlide : SlideFragment() {
     }
 
     override fun canGoForward(): Boolean {
-        return terms_root?.canGoForward() == true
+        val binding = TermsSlideBinding.bind(requireView())
+        return binding.termsRoot.canGoForward()
     }
 }

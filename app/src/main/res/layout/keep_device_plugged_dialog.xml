@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zacharee1.systemuituner.views.RoundedFrameCardView
+<com.zacharee1.systemuituner.views.KeepOnPlugged
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
-    <com.zacharee1.systemuituner.views.KeepOnPlugged
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/on_ac"
+            android:text="@string/option_keep_awake_on_ac"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?listPreferredItemHeight"
+            />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/on_ac"
-                android:text="@string/option_keep_awake_on_ac"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeight"
-                />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/on_usb"
+            android:text="@string/option_keep_awake_on_usb"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/on_usb"
-                android:text="@string/option_keep_awake_on_usb"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeight"
-                />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/on_wireless"
+            android:text="@string/option_keep_awake_on_wireless"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeight"
+            />
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/on_wireless"
-                android:text="@string/option_keep_awake_on_wireless"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeight"
-                />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </com.zacharee1.systemuituner.views.KeepOnPlugged>
-
-</com.zacharee1.systemuituner.views.RoundedFrameCardView>
+</com.zacharee1.systemuituner.views.KeepOnPlugged>

@@ -1,59 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zacharee1.systemuituner.views.RoundedFrameCardView
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:hint="@string/label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/key">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/label"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/label"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/key">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:digits="@string/icon_blacklist_custom_allowed_chars"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <View
-            android:layout_width="0.75dp"
-            android:layout_height="0dp"
-            android:background="@android:color/black"
-            android:backgroundTint="?android:textColorSecondary"
-            android:backgroundTintMode="src_atop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:digits="@string/icon_blacklist_custom_allowed_chars"
             />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/key"
-            android:layout_width="0dp"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:layout_width="0.75dp"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
+        android:backgroundTint="?android:textColorSecondary"
+        android:backgroundTintMode="src_atop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/key"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:hint="@string/key"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/key"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/label">
+            android:inputType="textNoSuggestions"
+            android:digits="@string/icon_blacklist_custom_allowed_chars"
+            />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textNoSuggestions"
-                android:digits="@string/icon_blacklist_custom_allowed_chars"
-                />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</com.zacharee1.systemuituner.views.RoundedFrameCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,8 @@ import androidx.core.view.isVisible
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.IOSSelectionCallback
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.ChooseOsSlideBinding
 import com.zacharee1.systemuituner.util.callSafely
-import kotlinx.android.synthetic.main.choose_os_slide.view.*
 
 class OSChooseSlide : SlideFragment() {
     companion object {
@@ -44,8 +44,10 @@ class OSChooseSlide : SlideFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.os_local.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.Q
-        view.choose_os.setOnCheckedChangeListener { group, checkedId ->
+        val binding = ChooseOsSlideBinding.bind(view)
+
+        binding.osLocal.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.Q
+        binding.chooseOs.setOnCheckedChangeListener { group, checkedId ->
             if (previousSelected != checkedId) {
                 previousSelected = checkedId
                 group.post {
@@ -58,6 +60,8 @@ class OSChooseSlide : SlideFragment() {
     }
 
     override fun canGoForward(): Boolean {
-        return view?.choose_os?.checkedRadioButtonId != -1
+        val binding = ChooseOsSlideBinding.bind(requireView())
+
+        return binding.chooseOs.checkedRadioButtonId != -1
     }
 }

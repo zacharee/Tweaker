@@ -23,6 +23,7 @@ import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.zacharee1.systemuituner.activities.Intro
+import com.zacharee1.systemuituner.databinding.ActivityMainBinding
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import com.zacharee1.systemuituner.dialogs.PatreonDialog
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
@@ -31,13 +32,12 @@ import com.zacharee1.systemuituner.drawer.IndentedSecondaryDrawerItem
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.fragments.SearchFragment
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 @ExperimentalNavController
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
-    private val searchFragment by lazy { search_fragment as SearchFragment }
-    private val titleSwitcher by lazy { toolbar.screen_title }
+    private val mainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val searchFragment by lazy { supportFragmentManager.findFragmentById(R.id.search_fragment) as SearchFragment }
+    private val titleSwitcher by lazy { mainBinding.screenTitle }
 
     private val navController: NavController
         get() = findNavController(R.id.nav_host_fragment)
@@ -52,12 +52,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         if (!hasWss)
             Intro.start(this)
 
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        setContentView(mainBinding.getRoot())
+        setSupportActionBar(mainBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(DrawerArrowDrawable(this))
-        toolbar.addAnimation()
+        mainBinding.toolbar.addAnimation()
 
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
@@ -66,21 +66,21 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
         titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
 
-        slider.headerPadding = true
-        slider.headerHeight = DimenHolder.fromDp(172)
-        slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
-        slider.setupWithNavController(navController)
-        slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
+        mainBinding.slider.headerPadding = true
+        mainBinding.slider.headerHeight = DimenHolder.fromDp(172)
+        mainBinding.slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
+        mainBinding.slider.setupWithNavController(navController)
+        mainBinding.slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
 
-        val currentListener = slider.onDrawerItemClickListener
-        slider.onDrawerItemClickListener = { view, item, position ->
+        val currentListener = mainBinding.slider.onDrawerItemClickListener
+        mainBinding.slider.onDrawerItemClickListener = { view, item, position ->
             if (item.isSelectable && item is NavigationDrawerItem) {
-                root.closePane()
+                mainBinding.root.closePane()
             }
             currentListener?.invoke(view, item, position) ?: false
         }
 
-        root.sliderFadeColor = getColor(R.color.colorSliderFade)
+        mainBinding.root.sliderFadeColor = getColor(R.color.colorSliderFade)
 
         navController.addOnDestinationChangedListener(this)
 
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            root.openPane()
+            mainBinding.root.openPane()
             return true
         }
 
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         searchView?.addAnimation()
 
         searchView?.setOnSearchClickListener {
-            search_holder.apply {
+            mainBinding.searchHolder.apply {
                 visibility = View.VISIBLE
                 animate()
                     .alpha(1f)
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         searchView?.setOnCloseListener {
-            search_holder.apply {
+            mainBinding.searchHolder.apply {
                 animate()
                     .alpha(0f)
                     .withEndAction {
@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         destination: NavDestination,
         arguments: Bundle?
     ) {
-        slider.setSelection(destination.id.toLong(), false)
+        mainBinding.slider.setSelection(destination.id.toLong(), false)
     }
 
     override fun onBackPressed() {
@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     }
 
     private fun setUpDrawer() {
-        slider.addItems(
+        mainBinding.slider.addItems(
             SectionDrawerItem()
                 .apply {
                     divider = false
@@ -341,7 +341,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         )
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N_MR1) {
-            slider.addItems(
+            mainBinding.slider.addItems(
                 PrimaryDrawerItem().apply {
                     name = StringHolder(R.string.reset)
                     icon = ImageHolder(R.drawable.ic_baseline_restore_24)
@@ -364,7 +364,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         if (isTouchWiz) {
-            slider.addItems(
+            mainBinding.slider.addItems(
                 PrimaryDrawerItem().apply {
                     name = StringHolder(R.string.oneui_tuner)
                     icon = ImageHolder(R.drawable.ic_baseline_android_24)
@@ -386,7 +386,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             )
         }
 
-        slider.addItems(
+        mainBinding.slider.addItems(
             DividerDrawerItem(),
             SectionDrawerItem().apply {
                 divider = false

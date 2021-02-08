@@ -16,11 +16,11 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SearchIndex
+import com.zacharee1.systemuituner.databinding.CustomPersistentOptionWidgetBinding
 import com.zacharee1.systemuituner.dialogs.CustomPersistentOptionDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.interfaces.*
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.custom_persistent_option_widget.view.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
@@ -297,7 +297,9 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
             if (isCustom) {
                 holder.itemView.apply {
-                    remove_button.setOnClickListener {
+                    val binding = CustomPersistentOptionWidgetBinding.bind(this)
+
+                    binding.removeButton.setOnClickListener {
                         RoundedBottomSheetDialog(context).apply {
                             setTitle(R.string.remove_item)
                             setMessage(R.string.remove_item_desc)
@@ -317,7 +319,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         }.show()
                     }
 
-                    edit_button.setOnClickListener {
+                    binding.editButton.setOnClickListener {
                         val customInfo = context.prefManager.customPersistentOptions.find {
                             it.key == key && it.type == type
                         } ?: return@setOnClickListener

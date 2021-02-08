@@ -11,27 +11,29 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zacharee1.systemuituner.R
-import kotlinx.android.synthetic.main.base_dialog_layout.*
+import com.zacharee1.systemuituner.databinding.BaseDialogLayoutBinding
 
 open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
     private var positiveListener: DialogInterface.OnClickListener? = null
     private var negativeListener: DialogInterface.OnClickListener? = null
 
+    val baseBinding = BaseDialogLayoutBinding.inflate(layoutInflater)
+
     init {
-        setContentView(R.layout.base_dialog_layout)
+        setContentView(baseBinding.root)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        positive_button.setOnClickListener(this)
-        negative_button.setOnClickListener(this)
+        baseBinding.positiveButton.setOnClickListener(this)
+        baseBinding.negativeButton.setOnClickListener(this)
 
         updateSize()
 
         var oldOrientation = context.resources.configuration.orientation
 
-        listener.onConfigurationChangedListener = { newConfig ->
+        baseBinding.listener.onConfigurationChangedListener = { newConfig ->
             if (newConfig.orientation != oldOrientation) {
                 oldOrientation = newConfig.orientation
 
@@ -84,7 +86,7 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setIcon(icon: Drawable?) {
-        this.icon.setImageDrawable(icon)
+        baseBinding.icon.setImageDrawable(icon)
     }
 
     fun setPositiveButton(text: Int, listener: DialogInterface.OnClickListener?) {
@@ -92,8 +94,8 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setPositiveButton(text: CharSequence?, listener: DialogInterface.OnClickListener?) {
-        positive_button.text = text
-        positive_button.isVisible = text != null
+        baseBinding.positiveButton.text = text
+        baseBinding.positiveButton.isVisible = text != null
 
         positiveListener = listener
     }
@@ -103,8 +105,8 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setNegativeButton(text: CharSequence?, listener: DialogInterface.OnClickListener?) {
-        negative_button.text = text
-        negative_button.isVisible = text != null
+        baseBinding.negativeButton.text = text
+        baseBinding.negativeButton.isVisible = text != null
 
         negativeListener = listener
     }

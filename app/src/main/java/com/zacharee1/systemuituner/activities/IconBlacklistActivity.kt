@@ -7,22 +7,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.ActivityIconBlacklistBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.IconBlacklistFragment
 import com.zacharee1.systemuituner.util.addAnimation
-import kotlinx.android.synthetic.main.activity_icon_blacklist.*
-import kotlinx.android.synthetic.main.activity_persistent.toolbar
 
 class IconBlacklistActivity : AppCompatActivity() {
-    private val blacklistFragment by lazy { blacklist_fragment as IconBlacklistFragment }
+    private val binding by lazy { ActivityIconBlacklistBinding.inflate(layoutInflater) }
+    private val blacklistFragment by lazy { supportFragmentManager.findFragmentById(R.id.blacklist_fragment) as IconBlacklistFragment }
     private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_icon_blacklist)
-        setSupportActionBar(toolbar)
-        toolbar.addAnimation()
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

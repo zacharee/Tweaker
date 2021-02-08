@@ -40,7 +40,6 @@ import com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.prefs.secure.specific.*
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.custom_preference.view.*
 import kotlinx.coroutines.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
@@ -278,7 +277,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                     val summaryView = findViewById<TextView>(android.R.id.summary)
 
                     summaryView.post {
-                        title_summary_wrapper?.apply {
+                        findViewById<View>(R.id.title_summary_wrapper)?.apply {
                             val topPadding = paddingTop
 
                             setPadding(
@@ -288,7 +287,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                                 if (summaryView.hasEllipsis) 0 else topPadding
                             )
                         }
-                        expand_summary?.apply {
+                        findViewById<View>(R.id.expand_summary)?.apply {
                             summaryView as ExpandableTextView
                             summaryView.collapse()
                             isVisible = summaryView.hasEllipsis

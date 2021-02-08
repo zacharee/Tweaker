@@ -7,15 +7,10 @@ import android.view.View
 import androidx.fragment.app.DialogFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomPersistentOption
+import com.zacharee1.systemuituner.databinding.BaseMessagePrefDialogLayoutBinding
+import com.zacharee1.systemuituner.databinding.CustomPersistentOptionDialogBinding
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import kotlinx.android.synthetic.main.base_dialog_layout.*
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.*
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.key_entry
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.settings_type
 
 class CustomPersistentOptionDialogFragment : DialogFragment() {
     companion object {
@@ -47,24 +42,30 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
+        val msgBinding = BaseMessagePrefDialogLayoutBinding.bind(builder.findViewById(android.R.id.content)!!)
+
         builder.findViewById<View>(android.R.id.content)?.let {
-            View.inflate(it.context, R.layout.custom_persistent_option_dialog, it.wrapper)
+            View.inflate(it.context, R.layout.custom_persistent_option_dialog, msgBinding.wrapper)
         }
         builder.setTitle(if (isEditing) R.string.edit_custom_item else R.string.add_custom_item)
-        builder.wrapper.apply {
+        msgBinding.wrapper.apply {
+            val optionBinding = CustomPersistentOptionDialogBinding.bind(this)
+
             if (isEditing) {
-                label_entry?.setText(initialLabel)
-                key_entry?.setText(initialKey)
-                value_entry?.setText(initialValue)
-                if (initialType.value != -1) settings_type?.setSelection(initialType.value)
+                optionBinding.labelEntry.setText(initialLabel)
+                optionBinding.keyEntry.setText(initialKey)
+                optionBinding.valueEntry.setText(initialValue)
+                if (initialType.value != -1) optionBinding.settingsType.setSelection(initialType.value)
             }
         }
         builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
-                val label = this.label_entry?.text?.toString() ?: return@apply
-                val key = this.key_entry?.text?.toString() ?: return@apply
-                val value = this.value_entry?.text?.toString()
-                val type = SettingsType.fromValue(settings_type.selectedItemPosition)
+                val optionBinding = CustomPersistentOptionDialogBinding.bind(this)
+
+                val label = optionBinding.labelEntry.text?.toString() ?: return@apply
+                val key = optionBinding.keyEntry.text?.toString() ?: return@apply
+                val value = optionBinding.valueEntry.text?.toString()
+                val type = SettingsType.fromValue(optionBinding.settingsType.selectedItemPosition)
 
                 if (key.isBlank()) return@apply
 

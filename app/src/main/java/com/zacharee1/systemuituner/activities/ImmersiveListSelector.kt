@@ -17,11 +17,11 @@ import com.rey.material.widget.CheckedImageView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.LoadedAppInfo
+import com.zacharee1.systemuituner.databinding.ActivityImmersiveSelectorBinding
 import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.util.addAnimation
 import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.getColorPrimary
-import kotlinx.android.synthetic.main.activity_immersive_selector.*
 import kotlinx.coroutines.*
 
 class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope(), SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -49,6 +49,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     }
     private val adapter by lazy { ImmersiveAdapter(checked, this) }
     private val origItems = ArrayList<LoadedAppInfo>()
+    private val binding by lazy { ActivityImmersiveSelectorBinding.inflate(layoutInflater) }
 
     override fun onClose(): Boolean {
         onFilter(null)
@@ -78,21 +79,21 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_immersive_selector)
+        setContentView(binding.root)
 
         if (callback == null) {
             finish()
             return
         }
 
-        setSupportActionBar(toolbar)
-        toolbar.addAnimation()
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_check_24)
 
-        selector.adapter = adapter
+        binding.selector.adapter = adapter
 
         launch {
             val apps = withContext(Dispatchers.IO) {
@@ -111,7 +112,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
             }
 
             setItems(apps)
-            progress.visibility = View.GONE
+            binding.progress.visibility = View.GONE
         }
     }
 

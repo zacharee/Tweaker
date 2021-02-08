@@ -6,20 +6,20 @@ import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.CompoundButton
 import android.widget.ScrollView
+import com.zacharee1.systemuituner.databinding.KeepDevicePluggedDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
-import kotlinx.android.synthetic.main.keep_device_plugged_dialog.view.*
 
 class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
 
+    private val binding by lazy { KeepDevicePluggedDialogBinding.bind(this) }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val ac = on_ac
-        val usb = on_usb
-        val wireless = on_wireless
+        val ac = binding.onAc
+        val usb = binding.onUsb
+        val wireless = binding.onWireless
         val current = Settings.Global.getInt(
             context.contentResolver,
             Settings.Global.STAY_ON_WHILE_PLUGGED_IN,

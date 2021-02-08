@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.views
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -13,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.LockscreenShortcutSelector
+import com.zacharee1.systemuituner.databinding.LockscreenShortcutBinding
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
-import kotlinx.android.synthetic.main.lockscreen_shortcut.view.*
 
 class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
     init {
@@ -45,14 +44,16 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             holder.itemView.apply {
+                val binding = LockscreenShortcutBinding.bind(this)
+
                 val item = items[position]
                 val value = Settings.Secure.getString(context.contentResolver, item.key)
                 val cName = ComponentName.unflattenFromString(value ?: "")
 
-                type_name.text = resources.getText(item.label)
+                binding.typeName.text = resources.getText(item.label)
 
                 if (cName != null) {
-                    app_icon.setImageDrawable(
+                    binding.appIcon.setImageDrawable(
                         try {
                             context.packageManager.getApplicationIcon(cName.packageName)
                         } catch (e: PackageManager.NameNotFoundException) {
@@ -60,20 +61,20 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                         }
                     )
 
-                    app_name.text = try {
+                    binding.appName.text = try {
                         context.packageManager.getActivityInfo(cName, 0).loadLabel(context.packageManager)
                     } catch (e: PackageManager.NameNotFoundException) {
                         null
                     }
-                    component.text = cName.flattenToShortString()
+                    binding.component.text = cName.flattenToShortString()
                 } else {
-                    app_icon.setImageDrawable(null)
+                    binding.appIcon.setImageDrawable(null)
 
-                    app_name.text = null
-                    component.text = null
+                    binding.appName.text = null
+                    binding.component.text = null
                 }
 
-                reset.setOnClickListener {
+                binding.reset.setOnClickListener {
                     val newInfo = items[holder.adapterPosition]
 
                     context.prefManager.saveOption(SettingsType.SECURE, newInfo.key, null)

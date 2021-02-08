@@ -6,10 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
-import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
+import com.zacharee1.systemuituner.databinding.ActivityTaskerIconBlacklistInputBinding
 import com.zacharee1.systemuituner.util.tasker.helpers.IconBlacklistHelper
-import kotlinx.android.synthetic.main.activity_tasker_icon_blacklist_input.*
 
 open class BaseIconBlacklistConfigureActivity(private val isRemove: Boolean) : AppCompatActivity(),
     TaskerPluginConfig<TaskerIconBlacklistData> {
@@ -24,6 +23,7 @@ open class BaseIconBlacklistConfigureActivity(private val isRemove: Boolean) : A
         )
 
     private val helper by lazy { IconBlacklistHelper(this) }
+    protected val binding by lazy { ActivityTaskerIconBlacklistInputBinding.inflate(layoutInflater) }
 
     private var key: String = ""
 
@@ -35,13 +35,13 @@ open class BaseIconBlacklistConfigureActivity(private val isRemove: Boolean) : A
         super.onCreate(savedInstanceState)
         helper.onCreate()
 
-        setContentView(R.layout.activity_tasker_icon_blacklist_input)
+        setContentView(binding.root)
 
-        input.setText(key)
-        apply.setOnClickListener {
+        binding.input.setText(key)
+        binding.apply.setOnClickListener {
             helper.finishForTasker()
         }
-        input.doOnTextChanged { text, _, _, _ ->
+        binding.input.doOnTextChanged { text, _, _, _ ->
             key = text?.toString() ?: ""
         }
     }

@@ -11,11 +11,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
+import com.zacharee1.systemuituner.databinding.ExtraPermsSlideBinding
 import com.zacharee1.systemuituner.util.grantPermissionThroughShizuku
 import com.zacharee1.systemuituner.util.hasShizukuPermission
 import com.zacharee1.systemuituner.util.requestShizukuPermission
 import eu.chainfire.libsuperuser.Shell
-import kotlinx.android.synthetic.main.extra_perms_slide.*
 import kotlinx.coroutines.*
 import rikka.shizuku.Shizuku
 
@@ -29,8 +29,10 @@ class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val binding = ExtraPermsSlideBinding.bind(view)
+
         view.apply {
-            grant.setOnClickListener {
+            binding.grant.setOnClickListener {
                 launch {
                     val hasRoot = async { Shell.SU.available() }
                     val hasShizuku = async { Shizuku.pingBinder() }
@@ -61,7 +63,7 @@ class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.
                     }
                 }
             }
-            help.setOnClickListener {
+            binding.help.setOnClickListener {
                 TutorialActivity.start(requireContext(), android.Manifest.permission.PACKAGE_USAGE_STATS, android.Manifest.permission.DUMP)
             }
         }

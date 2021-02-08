@@ -1,84 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zacharee1.systemuituner.views.RoundedFrameCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zacharee1.systemuituner.views.AnimationScales xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.zacharee1.systemuituner.views.AnimationScales
-        android:layout_margin="8dp"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="16dp"
+            />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                />
+        <TextView
+            android:text="@string/option_animator_duration_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
-            <TextView
-                android:text="@string/option_animator_duration_scale"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+        <tk.zwander.seekbarpreference.SeekBarView
+            android:id="@+id/animator_sb"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeightLarge"
+            app:view_defaultValue="100"
+            app:minValue="0"
+            app:maxValue="500"
+            app:scale="0.01"
+            />
 
-            <tk.zwander.seekbarpreference.SeekBarView
-                android:id="@+id/animator_sb"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeightLarge"
-                app:view_defaultValue="100"
-                app:minValue="0"
-                app:maxValue="500"
-                app:scale="0.01"
-                />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                />
+        <TextView
+            android:text="@string/option_window_animation_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
-            <TextView
-                android:text="@string/option_window_animation_scale"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+        <tk.zwander.seekbarpreference.SeekBarView
+            android:id="@+id/window_sb"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeightLarge"
+            app:view_defaultValue="100"
+            app:minValue="0"
+            app:maxValue="500"
+            app:scale="0.01"
+            />
 
-            <tk.zwander.seekbarpreference.SeekBarView
-                android:id="@+id/window_sb"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeightLarge"
-                app:view_defaultValue="100"
-                app:minValue="0"
-                app:maxValue="500"
-                app:scale="0.01"
-                />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                />
+        <TextView
+            android:text="@string/option_transition_animation_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
-            <TextView
-                android:text="@string/option_transition_animation_scale"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+        <tk.zwander.seekbarpreference.SeekBarView
+            android:id="@+id/transition_sb"
+            android:layout_width="match_parent"
+            android:layout_height="?listPreferredItemHeightLarge"
+            app:view_defaultValue="100"
+            app:minValue="0"
+            app:maxValue="500"
+            app:scale="0.01"
+            />
 
-            <tk.zwander.seekbarpreference.SeekBarView
-                android:id="@+id/transition_sb"
-                android:layout_width="match_parent"
-                android:layout_height="?listPreferredItemHeightLarge"
-                app:view_defaultValue="100"
-                app:minValue="0"
-                app:maxValue="500"
-                app:scale="0.01"
-                />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </com.zacharee1.systemuituner.views.AnimationScales>
-
-</com.zacharee1.systemuituner.views.RoundedFrameCardView>
+</com.zacharee1.systemuituner.views.AnimationScales>

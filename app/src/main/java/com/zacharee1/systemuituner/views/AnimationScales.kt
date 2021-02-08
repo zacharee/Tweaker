@@ -5,16 +5,18 @@ import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
 import com.zacharee1.systemuituner.data.AnimationScalesData
+import com.zacharee1.systemuituner.databinding.AnimationDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.toFloatOrDefault
-import kotlinx.android.synthetic.main.animation_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
 class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
     private val scaleData = AnimationScalesData()
+
+    private val binding by lazy { AnimationDialogBinding.bind(this) }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
@@ -23,7 +25,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
         scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
         scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
 
-        animator_sb.apply {
+        binding.animatorSb.apply {
             scaledProgress = scaleData.animatorScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
@@ -36,7 +38,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
             }
         }
 
-        window_sb.apply {
+        binding.windowSb.apply {
             scaledProgress = scaleData.windowScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
@@ -49,7 +51,7 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
             }
         }
 
-        transition_sb.apply {
+        binding.transitionSb.apply {
             scaledProgress = scaleData.transitionScale
             listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}

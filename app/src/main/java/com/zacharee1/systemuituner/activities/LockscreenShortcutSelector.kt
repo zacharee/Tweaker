@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.AppActivityItemBinding
+import com.zacharee1.systemuituner.databinding.LockscreenShortcutSelectorBinding
 import com.zacharee1.systemuituner.util.addAnimation
 import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.component
 import com.zacharee1.systemuituner.util.scaleAnimatedVisible
-import kotlinx.android.synthetic.main.app_activity_item.view.*
-import kotlinx.android.synthetic.main.lockscreen_shortcut_selector.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -41,6 +41,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         }
     }
 
+    private val binding by lazy { LockscreenShortcutSelectorBinding.inflate(layoutInflater) }
     private val callback by lazy {
         val binder = intent.getBundleExtra(EXTRA_CALLBACK)?.getBinder(EXTRA_CALLBACK)
         if (binder != null) {
@@ -81,15 +82,15 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             return
         }
 
-        setContentView(R.layout.lockscreen_shortcut_selector)
-        setSupportActionBar(toolbar)
-        toolbar.addAnimation()
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.addAnimation()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        app_selector.adapter = appAdapter
-        activity_selector.adapter = activityAdapter
+        binding.appSelector.adapter = appAdapter
+        binding.activitySelector.adapter = activityAdapter
 
         launch {
             val deferred = async {
@@ -103,7 +104,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 addAll(deferred.await())
             }
 
-            progress_wrapper.isVisible = false
+            binding.progressWrapper.isVisible = false
             updateRecyclerVisibility(false)
         }
     }
@@ -130,11 +131,11 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     override fun onQueryTextChange(newText: String?): Boolean {
         when {
-            app_selector.isVisible -> {
+            binding.appSelector.isVisible -> {
                 activityAdapter.query = null
                 appAdapter.query = newText
             }
-            activity_selector.isVisible -> {
+            binding.activitySelector.isVisible -> {
                 appAdapter.query = null
                 activityAdapter.query = newText
             }
@@ -148,7 +149,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     override fun onBackPressed() {
-        if (activity_selector.isVisible) {
+        if (binding.activitySelector.isVisible) {
             updateRecyclerVisibility(false)
         } else {
             super.onBackPressed()
@@ -156,9 +157,9 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     private fun updateRecyclerVisibility(forActivity: Boolean) {
-        activity_selector.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
+        binding.activitySelector.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation?) {
-                if (!activity_selector.isVisible) {
+                if (!binding.activitySelector.isVisible) {
                     activityAdapter.items.clear()
                 }
             }
@@ -166,7 +167,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             override fun onAnimationStart(animation: Animation?) {}
             override fun onAnimationRepeat(animation: Animation?) {}
         })
-        app_selector.scaleAnimatedVisible = !forActivity
+        binding.appSelector.scaleAnimatedVisible = !forActivity
     }
 
     class AppAdapter(private val selectionCallback: (LoadedApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {
@@ -223,7 +224,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             }
         }
 
-        override val visibleItems = SortedList<LoadedApplicationInfo>(
+        override val visibleItems = SortedList(
             LoadedApplicationInfo::class.java,
             object : SortedList.Callback<LoadedApplicationInfo>() {
                 override fun areItemsTheSame(
@@ -263,12 +264,13 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         )
 
         override fun onBindViewHolder(holder: VH, position: Int) {
+            val itemBinding = AppActivityItemBinding.bind(holder.itemView)
             holder.itemView.apply {
                 val info = visibleItems[position]
 
-                icon.setImageDrawable(info.loadIcon(context.packageManager))
-                name.text = info.label
-                component.text = info.packageName
+                itemBinding.icon.setImageDrawable(info.loadIcon(context.packageManager))
+                itemBinding.name.text = info.label
+                itemBinding.component.text = info.packageName
 
                 setOnClickListener {
                     val newPosition = holder.adapterPosition
@@ -376,12 +378,13 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         )
 
         override fun onBindViewHolder(holder: VH, position: Int) {
+            val itemBinding = AppActivityItemBinding.bind(holder.itemView)
             holder.itemView.apply {
                 val info = visibleItems[position]
 
-                icon.setImageDrawable(info.loadIcon(context.packageManager))
-                name.text = info.label
-                component.text = info.component.flattenToShortString()
+                itemBinding.icon.setImageDrawable(info.loadIcon(context.packageManager))
+                itemBinding.name.text = info.label
+                itemBinding.component.text = info.component.flattenToShortString()
 
                 setOnClickListener {
                     val newInfo = visibleItems[holder.adapterPosition]

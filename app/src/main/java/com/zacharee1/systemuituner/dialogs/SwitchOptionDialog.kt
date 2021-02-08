@@ -1,12 +1,9 @@
 package com.zacharee1.systemuituner.dialogs
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.getSetting
-import kotlinx.android.synthetic.main.secure_switch.view.*
 
 class SwitchOptionDialog : BaseOptionDialog() {
     companion object {
@@ -35,7 +32,7 @@ class SwitchOptionDialog : BaseOptionDialog() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        view.secure_switch.apply {
+        view.findViewById<SwitchMaterial>(R.id.secure_switch).apply {
             text = preference.title
             isChecked = shouldBeChecked
             setOnCheckedChangeListener { _, isChecked ->

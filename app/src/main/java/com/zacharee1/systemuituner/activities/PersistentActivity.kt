@@ -7,21 +7,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.ActivityPersistentBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.PersistentFragment
 import com.zacharee1.systemuituner.util.addAnimation
-import kotlinx.android.synthetic.main.activity_persistent.*
 
 class PersistentActivity : AppCompatActivity() {
-    private val persistentFragment by lazy { persistent_fragment as PersistentFragment }
+    private val binding by lazy { ActivityPersistentBinding.inflate(layoutInflater) }
+    private val persistentFragment by lazy { supportFragmentManager.findFragmentById(R.id.persistent_fragment) as PersistentFragment }
     private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_persistent)
-        setSupportActionBar(toolbar)
-        toolbar.addAnimation()
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

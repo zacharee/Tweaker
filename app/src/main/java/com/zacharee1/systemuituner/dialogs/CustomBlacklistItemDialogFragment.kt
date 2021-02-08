@@ -7,10 +7,9 @@ import android.view.View
 import androidx.preference.PreferenceDialogFragmentCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
+import com.zacharee1.systemuituner.databinding.BaseMessagePrefDialogLayoutBinding
+import com.zacharee1.systemuituner.databinding.CustomBlacklistDialogBinding
 import com.zacharee1.systemuituner.util.prefManager
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
-import kotlinx.android.synthetic.main.custom_blacklist_dialog.view.*
 
 class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
     companion object {
@@ -33,8 +32,10 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
         builder.setTitle(preference.title)
         builder.setPositiveButton(android.R.string.ok) { dialog, which ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
-                val label = this.label?.editText?.text?.toString()
-                val key = this.key?.editText?.text?.toString() ?: return@apply
+                val blBinding = CustomBlacklistDialogBinding.bind(this)
+
+                val label = blBinding.label.editText?.text?.toString()
+                val key = blBinding.key.editText?.text?.toString() ?: return@apply
 
                 if (key.isBlank()) return@apply
 
@@ -65,7 +66,7 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        View.inflate(view.context, R.layout.custom_blacklist_dialog, view.wrapper)
+        View.inflate(view.context, R.layout.custom_blacklist_dialog, view.findViewById(R.id.wrapper))
     }
 
     override fun onDialogClosed(positiveResult: Boolean) {}

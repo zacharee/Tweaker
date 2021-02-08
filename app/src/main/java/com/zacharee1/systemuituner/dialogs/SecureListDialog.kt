@@ -9,9 +9,6 @@ import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IListPreference
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
-import kotlinx.android.synthetic.main.list_dialog.view.*
 
 class SecureListDialog : BaseOptionDialog() {
     companion object {
@@ -36,7 +33,11 @@ class SecureListDialog : BaseOptionDialog() {
 
         val checkedIndex = listPref.findIndexOfValue(listPref.value)
         val entries = listPref.entries
-        val list = View.inflate(requireContext(), R.layout.list_dialog, view.wrapper).select_dialog_listview as RecyclerView
+
+        View.inflate(requireContext(), R.layout.list_dialog, view.findViewById(R.id.wrapper))
+
+        val list = view.findViewById<RecyclerView>(R.id.select_dialog_listview)
+
         val adapter = Adapter(entries?.mapIndexed { index, charSequence -> ItemInfo(charSequence, index == checkedIndex) } ?: ArrayList()) {
             clickedIndex = it
             onClick(dialog, DialogInterface.BUTTON_POSITIVE)

@@ -6,40 +6,33 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <com.zacharee1.systemuituner.views.RoundedFrameCardView
-        android:id="@+id/result_wrapper"
+    <RadioGroup
+        android:id="@+id/clock_position"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/clock_position"
+        <RadioButton
+            android:id="@+id/position_left"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:text="@string/left"
+            android:textAlignment="center" />
 
-            <RadioButton
-                android:id="@+id/position_left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/left"
-                android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/position_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/middle"
+            android:textAlignment="center" />
 
-            <RadioButton
-                android:id="@+id/position_middle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/middle"
-                android:textAlignment="center" />
+        <RadioButton
+            android:id="@+id/position_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/right"
+            android:textAlignment="center" />
 
-            <RadioButton
-                android:id="@+id/position_right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/right"
-                android:textAlignment="center" />
-
-        </RadioGroup>
-
-    </com.zacharee1.systemuituner.views.RoundedFrameCardView>
+    </RadioGroup>
 
 </com.zacharee1.systemuituner.views.OneUIClockPositionView>

@@ -2,18 +2,16 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
+import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.util.SettingsType
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
 
 abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     companion object {
@@ -48,9 +46,9 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         super.onBindDialogView(view)
 
         if (layoutRes != 0) {
-            View.inflate(view.context, layoutRes, view.wrapper)
+            View.inflate(view.context, layoutRes, view.findViewById(R.id.wrapper))
 
-            findCallbackView(view.wrapper)?.callback = { data ->
+            findCallbackView(view.findViewById(R.id.wrapper))?.callback = { data ->
                 notifyChanged(data)
             }
         }

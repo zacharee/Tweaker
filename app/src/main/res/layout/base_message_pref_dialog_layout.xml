@@ -11,7 +11,7 @@
         android:clipToPadding="false"
         android:clipChildren="false">
 
-        <LinearLayout
+        <com.zacharee1.systemuituner.views.RoundedFrameCardView
             android:id="@+id/wrapper"
             android:orientation="vertical"
             android:layout_width="match_parent"

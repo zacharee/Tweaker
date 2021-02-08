@@ -11,12 +11,12 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
+import com.zacharee1.systemuituner.databinding.WssSlideBinding
 import com.zacharee1.systemuituner.util.grantPermissionThroughShizuku
 import com.zacharee1.systemuituner.util.hasShizukuPermission
 import com.zacharee1.systemuituner.util.hasWss
 import com.zacharee1.systemuituner.util.requestShizukuPermission
 import eu.chainfire.libsuperuser.Shell
-import kotlinx.android.synthetic.main.wss_slide.*
 import kotlinx.coroutines.*
 import rikka.shizuku.Shizuku
 
@@ -34,8 +34,10 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.OnReque
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val binding = WssSlideBinding.bind(view)
+
         view.apply {
-            grant.setOnClickListener {
+            binding.grant.setOnClickListener {
                 launch {
                     val hasRoot = async { Shell.SU.available() }
                     val hasShizuku = async { Shizuku.pingBinder() }
@@ -64,7 +66,7 @@ class WSSSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.OnReque
                     }
                 }
             }
-            help.setOnClickListener {
+            binding.help.setOnClickListener {
                 TutorialActivity.start(requireContext(), android.Manifest.permission.WRITE_SECURE_SETTINGS)
             }
         }

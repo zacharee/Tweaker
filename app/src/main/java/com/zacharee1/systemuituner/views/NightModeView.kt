@@ -6,15 +6,16 @@ import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.widget.AdapterView
+import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.zacharee1.systemuituner.data.NightModeInfo
+import com.zacharee1.systemuituner.databinding.NightModeBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import kotlinx.android.synthetic.main.night_mode.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
-class NightModeView(context: Context, attrs: AttributeSet) : RoundedFrameCardView(context, attrs), IOptionDialogCallback {
+class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback {
     companion object {
         const val TWILIGHT_MODE = "twilight_mode"
         const val NIGHT_DISPLAY_ACTIVATED = "night_display_activated"
@@ -31,14 +32,16 @@ class NightModeView(context: Context, attrs: AttributeSet) : RoundedFrameCardVie
     override var callback: ((data: Any?) -> Unit)? = null
     private val nightModeInfo = NightModeInfo()
 
+    private val binding by lazy { NightModeBinding.bind(this) }
+
     override fun onFinishInflate() {
         super.onFinishInflate()
 
         val atLeastNMR1 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
 
-        night_display_wrapper.isVisible = atLeastNMR1
-        twilight_wrapper.isVisible = !atLeastNMR1
-        reset_night_mode.setOnClickListener {
+        binding.nightDisplayWrapper.isVisible = atLeastNMR1
+        binding.twilightWrapper.isVisible = !atLeastNMR1
+        binding.resetNightMode.setOnClickListener {
             nightModeInfo.nullAll()
             callback?.invoke(nightModeInfo)
             updateStates()
@@ -56,41 +59,41 @@ class NightModeView(context: Context, attrs: AttributeSet) : RoundedFrameCardVie
         nightModeInfo.twilightMode = context.getSetting(SettingsType.SECURE, TWILIGHT_MODE, TWILIGHT_OFF.toString())?.toIntOrNull()
 
         if (atLeastNMR1) {
-            night_display_enabled.isChecked = nightModeInfo.nightModeActivated == 1
-            night_display_enabled.setOnCheckedChangeListener { _, isChecked ->
+            binding.nightDisplayEnabled.isChecked = nightModeInfo.nightModeActivated == 1
+            binding.nightDisplayEnabled.setOnCheckedChangeListener { _, isChecked ->
                 nightModeInfo.nightModeActivated = if (isChecked) 1 else 0
                 callback?.invoke(nightModeInfo)
             }
 
-            night_display_auto.isChecked = nightModeInfo.nightModeAuto == 1
-            night_display_auto.setOnCheckedChangeListener { _, isChecked ->
+            binding.nightDisplayAuto.isChecked = nightModeInfo.nightModeAuto == 1
+            binding.nightDisplayAuto.setOnCheckedChangeListener { _, isChecked ->
                 nightModeInfo.nightModeAuto = if (isChecked) 1 else 0
                 callback?.invoke(nightModeInfo)
             }
 
-            night_display_temp.minValue = resources.run {
+            binding.nightDisplayTemp.minValue = resources.run {
                 try {
                     getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
                 } catch (e: Resources.NotFoundException) {
                     0
                 }
             }
-            night_display_temp.maxValue = resources.run {
+            binding.nightDisplayTemp.maxValue = resources.run {
                 try {
                     getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
                 } catch (e: Resources.NotFoundException) {
                     10000
                 }
             }
-            night_display_temp.defaultValue = resources.run {
+            binding.nightDisplayTemp.defaultValue = resources.run {
                 try {
                     getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
                 } catch (e: Resources.NotFoundException) {
                     5000
                 }
             }
-            night_display_temp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
-            night_display_temp.listener = object : SeekBarView.SeekBarListener {
+            binding.nightDisplayTemp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
+            binding.nightDisplayTemp.listener = object : SeekBarView.SeekBarListener {
                 override fun onProgressAdded() {}
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
@@ -100,8 +103,8 @@ class NightModeView(context: Context, attrs: AttributeSet) : RoundedFrameCardVie
                 }
             }
         } else {
-            twilight_mode.setSelection(nightModeInfo.twilightMode ?: TWILIGHT_OFF)
-            twilight_mode.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            binding.twilightMode.setSelection(nightModeInfo.twilightMode ?: TWILIGHT_OFF)
+            binding.twilightMode.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
                 override fun onItemSelected(
                     parent: AdapterView<*>?,

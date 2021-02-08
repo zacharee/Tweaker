@@ -1,35 +1,33 @@
 package com.zacharee1.systemuituner.fragments.tutorial
 
 import android.annotation.SuppressLint
-import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.text.SpannedString
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.TutorialStepInfo
+import com.zacharee1.systemuituner.databinding.StepsListBinding
 import io.noties.markwon.Markwon
-import io.noties.markwon.html.HtmlPlugin
 import io.noties.markwon.movement.MovementMethodPlugin
-import kotlinx.android.synthetic.main.steps_list.view.*
-import kotlinx.android.synthetic.main.steps_list_item.view.*
 
 class StepsListSlide : SlideFragment() {
     private val steps = ArrayList<TutorialStepInfo>()
     private val adapter = StepsAdapter(steps)
+
+    private val binding by lazy { StepsListBinding.bind(requireView()) }
 
     private var title: CharSequence = ""
         set(value) {
             field = value
 
             if (view != null) {
-                view?.mi_title?.text = value
+                binding.miTitle.text = value
             }
         }
     private var desc: CharSequence? = null
@@ -37,7 +35,7 @@ class StepsListSlide : SlideFragment() {
             field = value
 
             if (view != null) {
-                view?.mi_description?.text = value
+                binding.miTitle.text = value
             }
         }
 
@@ -61,11 +59,9 @@ class StepsListSlide : SlideFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.apply {
-            mi_title.text = title
-            mi_description.text = desc
-            steps_list.adapter = adapter
-        }
+        binding.miTitle.text = title
+        binding.miDescription.text = desc
+        binding.stepsList.adapter = adapter
     }
 
     class StepsAdapter(private val items: ArrayList<TutorialStepInfo>) : RecyclerView.Adapter<StepsAdapter.BaseVH>() {
@@ -100,14 +96,14 @@ class StepsListSlide : SlideFragment() {
 
             @SuppressLint("SetTextI18n")
             open fun onBind(text: TutorialStepInfo) {
-                itemView.step.text = SpannableStringBuilder().apply {
+                itemView.findViewById<TextView>(R.id.step).text = SpannableStringBuilder().apply {
                     if (text.isCommand) {
                         append("- ")
                     }
 
                     append(markwon.toMarkdown(text.text.toString()))
                 }
-                itemView.step.movementMethod = LinkMovementMethod.getInstance()
+                itemView.findViewById<TextView>(R.id.step).movementMethod = LinkMovementMethod.getInstance()
             }
         }
     }

@@ -3,15 +3,16 @@ package com.zacharee1.systemuituner.views
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.EditText
+import android.widget.FrameLayout
+import com.zacharee1.systemuituner.databinding.NotificationSnoozeTimesBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import kotlinx.android.synthetic.main.notification_snooze_times.view.*
-import kotlin.collections.HashMap
 
-class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) :
-    RoundedFrameCardView(context, attrs), IOptionDialogCallback {
+class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
+
+    private val binding by lazy { NotificationSnoozeTimesBinding.bind(this) }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -44,26 +45,26 @@ class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) :
             }
         }
 
-        snooze_default.setText(defTime)
-        snooze_a.setText(aTime)
-        snooze_b.setText(bTime)
-        snooze_c.setText(cTime)
-        snooze_d.setText(dTime)
+        binding.snoozeDefault.setText(defTime)
+        binding.snoozeA.setText(aTime)
+        binding.snoozeB.setText(bTime)
+        binding.snoozeC.setText(cTime)
+        binding.snoozeD.setText(dTime)
 
-        apply.setOnClickListener {
+        binding.apply.setOnClickListener {
             callback?.invoke(
                 StringBuilder()
                     .append("default=")
-                    .append(snooze_default.textOrDefault(defTime))
+                    .append(binding.snoozeDefault.textOrDefault(defTime))
                     .append(",")
                     .append("options_array=")
-                    .append(snooze_a.textOrDefault(aTime))
+                    .append(binding.snoozeA.textOrDefault(aTime))
                     .append(":")
-                    .append(snooze_b.textOrDefault(bTime))
+                    .append(binding.snoozeB.textOrDefault(bTime))
                     .append(":")
-                    .append(snooze_c.textOrDefault(cTime))
+                    .append(binding.snoozeC.textOrDefault(cTime))
                     .append(":")
-                    .append(snooze_d.textOrDefault(dTime))
+                    .append(binding.snoozeD.textOrDefault(dTime))
                     .toString()
             )
         }

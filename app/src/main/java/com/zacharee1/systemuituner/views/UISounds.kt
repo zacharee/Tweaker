@@ -12,24 +12,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.UISoundSelector
+import com.zacharee1.systemuituner.databinding.UiSoundsBinding
+import com.zacharee1.systemuituner.databinding.UiSoundsItemBinding
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.getStringByName
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
-import kotlinx.android.synthetic.main.ui_sounds.view.*
-import kotlinx.android.synthetic.main.ui_sounds_item.view.*
 
 class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+    private val binding by lazy { UiSoundsBinding.bind(this) }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        disable_charging_sound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
-        disable_charging_sound.setOnCheckedChangeListener { _, isChecked ->
+        binding.disableChargingSound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
+        binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
             context.writeGlobal(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
         }
 
-        sounds_list.adapter = Adapter(context)
+        binding.soundsList.adapter = Adapter(context)
     }
 
     class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.VH>() {
@@ -117,13 +119,15 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             holder.itemView.apply {
+                val binding = UiSoundsItemBinding.bind(this)
+
                 val info = items[position]
 
-                type.text = resources.getText(info.name)
-                desc.text = resources.getText(info.desc)
-                uri.text = Settings.Global.getString(context.contentResolver, info.key)
-                if (info.icon != 0) icon.setImageResource(info.icon)
-                else icon.isVisible = false
+                binding.type.text = resources.getText(info.name)
+                binding.desc.text = resources.getText(info.desc)
+                binding.uri.text = Settings.Global.getString(context.contentResolver, info.key)
+                if (info.icon != 0) binding.icon.setImageResource(info.icon)
+                else binding.icon.isVisible = false
 
                 setOnClickListener {
                     UISoundSelector.start(
@@ -133,7 +137,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                     )
                 }
 
-                reset.setOnClickListener {
+                binding.reset.setOnClickListener {
                     val item = items[holder.adapterPosition]
 
                     context.prefManager.saveOption(SettingsType.GLOBAL, item.key, item.default)

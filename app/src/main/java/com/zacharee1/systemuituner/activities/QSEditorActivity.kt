@@ -12,15 +12,16 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.databinding.ActivityQsEditorBinding
+import com.zacharee1.systemuituner.databinding.QsTileBinding
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.activity_qs_editor.*
-import kotlinx.android.synthetic.main.qs_tile.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
 class QSEditorActivity : AppCompatActivity() {
     private val adapter by lazy { QSEditorAdapter(this) }
+    private val binding by lazy { ActivityQsEditorBinding.inflate(layoutInflater) }
 
     private val touchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP or ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT, 0) {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
@@ -38,15 +39,15 @@ class QSEditorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_qs_editor)
+        setContentView(binding.root)
 
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
 
-        qs_list.adapter = adapter
-        ItemTouchHelper(touchHelperCallback).attachToRecyclerView(qs_list)
+        binding.qsList.adapter = adapter
+        ItemTouchHelper(touchHelperCallback).attachToRecyclerView(binding.qsList)
 
         adapter.populateTiles()
     }
@@ -191,27 +192,29 @@ class QSEditorActivity : AppCompatActivity() {
         }
 
         inner class QSVH(view: View) : RecyclerView.ViewHolder(view) {
+            private val vhBinding = QsTileBinding.bind(itemView)
+
             init {
                 itemView.setOnLongClickListener {
-                    itemView.remove.apply { isVisible = !isVisible }
+                    vhBinding.remove.apply { isVisible = !isVisible }
                     true
                 }
 
-                itemView.remove.setOnClickListener {
+                vhBinding.remove.setOnClickListener {
                     val newPos = bindingAdapterPosition
 
                     if (newPos != -1) {
                         removeTile(newPos)
-                        itemView.remove.isVisible = false
+                        vhBinding.remove.isVisible = false
                     }
                 }
             }
 
             @ExperimentalStdlibApi
             fun onBind(info: QSTileInfo) {
-                itemView.qs_tile_icon.setImageDrawable(info.getIcon(itemView.context))
-                itemView.label.text = info.getLabel(itemView.context)
-                itemView.qs_tile_component.apply {
+                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
+                vhBinding.label.text = info.getLabel(itemView.context)
+                vhBinding.qsTileComponent.apply {
                     if (info.type == QSTileInfo.Type.CUSTOM) {
                         isVisible = true
                         text = info.getNameAndComponentForCustom().flattenToShortString()

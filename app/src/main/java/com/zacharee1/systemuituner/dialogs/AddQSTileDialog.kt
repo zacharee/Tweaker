@@ -12,15 +12,15 @@ import com.google.android.material.card.MaterialCardView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.databinding.DialogAddIntentQsBinding
+import com.zacharee1.systemuituner.databinding.DialogAddQsTileBinding
+import com.zacharee1.systemuituner.databinding.QsTileBinding
 import com.zacharee1.systemuituner.util.dpAsPx
-import kotlinx.android.synthetic.main.base_dialog_layout.*
-import kotlinx.android.synthetic.main.dialog_add_intent_qs.view.*
-import kotlinx.android.synthetic.main.dialog_add_qs_tile.view.*
-import kotlinx.android.synthetic.main.qs_tile.view.*
 
 class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QSEditorAdapter) :
     RoundedBottomSheetDialog(context) {
     private val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
+    private val qsBinding = DialogAddQsTileBinding.bind(view)
     private val intentString = context.resources.getString(R.string.intent)
 
     init {
@@ -33,19 +33,20 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
 
         setLayout(view)
 
-        positive_button.isVisible = false
+        baseBinding.positiveButton.isVisible = false
 
-        view.add_qs_tile_list.adapter = AddQSTileAdapter(adapter.availableTiles + intentString) {
+        qsBinding.addQsTileList.adapter = AddQSTileAdapter(adapter.availableTiles + intentString) {
             dismiss()
 
             if (it.equals(intentString, true)) {
                 val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_intent_qs, null)
+                val intentBinding = DialogAddIntentQsBinding.bind(intentView)
                 val dialog = RoundedBottomSheetDialog(context).apply {
                     setTitle(R.string.intent)
                     setLayout(intentView)
                 }
                 dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
-                    val text = intentView.intent_text.text?.toString()
+                    val text = intentBinding.intentText.text?.toString()
 
                     if (!text.isNullOrBlank()) {
                         adapter.addTile(QSTileInfo("intent($text)"))
@@ -81,6 +82,8 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
         }
 
         inner class AddQSTileVH(view: View) : RecyclerView.ViewHolder(view) {
+            private val binding = QsTileBinding.bind(itemView)
+
             init {
                 itemView.setOnClickListener {
                     val newPos = bindingAdapterPosition
@@ -103,9 +106,9 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                 (itemView as MaterialCardView).apply {
                     cardElevation = 0f
                 }
-                itemView.label.text = info.getLabel(itemView.context)
-                itemView.qs_tile_icon.setImageDrawable(info.getIcon(itemView.context))
-                itemView.qs_tile_component.apply {
+                binding.label.text = info.getLabel(itemView.context)
+                binding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
+                binding.qsTileComponent.apply {
                     if (info.type == QSTileInfo.Type.CUSTOM) {
                         isVisible = true
                         text = info.getNameAndComponentForCustom().flattenToShortString()
