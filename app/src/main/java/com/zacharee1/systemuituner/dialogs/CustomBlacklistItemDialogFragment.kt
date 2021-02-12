@@ -5,10 +5,9 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import androidx.preference.PreferenceDialogFragmentCompat
+import com.google.android.material.textfield.TextInputLayout
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
-import com.zacharee1.systemuituner.databinding.BaseMessagePrefDialogLayoutBinding
-import com.zacharee1.systemuituner.databinding.CustomBlacklistDialogBinding
 import com.zacharee1.systemuituner.util.prefManager
 
 class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
@@ -32,10 +31,8 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
         builder.setTitle(preference.title)
         builder.setPositiveButton(android.R.string.ok) { dialog, which ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
-                val blBinding = CustomBlacklistDialogBinding.bind(this)
-
-                val label = blBinding.label.editText?.text?.toString()
-                val key = blBinding.key.editText?.text?.toString() ?: return@apply
+                val label = findViewById<TextInputLayout>(R.id.label).editText?.text?.toString()
+                val key = findViewById<TextInputLayout>(R.id.key).editText?.text?.toString() ?: return@apply
 
                 if (key.isBlank()) return@apply
 
@@ -51,10 +48,10 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
             onClick(dialog, which)
             dismiss()
         }
-        builder.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialog, which ->
+        builder.setNegativeButton(android.R.string.cancel) { dialog, which ->
             onClick(dialog, which)
             dismiss()
-        })
+        }
         builder.setOnCancelListener {
             onClick(dialog, DialogInterface.BUTTON_NEGATIVE)
             dismiss()
