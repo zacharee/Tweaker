@@ -18,7 +18,11 @@ class TermsSlide : SlideFragment() {
     }
 
     override fun canGoForward(): Boolean {
-        val binding = TermsSlideBinding.bind(requireView())
-        return binding.termsRoot.canGoForward()
+        return if (view == null) {
+            false
+        } else {
+            val binding = TermsSlideBinding.bind(requireView())
+            binding.termsRoot.canGoForward()
+        }
     }
 }
