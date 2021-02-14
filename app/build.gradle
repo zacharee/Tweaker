@@ -69,10 +69,6 @@ dependencies {
     implementation 'com.github.zacharee:Unblacklister:1.1'
     implementation "com.mikepenz:materialdrawer:8.0.1"
     implementation "com.mikepenz:materialdrawer-nav:8.0.1"
-    implementation project(':seekbar')
-    implementation project(':category')
-//    implementation 'com.github.zacharee:Android-ExpandableTextView:5007e77df0'
-    implementation project(':expandabletv')
     implementation 'com.github.zacharee:material:a2ab4a2d3c'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'
@@ -84,4 +80,14 @@ dependencies {
     implementation "rikka.shizuku:api:11.0.1"
     implementation "rikka.shizuku:provider:11.0.1"
     implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
+
+    //Commend out these dependencies and replace them with their remote references.
+    //Check JitPack for the latest COMMIT hashes, NOT the latest versions.
+    //The "Tag" reference should be replaced with the commit hash.
+    implementation project(':seekbar')
+    //implementation 'com.github.zacharee:SeekBarPreference:Tag'
+    implementation project(':category')
+    //implementation 'com.github.zacharee:CollapsiblePreferenceCategory:Tag'
+    implementation project(':expandabletv')
+    //implementation 'com.github.zacharee:Android-ExpandableTextView:Tag'
 }
