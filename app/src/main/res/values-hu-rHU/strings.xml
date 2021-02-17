@@ -45,8 +45,8 @@
     <string name="special_sub_icon_blacklist_desc">Válaszd ki az ikonokat, amelyeket el akarsz rejteni az állapotsorból. Ne feledd, hogy ez a funkció nem minden eszközön és minden ikonnál működik. Az értesítési ikonokat nem lehet elrejteni ezzel a funkcióval.</string>
     <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
     <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
-    <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
+    <string name="feature_battery_saver_trigger">Egyedi Százalékhatár Beállítása Energiatakarékos Módhoz</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">A Google \"Energiatakarékos Mód\" funkciója automatikusan aktiválódhat ha az akkumulátor töltöttsége 5\% vagy 15\%. Ezzel saját határt állíthat be a funkciónak.</string>
     <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
     <string name="feature_font_scale">Set Custom Font Scale</string>
