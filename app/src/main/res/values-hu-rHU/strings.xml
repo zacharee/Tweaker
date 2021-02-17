@@ -47,14 +47,14 @@
     <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
     <string name="feature_battery_saver_trigger">Egyedi Százalékhatár Beállítása Energiatakarékos Módhoz</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">A Google \"Energiatakarékos Mód\" funkciója automatikusan aktiválódhat ha az akkumulátor töltöttsége 5\% vagy 15\%. Ezzel saját határt állíthat be a funkciónak.</string>
-    <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
+    <string name="feature_long_press_delay">Egyedi Nyomvatartás-késleltetés Beállítása</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
+    <string name="feature_font_scale">Egyedi Betűméret Beállítása</string>
+    <string name="feature_font_scale_desc">Az Android lehetővé teszi a rendszer betűméretének beállítását. Az opciók általában \"kicsi\", \"normál\", \"nagy\", \"nagyon nagy\" lehetőségekkel vannak jelölve. Ezzel a beállításal megadhat egy egyedi értéket.</string>
     <string name="feature_freeform">Enable Freeform Multiwindow</string>
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
-    <string name="feature_app_install_location">Set Default App Install Location</string>
-    <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
+    <string name="feature_app_install_location">Egyedi Alapértelmezett Telepítési Hely Beállítása</string>
+    <string name="feature_app_install_location_desc">Az alapértelmezett telepítési hely. Válassza ki hogy az új alkalmazások melyik meghajtóra legyenek telepítve. Alapvetően ezt az adott alkalmazás dönti el, de ezzel a beállítással ezt felülírja.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
     <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
     <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
