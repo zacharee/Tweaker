@@ -21,7 +21,7 @@
     <string name="category_interaction">Interações</string>
     <string name="more">Mais</string>
     <string name="tweaks">Modificações</string>
-    <string name="failure">Failure</string>
+    <string name="failure">Falha</string>
     <string name="sub_cellular">Celular</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Variedades</string>
@@ -304,10 +304,10 @@
     <string name="hide_battery_android_bug_btn_view_issue">Ver problemas</string>
     <string name="error_creating_file_template">Erro de gravação de arquivo %s</string>
     <string name="error_restoring_icon_blacklist">Erro restaurando: %s</string>
-    <string name="permission_grant_success">Successfully granted permissions.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_success">Permissões concedidas com sucesso.</string>
+    <string name="permission_grant_failure">Falha ao conceder permissões. Se você tiver um dispositivo Xiaomi ou OPPO/Realme, certifique-se de ativar a \"Depuração USB\" nas Opções do Desenvolvedor ou habilite \"Desativar monitor de permissões\".</string>
     <string name="patreon">Patreon</string>
-    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
+    <string name="patreon_desc">Por 1 dólar ao mês, você tem acesso a todos os meus aplicativos premium e muito mais.</string>
     <string name="supporters">Apoiadores</string>
     <string name="supporters_desc">Essas pessoas ajudam a manter o aplicativo (e eu) em funcionamento.</string>
 </resources>
