@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Менеджер (выключить)</string>
-    <string name="tap_to_disable">Нажмите чтобы отключить это уведомление</string>
+    <string name="tap_to_disable">Нажмите, чтобы отключить это уведомление</string>
     <string name="home">Главная страница</string>
     <string name="category_display">Экран</string>
     <string name="category_accessibility">Специальные возможности</string>
     <string name="category_apps">Приложения</string>
-    <string name="category_audio">Аудио и звук</string>
+    <string name="category_audio">Аудио &amp; Звук</string>
     <string name="category_developer">Разработчик</string>
     <string name="category_easter_eggs">Пасхалки</string>
     <string name="category_network">Сеть</string>
@@ -15,13 +15,13 @@
     <string name="category_status_bar">Строка состояния</string>
     <string name="category_oem">Функции OEM</string>
     <string name="category_system">Система</string>
-    <string name="category_ui">Интерфейс</string>
+    <string name="category_ui">Пользовательский интерфейс</string>
     <string name="category_quick_settings">Быстрые настройки</string>
     <string name="screen_persistent">Постоянные параметры</string>
     <string name="category_interaction">Взаимодействие</string>
     <string name="more">Больше</string>
     <string name="tweaks">Настройки</string>
-    <string name="failure">Неудачно</string>
+    <string name="failure">Ошибка</string>
     <string name="sub_cellular">Сотовая сеть</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Прочее</string>
@@ -33,7 +33,7 @@
     <string name="sub_sony">Sony</string>
     <string name="sub_xiaomi">Xiaomi</string>
     <string name="sub_security">Безопасность</string>
-    <string name="sub_storage">Память</string>
+    <string name="sub_storage">Хранилище</string>
     <string name="sub_power">Электропитание</string>
     <string name="add_to_blacklist">Добавить в чёрный список иконок</string>
     <string name="remove_from_blacklist">Удалить из чёрного списка иконок</string>
@@ -147,7 +147,7 @@
     <string name="option_advanced_write_setting">Запись пользовательских настроек</string>
     <string name="option_advanced_write_setting_desc">Если у вас есть определенная настройка, которую вы хотите изменить, и она не является частью SystemUI Tuner, вы можете установить их здесь.</string>
     <string name="option_qqs_tiles">Количество заголовков быстрых настроек</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI unless you use OneUI Tuner.</string>
+    <string name="option_qqs_tiles_desc">В Android Nougat используется новая функция \"Заголовок быстрых настроек\". С помощью этой функции можно увеличить или уменьшить количество первых нескольких значков быстрых настроек, показываемых вместе с уведомлениями. Это не будет работать на One UI, если вы не используете OneUI Tuner.</string>
     <string name="option_oneui_clock_position">Расположение часов</string>
     <string name="option_oneui_clock_position_desc">На Samsung One UI (Android Pie или выше), можно изменить положение часов в строке состояния. Модуль Good Lockа «QuickStar» позволит вам это сделать, но иногда параметры ограничены в зависимости от устройства. Вы можете использовать это, чтобы расположить часы слева, в центре или справа. Имейте в виду, что на One UI 2.0 (Android 10), чтобы это заработало, вам необходимо установить модуль QuickStar. Кроме того, вы можете использовать OneUI Tuner. Чтобы сделать эту опцию постоянной, включите чёрный список иконок в постоянных настройках.</string>
     <string name="option_touchwiz_navbar_color">Цвет панели навигации</string>
