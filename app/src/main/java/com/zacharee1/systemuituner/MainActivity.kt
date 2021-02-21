@@ -373,10 +373,10 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                         val dialog = RoundedBottomSheetDialog(this@MainActivity)
                         dialog.setTitle(R.string.oneui_tuner)
                         dialog.setMessage(R.string.oneui_tuner_desc)
-                        dialog.setPositiveButton(R.string.check_it_out, DialogInterface.OnClickListener {_, _ ->
-                            launchUrl("https://labs.xda-developers.com/store/app/tk.zwander.oneuituner")
+                        dialog.setPositiveButton(R.string.check_it_out) { _, _ ->
+                            launchUrl("https://zwander.dev/dialog-oneuituner")
                             dialog.dismiss()
-                        })
+                        }
                         dialog.setNegativeButton(android.R.string.cancel, null)
                         dialog.show()
 
