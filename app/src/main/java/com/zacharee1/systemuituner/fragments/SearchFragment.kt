@@ -59,24 +59,26 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        searchIndex.filter(newText) {
-            val toRemove = ArrayList<Preference>()
+        if (context != null) {
+            searchIndex.filter(newText) {
+                val toRemove = ArrayList<Preference>()
 
-            preferenceScreen.forEach { _, child ->
-                if (!it.map { c -> c.key }.contains(child.key)) {
-                    toRemove.add(child)
+                preferenceScreen.forEach { _, child ->
+                    if (!it.map { c -> c.key }.contains(child.key)) {
+                        toRemove.add(child)
+                    }
                 }
-            }
 
-            toRemove.forEach { pref ->
-                preferenceScreen.removePreferenceRecursively(pref.key)
-            }
+                toRemove.forEach { pref ->
+                    preferenceScreen.removePreferenceRecursively(pref.key)
+                }
 
-            it.forEach { pref ->
-                if (!preferenceScreen.hasPreference(pref.key)) {
-                    preferenceScreen.addPreference(
-                        SearchIndex.ActionedPreference.copy(requireContext(), pref)
-                    )
+                it.forEach { pref ->
+                    if (!preferenceScreen.hasPreference(pref.key)) {
+                        preferenceScreen.addPreference(
+                            SearchIndex.ActionedPreference.copy(requireContext(), pref)
+                        )
+                    }
                 }
             }
         }
