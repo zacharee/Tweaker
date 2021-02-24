@@ -14,7 +14,7 @@ class RecommendSystemAddOn : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.getAddOn.setOnClickListener {
-            launchUrl("https://labs.xda-developers.com/store/app/tk.zwander.systemuituner.systemsettings")
+            launchUrl("https://zwander.dev/dialog-systemuitunersystemsettingsadd-on")
         }
     }
 }
