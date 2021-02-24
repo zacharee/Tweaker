@@ -60,6 +60,8 @@ class OSChooseSlide : SlideFragment() {
     }
 
     override fun canGoForward(): Boolean {
+        if (view == null) return false
+
         val binding = ChooseOsSlideBinding.bind(requireView())
 
         return binding.chooseOs.checkedRadioButtonId != -1
