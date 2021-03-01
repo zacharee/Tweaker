@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">Menedżer (Wyłącz)</string>
     <string name="tap_to_disable">Dotknij, aby wyłączyć to powiadomienie</string>
     <string name="home">Strona Główna</string>
     <string name="category_display">Wyświetlacz</string>
@@ -17,14 +17,14 @@
     <string name="category_system">System</string>
     <string name="category_ui">Wygląd</string>
     <string name="category_quick_settings">Szybkie ustawienia</string>
-    <string name="screen_persistent">Persistent Options</string>
-    <string name="category_interaction">Interaction</string>
+    <string name="screen_persistent">Ustawienia trwałe</string>
+    <string name="category_interaction">Interakcja</string>
     <string name="more">Więcej</string>
-    <string name="tweaks">Tweaks</string>
-    <string name="failure">Failure</string>
+    <string name="tweaks">Ulepszenia</string>
+    <string name="failure">Niepowodzenie</string>
     <string name="sub_cellular">Cellular</string>
     <string name="sub_wifi">Wi-Fi</string>
-    <string name="sub_miscellaneous">Miscellaneous</string>
+    <string name="sub_miscellaneous">Pozostałe ustawienia</string>
     <string name="sub_htc">HTC</string>
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
@@ -32,14 +32,14 @@
     <string name="sub_samsung">Samsung</string>
     <string name="sub_sony">Sony</string>
     <string name="sub_xiaomi">Xiaomi</string>
-    <string name="sub_security">Security</string>
-    <string name="sub_storage">Storage</string>
-    <string name="sub_power">Power</string>
-    <string name="add_to_blacklist">Add to Icon Blacklist</string>
-    <string name="remove_from_blacklist">Remove from Icon Blacklist</string>
-    <string name="sub_demo">Demo Mode</string>
-    <string name="sub_demo_desc">Demo Mode allows you to force your device\'s status bar into different states. You can use it to show or hide specific icons, specify signal strengths, and a few other things.</string>
-    <string name="special_sub_airplane_mode">Airplane Mode Tweaks</string>
+    <string name="sub_security">Zabezpieczenia</string>
+    <string name="sub_storage">Pamięć</string>
+    <string name="sub_power">Zasilanie</string>
+    <string name="add_to_blacklist">Dodaj do czarnej listy ikon</string>
+    <string name="remove_from_blacklist">Usuń z czarnej listy ikon</string>
+    <string name="sub_demo">Tryb demonstracyjny</string>
+    <string name="sub_demo_desc">Tryb demonstracyjny pozwala wymusić stany ikon na pasku stanu urządzenia. Może zostać użyty do pokazania ub ukrycia określonych ikon, wyświetlenia określenilych poziomów sygnałów i kilku innych rzeczy.</string>
+    <string name="special_sub_airplane_mode">Ulepszenia trybu samolotowego</string>
     <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. You can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, you can change which radios can be toggled manually when the device enters airplane mode.</string>
     <string name="special_sub_icon_blacklist">Icon Blacklist</string>
     <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
