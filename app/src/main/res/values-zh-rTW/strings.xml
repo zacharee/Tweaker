@@ -22,10 +22,10 @@
     <string name="more">更多</string>
     <string name="tweaks">調整</string>
     <string name="failure">失敗</string>
-    <string name="sub_cellular">行動數據</string>
+    <string name="sub_cellular" comment="Celular network">行動數據</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">其他設定</string>
-    <string name="sub_htc">HTC</string>
+    <string name="sub_htc" comment="Phone maker company">HTC</string>
     <string name="sub_huawei">華為/榮耀</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">一加</string>
@@ -73,11 +73,11 @@
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
     <string name="feature_disable_safe_audio_warning">禁用音量安全警告</string>
     <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. The warning must be dismissed by the user manually, but through hidden commands you can automatically bypass the warning.</string>
-    <string name="feature_custom_ui_sounds">Set Custom UI Sounds</string>
-    <string name="feature_custom_ui_sounds_desc">Android has a lot of sounds for different parts of the UI. A lot of these can actually be changed to your own custom sounds. You just need to specify the file for Android to use.</string>
+    <string name="feature_custom_ui_sounds">自訂UI音效</string>
+    <string name="feature_custom_ui_sounds_desc">Android在UI的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用</string>
     <string name="feature_fix_tethering">Fix Tethering</string>
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
-    <string name="feature_shortcode_warning">Disable SMS Short Code Confirmation</string>
+    <string name="feature_shortcode_warning">禁用SMS簡訊短代碼確認</string>
     <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. You can disable that warning here.</string>
     <string name="feature_sms_limit">Custom SMS Limit</string>
     <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, you can customize however many SMS you want to be able to send without being bothered.</string>
