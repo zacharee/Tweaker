@@ -92,7 +92,7 @@ Explicit list of examples of functions SystemUI Tuner cannot do on all devices:
  
 Neither list is exhaustive. The point is that SystemUI Tuner **CANNOT** do everything. If you email me asking (or demanding) that I "fix" something that does not work, I will simply ignore it.
  
-# TouchWiz
+# TouchWiz/Samsung Experience/One UI (Samsung)
 TouchWiz is weird:
   - SystemUI Tuner **WILL NOT WORK** on TouchWiz Marshmallow.
   - Modifying status bar icons may cause crashes on TouchWiz Nougat.
@@ -100,12 +100,12 @@ TouchWiz is weird:
   
 Since TouchWiz is so heavily modified from AOSP, this is simply how things are.
  
-# MIUI
+# MIUI (Xiaomi)
 **DO NOT EXPECT THAT SYSTEMUI TUNER WILL WORK ON MIUI**
 You may get lucky with a version where at least some functions work, but there is absolutely no guarantee, nor is there anything I can do about it.
 
-# EMUI
+# EMUI (Huawei)
 EMUI Oreo and Pie have had decreasing compatibility with SystemUI Tuner. As with MIUI, this is out of my control.
 
-# ColorOS
+# ColorOS (OPPO, Realme)
 While SystemUI Tuner is more effective on ColorOS 7 than earlier versions, there are still quite a few changes made by OPPO that mean certain options simply don't work.
