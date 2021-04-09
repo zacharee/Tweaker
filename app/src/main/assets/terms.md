@@ -53,6 +53,11 @@ Choosing the "Reset" option in the navigation drawer will prompt you with settin
 On Android Marshmallow and Nougat, you will need to manually reset all changes.
 
 It is your responsibility to keep track of which settings you have changed, and reset them before you uninstall SystemUI Tuner. SystemUI Tuner *cannot* and *will not* automatically reset any settings when it is uninstalled.
+
+# Persistent Options
+Some options, such as the Icon Blacklist, will reset on reboot on certain devices. Other options may reset randomly. To prevent this, SystemUI Tuner has a "Persistent Options" menu, where options can be selected to become persistent. If any option selected in this menu changes, and the value does not match what SystemUI Tuner thinks it should be, SystemUI Tuner will set it back.
+
+The Persistent Options menu can be accessed from the navigation drawer in the app. Tap the three-line (hamburger) menu in the top corner or swipe from the edge of the screen to open the drawer. Scroll down to find Persistent Options.
  
 # Safety/Warnings
 As mentioned in the introduction, I take no responsibility if you break your device. That said, I will lay out some warnings below, to supplement the many, _many_, **many** already present in the app:
