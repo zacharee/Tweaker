@@ -273,7 +273,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 itemBinding.component.text = info.packageName
 
                 setOnClickListener {
-                    val newPosition = holder.adapterPosition
+                    val newPosition = holder.bindingAdapterPosition
                     if (newPosition != -1) {
                         val newInfo = visibleItems[newPosition]
 
@@ -387,7 +387,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 itemBinding.component.text = info.component.flattenToShortString()
 
                 setOnClickListener {
-                    val newInfo = visibleItems[holder.adapterPosition]
+                    val newInfo = visibleItems[holder.bindingAdapterPosition]
 
                     selectionCallback(newInfo)
                 }

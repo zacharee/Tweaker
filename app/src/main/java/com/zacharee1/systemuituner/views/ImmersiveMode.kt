@@ -123,7 +123,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                 }
 
                 binding.blacklist.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                    val newInfo = items[holder.bindingAdapterPosition]
                     val apps = when (newInfo.type) {
                         ImmersiveManager.ImmersiveMode.FULL -> immInfo.fullBl
                         ImmersiveManager.ImmersiveMode.STATUS -> immInfo.statusBl

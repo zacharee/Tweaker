@@ -132,17 +132,17 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 setOnClickListener {
                     UISoundSelector.start(
                         context,
-                        items[holder.adapterPosition].key,
+                        items[holder.bindingAdapterPosition].key,
                         callback
                     )
                 }
 
                 binding.reset.setOnClickListener {
-                    val item = items[holder.adapterPosition]
+                    val item = items[holder.bindingAdapterPosition]
 
                     context.prefManager.saveOption(SettingsType.GLOBAL, item.key, item.default)
                     context.writeGlobal(item.key, item.default)
-                    notifyItemChanged(holder.adapterPosition)
+                    notifyItemChanged(holder.bindingAdapterPosition)
                 }
             }
         }

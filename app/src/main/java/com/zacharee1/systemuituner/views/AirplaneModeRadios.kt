@@ -99,21 +99,21 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
                 itemBinding.toggleable.isChecked = info.isToggleable
 
                 itemBinding.exempt.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                    val newInfo = items[holder.bindingAdapterPosition]
                     itemBinding.exempt.isChecked = !itemBinding.exempt.isChecked
                     newInfo.isExempt = itemBinding.exempt.isChecked
-                    update(context)
+                    update()
                 }
                 itemBinding.toggleable.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                    val newInfo = items[holder.bindingAdapterPosition]
                     itemBinding.toggleable.isChecked = !itemBinding.toggleable.isChecked
                     newInfo.isToggleable = itemBinding.toggleable.isChecked
-                    update(context)
+                    update()
                 }
             }
         }
 
-        private fun update(context: Context) {
+        private fun update() {
             val blacklisted = ArrayList<String>()
             val toggleable = ArrayList<String>()
 
