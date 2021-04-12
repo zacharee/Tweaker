@@ -13,7 +13,7 @@ class CustomPersistentOption(
         private val gson = GsonBuilder().create()
 
         fun fromString(input: String): CustomPersistentOption {
-            val fromJson = gson.fromJson<CustomPersistentOption>(
+            val fromJson = gson.fromJson(
                 input,
                 CustomPersistentOption::class.java
             )

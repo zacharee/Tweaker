@@ -1,11 +1,13 @@
 package com.zacharee1.systemuituner.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.MalformedJsonException
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.PersistentOption
@@ -13,6 +15,7 @@ import com.zacharee1.systemuituner.data.SavedOption
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
+        @SuppressLint("StaticFieldLeak")
         private var instance: PrefManager? = null
 
         fun getInstance(context: Context): PrefManager {
@@ -40,13 +43,25 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
      * @see [PersistentOption]
      */
     var persistentOptions: HashSet<PersistentOption>
-        get() = HashSet(getStringSet(PERSISTENT_OPTIONS).map { PersistentOption.fromString(it) })
+        get() = HashSet(getStringSet(PERSISTENT_OPTIONS).mapNotNull {
+            try {
+                PersistentOption.fromString(it)
+            } catch (e: MalformedJsonException) {
+                null
+            }
+        })
         set(value) {
             putStringSet(PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
         }
 
     var customPersistentOptions: HashSet<CustomPersistentOption>
-        get() = HashSet(getStringSet(CUSTOM_PERSISTENT_OPTIONS).map { CustomPersistentOption.fromString(it) })
+        get() = HashSet(getStringSet(CUSTOM_PERSISTENT_OPTIONS).mapNotNull {
+            try {
+                CustomPersistentOption.fromString(it)
+            } catch (e: MalformedJsonException) {
+                null
+            }
+        })
         set(value) {
             putStringSet(CUSTOM_PERSISTENT_OPTIONS, HashSet(value.map { it.toString() }))
         }
@@ -58,13 +73,25 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
 
     var customBlacklistItems: HashSet<CustomBlacklistItemInfo>
-        get() = HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).map { CustomBlacklistItemInfo.fromString(it) })
+        get() = HashSet(getStringSet(CUSTOM_BLACKLIST_ITEMS).mapNotNull {
+            try {
+                CustomBlacklistItemInfo.fromString(it)
+            } catch (e: MalformedJsonException) {
+                null
+            }
+        })
         set(value) {
             putStringSet(CUSTOM_BLACKLIST_ITEMS, HashSet(value.map { it.toString() }))
         }
 
     var savedOptions: HashSet<SavedOption>
-        get() = HashSet(getStringSet(SAVED_OPTIONS).map { SavedOption.fromString(it) })
+        get() = HashSet(getStringSet(SAVED_OPTIONS).mapNotNull {
+            try {
+                SavedOption.fromString(it)
+            } catch (e: MalformedJsonException) {
+                null
+            }
+        })
         set(value) {
             putStringSet(SAVED_OPTIONS, HashSet(value.map { it.toString() }))
         }
