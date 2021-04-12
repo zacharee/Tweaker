@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         if (!hasWss)
             Intro.start(this)
 
-        setContentView(mainBinding.getRoot())
+        setContentView(mainBinding.root)
         setSupportActionBar(mainBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)

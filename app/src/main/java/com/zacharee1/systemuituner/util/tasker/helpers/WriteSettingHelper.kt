@@ -6,9 +6,7 @@ import com.joaomgcd.taskerpluginlibrary.SimpleResultSuccess
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfigHelperNoOutput
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
-import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
-import com.zacharee1.systemuituner.util.tasker.runners.IconBlacklistRunner
 import com.zacharee1.systemuituner.util.tasker.runners.WriteSettingRunner
 
 class WriteSettingHelper(config: TaskerPluginConfig<TaskerWriteSettingData>) : TaskerPluginConfigHelperNoOutput<TaskerWriteSettingData, WriteSettingRunner>(config) {

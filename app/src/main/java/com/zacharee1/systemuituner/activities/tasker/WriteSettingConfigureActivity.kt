@@ -34,7 +34,7 @@ class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<Ta
         super.onCreate(savedInstanceState)
         helper.onCreate()
 
-        setContentView(R.layout.tasker_write_setting)
+        setContentView(binding.root)
 
         binding.keyEntry.setText(key)
         binding.valueEntry.setText(value)
