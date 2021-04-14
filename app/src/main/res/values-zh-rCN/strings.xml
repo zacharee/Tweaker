@@ -21,11 +21,11 @@
     <string name="category_interaction">交互</string>
     <string name="more">更多</string>
     <string name="tweaks">微调</string>
-    <string name="failure">Failure</string>
-    <string name="sub_cellular">移动网络</string>
+    <string name="failure">失败</string>
+    <string name="sub_cellular" comment="Celular network">移动网络</string>
     <string name="sub_wifi">WLAN</string>
     <string name="sub_miscellaneous">其它选项</string>
-    <string name="sub_htc">HTC</string>
+    <string name="sub_htc" comment="Phone maker company">HTC</string>
     <string name="sub_huawei">华为/荣耀</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">一加</string>
