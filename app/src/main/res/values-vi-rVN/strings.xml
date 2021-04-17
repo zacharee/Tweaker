@@ -57,7 +57,7 @@
     <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
     <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
-    <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
+    <string name="feature_insufficient_storage_warning">Bỏ qua cảnh báo \"Dung lượng bộ nhớ không đủ\"</string>
     <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
     <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
     <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
@@ -69,7 +69,7 @@
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
     <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
-    <string name="feature_camera_gestures">Camera Gestures</string>
+    <string name="feature_camera_gestures">Cử chỉ camera</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
     <string name="feature_disable_safe_audio_warning">Disable Safe Audio Warning</string>
     <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. The warning must be dismissed by the user manually, but through hidden commands you can automatically bypass the warning.</string>
@@ -83,7 +83,7 @@
     <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, you can customize however many SMS you want to be able to send without being bothered.</string>
     <string name="feature_lockscreen_shortcuts">Lockscreen Shortcuts</string>
     <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lockscreen shortcuts. However, the preference value can still be set manually.</string>
-    <string name="feature_enable_adb">Enable ADB</string>
+    <string name="feature_enable_adb">Kích hoạt ADB</string>
     <string name="feature_enable_adb_desc">Certain devices disable ADB automatically after a period of inactivity. Enable this option and set it as a Persistent Option to force-enable ADB.</string>
     <string name="feature_dark_mode">Enable Global Dark Mode</string>
     <string name="feature_dark_mode_desc">Android Pie and 10 introduced a global dark mode option, but this option has been part of Android for a while now. This option can enable dark mode in apps that support this feature (such as Instagram). A reboot may be required for changes to take effect.</string>
