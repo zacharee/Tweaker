@@ -1,6 +1,8 @@
 # System UI Tuner
 
-You may read the terms here: [Terms](app/src/main/assets/terms.md)
+
+More information can be found [here](app/src/main/assets/terms.md).
+
 # Building
 SystemUI Tuner has some unconventional configurations that require special steps to be able to build.
 
