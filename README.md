@@ -1,6 +1,4 @@
 # System UI Tuner
-
-# Intro
 SystemUI Tuner is a replacement and extension of AOSP's included System UI Tuner.
 
 With SystemUI Tuner you can, among other things:
@@ -11,7 +9,16 @@ With SystemUI Tuner you can, among other things:
  - Change system-wide animation speeds
  - Enter and read your own custom settings values
  
-# User Support
+## Safety/Warnings
+As mentioned in the introduction, I take no responsibility if you break your device. That said, I will lay out some warnings below, to supplement the many, _many_, **many** already present in the app:
+ 
+TouchWiz (also known as Grace UX, Samsung Experience, and One UI) might break while using this app. See the TouchWiz section for details.
+
+This app modifies system settings, and gives you the power to break your device. **Use with caution and only use this app if you are comfortable with manual recovery.**
+
+Immersive Mode is a **system** function. I did not make it and I do not control it. If problems arise through usage, *__THIS IS THE FAULT OF YOUR MANUFACTURER__*.
+
+## User Support
 I make no guarantee with this app that:
  - it will work on your particular device
  - it will not not cause your device to malfunction
@@ -23,7 +30,8 @@ I will do my best to help you provided that:
  - you have read this document and its warnings
  - you don't ask a question already answered here
  
-# Permissions
+# App details
+## Permissions
 SystemUI Tuner asks for some sensitive permissions:
  - android.permission.WRITE_SECURE_SETTINGS
  - android.permission.DUMP
@@ -47,7 +55,7 @@ I have attempted to modularize when these permissions are requested. All three a
 
 While each of these permissions requires a special process to grant them, they are no different from permissions such as CAMERA or MICROPHONE. That is, as soon as you uninstall SystemUI Tuner or clear its data, these permissions are revoked by Android.
 
-# Uninstallation/Reset
+## Uninstallation/Reset
 SystemUI Tuner has a limited ability to restore settings to their defaults. It only works on Android Oreo (8.0) and later. 
 
 Choosing the "Reset" option in the navigation drawer will prompt you with settings that can't be reset by SystemUI Tuner. Any custom settings you write may not be reset by SystemUI Tuner's reset function.
@@ -56,19 +64,10 @@ On Android Marshmallow and Nougat, you will need to manually reset all changes.
 
 It is your responsibility to keep track of which settings you have changed, and reset them before you uninstall SystemUI Tuner. SystemUI Tuner *cannot* and *will not* automatically reset any settings when it is uninstalled.
 
-# Persistent Options
+## Persistent Options
 Some options, such as the Icon Blacklist, will reset on reboot on certain devices. Other options may reset randomly. To prevent this, SystemUI Tuner has a "Persistent Options" menu, where options can be selected to become persistent. If any option selected in this menu changes, and the value does not match what SystemUI Tuner thinks it should be, SystemUI Tuner will set it back.
 
 The Persistent Options menu can be accessed from the navigation drawer in the app. Tap the three-line (hamburger) menu in the top corner or swipe from the edge of the screen to open the drawer. Scroll down to find Persistent Options.
- 
-# Safety/Warnings
-As mentioned in the introduction, I take no responsibility if you break your device. That said, I will lay out some warnings below, to supplement the many, _many_, **many** already present in the app:
- 
-TouchWiz (also known as Grace UX, Samsung Experience, and One UI) might break while using this app. See the TouchWiz section for details.
-
-This app modifies system settings, and gives you the power to break your device. Use caution and only use this app if you are comfortable with manual recovery.
-
-Immersive Mode is a **system** function. I did not make it and I do not control it. If problems arise through usage, *THIS IS THE FAULT OF YOUR MANUFACTURER*.
 
 # Limitations
 Since this app is **not** a system app, and does **not** have full system access, it has quite a few limitations.
@@ -98,8 +97,9 @@ Explicit list of examples of functions SystemUI Tuner cannot do on all devices:
  - etc
  
 Neither list is exhaustive. The point is that SystemUI Tuner **CANNOT** do everything. If you email me asking (or demanding) that I "fix" something that does not work, I will simply ignore it.
- 
-# TouchWiz/Samsung Experience/One UI (Samsung)
+
+# Custom skins on Android
+## TouchWiz/Samsung Experience/One UI (Samsung)
 TouchWiz is weird:
   - SystemUI Tuner **WILL NOT WORK** on TouchWiz Marshmallow.
   - Modifying status bar icons may cause crashes on TouchWiz Nougat.
@@ -107,14 +107,14 @@ TouchWiz is weird:
   
 Since TouchWiz is so heavily modified from AOSP, this is simply how things are.
  
-# MIUI (Xiaomi)
+## MIUI (Xiaomi)
 **DO NOT EXPECT THAT SYSTEMUI TUNER WILL WORK ON MIUI**
 You may get lucky with a version where at least some functions work, but there is absolutely no guarantee, nor is there anything I can do about it.
 
-# EMUI (Huawei)
+## EMUI (Huawei)
 EMUI Oreo and Pie have had decreasing compatibility with SystemUI Tuner. As with MIUI, this is out of my control.
 
-# ColorOS (OPPO, Realme)
+## ColorOS (OPPO, Realme)
 While SystemUI Tuner is more effective on ColorOS 7 than earlier versions, there are still quite a few changes made by OPPO that mean certain options simply don't work.
 
 
