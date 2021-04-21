@@ -53,7 +53,7 @@ PACKAGE_USAGE_STATS
  
 I have attempted to modularize when these permissions are requested. All three are requested during setup, but *only* WRITE_SECURE_SETTINGS is required at this point. If you skip the other permissions at this time, they will be requested when you attempt to use a function that requires them.
 
-While each of these permissions requires a special process to grant them, they are no different from permissions such as CAMERA or MICROPHONE. That is, as soon as you uninstall SystemUI Tuner or clear its data, these permissions are revoked by Android.
+While each of these permissions requires a special [process](adb.md) to grant them, they are no different from permissions such as CAMERA or MICROPHONE. That is, as soon as you uninstall SystemUI Tuner or clear its data, these permissions are revoked by Android.
 
 ## Uninstallation/Reset
 SystemUI Tuner has a limited ability to restore settings to their defaults. It only works on Android Oreo (8.0) and later. 
