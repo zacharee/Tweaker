@@ -7,8 +7,15 @@ Stock (Pixel)
  - Go to Settings >> System >> Developer Options and enable USB Debugging.
      - Enable Developer Options by going to Settings >> System >> About, finding the Build Number item and tapping it 7 times.
 
+ColorOS (OPPO, Realme)
+ - Go to Settings >> additional Settings >> Developer Options and enable USB Debugging.
+     - Enable Developer Options by going to Settings >> About, finding the Build Number item and tapping it 7 times.
 
- - Plug your device into your computer and accept the authorization request on it.
+TouchWiz / Samsung Experience (Samsung)
+ - Go to Settings >> Developer Options and enable USB Debugging.
+     - Enable Developer Options by going to Settings > About phone, finding the Build Number item and tapping it 7 times.
+
+After that, plug your device into your computer and accept the authorization request on it.
      - (Windows) You may need to install your device's drivers, available from the manufacturer's website.
 
 # Windows Setup
@@ -19,7 +26,7 @@ Stock (Pixel)
  
 # Linux (Debian-based) Setup
  - Make sure `adb` is installed:
-     - `sudo apt-get install adb`
+     - `sudo apt install adb`
 
 # Linux (Fedora-based/openSUSE-based) Setup
  - Make sure `android-tools` is installed:
