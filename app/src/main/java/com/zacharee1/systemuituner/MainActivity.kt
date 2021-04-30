@@ -1,6 +1,5 @@
 package com.zacharee1.systemuituner
 
-import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -388,6 +387,15 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         mainBinding.slider.addItems(
             DividerDrawerItem(),
+            PrimaryDrawerItem().apply {
+                name = StringHolder(R.string.help_translate)
+                icon = ImageHolder(R.drawable.ic_baseline_translate_24)
+                isSelectable = false
+                onDrawerItemClickListener = { _, _, _ ->
+                    launchUrl("https://crowdin.com/project/systemui-tuner")
+                    true
+                }
+            },
             SectionDrawerItem().apply {
                 divider = false
                 name = StringHolder(R.string.social)
