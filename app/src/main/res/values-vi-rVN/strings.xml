@@ -22,10 +22,11 @@
     <string name="more">Thêm</string>
     <string name="tweaks">Tùy chỉnh</string>
     <string name="failure">Thất bại</string>
-    <string name="sub_cellular" comment="Celular network">Di động</string>
+    <string name="help_translate">Help Translate</string>
+    <string name="sub_cellular">Di động</string>
     <string name="sub_wifi">Wifi</string>
     <string name="sub_miscellaneous">Cài đặt khác</string>
-    <string name="sub_htc" comment="Phone maker company">HTC</string>
+    <string name="sub_htc">HTC</string>
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">OnePlus</string>
