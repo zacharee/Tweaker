@@ -9,6 +9,7 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.CustomPreferenceBinding
+import com.zacharee1.systemuituner.util.setColorFilterCompat
 
 interface IColorPreference {
     var iconColor: Int
@@ -36,7 +37,7 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
                 val drawable = getStateDrawable(1)
 
                 if (iconColor != Int.MIN_VALUE) {
-                    drawable.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
+                    drawable.setColorFilterCompat(iconColor, PorterDuff.Mode.SRC_ATOP)
                 } else {
                     drawable.clearColorFilter()
                 }

@@ -75,15 +75,15 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 }
 
                 binding.reset.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                    val newInfo = items[holder.bindingAdapterPosition]
 
                     context.prefManager.saveOption(SettingsType.SECURE, newInfo.key, null)
                     context.writeSecure(newInfo.key, null)
-                    notifyItemChanged(holder.adapterPosition)
+                    notifyItemChanged(holder.bindingAdapterPosition)
                 }
 
                 setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                    val newInfo = items[holder.bindingAdapterPosition]
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {

@@ -131,7 +131,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     }
 
     private fun filterPersistent(query: String?, result: (ArrayList<PersistentPreference>) -> Unit) = launch {
-        val lowercase = query?.toLowerCase(Locale.getDefault())
+        val lowercase = query?.lowercase(Locale.getDefault())
 
         isLoaded.await()
 
@@ -303,7 +303,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         RoundedBottomSheetDialog(context).apply {
                             setTitle(R.string.remove_item)
                             setMessage(R.string.remove_item_desc)
-                            setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                            setPositiveButton(android.R.string.ok) { _, _ ->
                                 context.prefManager.apply {
                                     persistentOptions = persistentOptions.apply {
                                         removeAll { it.type == type && it.key == key }
@@ -314,7 +314,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                                 }
                                 fragment.preferenceScreen.removePreference(this@PersistentPreference)
                                 dismiss()
-                            })
+                            }
                             setNegativeButton(android.R.string.cancel, null)
                         }.show()
                     }

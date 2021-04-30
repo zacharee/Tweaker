@@ -12,11 +12,14 @@ import android.content.pm.ComponentInfo
 import android.content.pm.IPackageManager
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.*
 import android.os.Build.VERSION.SDK_INT
-import android.os.Build.VERSION_CODES.N_MR1
-import android.os.Build.VERSION_CODES.O
+import android.os.Build.VERSION_CODES.*
 import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
@@ -58,7 +61,7 @@ enum class SettingsType(val value: Int) {
         const val SYSTEM_LITERAL = "system"
 
         fun fromString(input: String): SettingsType {
-            return when (input.toLowerCase(Locale.getDefault())) {
+            return when (input.lowercase(Locale.getDefault())) {
                 GLOBAL_LITERAL -> GLOBAL
                 SECURE_LITERAL -> SECURE
                 SYSTEM_LITERAL -> SYSTEM
@@ -249,13 +252,13 @@ fun Fragment.updateTitle(title: CharSequence?) {
 fun Context.apiToName(api: Int): String {
     return resources.getString(
         when (api) {
-            Build.VERSION_CODES.M -> R.string.android_marshmallow
-            Build.VERSION_CODES.N -> R.string.android_nougat
-            Build.VERSION_CODES.N_MR1 -> R.string.android_nougat_7_1
-            Build.VERSION_CODES.O -> R.string.android_oreo
-            Build.VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
-            Build.VERSION_CODES.P -> R.string.android_pie
-            Build.VERSION_CODES.Q -> R.string.android_10
+            M -> R.string.android_marshmallow
+            N -> R.string.android_nougat
+            N_MR1 -> R.string.android_nougat_7_1
+            O -> R.string.android_oreo
+            O_MR1 -> R.string.android_oreo_8_1
+            P -> R.string.android_pie
+            Q -> R.string.android_10
             30 -> R.string.android_11
             else -> throw IllegalArgumentException("Invalid API level: $api")
         }
@@ -269,10 +272,11 @@ fun Context.dpAsPx(dpVal: Number) =
         resources.displayMetrics
     ).roundToInt()
 
+@SuppressLint("InlinedApi")
 fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
     val intent = Intent()
     when {
-        SDK_INT >= Build.VERSION_CODES.P -> {
+        SDK_INT >= P -> {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             if (channel != null) {
                 intent.action = Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS
@@ -660,3 +664,21 @@ val Context.hasShizukuPermission: Boolean
     } else {
         Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
     }
+
+val String.capitalized: String
+    get() = replaceFirstChar {
+        if (it.isLowerCase()) {
+            it.titlecase(Locale.getDefault())
+        } else {
+            it.toString()
+        }
+    }
+
+@Suppress("DEPRECATION")
+fun Drawable.setColorFilterCompat(color: Int, mode: PorterDuff.Mode) {
+    if (SDK_INT >= Q) {
+        colorFilter = BlendModeColorFilter(color, BlendMode.valueOf(mode.toString()))
+    } else {
+        setColorFilter(color, mode)
+    }
+}

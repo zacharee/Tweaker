@@ -58,29 +58,29 @@ class PreferenceImageView @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        var widthMeasureSpec = widthMeasureSpec
-        var heightMeasureSpec = heightMeasureSpec
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        var widthMeasureSpecRw = widthMeasureSpec
+        var heightMeasureSpecRw = heightMeasureSpec
+        val widthMode = MeasureSpec.getMode(widthMeasureSpecRw)
         if (widthMode == MeasureSpec.AT_MOST || widthMode == MeasureSpec.UNSPECIFIED) {
-            val widthSize = MeasureSpec.getSize(widthMeasureSpec)
+            val widthSize = MeasureSpec.getSize(widthMeasureSpecRw)
             val maxWidth = maxWidth
             if (maxWidth != Int.MAX_VALUE
                 && (maxWidth < widthSize || widthMode == MeasureSpec.UNSPECIFIED)
             ) {
-                widthMeasureSpec = MeasureSpec.makeMeasureSpec(maxWidth, MeasureSpec.AT_MOST)
+                widthMeasureSpecRw = MeasureSpec.makeMeasureSpec(maxWidth, MeasureSpec.AT_MOST)
             }
         }
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpecRw)
         if (heightMode == MeasureSpec.AT_MOST || heightMode == MeasureSpec.UNSPECIFIED) {
-            val heightSize = MeasureSpec.getSize(heightMeasureSpec)
+            val heightSize = MeasureSpec.getSize(heightMeasureSpecRw)
             val maxHeight = maxHeight
             if (maxHeight != Int.MAX_VALUE
                 && (maxHeight < heightSize || heightMode == MeasureSpec.UNSPECIFIED)
             ) {
-                heightMeasureSpec = MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST)
+                heightMeasureSpecRw = MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST)
             }
         }
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        super.onMeasure(widthMeasureSpecRw, heightMeasureSpecRw)
     }
 
     init {

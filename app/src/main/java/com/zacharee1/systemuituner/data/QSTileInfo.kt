@@ -3,7 +3,9 @@ package com.zacharee1.systemuituner.data
 import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
+import androidx.core.content.res.ResourcesCompat
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.util.capitalized
 import java.util.*
 import java.util.regex.Pattern
 
@@ -30,11 +32,11 @@ class QSTileInfo(
         return _label ?: when (type) {
             Type.INTENT -> getIntentLabel()
             Type.CUSTOM -> context.getCustomLabel()
-            Type.STANDARD -> key.capitalize(Locale.US)
+            Type.STANDARD -> key.capitalized
         }.also { _label = it }
     }
 
-    fun getIcon(context: Context): Drawable {
+    fun getIcon(context: Context): Drawable? {
         return _icon ?: when (type) {
             Type.INTENT -> context.getDefaultDrawable()
             Type.CUSTOM -> context.getCustomDrawable()
@@ -85,7 +87,7 @@ class QSTileInfo(
         return ComponentName.unflattenFromString(name) ?: throw IllegalArgumentException("Invalid component name: $name")
     }
 
-    private fun Context.getCustomDrawable(): Drawable {
+    private fun Context.getCustomDrawable(): Drawable? {
         val component = getNameAndComponentForCustom()
 
         return try {
@@ -96,14 +98,15 @@ class QSTileInfo(
             } catch (e: Exception) {
                 getDefaultDrawable()
             }
-        }.mutate().apply {
+        }?.mutate()?.apply {
             setTint(resources.getColor(android.R.color.white, theme))
         }
     }
 
-    private fun Context.chooseStandardDrawable(): Drawable {
-        return resources.getDrawable(
-            when (key.toLowerCase(Locale.US)) {
+    private fun Context.chooseStandardDrawable(): Drawable? {
+        return ResourcesCompat.getDrawable(
+            resources,
+            when (key.lowercase(Locale.US)) {
                 "wifi" -> R.drawable.ic_baseline_signal_wifi_4_bar_24
                 "bluetooth", "bt" -> R.drawable.ic_baseline_bluetooth_24
                 "color_inversion" -> R.drawable.ic_baseline_invert_colors_24
@@ -130,11 +133,11 @@ class QSTileInfo(
                 "screencapture" -> R.drawable.ic_baseline_camera_24
                 else -> R.drawable.ic_baseline_android_24
             },
-            null
+            theme
         )
     }
 
-    private fun Context.getDefaultDrawable(): Drawable {
-        return resources.getDrawable(R.drawable.ic_baseline_android_24, null)
+    private fun Context.getDefaultDrawable(): Drawable? {
+        return ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_android_24, theme)
     }
 }
