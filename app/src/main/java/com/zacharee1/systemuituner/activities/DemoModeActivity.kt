@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.ActivityDemoModeBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
@@ -40,7 +39,6 @@ class DemoModeActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    @ExperimentalNavController
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
 

@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.ActivityPersistentBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
@@ -36,7 +35,6 @@ class PersistentActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    @ExperimentalNavController
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
 
