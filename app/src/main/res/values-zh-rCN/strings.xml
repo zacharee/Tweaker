@@ -21,10 +21,11 @@
     <string name="category_interaction">交互</string>
     <string name="more">更多</string>
     <string name="tweaks">微调</string>
-    <string name="sub_cellular">移动网络</string>
+    <string name="failure">失败</string>
+    <string name="sub_cellular" comment="Celular network">移动网络</string>
     <string name="sub_wifi">WLAN</string>
     <string name="sub_miscellaneous">其它选项</string>
-    <string name="sub_htc">HTC</string>
+    <string name="sub_htc" comment="Phone maker company">HTC</string>
     <string name="sub_huawei">华为/荣耀</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">一加</string>
@@ -146,7 +147,7 @@
     <string name="option_advanced_write_setting">写入自定义设置</string>
     <string name="option_advanced_write_setting_desc">如果你有一个特殊的设置，你想要更改不是系统界面调节器的一部分，你可以在此设定它。</string>
     <string name="option_qqs_tiles">快速设置页眉计数</string>
-    <string name="option_qqs_tiles_desc">Android Nougat引入了一个新的快速设置功能，称为快速设置头， 在通知窗口中显示前几个快速设置栏块。 使用此选项可以增加或减少该行显示的瓷块数量。</string>
+    <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速设置特性，即页眉快速设置，让您能在通知栏的一行显示多个快速设置按钮。使用此选项可调整一行内的按钮数量。若您使用的是 One UI，您则需要安装 OneUI Tuner。</string>
     <string name="option_oneui_clock_position">时钟位置</string>
     <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以更改状态栏时钟位置。 Lock的快速星会让您做它，但有时选项会受到限制，取决于设备。 您可以使用它将它设置为左、中、或右。 请注意，您需要在 One UI 2.0 (Android 10) 安装QuickStar 才能产生效果。 或者，您可以使用 OneUI 调节器。要使此选项持久存在，请启用图标黑名单。</string>
     <string name="option_touchwiz_navbar_color">导航栏颜色</string>
@@ -303,4 +304,10 @@
     <string name="hide_battery_android_bug_btn_view_issue">查看问题</string>
     <string name="error_creating_file_template">创建文件时出错: %s</string>
     <string name="error_restoring_icon_blacklist">错误还原: %s</string>
+    <string name="permission_grant_success">已成功授予权限。</string>
+    <string name="permission_grant_failure">无法授予权限。若您手持的是小米或 OPPO/Realme 设备，请确保您开启了 “USB 调试 (安全设置)” 或 “禁用权限监控” 设置。</string>
+    <string name="patreon">Patreon</string>
+    <string name="patreon_desc">每月捐赠 $1 即可使用我的所有付费应用等等。</string>
+    <string name="supporters">支持者</string>
+    <string name="supporters_desc">这些人帮助了本应用 (及本人) 的发展。</string>
 </resources>
