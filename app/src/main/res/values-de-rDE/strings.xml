@@ -22,6 +22,7 @@
     <string name="more">Mehr</string>
     <string name="tweaks">Optimierungen</string>
     <string name="failure">Fehlgeschlagen</string>
+    <string name="help_translate">Help Translate</string>
     <string name="sub_cellular">Mobile Daten</string>
     <string name="sub_wifi">Wlan</string>
     <string name="sub_miscellaneous">Sonstiges</string>
