@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -19,7 +20,6 @@ import com.mikepenz.materialdrawer.holder.DimenHolder
 import com.mikepenz.materialdrawer.holder.ImageHolder
 import com.mikepenz.materialdrawer.holder.StringHolder
 import com.mikepenz.materialdrawer.model.*
-import com.mikepenz.materialdrawer.util.ExperimentalNavController
 import com.mikepenz.materialdrawer.util.addItems
 import com.mikepenz.materialdrawer.util.setupWithNavController
 import com.zacharee1.systemuituner.activities.Intro
@@ -33,7 +33,6 @@ import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.fragments.SearchFragment
 import com.zacharee1.systemuituner.util.*
 
-@ExperimentalNavController
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
     private val mainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val searchFragment by lazy { supportFragmentManager.findFragmentById(R.id.search_fragment) as SearchFragment }
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     private var searchView: SearchView? = null
 
-    @ExperimentalNavController
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
@@ -70,7 +68,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         mainBinding.slider.headerHeight = DimenHolder.fromDp(172)
         mainBinding.slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
         mainBinding.slider.setupWithNavController(navController)
-        mainBinding.slider.recyclerView.setBackgroundColor(getColor(R.color.toolbarColor))
+        mainBinding.slider.recyclerView.setBackgroundColor(ContextCompat.getColor(this, R.color.toolbarColor))
 
         val currentListener = mainBinding.slider.onDrawerItemClickListener
         mainBinding.slider.onDrawerItemClickListener = { view, item, position ->
@@ -80,7 +78,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             currentListener?.invoke(view, item, position) ?: false
         }
 
-        mainBinding.root.sliderFadeColor = getColor(R.color.colorSliderFade)
+        mainBinding.root.sliderFadeColor = ContextCompat.getColor(this, R.color.colorSliderFade)
 
         navController.addOnDestinationChangedListener(this)
 
@@ -103,7 +101,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         return super.onOptionsItemSelected(item)
     }
 
-    @ExperimentalNavController
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_search, menu)
 
@@ -185,7 +182,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 .apply {
                     divider = false
                     name = StringHolder(R.string.tweaks)
-                    textColor = ColorStateList.valueOf(getColor(R.color.colorAccent))
+                    textColor = ColorStateList.valueOf(ContextCompat
+                        .getColor(this@MainActivity, R.color.colorAccent))
                 },
             NavigationDrawerItem(
                 R.id.homeFragment,
@@ -327,7 +325,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             SectionDrawerItem().apply {
                 divider = false
                 name = StringHolder(R.string.more)
-                textColor = ColorStateList.valueOf(getColor(R.color.colorAccent))
+                textColor = ColorStateList.valueOf(ContextCompat
+                    .getColor(this@MainActivity, R.color.colorAccent))
             },
             NavigationDrawerItem(
                 R.id.persistentActivity,
@@ -349,11 +348,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     onDrawerItemClickListener = { _, _, _ ->
                         val dialog = RoundedBottomSheetDialog(this@MainActivity)
                         dialog.setTitle(R.string.reset)
-                        dialog.setMessage(resources.getString(R.string.reset_confirm, buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
-                        dialog.setPositiveButton(R.string.reset, DialogInterface.OnClickListener { _, _ ->
+                        dialog.setMessage(resources.getString(R.string.reset_confirm,
+                            buildNonResettablePreferences().joinToString(prefix = "\n- ", separator = "\n- ")))
+                        dialog.setPositiveButton(R.string.reset) { _, _ ->
                             resetAll()
                             dialog.dismiss()
-                        })
+                        }
                         dialog.setNegativeButton(android.R.string.cancel, null)
                         dialog.show()
 
@@ -391,7 +391,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             SectionDrawerItem().apply {
                 divider = false
                 name = StringHolder(R.string.social)
-                textColor = ColorStateList.valueOf(getColor(R.color.colorAccent))
+                textColor = ColorStateList.valueOf(ContextCompat
+                    .getColor(this@MainActivity, R.color.colorAccent))
             },
             PrimaryDrawerItem().apply {
                 name = StringHolder(R.string.donate)
