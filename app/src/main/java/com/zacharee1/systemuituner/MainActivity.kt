@@ -386,7 +386,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         mainBinding.slider.addItems(
-            DividerDrawerItem(),
             PrimaryDrawerItem().apply {
                 name = StringHolder(R.string.help_translate)
                 icon = ImageHolder(R.drawable.ic_baseline_translate_24)
@@ -396,6 +395,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     true
                 }
             },
+            DividerDrawerItem(),
             SectionDrawerItem().apply {
                 divider = false
                 name = StringHolder(R.string.social)
