@@ -22,10 +22,11 @@
     <string name="more">更多</string>
     <string name="tweaks">調整</string>
     <string name="failure">失敗</string>
-    <string name="sub_cellular" comment="Celular network">行動數據</string>
+    <string name="help_translate">Help Translate</string>
+    <string name="sub_cellular">行動數據</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">其他設定</string>
-    <string name="sub_htc" comment="Phone maker company">HTC</string>
+    <string name="sub_htc">HTC</string>
     <string name="sub_huawei">華為/榮耀</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">一加</string>
