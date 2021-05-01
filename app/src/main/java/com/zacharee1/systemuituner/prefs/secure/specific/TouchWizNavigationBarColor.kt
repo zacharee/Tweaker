@@ -12,9 +12,11 @@ import com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz
 import com.zacharee1.systemuituner.util.writeGlobal
 
 class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
-    override val keys: Array<String>
-        get() = arrayOf(key, "navigationbar_current_color")
-    override var type = SettingsType.GLOBAL
+    override val keys
+        get() = hashMapOf(
+            SettingsType.GLOBAL to arrayOf(key, "navigationbar_current_color")
+        )
+    override var type = SettingsType.UNDEFINED
 
     init {
         key = "navigationbar_color"

@@ -7,12 +7,14 @@ import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
+import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.SettingsType
 
-class ImmersiveModePreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
+class ImmersiveModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
-    override var type: SettingsType = SettingsType.GLOBAL
-    override val keys: Array<String> = arrayOf(Settings.Global.POLICY_CONTROL)
+    override val keys = hashMapOf(
+        SettingsType.GLOBAL to arrayOf(Settings.Global.POLICY_CONTROL)
+    )
 
     init {
         key = "immersive_mode_pref"

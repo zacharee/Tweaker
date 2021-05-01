@@ -7,22 +7,27 @@ import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
+import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.SettingsType
 
-class UISoundsPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
+class UISoundsPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
-    override var type: SettingsType = SettingsType.GLOBAL
-    override val keys: Array<String> = arrayOf(
-        Settings.Global.CAR_DOCK_SOUND,
-        Settings.Global.CAR_UNDOCK_SOUND,
-        Settings.Global.DESK_DOCK_SOUND,
-        Settings.Global.DESK_UNDOCK_SOUND,
-        Settings.Global.LOCK_SOUND,
-        Settings.Global.UNLOCK_SOUND,
-        Settings.Global.LOW_BATTERY_SOUND,
-        Settings.Global.TRUSTED_SOUND,
-        Settings.Global.CHARGING_STARTED_SOUND,
-        Settings.Global.CHARGING_SOUNDS_ENABLED
+    override val keys = hashMapOf(
+        SettingsType.GLOBAL to arrayOf(
+            Settings.Global.CAR_DOCK_SOUND,
+            Settings.Global.CAR_UNDOCK_SOUND,
+            Settings.Global.DESK_DOCK_SOUND,
+            Settings.Global.DESK_UNDOCK_SOUND,
+            Settings.Global.LOCK_SOUND,
+            Settings.Global.UNLOCK_SOUND,
+            Settings.Global.LOW_BATTERY_SOUND,
+            Settings.Global.TRUSTED_SOUND,
+            Settings.Global.CHARGING_STARTED_SOUND,
+            Settings.Global.CHARGING_SOUNDS_ENABLED
+        ),
+        SettingsType.SECURE to arrayOf(
+            Settings.Secure.CHARGING_SOUNDS_ENABLED
+        )
     )
 
     init {

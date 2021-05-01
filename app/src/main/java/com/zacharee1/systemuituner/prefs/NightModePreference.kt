@@ -8,15 +8,18 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.interfaces.*
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
+import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.writeSecure
 import com.zacharee1.systemuituner.views.NightModeView
 
 class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference, IDangerousPreference {
-    override val keys: Array<String> = arrayOf(
-        NightModeView.NIGHT_DISPLAY_ACTIVATED,
-        NightModeView.NIGHT_DISPLAY_AUTO_MODE,
-        NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE,
-        NightModeView.TWILIGHT_MODE
+    override val keys = hashMapOf(
+        SettingsType.SECURE to arrayOf(
+            NightModeView.NIGHT_DISPLAY_ACTIVATED,
+            NightModeView.NIGHT_DISPLAY_AUTO_MODE,
+            NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE,
+            NightModeView.TWILIGHT_MODE
+        )
     )
     override var dangerous = true
 
@@ -38,8 +41,10 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
 
         context.apply {
             if (info == null) {
-                keys.forEach {
-                    writeSecure(it, null)
+                keys.forEach { key ->
+                    key.value.forEach {
+                        writeSecure(it, null)
+                    }
                 }
             } else {
                 writeSecure(NightModeView.TWILIGHT_MODE, info.twilightMode)

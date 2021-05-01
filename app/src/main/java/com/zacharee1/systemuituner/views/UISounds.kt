@@ -14,10 +14,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.UISoundSelector
 import com.zacharee1.systemuituner.databinding.UiSoundsBinding
 import com.zacharee1.systemuituner.databinding.UiSoundsItemBinding
-import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.getStringByName
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.*
 
 class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private val binding by lazy { UiSoundsBinding.bind(this) }
@@ -26,9 +23,12 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
         super.onAttachedToWindow()
 
         binding.disableChargingSound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
+                || Settings.Secure.getInt(context.contentResolver, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == 0
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
+            context.prefManager.saveOption(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
             context.writeGlobal(Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
+            context.writeSecure(Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
         }
 
         binding.soundsList.adapter = Adapter(context)

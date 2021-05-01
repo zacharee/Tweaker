@@ -124,9 +124,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         }
     }
 
-    inner class ManagerImpl : IManager.Stub() {
-
-    }
+    inner class ManagerImpl : IManager.Stub()
 
     inner class Observer : ContentObserver(mainHandler) {
         fun register() {

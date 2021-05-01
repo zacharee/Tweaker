@@ -9,12 +9,14 @@ import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.coroutines.*
 import kotlin.collections.ArrayList
 
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
+        @SuppressLint("StaticFieldLeak")
         private var instance: SearchIndex? = null
 
         val toInflate = arrayOf(
@@ -106,7 +108,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                         type = preference.type
                     }
                     if (preference is ISpecificPreference) {
-                        _keys.addAll(preference.keys)
+                        _keys.putAll(preference.keys)
                     }
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
@@ -126,10 +128,10 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             }
         }
 
-        val _keys = ArrayList<String>()
+        val _keys = HashMap<SettingsType, Array<String>>()
 
-        override val keys: Array<String>
-            get() = _keys.toTypedArray()
+        override val keys: HashMap<SettingsType, Array<String>>
+            get() = _keys
 
         var action: Int = 0
 

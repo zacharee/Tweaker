@@ -25,6 +25,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
     override val widgetLayout: Int = Int.MIN_VALUE
@@ -157,25 +158,30 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
     private fun construct(pref: PersistentPreference): PersistentPreference {
         return PersistentPreference.copy(pref, this).apply {
-            isChecked = context.prefManager.persistentOptions.filter { it.type == type && keys.contains(it.key) }.size == keys.size
+            val options = context.prefManager.persistentOptions
+            isChecked = keys.all { key ->
+                key.value.all { k ->
+                    options.any { opt -> opt.key == k && opt.type == key.key }
+                }
+            }
+
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as PersistentPreference
 
                 if (newValue.toString().toBoolean()) {
                     context.prefManager.apply {
                         persistentOptions = persistentOptions.apply {
-                            addAll(preference.keys.map {
-                                PersistentOption(
-                                    preference.type,
-                                    it
-                                )
-                            })
+                            preference.keys.forEach { (t, ks) ->
+                                ks.forEach { k ->
+                                    add(PersistentOption(t, k))
+                                }
+                            }
                         }
                     }
                 } else {
                     context.prefManager.apply {
                         persistentOptions = persistentOptions.apply {
-                            removeAll { item -> item.type == preference.type && preference.keys.contains(item.key) }
+                            removeAll { item -> preference.keys.keys.contains(item.type) && preference.keys[item.type]?.contains(item.key) == true }
                         }
                     }
                 }
@@ -202,7 +208,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     title = info.label
                     key = info.key
                     type = info.type
-                    keys.add(key)
+                    keys[type] = arrayOf(key)
                 }
             }
             fun fromPreference(isCustom: Boolean, preference: Preference, fragment: PersistentFragment): PersistentPreference {
@@ -217,10 +223,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         preference.summary
                     }
                     if (preference is PersistentPreference) {
-                        keys.addAll(preference.keys)
+                        keys.putAll(preference.keys)
                     }
                     if (preference is ISpecificPreference) {
-                        keys.addAll(preference.keys)
+                        keys.putAll(preference.keys)
                     }
                     if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
@@ -239,7 +245,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     }
 
                     if (keys.isEmpty()) {
-                        keys.add(preference.key)
+                        keys[type] = keys[type].run {
+                            if (this == null) {
+                                arrayOf(preference.key)
+                            } else {
+                                this + arrayOf(preference.key)
+                            }
+                        }
                     }
 
                     initSecure(this)
@@ -252,7 +264,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
             }
         }
 
-        val keys: ArrayList<String> = ArrayList()
+        val keys = HashMap<SettingsType, Array<String>>()
         var origSummary: CharSequence? = null
 
         init {
