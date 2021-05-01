@@ -20,7 +20,7 @@
     <string name="screen_persistent">Persistent Options</string>
     <string name="category_interaction">상호작용</string>
     <string name="more">더보기</string>
-    <string name="tweaks">Tweaks</string>
+    <string name="tweaks">개조</string>
     <string name="failure">실패</string>
     <string name="help_translate">번역 돕기</string>
     <string name="sub_cellular">셀룰러 데이터</string>
@@ -40,7 +40,7 @@
     <string name="remove_from_blacklist">아이콘 제외 목록에서 제거</string>
     <string name="sub_demo">데모 모드</string>
     <string name="sub_demo_desc">Demo Mode allows you to force your device\'s status bar into different states. You can use it to show or hide specific icons, specify signal strengths, and a few other things.</string>
-    <string name="special_sub_airplane_mode">Airplane Mode Tweaks</string>
+    <string name="special_sub_airplane_mode">비행기 모드 개조</string>
     <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. You can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, you can change which radios can be toggled manually when the device enters airplane mode.</string>
     <string name="special_sub_icon_blacklist">아이콘 제외 목록</string>
     <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
