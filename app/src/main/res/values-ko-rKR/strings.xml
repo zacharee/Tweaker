@@ -35,7 +35,7 @@
     <string name="sub_xiaomi">Xiaomi</string>
     <string name="sub_security">보안</string>
     <string name="sub_storage">저장공간</string>
-    <string name="sub_power">Power</string>
+    <string name="sub_power">전원</string>
     <string name="add_to_blacklist">아이콘 제외 목록에 추가</string>
     <string name="remove_from_blacklist">아이콘 제외 목록에서 제거</string>
     <string name="sub_demo">데모 모드</string>
@@ -45,7 +45,7 @@
     <string name="special_sub_icon_blacklist">아이콘 제외 목록</string>
     <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
     <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
-    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
+    <string name="feature_lock_timeout_desc">\"보안 잠금 설정\"에서, \"자동 잠금\" 타이머를 설정할 수 있습니다. 이 타이머는 화면을 끈 뒤 다시 켰을 때 잠금화면이 뜨기까지의 시간을 지정합니다. 이 설정을 통하여 이 시간을 당신이 원하는 아무 시간(밀리초 단위)으로나 설정할 수 있습니다. 충분히 높은 값으로 설정하면 결코 잠금화면이 보이지 않게 됩니다(\"전원 버튼을 눌러 기기 즉시 잠금\" 설정이 꺼져 있음을 가정).</string>
     <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
     <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
@@ -56,16 +56,16 @@
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
     <string name="feature_app_install_location">Set Default App Install Location</string>
     <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
-    <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
-    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
-    <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
-    <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
-    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
-    <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
+    <string name="feature_heads_up_notifications">헤드 업 알림 표시 여부 설정</string>
+    <string name="feature_heads_up_notifications_desc">모든 헤드 업 알림을 한 번에 켜거나 끕니다. 헤드 업 알림이란 화면의 상단에서 팝업 형태로 뜨는 알림을 말합니다.</string>
+    <string name="feature_insufficient_storage_warning">\"저장공간 부족\" 경고 무시</string>
+    <string name="feature_insufficient_storage_warning_desc">기기가 사용 가능한 저장 용량이 특정 값보다 적으면 Android는 기기에 사용 가능한 저장 용량이 부족하다는 경고를 표시합니다. 이로 인해 새 앱이나 업데이트를 설치하지 못할 수 있습니다. 이 경고가 표시되지 않도록 한계 값을 수동으로 낮출 수 있습니다.</string>
+    <string name="feature_keep_screen_on">충전기 연결 시 화면 켜짐 유지</string>
+    <string name="feature_keep_screen_on_desc">안드로이드의 개발자 설정에서, 전원 공급 시 화면을 켜진 상태로 유지하도록 설정할 수 있습니다. 기본적으로 이 설정은 모든 전원 공급 방식에 대하여 작동합니다. 특정 전원 공급 방식에 대해서만 화면 켜짐을 유지하도록 설정할 수도 있습니다.</string>
     <string name="feature_custom_animation_scales">애니메이션 배율 사용자 지정</string>
     <string name="feature_custom_animation_scales_desc">안드로이드의 개발자 설정에서, 애니메이션의 배율을 설정하여 애니메이션의 실행 시간을 조정할 수 있습니다. 가능한 설정이 너무 느리거나 빠르게만 느껴지는 경우, 여기에서 값을 사용자 지정할 수 있습니다.</string>
-    <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
-    <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
+    <string name="feature_custom_rotation">잠금화면 화면 방향 사용자 지정</string>
+    <string name="feature_custom_rotation_desc">대부분의 폰은 잠금화면의 화면 방향이 세로로 고정되어 있습니다. 이 설정을 이용하면, 잠금화면의 화면 방향을 사용자 지정할 수 있습니다. 우선 자동 회전을 비활성화한 뒤 이 설정을 적용해야 정상적으로 동작할 것입니다.</string>
     <string name="feature_immersive_mode">Immersive Mode</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
@@ -158,9 +158,9 @@
     <string name="option_night_mode">야간 모드</string>
     <string name="option_night_mode_desc">Android 누가에서 밤에 디스플레이를 누렇게 하는 기본 설정인 야간 모드를 도입했습니다. 누가 7.1에서 야간 디스플레이로 이름이 바뀌며 더욱 개선되었습니다. 해당 기능을 여기에서 활성화하고 다른 설정사항을 조정할 수 있습니다. 경고: 일부 Android 10 기기에서 이 기능을 활성화하면 블랙스크린을 유발할 수 있습니다!</string>
     <string name="option_touchwiz_qs_row_count">빠른 설정 행 개수</string>
-    <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
+    <string name="option_touchwiz_qs_row_count_desc">삼성 TouchWiz 누가 및 오레오에서, 숨겨진 설정을 통하여 빠른 설정 창의 레이아웃을 변경할 수 있습니다. 이 설정을 통해 행 개수를 조절할 수 있습니다. 이 설정을 영구 설정으로 활성화해주십시오.</string>
     <string name="option_touchwiz_qs_column_count">빠른 설정 열 개수</string>
-    <string name="option_touchwiz_qs_column_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the column count. Please enable this as a Persistent Option.</string>
+    <string name="option_touchwiz_qs_column_count_desc">삼성 TouchWiz 누가 및 오레오에서, 숨겨진 설정을 통하여 빠른 설정 창의 레이아웃을 변경할 수 있습니다. 이 설정을 통해 열 개수를 조절할 수 있습니다. 이 설정을 영구 설정으로 활성화해주십시오.</string>
     <string name="option_advanced_force_enable_all">모든 비활성화된/숨은 설정 활성화</string>
     <string name="option_advanced_force_enable_all_desc">SystemUI Tuner의 특정 설정은 기기나 실행 중인 Android 버전에 따라 숨겨지거나 비활성화됩니다. 이를 활성화하면 해당 설정이 표시되고 활성화됩니다. 경고: 보통 설정이 비활성화되거나 숨겨지는 데에는 합당한 이유가 있습니다. 단순히 작동하지 않을 수도 있고, 기기를 망가뜨릴 수도 있습니다. 신중히 진행하십시오!</string>
     <string name="option_touchwiz_disable_high_brightness_warning">높은 화면 밝기 경고 비활성화</string>
@@ -254,9 +254,9 @@
     <string name="intro_disclaimer">면책 조항</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner는 숨겨진 설정을 변경할 수 있습니다. 불행히도 숨겨져 있기 때문에 특정 설정을 변경하더라도 변하는 것이 없는 기기가 있을 수 있습니다. 특히 EMUI, MIUI 및 ColorOS와 같이 고도로 개조된 Android에서는 많은 기능이 제대로 작동하지 않을 수 있습니다. 이것에 대해 제가 할 수 있는 일은 아무것도 없다는 것을 명심하십시오.</string>
     <string name="intro_grant_wss">보안 설정에 쓰기 권한 부여</string>
-    <string name="intro_grant_wss_desc">SystemUI Tuner needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
-    <string name="intro_grant_extra">Grant Extra Permissions</string>
-    <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
+    <string name="intro_grant_wss_desc">SystemUI Tuner는 정상적인 동작을 위해 특별한 권한이 필요합니다. 권한을 부여하려면, ADB를 이용하거나 기기를 루팅해야 합니다. 허용을 누르면 권한을 획득하기 위해 루트를 사용하고, 루팅이 되어 있지 않은 경우 도움말을 누르면 ADB를 설정하는 법을 알려드리겠습니다. 걱정하지 마세요. ADB는 사용해도 안전합니다. 품질보증을 받지 못하거나, Knox를 깨거나, 폰을 루팅하거나, 부트로더에 접근하는 등의 요소는 없습니다.</string>
+    <string name="intro_grant_extra">추가 권한 부여</string>
+    <string name="intro_grant_extra_desc">일부 기능에 한해서, SystemUI Tuner는 추가적인 ADB 권한이 필요합니다. 이 권한들은 지금 부여하지 않아도 되며, 필요한 경우 안내가 될 것입니다.</string>
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
     <string name="intro_last_desc">최근 업데이트를 보려면 트위터에서 저를 팔로우하십시오.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
@@ -264,7 +264,7 @@
     <string name="compatibility_message_higher">죄송합니다, 이 기능은 안드로이드 %s에서만 작동합니다.</string>
     <string name="compatibility_message_storage">죄송합니다, 이 설정을 변경하려면 SD 카드가 필요합니다.</string>
     <string name="reset_confirm">This will reset most changes made by SystemUI Tuner. The below options will have to be reset manually. I recommend that you reboot after resetting.\n%s</string>
-    <string name="persistent_options_desc">Select an option here to lock its values to those that have been set by SystemUI Tuner.</string>
+    <string name="persistent_options_desc">SystemUI Tuner에서 지정한 값으로 설정값을 고정할 설정을 선택하십시오.</string>
     <string name="android_marshmallow">마시멜로 6.0</string>
     <string name="android_nougat">누가 7.0</string>
     <string name="android_nougat_7_1">누가 7.1</string>
