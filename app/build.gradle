@@ -69,7 +69,7 @@ dependencies {
     implementation 'com.github.zacharee:Unblacklister:1.1'
     implementation 'com.mikepenz:materialdrawer:8.4.0'
     implementation 'com.mikepenz:materialdrawer-nav:8.4.0'
-    implementation 'com.github.zacharee:material:a2ab4a2d3c'
+    implementation 'com.github.zacharee:material:18bda1a64b'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
