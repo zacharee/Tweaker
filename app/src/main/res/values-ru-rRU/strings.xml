@@ -22,10 +22,11 @@
     <string name="more">Больше</string>
     <string name="tweaks">Настройки</string>
     <string name="failure">Ошибка</string>
-    <string name="sub_cellular" comment="Celular network">Сотовая сеть</string>
+    <string name="help_translate">Помочь с переводом</string>
+    <string name="sub_cellular">Сотовая сеть</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Прочее</string>
-    <string name="sub_htc" comment="Phone maker company">HTC</string>
+    <string name="sub_htc">HTC</string>
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">OnePlus</string>
