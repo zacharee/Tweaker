@@ -85,8 +85,10 @@ class SecureListDialog : BaseOptionDialog() {
                 setOnClickListener {
                     val pos = holder.bindingAdapterPosition
 
-                    clickCallback(pos)
-                    setChecked(pos, true)
+                    if (pos != -1) {
+                        clickCallback(pos)
+                        setChecked(pos, true)
+                    }
                 }
             }
         }
