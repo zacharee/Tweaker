@@ -22,7 +22,7 @@
     <string name="more">更多</string>
     <string name="tweaks">微调</string>
     <string name="failure">失败</string>
-    <string name="help_translate">Help Translate</string>
+    <string name="help_translate">帮助翻译本软件</string>
     <string name="sub_cellular">移动网络</string>
     <string name="sub_wifi">WLAN</string>
     <string name="sub_miscellaneous">其它选项</string>
