@@ -5,13 +5,16 @@ import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
+import com.zacharee1.systemuituner.interfaces.DangerousPreference
+import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.SettingsType
 
 class UISoundsPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
-    ISpecificPreference {
+    ISpecificPreference, IDangerousPreference by DangerousPreference(context, attrs) {
+    override var dangerous: Boolean = true
+
     override val keys = hashMapOf(
         SettingsType.GLOBAL to arrayOf(
             Settings.Global.CAR_DOCK_SOUND,
