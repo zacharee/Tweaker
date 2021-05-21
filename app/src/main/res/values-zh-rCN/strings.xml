@@ -311,4 +311,9 @@
     <string name="patreon_desc">每月捐赠 $1 即可使用我的所有付费应用等等。</string>
     <string name="supporters">支持者</string>
     <string name="supporters_desc">这些人帮助了本应用 (及本人) 的发展。</string>
+    <string name="demo_mode_status_bar_opaque">Opaque</string>
+    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
+    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_data_type_none">None</string>
 </resources>
