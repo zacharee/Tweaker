@@ -44,8 +44,8 @@
         <item>G</item>
         <item>H</item>
         <item>LTE</item>
-        <item>Roaming</item>
-        <item>None</item>
+        <item>@string/demo_mode_data_type_roaming</item>
+        <item>@string/demo_mode_data_type_none</item>
     </string-array>
 
     <string-array name="data_type_values">
@@ -61,9 +61,9 @@
     </string-array>
 
     <string-array name="bar_mode_names">
-        <item>Opaque</item>
-        <item>Semi-Transparent</item>
-        <item>Translucent</item>
+        <item>@string/demo_mode_status_bar_opaque</item>
+        <item>@string/demo_mode_status_bar_semi_transparent</item>
+        <item>@string/demo_mode_status_bar_translucent</item>
     </string-array>
 
     <string-array name="bar_mode_values">
