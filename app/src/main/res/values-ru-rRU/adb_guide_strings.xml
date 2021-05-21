@@ -51,6 +51,6 @@
     <string name="adb_linux_fedora">Fedora/SUSE</string>
     <string name="adb_linux_debian">Debian/Ubuntu</string>
     <string name="adb_linux_rhel">RHEL/CentOS</string>
-    <string name="adb_linux_other">Linux (Other)</string>
-    <string name="adb_local">Android (This Device)</string>
+    <string name="adb_linux_other">Linux (прочие)</string>
+    <string name="adb_local">Android (это устройство)</string>
 </resources>
