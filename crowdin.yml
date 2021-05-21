@@ -1,3 +1,7 @@
 files:
   - source: /app/src/main/res/values/strings.xml
     translation: /app/src/main/res/values-%android_code%/%original_file_name%
+  - source: /app/src/main/res/values/adb_guide_strings.xml
+    translation: /app/src/main/res/values-%android_code%/%original_file_name%
+  - source: /app/src/main/res/values/icon_blacklist_strings.xml
+    translation: /app/src/main/res/values-%android_code%/%original_file_name%
