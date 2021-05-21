@@ -311,4 +311,9 @@
     <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Unterstützer</string>
     <string name="supporters_desc">Diese Nutzer haben dazu beigetragen, diese App (und mich) am Laufen zu halten.</string>
+    <string name="demo_mode_status_bar_opaque">Opaque</string>
+    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
+    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_data_type_none">None</string>
 </resources>
