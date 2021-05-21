@@ -311,4 +311,9 @@
     <string name="patreon_desc">Chỉ 1$ mỗi tháng, bạn có quyền truy cấp tất cả các app trả phí của tôi và nhiều hơn nữa.</string>
     <string name="supporters">Người hỗ trợ</string>
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
+    <string name="demo_mode_status_bar_opaque">Opaque</string>
+    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
+    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_data_type_none">None</string>
 </resources>
