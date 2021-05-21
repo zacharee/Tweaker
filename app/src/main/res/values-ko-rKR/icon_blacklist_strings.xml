@@ -88,10 +88,6 @@
     <string name="icon_blacklist_ble_unlock_mode">BLE Unlock Mode</string>
     <string name="icon_blacklist_quiet">Quiet</string>
     <string name="icon_blacklist_missed_call">Missed Call</string>
-    <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth Handsfree Batter</string>
-    <string name="icon_blacklist_qct_wfc">QCT WiFi Calling</string>
-    <string name="icon_blacklist_beats_effect">Beats Effect</string>
-    <string name="icon_blacklist_signal_doctor">Signal Doctor</string>
-    <string name="icon_blacklist_ims_indicator">IMS Indicator</string>
+    <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth Handsfree Battery</string>
     <string name="icon_blacklist_rtt">RTT</string>
 </resources>
