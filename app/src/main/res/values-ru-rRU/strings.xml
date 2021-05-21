@@ -311,4 +311,9 @@
     <string name="patreon_desc">За $1 в месяц вы получаете доступ ко всем моим платным приложениям и многому другому.</string>
     <string name="supporters">Поддержка</string>
     <string name="supporters_desc">Эти люди поддерживают приложение (и меня).</string>
+    <string name="demo_mode_status_bar_opaque">Opaque</string>
+    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
+    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_data_type_none">None</string>
 </resources>
