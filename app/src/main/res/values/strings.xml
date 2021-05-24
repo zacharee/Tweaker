@@ -22,6 +22,8 @@
     <string name="category_interaction">Interaction</string>
     <string name="more">More</string>
     <string name="tweaks">Tweaks</string>
+    <string name="failure">Failure</string>
+    <string name="help_translate">Help Translate</string>
 
     <string name="sub_cellular">Cellular</string>
     <string name="sub_wifi">Wi-Fi</string>
@@ -191,7 +193,7 @@
     <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
 
     <string name="option_qqs_tiles">Quick Settings Header Count</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row.</string>
+    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI unless you use OneUI Tuner.</string>
 
     <string name="option_oneui_clock_position">Clock Position</string>
     <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. Alternatively, you can use OneUI Tuner. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
@@ -225,6 +227,12 @@
 
     <string name="option_qs_move_full_rows">QS Move Full Rows</string>
     <string name="option_qs_move_full_rows_desc">What this actually does isn\'t explained very well, but it does something and you could try it if you want. It has something to do with pulling down the notification center.</string>
+
+    <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
+    <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
+
+    <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
+    <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
 
     <string name="home_welcome_title">Welcome!</string>
 
@@ -334,6 +342,7 @@
     <string name="android_oreo_8_1">Oreo 8.1</string>
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
+    <string name="android_11">11</string>
 
     <string name="write_system_fail">Failed to write to Settings.System!</string>
     <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from XDA Labs, but it is free and open source.</string>
@@ -380,4 +389,23 @@
 
     <string name="hide_battery_android_bug_msg">Hiding the battery icon is no longer possible using the icon blacklist on Android 10. This is a bug in Android. It should be fixed in Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">View Issue</string>
+
+    <string name="error_creating_file_template">Error creating file: %s</string>
+    <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
+
+    <string name="permission_grant_success">Successfully granted permissions.</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+
+    <string name="patreon">Patreon</string>
+    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
+
+    <string name="supporters">Supporters</string>
+    <string name="supporters_desc">These people help keep this app (and me) going.</string>
+
+    <string name="demo_mode_status_bar_opaque">Opaque</string>
+    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
+    <string name="demo_mode_status_bar_translucent">Translucent</string>
+
+    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_data_type_none">None</string>
 </resources>
