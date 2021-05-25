@@ -2,9 +2,9 @@
 <resources>
     <string name="adb_intro_title">Guía ADB</string>
     <string name="adb_intro_desc">¿No sabes cómo usar el ADB? No hay problema. Simplemente sigue esta guía y deberías estar configurado. (Tenga en cuenta que necesitará un ordenador para este proceso.)</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
+    <string name="adb_choose_computer_os">Elija su sistema operativo</string>
+    <string name="adb_choose_computer_os_desc">Windows 8.1</string>
+    <string name="adb_android_guide">Configuración inicial (en tu teléfono)</string>
     <string name="adb_final_title">All Done</string>
     <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
