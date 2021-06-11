@@ -321,10 +321,10 @@
     <string name="demo_mode_status_bar_translucent">Translucent</string>
     <string name="demo_mode_data_type_roaming">Roaming</string>
     <string name="demo_mode_data_type_none">None</string>
-    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_disabled">Deaktiviert</string>
     <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
-    <string name="demo_mode_activity_type_none">None</string>
-    <string name="demo_mode_activity_type_in">In</string>
-    <string name="demo_mode_activity_type_out">Out</string>
-    <string name="demo_mode_activity_type_inout">In/Out</string>
+    <string name="demo_mode_activity_type_none">Kein(e)</string>
+    <string name="demo_mode_activity_type_in">Ein</string>
+    <string name="demo_mode_activity_type_out">Aus</string>
+    <string name="demo_mode_activity_type_inout">Ein/Aus</string>
 </resources>
