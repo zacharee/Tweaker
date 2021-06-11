@@ -238,7 +238,12 @@
     <string name="wifi_fully_connected">WiFi에 완전히 연결됨</string>
     <string name="mobile_level">모바일 데이터 수준</string>
     <string name="mobile_fully_connected">모바일 데이터로 완전히 연결됨</string>
+    <string name="mobile_roaming">Mobile Roaming</string>
     <string name="mobile_data_type">모바일 데이터 종류</string>
+    <string name="mobile_activity_type">Mobile Activity Type</string>
+    <string name="wifi_activity_type">WiFi Activity Type</string>
+    <string name="mobile_carrier_network_change">Carrier Network Change</string>
+    <string name="mobile_inflate_signal">Mobile Inflate Signal</string>
     <string name="battery_level">배터리 잔량</string>
     <string name="battery_charging">배터리 충전</string>
     <string name="clock_time">시계 시간</string>
@@ -316,4 +321,10 @@
     <string name="demo_mode_status_bar_translucent">투명</string>
     <string name="demo_mode_data_type_roaming">로밍</string>
     <string name="demo_mode_data_type_none">없음</string>
+    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
+    <string name="demo_mode_activity_type_none">None</string>
+    <string name="demo_mode_activity_type_in">In</string>
+    <string name="demo_mode_activity_type_out">Out</string>
+    <string name="demo_mode_activity_type_inout">In/Out</string>
 </resources>
