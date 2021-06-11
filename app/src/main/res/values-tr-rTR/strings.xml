@@ -244,7 +244,12 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="wifi_fully_connected">Wifi bağlantı tamamen sağlandı</string>
     <string name="mobile_level">Mobile Level</string>
     <string name="mobile_fully_connected">Mobil bağlantı tamamen sağlandı</string>
+    <string name="mobile_roaming">Mobile Roaming</string>
     <string name="mobile_data_type">Mobil veri Tipi</string>
+    <string name="mobile_activity_type">Mobile Activity Type</string>
+    <string name="wifi_activity_type">WiFi Activity Type</string>
+    <string name="mobile_carrier_network_change">Carrier Network Change</string>
+    <string name="mobile_inflate_signal">Mobile Inflate Signal</string>
     <string name="battery_level">Pil Seviyesi</string>
     <string name="battery_charging">Pil şarj ediliyor</string>
     <string name="clock_time">Saat zamanı</string>
@@ -325,4 +330,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="demo_mode_status_bar_translucent">Translucent</string>
     <string name="demo_mode_data_type_roaming">Roaming</string>
     <string name="demo_mode_data_type_none">None</string>
+    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
+    <string name="demo_mode_activity_type_none">None</string>
+    <string name="demo_mode_activity_type_in">In</string>
+    <string name="demo_mode_activity_type_out">Out</string>
+    <string name="demo_mode_activity_type_inout">In/Out</string>
 </resources>
