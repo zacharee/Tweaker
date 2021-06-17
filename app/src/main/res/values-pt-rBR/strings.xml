@@ -156,7 +156,7 @@
     <string name="option_custom_notification_snooze_times">Tempos de soneca para notificações personalizadas</string>
     <string name="option_custom_notification_snooze_times_desc">O Android Oreo 8.1 introduziu uma opção para adiar notificações. Você pode usar essa configuração para definir valores personalizados para os tempos de soneca.</string>
     <string name="option_night_mode">Modo noturno</string>
-    <string name="option_night_mode_desc">O Android Nougat 7.0 introduziu uma opção nativa para colorir a exibição de amarelo à noite. Foi refinado em Nougat 7.1, e renomeado para Modo Noturno. Você pode habilitá-lo aqui e ajustar opções diferentes. ATENÇÃO: em alguns dispositivos Android 10, ativar isso fará com que a tela fique preta!</string>
+    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
     <string name="option_touchwiz_qs_row_count">Contagem de linhas de configurações rápidas</string>
     <string name="option_touchwiz_qs_row_count_desc">No Samsung TouchWiz Nougat e Oreo, é possível personalizar a grade de layout das configurações rápidas com configurações ocultas. Use isto para mudar a contagem de registros. Por favor habilite isto como uma Opção Persistente.</string>
     <string name="option_touchwiz_qs_column_count">Contagem de colunas de configurações rápidas</string>
