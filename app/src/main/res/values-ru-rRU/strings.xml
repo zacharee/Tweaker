@@ -163,8 +163,8 @@
     <string name="option_touchwiz_qs_column_count_desc">На Samsung TouchWiz Nougat и Oreo можно настроить сетку QS скрытыми настройками. Используйте это для изменения количества строк. Пожалуйста, включите это в постоянных настройках.</string>
     <string name="option_advanced_force_enable_all">Включить все выключенные/скрытые параметры</string>
     <string name="option_advanced_force_enable_all_desc">Некоторые параметры в SystemUI Tuner скрыты или отключены в зависимости от вашего устройства и версии Android. Включение этого параметра сделает эти настройки видимыми и включит их. ВНИМАНИЕ: обычно есть хорошие причины для отключения или сокрытия этих параметров. Они могут просто не работать, или могут сломать устройство. Будьте осторожны!</string>
-    <string name="option_advanced_manage_qs_tiles">Manage QS Tiles</string>
-    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
+    <string name="option_advanced_manage_qs_tiles">Управление плитками быстрых настроек</string>
+    <string name="option_advanced_manage_qs_tiles_desc">Включение или отключение плиток SystemUI Tuner по отдельности.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Отключить предупреждение о высокой яркости</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">В некоторых регионах устройства Samsung показывают предупреждение при попытке перейти выше определенного уровня яркости. Эта настройка обычно сбрасывается при перезагрузке. Включите её в качестве постоянной опции, чтобы отключить это предупреждение.</string>
     <string name="option_qs_editor">Редактор быстрых настроек</string>
