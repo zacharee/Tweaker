@@ -156,7 +156,7 @@
     <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
     <string name="option_night_mode">Chế độ ban đêm</string>
-    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some Android 10 devices, activating this will cause the screen to go black!</string>
+    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
     <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
     <string name="option_touchwiz_qs_column_count">Quick Settings Column Count</string>
