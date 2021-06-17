@@ -163,6 +163,8 @@
     <string name="option_touchwiz_qs_column_count_desc">No Samsung TouchWiz Nougat e Oreo, é possível personalizar a grade de layout das configurações rápidas com configurações ocultas. Use isto para alterar o contador de colunas. Por favor ative isto como uma opção persistente.</string>
     <string name="option_advanced_force_enable_all">Ativar todas as opções desativadas/ocultas</string>
     <string name="option_advanced_force_enable_all_desc">Algumas opções no SystemUI Tuner estão ocultas ou desativadas, dependendo do seu dispositivo e da versão do Android em execução. Habilitando isto irá forçar essas opções a serem visíveis e habilitadas. AVISO: geralmente há uma boa razão para essas opções estarem desativadas ou ocultas. Elas podem simplesmente não funcionar, ou elas podem quebrar seu dispositivo. Continue com cuidado!</string>
+    <string name="option_advanced_manage_qs_tiles">Manage QS Tiles</string>
+    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Desativar o alerta de Brilho Alto</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">Em algumas regiões, os dispositivos Samsung mostrarão um aviso quando você tentar ficar acima de um determinado nível de brilho da tela. Esta configuração é geralmente redefinida na reinicialização. Ative isto e configure como uma opção Persistente para desativar este aviso permanentemente.</string>
     <string name="option_qs_editor">Editor de Configurações Rápidas</string>
