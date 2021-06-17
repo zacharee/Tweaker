@@ -169,6 +169,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_touchwiz_qs_column_count_desc">Samsung TouchWiz Nougat ve Oreo\'da, QS düzen ızgarasını gizli ayarlarla özelleştirmek mümkündür. Sütun sayısını değiştirmek için bunu kullanın. Lütfen bunu Kalıcı Seçenek olarak etkinleştirin.</string>
     <string name="option_advanced_force_enable_all">Tüm Devre Dışı / Gizli Seçeneğini Etkinleştir</string>
     <string name="option_advanced_force_enable_all_desc">SystemUI Tuner\'daki bazı seçenekler, cihazınıza ve hangi Android sürümünün çalıştığına bağlı olarak gizlenir veya devre dışı bırakılır.  Bunu etkinleştirmek, bu seçeneklerin görünür ve etkinleştirilmesini zorlar.  UYARI: Bu seçeneklerin devre dışı bırakılmasının veya gizlenmesinin genellikle iyi bir nedeni vardır.  Sadece çalışmayabilirler veya cihazınızı kırabilirler.  Dikkatle ilerle!</string>
+    <string name="option_advanced_manage_qs_tiles">Manage QS Tiles</string>
+    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Yüksek Parlaklık Uyarısını Devre Dışı Bırak</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">Bazı bölgelerde Samsung cihazları, belirli bir ekran parlaklığı seviyesinin üzerine çıkmaya çalıştığınızda bir uyarı gösterecektir. Bu ayar genellikle yeniden başlatma sırasında sıfırlanır. Bunu etkinleştirin ve bu uyarıyı kalıcı olarak devre dışı bırakmak için Kalıcı Seçenek olarak ayarlayın.</string>
     <string name="option_qs_editor">Hızlı ayar düzenleyicisi</string>
