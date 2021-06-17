@@ -67,8 +67,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
 
     implementation 'com.github.zacharee:Unblacklister:1.1'
-    implementation 'com.mikepenz:materialdrawer:8.4.0'
-    implementation 'com.mikepenz:materialdrawer-nav:8.4.0'
+    implementation 'com.mikepenz:materialdrawer:8.4.1'
+    implementation 'com.mikepenz:materialdrawer-nav:8.4.1'
     implementation 'com.github.zacharee:material:18bda1a64b'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'eu.chainfire:libsuperuser:1.1.0.+'
@@ -77,8 +77,8 @@ dependencies {
     implementation 'io.noties.markwon:html:4.6.2'
     implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.4.2'
-    implementation "dev.rikka.shizuku:api:11.0.2"
-    implementation "dev.rikka.shizuku:provider:11.0.2"
+    implementation 'dev.rikka.shizuku:api:11.0.3'
+    implementation 'dev.rikka.shizuku:provider:11.0.3'
     implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
 
     //Commend out these dependencies and replace them with their remote references.
