@@ -83,4 +83,8 @@
     <declare-styleable name="NavigationPreference">
         <attr name="navigation_action" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="ManageQSPreference">
+        <attr name="manage_component" format="string" />
+    </declare-styleable>
 </resources>

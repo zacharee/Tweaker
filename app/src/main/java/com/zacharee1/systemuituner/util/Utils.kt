@@ -682,3 +682,35 @@ fun Drawable.setColorFilterCompat(color: Int, mode: PorterDuff.Mode) {
         setColorFilter(color, mode)
     }
 }
+
+fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
+    return when (packageManager.getComponentEnabledSetting(componentName)) {
+        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED,
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER -> {
+                    false
+                }
+        PackageManager.COMPONENT_ENABLED_STATE_DEFAULT -> {
+            val info = packageManager.getPackageInfo(
+                packageName,
+                PackageManager.GET_ACTIVITIES or
+                        PackageManager.GET_RECEIVERS or
+                        PackageManager.GET_SERVICES or
+                        PackageManager.GET_PROVIDERS or
+                        PackageManager.GET_DISABLED_COMPONENTS
+            )
+
+            val components = arrayListOf<ComponentInfo>()
+            info.activities?.let { components.addAll(it) }
+            info.services?.let { components.addAll(it) }
+            info.receivers?.let { components.addAll(it) }
+            info.providers?.let { components.addAll(it) }
+
+            return components.filter { component -> component.componentName == componentName }
+                .apply {
+                    if (this.isEmpty()) throw IllegalArgumentException("Component $componentName not found")
+                }[0].isEnabled
+        }
+        else -> true
+    }
+}

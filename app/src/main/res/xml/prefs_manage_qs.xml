@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_battery"
+        android:icon="@drawable/battery_full"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.BatteryTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_clock"
+        android:icon="@drawable/progress_clock"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.ClockTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_demo"
+        android:icon="@drawable/ic_baseline_tv_24"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.DemoTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_heads_up"
+        android:icon="@drawable/ic_baseline_notifications_active_24"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.HeadsUpTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_night_mode"
+        android:summary="@string/option_night_mode_desc"
+        android:icon="@drawable/ic_baseline_nights_stay_24"
+        app:dangerous="true"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.NightModeTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_full_immersive"
+        android:icon="@drawable/ic_baseline_fullscreen_24"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.FullImmersiveTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_nav_immersive"
+        android:icon="@drawable/ic_baseline_vertical_align_bottom_24"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.NavImmersiveTile"
+        />
+
+    <com.zacharee1.systemuituner.prefs.ManageQSPreference
+        android:title="@string/tile_status_immersive"
+        android:icon="@drawable/ic_baseline_vertical_align_top_24"
+        app:manage_component="com.zacharee1.systemuituner/.services.tiles.StatusImmersiveTile"
+        />
+
+</PreferenceScreen>

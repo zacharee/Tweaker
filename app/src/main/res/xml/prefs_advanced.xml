@@ -25,4 +25,15 @@
     <com.zacharee1.systemuituner.prefs.ForceEnableAllPreference
         />
 
+    <com.zacharee1.systemuituner.prefs.NonPersistentActivityPreference
+        android:key="tile_settings"
+        android:title="@string/option_advanced_manage_qs_tiles"
+        android:summary="@string/option_advanced_manage_qs_tiles_desc"
+        android:icon="@drawable/ic_baseline_toggle_on_24"
+        app:low_api="24"
+        app:icon_color="@color/pref_color_6"
+        app:activity_class="com.zacharee1.systemuituner.activities.ManageQSActivity"
+        />
+
+
 </PreferenceScreen>

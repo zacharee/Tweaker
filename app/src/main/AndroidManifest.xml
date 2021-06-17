@@ -62,6 +62,10 @@
             android:label="@string/special_sub_icon_blacklist"
             android:exported="false"
             />
+        <activity android:name=".activities.ManageQSActivity"
+            android:label="@string/option_advanced_manage_qs_tiles"
+            android:exported="false"
+            />
         <activity android:name=".activities.ExtraPermsRetroactive"
             android:exported="false"
             />
@@ -147,6 +151,7 @@
             android:name=".services.tiles.NightModeTile"
             android:icon="@drawable/ic_baseline_nights_stay_24"
             android:label="@string/tile_night_mode"
+            android:enabled="false"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
