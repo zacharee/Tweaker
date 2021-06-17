@@ -163,6 +163,8 @@
     <string name="option_touchwiz_qs_column_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以用隐藏的设置自定义快速设置布局。 用它来更改列计数。请启用此选项为持久选项。</string>
     <string name="option_advanced_force_enable_all">启用所有禁用/隐藏选项</string>
     <string name="option_advanced_force_enable_all_desc">系统界面调节器中的某些选项被隐藏或禁用，取决于您的设备以及什么版本的 Android 正在运行。 启用此选项将强制显示和启用这些选项。 警告：这些选项通常是一个很好的理由被禁用或隐藏。 他们可能根本不工作，或者他们可能会破坏您的设备。请谨慎行事！</string>
+    <string name="option_advanced_manage_qs_tiles">Manage QS Tiles</string>
+    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">禁用高亮度警告</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">在某些区域，三星设备将显示一个警告，当您试图超越某个屏幕亮度等级。 此设置通常在重启时重置。启用此设置为永久选项以永久禁用此警告。</string>
     <string name="option_qs_editor">快速设置编辑器</string>
