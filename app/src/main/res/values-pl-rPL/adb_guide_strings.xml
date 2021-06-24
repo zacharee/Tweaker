@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
-    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
-    <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
-    <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
-    <string name="adb_install_android_3">Now, find the option labeled \"Build Number\". On some devices, this may simply be called \"Version\".</string>
-    <string name="adb_install_android_4">Tap that option 7 times to enable Developer Mode. You may need to enter your passcode to enable it.</string>
-    <string name="adb_install_android_5">Now, go back to the main Settings page.</string>
-    <string name="adb_install_android_6">Depending on your device, you may see a new menu called \"Developer Options\". If so, tap it and skip the next step.</string>
-    <string name="adb_install_android_7">If you don\'t see the Developer Options menu, find the menu labeled either \"System\" or \"Additional Settings\". You should see the Developer Options menu inside that.</string>
-    <string name="adb_install_android_8">Scroll down until you find the switch labeled \"USB Debugging\" and enable it.</string>
-    <string name="adb_install_android_9">On Xiaomi phones, you\'ll also need to find and disable the option labeled \"USB Debugging (Security Settings)\".</string>
-    <string name="adb_install_android_10">On OPPO and Realme phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
-    <string name="adb_install_android_11">Now, plug your phone into your computer. If a confirmation popup about USB Debugging appears, allow it.</string>
-    <string name="adb_install_android_12">Once that\'s done, it\'s time to continue on your computer.</string>
-    <string name="adb_install_local_1"><![CDATA[Download and install the Shizuku app from the [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
-    <string name="adb_install_local_2">Open the Shizuku app and follow the instructions under \"Start via Wireless Debugging\".</string>
-    <string name="adb_install_local_3">Close this screen and tap the \"GRANT\" button.</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as C:\\adb.</string>
-    <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
+    <string name="adb_intro_desc">Nie wiesz jak używać ADB ? Po prostu wykonuj kroki podane w tym poradniku ( wymagane będzie użycie komputera )</string>
+    <string name="adb_choose_computer_os">Wybierz swój system operacyjny.</string>
+    <string name="adb_choose_computer_os_desc">Którego systemu operacyjnego używasz na swoim komputerze?</string>
+    <string name="adb_android_guide">Wstępna konfiguracja (na telefonie)</string>
+    <string name="adb_final_title">Wszystko zrobione!</string>
+    <string name="adb_final_desc">To wszystko! Jeśli wszystko poszło dobrze, należy teraz przyznać uprawnienia.</string>
+    <string name="adb_install_android_1">Otwórz  Ustawienia, przewiń w dół i tapnij na O Telefonie</string>
+    <string name="adb_install_android_2">W zależności od urządzenia, możesz zobaczyć menu o nazwie \"Informacje o oprogramowaniu\". Jeśli tak, naciśnij go.</string>
+    <string name="adb_install_android_3">Teraz znajdź opcję nazwaną \"Numer kompilacji\". Na niektórych urządzeniach może to być po prostu nazwane \"Wersją\".</string>
+    <string name="adb_install_android_4">Dotknij tej opcji 7 razy, aby włączyć tryb programisty. Może być konieczne wprowadzenie kodu dostępu, aby go włączyć.</string>
+    <string name="adb_install_android_5">Teraz wróć do strony ustawień głównych.</string>
+    <string name="adb_install_android_6">W zależności od urządzenia, możesz zobaczyć nowe menu o nazwie \"Opcje programisty\". Jeśli tak, naciśnij je i pomiń następny krok.</string>
+    <string name="adb_install_android_7">Jeśli nie widzisz menu Opcje programisty, znajdź menu oznaczone jako \"System\" lub \"Dodatkowe ustawienia\". Powinieneś tam zobaczyć menu Tryb programisty .</string>
+    <string name="adb_install_android_8">Przewiń w dół, aż znajdziesz przełącznik oznaczony jako \"Debugowanie USB\" i włącz go.</string>
+    <string name="adb_install_android_9">Na telefonach Xiaomi musisz również znaleźć i wyłączyć opcję oznaczoną jako \"Debugowanie USB (Ustawienia zabezpieczeń)\".</string>
+    <string name="adb_install_android_10">Na telefonach OPPO i Realme musisz również znaleźć i włączyć opcję oznaczoną jako \"Wyłącz monitorowanie uprawnień\".</string>
+    <string name="adb_install_android_11">Teraz, podłącz swój telefon do komputera. Jeśli pojawi się okienko potwierdzające debugowanie USB, pozwól na to.</string>
+    <string name="adb_install_android_12">Kiedy to zrobisz, nadszedł czas, aby kontynuować na Twoim komputerze.</string>
+    <string name="adb_install_local_1"><![CDATA[Pobierz i zainstaluj aplikację Shizuku ze Sklepu Google Play (https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">Otwórz aplikację Shizuku i postępuj zgodnie z instrukcjami zawartymi w sekcji \"Uruchom przez Wireless Debuging\".</string>
+    <string name="adb_install_local_3">Zamknij ten ekran i dotknij przycisku \"PRZYZNAJ\".</string>
+    <string name="adb_install_adb_windows_1">Pobierz ADB ZIP z: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
+    <string name="adb_install_adb_windows_2">Rozpakuj ZIP do wygodnej lokalizacji, takiej jak C:\\adb.</string>
+    <string name="adb_install_adb_windows_3">Użyj eksploratora plików, aby przeglądać wyodrębnione pliki ZIP. Powinieneś zobaczyć kilka plików, w tym \"adb\".</string>
     <string name="adb_install_adb_windows_4">Click inside the search bar and replace what\'s there with \"cmd\" (without quotes). Then hit Enter.</string>
     <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
     <string name="adb_install_adb_mac_2">Extract the ZIP to a convenient location, such as the Desktop.</string>
