@@ -25,10 +25,10 @@
     <string name="adb_install_adb_windows_1">Pobierz ADB ZIP z: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
     <string name="adb_install_adb_windows_2">Rozpakuj ZIP do wygodnej lokalizacji, takiej jak C:\\adb.</string>
     <string name="adb_install_adb_windows_3">Użyj eksploratora plików, aby przeglądać wyodrębnione pliki ZIP. Powinieneś zobaczyć kilka plików, w tym \"adb\".</string>
-    <string name="adb_install_adb_windows_4">Click inside the search bar and replace what\'s there with \"cmd\" (without quotes). Then hit Enter.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
-    <string name="adb_install_adb_mac_2">Extract the ZIP to a convenient location, such as the Desktop.</string>
-    <string name="adb_install_adb_mac_3">Now, open the terminal. You can do so by pressing CMD+SPACE at the same time to open Spotlight Search, and searching for \"Terminal\".</string>
+    <string name="adb_install_adb_windows_4">Kliknij na pasek wyszukiwania w win i zamień to, co tam jest na \"cmd\" (bez cudzysłowów). Następnie wciśnij Enter.</string>
+    <string name="adb_install_adb_mac_1">Pobierz ADB ZIP z: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_2">Rozpakuj ZIP do wygodnej lokalizacji, takiej jak C:\\adb.</string>
+    <string name="adb_install_adb_mac_3">Teraz otwórz terminal. Możesz to zrobić naciskając CMD+SPACE w tym samym czasie, aby otworzyć wyszukiwanie Spotlight i wyszukać \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_debian_1">Open a terminal by pressing CTRL+ALT+T.</string>
     <string name="adb_install_adb_debian_2">Install ADB with the following command: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
