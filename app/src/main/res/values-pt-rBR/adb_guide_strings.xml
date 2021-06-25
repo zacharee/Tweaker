@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
+    <string name="adb_intro_title">Guia para o ADB</string>
+    <string name="adb_intro_desc">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir. (Observe que você vai precisar de um computador para realizar esse processo.)</string>
+    <string name="adb_choose_computer_os">Escolha seu Sistema Operacional.</string>
+    <string name="adb_choose_computer_os_desc">Qual sistema operacional está rodando no seu computador?</string>
+    <string name="adb_android_guide">Configuração Inicial (No seu smartphone)</string>
     <string name="adb_final_title">All Done</string>
     <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
