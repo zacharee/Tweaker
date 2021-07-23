@@ -81,7 +81,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setIcon(R.drawable.ic_baseline_save_24)
                     setTitle(R.string.back_up)
                     setOnPreferenceClickListener {
-                        val formatter = SimpleDateFormat("yyyy-mm-dd_HH:mm:ss", Locale.getDefault())
+                        val formatter = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss", Locale.getDefault())
                         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
 
                         intent.type = "*/*"
