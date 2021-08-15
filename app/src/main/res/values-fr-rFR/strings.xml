@@ -30,12 +30,12 @@
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">OnePlus</string>
-    <string name="sub_samsung">Samsung</string>
+    <string name="sub_samsung">Samsun</string>
     <string name="sub_sony">Sony</string>
     <string name="sub_xiaomi">Xiaomi</string>
-    <string name="sub_security">Security</string>
-    <string name="sub_storage">Storage</string>
-    <string name="sub_power">Power</string>
+    <string name="sub_security">Sécurité</string>
+    <string name="sub_storage">Stockage</string>
+    <string name="sub_power">Alimentation</string>
     <string name="add_to_blacklist">Add to Icon Blacklist</string>
     <string name="remove_from_blacklist">Remove from Icon Blacklist</string>
     <string name="sub_demo">Demo Mode</string>
