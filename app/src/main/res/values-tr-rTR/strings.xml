@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI ayarlayıcısı</string>
+    <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (Turn Off)</string>
-    <string name="tap_to_disable">Bu Bildiriyi kapatmak için buraya tıkla</string>
-    <string name="home">Ana Sayfa</string>
-    <string name="category_display">Görüntüle</string>
-    <string name="category_accessibility">Erişilebilirlik</string>
-    <string name="category_apps">Uygulamalar</string>
-    <string name="category_audio">Ses ve görüntü</string>
-    <string name="category_developer">Geliştiriciler</string>
+    <string name="tap_to_disable">Tap to disable this notification</string>
+    <string name="home">Home</string>
+    <string name="category_display">Display</string>
+    <string name="category_accessibility">Accessibility</string>
+    <string name="category_apps">Apps</string>
+    <string name="category_audio">Audio &amp; Sound</string>
+    <string name="category_developer">Developer</string>
     <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">Ağ</string>
     <string name="category_notifications">Bildirimler</string>
