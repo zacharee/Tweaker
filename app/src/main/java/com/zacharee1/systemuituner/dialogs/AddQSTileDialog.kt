@@ -12,6 +12,7 @@ import com.google.android.material.card.MaterialCardView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.databinding.DialogAddCustomQsBinding
 import com.zacharee1.systemuituner.databinding.DialogAddIntentQsBinding
 import com.zacharee1.systemuituner.databinding.DialogAddQsTileBinding
 import com.zacharee1.systemuituner.databinding.QsTileBinding
@@ -22,6 +23,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
     private val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
     private val qsBinding = DialogAddQsTileBinding.bind(view)
     private val intentString = context.resources.getString(R.string.intent)
+    private val customString = context.resources.getString(R.string.add_custom_item)
 
     init {
         setTitle(R.string.add_qs_tile)
@@ -35,28 +37,49 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
 
         baseBinding.positiveButton.isVisible = false
 
-        qsBinding.addQsTileList.adapter = AddQSTileAdapter(adapter.availableTiles + intentString) {
+        qsBinding.addQsTileList.adapter = AddQSTileAdapter(adapter.availableTiles + intentString + customString) {
             dismiss()
 
-            if (it.equals(intentString, true)) {
-                val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_intent_qs, null)
-                val intentBinding = DialogAddIntentQsBinding.bind(intentView)
-                val dialog = RoundedBottomSheetDialog(context).apply {
-                    setTitle(R.string.intent)
-                    setLayout(intentView)
-                }
-                dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
-                    val text = intentBinding.intentText.text?.toString()
-
-                    if (!text.isNullOrBlank()) {
-                        adapter.addTile(QSTileInfo("intent($text)"))
+            when (it) {
+                intentString -> {
+                    val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_intent_qs, null)
+                    val intentBinding = DialogAddIntentQsBinding.bind(intentView)
+                    val dialog = RoundedBottomSheetDialog(context).apply {
+                        setTitle(R.string.intent)
+                        setLayout(intentView)
                     }
+                    dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                        val text = intentBinding.intentText.text?.toString()
 
-                    dialog.dismiss()
-                })
-                dialog.show()
-            } else {
-                adapter.addTile(QSTileInfo(it))
+                        if (!text.isNullOrBlank()) {
+                            adapter.addTile(QSTileInfo("intent($text)"))
+                        }
+
+                        dialog.dismiss()
+                    })
+                    dialog.show()
+                }
+                customString -> {
+                    val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_custom_qs, null)
+                    val intentBinding = DialogAddCustomQsBinding.bind(intentView)
+                    val dialog = RoundedBottomSheetDialog(context).apply {
+                        setTitle(R.string.intent)
+                        setLayout(intentView)
+                    }
+                    dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                        val text = intentBinding.customText.text?.toString()
+
+                        if (!text.isNullOrBlank()) {
+                            adapter.addTile(QSTileInfo(text))
+                        }
+
+                        dialog.dismiss()
+                    })
+                    dialog.show()
+                }
+                else -> {
+                    adapter.addTile(QSTileInfo(it))
+                }
             }
         }
     }
