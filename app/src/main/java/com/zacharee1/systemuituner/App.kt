@@ -3,18 +3,21 @@ package com.zacharee1.systemuituner
 import android.app.Application
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
-import tk.zwander.unblacklister.disableApiBlacklist
+import org.lsposed.hiddenapibypass.HiddenApiBypass
 
 class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onCreate() {
         super.onCreate()
 
-        disableApiBlacklist()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            HiddenApiBypass.setHiddenApiExemptions("L")
+        }
         PersistenceHandlerRegistry.register(this)
 
         updateServiceState()
