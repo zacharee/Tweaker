@@ -19,7 +19,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.*
 import android.os.Build.VERSION.SDK_INT
-import android.os.Build.VERSION_CODES.*
+import android.os.Build.VERSION_CODES
 import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
@@ -38,9 +38,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceGroupAdapter
 import androidx.recyclerview.widget.SortedList
+import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
-import eu.chainfire.libsuperuser.Shell
-import moe.shizuku.api.*
 import rikka.shizuku.*
 import java.util.*
 import java.util.regex.Pattern
@@ -214,8 +213,8 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     fun onFail(e: Exception): Boolean {
         return when {
-            Shell.SU.available() -> {
-                Shell.Pool.SU.run("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
+            Shell.rootAccess() -> {
+                Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName").exec()
                 true
             }
             isAddOnInstalled() -> {
@@ -252,14 +251,14 @@ fun Fragment.updateTitle(title: CharSequence?) {
 fun Context.apiToName(api: Int): String {
     return resources.getString(
         when (api) {
-            M -> R.string.android_marshmallow
-            N -> R.string.android_nougat
-            N_MR1 -> R.string.android_nougat_7_1
-            O -> R.string.android_oreo
-            O_MR1 -> R.string.android_oreo_8_1
-            P -> R.string.android_pie
-            Q -> R.string.android_10
-            30 -> R.string.android_11
+            VERSION_CODES.M -> R.string.android_marshmallow
+            VERSION_CODES.N -> R.string.android_nougat
+            VERSION_CODES.N_MR1 -> R.string.android_nougat_7_1
+            VERSION_CODES.O -> R.string.android_oreo
+            VERSION_CODES.O_MR1 -> R.string.android_oreo_8_1
+            VERSION_CODES.P -> R.string.android_pie
+            VERSION_CODES.Q -> R.string.android_10
+            VERSION_CODES.R -> R.string.android_11
             else -> throw IllegalArgumentException("Invalid API level: $api")
         }
     )
@@ -276,7 +275,7 @@ fun Context.dpAsPx(dpVal: Number) =
 fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
     val intent = Intent()
     when {
-        SDK_INT >= P -> {
+        SDK_INT >= VERSION_CODES.P -> {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             if (channel != null) {
                 intent.action = Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS
@@ -286,7 +285,7 @@ fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
             }
             intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
         }
-        SDK_INT >= O -> {
+        SDK_INT >= VERSION_CODES.O -> {
             if (channel != null) {
                 intent.action = Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS
                 intent.putExtra(Settings.EXTRA_CHANNEL_ID, channel)
@@ -295,7 +294,7 @@ fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
             }
             intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
         }
-        SDK_INT >= N_MR1 -> {
+        SDK_INT >= VERSION_CODES.N_MR1 -> {
             intent.action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
             intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
         }
@@ -469,21 +468,18 @@ fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
     val lines = ArrayList<String>()
     val error = ArrayList<String>()
 
-    if (!alternate) {
-        Shell.Pool.SH.run(
-            "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n",
-            lines,
-            error,
-            false
+    val job = if (!alternate) {
+        Shell.sh(
+            "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n"
         )
     } else {
-        Shell.Pool.SH.run(
-            "dumpsys activity service com.android.systemui/.SystemUIService | grep -E '^.*([0-9])+:\\(.*\\).*\$'\n",
-            lines,
-            error,
-            false
+        Shell.sh(
+            "dumpsys activity service com.android.systemui/.SystemUIService | grep -E '^.*([0-9])+:\\(.*\\).*\$'\n"
         )
     }
+
+    job.to(lines, error)
+    job.exec()
 
     val parenPattern = Pattern.compile("([0-9])+:\\((.+?)\\)")
 
@@ -676,7 +672,7 @@ val String.capitalized: String
 
 @Suppress("DEPRECATION")
 fun Drawable.setColorFilterCompat(color: Int, mode: PorterDuff.Mode) {
-    if (SDK_INT >= Q) {
+    if (SDK_INT >= VERSION_CODES.Q) {
         colorFilter = BlendModeColorFilter(color, BlendMode.valueOf(mode.toString()))
     } else {
         setColorFilter(color, mode)
