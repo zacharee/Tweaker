@@ -73,7 +73,7 @@
     <string name="feature_camera_gestures">Жесты камеры</string>
     <string name="feature_camera_gestures_desc">Включение этого параметра позволит вам быстро запускать камеру двойным нажатием кнопки питания или переворачиванием телефона.</string>
     <string name="feature_disable_safe_audio_warning">Выключить предупреждение о безопасной громкости</string>
-    <string name="feature_disable_safe_audio_warning_desc">Правила ЕС требуют от смартфонов предупреждать при превышении определенного уровня громкости (85дБ). Это предупреждение должно быть показано один раз после каждой перезагрузки или через 20 часов непрерывного воспроизведения музыки. Предупреждение должно быть убрано пользователем вручную, но при помощи скрытых команд вы можете автоматически обойти предупреждение.</string>
+    <string name="feature_disable_safe_audio_warning_desc">Правила ЕС требуют от смартфонов предупреждать при превышении определённого уровня громкости (85дБ). Это предупреждение должно быть показано после каждой перезагрузки или через 20 часов непрерывного воспроизведения музыки. Используйте эту настройку, чтобы изменить поведение этого предупреждения, или полностью отключить его. Чтобы сохранить эту настройку навсегда, не забудьте включить её в Постоянных Настройках.</string>
     <string name="feature_custom_ui_sounds">Настроить звуки пользовательского интерфейса</string>
     <string name="feature_custom_ui_sounds_desc">Android имеет много звуков для различных частей интерфейса. Многие из них могут быть изменены на ваши собственные. Вам просто нужно указать файл, который будет использовать Android.</string>
     <string name="feature_fix_tethering">Исправление точки доступа</string>
@@ -329,4 +329,8 @@
     <string name="demo_mode_activity_type_in">Вх.</string>
     <string name="demo_mode_activity_type_out">Исх.</string>
     <string name="demo_mode_activity_type_inout">Вх./Исх.</string>
+    <string name="safe_audio_state_not_configured">Не настроено</string>
+    <string name="safe_audio_state_disabled">Выключено</string>
+    <string name="safe_audio_state_inactive">Неактивно</string>
+    <string name="safe_audio_state_active">Включено</string>
 </resources>
