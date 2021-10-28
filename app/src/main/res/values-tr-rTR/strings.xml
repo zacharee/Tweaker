@@ -75,7 +75,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_camera_gestures">Kamera Hareketi</string>
     <string name="feature_camera_gestures_desc">Bunu etkinleştirmek, telefonunuzun güç düğmesine iki kez dokunarak veya telefonu arka ve ön arasında çevirerek kamerayı hızlı bir şekilde başlatmasına izin verebilir.</string>
     <string name="feature_disable_safe_audio_warning">Güvenli ses uyarısı devre dışı</string>
-    <string name="feature_disable_safe_audio_warning_desc">AB düzenlemeleri, akıllı telefonların belirli ses seviyelerinin (85dB) üzerine çıkıldığında uyarı vermesini gerektirir.  Bu uyarı, her yeniden başlatmanın ardından veya 20 saat kesintisiz müzik çalmanın ardından bir kez gösterilmelidir.  Uyarı kullanıcı tarafından manuel olarak reddedilmelidir, ancak gizli komutlar aracılığıyla uyarıyı otomatik olarak atlayabilirsiniz.</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
     <string name="feature_custom_ui_sounds">Özel UI Seslerini Ayarlama</string>
     <string name="feature_custom_ui_sounds_desc">Android, kullanıcı arayüzünün farklı bölümleri için çok sayıda sese sahiptir. Bunların çoğu aslında kendi özel seslerinizle değiştirilebilir. Sadece Android\'in kullanması için dosyayı belirtmeniz gerekiyor.</string>
     <string name="feature_fix_tethering">Tethering\'i Düzelt</string>
@@ -338,4 +338,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="demo_mode_activity_type_in">In</string>
     <string name="demo_mode_activity_type_out">Out</string>
     <string name="demo_mode_activity_type_inout">In/Out</string>
+    <string name="safe_audio_state_not_configured">Not Configured</string>
+    <string name="safe_audio_state_disabled">Disabled</string>
+    <string name="safe_audio_state_inactive">Inactive</string>
+    <string name="safe_audio_state_active">Active</string>
 </resources>
