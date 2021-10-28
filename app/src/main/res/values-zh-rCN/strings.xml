@@ -73,7 +73,7 @@
     <string name="feature_camera_gestures">相机手势</string>
     <string name="feature_camera_gestures_desc">启用此选项可允许您的手机双击电源按钮或在背面和前面翻转手机，从而快速启动相机。</string>
     <string name="feature_disable_safe_audio_warning">禁用安全音频警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">欧盟条例要求智能手机在超过某些体积水平(85dB) 时发出警告。 每次重启后或持续播放20小时后必须显示此警告。 警告必须由用户手动清除，但通过隐藏命令，您可以自动绕过警告。</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
     <string name="feature_custom_ui_sounds">设置自定义界面声音</string>
     <string name="feature_custom_ui_sounds_desc">安卓系统对用户界面的不同部分有很多声音。 很多这些都可以被切换为您自己的自定义声音。您只需要指定用于安卓的文件。</string>
     <string name="feature_fix_tethering">修复热点</string>
@@ -329,4 +329,8 @@
     <string name="demo_mode_activity_type_in">In</string>
     <string name="demo_mode_activity_type_out">Out</string>
     <string name="demo_mode_activity_type_inout">In/Out</string>
+    <string name="safe_audio_state_not_configured">Not Configured</string>
+    <string name="safe_audio_state_disabled">Disabled</string>
+    <string name="safe_audio_state_inactive">Inactive</string>
+    <string name="safe_audio_state_active">Active</string>
 </resources>
