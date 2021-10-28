@@ -702,7 +702,7 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
             info.receivers?.let { components.addAll(it) }
             info.providers?.let { components.addAll(it) }
 
-            return components.filter { component -> component.componentName == componentName }
+            return components.filter { component -> ComponentName(component.packageName, component.name) == componentName }
                 .apply {
                     if (this.isEmpty()) throw IllegalArgumentException("Component $componentName not found")
                 }[0].isEnabled
