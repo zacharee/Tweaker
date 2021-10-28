@@ -73,7 +73,7 @@
     <string name="feature_camera_gestures">相機手勢</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
     <string name="feature_disable_safe_audio_warning">禁用音量安全警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. The warning must be dismissed by the user manually, but through hidden commands you can automatically bypass the warning.</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
     <string name="feature_custom_ui_sounds">自訂UI音效</string>
     <string name="feature_custom_ui_sounds_desc">Android在UI的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用</string>
     <string name="feature_fix_tethering">Fix Tethering</string>
@@ -329,4 +329,8 @@
     <string name="demo_mode_activity_type_in">In</string>
     <string name="demo_mode_activity_type_out">Out</string>
     <string name="demo_mode_activity_type_inout">In/Out</string>
+    <string name="safe_audio_state_not_configured">Not Configured</string>
+    <string name="safe_audio_state_disabled">Disabled</string>
+    <string name="safe_audio_state_inactive">Inactive</string>
+    <string name="safe_audio_state_active">Active</string>
 </resources>
