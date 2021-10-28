@@ -113,4 +113,18 @@
         <item>@string/enabled</item>
         <item>@string/auto</item>
     </string-array>
+
+    <string-array name="safe_audio_labels">
+        <item>@string/safe_audio_state_not_configured</item>
+        <item>@string/safe_audio_state_disabled</item>
+        <item>@string/safe_audio_state_inactive</item>
+        <item>@string/safe_audio_state_active</item>
+    </string-array>
+
+    <string-array name="safe_audio_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
