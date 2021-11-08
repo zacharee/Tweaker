@@ -73,7 +73,7 @@
     <string name="feature_camera_gestures">相机手势</string>
     <string name="feature_camera_gestures_desc">启用此选项可允许您的手机双击电源按钮或在背面和前面翻转手机，从而快速启动相机。</string>
     <string name="feature_disable_safe_audio_warning">禁用安全音频警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
+    <string name="feature_disable_safe_audio_warning_desc">欧盟条例要求智能手机在超过特定音量(85dB) 时发出警告。每次重启后或持续播放音乐20小时后必须显示此警告。使用此设置可以更改警告的行为方式，或完全禁用警告。请确保在永久选项中启用此设置使其生效。</string>
     <string name="feature_custom_ui_sounds">设置自定义界面声音</string>
     <string name="feature_custom_ui_sounds_desc">安卓系统对用户界面的不同部分有很多声音。 很多这些都可以被切换为您自己的自定义声音。您只需要指定用于安卓的文件。</string>
     <string name="feature_fix_tethering">修复热点</string>
@@ -156,7 +156,7 @@
     <string name="option_custom_notification_snooze_times">自定义通知提醒时间</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1引入了暂停通知的选项。您可以使用此设置设置来设置暂停时间的自定义值。</string>
     <string name="option_night_mode">夜间模式</string>
-    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="option_night_mode_desc">Android Nougat引入了一个本机选项，在夜间显示黄色，称之为夜间模式。 它在Nougat 7.1中得到进一步完善，并更名为夜间显示。 您可以在此处启用它并调整不同的选项。警告: 在某些Android设备上，激活它将导致屏幕变黑！</string>
     <string name="option_touchwiz_qs_row_count">快速设置行数</string>
     <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以用隐藏的设置自定义快速设置布局。 用它来更改行数。请启用此选项为持久选项。</string>
     <string name="option_touchwiz_qs_column_count">快速设置列计数</string>
