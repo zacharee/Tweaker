@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
+    <string name="adb_intro_title">Hướng dẫn ADB</string>
+    <string name="adb_intro_desc">Không biết sử dụng ADB? Không sao. Chỉ cần làm theo các bước hướng dẫn là bạn đã thiếp lập được. (Ghi nhớ rằng bạn sẽ cần một chiếc máy tính cho quá trình này.)</string>
     <string name="adb_choose_computer_os">Choose your Operating System.</string>
     <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
     <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
