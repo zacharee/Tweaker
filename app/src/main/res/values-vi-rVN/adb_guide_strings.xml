@@ -2,10 +2,10 @@
 <resources>
     <string name="adb_intro_title">Hướng dẫn ADB</string>
     <string name="adb_intro_desc">Không biết sử dụng ADB? Không sao. Chỉ cần làm theo các bước hướng dẫn và bạn đã thiếp lập được. (Ghi nhớ rằng bạn sẽ cần một chiếc máy tính cho quá trình này.)</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
+    <string name="adb_choose_computer_os">Chọn hệ điều hành của bạn.</string>
+    <string name="adb_choose_computer_os_desc">Máy tính của bạn đang chạy hệ điều hành nào?</string>
+    <string name="adb_android_guide">Thiết lập ban đầu (Trên điện thoại của bạn)</string>
+    <string name="adb_final_title">Tất cả đã xong</string>
     <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
     <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
