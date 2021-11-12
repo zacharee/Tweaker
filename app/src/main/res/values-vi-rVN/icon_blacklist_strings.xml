@@ -11,9 +11,9 @@
     <string name="category_icon_blacklist_custom">Tùy chỉnh</string>
     <string name="category_icon_blacklist_auto_desc">Nhấn để mở rộng/tải</string>
     <string name="icon_blacklist_add_custom">Thêm Mục Tùy chỉnh</string>
-    <string name="icon_blacklist_add_custom_desc">If you can\'t find the icon you want to hide, and you know its key, you can add it here.</string>
-    <string name="icon_blacklist_remove_custom">Remove This Item</string>
-    <string name="icon_blacklist_remove_custom_desc">Are you sure you want to remove this custom blacklist item?</string>
+    <string name="icon_blacklist_add_custom_desc">Nếu bạn không thể tìm thấy biểu tượng mình muốn ẩn và bạn biết mã của nó, bạn có thể thêm nó vào đây.</string>
+    <string name="icon_blacklist_remove_custom">Loại bỏ mục này</string>
+    <string name="icon_blacklist_remove_custom_desc">Bạn có chắc rằng bạn muốn loại bỏ tùy chọn này trong mục danh sách đen?</string>
     <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Khoá xoay màn hình</string>
     <string name="icon_blacklist_airplane">Chế độ trên Máy bay</string>
@@ -88,6 +88,6 @@
     <string name="icon_blacklist_ble_unlock_mode">Chế độ mở khóa BLE</string>
     <string name="icon_blacklist_quiet">Yên tĩnh</string>
     <string name="icon_blacklist_missed_call">Cuộc gọi Nhỡ</string>
-    <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth Handsfree Battery</string>
+    <string name="icon_blacklist_bluetooth_handsfree_battery">Pin rảnh tay Bluetooth</string>
     <string name="icon_blacklist_rtt">RTT</string>
 </resources>
