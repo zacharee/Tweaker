@@ -325,12 +325,12 @@
     <string name="demo_mode_data_type_none">None</string>
     <string name="demo_mode_data_type_disabled">Disabled</string>
     <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
-    <string name="demo_mode_activity_type_none">None</string>
-    <string name="demo_mode_activity_type_in">In</string>
-    <string name="demo_mode_activity_type_out">Out</string>
-    <string name="demo_mode_activity_type_inout">In/Out</string>
-    <string name="safe_audio_state_not_configured">Not Configured</string>
+    <string name="demo_mode_activity_type_none">Không có</string>
+    <string name="demo_mode_activity_type_in">Nhập</string>
+    <string name="demo_mode_activity_type_out">Xuất</string>
+    <string name="demo_mode_activity_type_inout">Nhập/Xuất</string>
+    <string name="safe_audio_state_not_configured">Không được Thiết lập</string>
     <string name="safe_audio_state_disabled">Disabled</string>
     <string name="safe_audio_state_inactive">Inactive</string>
-    <string name="safe_audio_state_active">Active</string>
+    <string name="safe_audio_state_active">Hoạt động</string>
 </resources>
