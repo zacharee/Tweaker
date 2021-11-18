@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">Руководство по ADB</string>
+    <string name="adb_intro_desc">Не знаете, как использовать ADB? Без проблем, просто следуйте этому руководству (обратите внимание, что вам необходим компьютер для этого).</string>
+    <string name="adb_choose_computer_os">Выберите вашу операционную систему.</string>
+    <string name="adb_choose_computer_os_desc">Какая операционная система на вашем компьютере?</string>
+    <string name="adb_android_guide">Первоначальная установка (на вашем телефоне)</string>
+    <string name="adb_final_title">Всё готово</string>
+    <string name="adb_final_desc">Это всё! Если всё пошло хорошо, разрешения должны быть предоставлены.</string>
+    <string name="adb_install_android_1">Откройте приложение Настройки и прокрутите вниз до О телефона. Нажмите на него.</string>
+    <string name="adb_install_android_2">В зависимости от вашего устройства, вы можете увидеть меню \"Информация о программном обеспечении\". Если это так, нажмите на него.</string>
+    <string name="adb_install_android_3">Теперь найдите пункт \"Build Number\". На некоторых устройствах это может просто называться \"Version\".</string>
+    <string name="adb_install_android_4">Нажмите на эту опцию 7 раз, чтобы включить режим разработчика. Вам может потребоваться ввести ваш пароль для его включения.</string>
+    <string name="adb_install_android_5">Теперь вернитесь на главную страницу Настроек.</string>
+    <string name="adb_install_android_6">В зависимости от вашего устройства, вы можете увидеть новое меню «Параметры разработчика». Если это так, нажмите на него и пропустите следующий шаг.</string>
+    <string name="adb_install_android_7">Если вы не видите меню «Параметры разработчика», найдите меню «Система» или «Дополнительные настройки». Вы должны увидеть меню «Параметры разработчика» в нём.</string>
+    <string name="adb_install_android_8">Прокрутите вниз, пока не найдете переключатель «Отладка по USB» и не включите его.</string>
+    <string name="adb_install_android_9">На телефонах Xiaomi вам также нужно найти и отключить опцию «Отладка по USB (Настройки безопасности)».</string>
+    <string name="adb_install_android_10">На телефонах OPPO и Realme вам также нужно найти и включить опцию «Отключить мониторинг разрешений».</string>
+    <string name="adb_install_android_11">Теперь подключите телефон к компьютеру. Если появится всплывающее окно с подтверждением об отладке USB, разрешите его.</string>
+    <string name="adb_install_android_12">Как только это будет сделано, придёт время продолжить работу на компьютере.</string>
+    <string name="adb_install_local_1"><![CDATA[Скачайте и установите приложение Shizuku из [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">Откройте приложение Shizuku и следуйте инструкциям в разделе \"Начать через беспроводную отладку\".</string>
+    <string name="adb_install_local_3">Закройте этот экран и нажмите кнопку «GRANT»/«ПРЕДОСТАВИТЬ».</string>
+    <string name="adb_install_adb_windows_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
+    <string name="adb_install_adb_windows_2">Распакуйте ZIP в удобное место, например, C:\\adb.</string>
+    <string name="adb_install_adb_windows_3">Откройте папку с распакованным ZIPом. Вы должны увидеть несколько файлов, включая \"adb\".</string>
+    <string name="adb_install_adb_windows_4">Кликните внутри строки поиска в проводнике и замените то, что там есть на \"cmd\" (без кавычек), затем нажмите Enter.</string>
+    <string name="adb_install_adb_mac_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_2">Распакуйте ZIP в удобное место, например, на Рабочий стол.</string>
+    <string name="adb_install_adb_mac_3">Теперь откройте терминал нажав одновременно кнопки Cmd+SPACE для открытия поиска Spotlight и введите \"Терминал\".</string>
+    <string name="adb_install_adb_mac_4">Теперь выберите извлеченные файлы, используя следующую команду: `cd /path/to/files/`. Например, если ваше имя пользователя Zachary и вы распаковали ZIP на свой рабочий стол, командой будет `cd /Users/Zachary/Desktop/platform-tools/`, где \"platform-tools\" это папка с файлом \"adb\".</string>
+    <string name="adb_install_adb_debian_1">Откройте терминал нажав CTRL+ALT+T.</string>
+    <string name="adb_install_adb_debian_2">Установите ADB следующей командой: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">Откройте Терминал.</string>
+    <string name="adb_install_adb_fedora_2">Установите ADB следующей командой: `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">Откройте Терминал.</string>
+    <string name="adb_install_adb_rhel_2">Установите ADB следующей командой: `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
+    <string name="adb_install_adb_linux_other_2">Распакуйте ZIP в удобное место, например в домашний каталог.</string>
+    <string name="adb_install_adb_linux_other_3">Откройте Терминал.</string>
+    <string name="adb_install_adb_linux_other_4">Теперь перейдите к распакованным файла, используя следующую команду: `cd /путь/до/файлов/`. Например, если ваше имя пользователя Zachary и вы распаковали ZIP в домашнюю директорию, командой будет `cd /home/Zachary/platform-tools/`, где \"platform-tools\" это папка с файлом \"adb\".</string>
+    <string name="adb_install_adb_general_end_1">Должно быть открыто окно командной строки или терминала. Введите внутри него следующую команду(ы) и нажмите Ввод после каждой из них. Если на вашем телефоне появится всплывающее окно об отладке по USB, убедитесь, что выдали разрешения.</string>
+    <string name="adb_install_adb_general_end_2">Если все прошло правильно, команды ничего не должны показать. Если же вывод команд есть, не забудьте прокрутить наверх до места ввода команды, чтобы увидеть ошибку.</string>
+    <string name="adb_install_adb_general_end_3">Разрешения теперь должны быть предоставлены!</string>
+    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (прочие)</string>
+    <string name="adb_local">Android (это устройство)</string>
+</resources>
