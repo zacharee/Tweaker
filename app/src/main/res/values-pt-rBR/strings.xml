@@ -333,4 +333,6 @@
     <string name="safe_audio_state_disabled">Desativado</string>
     <string name="safe_audio_state_inactive">Inativo</string>
     <string name="safe_audio_state_active">Ativo</string>
+    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
+    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
 </resources>
