@@ -333,4 +333,6 @@
     <string name="safe_audio_state_disabled">已禁用</string>
     <string name="safe_audio_state_inactive">未激活</string>
     <string name="safe_audio_state_active">激活</string>
+    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
+    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
 </resources>
