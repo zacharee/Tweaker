@@ -164,7 +164,7 @@
     <string name="option_advanced_force_enable_all">모든 비활성화된/숨은 설정 활성화</string>
     <string name="option_advanced_force_enable_all_desc">SystemUI Tuner의 특정 설정은 기기나 실행 중인 Android 버전에 따라 숨겨지거나 비활성화됩니다. 이를 활성화하면 해당 설정이 표시되고 활성화됩니다. 경고: 보통 설정이 비활성화되거나 숨겨지는 데에는 합당한 이유가 있습니다. 단순히 작동하지 않을 수도 있고, 기기를 망가뜨릴 수도 있습니다. 신중히 진행하십시오!</string>
     <string name="option_advanced_manage_qs_tiles">QS 타일 관리</string>
-    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
+    <string name="option_advanced_manage_qs_tiles_desc">SystemUI Tuner의 빠른 설정 타일을 개별적으로 표시하거나 숨기세요.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">높은 화면 밝기 경고 비활성화</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">특정 지역에서, 삼성 기기는 특정 밝기 이상으로 기기 밝기를 올리는 경우 경고를 표시합니다. 이 설정은 기기 재시작 시 종종 초기화됩니다. 이 기능을 켜고 영구 설정으로 설정하여 해당 경고를 영구적으로 끄십시오.</string>
     <string name="option_qs_editor">빠른 설정 편집기</string>
@@ -333,6 +333,6 @@
     <string name="safe_audio_state_disabled">꺼짐</string>
     <string name="safe_audio_state_inactive">비활성화</string>
     <string name="safe_audio_state_active">활성화</string>
-    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_title">부팅 시 설정이 초기화되지 않나요?</string>
+    <string name="persistent_options_not_sticking_desc">모든 배터리 최적화 설정에서 SystemUI Tuner를 제외해야 합니다. 여기를 눌러 방법을 알아보세요.</string>
 </resources>
