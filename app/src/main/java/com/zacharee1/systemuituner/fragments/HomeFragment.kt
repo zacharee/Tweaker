@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.fragments
 
 import android.os.Bundle
 import androidx.preference.Preference
+import com.zacharee1.systemuituner.App
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import com.zacharee1.systemuituner.dialogs.PatreonDialog
@@ -37,5 +38,7 @@ class HomeFragment : BasePrefFragment() {
         super.onResume()
 
         updateTitle(R.string.home)
+
+        App.updateServiceState(requireContext())
     }
 }

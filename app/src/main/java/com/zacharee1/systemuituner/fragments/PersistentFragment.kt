@@ -3,8 +3,10 @@ package com.zacharee1.systemuituner.fragments
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -20,6 +22,7 @@ import com.zacharee1.systemuituner.databinding.CustomPersistentOptionWidgetBindi
 import com.zacharee1.systemuituner.dialogs.CustomPersistentOptionDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.prefs.InlineActivityPreference
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -65,6 +68,16 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
 
         preferenceScreen.removeAll()
+        preferenceScreen.addPreference(
+            InlineActivityPreference(
+                requireContext(),
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://dontkillmyapp.com"))
+            ).apply {
+                title = resources.getString(R.string.persistent_options_not_sticking_title)
+                summary = resources.getString(R.string.persistent_options_not_sticking_desc)
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
+            }
+        )
         filterPersistent(null) {
             it.forEach { pref ->
                 preferenceScreen.addPreference(construct(pref))
