@@ -333,6 +333,6 @@
     <string name="safe_audio_state_disabled">Uitgeschakeld</string>
     <string name="safe_audio_state_inactive">Inactief</string>
     <string name="safe_audio_state_active">Actief</string>
-    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_title">Worden de opties niet hersteld no het opstarten?</string>
+    <string name="persistent_options_not_sticking_desc">Wellicht moet je SystemUI Tuner op de witte lijst zetten van de accu-optimalisatie. Druk hier voor meer informatie.</string>
 </resources>
