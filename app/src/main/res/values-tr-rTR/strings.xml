@@ -342,4 +342,6 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="safe_audio_state_disabled">Disabled</string>
     <string name="safe_audio_state_inactive">Inactive</string>
     <string name="safe_audio_state_active">Active</string>
+    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
+    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
 </resources>
