@@ -1,16 +1,13 @@
 package com.zacharee1.systemuituner
 
 import android.app.Application
-import android.app.ForegroundServiceStartNotAllowedException
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
 import android.util.Log
 import androidx.core.content.ContextCompat
-import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.crashlytics.internal.common.CrashlyticsCore
 import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
