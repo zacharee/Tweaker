@@ -99,7 +99,6 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
             )
         }
 
-        @ExperimentalStdlibApi
         override fun onBindViewHolder(holder: AddQSTileVH, position: Int) {
             holder.onBind(items[position])
         }
@@ -117,7 +116,6 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                 }
             }
 
-            @ExperimentalStdlibApi
             fun onBind(key: String) {
                 val info = QSTileInfo(key)
 

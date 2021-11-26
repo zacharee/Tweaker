@@ -27,7 +27,6 @@ class QSTileInfo(
         else -> Type.STANDARD
     }
 
-    @ExperimentalStdlibApi
     fun getLabel(context: Context): String {
         return _label ?: when (type) {
             Type.INTENT -> getIntentLabel()

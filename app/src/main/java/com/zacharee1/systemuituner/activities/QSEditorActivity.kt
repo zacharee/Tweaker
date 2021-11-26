@@ -186,7 +186,6 @@ class QSEditorActivity : AppCompatActivity() {
             )
         }
 
-        @ExperimentalStdlibApi
         override fun onBindViewHolder(holder: QSVH, position: Int) {
             holder.onBind(currentTiles[position])
         }
@@ -210,7 +209,6 @@ class QSEditorActivity : AppCompatActivity() {
                 }
             }
 
-            @ExperimentalStdlibApi
             fun onBind(info: QSTileInfo) {
                 vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
                 vhBinding.label.text = info.getLabel(itemView.context)

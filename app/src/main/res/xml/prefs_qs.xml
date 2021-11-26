@@ -47,6 +47,19 @@
         app:activity_class="com.zacharee1.systemuituner.activities.QSEditorActivity"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_hide_multi_sim_panel"
+        android:summary="@string/option_hide_multi_sim_panel_desc"
+        android:key="multi_sim_bar_show_on_qspanel"
+        android:icon="@drawable/sim_off"
+        app:icon_color="@color/pref_color_6"
+        app:settings_type="secure"
+        app:low_api="28"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz"
+        />
+
     <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
         android:title="@string/option_touchwiz_qs_row_count"
         android:summary="@string/option_touchwiz_qs_row_count_desc"
