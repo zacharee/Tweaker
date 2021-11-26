@@ -177,6 +177,8 @@
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
     <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
+    <string name="option_hide_multi_sim_panel">Hide QS Multi-SIM Panel</string>
+    <string name="option_hide_multi_sim_panel_desc">On Samsung devices, you can use this option to hide the multi-SIM view that appears in the expanded quick settings panel.</string>
     <string name="home_welcome_title">Welcome!</string>
     <string name="search">Search</string>
     <string name="immersive_none">None</string>
