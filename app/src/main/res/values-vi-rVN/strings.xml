@@ -123,7 +123,7 @@
     <string name="option_sms_limit_interval">Thời gian khoảng...</string>
     <string name="option_lockscreen_shortcut_left">Lối Tắt Bên Trái</string>
     <string name="option_lockscreen_shortcut_right">Lối Tắt Bên Phải</string>
-    <string name="option_ui_sound_car_dock">Đế xe</string>
+    <string name="option_ui_sound_car_dock">Car Dock</string>
     <string name="option_ui_sound_car_dock_desc">Audio that is played when the phone is docked in a car dock.</string>
     <string name="option_ui_sound_car_undock">Car Undock</string>
     <string name="option_ui_sound_car_undock_desc">Audio that is played when the phone is removed from a car dock.</string>
