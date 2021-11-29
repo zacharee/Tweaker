@@ -336,5 +336,5 @@
     <string name="safe_audio_state_inactive">Inativo</string>
     <string name="safe_audio_state_active">Ativo</string>
     <string name="persistent_options_not_sticking_title">Opções não estão redefinindo na inicialização?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_desc">Pode ser que você precisar dar algumas permissões de otimização de bateria para o SystemUI Tuner. Clique aqui para saber como.</string>
 </resources>
