@@ -197,7 +197,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                 override fun compare(o1: LoadedAppInfo, o2: LoadedAppInfo): Int {
                     return if (o1.isChecked && !o2.isChecked) -1
                     else if (!o1.isChecked && o2.isChecked) 1
-                    else o1.label.compareTo(o2.label)
+                    else o1.label.compareTo(o2.label, true)
                 }
 
                 override fun onInserted(position: Int, count: Int) {
