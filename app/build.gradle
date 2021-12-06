@@ -71,6 +71,7 @@ dependencies {
     implementation 'com.mikepenz:materialdrawer-nav:8.4.5'
     implementation 'com.github.zacharee:material:18bda1a64b'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
+    implementation 'com.github.reddit:IndicatorFastScroll:1.4.0'
 //    implementation 'eu.chainfire:libsuperuser:1.1.0.+'
     implementation "com.github.topjohnwu.libsu:core:3.1.2"
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'

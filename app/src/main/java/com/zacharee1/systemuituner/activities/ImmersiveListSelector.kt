@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
+import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.reddit.indicatorfastscroll.FastScrollerView
 import com.rey.material.widget.CheckedImageView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
@@ -94,6 +96,27 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_check_24)
 
         binding.selector.adapter = adapter
+        binding.scroller.useDefaultScroller = false
+        binding.scroller.itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+            override fun onItemIndicatorSelected(
+                indicator: FastScrollItemIndicator,
+                indicatorCenterY: Int,
+                itemPosition: Int
+            ) {
+                binding.selector.scrollToPosition(itemPosition)
+            }
+        }
+        binding.scroller.setupWithRecyclerView(
+            binding.selector,
+            { position ->
+                val item = adapter.items[position]
+
+                FastScrollItemIndicator.Text(
+                    item.label.run { if (isBlank()) "?" else substring(0, 1) }.uppercase()
+                )
+            }
+        )
+        binding.scrollerThumb.setupWithFastScroller(binding.scroller)
 
         launch {
             val apps = withContext(Dispatchers.IO) {
