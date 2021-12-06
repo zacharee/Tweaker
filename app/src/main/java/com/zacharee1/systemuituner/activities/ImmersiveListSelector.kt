@@ -116,7 +116,6 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                 )
             }
         )
-        binding.scrollerThumb.setupWithFastScroller(binding.scroller)
 
         launch {
             val apps = withContext(Dispatchers.IO) {

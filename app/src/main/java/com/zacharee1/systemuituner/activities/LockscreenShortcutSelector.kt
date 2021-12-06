@@ -11,6 +11,8 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
+import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.reddit.indicatorfastscroll.FastScrollerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.AppActivityItemBinding
@@ -92,6 +94,45 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         binding.appSelector.adapter = appAdapter
         binding.activitySelector.adapter = activityAdapter
 
+        binding.appSelectorScroller.setupWithRecyclerView(
+            binding.appSelector,
+            { position ->
+                FastScrollItemIndicator.Text(
+                    appAdapter.visibleItems[position].label.toString()
+                )
+            }
+        )
+        binding.activitySelectorScroller.setupWithRecyclerView(
+            binding.activitySelector,
+            { position ->
+                FastScrollItemIndicator.Text(
+                    activityAdapter.visibleItems[position].label.toString()
+                )
+            }
+        )
+
+        binding.appSelectorScroller.useDefaultScroller = false
+        binding.appSelectorScroller.itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+            override fun onItemIndicatorSelected(
+                indicator: FastScrollItemIndicator,
+                indicatorCenterY: Int,
+                itemPosition: Int
+            ) {
+                binding.appSelector.scrollToPosition(itemPosition)
+            }
+        }
+
+        binding.activitySelectorScroller.useDefaultScroller = false
+        binding.activitySelectorScroller.itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+            override fun onItemIndicatorSelected(
+                indicator: FastScrollItemIndicator,
+                indicatorCenterY: Int,
+                itemPosition: Int
+            ) {
+                binding.activitySelector.scrollToPosition(itemPosition)
+            }
+        }
+
         launch {
             val deferred = async {
                 packageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES)
@@ -131,11 +172,11 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     override fun onQueryTextChange(newText: String?): Boolean {
         when {
-            binding.appSelector.isVisible -> {
+            binding.appSelectorWrapper.isVisible -> {
                 activityAdapter.query = null
                 appAdapter.query = newText
             }
-            binding.activitySelector.isVisible -> {
+            binding.activitySelectorWrapper.isVisible -> {
                 appAdapter.query = null
                 activityAdapter.query = newText
             }
@@ -149,7 +190,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     override fun onBackPressed() {
-        if (binding.activitySelector.isVisible) {
+        if (binding.activitySelectorWrapper.isVisible) {
             updateRecyclerVisibility(false)
         } else {
             super.onBackPressed()
@@ -157,7 +198,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     private fun updateRecyclerVisibility(forActivity: Boolean) {
-        binding.activitySelector.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
+        binding.activitySelectorWrapper.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation?) {
                 if (!binding.activitySelector.isVisible) {
                     activityAdapter.items.clear()
@@ -167,7 +208,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             override fun onAnimationStart(animation: Animation?) {}
             override fun onAnimationRepeat(animation: Animation?) {}
         })
-        binding.appSelector.scaleAnimatedVisible = !forActivity
+        binding.appSelectorWrapper.scaleAnimatedVisible = !forActivity
     }
 
     class AppAdapter(private val selectionCallback: (LoadedApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {

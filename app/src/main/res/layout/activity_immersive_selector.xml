@@ -22,15 +22,6 @@
         tools:listitem="@layout/custom_preference"
         />
 
-    <com.reddit.indicatorfastscroll.FastScrollerThumbView
-        android:id="@+id/scroller_thumb"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/scroller"
-        app:layout_constraintBottom_toBottomOf="@id/scroller"
-        app:layout_constraintEnd_toStartOf="@id/scroller"
-        />
-
     <com.reddit.indicatorfastscroll.FastScrollerView
         android:id="@+id/scroller"
         android:layout_width="wrap_content"
