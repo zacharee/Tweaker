@@ -8,6 +8,8 @@ import android.widget.CompoundButton
 import android.widget.ScrollView
 import com.zacharee1.systemuituner.databinding.KeepDevicePluggedDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
+import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 
 class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
@@ -20,11 +22,11 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
         val ac = binding.onAc
         val usb = binding.onUsb
         val wireless = binding.onWireless
-        val current = Settings.Global.getInt(
-            context.contentResolver,
+        val current = context.getSetting(
+            SettingsType.GLOBAL,
             Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
             0
-        )
+        )!!.toInt()
 
         ac.isChecked = current and BatteryManager.BATTERY_PLUGGED_AC != 0
         usb.isChecked = current and BatteryManager.BATTERY_PLUGGED_USB != 0

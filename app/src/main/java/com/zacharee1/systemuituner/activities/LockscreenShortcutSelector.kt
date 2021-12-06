@@ -98,7 +98,12 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             binding.appSelector,
             { position ->
                 FastScrollItemIndicator.Text(
-                    appAdapter.visibleItems[position].label.toString()
+                    appAdapter.visibleItems[position].label.run {
+                        if (isBlank()) "?" else substring(
+                            0,
+                            1
+                        )
+                    }.uppercase()
                 )
             }
         )
@@ -106,7 +111,12 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             binding.activitySelector,
             { position ->
                 FastScrollItemIndicator.Text(
-                    activityAdapter.visibleItems[position].label.toString()
+                    activityAdapter.visibleItems[position].label.run {
+                        if (isBlank()) "?" else substring(
+                            0,
+                            1
+                        )
+                    }.uppercase()
                 )
             }
         )

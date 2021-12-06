@@ -9,6 +9,7 @@ import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 
@@ -22,8 +23,8 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPre
     )
 
     val bothFixed: Boolean
-        get() = Settings.Global.getInt(context.contentResolver, Settings.Global.TETHER_DUN_REQUIRED, 1) == 0
-                && Settings.Global.getString(context.contentResolver, Settings.Global.TETHER_SUPPORTED) == "true"
+        get() = context.getSetting(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED) == "0"
+                && context.getSetting(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED) == "true"
 
     init {
         key = "tethering_fix"

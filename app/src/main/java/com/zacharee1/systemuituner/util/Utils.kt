@@ -163,12 +163,26 @@ fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean
 }
 
 fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): String? {
-    return when (type) {
-        SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
-        SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
-        SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
-        SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
-    }.orEmpty().ifBlank { def?.toString() }
+    return try {
+        when (type) {
+            SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
+            SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
+            SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
+            SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
+        }.orEmpty().ifBlank { def?.toString() }
+    } catch (e: SecurityException) {
+        if (Shizuku.pingBinder() && hasShizukuPermission) {
+            Shizuku.newProcess(
+                arrayOf("settings", "get", type.toString(), key),
+                null,
+                null
+            ).run {
+                inputStream.bufferedReader().use { it.readLine() }
+            }
+        } else {
+            prefManager.savedOptions.find { it.key == key && it.type == type }?.value
+        }
+    }
 }
 
 fun Context.resetAll() {

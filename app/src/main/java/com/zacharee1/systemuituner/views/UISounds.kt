@@ -22,8 +22,8 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        binding.disableChargingSound.isChecked = Settings.Global.getInt(context.contentResolver, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0
-                || Settings.Secure.getInt(context.contentResolver, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == 0
+        binding.disableChargingSound.isChecked = context.getSetting(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == "0"
+                || context.getSetting(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == "0"
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
             context.prefManager.saveOption(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
@@ -125,7 +125,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
                 binding.type.text = resources.getText(info.name)
                 binding.desc.text = resources.getText(info.desc)
-                binding.uri.text = Settings.Global.getString(context.contentResolver, info.key)
+                binding.uri.text = context.getSetting(SettingsType.GLOBAL, info.key)
                 if (info.icon != 0) binding.icon.setImageResource(info.icon)
                 else binding.icon.isVisible = false
 

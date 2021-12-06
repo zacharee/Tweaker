@@ -16,6 +16,9 @@ class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : BaseDialo
         SettingsType.SECURE to arrayOf(
             "sysui_keyguard_left",
             "sysui_keyguard_right"
+        ),
+        SettingsType.SYSTEM to arrayOf(
+            "lock_application_shortcut"
         )
     )
 

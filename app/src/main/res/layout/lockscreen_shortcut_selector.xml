@@ -33,6 +33,7 @@
             android:id="@+id/app_selector_scroller"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="end"
             />
     </FrameLayout>
 
@@ -57,6 +58,7 @@
             android:id="@+id/activity_selector_scroller"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="end"
             />
 
     </FrameLayout>

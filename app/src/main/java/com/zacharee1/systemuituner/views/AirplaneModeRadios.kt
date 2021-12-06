@@ -13,6 +13,8 @@ import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadioBinding
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadiosBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
+import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 
 class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
@@ -37,8 +39,8 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val currentBlacklisted = (Settings.Global.getString(context.contentResolver, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
-        val currentToggleable = (Settings.Global.getString(context.contentResolver, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
+        val currentBlacklisted = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
+        val currentToggleable = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
 
         val items = arrayListOf(
             RadioInfo(

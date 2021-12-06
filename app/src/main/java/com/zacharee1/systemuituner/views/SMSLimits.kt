@@ -5,10 +5,7 @@ import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
 import com.zacharee1.systemuituner.databinding.SmsLimitsBinding
-import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.toIntOrNullOnError
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.*
 
 class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
     companion object {
@@ -21,8 +18,8 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
     override fun onFinishInflate() {
         super.onFinishInflate()
 
-        binding.maxCount.editText?.setText(Settings.Global.getInt(context.contentResolver, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF).toString())
-        binding.interval.editText?.setText(Settings.Global.getInt(context.contentResolver, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF).toString())
+        binding.maxCount.editText?.setText(context.getSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF))
+        binding.interval.editText?.setText(context.getSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF))
 
         binding.maxCount.setStartIconOnClickListener {
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
