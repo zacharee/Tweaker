@@ -22,17 +22,28 @@ I will do my best to help you provided that:
  - you don't ask a question already answered here
  
 # Permissions
-SystemUI Tuner asks for some sensitive permissions:
+SystemUI Tuner asks for the following permissions:
  - android.permission.WRITE_SECURE_SETTINGS
+ - android.permission.WRITE_SETTINGS
  - android.permission.DUMP
  - android.permission.PACKAGE_USAGE_STATS
+ - android.permission.QUERY_ALL_PACKAGES
+ - android.permission.FOREGROUND_SERVICE
+ - android.permission.RECEIVE_BOOT_COMPLETED
+ - android.permission.INTERNET
+ - com.android.vending.BILLING
+ - com.zacharee1.systemuituner.permission.WRITE_SETTINGS
+ - moe.shizuku.manager.permission.API_V23
  
-These permissions are not used to collect any sort of data, cause harm to your device (except by your own volition), or for any other malicious intent. SystemUI Tuner is open source (you are currently on the source page), and you are welcome to verify the validity of this claim.
+These permissions are not used to collect any sort of data (except for crash data), cause harm to your device (except by your own volition), or for any other malicious intent. SystemUI Tuner is open source (you are currently on the source page), and you are welcome to verify the validity of this claim.
 
 Below I have explained the reason(s) each permission is needed:
 
 WRITE_SECURE_SETTINGS
  - Without this, SystemUI Tuner just won't work. Hiding status bar icons, modifying Immersive Mode, changing Quick Settings, etc, all need this permission to function.
+
+WRITE_SETTINGS
+ - SystemUI Tuner uses this permission to attempt to write to Settings.System. Not all values can be written. SystemUI Tuner will tell you if a change fails, along with how to proceed.
 
 DUMP
  - This permission is needed for Demo Mode to function.
@@ -40,10 +51,34 @@ DUMP
  
 PACKAGE_USAGE_STATS
  - This permission is needed for the Status Bar icon auto-detect feature.
- 
-I have attempted to modularize when these permissions are requested. All three are requested during setup, but *only* WRITE_SECURE_SETTINGS is required at this point. If you skip the other permissions at this time, they will be requested when you attempt to use a function that requires them.
 
-While each of these permissions requires a special process to grant them, they are no different from permissions such as CAMERA or MICROPHONE. That is, as soon as you uninstall SystemUI Tuner or clear its data, these permissions are revoked by Android.
+QUERY_ALL_PACKAGES
+ - This permission is needed to show all apps for Immersive Mode whitelists and blacklists.
+ - This permission is needed to show all apps for selecting Lockscreen Shortcuts.
+
+FOREGROUND_SERVICE
+ - This permission is needed to run the Service to manage Persistent Options.
+
+RECEIVE_BOOT_COMPLETED
+ - This permission is needed to restore Persistent Options on boot.
+
+INTERNET
+ - This permission is needed for the in-app donation option.
+ - This permission is needed to send crash data to Crashlytics. No PII is collected.
+ - This permission is needed to retrieve the latest terms on older app versions.
+
+BILLING
+ - This permission is needed for the in-app donation option.
+
+WRITE_SETTINGS (internal)
+ - This is an internal permission for use with communication between SystemUI Tuner and the optional add-on for writing to Settings.System.
+
+API_V23
+ - This permission is needed for [Shizuku](https://shizuku.rikka.app) compatibility.
+ 
+I have attempted to modularize when these permissions are requested. WRITE_SECURE_SETTINGS, DUMP, and PACKAGE_USAGE_STATS are requested during setup, but *only* WRITE_SECURE_SETTINGS is required at this point. If you skip the other permissions at this time, they will be requested when you attempt to use a function that requires them.
+
+While some of these permissions require a special process to grant them, they are no different from permissions such as CAMERA or MICROPHONE. That is, as soon as you uninstall SystemUI Tuner or clear its data, these permissions are revoked by Android.
 
 # Uninstallation/Reset
 SystemUI Tuner has a limited ability to restore settings to their defaults. It only works on Android Oreo (8.0) and later. 

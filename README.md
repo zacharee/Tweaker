@@ -1,3 +1,8 @@
+# About
+SystemUI Tuner is an app for viewing and modifying hidden settings on Android devices.
+
+Make sure to read the [Terms](app/src/main/assets/terms.md) for a full description and privacy policy.
+
 # Building
 SystemUI Tuner has some unconventional configurations that require special steps to be able to build.
 
