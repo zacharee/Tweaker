@@ -14,7 +14,7 @@
         app:minValue="1"
         app:maxValue="12"
         app:low_api="24"
-        app:high_api="30"
+        app:high_api="31"
         />
 
     <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
