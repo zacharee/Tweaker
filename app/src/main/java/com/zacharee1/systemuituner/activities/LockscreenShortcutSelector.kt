@@ -68,6 +68,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 it.orig.activities?.map { LoadedActivityInfo(packageManager, it) }
             }
 
+            activityAdapter.items.clear()
             activityAdapter.items.addAll(deferred.await() ?: return@launch)
 
             updateRecyclerVisibility(true)
@@ -202,16 +203,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     }
 
     private fun updateRecyclerVisibility(forActivity: Boolean) {
-        binding.activitySelectorWrapper.scaleAnimatedVisible(forActivity, object : Animation.AnimationListener {
-            override fun onAnimationEnd(animation: Animation?) {
-                if (!binding.activitySelector.isVisible) {
-                    activityAdapter.items.clear()
-                }
-            }
-
-            override fun onAnimationStart(animation: Animation?) {}
-            override fun onAnimationRepeat(animation: Animation?) {}
-        })
+        binding.activitySelectorWrapper.scaleAnimatedVisible = forActivity
         binding.appSelectorWrapper.scaleAnimatedVisible = !forActivity
     }
 
