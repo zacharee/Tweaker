@@ -235,6 +235,18 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
                 writeSystemSettingsWithAddOnNoResult(key, value)
                 true
             }
+            Shizuku.pingBinder() && hasShizukuPermission -> {
+                Shizuku.newProcess(
+                    arrayOf(
+                        "content", "insert",
+                        "--uri content://settings/system",
+                        "--bind name:s:$key",
+                        "--bind value:s:$value",
+                        "--bind package:s:$packageName"
+                    ),
+                    null, null
+                ).waitFor() == 0
+            }
             else -> {
                 Log.e("SystemUI Tuner", "Failed to write to System", e)
                 false
