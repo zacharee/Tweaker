@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -21,6 +22,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
+        preferenceScreen.isOrderingAsAdded = false
     }
 
     fun onShow() {
@@ -78,6 +80,8 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
                         preferenceScreen.addPreference(
                             SearchIndex.ActionedPreference.copy(requireContext(), pref)
                         )
+                    } else {
+                        preferenceScreen.findPreference<Preference>(pref.key)?.order = pref.order
                     }
                 }
             }

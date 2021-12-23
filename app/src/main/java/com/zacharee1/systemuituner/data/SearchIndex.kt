@@ -11,7 +11,10 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
 import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.coroutines.*
+import java.util.*
+import kotlin.Comparator
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
@@ -73,15 +76,36 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    fun filter(query: String?, result: (ArrayList<ActionedPreference>) -> Unit) = launch {
+    fun filter(query: String?, result: (Collection<ActionedPreference>) -> Unit) = launch {
         val filter = async {
-            ArrayList(
-                preferences.filter {
-                    query.isNullOrBlank() ||
-                            it.title.toString().contains(query, true) ||
-                            it.summary.toString().contains(query, true)
+            TreeSet(
+                Comparator<ActionedPreference> { o1, o2 ->
+                    if (query.isNullOrBlank()) {
+                        o1.title.toString().compareTo(o2.title.toString(), true)
+                    } else {
+                        val o1Title = o1.title.contains(query, true)
+                        val o2Title = o2.title.contains(query, true)
+
+                        when {
+                            o1Title && !o2Title -> -1
+                            !o1Title && o2Title -> 1
+                            else -> o1.title.toString().compareTo(o2.title.toString(), true)
+                        }
+                    }
                 }
-            )
+            ).apply {
+                addAll(
+                    preferences.filter {
+                        query.isNullOrBlank() ||
+                                it.title.toString().contains(query, true) ||
+                                it.summary.toString().contains(query, true)
+                    }
+                )
+
+                forEachIndexed { index, pref ->
+                    pref.order = index
+                }
+            }
         }
 
         result(filter.await())
@@ -101,6 +125,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
+                    order = preference.order
                     if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
                     }
