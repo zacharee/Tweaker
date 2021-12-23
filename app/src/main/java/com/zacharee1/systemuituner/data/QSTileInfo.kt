@@ -130,6 +130,12 @@ class QSTileInfo(
                 "exitkft" -> R.drawable.ic_baseline_child_care_24
                 "recordscreentile", "screenrecorder" -> R.drawable.ic_baseline_videocam_24
                 "screencapture" -> R.drawable.ic_baseline_camera_24
+                "internet" -> R.drawable.ic_network
+                "controls" -> R.drawable.ic_baseline_home_24
+                "mictoggle" -> R.drawable.microphone
+                "cameratoggle" -> R.drawable.ic_baseline_camera_24
+                "screenrecord" -> R.drawable.record
+                "wallet" -> R.drawable.credit_card
                 else -> R.drawable.ic_baseline_android_24
             },
             theme
