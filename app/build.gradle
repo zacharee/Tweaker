@@ -56,7 +56,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.google.firebase:firebase-analytics:20.0.1'
+    implementation 'com.google.firebase:firebase-analytics:20.0.2'
     implementation 'com.google.firebase:firebase-crashlytics:18.2.6'
     implementation 'com.google.code.gson:gson:2.8.9'
 
@@ -66,7 +66,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
 
-    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:2.0'
+    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:3.0'
     implementation 'com.mikepenz:materialdrawer:8.4.5'
     implementation 'com.mikepenz:materialdrawer-nav:8.4.5'
     implementation 'com.github.zacharee:material:18bda1a64b'
