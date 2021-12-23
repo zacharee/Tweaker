@@ -15,6 +15,18 @@
         app:settings_type="secure"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_disable_combined_internet"
+        android:summary="@string/option_disable_combined_internet_desc"
+        android:key="settings_provider_model"
+        android:icon="@drawable/ic_network"
+        app:settings_type="global"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:icon_color="@color/pref_color_1"
+        app:low_api="31"
+        />
+
     <com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
         android:title="@string/option_back_gesture_inset_scale_left"
         android:summary="@string/option_back_gesture_inset_scale_left_desc"

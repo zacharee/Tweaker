@@ -98,6 +98,12 @@ class QSEditorActivity : AppCompatActivity() {
                 }
 
                 addAll(items.split(","))
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+                    && (!contains("wifi") && !contains("cell") && contains("internet"))) {
+                    add("wifi")
+                    add("cell")
+                }
             } catch (e: Exception) {}
         }
 
