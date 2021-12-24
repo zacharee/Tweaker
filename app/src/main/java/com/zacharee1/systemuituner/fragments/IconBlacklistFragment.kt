@@ -274,8 +274,8 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     }
 
     override fun onCreateRecyclerView(
-        inflater: LayoutInflater?,
-        parent: ViewGroup?,
+        inflater: LayoutInflater,
+        parent: ViewGroup,
         savedInstanceState: Bundle?
     ): RecyclerView {
         return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
@@ -466,7 +466,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             grid else linear
     }
 
-    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
@@ -505,7 +505,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     }
 
     private fun matches(query: String?, pref: Preference): Boolean {
-        return query.isNullOrBlank() || pref.title.contains(query, true)
+        return query.isNullOrBlank() || pref.title!!.contains(query, true)
     }
 
     private fun createCategory(

@@ -307,7 +307,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
             } else sup
         }
 
-        override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+        override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
             super.onAttachedToHierarchy(preferenceManager)
 
             if (isCustom) {

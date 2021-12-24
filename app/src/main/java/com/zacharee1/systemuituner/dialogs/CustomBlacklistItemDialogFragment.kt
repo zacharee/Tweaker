@@ -53,7 +53,7 @@ class CustomBlacklistItemDialogFragment : PreferenceDialogFragmentCompat() {
             dismiss()
         }
         builder.setOnCancelListener {
-            onClick(dialog, DialogInterface.BUTTON_NEGATIVE)
+            onClick(dialog!!, DialogInterface.BUTTON_NEGATIVE)
             dismiss()
         }
 

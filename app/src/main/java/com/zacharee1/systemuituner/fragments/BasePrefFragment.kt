@@ -54,7 +54,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     open val limitSummary = true
     open val supportsGrid = true
 
-    override fun onDisplayPreferenceDialog(preference: Preference?) {
+    override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment = when (preference) {
             is ForceEnableAllPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
@@ -123,13 +123,13 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                (preference.sharedPreferences.getFloat(preference.key, preference.defaultValue * preference.scale) / preference.scale).toInt()
+                (preference.sharedPreferences!!.getFloat(preference.key, preference.defaultValue * preference.scale) / preference.scale).toInt()
             )
             is DemoSwitchPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
                 preference.disabled,
                 preference.enabled,
-                preference.sharedPreferences.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
+                preference.sharedPreferences!!.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
             )
             is ReadSettingPreference -> OptionDialog.newInstance(
                 preference.key,
@@ -182,7 +182,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             listView?.post {
                 listView?.apply {
                     val a = adapter as PreferenceGroupAdapter
-                    val index = a.getPreferenceAdapterPosition(highlightKey)
+                    val index = a.getPreferenceAdapterPosition(highlightKey!!)
 
                     scrollToPosition(index)
 
@@ -233,8 +233,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     }
 
     override fun onCreateRecyclerView(
-        inflater: LayoutInflater?,
-        parent: ViewGroup?,
+        inflater: LayoutInflater,
+        parent: ViewGroup,
         savedInstanceState: Bundle?
     ): RecyclerView {
         return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
@@ -252,13 +252,14 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+    @SuppressLint("RestrictedApi")
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             private val descriptors = ArrayList<PreferenceHolder>()
 
             @SuppressLint("RestrictedApi")
             override fun getItemViewType(position: Int): Int {
-                val descriptor = PreferenceHolder(getItem(position))
+                val descriptor = PreferenceHolder(getItem(position)!!)
                 val index = descriptors.indexOf(descriptor)
 
                 return if (index != -1) {

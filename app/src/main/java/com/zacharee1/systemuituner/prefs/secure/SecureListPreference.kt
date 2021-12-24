@@ -29,7 +29,7 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
                 try {
                     persistString(value)
                 } catch (e: ClassCastException) {
-                    preferenceManager.sharedPreferences.edit(true) {
+                    preferenceManager.sharedPreferences!!.edit(true) {
                         remove(key)
                     }
                     persistString(value)

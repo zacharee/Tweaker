@@ -50,7 +50,7 @@ open class ManageQSPreference(context: Context, attrs: AttributeSet?) : SwitchPr
         //no-op
     }
 
-    override fun onPreferenceChange(preference: Preference?, newValue: Any): Boolean {
+    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         val isChecked = newValue.toString().toBoolean()
 
         manageComponent?.let {

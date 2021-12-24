@@ -77,7 +77,7 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'io.noties.markwon:core:4.6.2'
     implementation 'io.noties.markwon:html:4.6.2'
-    implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
+    implementation 'com.github.zacharee:colorpicker:577236da1d'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.4.2'
     implementation 'dev.rikka.shizuku:api:12.1.0'
     implementation 'dev.rikka.shizuku:provider:12.1.0'

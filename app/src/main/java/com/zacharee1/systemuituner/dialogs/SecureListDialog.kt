@@ -40,7 +40,7 @@ class SecureListDialog : BaseOptionDialog() {
 
         val adapter = Adapter(entries?.mapIndexed { index, charSequence -> ItemInfo(charSequence, index == checkedIndex) } ?: ArrayList()) {
             clickedIndex = it
-            onClick(dialog, DialogInterface.BUTTON_POSITIVE)
+            onClick(dialog!!, DialogInterface.BUTTON_POSITIVE)
 
             val preference = listPref
             val value = preference.entryValues!![clickedIndex].toString()

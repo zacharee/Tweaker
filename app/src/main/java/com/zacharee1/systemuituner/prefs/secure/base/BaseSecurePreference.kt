@@ -14,7 +14,7 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : BaseDia
     override var writeKey: String? = null
         get() = field ?: key
 
-    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
         initSecure(this)
     }

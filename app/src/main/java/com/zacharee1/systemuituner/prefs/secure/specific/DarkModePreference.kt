@@ -29,7 +29,7 @@ class DarkModePreference(context: Context, attrs: AttributeSet) : SecureSwitchPr
         dialogMessage = summary
     }
 
-    override fun onGetDefaultValue(a: TypedArray?, index: Int): Any {
+    override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
         return UiModeManager.MODE_NIGHT_NO.toString()
     }
 

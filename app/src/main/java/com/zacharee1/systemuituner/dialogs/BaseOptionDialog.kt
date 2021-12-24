@@ -37,7 +37,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         return builder
     }
 
-    final override fun onCreateDialogView(context: Context?): View? {
+    final override fun onCreateDialogView(context: Context): View? {
         return null
     }
 

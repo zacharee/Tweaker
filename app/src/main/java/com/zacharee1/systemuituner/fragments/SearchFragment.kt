@@ -53,7 +53,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
         view.background = ContextCompat.getDrawable(requireContext(), R.drawable.search_bg)
     }
 
-    override fun onPreferenceTreeClick(preference: Preference?): Boolean {
+    override fun onPreferenceTreeClick(preference: Preference): Boolean {
         if (preference is SearchIndex.ActionedPreference) {
             onItemClickListener?.invoke(preference.action, preference.key)
         }

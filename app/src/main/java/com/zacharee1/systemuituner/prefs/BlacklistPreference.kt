@@ -52,7 +52,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
         //no-op
     }
 
-    override fun onPreferenceChange(preference: Preference?, newValue: Any): Boolean {
+    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         val isChecked = newValue.toString().toBoolean()
 
         val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())

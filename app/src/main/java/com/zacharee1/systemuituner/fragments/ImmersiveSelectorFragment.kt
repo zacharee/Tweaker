@@ -27,7 +27,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
         preferenceScreen.isOrderingAsAdded = false
     }
 
-    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {
         return CustomPreferenceGroupAdapter(preferenceScreen)
     }
 
@@ -153,6 +153,6 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
     }
 
     @SuppressLint("RestrictedApi")
-    inner class CustomPreferenceGroupAdapter(preferenceGroup: PreferenceGroup?) : PreferenceGroupAdapter(preferenceGroup) {
+    inner class CustomPreferenceGroupAdapter(preferenceGroup: PreferenceGroup) : PreferenceGroupAdapter(preferenceGroup) {
     }
 }
