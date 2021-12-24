@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.mikepenz.materialdrawer.holder.DimenHolder
 import com.mikepenz.materialdrawer.holder.ImageHolder
 import com.mikepenz.materialdrawer.holder.StringHolder
@@ -37,8 +38,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private val searchFragment by lazy { supportFragmentManager.findFragmentById(R.id.search_fragment) as SearchFragment }
     private val titleSwitcher by lazy { mainBinding.screenTitle }
 
+    private val navFragment by lazy { supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment }
     private val navController: NavController
-        get() = findNavController(R.id.nav_host_fragment)
+        get() = navFragment.navController
 
     private var searchView: SearchView? = null
 
@@ -72,12 +74,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         val currentListener = mainBinding.slider.onDrawerItemClickListener
         mainBinding.slider.onDrawerItemClickListener = { view, item, position ->
             if (item.isSelectable && item is NavigationDrawerItem) {
-                mainBinding.root.closePane()
+                mainBinding.slider.drawerLayout?.openDrawer(mainBinding.slider)
             }
             currentListener?.invoke(view, item, position) ?: false
         }
 
-        mainBinding.root.sliderFadeColor = ContextCompat.getColor(this, R.color.colorSliderFade)
+//        mainBinding.root.sliderFadeColor = ContextCompat.getColor(this, R.color.colorSliderFade)
 
         navController.addOnDestinationChangedListener(this)
 
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            mainBinding.root.openPane()
+            mainBinding.slider.drawerLayout?.openDrawer(mainBinding.slider)
             return true
         }
 

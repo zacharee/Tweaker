@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.slidingpanelayout.widget.SlidingPaneLayout
+<androidx.drawerlayout.widget.DrawerLayout
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
-        android:id="@+id/slider"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,14 +53,22 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <fragment
+            <!--            <fragment-->
+            <!--                android:id="@+id/nav_host_fragment"-->
+            <!--                android:name="androidx.navigation.fragment.NavHostFragment"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                app:defaultNavHost="true"-->
+            <!--                app:navGraph="@navigation/navigation_main" />-->
+
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/nav_host_fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/navigation_main" />
+                app:navGraph="@navigation/navigation_main"
+                />
 
             <FrameLayout
                 android:id="@+id/search_holder"
@@ -77,11 +77,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <fragment
+                <!--                <fragment-->
+                <!--                    android:id="@+id/search_fragment"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:name="com.zacharee1.systemuituner.fragments.SearchFragment" />-->
+
+                <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/search_fragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:name="com.zacharee1.systemuituner.fragments.SearchFragment" />
+                    android:name="com.zacharee1.systemuituner.fragments.SearchFragment"
+                    />
 
             </FrameLayout>
 
@@ -89,4 +96,12 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.slidingpanelayout.widget.SlidingPaneLayout>
+    <com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
+        android:id="@+id/slider"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>
