@@ -40,6 +40,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("L")
         }
+
         PersistenceHandlerRegistry.register(this)
 
         updateServiceState(this)
