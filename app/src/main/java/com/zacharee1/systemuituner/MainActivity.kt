@@ -80,6 +80,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         val currentListener = mainBinding.slider.onDrawerItemClickListener
         mainBinding.slider.onDrawerItemClickListener = { view, item, position ->
             if (item.isSelectable && item is NavigationDrawerItem) {
+                searchView?.isIconified = true
+                closeSearch()
                 mainBinding.root.openPane()
 //                mainBinding.slider.drawerLayout?.closeDrawer(mainBinding.slider)
             }
@@ -133,21 +135,25 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
 
         searchView?.setOnCloseListener {
-            mainBinding.searchHolder.apply {
-                animate()
-                    .alpha(0f)
-                    .translationX(width.toFloat())
-                    .withEndAction {
-                        visibility = View.GONE
-                    }
-            }
-            searchView?.setOnQueryTextListener(null)
-
-            titleSwitcher.scaleAnimatedVisible = true
+            closeSearch()
             false
         }
 
         return true
+    }
+
+    private fun closeSearch() {
+        mainBinding.searchHolder.apply {
+            animate()
+                .alpha(0f)
+                .translationX(width.toFloat())
+                .withEndAction {
+                    visibility = View.GONE
+                }
+        }
+        searchView?.setOnQueryTextListener(null)
+
+        titleSwitcher.scaleAnimatedVisible = true
     }
 
     override fun onDestinationChanged(
