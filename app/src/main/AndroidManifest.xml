@@ -33,7 +33,7 @@
             android:label="@string/app_name"
             android:theme="@style/Splash"
             android:exported="true"
-            android:configChanges="orientation|screenSize|screenLayout">
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,6 +61,7 @@
             android:exported="false"
             />
         <activity android:name=".activities.IconBlacklistActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
             android:label="@string/special_sub_icon_blacklist"
             android:exported="false"
             />

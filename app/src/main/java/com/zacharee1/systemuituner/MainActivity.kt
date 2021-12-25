@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         mainBinding.root.openPane()
 
+        mainBinding.slider.customWidth = dpAsPx(250)
         mainBinding.slider.headerPadding = true
         mainBinding.slider.headerHeight = DimenHolder.fromDp(172)
         mainBinding.slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)

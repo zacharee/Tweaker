@@ -8,10 +8,12 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.doOnLayout
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -454,16 +456,18 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        listView?.layoutManager = if (newConfig.screenWidthDp >= 800)
-            grid else linear
+    override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
+        return chooseLayoutManager(view, grid, linear)
     }
 
-    override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
-        return if (resources.configuration.screenWidthDp >= 800)
-            grid else linear
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        view.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
+                updateLayoutManager(view, listView, grid, linear)
+            }
+        }
     }
 
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {

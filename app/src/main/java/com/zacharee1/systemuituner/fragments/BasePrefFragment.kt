@@ -4,12 +4,14 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
@@ -17,8 +19,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.isVisible
+import androidx.core.view.*
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -177,6 +178,13 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
+                updateLayoutManager(view, listView, grid, linear, supportsGrid)
+                updateListWidthAndGravity()
+            }
+        }
 
         if (highlightKey != null) {
             listView?.post {
@@ -380,22 +388,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        val widthDp = newConfig.screenWidthDp
-
-        listView?.layoutManager = if (supportsGrid && newConfig.screenWidthDp >= 800)
-            grid else linear
-
-        updateListWidthAndGravity(widthDp)
-    }
-
     override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
-        val widthDp = resources.configuration.screenWidthDp
-
-        return if (supportsGrid && widthDp >= 800)
-            grid else linear
+        return chooseLayoutManager(view, grid, linear, supportsGrid)
     }
 
     override fun onDestroy() {
@@ -421,11 +415,16 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    private fun updateListWidthAndGravity(widthDp: Int = resources.configuration.screenWidthDp) {
+    private fun updateListWidthAndGravity(widthDp: Float = requireContext().asDp(requireView().width)) {
         if (!supportsGrid) {
             listView.layoutParams = (listView.layoutParams as FrameLayout.LayoutParams).apply {
                 width = if (widthDp >= 800) requireContext().dpAsPx(800) else ViewGroup.LayoutParams.MATCH_PARENT
                 gravity = if (widthDp >= 800) Gravity.CENTER_HORIZONTAL else Gravity.START
+            }
+        } else {
+            listView.layoutParams = (listView.layoutParams as FrameLayout.LayoutParams).apply {
+                width = ViewGroup.LayoutParams.MATCH_PARENT
+                gravity = Gravity.START
             }
         }
     }

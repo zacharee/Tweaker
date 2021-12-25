@@ -37,6 +37,7 @@ import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceGroupAdapter
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
@@ -296,6 +297,9 @@ fun Context.dpAsPx(dpVal: Number) =
         dpVal.toFloat(),
         resources.displayMetrics
     ).roundToInt()
+
+fun Context.asDp(value: Number) =
+    value.toFloat() / resources.displayMetrics.density
 
 @SuppressLint("InlinedApi")
 fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
@@ -735,4 +739,16 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
         }
         else -> true
     }
+}
+
+fun Fragment.chooseLayoutManager(view: View?, grid: RecyclerView.LayoutManager, linear: RecyclerView.LayoutManager, extraFlags: Boolean = true): RecyclerView.LayoutManager {
+    return if (extraFlags && (requireContext().asDp(view?.width ?: 0)) >= 800) {
+        grid
+    } else {
+        linear
+    }
+}
+
+fun Fragment.updateLayoutManager(view: View?, recycler: RecyclerView?, grid: RecyclerView.LayoutManager, linear: RecyclerView.LayoutManager, extraFlags: Boolean = true) {
+    recycler?.layoutManager = chooseLayoutManager(view, grid, linear, extraFlags)
 }
