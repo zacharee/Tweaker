@@ -65,21 +65,28 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         titleSwitcher.inAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_in)
         titleSwitcher.outAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_out)
 
+        mainBinding.root.openPane()
+
         mainBinding.slider.headerPadding = true
         mainBinding.slider.headerHeight = DimenHolder.fromDp(172)
         mainBinding.slider.headerView = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
         mainBinding.slider.setupWithNavController(navController)
         mainBinding.slider.recyclerView.setBackgroundColor(ContextCompat.getColor(this, R.color.toolbarColor))
 
+        mainBinding.searchHolder.apply {
+            translationX = width.toFloat()
+        }
+
         val currentListener = mainBinding.slider.onDrawerItemClickListener
         mainBinding.slider.onDrawerItemClickListener = { view, item, position ->
             if (item.isSelectable && item is NavigationDrawerItem) {
-                mainBinding.slider.drawerLayout?.openDrawer(mainBinding.slider)
+                mainBinding.root.openPane()
+//                mainBinding.slider.drawerLayout?.closeDrawer(mainBinding.slider)
             }
             currentListener?.invoke(view, item, position) ?: false
         }
 
-//        mainBinding.root.sliderFadeColor = ContextCompat.getColor(this, R.color.colorSliderFade)
+        mainBinding.root.sliderFadeColor = ContextCompat.getColor(this, R.color.colorSliderFade)
 
         navController.addOnDestinationChangedListener(this)
 
@@ -95,7 +102,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            mainBinding.slider.drawerLayout?.openDrawer(mainBinding.slider)
+//            mainBinding.slider.drawerLayout?.openDrawer(mainBinding.slider)
+            mainBinding.root.closePane()
             return true
         }
 
@@ -111,11 +119,12 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         searchView?.setOnSearchClickListener {
             mainBinding.searchHolder.apply {
+                searchFragment.onShow()
                 visibility = View.VISIBLE
                 animate()
                     .alpha(1f)
+                    .translationX(0f)
                     .withEndAction {
-                        searchFragment.onShow()
                     }
             }
             searchView?.setOnQueryTextListener(searchFragment)
@@ -127,6 +136,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             mainBinding.searchHolder.apply {
                 animate()
                     .alpha(0f)
+                    .translationX(width.toFloat())
                     .withEndAction {
                         visibility = View.GONE
                     }
