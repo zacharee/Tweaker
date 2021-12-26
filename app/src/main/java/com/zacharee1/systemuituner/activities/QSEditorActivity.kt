@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -88,13 +89,35 @@ class QSEditorActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     0
                 }
+                val samsungId = try {
+                    remRes.getIdentifier("sec_quick_settings_tiles_default", "string", "com.android.systemui")
+                } catch (e: Exception) {
+                    0
+                }
 
-                val items = if (amazonId == 0) {
-                    remRes.getString(id)
-                } else {
-                    //Fire tablets have a lot of different default lists, so we're just
-                    //going to add them manually here.
-                    "wifi,bt,airplane,moonlight,privacy,home,dnd,smarthome,camera,lowpower,rotation,exitkft"
+                val items = when {
+                    amazonId != 0 -> {
+                        //Fire tablets have a lot of different default lists, so we're just
+                        //going to add them manually here.
+                        "wifi,bt,airplane,moonlight,privacy,home,dnd,smarthome,camera,lowpower,rotation,exitkft"
+                    }
+                    samsungId != 0 -> {
+                        val result = remRes.getString(samsungId)
+                        val tiles = result.split(",").toMutableList()
+
+                        remRes.getString(remRes.getIdentifier("quick_settings_custom_tile_component_names", "string", "com.android.systemui"))
+                            .split(",")
+                            .forEach { item ->
+                                val (key, _) = item.split(":")
+
+                                tiles.remove(key)
+                            }
+
+                        tiles.joinToString(",")
+                    }
+                    else -> {
+                        remRes.getString(id)
+                    }
                 }
 
                 addAll(items.split(","))
