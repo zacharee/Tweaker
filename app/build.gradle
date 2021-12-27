@@ -83,6 +83,7 @@ dependencies {
     implementation 'dev.rikka.shizuku:api:12.1.0'
     implementation 'dev.rikka.shizuku:provider:12.1.0'
     implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
+    implementation 'me.grantland:autofittextview:0.2.1'
 
     //Commend out these dependencies and replace them with their remote references.
     //Check JitPack for the latest COMMIT hashes, NOT the latest versions.

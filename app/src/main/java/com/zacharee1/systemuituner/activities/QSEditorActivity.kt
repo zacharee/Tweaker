@@ -16,6 +16,7 @@ import com.zacharee1.systemuituner.data.QSTileInfo
 import com.zacharee1.systemuituner.databinding.ActivityQsEditorBinding
 import com.zacharee1.systemuituner.databinding.QsTileBinding
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -223,7 +224,7 @@ class QSEditorActivity : AppCompatActivity() {
             private val vhBinding = QsTileBinding.bind(itemView)
 
             init {
-                itemView.setOnLongClickListener {
+                vhBinding.clickTarget.setOnLongClickListener {
                     vhBinding.remove.apply { isVisible = !isVisible }
                     true
                 }
@@ -239,17 +240,32 @@ class QSEditorActivity : AppCompatActivity() {
             }
 
             fun onBind(info: QSTileInfo) {
-                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
-                vhBinding.label.text = info.getLabel(itemView.context)
-                vhBinding.qsTileComponent.apply {
-                    if (info.type == QSTileInfo.Type.CUSTOM) {
-                        isVisible = true
-                        text = info.getNameAndComponentForCustom().flattenToShortString()
-                    } else {
-                        isVisible = false
-                        text = null
+                vhBinding.clickTarget.setOnClickListener {
+                    if (info.type == QSTileInfo.Type.CUSTOM || info.type == QSTileInfo.Type.INTENT) {
+                        RoundedBottomSheetDialog(context).apply {
+                            setIcon(info.getIcon(context))
+                            setTitle(info.getLabel(context))
+
+                            setMessage(
+                                info.key
+                            )
+
+                            setPositiveButton(android.R.string.ok, null)
+
+                            show()
+                        }
                     }
                 }
+
+                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
+                vhBinding.label.text = info.getLabel(itemView.context)
+                vhBinding.qsTileType.setText(
+                    when (info.type) {
+                        QSTileInfo.Type.CUSTOM -> R.string.tile_custom
+                        QSTileInfo.Type.INTENT -> R.string.intent
+                        QSTileInfo.Type.STANDARD -> R.string.snooze_default
+                    }
+                )
             }
         }
     }

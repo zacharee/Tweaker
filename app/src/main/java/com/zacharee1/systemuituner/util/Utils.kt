@@ -300,6 +300,13 @@ fun Context.dpAsPx(dpVal: Number) =
         resources.displayMetrics
     ).roundToInt()
 
+fun Context.spAsPx(spVal: Number) =
+    TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP,
+        spVal.toFloat(),
+        resources.displayMetrics
+    ).roundToInt()
+
 fun Context.asDp(value: Number) =
     value.toFloat() / resources.displayMetrics.density
 

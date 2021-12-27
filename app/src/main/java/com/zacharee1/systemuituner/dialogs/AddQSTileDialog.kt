@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -107,13 +108,15 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
             private val binding = QsTileBinding.bind(itemView)
 
             init {
-                itemView.setOnClickListener {
+                binding.clickTarget.setOnClickListener {
                     val newPos = bindingAdapterPosition
 
                     if (newPos != -1) {
                         selectionCallback(items[newPos])
                     }
                 }
+
+                binding.qsTileCard.setBackgroundColor(Color.TRANSPARENT)
             }
 
             fun onBind(key: String) {
@@ -129,7 +132,8 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                 }
                 binding.label.text = info.getLabel(itemView.context)
                 binding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
-                binding.qsTileComponent.apply {
+                binding.qsTileType.apply {
+                    maxLines = Int.MAX_VALUE
                     if (info.type == QSTileInfo.Type.CUSTOM) {
                         isVisible = true
                         text = info.getNameAndComponentForCustom().flattenToShortString()
