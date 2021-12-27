@@ -225,6 +225,7 @@
     <string name="add_qs_tile">添加快速设置磁贴</string>
     <string name="intent">意图</string>
     <string name="view_online">在线查看</string>
+    <string name="tile_custom">Custom</string>
     <string name="status_bar_icons">状态栏图标</string>
     <string name="network_states">网络状态</string>
     <string name="volume_visibility">音量可见性</string>
