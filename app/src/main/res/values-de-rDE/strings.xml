@@ -225,6 +225,7 @@
     <string name="add_qs_tile">Add QS Tile</string>
     <string name="intent">Absicht</string>
     <string name="view_online">View Online</string>
+    <string name="tile_custom">Custom</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
