@@ -225,6 +225,7 @@
     <string name="add_qs_tile">Add QS Tile</string>
     <string name="intent">Ý định</string>
     <string name="view_online">Xem online</string>
+    <string name="tile_custom">Custom</string>
     <string name="status_bar_icons">Biểu tượng thanh trạng thái</string>
     <string name="network_states">Trạng thái Mạng</string>
     <string name="volume_visibility">Hiển thị Âm lượng</string>
