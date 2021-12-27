@@ -73,7 +73,7 @@ enum class SettingsType(val value: Int) {
         }
 
         fun fromValue(value: Int): SettingsType {
-            return when(value) {
+            return when (value) {
                 0 -> GLOBAL
                 1 -> SECURE
                 2 -> SYSTEM
@@ -232,7 +232,8 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
     fun onFail(e: Exception): Boolean {
         return when {
             Shell.rootAccess() -> {
-                Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName").exec()
+                Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
+                    .exec()
                 true
             }
             isAddOnInstalled() -> {
@@ -489,7 +490,13 @@ fun PreferenceGroupAdapter.updatePreferences() {
 fun Context.buildNonResettablePreferences(): Set<String> {
     val names = HashSet<String>()
     try {
-        val cursor = contentResolver.query(Uri.parse("content://settings/system"), arrayOf("name", "package"), null, null, null)
+        val cursor = contentResolver.query(
+            Uri.parse("content://settings/system"),
+            arrayOf("name", "package"),
+            null,
+            null,
+            null
+        )
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 val pkg = cursor.getString(1)
@@ -499,7 +506,8 @@ fun Context.buildNonResettablePreferences(): Set<String> {
             }
             cursor.close()
         }
-    } catch (e: IllegalArgumentException) {}
+    } catch (e: IllegalArgumentException) {
+    }
     names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key })
     return names
 }
@@ -529,26 +537,31 @@ fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
         val matcher = parenPattern.matcher(it)
         matcher.find()
         try {
-            slots.add(matcher.group()
-                .replace("(", "")
-                .replace(")", "")
-                .replace(Regex("([0-9])+:"), "")
+            slots.add(
+                matcher.group()
+                    .replace("(", "")
+                    .replace(")", "")
+                    .replace(Regex("([0-9])+:"), "")
             )
-        } catch (e: IllegalStateException) {}
+        } catch (e: IllegalStateException) {
+        }
     }
 
     return if (slots.isEmpty() && !alternate) parseAutoIconBlacklistSlots(true) else slots
 }
 
 fun View.scaleAnimatedVisible(visible: Boolean, listener: Animation.AnimationListener? = null) {
-    val anim = AnimationUtils.loadAnimation(context, if (visible) R.anim.scale_in else R.anim.scale_out)
+    val anim =
+        AnimationUtils.loadAnimation(context, if (visible) R.anim.scale_in else R.anim.scale_out)
     anim.setAnimationListener(object : Animation.AnimationListener {
         override fun onAnimationRepeat(animation: Animation?) {
             listener?.onAnimationRepeat(animation)
         }
+
         override fun onAnimationStart(animation: Animation?) {
             listener?.onAnimationStart(animation)
         }
+
         override fun onAnimationEnd(animation: Animation?) {
             if (!visible) {
                 isVisible = false
@@ -591,7 +604,10 @@ fun Context.writeSystemSettingsWithAddOnNoResult(key: String?, value: Any?) {
     intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
+    intent.setClassName(
+        "tk.zwander.systemuituner.systemsettings",
+        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
+    )
 
     try {
         startActivity(intent)
@@ -605,7 +621,10 @@ fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
     intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
     intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName("tk.zwander.systemuituner.systemsettings", "tk.zwander.systemuituner.systemsettings.WriteSystemActivity")
+    intent.setClassName(
+        "tk.zwander.systemuituner.systemsettings",
+        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
+    )
 
     try {
         startActivityForResult(intent, WriteSystemAddOnValues.WRITE_SYSTEM_REQUEST_CODE)
@@ -632,7 +651,8 @@ fun Context.launchUrl(url: String) {
         val browserIntent =
             Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
-    } catch (e: Exception) {}
+    } catch (e: Exception) {
+    }
 }
 
 fun Context.launchEmail(to: String, subject: String) {
@@ -642,7 +662,8 @@ fun Context.launchEmail(to: String, subject: String) {
         intent.data = Uri.parse("mailto:${Uri.encode(to)}?subject=${Uri.encode(subject)}")
 
         startActivity(intent)
-    } catch (e: Exception) {}
+    } catch (e: Exception) {
+    }
 }
 
 fun Resources.getStringByName(name: String, pkg: String): String {
@@ -661,7 +682,8 @@ fun String.toIntOrNullOnError(): Int? {
 inline fun <T : IInterface> T.callSafely(block: (T) -> Unit) {
     try {
         block(this)
-    } catch (e: Exception) {}
+    } catch (e: Exception) {
+    }
 }
 
 fun String.toFloatOrDefault(default: Float): Float {
@@ -674,7 +696,11 @@ fun String.toFloatOrDefault(default: Float): Float {
 
 fun Context.grantPermissionThroughShizuku(permission: String): Boolean {
     return try {
-        val ipm = IPackageManager.Stub.asInterface(ShizukuBinderWrapper(SystemServiceHelper.getSystemService("package")))
+        val ipm = IPackageManager.Stub.asInterface(
+            ShizukuBinderWrapper(
+                SystemServiceHelper.getSystemService("package")
+            )
+        )
 
         ipm.grantRuntimePermission(packageName, permission, UserHandle.USER_SYSTEM)
 
@@ -724,10 +750,10 @@ fun Drawable.setColorFilterCompat(color: Int, mode: PorterDuff.Mode) {
 fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
     return when (packageManager.getComponentEnabledSetting(componentName)) {
         PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED,
-                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER -> {
-                    false
-                }
+        PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED,
+        PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER -> {
+            false
+        }
         PackageManager.COMPONENT_ENABLED_STATE_DEFAULT -> {
             val info = packageManager.getPackageInfo(
                 packageName,
@@ -744,7 +770,12 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
             info.receivers?.let { components.addAll(it) }
             info.providers?.let { components.addAll(it) }
 
-            return components.filter { component -> ComponentName(component.packageName, component.name) == componentName }
+            return components.filter { component ->
+                ComponentName(
+                    component.packageName,
+                    component.name
+                ) == componentName
+            }
                 .apply {
                     if (this.isEmpty()) throw IllegalArgumentException("Component $componentName not found")
                 }[0].isEnabled
@@ -753,13 +784,14 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
     }
 }
 
-fun Fragment.chooseLayoutManager(view: View?,
-                                 grid: RecyclerView.LayoutManager,
-                                 linear: RecyclerView.LayoutManager,
-                                 extraFlags: Boolean = true,
-                                 spanCount: (Float) -> Int = {
-                                     floor(it / 400).toInt()
-                                 }
+fun Fragment.chooseLayoutManager(
+    view: View?,
+    grid: RecyclerView.LayoutManager,
+    linear: RecyclerView.LayoutManager,
+    extraFlags: Boolean = true,
+    spanCount: (Float) -> Int = {
+        floor(it / 400).toInt()
+    }
 ): RecyclerView.LayoutManager {
     val dpWidth = requireContext().asDp(view?.width ?: 0)
 
@@ -778,6 +810,12 @@ fun Fragment.chooseLayoutManager(view: View?,
     }
 }
 
-fun Fragment.updateLayoutManager(view: View?, recycler: RecyclerView?, grid: RecyclerView.LayoutManager, linear: RecyclerView.LayoutManager, extraFlags: Boolean = true) {
+fun Fragment.updateLayoutManager(
+    view: View?,
+    recycler: RecyclerView?,
+    grid: RecyclerView.LayoutManager,
+    linear: RecyclerView.LayoutManager,
+    extraFlags: Boolean = true
+) {
     recycler?.layoutManager = chooseLayoutManager(view, grid, linear, extraFlags)
 }
