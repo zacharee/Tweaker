@@ -231,6 +231,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="add_qs_tile">QS Kutucuğu ekle</string>
     <string name="intent">Maksat</string>
     <string name="view_online">Çevrimiçi görüntüleyin</string>
+    <string name="tile_custom">Custom</string>
     <string name="status_bar_icons">Durum Çubuğu Simgeleri</string>
     <string name="network_states">Ağ Durumları</string>
     <string name="volume_visibility">Ses görünürlüğü</string>
