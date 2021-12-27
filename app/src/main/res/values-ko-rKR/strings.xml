@@ -225,6 +225,7 @@
     <string name="add_qs_tile">빠른 설정 타일 추가</string>
     <string name="intent">의도</string>
     <string name="view_online">온라인 보기</string>
+    <string name="tile_custom">Custom</string>
     <string name="status_bar_icons">상태 표시줄 아이콘</string>
     <string name="network_states">네트워크 상태</string>
     <string name="volume_visibility">음량 표시</string>
