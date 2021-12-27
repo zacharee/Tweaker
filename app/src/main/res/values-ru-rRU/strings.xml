@@ -225,7 +225,7 @@
     <string name="add_qs_tile">Добавить плитку быстрых настроек</string>
     <string name="intent">Намерения</string>
     <string name="view_online">Смотреть онлайн</string>
-    <string name="tile_custom">Custom</string>
+    <string name="tile_custom">Пользовательские настройки</string>
     <string name="status_bar_icons">Значки строки состояния</string>
     <string name="network_states">Состояния сети</string>
     <string name="volume_visibility">Видимость громкости</string>
