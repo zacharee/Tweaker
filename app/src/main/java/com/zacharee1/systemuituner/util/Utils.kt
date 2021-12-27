@@ -37,8 +37,10 @@ import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceGroupAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import rikka.shizuku.*
@@ -46,6 +48,7 @@ import java.util.*
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
+import kotlin.math.floor
 import kotlin.math.roundToInt
 
 enum class SettingsType(val value: Int) {
@@ -750,9 +753,26 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
     }
 }
 
-fun Fragment.chooseLayoutManager(view: View?, grid: RecyclerView.LayoutManager, linear: RecyclerView.LayoutManager, extraFlags: Boolean = true): RecyclerView.LayoutManager {
-    return if (extraFlags && (requireContext().asDp(view?.width ?: 0)) >= 800) {
-        grid
+fun Fragment.chooseLayoutManager(view: View?,
+                                 grid: RecyclerView.LayoutManager,
+                                 linear: RecyclerView.LayoutManager,
+                                 extraFlags: Boolean = true,
+                                 spanCount: (Float) -> Int = {
+                                     floor(it / 400).toInt()
+                                 }
+): RecyclerView.LayoutManager {
+    val dpWidth = requireContext().asDp(view?.width ?: 0)
+
+    return if (extraFlags && dpWidth >= 800) {
+        grid.also {
+            if (it is GridLayoutManager) {
+                it.spanCount = spanCount(dpWidth)
+            }
+
+            if (it is StaggeredGridLayoutManager) {
+                it.spanCount = spanCount(dpWidth)
+            }
+        }
     } else {
         linear
     }

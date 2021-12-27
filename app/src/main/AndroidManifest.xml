@@ -79,6 +79,7 @@
             android:exported="false"
             />
         <activity android:name=".activities.QSEditorActivity"
+            android:label="@string/option_qs_editor"
             android:exported="false"
             android:theme="@style/AppTheme"
             />
