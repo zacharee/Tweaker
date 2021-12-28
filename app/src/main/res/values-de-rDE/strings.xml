@@ -45,7 +45,7 @@
     <string name="special_sub_icon_blacklist">Symbol-Sperrliste</string>
     <string name="special_sub_icon_blacklist_desc">Wählen Sie die Symbole aus, die in der Statusleiste ausgeblendet werden sollen. Beachten Sie, dass diese Funktion nicht auf allen Geräten oder mit allen Symbolen möglich ist. Benachrichtigungssymbole können mit dieser Funktion nicht ausgeblendet werden.</string>
     <string name="feature_lock_timeout">Benutzerdefiniertes Zeitfenster für die Gerätesperre festlegen</string>
-    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
+    <string name="feature_lock_timeout_desc">Unter den „Einstellungen für die sichere Sperre” können Sie eine Zeitspanne für die „automatische Sperre” festlegen. Diese Funktion legt fest, wie lange nach dem Übergang des Geräts in den Ruhezustand der Sperrbildschirm angezeigt werden soll. Mit dieser Option können Sie einen beliebigen Wert (in Millisekunden) festlegen. Wenn Sie einen ausreichend hohen Wert einstellen, wird der Sperrbildschirm im Grunde nie angezeigt (vorausgesetzt, Sie haben die Funktion \"Einschaltknopf sperrt Gerät sofort\" deaktiviert). Wenn Sie einen ausreichend hohen Wert einstellen, wird Ihr Sperrbildschirm im Grunde nie angezeigt (vorausgesetzt, Sie haben die Funktion \"Seitentaste sperrt Gerät sofort\" deaktiviert).</string>
     <string name="feature_battery_saver_trigger">Benutzerdefinierten Energiesparmodus festlegen (in Prozent) </string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Die Batteriesparfunktion von Google kann automatisch ausgelöst werden, wenn der Batteriestand bei 5 oder 15 Prozent liegt. Damit können Sie Ihren eigenen Auslöseprozentsatz festlegen.</string>
     <string name="feature_long_press_delay">Verzögerung für gedrückt halten festlegen</string>
@@ -71,7 +71,7 @@
     <string name="feature_heads_up_snooze_length">Zurückstell-Dauer der eingeblendeten Benachrichtigungen</string>
     <string name="feature_heads_up_snooze_length_desc">Millisekunden, nachdem eine eingeblendeten Benachrichtigung zurückgestellt wurde, bevor die App erneut unterbrechen kann. (Standard: 60 Sekunden).</string>
     <string name="feature_camera_gestures">Kameragesten</string>
-    <string name="feature_camera_gestures_desc">Wenn Sie diese Funktion aktivieren, kann Ihr Telefon die Kamera schnell starten, indem Sie doppelt die Einschalttaste drücken oder das Telefon zwischen Vorder- und Rückseite umdrehen.</string>
+    <string name="feature_camera_gestures_desc">Wenn Sie diese Funktion aktivieren, kann Ihr Telefon die Kamera schnell starten, indem Sie doppelt die Seitentaste drücken oder das Telefon zwischen Vorder- und Rückseite umdrehen.</string>
     <string name="feature_disable_safe_audio_warning">Warnung bei hoher Lautstärke deaktivieren</string>
     <string name="feature_disable_safe_audio_warning_desc">Die EU-Vorschriften schreiben vor, dass Smartphones eine Warnung ausgeben müssen, wenn eine bestimmte Lautstärke (85 dB) überschritten wird. Diese Warnung muss einmal nach jedem Neustart oder nach 20 Stunden ununterbrochener Musikwiedergabe angezeigt werden. Verwenden Sie diese Einstellung, um das Verhalten dieser Warnung zu ändern oder um sie ganz zu deaktivieren. Stellen Sie sicher, dass Sie diese Einstellung in den dauerhaften Optionen aktivieren, damit sie wirksam wird.</string>
     <string name="feature_custom_ui_sounds">Benutzerdefinierte Sounds der Benutzeroberfläche festlegen</string>
@@ -104,7 +104,7 @@
     <string name="option_transition_animation_scale">Transition Animation Scale</string>
     <string name="option_storage_threshold_percentage">Speicherschwellenwert (in %)</string>
     <string name="option_storage_threshold_max_bytes">Speicherschwellenwert (in max. Bytes)</string>
-    <string name="option_camera_gesture_double_power">Doppeltes Drücken der Power-Taste</string>
+    <string name="option_camera_gesture_double_power">Doppeltes Drücken der Seitentaste</string>
     <string name="option_camera_gesture">Gesten</string>
     <string name="option_camera_gesture_twist">Telefon hin und her umdrehen</string>
     <string name="option_airplane_mode_radio_cell">Mobilfunkzelle</string>
@@ -155,8 +155,8 @@
     <string name="option_touchwiz_navbar_color_desc">Bei Samsung Experience und One UI ist es möglich, die Farbe der Navigationsleiste auf eine eigene Farbe festzulegen. Verwenden Sie dazu diese Option.</string>
     <string name="option_custom_notification_snooze_times">Benutzerdefinierte Zurückstellungszeiten für Benachrichtigungen</string>
     <string name="option_custom_notification_snooze_times_desc">Mit Android Oreo 8.1 wurde eine Option zum Zurückstellen von Benachrichtigungen eingeführt. Sie können diese Einstellung verwenden, um benutzerdefinierte Werte für die Zurückstellenzeiten festzulegen.</string>
-    <string name="option_night_mode">Night Mode</string>
-    <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="option_night_mode">Nachtmodus</string>
+    <string name="option_night_mode_desc">Mit Android Nougat wurde eine native Option eingeführt, mit der das Display nachts gelb eingefärbt werden kann, treffend Nachtmodus genannt. Sie wurde in Nougat 7.1 weiter verfeinert und in Night Display umbenannt. Sie können sie hier aktivieren und verschiedene Optionen einstellen. Warnhinweis: Bei einigen Geräten führt die Aktivierung dieser Funktion dazu, dass der Bildschirm schwarz wird!</string>
     <string name="option_touchwiz_qs_row_count">Anzahl Zeilen der Schnelleinstellungskacheln</string>
     <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
     <string name="option_touchwiz_qs_column_count">Anzahl Spalten der Schnelleinstellungskacheln</string>
@@ -197,7 +197,7 @@
     <string name="help">Hilfe</string>
     <string name="no_root_title">Kein Root-Zugriff</string>
     <string name="no_root_msg">Root wurde nicht erkannt. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff erhält. Andernfalls drücken Sie die Schaltfläche Hilfe für ADB-Anweisungen (Android Debug Bridge).</string>
-    <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
+    <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
     <string name="value">Wert</string>
@@ -265,7 +265,7 @@
     <string name="intro_terms_desc">Bitte lesen Sie diese Nutzungsbedingungen. Ich verspreche, dass sie sich lohnen. Für die meisten von Ihnen erspart dies das Schreiben einer E-Mail.</string>
     <string name="intro_disclaimer">Haftungsausschluss</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner kann verborgene Einstellungen ändern. Da sie jedoch ausgeblendet sind, besteht die Möglichkeit, dass Ihr spezielles Gerät auf bestimmte Änderungen nicht reagiert. Auf stark angepassten Versionen von Android, wie EMUI, MIUI und ColorOS, gibt es eine Menge von Funktionen, die einfach nicht genutzt werden können. Bitte bedenken Sie, dass SystemUI Tuner daran einfach nichts ändern kann.</string>
-    <string name="intro_grant_wss">Schreibrechte für Sicherheitseinstellungen gewähren</string>
+    <string name="intro_grant_wss">Schreibrechte für Sicherheitseinstellungen erlauben</string>
     <string name="intro_grant_wss_desc">SystemUI Tuner benötigt eine spezielle Berechtigung, um funktionieren zu können. Um sie zu erteilen, müssen Sie entweder ADB (Android-Debug-Bridge) verwenden oder das Gerät muss gerootet sein. Wenn Sie unten auf „Erlauben” tippen, wird versucht, die Berechtigung mit root zu erteilen. Andernfalls klicken Sie auf die Schaltfläche „Hilfe” und wir helfen Ihnen bei der Einrichtung von ADB. Aber keine Sorge, ADB ist absolut sicher in der Anwendung. Die Gerätegarantie erlischt nicht, Samsung Knox wird nicht ausgelöst, Ihr Telefon wird nicht gerootet und der Bootloader wird nicht entsperrt.</string>
     <string name="intro_grant_extra">Zusätzliche Berechtigungen erlauben</string>
     <string name="intro_grant_extra_desc">Für bestimmte Funktionen benötigt SystemUI Tuner einige zusätzliche ADB-Berechtigungen, um ordnungsgemäß zu funktionieren. Sie müssen diese jetzt nicht gewähren, aber Sie werden dazu aufgefordert, wenn sie benötigt werden.</string>
