@@ -233,7 +233,7 @@
     <string name="location_visibility">Sichtbarkeit des Standorts</string>
     <string name="alarm_visibility">Sichtbarkeit der Alarmierung</string>
     <string name="sync_visibility">Sichtbarkeit der Synchronisation</string>
-    <string name="tty_visibility">Sichtbarkeit des TTY-Modus (für Sprach- und Hörgeschädigte)</string>
+    <string name="tty_visibility">Sichtbarkeit von TTY (Modus für Sprach- und Hörgeschädigte)</string>
     <string name="eri_visibility">Sichtbarkeit des ERI (Erweiterter Roaming-Indikator)</string>
     <string name="secure_visibility">Sichtbarkeit der Sicherheit</string>
     <string name="mute_visibility">Sichtbarkeit der Stummschaltung</string>
