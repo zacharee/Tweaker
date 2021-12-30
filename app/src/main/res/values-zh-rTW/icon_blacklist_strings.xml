@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_icon_blacklist_general">General</string>
+    <string name="category_icon_blacklist_general">一般</string>
     <string name="category_icon_blacklist_samsung">Samsung</string>
     <string name="category_icon_blacklist_huawei">Huawei</string>
     <string name="category_icon_blacklist_xiaomi">Xiaomi</string>
     <string name="category_icon_blacklist_htc">HTC</string>
     <string name="category_icon_blacklist_sony">Sony</string>
     <string name="category_icon_blacklist_lg">LG</string>
-    <string name="category_icon_blacklist_auto">Auto</string>
-    <string name="category_icon_blacklist_custom">Custom</string>
+    <string name="category_icon_blacklist_auto">自動</string>
+    <string name="category_icon_blacklist_custom">自訂</string>
     <string name="category_icon_blacklist_auto_desc">Tap to expand/load</string>
     <string name="icon_blacklist_add_custom">Add Custom Item</string>
     <string name="icon_blacklist_add_custom_desc">If you can\'t find the icon you want to hide, and you know its key, you can add it here.</string>
@@ -21,7 +21,7 @@
     <string name="icon_blacklist_volte">VoLTE</string>
     <string name="icon_blacklist_vowifi">VoWiFi</string>
     <string name="icon_blacklist_dmb">DMB</string>
-    <string name="icon_blacklist_wifi_calling">WiFi Calling</string>
+    <string name="icon_blacklist_wifi_calling">WiFi 通話</string>
     <string name="icon_blacklist_cdma_eri">CDMA ERI</string>
     <string name="icon_blacklist_data_connection">Data Connection</string>
     <string name="icon_blacklist_phone_evdo_signal">Phone EvDO Signal</string>
