@@ -22,7 +22,7 @@
     <string name="more">更多</string>
     <string name="tweaks">調整</string>
     <string name="failure">失敗</string>
-    <string name="help_translate">Help Translate</string>
+    <string name="help_translate">協助翻譯</string>
     <string name="sub_cellular">行動數據</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">其他設定</string>
@@ -62,7 +62,7 @@
     <string name="feature_insufficient_storage_warning_desc">當你的裝置內部剩餘空間剩下特定空間時，Android系統會跳出裝置剩餘空間不足的提示。可能會影響你安裝新的應用程式或是更新現有應用程式。你能夠手動調整剩餘量以防止警告跳出</string>
     <string name="feature_keep_screen_on">在充電時防止裝置進入休眠模式</string>
     <string name="feature_keep_screen_on_desc">在Android系統的開發者設定中，你能夠選擇充電時是否讓手機進入休眠模式，但這功能預設在所有形式電源插入時開啟。你能夠選擇何種形式的電源插入時保持你的裝置螢幕開啟。</string>
-    <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
+    <string name="feature_custom_animation_scales">自訂動畫縮放</string>
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
     <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
@@ -112,9 +112,9 @@
     <string name="option_airplane_mode_radio_wifi">Wi-Fi</string>
     <string name="option_airplane_mode_radio_nfc">NFC</string>
     <string name="option_airplane_mode_radio_wimax">WiMax</string>
-    <string name="option_app_install_location_auto">Auto</string>
+    <string name="option_app_install_location_auto">自動</string>
     <string name="option_app_install_location_internal">內部儲存空間</string>
-    <string name="option_app_install_location_sd">SD Card</string>
+    <string name="option_app_install_location_sd">SD 記憶卡</string>
     <string name="option_user_rotation_0">Portrait</string>
     <string name="option_user_rotation_90">Landscape CCW</string>
     <string name="option_user_rotation_180">Portrait Inverse</string>
