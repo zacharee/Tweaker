@@ -258,8 +258,8 @@
     <string name="backup_restore">Backup/Restore</string>
     <string name="back_up">Back Up</string>
     <string name="restore">Restore</string>
-    <string name="set_color">Set Color</string>
-    <string name="intro_welcome">Welcome!</string>
+    <string name="set_color">設定色彩</string>
+    <string name="intro_welcome">歡迎！</string>
     <string name="intro_welcome_desc">Your Android device probably has a lot of settings to change, but did you know there\'s a lot of settings that are hidden? This app helps you change those hidden settings! You don\'t need root access, but you do have to follow a few steps to set this app up.</string>
     <string name="intro_terms">Terms of Use</string>
     <string name="intro_terms_desc">Please read these terms. I promise they\'re worthwhile. For most of you, they\'ll save you an email.</string>
@@ -294,9 +294,9 @@
     <string name="google_play">Google Play</string>
     <string name="social">Social</string>
     <string name="twitter">Twitter</string>
-    <string name="email">Email</string>
-    <string name="website">Website</string>
-    <string name="more_apps">More Apps</string>
+    <string name="email">電子郵件</string>
+    <string name="website">網站</string>
+    <string name="more_apps">更多應用程式</string>
     <string name="telegram">Telegram</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
@@ -306,8 +306,8 @@
     <string name="remove_item">Remove This Item</string>
     <string name="remove_item_desc">Are you sure you want to remove this item?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %s, Key: %s, Value: %s</string>
-    <string name="tile_battery">Battery</string>
-    <string name="tile_clock">Clock</string>
+    <string name="tile_battery">電量</string>
+    <string name="tile_clock">時鐘</string>
     <string name="tile_demo">Demo Mode</string>
     <string name="tile_heads_up">Heads Up Notifications</string>
     <string name="tile_night_mode">Night Mode</string>
