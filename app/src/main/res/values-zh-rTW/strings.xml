@@ -226,7 +226,7 @@
     <string name="intent">調用請求</string>
     <string name="view_online">View Online</string>
     <string name="tile_custom">Custom</string>
-    <string name="status_bar_icons">Status Bar Icons</string>
+    <string name="status_bar_icons">狀態列圖示</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
     <string name="bluetooth_visibility">Bluetooth Visibility</string>
