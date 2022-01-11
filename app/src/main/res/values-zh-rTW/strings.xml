@@ -65,7 +65,7 @@
     <string name="feature_custom_animation_scales">自訂動畫縮放</string>
     <string name="feature_custom_animation_scales_desc">在 Android 的開發人員設定中，你可以設定動畫縮放來控制動畫的存續時長。若可用的選項對您來說太快或太慢，您可以在這裡設定自訂值。</string>
     <string name="feature_custom_rotation">鎖定螢幕方向到自訂值</string>
-    <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
+    <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为縱向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常工作。</string>
     <string name="feature_immersive_mode">沈浸模式（Immersive）</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
