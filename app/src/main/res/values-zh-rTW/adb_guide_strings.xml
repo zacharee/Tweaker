@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
-    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
-    <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
-    <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
+    <string name="adb_intro_title">ADB 指南</string>
+    <string name="adb_intro_desc">不知道如何使用 ADB 嗎？沒問題，只需要遵循該指南，您將完成設定。 (請注意，您需要一台電腦以完成該過程)</string>
+    <string name="adb_choose_computer_os">選擇你的作業系統。</string>
+    <string name="adb_choose_computer_os_desc">您電腦的作業系統是？</string>
+    <string name="adb_android_guide">初始設定 (在您的手機上)</string>
+    <string name="adb_final_title">全部完成</string>
+    <string name="adb_final_desc">就這樣！如果一切順利，現在應該允許一些權限。</string>
+    <string name="adb_install_android_1">開啟「設定」應用程式，向下捲動並輕觸「關於手機」。</string>
+    <string name="adb_install_android_2">根據您的裝置，您可能會看到一個名為「軟體資訊」的選單，若這樣，輕觸它。</string>
     <string name="adb_install_android_3">Now, find the option labeled \"Build Number\". On some devices, this may simply be called \"Version\".</string>
     <string name="adb_install_android_4">Tap that option 7 times to enable Developer Mode. You may need to enter your passcode to enable it.</string>
     <string name="adb_install_android_5">Now, go back to the main Settings page.</string>
