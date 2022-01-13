@@ -6,7 +6,7 @@
     <string name="adb_choose_computer_os_desc">您電腦的作業系統是？</string>
     <string name="adb_android_guide">初始設定 (在您的手機上)</string>
     <string name="adb_final_title">全部完成</string>
-    <string name="adb_final_desc">就這樣！如果一切順利，現在應該允許一些權限。</string>
+    <string name="adb_final_desc">就這樣！如果一切順利，現在應該授予一些權限。</string>
     <string name="adb_install_android_1">開啟「設定」應用程式，向下捲動並輕觸「關於手機」。</string>
     <string name="adb_install_android_2">根據您的裝置，您可能會看到一個名為「軟體資訊」的選單，若這樣，輕觸它。</string>
     <string name="adb_install_android_3">現在，找到標籤為「版本號碼」的選項。在某些裝置上，可能名為「版本」。</string>
@@ -21,7 +21,7 @@
     <string name="adb_install_android_12">一旦完成這些，就可以繼續在您的電腦上進行了。</string>
     <string name="adb_install_local_1"><![CDATA[從 [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.priveged.api) 下載並安裝 Shizuku 應用程式。]]></string>
     <string name="adb_install_local_2">開啟 Shizuku 應用程式並遵循「透過無線偵錯啟動」下的說明。</string>
-    <string name="adb_install_local_3">關閉此螢幕並輕觸「允許」按鈕。</string>
+    <string name="adb_install_local_3">關閉此螢幕並輕觸「授予」按鈕。</string>
     <string name="adb_install_adb_windows_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-windows.zip。</string>
     <string name="adb_install_adb_windows_2">將壓縮檔解壓縮到方便的位置，如 C:\\adb。</string>
     <string name="adb_install_adb_windows_3">使用檔案總管瀏覽已解壓縮的壓縮檔。你會看到一些檔案，包括一個叫做「adb」的檔案。</string>
@@ -42,7 +42,7 @@
     <string name="adb_install_adb_linux_other_4">現在，使用以下指令瀏覽已解壓縮的檔案：「cd /path/to/files/」。例如，如果您的使用者名稱為 Zachary 並且已經將壓縮檔解壓縮到您的桌面，指令將是「cd /home/Zachary/platform-tools/」，其中「platform-tools」是名為「adb」檔案的資料夾。</string>
     <string name="adb_install_adb_general_end_1">指令提示或終端機窗口應打開。在其中數入以下指令，並在每個指令之後敲擊 Enter/return。如果您的手機上出現了關於 USB 偵錯的彈出式視窗，請允取。</string>
     <string name="adb_install_adb_general_end_2">如果一切順利的話，應該不會有指令的輸出。如果有，請務必捲動到您輸入的指令以查看錯誤。</string>
-    <string name="adb_install_adb_general_end_3">現在應該允許權限。</string>
+    <string name="adb_install_adb_general_end_3">現在應該授予權限。</string>
     <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
     <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
     <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
