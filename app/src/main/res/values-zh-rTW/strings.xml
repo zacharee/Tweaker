@@ -147,7 +147,7 @@
     <string name="option_advanced_read_setting_desc">如果你知道某個設定的金鑰，你可以用此查看其目前值</string>
     <string name="option_advanced_write_setting">寫入自訂設定</string>
     <string name="option_advanced_write_setting_desc">如果你有一個特殊的設定想要改變，但又不屬於 SystemUI Tuner 的一部分，你可以在此設定。</string>
-    <string name="option_qqs_tiles">快速設定標頭計數</string>
+    <string name="option_qqs_tiles">快速設定標頭數</string>
     <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕。使用此選項可調整一行內的按鈕數量。若您使用的是 One UI，您則需要安裝 OneUI Tuner。</string>
     <string name="option_oneui_clock_position">時鐘位置</string>
     <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。或者，您可以使用 OneUI Tuner。要使此選項持續存在，啟用圖示黑名單。</string>
@@ -157,9 +157,9 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 引入了通知延後的選項。您可以使用此設定來自訂延後時間值。</string>
     <string name="option_night_mode">夜間模式</string>
     <string name="option_night_mode_desc">Android Nougat 引入了一個原生選項，在夜間顯示為黃色，稱為「夜間模式」。它在 Nougat 7.1 中得到進一步完善，並更名為「夜燈」。您可以在此處啟用它並調整為不同選項。警告：在某些 Android 裝置上，激活它將使螢幕變黑。</string>
-    <string name="option_touchwiz_qs_row_count">快速設定列計數</string>
+    <string name="option_touchwiz_qs_row_count">快速設定列數</string>
     <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定布局。用它來更改列數。請啟用此選項為持續選項。</string>
-    <string name="option_touchwiz_qs_column_count">快速設定行計數</string>
+    <string name="option_touchwiz_qs_column_count">快速設定行數</string>
     <string name="option_touchwiz_qs_column_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定布局。用它來更改行數。請啟用此選項為持續選項。</string>
     <string name="option_advanced_force_enable_all">啟用所有停用/隱藏選項</string>
     <string name="option_advanced_force_enable_all_desc">SystemUI Tuner 中的某些選項被隱藏或停用，這取決於您的裝置和 Android 版本。啟用此選項將強制顯示和啟用這些選項。警告：這些選項被停用或隱藏是有原因的。它們可能不工作，或者會破壞您的裝置。請謹慎行事！</string>
