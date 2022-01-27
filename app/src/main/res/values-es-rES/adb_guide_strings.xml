@@ -23,7 +23,7 @@
     <string name="adb_install_local_2">Abre la aplicación Shizuku y sigue las instrucciones de \"Iniciar a través de la depuración inalámbrica\".</string>
     <string name="adb_install_local_3">Cierre esta pantalla y pulse el botón \"GRANT\".</string>
     <string name="adb_install_adb_windows_1">Descargue el ZIP de ADB desde aquí: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as C:\\adb.</string>
+    <string name="adb_install_adb_windows_2">Extraiga el ZIP a una ubicación conveniente, como C:\\adb.</string>
     <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
     <string name="adb_install_adb_windows_4">Click inside the search bar and replace what\'s there with \"cmd\" (without quotes). Then hit Enter.</string>
     <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
