@@ -25,7 +25,7 @@
     <string name="help_translate">協助翻譯</string>
     <string name="sub_cellular">行動數據</string>
     <string name="sub_wifi">Wi-Fi</string>
-    <string name="sub_miscellaneous">其他設定</string>
+    <string name="sub_miscellaneous">雜項</string>
     <string name="sub_htc">HTC</string>
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
@@ -53,7 +53,7 @@
     <string name="feature_font_scale">設定字型大小</string>
     <string name="feature_font_scale_desc">Android 系統允許你設定裝置上文字的顯示大小。這些設定通常只有「小」、「預設」、「大」、「超大」和「特大」，而你能夠自行調整確切的大小。</string>
     <string name="feature_freeform">啟用自由形式視窗</string>
-    <string name="feature_freeform_desc">啟用與停用自由形式視窗。設定後需要重新開機。僅適用於 Android 7 以及更高版本</string>
+    <string name="feature_freeform_desc">啟用與停用自由形式視窗。設定後需要重新開機。僅適用於 Android 7 以及更高版本。</string>
     <string name="feature_app_install_location">設定預設應用程式安裝位置</string>
     <string name="feature_app_install_location_desc">預設應用程式安裝位置。選擇應用程式預設要安裝在哪裡。正常來說，應用程式會依據 AndroidManifest 的設定值來選擇安裝位置，你能夠選擇將應用程式安裝在外接儲存裝置中。</string>
     <string name="feature_heads_up_notifications">彈出式通知</string>
