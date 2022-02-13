@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">Руководство по ADB</string>
+    <string name="adb_intro_title">ADB Guide</string>
     <string name="adb_intro_desc">Не знаете, как использовать ADB? Без проблем, просто следуйте этому руководству (обратите внимание, что вам необходим компьютер для этого).</string>
     <string name="adb_choose_computer_os">Выберите вашу операционную систему.</string>
     <string name="adb_choose_computer_os_desc">Какая операционная система на вашем компьютере?</string>
