@@ -40,7 +40,7 @@
     <string name="adb_install_adb_linux_other_2">將壓縮檔解壓縮到方便的位置，如桌面。</string>
     <string name="adb_install_adb_linux_other_3">開啟終端機。</string>
     <string name="adb_install_adb_linux_other_4">現在，使用以下命令瀏覽已解壓縮的檔案：「cd /path/to/files/」。例如，如果您的使用者名稱為 Zachary 並且已經將壓縮檔解壓縮到您的桌面，命令將是「cd /home/Zachary/platform-tools/」，其中「platform-tools」是名為「adb」檔案的資料夾。</string>
-    <string name="adb_install_adb_general_end_1">命令提示或終端機視窗應打開。在其中數入以下命令，並在每個命令之後敲擊 Enter/return。如果您的手機上出現了關於 USB 偵錯的彈出式視窗，請允取。</string>
+    <string name="adb_install_adb_general_end_1">開啟命令提示字元或終端機視窗。在其中輸入以下命令，並在每個命令之後敲擊 Enter/Return。如果您的手機上出現了關於 USB 偵錯的彈出式視窗，請允許。</string>
     <string name="adb_install_adb_general_end_2">如果一切順利的話，應該不會有命令的輸出。如果有，請務必捲動到您輸入的命令以查看錯誤。</string>
     <string name="adb_install_adb_general_end_3">現在應該授予權限。</string>
     <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
