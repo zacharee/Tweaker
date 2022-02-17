@@ -20,7 +20,7 @@
     <string name="screen_persistent">持續選項</string>
     <string name="category_interaction">反應</string>
     <string name="more">更多</string>
-    <string name="tweaks">微調</string>
+    <string name="tweaks">調校</string>
     <string name="failure">失敗</string>
     <string name="help_translate">協助翻譯</string>
     <string name="sub_cellular">行動數據</string>
@@ -40,7 +40,7 @@
     <string name="remove_from_blacklist">從圖示黑名單中移除</string>
     <string name="sub_demo">示範模式</string>
     <string name="sub_demo_desc">示範模式允許你將裝置的狀態列顯示成不同模式。你可以用來顯示或隱藏特定圖示、訊號強度以及其他功能。</string>
-    <string name="special_sub_airplane_mode">飛航模式微調</string>
+    <string name="special_sub_airplane_mode">飛航模式調校</string>
     <string name="special_sub_airplane_mode_desc">飛航模式開啟時會關閉裝置的所有連線。你可以選擇取消關閉哪些連線 (例如在飛航模式開啟的時候保留 Wifi 的開啟狀態)。你也可以選擇哪些連線在飛航模式開啟的時候能夠手動開啟。</string>
     <string name="special_sub_icon_blacklist">圖示黑名單</string>
     <string name="special_sub_icon_blacklist_desc">選擇哪些圖示在狀態列被隱藏起來。這個功能可能在某些裝置或圖示上無法使用，通知圖示無法透過這個功能隱藏。</string>
