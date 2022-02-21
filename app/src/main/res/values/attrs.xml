@@ -20,6 +20,7 @@
     <attr name="visibility_verifier" />
     <attr name="enabled_verifier" />
     <attr name="activity_class" />
+    <attr name="dialog_class" />
     <attr name="icon_color" format="color|reference" />
 
     <declare-styleable name="DangerousPreference">
@@ -86,5 +87,13 @@
 
     <declare-styleable name="ManageQSPreference">
         <attr name="manage_component" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ShowDialogPreference">
+        <attr name="dialog_class" />
+    </declare-styleable>
+
+    <declare-styleable name="LinkPreference">
+        <attr name="link" format="string" />
     </declare-styleable>
 </resources>

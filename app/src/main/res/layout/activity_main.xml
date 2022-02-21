@@ -8,12 +8,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
-        android:id="@+id/slider"
-        android:layout_width="wrap_content"
+<!--    <com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView-->
+<!--        android:id="@+id/slider"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        />
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="172dp">
+
+            <include layout="@layout/drawer_header"
+                />
+
+        </FrameLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_home_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.zacharee1.systemuituner.fragments.HomeFragment"
+            />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="400dp"

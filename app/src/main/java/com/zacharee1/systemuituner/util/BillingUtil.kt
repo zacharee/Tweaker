@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.util
 
+import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.widget.Button
@@ -66,7 +67,7 @@ class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScop
 
         val list = result.skuDetailsList
         if (result.billingResult.responseCode == OK && list != null && list.isNotEmpty()) {
-            client.launchBillingFlow(dialog.activity, BillingFlowParams.newBuilder().setSkuDetails(list[0]).build())
+            client.launchBillingFlow(dialog.context as Activity, BillingFlowParams.newBuilder().setSkuDetails(list[0]).build())
         }
     }
 

@@ -21,4 +21,6 @@
     <color name="pref_color_5">#d84315</color>
     <color name="pref_color_6">#fdd835</color>
     <color name="pref_color_7">#388e3c</color>
+
+    <color name="selected_item">#33ffffff</color>
 </resources>

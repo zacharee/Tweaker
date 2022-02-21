@@ -5,8 +5,10 @@ import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
@@ -16,9 +18,11 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +39,7 @@ import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSwitchPreference
+import com.zacharee1.systemuituner.prefs.nav.NavigationPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureEditTextPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureListPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
@@ -214,24 +219,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                             item.isPressed = false
                         }
                         anim.start()
-
-//                        item.animate()
-//                            .scaleY(1.2f)
-//                            .scaleX(1.2f)
-//                            .setDuration(time)
-//                            .setInterpolator(AnticipateOvershootInterpolator())
-//                            .withEndAction {
-//                                item.animate()
-//                                    .scaleX(1f)
-//                                    .scaleY(1f)
-//                                    .setDuration(time)
-//                                    .setInterpolator(OvershootInterpolator())
-//                                    .withEndAction {
-//                                        item.isPressed = false
-//                                    }
-//                                    .start()
-//                            }
-//                            .start()
                     }
                 }
             }
@@ -260,6 +247,10 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
+    open fun onBindViewHolder(holder: PreferenceViewHolder, position: Int, preference: Preference?) {
+
+    }
+
     @SuppressLint("RestrictedApi")
     override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
@@ -281,6 +272,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             @SuppressLint("RestrictedApi", "ClickableViewAccessibility")
             override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
+
+                val preference = getItem(position)
 
                 (holder.itemView as ViewGroup).apply {
                     val summaryView = findViewById<TextView>(android.R.id.summary)
@@ -312,6 +305,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                         }
                     }
                 }
+
+                this@BasePrefFragment.onBindViewHolder(holder, position, preference)
             }
 
             @SuppressLint("RestrictedApi", "PrivateResource")

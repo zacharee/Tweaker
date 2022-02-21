@@ -17,9 +17,6 @@
         <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
 
         <item name="windowActionModeOverlay">true</item>
-
-        <item name="materialDrawerStyle">@style/Widget.MaterialDrawerStyle</item>
-        <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">

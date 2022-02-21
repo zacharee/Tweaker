@@ -69,8 +69,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
 
     implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.2'
-    implementation 'com.mikepenz:materialdrawer:8.4.5'
-    implementation 'com.mikepenz:materialdrawer-nav:8.4.5'
     implementation 'com.github.zacharee:material:18bda1a64b'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'com.github.reddit:IndicatorFastScroll:1.4.0'

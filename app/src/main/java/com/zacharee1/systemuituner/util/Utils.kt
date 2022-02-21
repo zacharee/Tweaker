@@ -658,12 +658,15 @@ fun Context.launchUrl(url: String) {
 fun Context.launchEmail(to: String, subject: String) {
     try {
         val intent = Intent(Intent.ACTION_SENDTO)
-        intent.type = "text/plain"
-        intent.data = Uri.parse("mailto:${Uri.encode(to)}?subject=${Uri.encode(subject)}")
+        intent.setDataAndType(Uri.parse(createEmailString(to, subject)), "text/plain")
 
         startActivity(intent)
     } catch (e: Exception) {
     }
+}
+
+fun createEmailString(to: String, subject: String): String {
+    return "mailto:${Uri.encode(to)}?subject=${Uri.encode(subject)}"
 }
 
 fun Resources.getStringByName(name: String, pkg: String): String {
