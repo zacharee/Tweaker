@@ -144,17 +144,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             searchView?.isIconified == false -> {
                 searchView?.isIconified = true
             }
-            navController.currentDestination?.id != R.id.homeFragment -> {
-                navController.navigate(
-                    R.id.homeFragment, null,
-                    NavOptions.Builder()
-                        .setLaunchSingleTop(true)
-                        .setEnterAnim(android.R.animator.fade_in)
-                        .setExitAnim(android.R.animator.fade_out)
-                        .setPopEnterAnim(android.R.animator.fade_in)
-                        .setPopExitAnim(android.R.animator.fade_out)
-                        .build()
-                )
+            mainBinding.root.isOpen -> {
+                mainBinding.root.closePane()
             }
             else -> {
                 finish()
