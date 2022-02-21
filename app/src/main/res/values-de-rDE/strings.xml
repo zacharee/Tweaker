@@ -82,7 +82,7 @@
     <string name="feature_shortcode_warning_desc">Beim Versenden von SMS an bestimmte Kurzwahlnummern warnt Sie das System, dass möglicherweise eine Gebühr anfällt. Diese Warnung kann hier deaktiviert werden.</string>
     <string name="feature_sms_limit">Benutzerdefinierte SMS-Grenzwerte</string>
     <string name="feature_sms_limit_desc">Standardmäßig beschränkt Android den Versand von 30 SMS alle 30 Minuten, bevor Sie mit einer Popup-Benachrichtigung belästigt werden. Mit diesen beiden Werten können Sie so viele SMS versenden, wie Sie möchten, ohne erneut daran erinnert zu werden.</string>
-    <string name="feature_lockscreen_shortcuts">Lockscreen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts">Sperrbildschirm-Tastaturkürzel</string>
     <string name="feature_lockscreen_shortcuts_desc">Beginnend mit Android Oreo Developer Preview 3 hat Google die Möglichkeit entfernt, die Sperrbildschirm-Verknüpfungen anzupassen. Der Einstellungswert kann jedoch weiterhin manuell festgelegt werden.</string>
     <string name="feature_enable_adb">ADB (Android-Debug-Bridge) deaktivieren</string>
     <string name="feature_enable_adb_desc">Bestimmte Geräte deaktivieren die ADB-Funktion (Android-Debug-Bridge) nach einer gewissen Zeit der Inaktivität automatisch. Aktivieren Sie diese Option und legen Sie diese als dauerhafte Option fest, um ADB zwangsweise zu aktivieren.</string>
@@ -119,10 +119,10 @@
     <string name="option_user_rotation_90">Querformat (ggn. den Uhrzeigersinn)</string>
     <string name="option_user_rotation_180">Umgekehrtes Hochformat</string>
     <string name="option_user_rotation_270">Querformat (im Uhrzeigersinn)</string>
-    <string name="option_sms_limit_count">Max Send Count</string>
+    <string name="option_sms_limit_count">Maximale Sendeanzahl</string>
     <string name="option_sms_limit_interval">Zeitintervall</string>
-    <string name="option_lockscreen_shortcut_left">Left Shortcut</string>
-    <string name="option_lockscreen_shortcut_right">Right Shortcut</string>
+    <string name="option_lockscreen_shortcut_left">Linkes Tastaturkürzel</string>
+    <string name="option_lockscreen_shortcut_right">Rechtes Tastaturkürzel</string>
     <string name="option_ui_sound_car_dock">In Fahrzeughalterung einsetzen</string>
     <string name="option_ui_sound_car_dock_desc">Ton, der wiedergegeben werden soll, wenn das Telefon in die Fahrzeughalterung eingesetzt wird.</string>
     <string name="option_ui_sound_car_undock">Aus Fahrzeughalterung entnehmen</string>
@@ -184,7 +184,7 @@
     <string name="home_welcome_title">Willkommen!</string>
     <string name="search">Suchen</string>
     <string name="immersive_none">Kein(e)</string>
-    <string name="immersive_full">Vollbild</string>
+    <string name="immersive_full">Vollständig</string>
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Navigationsleiste</string>
     <string name="immersive_blacklist">Sperrliste</string>
