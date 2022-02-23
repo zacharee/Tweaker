@@ -21,6 +21,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
@@ -279,26 +280,29 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                     val summaryView = findViewById<TextView>(android.R.id.summary)
 
                     summaryView.post {
-                        findViewById<View>(R.id.title_summary_wrapper)?.apply {
-                            val topPadding = paddingTop
-
-                            setPadding(
-                                0,
-                                topPadding,
-                                0,
-                                if (summaryView.hasEllipsis) 0 else topPadding
-                            )
-                        }
                         findViewById<View>(R.id.expand_summary)?.apply {
+                            val image = findViewById<ImageView>(R.id.expand_summary_icon)
+
                             summaryView as ExpandableTextView
-                            summaryView.collapse()
-                            isVisible = summaryView.hasEllipsis
+                            isVisible = summaryView.lineCount > summaryView.maxLines || summaryView.hasEllipsis
+
+                            image.rotation = if (!summaryView.isExpanded) 0f else 180f
                             setOnClickListener {
                                 if (summaryView.isExpanded) {
-                                    scaleY = -1f
+                                    image.animate()
+                                        .rotation(0f)
+                                        .withEndAction {
+                                            image.rotation = 0f
+//                                            scaleY = -1f
+                                        }
                                     summaryView.collapse()
                                 } else {
-                                    scaleY = 1f
+                                    image.animate()
+                                        .rotation(180f)
+                                        .withEndAction {
+                                            image.rotation = 180f
+//                                            scaleY = 1f
+                                        }
                                     summaryView.expand()
                                 }
                             }
