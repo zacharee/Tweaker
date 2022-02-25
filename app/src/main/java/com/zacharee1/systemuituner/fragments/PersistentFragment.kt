@@ -105,7 +105,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         filterPersistent(newText) {
             val toRemove = ArrayList<Preference>()
 
-            preferenceScreen.forEach { _, child ->
+            preferenceScreen.forEach { child ->
                 if (!it.map { c -> c.key }.contains(child.key)) {
                     toRemove.add(child)
                 }

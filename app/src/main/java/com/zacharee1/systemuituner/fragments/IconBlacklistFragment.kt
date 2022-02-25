@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.doOnLayout
+import androidx.core.view.updateLayoutParams
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -475,10 +477,10 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
 
-                val params = holder.itemView.layoutParams
-
-                if (params is StaggeredGridLayoutManager.LayoutParams) {
-                    params.isFullSpan = getItem(position) is PreferenceCategory
+                if (chooseLayoutManagerWithoutSetting(view, grid, linear) == grid && holder.itemView.layoutParams !is StaggeredGridLayoutManager.LayoutParams) {
+                    holder.itemView.layoutParams = StaggeredGridLayoutManager.LayoutParams(holder.itemView.layoutParams).apply {
+                        isFullSpan = getItem(position) is PreferenceCategory
+                    }
                 }
             }
         }
@@ -491,7 +493,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     }
 
     private fun filter(query: String?, group: PreferenceGroup) {
-        group.forEach { _, child ->
+        group.forEach { child ->
             if (child is PreferenceGroup) {
                 if (child is CollapsiblePreferenceCategoryNew) {
                     if (!origExpansionStates.containsKey(child.key)) origExpansionStates[child.key] =

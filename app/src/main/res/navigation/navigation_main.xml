@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/appsFragment">
+    app:startDestination="@id/empty_fragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.zacharee1.systemuituner.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:id="@+id/empty_fragment"
+        android:name="com.zacharee1.systemuituner.fragments.EmptyFragment"
+        android:label="EmptyFragment" />
     <fragment
         android:id="@+id/displayFragment"
         android:name="com.zacharee1.systemuituner.fragments.DisplayFragment"
@@ -36,13 +36,11 @@
     <fragment
         android:id="@+id/statusBarFragment"
         android:name="com.zacharee1.systemuituner.fragments.interaction.StatusBarFragment"
-        android:label="StatusBarFragment"
-        />
+        android:label="StatusBarFragment" />
     <fragment
         android:id="@+id/qsFragment"
         android:name="com.zacharee1.systemuituner.fragments.interaction.QSFragment"
-        android:label="QSFragment"
-        />
+        android:label="QSFragment" />
     <fragment
         android:id="@+id/developerFragment"
         android:name="com.zacharee1.systemuituner.fragments.DeveloperFragment"

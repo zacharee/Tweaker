@@ -1,14 +1,13 @@
 package com.zacharee1.systemuituner.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
+import androidx.preference.forEach
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SearchIndex
-import com.zacharee1.systemuituner.util.forEach
 import com.zacharee1.systemuituner.util.hasPreference
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
@@ -65,7 +64,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
             searchIndex.filter(newText) {
                 val toRemove = ArrayList<Preference>()
 
-                preferenceScreen.forEach { _, child ->
+                preferenceScreen.forEach { child ->
                     if (!it.map { c -> c.key }.contains(child.key)) {
                         toRemove.add(child)
                     }

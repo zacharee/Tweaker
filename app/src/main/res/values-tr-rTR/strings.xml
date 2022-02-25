@@ -322,7 +322,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
  İÇERİK TALEP</string>
     <string name="hide_battery_android_bug_btn_view_issue">Sorunları Göster</string>
     <string name="error_creating_file_template">%s Dosya gönderiminde hata</string>
-    <string name="error_restoring_icon_blacklist">Yedeği geri yükleme hatası</string>
+    <string name="error_restoring_icon_blacklist">Yedeği geri yükleme hatası: %s</string>
     <string name="permission_grant_success">Successfully granted permissions.</string>
     <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
     <string name="patreon">Patreon</string>

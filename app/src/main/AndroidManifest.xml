@@ -73,6 +73,7 @@
             android:exported="false"
             />
         <activity android:name=".activities.DemoModeActivity"
+            android:label="@string/sub_demo"
             android:exported="false"
             />
         <activity android:name=".activities.tutorial.TutorialActivity"

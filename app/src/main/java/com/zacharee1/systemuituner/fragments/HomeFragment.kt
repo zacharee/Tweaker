@@ -4,18 +4,30 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
-import androidx.preference.Preference
-import androidx.preference.PreferenceGroupAdapter
-import androidx.preference.PreferenceViewHolder
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
+import androidx.preference.*
 import com.zacharee1.systemuituner.App
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.prefs.NavHeaderPreference
 import com.zacharee1.systemuituner.prefs.nav.NavigationPreference
-import com.zacharee1.systemuituner.util.updateTitle
 
-class HomeFragment : BasePrefFragment() {
+class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListener {
     override val supportsGrid = false
 
     private var selectedId: String? = null
+
+    private val navPrefs = hashMapOf<Int, NavigationPreference>()
+
+    override val paddingDp = arrayOf(0f, 0f, 0f, 0f)
+    override val preferencePadding: ((Preference) -> Array<Float>) = {
+        if (it is NavHeaderPreference) {
+            arrayOf(0f, 0f, 0f, 0f)
+        } else {
+            arrayOf(16f, 0f, 16f, 0f)
+        }
+    }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_home, rootKey)
@@ -24,9 +36,44 @@ class HomeFragment : BasePrefFragment() {
     override fun onResume() {
         super.onResume()
 
-        updateTitle(R.string.home)
-
         App.updateServiceState(requireContext())
+
+        preferenceScreen.forEach {
+            fun run(pref: Preference) {
+                if (pref is NavigationPreference) {
+                    navPrefs[pref.destId] = pref
+                }
+            }
+
+            if (it is PreferenceGroup) {
+                it.forEach {
+                    run(it)
+                }
+            } else {
+                run(it)
+            }
+        }
+
+        requireActivity().findNavController(R.id.nav_host_fragment).apply {
+            removeOnDestinationChangedListener(this@HomeFragment)
+            addOnDestinationChangedListener(this@HomeFragment)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        requireActivity().findNavController(R.id.nav_host_fragment).removeOnDestinationChangedListener(this)
+    }
+
+    override fun onDestinationChanged(
+        controller: NavController,
+        destination: NavDestination,
+        arguments: Bundle?
+    ) {
+        navPrefs[destination.id]?.key?.let {
+            setSelection(it)
+        }
     }
 
     @SuppressLint("RestrictedApi")
@@ -42,14 +89,6 @@ class HomeFragment : BasePrefFragment() {
             }
             notifyItemChanged(getPreferenceAdapterPosition(id))
         }
-    }
-
-    override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        if (preference is NavigationPreference) {
-            setSelection(preference.key)
-        }
-
-        return super.onPreferenceTreeClick(preference)
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int, preference: Preference?) {

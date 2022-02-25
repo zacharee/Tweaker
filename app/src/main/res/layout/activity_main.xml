@@ -14,14 +14,14 @@
         android:orientation="vertical"
         android:layout_gravity="start">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="172dp">
+<!--        <FrameLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="172dp">-->
 
-            <include layout="@layout/drawer_header"
-                />
+<!--            <include layout="@layout/drawer_header"-->
+<!--                />-->
 
-        </FrameLayout>
+<!--        </FrameLayout>-->
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_home_fragment"

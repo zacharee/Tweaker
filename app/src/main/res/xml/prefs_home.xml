@@ -2,9 +2,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.zacharee1.systemuituner.prefs.NavHeaderPreference
+        android:key="header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        />
+
     <PreferenceCategory
         android:title="@string/tweaks"
         android:key="tweaks_header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
         app:iconSpaceReserved="false"
         />
 
@@ -132,6 +140,8 @@
     <PreferenceCategory
         android:title="@string/more"
         android:key="more_header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
         app:iconSpaceReserved="false"
         />
 

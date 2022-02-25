@@ -56,7 +56,7 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
             val toRemove = ArrayList<LoadedAppPreference>()
             val toAdd = ArrayList<LoadedAppPreference>()
 
-            preferenceScreen.forEach { _, child ->
+            preferenceScreen.forEach { child ->
                 child as LoadedAppPreference
 
                 if (!child.matchesQuery(query)) toRemove.add(child)

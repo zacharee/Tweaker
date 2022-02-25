@@ -4,16 +4,11 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.app.ActionBar
-import android.content.res.ColorStateList
-import android.content.res.Configuration
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
@@ -21,9 +16,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.animation.doOnEnd
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +33,6 @@ import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSwitchPreference
-import com.zacharee1.systemuituner.prefs.nav.NavigationPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureEditTextPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureListPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
@@ -60,6 +52,11 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     open val widgetLayout: Int = Int.MIN_VALUE
     open val limitSummary = true
     open val supportsGrid = true
+
+    open val paddingDp = arrayOf(8f, 8f, 8f, 8f)
+    open val preferencePadding: ((Preference) -> Array<Float>)? = null
+
+    open val hasCategories = false
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment = when (preference) {
@@ -234,9 +231,9 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         savedInstanceState: Bundle?
     ): RecyclerView {
         return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
-            val padding = requireContext().dpAsPx(8)
-
-            it.setPaddingRelative(padding, padding, padding, padding)
+            requireContext().apply {
+                it.setPaddingRelative(dpAsPx(paddingDp[0]), dpAsPx(paddingDp[1]), dpAsPx(paddingDp[2]), dpAsPx(paddingDp[3]))
+            }
             it.clipToPadding = false
             it.itemAnimator = PrefAnimator().apply {
                 addDuration = 300
@@ -276,7 +273,28 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
                 val preference = getItem(position)
 
+                if (hasCategories) {
+                    if (chooseLayoutManagerWithoutSetting(view, grid, linear) == grid && holder.itemView.layoutParams !is StaggeredGridLayoutManager.LayoutParams) {
+                        holder.itemView.layoutParams = StaggeredGridLayoutManager.LayoutParams(holder.itemView.layoutParams).apply {
+                            isFullSpan = getItem(position) is PreferenceCategory
+                        }
+                    }
+                }
+
                 (holder.itemView as ViewGroup).apply {
+                    context.apply {
+                        preference?.let {
+                            preferencePadding?.invoke(preference)?.apply {
+                                setPaddingRelative(
+                                    dpAsPx(this[0]),
+                                    dpAsPx(this[1]),
+                                    dpAsPx(this[2]),
+                                    dpAsPx(this[3]),
+                                )
+                            }
+                        }
+                    }
+
                     val summaryView = findViewById<TextView>(android.R.id.summary)
 
                     summaryView.post {
@@ -293,7 +311,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                                         .rotation(0f)
                                         .withEndAction {
                                             image.rotation = 0f
-//                                            scaleY = -1f
                                         }
                                     summaryView.collapse()
                                 } else {
@@ -301,7 +318,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                                         .rotation(180f)
                                         .withEndAction {
                                             image.rotation = 180f
-//                                            scaleY = 1f
                                         }
                                     summaryView.expand()
                                 }

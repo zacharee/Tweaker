@@ -10,6 +10,8 @@ class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenc
     private val enabled: Boolean
         get() = preferenceManager.sharedPreferences!!.getString("demo_enabled", "false")!!.toBoolean()
 
+    override val hasCategories = true
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         preferenceManager.sharedPreferencesName = DemoController.DEMO_PREFS
         setPreferencesFromResource(R.xml.prefs_demo, rootKey)

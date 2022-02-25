@@ -34,9 +34,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.preference.Preference
-import androidx.preference.PreferenceGroup
-import androidx.preference.PreferenceGroupAdapter
+import androidx.preference.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
@@ -346,14 +344,8 @@ fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
     return intent
 }
 
-inline fun PreferenceGroup.forEach(block: (index: Int, child: Preference) -> Unit) {
-    for (i in 0 until preferenceCount) {
-        block(i, getPreference(i))
-    }
-}
-
 fun PreferenceGroup.hasPreference(key: String): Boolean {
-    forEach { _, child ->
+    forEach { child ->
         if (key == child.key) return@hasPreference true
     }
 
@@ -361,7 +353,7 @@ fun PreferenceGroup.hasPreference(key: String): Boolean {
 }
 
 fun PreferenceGroup.indexOf(preference: Preference): Int {
-    forEach { index, child ->
+    forEachIndexed { index, child ->
         if (child == preference) return index
     }
 
@@ -808,6 +800,21 @@ fun Fragment.chooseLayoutManager(
                 it.spanCount = spanCount(dpWidth)
             }
         }
+    } else {
+        linear
+    }
+}
+
+fun Fragment.chooseLayoutManagerWithoutSetting(
+    view: View?,
+    grid: RecyclerView.LayoutManager,
+    linear: RecyclerView.LayoutManager,
+    extraFlags: Boolean = true,
+): RecyclerView.LayoutManager {
+    val dpWidth = requireContext().asDp(view?.width ?: 0)
+
+    return if (extraFlags && dpWidth >= 800) {
+        grid
     } else {
         linear
     }
