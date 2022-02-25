@@ -63,7 +63,9 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
     override fun onDestroy() {
         super.onDestroy()
 
-        requireActivity().findNavController(R.id.nav_host_fragment).removeOnDestinationChangedListener(this)
+        try {
+            requireActivity().findNavController(R.id.nav_host_fragment).removeOnDestinationChangedListener(this)
+        } catch (e: Exception) {}
     }
 
     override fun onDestinationChanged(
