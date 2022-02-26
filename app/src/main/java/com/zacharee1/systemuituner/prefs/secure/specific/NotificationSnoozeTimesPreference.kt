@@ -1,16 +1,13 @@
 package com.zacharee1.systemuituner.prefs.secure.specific
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Build
 import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.util.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz
 import com.zacharee1.systemuituner.util.writeGlobal
 
 class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference {

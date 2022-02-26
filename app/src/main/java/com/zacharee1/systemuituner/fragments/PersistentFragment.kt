@@ -2,7 +2,6 @@ package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -27,8 +26,6 @@ import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
     override val widgetLayout: Int = Int.MIN_VALUE

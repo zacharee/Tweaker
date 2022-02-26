@@ -1,15 +1,10 @@
 package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
-import android.content.ContextWrapper
 import android.util.AttributeSet
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.api
-import com.zacharee1.systemuituner.util.apiToName
-import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
-import com.zacharee1.systemuituner.util.verifiers.BaseVisibilityVerifier
 
 interface ISecurePreference : IDangerousPreference {
     var type: SettingsType

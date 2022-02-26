@@ -5,9 +5,6 @@ import android.util.AttributeSet
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.demo.base.BaseDemoPreference
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSetting
 
 open class DemoSwitchPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs) {
     companion object {

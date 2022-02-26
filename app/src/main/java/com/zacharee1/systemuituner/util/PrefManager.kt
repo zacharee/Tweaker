@@ -3,8 +3,10 @@ package com.zacharee1.systemuituner.util
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.MalformedJsonException
@@ -102,8 +104,8 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
             putBoolean(FORCE_ENABLE_ALL, value)
         }
 
-    val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-    val gson = GsonBuilder()
+    val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+    val gson: Gson = GsonBuilder()
         .create()
 
     fun saveOption(type: SettingsType, key: String, value: Any?) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
-import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
 import com.zacharee1.systemuituner.databinding.TaskerWriteSettingBinding
 import com.zacharee1.systemuituner.util.SettingsType
@@ -22,7 +21,7 @@ class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<Ta
     private var value: String? = null
 
     private val helper by lazy { WriteSettingHelper(this) }
-    protected val binding by lazy { TaskerWriteSettingBinding.inflate(layoutInflater) }
+    private val binding by lazy { TaskerWriteSettingBinding.inflate(layoutInflater) }
 
     override fun assignFromInput(input: TaskerInput<TaskerWriteSettingData>) {
         type = input.regular.type

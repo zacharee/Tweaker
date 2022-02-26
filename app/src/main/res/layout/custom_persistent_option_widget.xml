@@ -17,6 +17,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_delete_24"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/remove_item"
         />
 
     <ImageView
@@ -30,6 +31,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_edit_24"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/edit_custom_item"
         />
 
     <com.rey.material.widget.CheckedImageView

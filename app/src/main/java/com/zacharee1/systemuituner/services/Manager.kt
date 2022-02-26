@@ -72,7 +72,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
                         this, 100, getNotificationSettingsForChannel(
                             NOTIFICATION_CHANNEL_ID
                         ),
-                        (1 shl 25)
+                        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
                     )
                 )
                 .build()

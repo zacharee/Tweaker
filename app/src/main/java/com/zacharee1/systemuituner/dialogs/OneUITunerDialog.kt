@@ -2,9 +2,7 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.content.Context
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.buildNonResettablePreferences
 import com.zacharee1.systemuituner.util.launchUrl
-import com.zacharee1.systemuituner.util.resetAll
 
 class OneUITunerDialog(context: Context) : ScrolledRoundedBottomSheetDialog(context) {
     init {

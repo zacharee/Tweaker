@@ -5,12 +5,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
@@ -22,8 +20,6 @@ import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
 import com.zacharee1.systemuituner.views.GridAutofitLayoutManager
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.floor
 
 class QSEditorActivity : AppCompatActivity() {
     private val adapter by lazy { QSEditorAdapter(this) }

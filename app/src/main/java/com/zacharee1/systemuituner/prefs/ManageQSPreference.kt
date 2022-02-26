@@ -3,20 +3,13 @@ package com.zacharee1.systemuituner.prefs
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
-import android.provider.Settings
 import android.util.AttributeSet
-import android.util.Log
-import android.view.View
-import androidx.core.view.isVisible
 import androidx.preference.Preference
-import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.DangerousPreference
 import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.util.isComponentEnabled
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
 
 open class ManageQSPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs),
     Preference.OnPreferenceChangeListener,

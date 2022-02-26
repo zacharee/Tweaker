@@ -1,7 +1,6 @@
 package com.zacharee1.systemuituner.prefs
 
 import android.content.Context
-import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.view.isVisible
@@ -74,7 +73,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
     }
 
     fun removeAdditionalKeys(keys: Collection<String>) {
-        additionalKeys.removeAll(keys)
+        additionalKeys.removeAll(keys.toSet())
     }
 
     fun clearAdditionalKeys() {

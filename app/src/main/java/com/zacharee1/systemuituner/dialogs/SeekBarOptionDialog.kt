@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.dialogs
 import android.os.Bundle
 import android.view.View
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.databinding.SeekbarDialogBinding
 import tk.zwander.seekbarpreference.SeekBarView
 
 class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {

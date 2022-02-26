@@ -3,9 +3,6 @@ package com.zacharee1.systemuituner.fragments
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import androidx.preference.*
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
@@ -13,13 +10,10 @@ import com.zacharee1.systemuituner.activities.ImmersiveListSelector
 import com.zacharee1.systemuituner.data.LoadedAppInfo
 import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.interfaces.IColorPreference
-import com.zacharee1.systemuituner.util.*
-import kotlinx.coroutines.Dispatchers
+import com.zacharee1.systemuituner.util.hasPreference
+import com.zacharee1.systemuituner.util.updatePreferences
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.util.*
-import kotlin.collections.ArrayList
 
 class ImmersiveSelectorFragment : BasePrefFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -153,6 +147,5 @@ class ImmersiveSelectorFragment : BasePrefFragment() {
     }
 
     @SuppressLint("RestrictedApi")
-    inner class CustomPreferenceGroupAdapter(preferenceGroup: PreferenceGroup) : PreferenceGroupAdapter(preferenceGroup) {
-    }
+    inner class CustomPreferenceGroupAdapter(preferenceGroup: PreferenceGroup) : PreferenceGroupAdapter(preferenceGroup)
 }

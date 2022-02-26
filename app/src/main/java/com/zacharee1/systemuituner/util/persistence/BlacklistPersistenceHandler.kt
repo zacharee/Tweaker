@@ -9,7 +9,7 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
     override val settingsKey: String = "icon_blacklist"
     override val settingsType: SettingsType = SettingsType.SECURE
 
-    override fun getPreferenceValue(): HashSet<String>? {
+    override fun getPreferenceValue(): HashSet<String> {
         return context.prefManager.blacklistedItems
     }
 

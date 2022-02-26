@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.dialogs
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
@@ -21,6 +22,7 @@ import com.zacharee1.systemuituner.util.dpAsPx
 
 class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QSEditorAdapter) :
     RoundedBottomSheetDialog(context) {
+    @SuppressLint("InflateParams")
     private val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_add_qs_tile, null)
     private val qsBinding = DialogAddQsTileBinding.bind(view)
     private val intentString = context.resources.getString(R.string.intent)
@@ -31,6 +33,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
         setNegativeButton(android.R.string.cancel, null)
     }
 
+    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -49,7 +52,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                         setTitle(R.string.intent)
                         setLayout(intentView)
                     }
-                    dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                    dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                         val text = intentBinding.intentText.text?.toString()
 
                         if (!text.isNullOrBlank()) {
@@ -57,7 +60,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                         }
 
                         dialog.dismiss()
-                    })
+                    }
                     dialog.show()
                 }
                 customString -> {
@@ -67,7 +70,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                         setTitle(R.string.tile_custom)
                         setLayout(intentView)
                     }
-                    dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                    dialog.setPositiveButton(android.R.string.ok) { _, _ ->
                         val text = intentBinding.customText.text?.toString()
 
                         if (!text.isNullOrBlank()) {
@@ -75,7 +78,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                         }
 
                         dialog.dismiss()
-                    })
+                    }
                     dialog.show()
                 }
                 else -> {

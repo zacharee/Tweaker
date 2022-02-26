@@ -54,9 +54,8 @@ class BatteryTile : TileService() {
         val batteryStatus = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
         val batteryCharging = batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING || batteryStatus == BatteryManager.BATTERY_STATUS_FULL
         val batteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-        val resId: Int
 
-        resId = when {
+        val resId: Int = when {
             batteryLevel >= 95 -> if (batteryCharging) R.drawable.battery_charging_100 else R.drawable.battery_full
             batteryLevel >= 85 -> if (batteryCharging) R.drawable.battery_charging_90 else R.drawable.battery_90
             batteryLevel >= 75 -> if (batteryCharging) R.drawable.battery_charging_80 else R.drawable.battery_80

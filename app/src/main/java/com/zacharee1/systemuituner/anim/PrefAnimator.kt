@@ -1,6 +1,5 @@
 package com.zacharee1.systemuituner.anim
 
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import jp.wasabeef.recyclerview.animators.BaseItemAnimator
 

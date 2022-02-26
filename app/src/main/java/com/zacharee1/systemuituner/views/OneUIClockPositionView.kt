@@ -36,15 +36,15 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
 
             when (checkedId) {
                 R.id.position_left -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_MIDDLE, POSITION_RIGHT))
+                    blacklistSet.removeAll(arrayOf(POSITION_MIDDLE, POSITION_RIGHT).toSet())
                     blacklistSet.add(POSITION_LEFT)
                 }
                 R.id.position_middle -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_RIGHT))
+                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_RIGHT).toSet())
                     blacklistSet.add(POSITION_MIDDLE)
                 }
                 R.id.position_right -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_MIDDLE))
+                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_MIDDLE).toSet())
                     blacklistSet.add(POSITION_RIGHT)
                 }
             }

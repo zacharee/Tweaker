@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zacharee1.systemuituner.R
@@ -82,7 +83,7 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setIcon(icon: Int) {
-        setIcon(context.getDrawable(icon))
+        setIcon(ContextCompat.getDrawable(context, icon))
     }
 
     fun setIcon(icon: Drawable?) {

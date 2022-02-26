@@ -34,6 +34,7 @@
                 android:id="@+id/qs_tile_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:contentDescription="@null"
                 tools:src="@mipmap/ic_launcher"
                 />
 
@@ -75,6 +76,7 @@
             android:focusable="true"
             android:layout_gravity="top|end"
             android:visibility="gone"
+            android:contentDescription="@string/remove_item"
             tools:visibility="visible"
             />
 

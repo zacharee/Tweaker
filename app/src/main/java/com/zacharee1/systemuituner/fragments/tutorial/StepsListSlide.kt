@@ -39,7 +39,12 @@ class StepsListSlide : SlideFragment() {
             }
         }
 
-    fun setSteps(title: CharSequence, desc: CharSequence? = null, steps: Array<TutorialStepInfo>): StepsListSlide {
+    @SuppressLint("NotifyDataSetChanged")
+    fun setSteps(
+        title: CharSequence,
+        desc: CharSequence? = null,
+        steps: Array<TutorialStepInfo>
+    ): StepsListSlide {
         this.steps.clear()
         this.steps.addAll(steps)
         adapter.notifyDataSetChanged()
@@ -64,7 +69,8 @@ class StepsListSlide : SlideFragment() {
         binding.stepsList.adapter = adapter
     }
 
-    class StepsAdapter(private val items: ArrayList<TutorialStepInfo>) : RecyclerView.Adapter<StepsAdapter.BaseVH>() {
+    class StepsAdapter(private val items: ArrayList<TutorialStepInfo>) :
+        RecyclerView.Adapter<StepsAdapter.BaseVH>() {
         companion object {
             const val TYPE_STEP = 0
             const val TYPE_COMMAND = 1
@@ -80,7 +86,11 @@ class StepsListSlide : SlideFragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseVH {
             return BaseVH(
-                LayoutInflater.from(parent.context).inflate(if (viewType == TYPE_STEP) R.layout.steps_list_item else R.layout.steps_list_command, parent, false)
+                LayoutInflater.from(parent.context).inflate(
+                    if (viewType == TYPE_STEP) R.layout.steps_list_item else R.layout.steps_list_command,
+                    parent,
+                    false
+                )
             )
         }
 
@@ -96,14 +106,16 @@ class StepsListSlide : SlideFragment() {
 
             @SuppressLint("SetTextI18n")
             open fun onBind(text: TutorialStepInfo) {
-                itemView.findViewById<TextView>(R.id.step).text = SpannableStringBuilder().apply {
-                    if (text.isCommand) {
-                        append("- ")
-                    }
+                itemView.findViewById<TextView>(R.id.step).apply {
+                    this.text = SpannableStringBuilder().apply {
+                        if (text.isCommand) {
+                            append("- ")
+                        }
 
-                    append(markwon.toMarkdown(text.text.toString()))
+                        append(markwon.toMarkdown(text.text.toString()))
+                    }
+                    movementMethod = LinkMovementMethod.getInstance()
                 }
-                itemView.findViewById<TextView>(R.id.step).movementMethod = LinkMovementMethod.getInstance()
             }
         }
     }

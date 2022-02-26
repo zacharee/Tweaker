@@ -46,8 +46,8 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
             }
 
             if (it is PreferenceGroup) {
-                it.forEach {
-                    run(it)
+                it.forEach { pref ->
+                    run(pref)
                 }
             } else {
                 run(it)

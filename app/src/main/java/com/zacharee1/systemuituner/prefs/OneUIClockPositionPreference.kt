@@ -2,10 +2,9 @@ package com.zacharee1.systemuituner.prefs
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.preference.DialogPreference
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.interfaces.INoPersistPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure

@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="?android:attr/listChoiceIndicatorMultiple"
+            android:contentDescription="@string/all_apps"
             />
 
     </FrameLayout>
@@ -55,6 +56,7 @@
         android:focusable="true"
         android:background="?selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_playlist_add_24"
+        android:contentDescription="@string/immersive_whitelist"
         />
 
     <FrameLayout
@@ -80,6 +82,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="center"
         android:src="@drawable/ic_playlist_remove_24dp"
+        android:contentDescription="@string/immersive_blacklist"
         />
 
 </LinearLayout>

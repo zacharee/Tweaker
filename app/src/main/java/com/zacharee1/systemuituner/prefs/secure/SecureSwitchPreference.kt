@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSetting
 
 open class SecureSwitchPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
     companion object {

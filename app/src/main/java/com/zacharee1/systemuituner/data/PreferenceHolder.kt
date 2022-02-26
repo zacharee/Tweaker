@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.data
 
 import androidx.preference.Preference
+import java.util.*
 
 data class PreferenceHolder(
     val className: String?,
@@ -20,5 +21,9 @@ data class PreferenceHolder(
                 && other.widgetLayoutResource == widgetLayoutResource
                 && other.layoutResource == layoutResource
                 && other.isEnabled == isEnabled
+    }
+
+    override fun hashCode(): Int {
+        return Objects.hash(className, widgetLayoutResource, layoutResource, isEnabled)
     }
 }

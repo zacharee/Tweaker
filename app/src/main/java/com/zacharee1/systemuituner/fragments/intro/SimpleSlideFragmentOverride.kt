@@ -39,7 +39,7 @@ class SimpleSlideFragmentOverride : SimpleSlide.SimpleSlideFragment() {
             @DrawableRes imageRes: Int, @ColorRes backgroundRes: Int,
             @LayoutRes layout: Int,
             permissionsRequestCode: Int
-        ): SimpleSlideFragmentOverride? {
+        ): SimpleSlideFragmentOverride {
             val arguments = Bundle()
             arguments.putLong(ARGUMENT_ID, id)
             arguments.putCharSequence(ARGUMENT_TITLE, title)

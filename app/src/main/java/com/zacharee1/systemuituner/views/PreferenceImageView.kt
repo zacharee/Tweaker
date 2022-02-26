@@ -21,7 +21,7 @@ import android.util.AttributeSet
 import androidx.preference.R
 
 /**
- * Extension of [ImageView] that correctly applies maxWidth and maxHeight.
+ * Extension of [android.widget.ImageView] that correctly applies maxWidth and maxHeight.
  *
  * Used by Car.
  *

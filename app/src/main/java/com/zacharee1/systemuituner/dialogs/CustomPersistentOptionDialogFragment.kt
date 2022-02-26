@@ -54,12 +54,15 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
                 if (initialType.value != -1) findViewById<Spinner>(R.id.settings_type).setSelection(initialType.value)
             }
         }
-        builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+        builder.setPositiveButton(android.R.string.ok) { _, _ ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
-                val label = findViewById<TextInputEditText>(R.id.label_entry).text?.toString() ?: return@apply
-                val key = findViewById<TextInputEditText>(R.id.key_entry).text?.toString() ?: return@apply
+                val label = findViewById<TextInputEditText>(R.id.label_entry).text?.toString()
+                    ?: return@apply
+                val key =
+                    findViewById<TextInputEditText>(R.id.key_entry).text?.toString() ?: return@apply
                 val value = findViewById<TextInputEditText>(R.id.value_entry).text?.toString()
-                val type = SettingsType.fromValue(findViewById<Spinner>(R.id.settings_type).selectedItemPosition)
+                val type =
+                    SettingsType.fromValue(findViewById<Spinner>(R.id.settings_type).selectedItemPosition)
 
                 if (key.isBlank()) return@apply
 
@@ -80,14 +83,16 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
                 }
             }
             dismiss()
-        })
-        builder.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { _, _ ->
-            dismiss()
-        })
-        builder.setOnCancelListener {
+        }
+        builder.setNegativeButton(android.R.string.cancel) { _, _ ->
             dismiss()
         }
 
         return builder
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        dismiss()
     }
 }

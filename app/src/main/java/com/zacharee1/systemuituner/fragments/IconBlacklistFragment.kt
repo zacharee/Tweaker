@@ -5,17 +5,13 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.doOnLayout
-import androidx.core.view.updateLayoutParams
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,10 +39,6 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.Exception
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 
 @SuppressLint("RestrictedApi")
 class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener,

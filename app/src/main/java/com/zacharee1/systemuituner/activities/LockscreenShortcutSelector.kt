@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.*
 import android.os.Bundle
 import android.view.*
-import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible

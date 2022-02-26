@@ -1,14 +1,11 @@
 package com.zacharee1.systemuituner.prefs.demo
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.util.AttributeSet
-import android.util.Log
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.demo.base.BaseDemoPreference
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 
 class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs) {
     var minValue: Int = 0

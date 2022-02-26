@@ -10,7 +10,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import com.zacharee1.systemuituner.activities.Intro
 import com.zacharee1.systemuituner.databinding.ActivityMainBinding

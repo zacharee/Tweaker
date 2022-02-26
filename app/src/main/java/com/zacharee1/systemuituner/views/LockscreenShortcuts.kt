@@ -3,9 +3,7 @@ package com.zacharee1.systemuituner.views
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
-import android.provider.Settings
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

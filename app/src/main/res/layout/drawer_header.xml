@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:src="@drawable/header"
         android:scaleType="centerCrop"
+        android:contentDescription="@null"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

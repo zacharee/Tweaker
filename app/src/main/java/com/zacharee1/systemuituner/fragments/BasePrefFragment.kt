@@ -17,6 +17,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.*
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -79,7 +80,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                ((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloat() ?: preference.defaultValue * preference.scale) / preference.scale).toInt()
+                (((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloat()
+                    ?: (preference.defaultValue * preference.scale)) / preference.scale)).toInt()
             )
             is AnimationScalesPreference -> OptionDialog.newInstance(
                 preference.key,
@@ -175,7 +177,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         markDangerous(preferenceScreen)
         super.onBindPreferences()
 
-        setDivider(resources.getDrawable(R.drawable.custom_divider, requireContext().theme))
+        setDivider(ResourcesCompat.getDrawable(resources, R.drawable.custom_divider, requireContext().theme))
     }
 
     @SuppressLint("RestrictedApi")

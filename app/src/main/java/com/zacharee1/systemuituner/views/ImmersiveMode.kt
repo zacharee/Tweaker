@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ImmersiveListSelector
-import com.zacharee1.systemuituner.databinding.BaseDialogLayoutBinding
 import com.zacharee1.systemuituner.databinding.ImmersiveModeBinding
 import com.zacharee1.systemuituner.databinding.ImmersiveModeItemBinding
 import com.zacharee1.systemuituner.util.ImmersiveManager

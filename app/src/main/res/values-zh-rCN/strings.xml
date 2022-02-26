@@ -266,7 +266,7 @@
     <string name="intro_grant_wss_desc">系统界面调节器需要特殊权限才能工作。要授予它，您需要使用 ADB 或root 权限。 按下面的 GRANT 将尝试使用 root 授予权限。 否则，请按HELP按钮，我们会帮助您建立ADB。别担心，ADB完全可以安全使用。 您将不会撤销您的保修，使用 Samsung Knox, Root您的手机，或解锁引导器。</string>
     <string name="intro_grant_extra">授予额外权限</string>
     <string name="intro_grant_extra_desc">系统界面调节器需要额外的 ADB 权限才能正常工作。 您现在就不必授予这些。如果需要的话，您将会被提示。</string>
-    <string name="intro_last">感谢您使用我的应用！</string>
+    <string name="intro_last">感谢您使用我的应用</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
     <string name="compatibility_message_both">对不起，此功能只能从 Android %1$s 到 Android %2$s 正常工作</string>
