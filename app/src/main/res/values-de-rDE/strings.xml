@@ -188,6 +188,7 @@
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Navigationsleiste</string>
     <string name="immersive_blacklist">Sperrliste</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Erweitert</string>
     <string name="all_apps">Alle Apps</string>
     <string name="select_apps">Wähle Apps</string>
