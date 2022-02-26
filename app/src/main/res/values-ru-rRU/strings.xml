@@ -188,6 +188,7 @@
     <string name="immersive_status">Статус</string>
     <string name="immersive_nav">Навигация</string>
     <string name="immersive_blacklist">Чёрный список</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Расширенные</string>
     <string name="all_apps">Список приложений</string>
     <string name="select_apps">Выбрать приложения</string>
