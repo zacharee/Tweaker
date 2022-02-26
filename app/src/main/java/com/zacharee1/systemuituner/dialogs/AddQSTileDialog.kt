@@ -64,7 +64,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                     val intentView = LayoutInflater.from(context).inflate(R.layout.dialog_add_custom_qs, null)
                     val intentBinding = DialogAddCustomQsBinding.bind(intentView)
                     val dialog = RoundedBottomSheetDialog(context).apply {
-                        setTitle(R.string.intent)
+                        setTitle(R.string.tile_custom)
                         setLayout(intentView)
                     }
                     dialog.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
