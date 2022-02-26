@@ -188,6 +188,7 @@
     <string name="immersive_status">상태</string>
     <string name="immersive_nav">탐색</string>
     <string name="immersive_blacklist">제외 목록</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">고급</string>
     <string name="all_apps">모든 앱</string>
     <string name="select_apps">앱 선택</string>
