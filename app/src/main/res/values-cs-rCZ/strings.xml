@@ -188,6 +188,7 @@
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Nav</string>
     <string name="immersive_blacklist">Blacklist</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Advanced</string>
     <string name="all_apps">All Apps</string>
     <string name="select_apps">Vyberte aplikace</string>
