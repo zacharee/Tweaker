@@ -188,6 +188,7 @@
     <string name="immersive_status">Barra de status</string>
     <string name="immersive_nav">Barra de navegação</string>
     <string name="immersive_blacklist">Lista negra</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Avançado</string>
     <string name="all_apps">Todos os apps</string>
     <string name="select_apps">Selecionar aplicativo</string>
