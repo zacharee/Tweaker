@@ -194,6 +194,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="immersive_status">Durum</string>
     <string name="immersive_nav">Gezinti</string>
     <string name="immersive_blacklist">Karaliste</string>
+    <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Gelişmiş</string>
     <string name="all_apps">Bütün Uygulamalar</string>
     <string name="select_apps">Uygulamaları Seç</string>
