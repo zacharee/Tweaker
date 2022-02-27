@@ -188,7 +188,7 @@
     <string name="immersive_status">狀態</string>
     <string name="immersive_nav">導覽</string>
     <string name="immersive_blacklist">黑名單</string>
-    <string name="immersive_whitelist">Whitelist</string>
+    <string name="immersive_whitelist">白名單</string>
     <string name="advanced">進階</string>
     <string name="all_apps">所有應用程式</string>
     <string name="select_apps">選擇應用程式</string>
