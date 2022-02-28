@@ -21,7 +21,7 @@
     <string name="category_interaction">Interakce</string>
     <string name="more">Více</string>
     <string name="tweaks">Vylepšení</string>
-    <string name="failure">Failure</string>
+    <string name="failure">Chyba</string>
     <string name="help_translate">Pomoc s překladem</string>
     <string name="sub_cellular">Mobilní data</string>
     <string name="sub_wifi">Wi-Fi</string>
@@ -46,9 +46,9 @@
     <string name="special_sub_icon_blacklist_desc">Vyberte konkrétní ikony, které chcete skrýt ze stavového řádku. Tato funkce nebude fungovat na všech zařízeních nebo u všech ikon. Pomocí této funkce nelze skrýt ikony oznámení.</string>
     <string name="feature_lock_timeout">Nastavit časový limit uzamčení zařízení</string>
     <string name="feature_lock_timeout_desc">V části „nastavení zabezpečeného zámku“ můžete nastavit časovač „automatického uzamčení“. Tento časovač určuje, jak dlouho po přechodu zařízení do režimu spánku by měla být zobrazena obrazovka uzamčení. Prostřednictvím této možnosti můžete nastavit libovolnou hodnotu (v milisekundách), kterou chcete. Pokud nastavíte dostatečně vysokou hodnotu, pak se v zásadě vaše obrazovka uzamčení nikdy nezobrazí (za předpokladu, že jste deaktivovali funkci „tlačítko napájení okamžitě uzamkne zařízení“).</string>
-    <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
-    <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
+    <string name="feature_battery_saver_trigger">Nastavit vlastní hodnotu procenta spuštění úsporného režimu</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">Funkce Google Spořič baterie se může aktivovat automaticky, když je úroveň baterie na 5\% nebo 15\%. S tím můžete nastavit vlastní procento aktivace.</string>
+    <string name="feature_long_press_delay">Nastavit vlastní zpoždění dlouhého stisku</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
     <string name="feature_font_scale">Set Custom Font Scale</string>
     <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
@@ -94,7 +94,7 @@
     <string name="feature_dnd_in_volume_desc">Allows you to toggle Do Not Disturb from the volume popup.</string>
     <string name="feature_battery_percent">Show Battery Percentage in Status Bar</string>
     <string name="feature_battery_percent_desc">Shows the current battery percentage in the battery icon on the status bar. May require root to activate.</string>
-    <string name="feature_header_airplane_mode_radios">Exempt</string>
+    <string name="feature_header_airplane_mode_radios">Výjimky</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">On USB Power</string>
