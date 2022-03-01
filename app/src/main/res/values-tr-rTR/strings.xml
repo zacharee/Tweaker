@@ -75,7 +75,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_camera_gestures">Kamera Hareketi</string>
     <string name="feature_camera_gestures_desc">Bunu etkinleştirmek, telefonunuzun güç düğmesine iki kez dokunarak veya telefonu arka ve ön arasında çevirerek kamerayı hızlı bir şekilde başlatmasına izin verebilir.</string>
     <string name="feature_disable_safe_audio_warning">Güvenli ses uyarısı devre dışı</string>
-    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU düzenlemeleri, akıllı telefonların belirli ses düzeylerinin (85dB) üzerine çıktığında uyarı vermesini gerektirir. Bu uyarı, her yeniden başlatmadan sonra veya 20 saatlik sürekli müzik çalma işleminden sonra bir kez gösterilmelidir. Bu uyarının nasıl davranacağını değiştirmek için bu ayarı kullanın veya tamamen devre dışı bırakın. Yapışması için Kalıcı Seçenekler\'de bu ayarı etkinleştirdiğinizden emin olun.</string>
     <string name="feature_custom_ui_sounds">Özel UI Seslerini Ayarlama</string>
     <string name="feature_custom_ui_sounds_desc">Android, kullanıcı arayüzünün farklı bölümleri için çok sayıda sese sahiptir. Bunların çoğu aslında kendi özel seslerinizle değiştirilebilir. Sadece Android\'in kullanması için dosyayı belirtmeniz gerekiyor.</string>
     <string name="feature_fix_tethering">Tethering\'i Düzelt</string>
@@ -183,9 +183,9 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_back_gesture_inset_scale_left_desc">Android 11, algılama alanının genişliğini ayarlayarak ekran kenarı geri hareketi için duyarlılığı ayarlama seçeneği sunar. Sol kenarın genişliğini daha ince ayarlamak veya tamamen kaldırmak için bu seçeneği kullanın.</string>
     <string name="option_back_gesture_inset_scale_right">Geri Hareket Kenar Genişliği (Sağ)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11, algılama alanının genişliğini ayarlayarak ekran kenarı geri hareketi için duyarlılığı ayarlama seçeneği sunar. Sol kenarın genişliğini daha ince ayarlamak veya tamamen kaldırmak için bu seçeneği kullanın.</string>
-    <string name="option_hide_multi_sim_panel">Hide QS Multi-SIM Panel</string>
-    <string name="option_hide_multi_sim_panel_desc">On Samsung devices, you can use this option to hide the multi-SIM view that appears in the expanded quick settings panel.</string>
-    <string name="option_disable_combined_internet">Disable Combined Network Options</string>
+    <string name="option_hide_multi_sim_panel">QS Çoklu SIM Panelini Gizle</string>
+    <string name="option_hide_multi_sim_panel_desc">Samsung cihazlarda, genişletilmiş hızlı ayarlar panelinde görünen çoklu SIM görünümünü gizlemek için bu seçeneği kullanabilirsiniz.</string>
+    <string name="option_disable_combined_internet">Birleşik Ağ Seçeneklerini Devre Dışı Bırak</string>
     <string name="option_disable_combined_internet_desc">Android 12\'de Google, WiFi, Bluetooth ve hücresel ayarları tek bir menüde birleştirdi. WiFi ve hücresel için hızlı ayarlar kutucukları da tek bir İnternet kutucuğunda birleştirildi. Bu seçeneği etkinleştirmek, Ayarlar\'daki eski menüleri geri getirecek ve ayrı QS kutucuklarını geri yüklemenize izin verecektir. Bunun doğru şekilde etkili olması için yeniden başlatmanız gerekebilir. WiFi ve hücresel kutucukları görmüyorsanız, bunları SystemUI Tuner\'daki Hızlı Ayarlar Düzenleyici özelliğini kullanarak ekleyebilirsiniz.</string>
     <string name="home_welcome_title">Hoşgeldiniz!</string>
     <string name="search">Arama</string>
