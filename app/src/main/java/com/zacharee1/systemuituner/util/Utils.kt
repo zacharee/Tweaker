@@ -497,15 +497,15 @@ fun Context.buildNonResettablePreferences(): Set<String> {
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 val pkg = cursor.getString(1)
-                if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings") {
-                    names.add(cursor.getString(0))
+                if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings" || pkg == "com.android.shell") {
+                    names.add("${resources.getString(R.string.system)}: ${cursor.getString(0)}")
                 }
             }
             cursor.close()
         }
     } catch (e: IllegalArgumentException) {
     }
-    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { it.key })
+    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { "${resources.getString(R.string.system)}: ${it.key}" })
     return names
 }
 
