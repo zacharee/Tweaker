@@ -4,7 +4,7 @@ import android.content.Context
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.launchUrl
 
-class PatreonDialog(context: Context) : ScrolledRoundedBottomSheetDialog(context) {
+class PatreonDialog(context: Context) : RoundedBottomSheetDialog(context) {
     init {
         setTitle(R.string.patreon)
         setMessage(R.string.patreon_desc)

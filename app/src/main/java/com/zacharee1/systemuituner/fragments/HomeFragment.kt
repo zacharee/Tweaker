@@ -13,6 +13,7 @@ import com.zacharee1.systemuituner.App
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.NavHeaderPreference
 import com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+import com.zacharee1.systemuituner.util.isTouchWiz
 
 class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListener {
     override val supportsGrid = false
@@ -62,6 +63,12 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
 
         findPreference<Preference>("reset_options")?.apply {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                isVisible = false
+            }
+        }
+
+        findPreference<Preference>("oneui_tuner_option")?.apply {
+            if (!requireContext().isTouchWiz) {
                 isVisible = false
             }
         }

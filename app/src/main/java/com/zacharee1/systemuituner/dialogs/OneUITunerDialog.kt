@@ -4,7 +4,7 @@ import android.content.Context
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.launchUrl
 
-class OneUITunerDialog(context: Context) : ScrolledRoundedBottomSheetDialog(context) {
+class OneUITunerDialog(context: Context) : RoundedBottomSheetDialog(context) {
     init {
         setTitle(R.string.oneui_tuner)
         setMessage(R.string.oneui_tuner_desc)
