@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.NavController
@@ -57,6 +58,12 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
         requireActivity().findNavController(R.id.nav_host_fragment).apply {
             removeOnDestinationChangedListener(this@HomeFragment)
             addOnDestinationChangedListener(this@HomeFragment)
+        }
+
+        findPreference<Preference>("reset_options")?.apply {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                isVisible = false
+            }
         }
     }
 
