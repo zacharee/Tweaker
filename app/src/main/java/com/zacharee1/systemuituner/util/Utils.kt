@@ -29,6 +29,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -193,11 +194,15 @@ fun Context.resetAll() {
     try {
         Settings.Global.resetToDefaults(contentResolver, null)
     } catch (e: SecurityException) {
+    } catch (e: NoSuchMethodError) {
+        Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
     }
 
     try {
         Settings.Secure.resetToDefaults(contentResolver, null)
     } catch (e: SecurityException) {
+    } catch (e: NoSuchMethodError) {
+        Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
     }
 
     //There doesn't seem to be a reset option for Settings.System
