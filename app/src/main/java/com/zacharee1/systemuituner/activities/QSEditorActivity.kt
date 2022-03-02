@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -20,6 +19,7 @@ import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
 import com.zacharee1.systemuituner.views.GridAutofitLayoutManager
 import java.util.*
+import kotlin.math.max
 
 class QSEditorActivity : AppCompatActivity() {
     private val adapter by lazy { QSEditorAdapter(this) }
@@ -36,6 +36,16 @@ class QSEditorActivity : AppCompatActivity() {
             adapter.move(viewHolder.bindingAdapterPosition, target.bindingAdapterPosition)
             return true
         }
+
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+            super.onSelectedChanged(viewHolder, actionState)
+
+            viewHolder as QSEditorAdapter.QSVH?
+
+            viewHolder?.apply {
+                showRemove = !showRemove
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +59,15 @@ class QSEditorActivity : AppCompatActivity() {
         }
 
         fun updateLayout() {
-            binding.qsList.layoutParams = (binding.qsList.layoutParams as FrameLayout.LayoutParams).apply {
-                width = if (asDp(binding.root.width) >= 800) dpAsPx(800) else ViewGroup.LayoutParams.MATCH_PARENT
-            }
+            val fullWidth = binding.root.width
+            val sidePadding = max(0f, (fullWidth - dpAsPx(800)) / 2f).toInt()
+
+            binding.qsList.setPaddingRelative(
+                sidePadding, 0,
+                sidePadding, 0
+            )
+
+            binding.qsList.layoutManager = GridAutofitLayoutManager(this, dpAsPx(130))
         }
 
         updateLayout()
@@ -62,9 +78,8 @@ class QSEditorActivity : AppCompatActivity() {
             }
         }
 
-        binding.qsList.layoutManager = GridAutofitLayoutManager(this, dpAsPx(130))
-
         binding.qsList.adapter = adapter
+
         ItemTouchHelper(touchHelperCallback).attachToRecyclerView(binding.qsList)
 
         adapter.populateTiles()
@@ -237,13 +252,19 @@ class QSEditorActivity : AppCompatActivity() {
         }
 
         inner class QSVH(view: View) : RecyclerView.ViewHolder(view) {
+            var showRemove: Boolean
+                get() = vhBinding.remove.isVisible
+                set(value) {
+                    vhBinding.remove.isVisible = value
+                }
+
             private val vhBinding = QsTileBinding.bind(itemView)
 
             init {
-                vhBinding.clickTarget.setOnLongClickListener {
-                    vhBinding.remove.apply { isVisible = !isVisible }
-                    true
-                }
+//                vhBinding.clickTarget.setOnLongClickListener {
+//                    vhBinding.remove.apply { isVisible = !isVisible }
+//                    true
+//                }
 
                 vhBinding.remove.setOnClickListener {
                     val newPos = bindingAdapterPosition
