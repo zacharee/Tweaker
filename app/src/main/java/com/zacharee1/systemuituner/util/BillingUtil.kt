@@ -2,20 +2,19 @@ package com.zacharee1.systemuituner.util
 
 import android.app.Activity
 import android.content.Context
-import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.ContextThemeWrapper
+import androidx.core.view.isVisible
 import com.android.billingclient.api.*
-import com.android.billingclient.api.BillingClient.BillingResponseCode.BILLING_UNAVAILABLE
 import com.android.billingclient.api.BillingClient.BillingResponseCode.OK
-import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.LayoutDonateBinding
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import kotlinx.coroutines.*
 
 
 class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScope() {
     private val client: BillingClient
+
+    private val activity: Activity = dialog.context.extractActivity()
 
     init {
         client = BillingClient.newBuilder(dialog.context).setListener { response, purchases ->
@@ -26,25 +25,16 @@ class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScop
             }
         }.enablePendingPurchases().build()
 
+        val dialogBinding = LayoutDonateBinding.bind(dialog.view)
+
         client.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(result: BillingResult) {
-                if (result.responseCode == OK) {
-                    val ppTitle = dialog.view.findViewById<TextView>(R.id.paypal_title)
-                    val ppButton = dialog.view.findViewById<Button>(R.id.paypal_button)
+                dialog.view.post {
+                    dialogBinding.paypalTitle.isVisible = result.responseCode != OK
+                    dialogBinding.paypalButton.isVisible = result.responseCode != OK
 
-                    if (ppTitle != null) ppTitle.visibility = View.GONE
-                    if (ppButton != null) ppButton.visibility = View.GONE
-                } else if (result.responseCode == BILLING_UNAVAILABLE) {
-                    val gPlayD = dialog.view.findViewById<LinearLayout>(R.id.google_play_donate)
-                    val gPlayDT = dialog.view.findViewById<TextView>(R.id.google_play_donate_title)
-
-                    if (gPlayD != null) {
-                        gPlayD.visibility = View.GONE
-                    }
-
-                    if (gPlayDT != null) {
-                        gPlayDT.visibility = View.GONE
-                    }
+                    dialogBinding.googlePlayDonateTitle.isVisible = result.responseCode == OK
+                    dialogBinding.googlePlayDonate.isVisible = result.responseCode == OK
                 }
             }
 
@@ -67,13 +57,20 @@ class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScop
 
         val list = result.skuDetailsList
         if (result.billingResult.responseCode == OK && list != null && list.isNotEmpty()) {
-            client.launchBillingFlow(dialog.context as Activity, BillingFlowParams.newBuilder().setSkuDetails(list[0]).build())
+            client.launchBillingFlow(activity, BillingFlowParams.newBuilder().setSkuDetails(list[0]).build())
         }
     }
 
-    companion object {
-        fun onDonatePayPalClicked(context: Context) {
-            context.launchUrl("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zachary.wander@gmail.com")
+    fun onDonatePayPalClicked() {
+        dialog.context.launchUrl("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zachary.wander@gmail.com")
+    }
+
+    private fun Context.extractActivity(): Activity {
+        return when (this) {
+            is Activity -> this
+            is ContextThemeWrapper -> baseContext.extractActivity()
+            is androidx.appcompat.view.ContextThemeWrapper -> baseContext.extractActivity()
+            else -> throw IllegalArgumentException("Unable to extract Activity from ${javaClass.canonicalName}")
         }
     }
 }

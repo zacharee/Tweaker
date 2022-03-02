@@ -23,7 +23,7 @@ class DonateDialog(context: Context) : ScrolledRoundedBottomSheetDialog(context)
 
         view.apply {
             binding.paypalButton.setOnClickListener {
-                BillingUtil.onDonatePayPalClicked(context)
+                billingUtil.onDonatePayPalClicked()
             }
             binding.donate1.setOnClickListener {
                 billingUtil.doDonate("donate_1")
