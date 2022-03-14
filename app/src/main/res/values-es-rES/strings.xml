@@ -122,7 +122,7 @@
     <string name="option_sms_limit_count">Cantidad de caras</string>
     <string name="option_sms_limit_interval">Intervalo de tiempo</string>
     <string name="option_lockscreen_shortcut_left">Acceso directo izquierdo</string>
-    <string name="option_lockscreen_shortcut_right">Right Shortcut</string>
+    <string name="option_lockscreen_shortcut_right">Acceso directo izquierdo</string>
     <string name="option_ui_sound_car_dock">Car Dock</string>
     <string name="option_ui_sound_car_dock_desc">Audio that is played when the phone is docked in a car dock.</string>
     <string name="option_ui_sound_car_undock">Car Undock</string>
