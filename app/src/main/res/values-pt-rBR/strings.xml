@@ -179,8 +179,8 @@
     <string name="option_back_gesture_inset_scale_right_desc">O Android 11 introduz uma opção para definir a sensibilidade para o gesto traseiro da tela, ajustando a largura da área de detecção. Use esta opção para definir a largura da borda direita mais finalmente, ou remova-a completamente.</string>
     <string name="option_hide_multi_sim_panel">Ocultar os múltiplos chip\'s das configurações rápidas</string>
     <string name="option_hide_multi_sim_panel_desc">Em aparelhos da Samsung, você pode usar esta opção para ocultar a exibição de mais de um chip que aparece no painel de configurações rápidas quando expandido.</string>
-    <string name="option_disable_combined_internet">Disable Combined Network Options</string>
-    <string name="option_disable_combined_internet_desc">On Android 12, Google combined the settings for WiFi, Bluetooth, and cellular into one menu. The quick settings tiles for WiFi and cellular were also combined into a single Internet tile. Enabling this option will bring back the old menus in Settings and allow you to restore the separate QS tiles. You may need to reboot for this to properly take effect. If you don\'t see the WiFi and cellular tiles, you can add them using the Quick Settings Editor feature in SystemUI Tuner.</string>
+    <string name="option_disable_combined_internet">Desativar Opções de Rede Combinada</string>
+    <string name="option_disable_combined_internet_desc">No Android 12, o Google combinou as configurações de WiFi, Bluetooth e celular em um menu. Os blocos de configurações rápidas para WiFi e celular também foram combinados em um único bloco de Internet. Ativar esta opção retornará os menus antigos nas Configurações e permitirá que você restaure os blocos separados nas configurações rápidas. Pode ser necessário reiniciar para que a reinicialização tenha efeito. Se você não ver os botões Wi-Fi e celulares, pode adicioná-los usando o recurso do Editor de Configurações Rápidas no Configurador de Sistema.</string>
     <string name="home_welcome_title">Bem-vindo!</string>
     <string name="search">Pesquisar</string>
     <string name="immersive_none">Nenhum</string>
@@ -188,7 +188,7 @@
     <string name="immersive_status">Barra de status</string>
     <string name="immersive_nav">Barra de navegação</string>
     <string name="immersive_blacklist">Lista negra</string>
-    <string name="immersive_whitelist">Whitelist</string>
+    <string name="immersive_whitelist">Lista de permissões</string>
     <string name="advanced">Avançado</string>
     <string name="all_apps">Todos os apps</string>
     <string name="select_apps">Selecionar aplicativo</string>
@@ -226,7 +226,7 @@
     <string name="add_qs_tile">Adicionar QS Tile</string>
     <string name="intent">Intenção</string>
     <string name="view_online">Ver online</string>
-    <string name="tile_custom">Custom</string>
+    <string name="tile_custom">Personalizar</string>
     <string name="status_bar_icons">Ícones da barra de status</string>
     <string name="network_states">Estado da rede</string>
     <string name="volume_visibility">Visibilidade do Volume</string>
