@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">Wenn Sie das Symbol, das Sie ausblenden möchten, nicht finden können aber seinen Schlüssel kennen, können Sie es hier hinzufügen.</string>
     <string name="icon_blacklist_remove_custom">Diesen Element entfernen</string>
     <string name="icon_blacklist_remove_custom_desc">Möchten Sie dieses benutzerdefinierte Sperrlistenelement wirklich entfernen?</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Drehung sperren</string>
     <string name="icon_blacklist_airplane">Flugmodus</string>
     <string name="icon_blacklist_wifi">WLAN</string>
