@@ -39,7 +39,7 @@
     <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
     <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
     <string name="adb_install_adb_linux_other_3">Open a terminal.</string>
-    <string name="adb_install_adb_linux_other_4">Scroll down until you find the switch labeled \"USB Debugging\" and enable it.</string>
+    <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
     <string name="adb_install_adb_general_end_2">If everything\'s gone right, there should be no output from the commands. If there is, make sure to scroll all the way up to where you entered the command to see the error.</string>
     <string name="adb_install_adb_general_end_3">The permissions should now be granted!</string>
