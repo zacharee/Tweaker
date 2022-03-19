@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">Руководство по ADB</string>
+    <string name="adb_intro_title">ADB 도움말</string>
     <string name="adb_intro_desc">ADB를 사용하는 법을 모르십니까? 괜찮습니다. 도움말을 따라서 설정을 완료하십시오. (설정 과정 중 컴퓨터가 필요합니다)</string>
     <string name="adb_choose_computer_os">운영 체제를 선택해주십시오.</string>
     <string name="adb_choose_computer_os_desc">컴퓨터에서 실행 중인 운영체제가 무엇입니까?</string>
