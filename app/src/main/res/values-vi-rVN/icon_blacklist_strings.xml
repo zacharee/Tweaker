@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">Nếu bạn không thể tìm thấy biểu tượng mình muốn ẩn và bạn biết mã của nó, bạn có thể thêm nó vào đây.</string>
     <string name="icon_blacklist_remove_custom">Loại bỏ mục này</string>
     <string name="icon_blacklist_remove_custom_desc">Bạn có chắc rằng bạn muốn loại bỏ tùy chọn này trong mục danh sách đen?</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Khoá xoay màn hình</string>
     <string name="icon_blacklist_airplane">Chế độ trên Máy bay</string>
     <string name="icon_blacklist_wifi">WiFi</string>
