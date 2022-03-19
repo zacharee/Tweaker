@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">If you can\'t find the icon you want to hide, and you know its key, you can add it here.</string>
     <string name="icon_blacklist_remove_custom">Remove This Item</string>
     <string name="icon_blacklist_remove_custom_desc">Are you sure you want to remove this custom blacklist item?</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Rotation Lock</string>
     <string name="icon_blacklist_airplane">Airplane Mode</string>
     <string name="icon_blacklist_wifi">WiFi</string>
