@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">如果你找不到你想要隐藏的图标并且你知道它的密钥，你可以在这里添加它。</string>
     <string name="icon_blacklist_remove_custom">删除此项目</string>
     <string name="icon_blacklist_remove_custom_desc">您确定要删除此自定义黑名单项目吗？</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">屏幕方向锁定</string>
     <string name="icon_blacklist_airplane">飞行模式</string>
     <string name="icon_blacklist_wifi">WiFi</string>
