@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">如果你找不到你想要隱藏的圖視，但你知道它的金鑰，你可以在此新增。</string>
     <string name="icon_blacklist_remove_custom">移除此項</string>
     <string name="icon_blacklist_remove_custom_desc">您確定要移除該自訂黑名單項嗎？</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">旋轉鎖定</string>
     <string name="icon_blacklist_airplane">飛航模式</string>
     <string name="icon_blacklist_wifi">WiFi</string>
