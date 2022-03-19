@@ -281,9 +281,9 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="intro_last_desc">Proje güncellemeleri için beni Twitter üzerinden takip edin.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Maalesef bu özellik yalnızca Android% 1 $ s ile Android% 2 $ s arasında çalışır</string>
-    <string name="compatibility_message_higher">Üzgünüz, bu özellik yalnızca Android üzerinden çalışır</string>
+    <string name="compatibility_message_higher">Üzgünüz, bu özellik yalnızca Android üzerinden çalışır %s</string>
     <string name="compatibility_message_storage">Bu işlevi kullanmak için bir SD kartı gerekir</string>
-    <string name="reset_confirm">Bu, SystemUI Tuner tarafından yapılan çoğu değişikliği sıfırlayacaktır. Aşağıdaki seçeneklerin manuel olarak sıfırlanması gerekecektir. Sıfırladıktan sonra yeniden başlatmanızı tavsiye ederim. \ N% s</string>
+    <string name="reset_confirm">Bu, SystemUI Tuner tarafından yapılan çoğu değişikliği sıfırlayacaktır. Aşağıdaki seçeneklerin manuel olarak sıfırlanması gerekecektir. Sıfırladıktan sonra yeniden başlatmanızı tavsiye ederim. \n %s</string>
     <string name="persistent_options_desc">Değerlerini SystemUI Tuner tarafından ayarlanmış değerlere kilitlemek için burada bir seçenek seçin.
  İçerik Taalep.</string>
     <string name="android_marshmallow">Marshmallow 6.0</string>
