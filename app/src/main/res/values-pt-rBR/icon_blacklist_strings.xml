@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">Se você não consegue encontrar o ícone que deseja esconder, e você sabe sua chave, você pode adicioná-lo aqui.</string>
     <string name="icon_blacklist_remove_custom">Remover este item</string>
     <string name="icon_blacklist_remove_custom_desc">Você tem certeza que deseja remover este item personalizado da lista negra?</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Rotação bloqueada</string>
     <string name="icon_blacklist_airplane">Modo Avião</string>
     <string name="icon_blacklist_wifi">Wi-Fi</string>

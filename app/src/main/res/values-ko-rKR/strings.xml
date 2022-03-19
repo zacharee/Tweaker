@@ -188,6 +188,7 @@
     <string name="immersive_status">상태</string>
     <string name="immersive_nav">탐색</string>
     <string name="immersive_blacklist">제외 목록</string>
+    <string name="immersive_whitelist">화이트리스트</string>
     <string name="advanced">고급</string>
     <string name="all_apps">모든 앱</string>
     <string name="select_apps">앱 선택</string>
@@ -225,6 +226,7 @@
     <string name="add_qs_tile">빠른 설정 타일 추가</string>
     <string name="intent">의도</string>
     <string name="view_online">온라인 보기</string>
+    <string name="tile_custom">사용자 지정</string>
     <string name="status_bar_icons">상태 표시줄 아이콘</string>
     <string name="network_states">네트워크 상태</string>
     <string name="volume_visibility">음량 표시</string>

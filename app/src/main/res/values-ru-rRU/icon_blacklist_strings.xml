@@ -14,7 +14,6 @@
     <string name="icon_blacklist_add_custom_desc">Если вы не можете найти иконку, которую хотите скрыть, и вы знаете её ключ, добавьте его здесь.</string>
     <string name="icon_blacklist_remove_custom">Удалить этот элемент</string>
     <string name="icon_blacklist_remove_custom_desc">Вы уверены, что хотите удалить этот элемент чёрного списка?</string>
-    <string name="icon_blacklist_custom_allowed_chars">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.- </string>
     <string name="icon_blacklist_rotate">Отключение поворота</string>
     <string name="icon_blacklist_airplane">Авиарежим</string>
     <string name="icon_blacklist_wifi">Wi-Fi</string>

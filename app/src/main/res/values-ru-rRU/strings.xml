@@ -39,7 +39,7 @@
     <string name="add_to_blacklist">Добавить в чёрный список иконок</string>
     <string name="remove_from_blacklist">Удалить иконку из чёрного списка</string>
     <string name="sub_demo">Демо-режим</string>
-    <string name="sub_demo_desc">Демо-режим позволяет принудительно изменить строку состояния вашего устройства. Вы можете использовать его для показа или скрытия конкретных значков, указания уровня сигналов и некоторых других вещей.</string>
+    <string name="sub_demo_desc">Демокритам позволяет принудительно изменить строку состояния вашего устройства. Вы можете использовать его для показа или скрытия конкретных значков, указания уровня сигналов и некоторых других вещей.</string>
     <string name="special_sub_airplane_mode">Настройки режима полёта</string>
     <string name="special_sub_airplane_mode_desc">При включении режима полёта вся радиосвязь на вашем устройстве автоматически отключается. Вы можете настроить виды радиосвязи, которые будут отключаться (например, можно не выключать Wi-Fi при включении режима полёта). Также вы можете изменить, какие виды радиосвязи могут быть включены вручную, когда устройство находится в режиме полёта.</string>
     <string name="special_sub_icon_blacklist">Чёрный список иконок</string>
@@ -188,6 +188,7 @@
     <string name="immersive_status">Статус</string>
     <string name="immersive_nav">Навигация</string>
     <string name="immersive_blacklist">Чёрный список</string>
+    <string name="immersive_whitelist">Белый список</string>
     <string name="advanced">Расширенные</string>
     <string name="all_apps">Список приложений</string>
     <string name="select_apps">Выбрать приложения</string>
@@ -225,6 +226,7 @@
     <string name="add_qs_tile">Добавить плитку быстрых настроек</string>
     <string name="intent">Намерения</string>
     <string name="view_online">Смотреть онлайн</string>
+    <string name="tile_custom">Пользовательские настройки</string>
     <string name="status_bar_icons">Значки строки состояния</string>
     <string name="network_states">Состояния сети</string>
     <string name="volume_visibility">Видимость громкости</string>

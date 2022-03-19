@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../SeekBarPreference/library/src/main/res/layout/value_selector_dialog.xml" value="0.2328125" />
+        <entry key="app/src/main/res/drawable/battery_60.xml" value="0.1685" />
+        <entry key="app/src/main/res/drawable/credit_card.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/header.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/icon_unpadded.xml" value="0.156" />
+        <entry key="app/src/main/res/drawable/microphone.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/patreon.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/record.xml" value="0.1155" />
+        <entry key="app/src/main/res/drawable/sim_off.xml" value="0.1685" />
+        <entry key="app/src/main/res/layout-land/terms_slide.xml" value="0.2001763668430335" />
+        <entry key="app/src/main/res/layout/activity_icon_blacklist.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/activity_immersive_selector.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_qs_editor.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/app_activity_item.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/base_dialog_layout.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/layout/custom_persistent_option_widget.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/custom_preference.xml" value="0.2328125" />
+        <entry key="app/src/main/res/layout/dialog_add_custom_qs.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/dialog_add_intent_qs.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout/dialog_add_qs_tile.xml" value="0.20244565217391305" />
+        <entry key="app/src/main/res/layout/drawer_header.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/layout/fragment_empty.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.26118367513020835" />
+        <entry key="app/src/main/res/layout/immersive_mode_item.xml" value="0.3027257283528646" />
+        <entry key="app/src/main/res/layout/layout_donate.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/layout/lockscreen_shortcut.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/lockscreen_shortcut_selector.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/lockscreen_shortcuts.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/layout/qs_tile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/sms_limits.xml" value="0.12056737588652482" />
+        <entry key="app/src/main/res/layout/steps_list.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/terms_slide.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/ui_sounds_item.xml" value="0.10052083333333334" />
+        <entry key="app/src/main/res/layout/widget_only_preference.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/xml/prefs_home.xml" value="0.1" />
+        <entry key="app/src/main/res/xml/prefs_search.xml" value="0.19972826086956522" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
