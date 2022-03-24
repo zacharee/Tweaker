@@ -128,7 +128,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         if (all) builder.append("$type=*")
         else if (apps.isNotEmpty()) builder.append("$type=${apps.joinToString(separator = ",")}")
 
-        if (bl.isNotEmpty()) builder.append(bl.joinToString(separator = ",-", prefix = if (apps.isEmpty()) "$type=-" else ",-"))
+        if (bl.isNotEmpty()) builder.append(bl.joinToString(separator = ",-", prefix = if (builder.isEmpty()) "$type=-" else ",-"))
 
         return builder.toString()
     }
