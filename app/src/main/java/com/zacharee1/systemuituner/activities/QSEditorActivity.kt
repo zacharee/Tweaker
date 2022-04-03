@@ -159,7 +159,7 @@ class QSEditorActivity : AppCompatActivity() {
                     add("wifi")
                     add("cell")
                 }
-            } catch (e: Exception) {}
+            } catch (_: Exception) {}
         }
 
         private val customTiles = ArrayList<String>().apply {

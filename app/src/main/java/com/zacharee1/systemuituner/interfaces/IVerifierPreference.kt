@@ -44,7 +44,7 @@ interface IVerifierPreference {
     }
 }
 
-open class VerifierPreference(private val context: Context, attrs: AttributeSet?) : IVerifierPreference {
+open class VerifierPreference(context: Context, attrs: AttributeSet?) : IVerifierPreference {
     override var visibilityVerifier: BaseVisibilityVerifier? = null
     override var enabledVerifier: BasePreferenceEnabledVerifier? = null
     override var lowApi: Int =

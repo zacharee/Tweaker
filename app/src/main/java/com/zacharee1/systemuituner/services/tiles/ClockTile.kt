@@ -45,7 +45,7 @@ class ClockTile : TileService() {
 
         try {
             unregisterReceiver(receiver)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     override fun onClick() {
@@ -72,7 +72,7 @@ class ClockTile : TileService() {
 
         try {
             startActivityAndCollapse(intentClock)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     private fun updateTime() {

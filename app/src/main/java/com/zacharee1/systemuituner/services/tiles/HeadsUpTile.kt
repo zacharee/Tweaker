@@ -40,7 +40,7 @@ class HeadsUpTile : TileService() {
     override fun onStopListening() {
         try {
             contentResolver.unregisterContentObserver(observer)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     private fun updateState() {

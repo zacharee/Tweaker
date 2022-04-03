@@ -193,14 +193,14 @@ fun Context.resetAll() {
 
     try {
         Settings.Global.resetToDefaults(contentResolver, null)
-    } catch (e: SecurityException) {
+    } catch (_: SecurityException) {
     } catch (e: NoSuchMethodError) {
         Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
     }
 
     try {
         Settings.Secure.resetToDefaults(contentResolver, null)
-    } catch (e: SecurityException) {
+    } catch (_: SecurityException) {
     } catch (e: NoSuchMethodError) {
         Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
     }
@@ -427,7 +427,7 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
         )
 
         attrs.recycle()
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 
     if (color == 0) {
@@ -457,7 +457,7 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
             )
 
             attrs.recycle()
-        } catch (e: Exception) {
+        } catch (_: Exception) {
         }
     }
 
@@ -503,7 +503,7 @@ fun Context.buildNonResettablePreferences(): Set<String> {
             }
             cursor.close()
         }
-    } catch (e: IllegalArgumentException) {
+    } catch (_: IllegalArgumentException) {
     }
     names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { "${resources.getString(R.string.system)}: ${it.key}" })
     return names
@@ -540,7 +540,7 @@ fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
                     .replace(")", "")
                     .replace(Regex("([0-9])+:"), "")
             )
-        } catch (e: IllegalStateException) {
+        } catch (_: IllegalStateException) {
         }
     }
 
@@ -648,7 +648,7 @@ fun Context.launchUrl(url: String) {
         val browserIntent =
             Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 }
 
@@ -658,7 +658,7 @@ fun Context.launchEmail(to: String, subject: String) {
         intent.setDataAndType(Uri.parse(createEmailString(to, subject)), "text/plain")
 
         startActivity(intent)
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 }
 
@@ -682,7 +682,7 @@ fun String.toIntOrNullOnError(): Int? {
 inline fun <T : IInterface> T.callSafely(block: (T) -> Unit) {
     try {
         block(this)
-    } catch (e: Exception) {
+    } catch (_: Exception) {
     }
 }
 

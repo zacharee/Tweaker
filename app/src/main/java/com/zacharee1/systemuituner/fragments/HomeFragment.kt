@@ -79,7 +79,7 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
 
         try {
             requireActivity().findNavController(R.id.nav_host_fragment).removeOnDestinationChangedListener(this)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     override fun onDestinationChanged(

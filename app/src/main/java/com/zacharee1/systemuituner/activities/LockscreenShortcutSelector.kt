@@ -209,7 +209,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     class AppAdapter(private val selectionCallback: (LoadedApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {
         override val items = object : SortedList<LoadedApplicationInfo>(
             LoadedApplicationInfo::class.java,
-            object : SortedList.Callback<LoadedApplicationInfo>() {
+            object : Callback<LoadedApplicationInfo>() {
                 override fun areItemsTheSame(
                     item1: LoadedApplicationInfo?,
                     item2: LoadedApplicationInfo?
@@ -323,7 +323,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     class ActivityAdapter(private val selectionCallback: (ActivityInfo) -> Unit) : BaseAdapter<LoadedActivityInfo>() {
         override val items = object : SortedList<LoadedActivityInfo>(
             LoadedActivityInfo::class.java,
-            object : SortedList.Callback<LoadedActivityInfo>() {
+            object : Callback<LoadedActivityInfo>() {
                 override fun areItemsTheSame(
                     item1: LoadedActivityInfo?,
                     item2: LoadedActivityInfo?
