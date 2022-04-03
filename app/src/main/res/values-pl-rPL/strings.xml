@@ -57,7 +57,7 @@
     <string name="feature_freeform">Włącz dowolny rozmiar okien</string>
     <string name="feature_freeform_desc">Czy włączyć darmową obsługę wielu okien. Wymaga restartu. Działa tylko na urządzeniach Android 7.0+.</string>
     <string name="feature_app_install_location">Ustaw domyślną lokalizację instalacji aplikacji</string>
-    <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
+    <string name="feature_app_install_location_desc">Domyślna lokalizacja instalacji aplikacji. Wybierz domyślnie zainstalowane aplikacje do przechowywania. Zazwyczaj same aplikacje decydują określając wartość w AndroidManifest, ale jeśli chcesz, możesz je zainstalować na nośniku pamięci.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
     <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
     <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
