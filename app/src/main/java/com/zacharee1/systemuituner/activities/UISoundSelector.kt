@@ -61,7 +61,7 @@ class UISoundSelector : AppCompatActivity() {
 
                     dest.outputStream().use { output ->
                         contentResolver.openInputStream(uri).use { input ->
-                            input.copyTo(output)
+                            input?.copyTo(output)
                         }
                     }
 
