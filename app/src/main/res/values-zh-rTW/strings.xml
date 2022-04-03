@@ -73,7 +73,7 @@
     <string name="feature_camera_gestures">相機手勢</string>
     <string name="feature_camera_gestures_desc">啟用該選項會使你的手機透過按下兩次電源鍵或在背面和正面之間翻轉手機來快速啟動相機。</string>
     <string name="feature_disable_safe_audio_warning">停用音量安全警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變該警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
+    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧型手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變該警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
     <string name="feature_custom_ui_sounds">自訂 UI 音效</string>
     <string name="feature_custom_ui_sounds_desc">Android 在 UI 的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用。</string>
     <string name="feature_fix_tethering">修復網路共用</string>
