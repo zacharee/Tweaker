@@ -63,7 +63,7 @@ enum class SettingsType(val value: Int) {
         const val SYSTEM_LITERAL = "system"
 
         fun fromString(input: String): SettingsType {
-            return when (input.lowercase(Locale.getDefault())) {
+            return when (input.lowercase()) {
                 GLOBAL_LITERAL -> GLOBAL
                 SECURE_LITERAL -> SECURE
                 SYSTEM_LITERAL -> SYSTEM

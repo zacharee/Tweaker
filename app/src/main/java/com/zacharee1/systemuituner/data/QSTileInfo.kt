@@ -105,7 +105,7 @@ class QSTileInfo(
     private fun Context.chooseStandardDrawable(): Drawable? {
         return ResourcesCompat.getDrawable(
             resources,
-            when (key.lowercase(Locale.US)) {
+            when (key.lowercase()) {
                 "wifi" -> R.drawable.ic_baseline_signal_wifi_4_bar_24
                 "bluetooth", "bt" -> R.drawable.ic_baseline_bluetooth_24
                 "color_inversion" -> R.drawable.ic_baseline_invert_colors_24

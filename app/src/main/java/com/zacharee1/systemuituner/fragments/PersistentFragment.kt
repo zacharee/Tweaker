@@ -142,21 +142,19 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     }
 
     private fun filterPersistent(query: String?, result: (ArrayList<PersistentPreference>) -> Unit) = launch {
-        val lowercase = query?.lowercase(Locale.getDefault())
-
         isLoaded.await()
 
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    (lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().contains(lowercase, true) ||
-                            it.origSummary?.toString()?.contains(lowercase, true) == true)
+                    (query == null || query.isBlank() ||
+                            it.title.toString().contains(query, true) ||
+                            it.origSummary?.toString()?.contains(query, true) == true)
                 }.map { PersistentPreference.fromPreference(false, it, this@PersistentFragment) } +
                         requireContext().prefManager.customPersistentOptions.filter {
-                            lowercase == null || lowercase.isBlank() ||
-                                    it.label.contains(lowercase, true) ||
-                                    it.key.contains(lowercase, true)
+                            query == null || query.isBlank() ||
+                                    it.label.contains(query, true) ||
+                                    it.key.contains(query, true)
                         }.map {
                             PersistentPreference.fromCustomPersistentOption(this@PersistentFragment, it)
                         }
