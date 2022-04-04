@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">Pengelola (Matikan)</string>
     <string name="tap_to_disable">Klik disini untuk mematikan notifikasi</string>
     <string name="home">Home</string>
     <string name="category_display">Display</string>
@@ -13,7 +13,7 @@
     <string name="category_network">Network</string>
     <string name="category_notifications">Pemberitahuan</string>
     <string name="category_status_bar">Status&amp;bar</string>
-    <string name="category_oem">OEM Features</string>
+    <string name="category_oem">Fitur OEM</string>
     <string name="category_system">System</string>
     <string name="category_ui">UI</string>
     <string name="category_quick_settings">Quick Settings</string>
