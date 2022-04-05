@@ -63,7 +63,7 @@
     <string name="icon_blacklist_face">Wajah</string>
     <string name="icon_blacklist_gps">GPS</string>
     <string name="icon_blacklist_lbs">LBS</string>
-    <string name="icon_blacklist_wearable_gear">Alat Mampu Dikenakan</string>
+    <string name="icon_blacklist_wearable_gear">Alat Dapat Dikenakan</string>
     <string name="icon_blacklist_femtoicon">Femtocell</string>
     <string name="icon_blacklist_comsamsungrcs">Samsung RCS</string>
     <string name="icon_blacklist_wifi_p2p">Wi-Fi P2P</string>
