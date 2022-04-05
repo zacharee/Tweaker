@@ -30,12 +30,12 @@
     <string name="icon_blacklist_speakerphone">Pengeras suara ponsel</string>
     <string name="icon_blacklist_remote_call">Panggilan Jarak Jauh</string>
     <string name="icon_blacklist_tty">TTY</string>
-    <string name="icon_blacklist_clock">Clock</string>
+    <string name="icon_blacklist_clock">Jam</string>
     <string name="icon_blacklist_alarm">Alarm</string>
     <string name="icon_blacklist_zen">Zen</string>
-    <string name="icon_blacklist_do_not_disturb">Do Not Disturb</string>
-    <string name="icon_blacklist_managed_profile">Managed Profile</string>
-    <string name="icon_blacklist_battery">Battery</string>
+    <string name="icon_blacklist_do_not_disturb">Jangan Ganggu</string>
+    <string name="icon_blacklist_managed_profile">Profil Terkelola</string>
+    <string name="icon_blacklist_battery">Baterai</string>
     <string name="icon_blacklist_cast">Cast</string>
     <string name="icon_blacklist_nfc">NFC</string>
     <string name="icon_blacklist_location">Location</string>
