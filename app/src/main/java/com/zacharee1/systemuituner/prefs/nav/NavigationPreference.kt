@@ -29,13 +29,6 @@ open class NavigationPreference(context: Context, attributeSet: AttributeSet?) :
             graph.getAction(action)?.destinationId ?: action
         }
 
-    val isForFragment: Boolean
-        get() = navController.run {
-            val dest = findDestination(destId)
-
-            dest is FragmentNavigator.Destination
-        }
-
     internal open val startMargin = StartMargin.NORMAL
     internal open val useDividers = true
 

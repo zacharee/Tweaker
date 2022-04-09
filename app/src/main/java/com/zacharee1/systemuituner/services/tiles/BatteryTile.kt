@@ -45,7 +45,7 @@ class BatteryTile : TileService() {
 
         try {
             startActivityAndCollapse(intentBatteryUsage)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
 
         super.onClick()
     }

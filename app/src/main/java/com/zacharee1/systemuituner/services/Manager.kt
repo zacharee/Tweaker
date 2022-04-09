@@ -50,7 +50,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         try {
             doInitialCheck()
-        } catch (e: IllegalStateException) {}
+        } catch (_: IllegalStateException) {}
         observer.register()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -151,7 +151,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         fun unregister() {
             try {
                 contentResolver.unregisterContentObserver(this)
-            } catch (e: Exception) {}
+            } catch (_: Exception) {}
         }
 
         override fun onChange(selfChange: Boolean, uri: Uri) {

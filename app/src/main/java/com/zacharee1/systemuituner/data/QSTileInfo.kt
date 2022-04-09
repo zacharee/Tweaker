@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.capitalized
-import java.util.*
 import java.util.regex.Pattern
 
 class QSTileInfo(
