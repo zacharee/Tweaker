@@ -16,6 +16,8 @@ import com.zacharee1.systemuituner.prefs.nav.NavigationPreference
 import com.zacharee1.systemuituner.util.isTouchWiz
 
 class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListener {
+    var onSearchClickListener: (() -> Unit)? = null
+
     override val supportsGrid = false
 
     private var selectedId: String? = null
@@ -33,6 +35,9 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_home, rootKey)
+
+        findPreference<NavHeaderPreference>("header")
+            ?.onSearchClickListener = { onSearchClickListener?.invoke() }
     }
 
     override fun onResume() {
@@ -79,7 +84,7 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
 
         try {
             requireActivity().findNavController(R.id.nav_host_fragment).removeOnDestinationChangedListener(this)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     override fun onDestinationChanged(

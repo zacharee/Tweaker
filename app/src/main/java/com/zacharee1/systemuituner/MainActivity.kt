@@ -1,32 +1,37 @@
 package com.zacharee1.systemuituner
 
+import android.animation.ValueAnimator
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
+import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
-import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import com.zacharee1.systemuituner.activities.Intro
 import com.zacharee1.systemuituner.databinding.ActivityMainBinding
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
+import com.zacharee1.systemuituner.fragments.HomeFragment
 import com.zacharee1.systemuituner.fragments.SearchFragment
 import com.zacharee1.systemuituner.util.*
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
     private val mainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val searchFragment by lazy { supportFragmentManager.findFragmentById(R.id.search_fragment) as SearchFragment }
+    private val homeFragment by lazy { supportFragmentManager.findFragmentById(R.id.nav_home_fragment) as HomeFragment }
     private val titleSwitcher by lazy { mainBinding.screenTitle }
 
     private val navFragment by lazy { supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment }
     private val navController: NavController
         get() = navFragment.navController
 
-    private var searchView: SearchView? = null
+    private val searchView by lazy { mainBinding.searchBar }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
@@ -68,52 +73,48 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 action,
                 bundleOf(BasePrefFragment.ARG_HIGHLIGHT_KEY to key)
             )
-            searchView?.setQuery("", false)
-            searchView?.isIconified = true
+            searchView.setQuery("", false)
+            closeSearch()
         }
+
+        homeFragment.onSearchClickListener = {
+            searchFragment.onShow()
+            mainBinding.searchHolder.apply {
+                visibility = View.VISIBLE
+                animate()
+                    .alpha(1f)
+                    .translationX(0f)
+                    .withEndAction {
+                        visibility = View.VISIBLE
+                    }
+            }
+            searchView.setOnQueryTextListener(searchFragment)
+            searchView.isIconified = false
+        }
+
+        searchView.addAnimation()
+        searchView.setOnCloseListener {
+            closeSearch()
+            true
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        updateDrawerWidth(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             mainBinding.root.closePane()
+            if (!mainBinding.root.isSlideable) {
+                updateDrawerWidth()
+            }
             return true
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_search, menu)
-
-        val searchItem = menu.findItem(R.id.search)
-        searchView = searchItem?.actionView as SearchView?
-        searchView?.addAnimation()
-
-        with(searchView) {
-            this ?: return@with
-
-            setOnSearchClickListener {
-                mainBinding.searchHolder.apply {
-                    searchFragment.onShow()
-                    visibility = View.VISIBLE
-                    animate()
-                        .alpha(1f)
-                        .translationX(0f)
-                        .withEndAction {
-                        }
-                }
-                setOnQueryTextListener(searchFragment)
-
-                titleSwitcher.isVisible = false
-            }
-
-            setOnCloseListener {
-                closeSearch()
-                false
-            }
-        }
-
-        return true
     }
 
     private fun closeSearch() {
@@ -125,9 +126,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                     visibility = View.GONE
                 }
         }
-        searchView?.setOnQueryTextListener(null)
-
-        titleSwitcher.scaleAnimatedVisible = true
+        searchView.setQuery("", false)
+        searchView.setOnQueryTextListener(null)
     }
 
     override fun onDestinationChanged(
@@ -140,8 +140,8 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     override fun onBackPressed() {
         when {
-            searchView?.isIconified == false -> {
-                searchView?.isIconified = true
+            !searchView.isIconified -> {
+                closeSearch()
             }
             mainBinding.root.isOpen -> {
                 mainBinding.root.closePane()
@@ -156,5 +156,24 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         super.setTitle(null)
 
         titleSwitcher.setText(title)
+    }
+
+    private var drawerAnimator: ValueAnimator? = null
+
+    private fun updateDrawerWidth(visible: Boolean = mainBinding.drawerLayout.width == 0) {
+        drawerAnimator?.cancel()
+        drawerAnimator = ValueAnimator.ofInt(
+            mainBinding.drawerLayout.width,
+            if (visible) resources.getDimensionPixelSize(R.dimen.drawer_width) else 0
+        )
+        drawerAnimator?.duration = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
+        drawerAnimator?.interpolator = if (visible) DecelerateInterpolator() else AccelerateInterpolator()
+
+        drawerAnimator?.addUpdateListener {
+            mainBinding.drawerLayout.updateLayoutParams<ViewGroup.LayoutParams> {
+                width = it.animatedValue.toString().toInt()
+            }
+        }
+        drawerAnimator?.start()
     }
 }

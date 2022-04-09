@@ -25,13 +25,11 @@ import android.text.TextUtils
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -42,11 +40,12 @@ import androidx.recyclerview.widget.SortedList
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
-import rikka.shizuku.*
+import rikka.shizuku.Shizuku
+import rikka.shizuku.ShizukuBinderWrapper
+import rikka.shizuku.ShizukuProvider
+import rikka.shizuku.SystemServiceHelper
 import java.util.*
 import java.util.regex.Pattern
-import kotlin.collections.ArrayList
-import kotlin.collections.HashSet
 import kotlin.math.floor
 import kotlin.math.roundToInt
 
@@ -464,16 +463,18 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
     return color
 }
 
-fun SearchView.addAnimation() {
-    val bar = findViewById<LinearLayout>(R.id.search_bar)
-    bar.layoutTransition = LayoutTransition().apply {
+fun ViewGroup.addAnimation() {
+    layoutTransition = LayoutTransition().apply {
         this.enableTransitionType(LayoutTransition.CHANGING)
     }
 }
 
-fun Toolbar.addAnimation() {
-    layoutTransition = LayoutTransition().apply {
-        this.enableTransitionType(LayoutTransition.CHANGING)
+fun ViewGroup.invalidateRecursive() {
+    val count = childCount
+    var child: View
+    for (i in 0 until count) {
+        child = getChildAt(i)
+        if (child is ViewGroup) child.invalidateRecursive() else child.invalidate()
     }
 }
 

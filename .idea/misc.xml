@@ -39,6 +39,7 @@
         <entry key="app/src/main/res/layout/terms_slide.xml" value="0.10052083333333334" />
         <entry key="app/src/main/res/layout/ui_sounds_item.xml" value="0.10052083333333334" />
         <entry key="app/src/main/res/layout/widget_only_preference.xml" value="0.11666666666666667" />
+        <entry key="app/src/main/res/menu/menu_search.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/xml/prefs_home.xml" value="0.1" />
         <entry key="app/src/main/res/xml/prefs_search.xml" value="0.19972826086956522" />
       </map>
