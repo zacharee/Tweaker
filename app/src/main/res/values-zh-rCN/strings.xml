@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">系统界面调节工具</string>
+    <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">管理员(关闭)</string>
     <string name="tap_to_disable">点击禁用此通知</string>
     <string name="home">主页</string>
@@ -177,10 +177,10 @@
     <string name="option_back_gesture_inset_scale_left_desc">Android 11引入了一个选项，可通过调整检测区域的宽度来设置屏幕边缘后手势的灵敏度。使用此选项可以更精细地设置左边缘的宽度，或者将其完全删除。</string>
     <string name="option_back_gesture_inset_scale_right">后手势边缘宽度(Right)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11引入了一个选项，可通过调整检测区域的宽度来设置屏幕边缘后手势的灵敏度。使用此选项可以更精细地设置右边缘的宽度，或者将其完全删除。</string>
-    <string name="option_hide_multi_sim_panel">Hide QS Multi-SIM Panel</string>
+    <string name="option_hide_multi_sim_panel">隐藏 QS Multi-SIM面板</string>
     <string name="option_hide_multi_sim_panel_desc">在三星设备上，您可以使用此选项来隐藏扩展快速设置面板中出现的多SIM视图。</string>
-    <string name="option_disable_combined_internet">Disable Combined Network Options</string>
-    <string name="option_disable_combined_internet_desc">On Android 12, Google combined the settings for WiFi, Bluetooth, and cellular into one menu. The quick settings tiles for WiFi and cellular were also combined into a single Internet tile. Enabling this option will bring back the old menus in Settings and allow you to restore the separate QS tiles. You may need to reboot for this to properly take effect. If you don\'t see the WiFi and cellular tiles, you can add them using the Quick Settings Editor feature in SystemUI Tuner.</string>
+    <string name="option_disable_combined_internet">禁用合并网络选项</string>
+    <string name="option_disable_combined_internet_desc">在 Android 12，谷歌将WiFi，蓝牙和蜂窝的设置合并为一个菜单。 WiFi和蜂窝的快速设置瓷块也被合并成一个单一的互联网圈。 启用此选项将在设置中将旧菜单带回来，并允许您还原单独的 QS 瓷砖。 您可能需要重新启动才能正常生效。 如果您看不到WiFi和蜂窝瓷砖，您可以在 SystemUI Tuner 中使用快速设置编辑器功能添加它们。</string>
     <string name="home_welcome_title">欢迎！</string>
     <string name="search">搜索​​​​</string>
     <string name="immersive_none">无</string>
@@ -188,7 +188,7 @@
     <string name="immersive_status">状态</string>
     <string name="immersive_nav">导航</string>
     <string name="immersive_blacklist">黑名单</string>
-    <string name="immersive_whitelist">Whitelist</string>
+    <string name="immersive_whitelist">白名单</string>
     <string name="advanced">高级选项</string>
     <string name="all_apps">所有应用</string>
     <string name="select_apps">选择应用</string>
@@ -339,6 +339,6 @@
     <string name="safe_audio_state_disabled">已禁用</string>
     <string name="safe_audio_state_inactive">未激活</string>
     <string name="safe_audio_state_active">激活</string>
-    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_title">在启动时不重置选项？</string>
+    <string name="persistent_options_not_sticking_desc">您可能需要将任何电池优化的 SystemUI 调节器加入白名单。点击此处寻找方法。</string>
 </resources>
