@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_icon_blacklist_general">General</string>
-    <string name="category_icon_blacklist_samsung">Samsung</string>
+    <string name="category_icon_blacklist_general">عام</string>
+    <string name="category_icon_blacklist_samsung">تلفزيون Samsung</string>
     <string name="category_icon_blacklist_huawei">Huawei</string>
     <string name="category_icon_blacklist_xiaomi">Xiaomi</string>
     <string name="category_icon_blacklist_htc">HTC</string>
