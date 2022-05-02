@@ -70,9 +70,9 @@
     <string name="icon_blacklist_wifi_ap">Wi-Fi AP</string>
     <string name="icon_blacklist_wifi_oxygen">Wi-Fi Oxygen</string>
     <string name="icon_blacklist_phone_signal_second_stub">Phone Signal Second Stub</string>
-    <string name="icon_blacklist_toddler">Toddler</string>
+    <string name="icon_blacklist_toddler">Batole</string>
     <string name="icon_blacklist_keyguard_wakeup">Ikona aktivace KeyGuard</string>
-    <string name="icon_blacklist_safezone">SafeZone</string>
+    <string name="icon_blacklist_safezone">Bezpečná zóna</string>
     <string name="icon_blacklist_wimax">WiMax</string>
     <string name="icon_blacklist_smart_bonding">Ikona chytrého připnutí</string>
     <string name="icon_blacklist_private_mode">Soukromý režim</string>
