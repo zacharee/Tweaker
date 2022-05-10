@@ -168,10 +168,10 @@
     <string name="option_touchwiz_disable_high_brightness_warning">Disable High Brightness Warning</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">In some regions, Samsung devices will show a warning when you attempt to go above a certain screen brightness level. This setting is usually reset on reboot. Enable this and set it as a Persistent Option to permanently disable this warning.</string>
     <string name="option_qs_editor">Quick Settings Editor</string>
-    <string name="option_qs_editor_desc">While custom QS tiles are only available on Android Nougat (7.0) and later, Marshmallow (6.0) still has limited QS editing available. You can reorder, remove, and add default QS tiles, as well as basic Intents.</string>
-    <string name="option_qs_fancy_anim">QS Fancy Animation</string>
-    <string name="option_qs_fancy_anim_desc">On supported devices, you can use this to disable the fancy QS tile movement and fading when fully expanding the notification center. If this doesn\'t seem to have an effect on your device, keep it turned on to avoid other issues.</string>
-    <string name="option_qs_move_full_rows">QS Move Full Rows</string>
+    <string name="option_qs_editor_desc">Mientras que los azulejos QS personalizados sólo están disponibles en Android Nougat (7.0) y más tarde, Marshmallow (6. ) todavía tiene disponible una edición QS limitada. Puede reordenar, eliminar y añadir baldosas QS por defecto, así como Intentos básicos.</string>
+    <string name="option_qs_fancy_anim">Animaciones de Lujo</string>
+    <string name="option_qs_fancy_anim_desc">En dispositivos soportados, puede usar esto para desactivar el movimiento de mosaico QS y desvanecer cuando se expande completamente el centro de notificaciones. Si esto no parece tener un efecto en su dispositivo, manténgalo encendido para evitar otros problemas.</string>
+    <string name="option_qs_move_full_rows">QS Mover filas completas</string>
     <string name="option_qs_move_full_rows_desc">What this actually does isn\'t explained very well, but it does something and you could try it if you want. It has something to do with pulling down the notification center.</string>
     <string name="option_back_gesture_inset_scale_left">Back Gesture Edge Width (Left)</string>
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
