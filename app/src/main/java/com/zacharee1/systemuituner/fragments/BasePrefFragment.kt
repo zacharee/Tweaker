@@ -80,7 +80,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                (((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloat()
+                (((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloatOrNull()
                     ?: (preference.defaultValue * preference.scale)) / preference.scale)).toInt()
             )
             is AnimationScalesPreference -> OptionDialog.newInstance(
