@@ -24,7 +24,7 @@
     <string name="failure">失败</string>
     <string name="help_translate">帮助翻译本软件</string>
     <string name="sub_cellular">移动网络</string>
-    <string name="sub_wifi">WLAN</string>
+    <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">其它选项</string>
     <string name="sub_htc">HTC</string>
     <string name="sub_huawei">华为/荣耀</string>
