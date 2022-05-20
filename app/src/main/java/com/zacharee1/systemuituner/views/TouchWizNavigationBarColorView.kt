@@ -25,7 +25,7 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Fr
         .setAllowCustom(true)
         .setShowAlphaSlider(true)
         .setShowColorShades(true)
-        .setColor((context.getSetting(SettingsType.GLOBAL, "navigationbar_color") ?: "${Color.WHITE}").toInt())
+        .setColor(context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toIntOrNull() ?: Color.WHITE)
         .create()
 
     private val binding by lazy { TouchwizNavigationBarColorDialogBinding.bind(this) }
@@ -40,7 +40,7 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Fr
                 .add(dialog, null)
                 .commitAllowingStateLoss()
         }
-        binding.currentColor.color = context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toInt() ?: Color.WHITE
+        binding.currentColor.color = context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toIntOrNull() ?: Color.WHITE
     }
 
     override fun onColorReset(dialogId: Int) {

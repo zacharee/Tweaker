@@ -59,18 +59,23 @@ class QSTileInfo(
         val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
-                .toString()
+            if (component != null) {
+                packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
+                    .toString()
+            } else {
+                packageManager.getApplicationInfo(packageName, 0).loadLabel(packageManager)
+                    .toString()
+            }
         } catch (e: Exception) {
             try {
-                component.className.split(".").run { this[size - 1] }
+                component?.className?.split(".")?.run { this[size - 1] } ?: packageName
             } catch (e: Exception) {
                 packageName
             }
         }
     }
 
-    fun getNameAndComponentForCustom(): ComponentName {
+    fun getNameAndComponentForCustom(): ComponentName? {
         val p = Pattern.compile("\\((.*?)\\)")
         val m = p.matcher(key)
 
@@ -82,7 +87,7 @@ class QSTileInfo(
 
         name = name.replace("(", "").replace(")", "")
 
-        return ComponentName.unflattenFromString(name) ?: throw IllegalArgumentException("Invalid component name: $name")
+        return ComponentName.unflattenFromString(name)
     }
 
     private fun Context.getCustomDrawable(): Drawable? {

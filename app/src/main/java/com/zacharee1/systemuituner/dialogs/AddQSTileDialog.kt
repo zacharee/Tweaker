@@ -129,7 +129,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                     val dp4 = itemView.context.dpAsPx(4)
                     setMargins(dp8, dp4, dp8, dp4)
                 }
-                (itemView as MaterialCardView).apply {
+                (itemView as? MaterialCardView)?.apply {
                     cardElevation = 0f
                 }
                 binding.label.text = info.getLabel(itemView.context)
@@ -138,7 +138,7 @@ class AddQSTileDialog(context: Context, private val adapter: QSEditorActivity.QS
                     maxLines = Int.MAX_VALUE
                     if (info.type == QSTileInfo.Type.CUSTOM) {
                         isVisible = true
-                        text = info.getNameAndComponentForCustom().flattenToShortString()
+                        text = info.getNameAndComponentForCustom()?.flattenToShortString() ?: info.key
                     } else {
                         isVisible = false
                     }
