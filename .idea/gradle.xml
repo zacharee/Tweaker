@@ -9,9 +9,6 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../Android-ExpandableTextView/expandabletextview" />
-            <option value="$PROJECT_DIR$/../CollapsiblePreferenceCategory/library" />
-            <option value="$PROJECT_DIR$/../SeekBarPreference/library" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>
