@@ -11,6 +11,7 @@ import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.util.safeUpdateTile
 
 @TargetApi(Build.VERSION_CODES.N)
 class BatteryTile : TileService() {
@@ -26,7 +27,7 @@ class BatteryTile : TileService() {
         registerReceiver(receiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
 
         qsTile?.state = Tile.STATE_ACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     override fun onStopListening() {
@@ -71,6 +72,6 @@ class BatteryTile : TileService() {
 
         qsTile?.icon = Icon.createWithResource(this, resId)
         qsTile?.label = "$batteryLevel%"
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 }

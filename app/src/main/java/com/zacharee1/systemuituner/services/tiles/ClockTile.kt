@@ -11,6 +11,7 @@ import android.provider.AlarmClock
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.text.format.DateFormat
+import com.zacharee1.systemuituner.util.safeUpdateTile
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,7 +38,7 @@ class ClockTile : TileService() {
         updateTime()
 
         qsTile?.state = Tile.STATE_ACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     override fun onStopListening() {
@@ -80,7 +81,7 @@ class ClockTile : TileService() {
         val date = SimpleDateFormat(formatOption, Locale.getDefault()).format(Date())
 
         qsTile?.label = date
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
 
         if (shouldRun) {
             handler.postDelayed({

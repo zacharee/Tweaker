@@ -5,6 +5,7 @@ import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.util.DemoController
+import com.zacharee1.systemuituner.util.safeUpdateTile
 
 @TargetApi(Build.VERSION_CODES.N)
 class DemoTile : TileService(), (Boolean) -> Unit {
@@ -26,7 +27,7 @@ class DemoTile : TileService(), (Boolean) -> Unit {
 
     private fun updateState() {
         qsTile?.state = if (demoHandler.isCurrentlyEnabled) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     override fun onClick() {

@@ -7,6 +7,7 @@ import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.util.ImmersiveManager
+import com.zacharee1.systemuituner.util.safeUpdateTile
 
 @TargetApi(Build.VERSION_CODES.N)
 abstract class BaseImmersiveTile : TileService() {
@@ -73,7 +74,7 @@ abstract class BaseImmersiveTile : TileService() {
         val info = immersiveManager.parseAdvancedImmersive()
 
         qsTile?.state = if (isOn(info)) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     private fun isOn(info: ImmersiveManager.ImmersiveInfo): Boolean {

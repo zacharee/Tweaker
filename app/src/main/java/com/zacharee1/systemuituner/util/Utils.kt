@@ -21,6 +21,7 @@ import android.os.*
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES
 import android.provider.Settings
+import android.service.quicksettings.Tile
 import android.text.TextUtils
 import android.util.Log
 import android.util.TypedValue
@@ -30,6 +31,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -834,4 +836,11 @@ fun Fragment.updateLayoutManager(
     extraFlags: Boolean = true
 ) {
     recycler?.layoutManager = chooseLayoutManager(view, grid, linear, extraFlags)
+}
+
+@RequiresApi(VERSION_CODES.N)
+fun Tile.safeUpdateTile() {
+    try {
+        updateTile()
+    } catch (_: Exception) {}
 }
