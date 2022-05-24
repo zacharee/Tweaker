@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">Руководство по ADB</string>
     <string name="adb_intro_desc">Не знаете, как использовать ADB? Без проблем, просто следуйте этому руководству (обратите внимание, что вам необходим компьютер для этого).</string>
+    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Выберите вашу операционную систему.</string>
     <string name="adb_choose_computer_os_desc">Какая операционная система на вашем компьютере?</string>
     <string name="adb_android_guide">Первоначальная установка (на вашем телефоне)</string>
@@ -16,7 +17,7 @@
     <string name="adb_install_android_7">Если вы не видите меню «Параметры разработчика», найдите меню «Система» или «Дополнительные настройки». Вы должны увидеть меню «Параметры разработчика» в нём.</string>
     <string name="adb_install_android_8">Прокрутите вниз, пока не найдете переключатель «Отладка по USB» и не включите его.</string>
     <string name="adb_install_android_9">На телефонах Xiaomi вам также нужно найти и отключить опцию «Отладка по USB (Настройки безопасности)».</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">На телефонах OPPO, Realme и OnePlus вам также нужно найти и включить опцию «Отключить мониторинг разрешений».</string>
     <string name="adb_install_android_11">Теперь подключите телефон к компьютеру. Если появится всплывающее окно с подтверждением об отладке USB, разрешите его.</string>
     <string name="adb_install_android_12">Как только это будет сделано, придёт время продолжить работу на компьютере.</string>
     <string name="adb_install_local_1"><![CDATA[Скачайте и установите приложение Shizuku из [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
