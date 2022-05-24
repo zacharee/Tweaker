@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">Fehler beim Erstellen der Datei %s</string>
     <string name="error_restoring_icon_blacklist">Fehler beim Wiederherstellen: %s</string>
     <string name="permission_grant_success">Berechtigungen wurden erfolgreich erteilt.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_failure">Es konnten keine Berechtigungen erteilt werden. Wenn Sie ein Xiaomi- oder OPPO/Realme/OnePlus-Gerät besitzen, stellen Sie bitte sicher, dass Sie „USB-Debugging (Sicherheitseinstellungen)” aktivieren oder \"Berechtigungsüberwachung deaktivieren\" aktivieren.</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Für nur 1$/Monat erhalten Sie Zugang zu allen meinen kostenpflichtigen Apps und mehr.</string>
     <string name="supporters">Unterstützer</string>
