@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">ADB Guide</string>
     <string name="adb_intro_desc">Nie wiesz jak używać ADB ? Po prostu wykonuj kroki podane w tym poradniku ( wymagane będzie użycie komputera )</string>
+    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Wybierz swój system operacyjny.</string>
     <string name="adb_choose_computer_os_desc">Którego systemu operacyjnego używasz na swoim komputerze?</string>
     <string name="adb_android_guide">Wstępna konfiguracja (na telefonie)</string>
