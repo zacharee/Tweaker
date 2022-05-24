@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.activities.tutorial
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.heinrichreimersoftware.materialintro.app.IntroActivity
@@ -31,7 +32,7 @@ class TutorialActivity : IntroActivity() {
     private val introSlide by lazy {
         SimpleSlide.Builder()
             .title(R.string.adb_intro_title)
-            .description(R.string.adb_intro_desc)
+            .description(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) R.string.adb_intro_desc_no_computer else R.string.adb_intro_desc)
             .background(R.color.slide_1)
             .build()
     }
