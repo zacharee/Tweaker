@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">建立檔案「%s」時發生錯誤</string>
     <string name="error_restoring_icon_blacklist">建立還原「%s」時發生錯誤</string>
     <string name="permission_grant_success">已成功授權。</string>
-    <string name="permission_grant_failure">授權失敗。如果您是 Xiaomi 或 OPPO/Realme 裝置，請確保你開啟了「USB 偵錯 (安全設定)」或「停用權限監控」。</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">每月捐贈 $1 即可存取我的所有付費應用。</string>
     <string name="supporters">贊助者</string>
