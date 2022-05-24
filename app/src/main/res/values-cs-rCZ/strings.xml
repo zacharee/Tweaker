@@ -322,7 +322,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="error_creating_file_template">Při otevírání souboru %s došlo k chybě</string>
     <string name="error_restoring_icon_blacklist">Chyba při obnově %s</string>
     <string name="permission_grant_success">Úspěšně udělená oprávnění.</string>
-    <string name="permission_grant_failure">Nepodařilo se udělit oprávnění. Pokud máte zařízení Xiaomi nebo OPPO/Realme, ujistěte se, že máte povolené \"Ladění USB\" nebo povolte \"Vypnout monitorování oprávnění\".</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Za $1 každý měsíc získáte přístup ke všem mým placeným aplikacím a dalším.</string>
     <string name="supporters">Podporovatelé</string>
