@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">ADB 도움말</string>
     <string name="adb_intro_desc">ADB를 사용하는 법을 모르십니까? 괜찮습니다. 도움말을 따라서 설정을 완료하십시오. (설정 과정 중 컴퓨터가 필요합니다)</string>
+    <string name="adb_intro_desc_no_computer">ADB를 사용하는 법을 모르십니까? 괜찮습니다. 도움말을 따라서 설정을 완료하십시오.</string>
     <string name="adb_choose_computer_os">운영 체제를 선택해주십시오.</string>
     <string name="adb_choose_computer_os_desc">컴퓨터에서 실행 중인 운영체제가 무엇입니까?</string>
     <string name="adb_android_guide">초기 설정 (폰으로 진행)</string>
@@ -16,7 +17,7 @@
     <string name="adb_install_android_7">만약 개발자 옵션 메뉴가 보이지 않는다면, \"시스템\"이나 \"추가 설정\"이라고 되어 있는 메뉴를 찾습니다. 해당 메뉴에 개발자 옵션 메뉴가 있을 것입니다.</string>
     <string name="adb_install_android_8">스크롤을 내려 \"USB 디버깅\" 설정을 찾고 누릅니다.</string>
     <string name="adb_install_android_9">샤오미 폰에서는, \"USB 디버깅 (보안 설정)\"이라는 설정도 찾아서 꺼야 합니다.</string>
-    <string name="adb_install_android_10">On OPPO and Realme phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">OPPO, 리얼미, 나 OnePlus 폰의 경우, \"권한 모니터링 비활성화\"라는 설정도 찾아서 켜야 합니다.</string>
     <string name="adb_install_android_11">이제 폰과 컴퓨터를 연결합니다. USB 디버깅에 대한 인증 팝업이 뜨면 승인하십시오.</string>
     <string name="adb_install_android_12">과정이 끝났다면, 컴퓨터에서 이어갈 차례입니다.</string>
     <string name="adb_install_local_1"><![CDATA[[Google Play 스토어](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)에서 Shizuku 앱을 다운로드하고 설치합니다.]]></string>

@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">Guia para o ADB</string>
     <string name="adb_intro_desc">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir. (Observe que você vai precisar de um computador para realizar esse processo.)</string>
+    <string name="adb_intro_desc_no_computer">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir.</string>
     <string name="adb_choose_computer_os">Escolha seu Sistema Operacional.</string>
     <string name="adb_choose_computer_os_desc">Qual sistema operacional está rodando no seu computador?</string>
     <string name="adb_android_guide">Configuração Inicial (No seu smartphone)</string>
@@ -16,7 +17,7 @@
     <string name="adb_install_android_7">Se você não vê o menu de Opções de Desenvolvedor, encontre o menu chamado \"Sistema\" ou \"Configurações adicionais\". Você deve ver o menu de Opções de Desenvolvedor ou Opções de Programador dentro disso.</string>
     <string name="adb_install_android_8">Role para baixo até você encontrar a opção \"Depuração USB\", habilite-a.</string>
     <string name="adb_install_android_9">Nos aparelhos da Xiaomi, você também precisará encontrar e desativar a opção \"Depuração USB (Configurações de segurança)\".</string>
-    <string name="adb_install_android_10">Nos aparelhos da OPPO e da Realme, você também precisa encontrar e ativar a opção \"Desativar monitoramento de permissões\".</string>
+    <string name="adb_install_android_10">Nos aparelhos da OPPO, da Realme, e da OnePlus, você também precisa encontrar e ativar a opção \"Desativar monitoramento de permissões\".</string>
     <string name="adb_install_android_11">Agora, conecte seu telefone no seu computador. Se um pop-up de confirmação sobre a Depuração USB aparecer, permita-o.</string>
     <string name="adb_install_android_12">Assim que isso estiver pronto, é hora de continuar no seu computador. Deixe seu celular conectado.</string>
     <string name="adb_install_local_1"><![CDATA[Baixe e instale o aplicativo Shizuku a partir da [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>

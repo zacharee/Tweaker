@@ -74,7 +74,7 @@
     <string name="icon_blacklist_keyguard_wakeup">螢幕鎖定喚醒</string>
     <string name="icon_blacklist_safezone">安全區</string>
     <string name="icon_blacklist_wimax">WiMax</string>
-    <string name="icon_blacklist_smart_bonding">智慧會接</string>
+    <string name="icon_blacklist_smart_bonding">智慧繫結</string>
     <string name="icon_blacklist_private_mode">私密模式</string>
     <string name="icon_blacklist_powersavingmode">省電模式</string>
     <string name="icon_blacklist_earphone">耳機</string>

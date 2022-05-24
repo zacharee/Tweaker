@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">파일 생성 중 오류: %s</string>
     <string name="error_restoring_icon_blacklist">복원 중 오류 발생: %s</string>
     <string name="permission_grant_success">권한이 성공적으로 부여되었습니다.</string>
-    <string name="permission_grant_failure">권한은 부여받는 데 실패했습니다. 만약 Xiaomi나 OPPO/Realme 기기를 사용하고 계신다면 \"USB 디버깅 (보안 설정)\"이나 \"권한 모니터링 비활성화\"를 켜 주십시오.</string>
+    <string name="permission_grant_failure">권한은 부여받는 데 실패했습니다. 만약 Xiaomi나 OPPO/Realme/OnePlus 기기를 사용하고 계신다면 \"USB 디버깅 (보안 설정)\"이나 \"권한 모니터링 비활성화\"를 켜 주십시오.</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">매달 $1로 저의 모든 유료 앱 등을 이용하세요.</string>
     <string name="supporters">후원자</string>

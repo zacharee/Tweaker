@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">创建文件时出错: %s</string>
     <string name="error_restoring_icon_blacklist">错误还原: %s</string>
     <string name="permission_grant_success">已成功授予权限。</string>
-    <string name="permission_grant_failure">无法授予权限。若您手持的是小米或 OPPO/Realme 设备，请确保您开启了 “USB 调试 (安全设置)” 或 “禁用权限监控” 设置。</string>
+    <string name="permission_grant_failure">无法授予权限。若您手持的是小米或 OPPO/Realme/OnePlus 设备，请确保您开启了 “USB 调试 (安全设置)” 或 “禁用权限监控” 设置。</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">每月捐赠 $1 即可使用我的所有付费应用等等。</string>
     <string name="supporters">支持者</string>
