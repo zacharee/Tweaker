@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">Ошибка создания файла: %s</string>
     <string name="error_restoring_icon_blacklist">Ошибка восстановления: %s</string>
     <string name="permission_grant_success">Разрешения успешно предоставлены.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_failure">Не удалось предоставить разрешения. Если у вас устройство Xiaomi или OPPO/Realme/OnePlus, убедитесь, что вы включили \"Отладку по USB (Настройки безопасности)\" или включите \"Отключить Мониторинг Разрешений\".</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">За $1 в месяц вы получаете доступ ко всем моим платным приложениям и многому другому.</string>
     <string name="supporters">Поддержка</string>
