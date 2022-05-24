@@ -16,7 +16,7 @@
     <string name="adb_install_android_7">Si no ve el menú Opciones de Desarrollador, busque el menú etiquetado como \"Sistema\" o \"Ajustes Adicionales\". Deberías ver el menú Opciones de desarrollador dentro de eso.</string>
     <string name="adb_install_android_8">Desplácese hacia abajo hasta que encuentre el interruptor etiquetado \"Debugging USB\" y actívelo.</string>
     <string name="adb_install_android_9">En los teléfonos Xiaomi, también tendrás que encontrar y desactivar la opción \"Debugging USB (Configuración de seguridad)\".</string>
-    <string name="adb_install_android_10">En los teléfonos OPPO y Realme, también tendrás que encontrar y activar la opción \"Desactivar monitorización de permisos\".</string>
+    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
     <string name="adb_install_android_11">Ahora conecte su teléfono al ordenador. Si aparece una confirmación sobre la depuración USB, permita.</string>
     <string name="adb_install_android_12">Una vez hecho esto, es hora de continuar en tu ordenador.</string>
     <string name="adb_install_local_1"><![CDATA[Descargar e instalar la aplicación Shizuku desde la [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
