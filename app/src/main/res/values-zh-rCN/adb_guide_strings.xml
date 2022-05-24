@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">ADB 指南</string>
     <string name="adb_intro_desc">不知道如何使用 ADB 吗？没问题。只需遵循本指南并设置您。 (请注意，您需要在电脑上完成此过程。)</string>
+    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">选择您的操作系统。</string>
     <string name="adb_choose_computer_os_desc">您的电脑正在运行哪个操作系统？</string>
     <string name="adb_android_guide">初始设置(在您的手机上)</string>
@@ -16,7 +17,7 @@
     <string name="adb_install_android_7">如果您没有看到开发者选项菜单，找到“系统”或“附加设置”菜单。 您应该在这里看到开发者选项菜单。</string>
     <string name="adb_install_android_8">向下滚动直到您发现标签为“USB 调试”并启用它。</string>
     <string name="adb_install_android_9">在Xiaomi手机上，您还需要找到并禁用标题为“USB调试(安全设置)”的选项。</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">在 OPPO, Realme, 和 OnePlus 手机上，您还需要找到并启用标题为“禁用权限监视”的选项。</string>
     <string name="adb_install_android_11">现在，将您的手机插入您的计算机。如果确认有关于 USB 调试的弹出窗口，允许它。</string>
     <string name="adb_install_android_12">完成后，您的电脑就会继续了。</string>
     <string name="adb_install_local_1"><![CDATA[从 [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.priveged.api)下载并安装Shizuku应用程序。]]></string>
