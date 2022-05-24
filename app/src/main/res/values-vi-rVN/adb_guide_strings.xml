@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">Hướng dẫn ADB</string>
     <string name="adb_intro_desc">Không biết sử dụng ADB? Không vấn đề gì hết. Chỉ cần làm theo các bước hướng dẫn và bạn đã thiếp lập được. (Ghi nhớ rằng bạn sẽ cần một chiếc máy tính cho quá trình này.)</string>
+    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Chọn hệ điều hành của bạn.</string>
     <string name="adb_choose_computer_os_desc">Máy tính của bạn đang chạy hệ điều hành nào?</string>
     <string name="adb_android_guide">Thiết lập ban đầu (Trên điện thoại của bạn)</string>
