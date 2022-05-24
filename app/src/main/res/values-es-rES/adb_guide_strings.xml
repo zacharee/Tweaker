@@ -2,6 +2,7 @@
 <resources>
     <string name="adb_intro_title">Guía ADB</string>
     <string name="adb_intro_desc">¿No sabes cómo usar el ADB? No hay problema. Simplemente sigue esta guía y deberías estar configurado. (Tenga en cuenta que necesitará un ordenador para este proceso.)</string>
+    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Elija su sistema operativo</string>
     <string name="adb_choose_computer_os_desc">Windows 8.1</string>
     <string name="adb_android_guide">Configuración inicial (en tu teléfono)</string>
