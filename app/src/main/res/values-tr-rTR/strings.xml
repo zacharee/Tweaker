@@ -328,7 +328,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="error_creating_file_template">%s Dosya gönderiminde hata</string>
     <string name="error_restoring_icon_blacklist">Yedeği geri yükleme hatası: %s</string>
     <string name="permission_grant_success">Successfully granted permissions.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Supporters</string>
