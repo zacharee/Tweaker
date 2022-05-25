@@ -2,7 +2,7 @@
 <resources>
     <string name="adb_intro_title">Guia para o ADB</string>
     <string name="adb_intro_desc">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir. (Observe que você vai precisar de um computador para realizar esse processo.)</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
+    <string name="adb_intro_desc_no_computer">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir.</string>
     <string name="adb_choose_computer_os">Escolha seu Sistema Operacional.</string>
     <string name="adb_choose_computer_os_desc">Qual sistema operacional está rodando no seu computador?</string>
     <string name="adb_android_guide">Configuração Inicial (No seu smartphone)</string>
