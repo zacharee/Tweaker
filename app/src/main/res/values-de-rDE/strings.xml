@@ -320,7 +320,7 @@
     <string name="error_restoring_icon_blacklist">Fehler beim Wiederherstellen: %s</string>
     <string name="permission_grant_success">Berechtigungen wurden erfolgreich erteilt.</string>
     <string name="permission_grant_failure">Es konnten keine Berechtigungen erteilt werden. Wenn Sie ein Xiaomi- oder OPPO/Realme/OnePlus-Gerät besitzen, stellen Sie bitte sicher, dass Sie „USB-Debugging (Sicherheitseinstellungen)” aktivieren oder \"Berechtigungsüberwachung deaktivieren\" aktivieren.</string>
-    <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
+    <string name="permission_grant_failure_short">Erteilen der Berechtigung fehlgeschlagen.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Für nur 1$/Monat erhalten Sie Zugang zu allen meinen kostenpflichtigen Apps und mehr.</string>
     <string name="supporters">Unterstützer</string>
