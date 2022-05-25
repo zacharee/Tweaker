@@ -26,7 +26,7 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
             SettingsType.GLOBAL,
             Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
             0
-        )!!.toInt()
+        )?.toIntOrNull() ?: 0
 
         ac.isChecked = current and BatteryManager.BATTERY_PLUGGED_AC != 0
         usb.isChecked = current and BatteryManager.BATTERY_PLUGGED_USB != 0

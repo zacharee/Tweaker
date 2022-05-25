@@ -349,7 +349,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
-            PrefManager.CUSTOM_BLACKLIST_ITEMS -> buildCustomCategory(findPreference("icon_blacklist_custom")!!)
+            PrefManager.CUSTOM_BLACKLIST_ITEMS -> findPreference<CollapsiblePreferenceCategoryNew>("icon_blacklist_custom")?.let { buildCustomCategory(it) }
         }
     }
 
@@ -503,7 +503,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     }
 
     private fun matches(query: String?, pref: Preference): Boolean {
-        return query.isNullOrBlank() || pref.title!!.contains(query, true)
+        return query.isNullOrBlank() || pref.title?.contains(query, true) == true
     }
 
     private fun createCategory(

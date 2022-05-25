@@ -9,7 +9,6 @@ import com.zacharee1.systemuituner.databinding.AnimationDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.toFloatOrDefault
 import tk.zwander.seekbarpreference.SeekBarView
 
 class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
@@ -21,9 +20,9 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)!!.toFloatOrDefault(1f)
-        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
-        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)!!.toFloatOrDefault(1f)
+        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
 
         binding.animatorSb.apply {
             scaledProgress = scaleData.animatorScale

@@ -286,14 +286,6 @@ inline fun <T : IInterface> T.callSafely(block: (T) -> Unit) {
     }
 }
 
-fun String.toFloatOrDefault(default: Float): Float {
-    return try {
-        this.toFloat()
-    } catch (e: NumberFormatException) {
-        default
-    }
-}
-
 val String.capitalized: String
     get() = replaceFirstChar {
         if (it.isLowerCase()) {

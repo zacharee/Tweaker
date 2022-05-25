@@ -53,8 +53,9 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
 
         fun getInstance(context: Context): DemoController {
             return instance ?: run {
-                instance = DemoController(context.applicationContext)
-                instance!!
+                DemoController(context.applicationContext).apply {
+                    instance = this
+                }
             }
         }
     }

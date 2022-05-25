@@ -31,7 +31,7 @@ class PreferenceImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : DisableableImageView(context, attrs!!, defStyleAttr) {
+) : DisableableImageView(context, attrs, defStyleAttr) {
     private var mMaxWidth = Int.MAX_VALUE
     private var mMaxHeight = Int.MAX_VALUE
     override fun setEnabled(enabled: Boolean) {

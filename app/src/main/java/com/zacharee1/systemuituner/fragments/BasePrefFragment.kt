@@ -80,7 +80,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                (((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloatOrNull()
+                (((requireContext().getSetting(preference.type, preference.writeKey)?.toFloatOrNull()
                     ?: (preference.defaultValue * preference.scale)) / preference.scale)).toInt()
             )
             is AnimationScalesPreference -> OptionDialog.newInstance(
@@ -191,16 +191,16 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             }
         }
 
-        if (highlightKey != null) {
+        highlightKey?.let { hKey ->
             listView?.post {
                 listView?.apply {
                     val a = adapter as PreferenceGroupAdapter
-                    val index = a.getPreferenceAdapterPosition(highlightKey!!)
+                    val index = a.getPreferenceAdapterPosition(hKey)
 
                     scrollToPosition(index)
 
                     launch {
-                        val item = layoutManager!!.findViewByPosition(index) as MaterialCardView? ?: return@launch
+                        val item = layoutManager?.findViewByPosition(index) as? MaterialCardView ?: return@launch
 
                         delay(200)
                         val time = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()

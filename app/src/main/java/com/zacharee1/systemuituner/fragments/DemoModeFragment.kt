@@ -8,7 +8,7 @@ import com.zacharee1.systemuituner.util.DemoController
 class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val controller by lazy { DemoController.getInstance(requireContext()) }
     private val enabled: Boolean
-        get() = preferenceManager.sharedPreferences!!.getString("demo_enabled", "false")!!.toBoolean()
+        get() = preferenceManager.sharedPreferences?.getString("demo_enabled", "false")?.toBoolean() ?: false
 
     override val hasCategories = true
 
@@ -16,7 +16,7 @@ class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenc
         preferenceManager.sharedPreferencesName = DemoController.DEMO_PREFS
         setPreferencesFromResource(R.xml.prefs_demo, rootKey)
 
-        preferenceManager.sharedPreferences!!.registerOnSharedPreferenceChangeListener(this)
+        preferenceManager.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
@@ -39,6 +39,6 @@ class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenc
     override fun onDestroy() {
         super.onDestroy()
 
-        preferenceManager.sharedPreferences!!.unregisterOnSharedPreferenceChangeListener(this)
+        preferenceManager.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 }

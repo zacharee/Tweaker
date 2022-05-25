@@ -30,7 +30,7 @@ open class DemoSwitchPreference(context: Context, attrs: AttributeSet) : BaseDem
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
-        summary = sharedPreferences!!.getString(key, disabled)
+        summary = sharedPreferences?.getString(key, disabled)
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {

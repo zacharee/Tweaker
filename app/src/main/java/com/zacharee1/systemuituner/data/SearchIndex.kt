@@ -82,8 +82,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     if (query.isNullOrBlank()) {
                         o1.title.toString().compareTo(o2.title.toString(), true)
                     } else {
-                        val o1Title = o1.title!!.contains(query, true)
-                        val o2Title = o2.title!!.contains(query, true)
+                        val o1Title = o1.title?.contains(query, true) == true
+                        val o2Title = o2.title?.contains(query, true) == true
 
                         when {
                             o1Title && !o2Title -> -1

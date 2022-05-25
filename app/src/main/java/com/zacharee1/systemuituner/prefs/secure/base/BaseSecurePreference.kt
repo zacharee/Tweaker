@@ -11,8 +11,8 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : BaseDia
     context,
     attrs
 ) {
-    override var writeKey: String? = null
-        get() = field ?: key
+    override var writeKey: String = ""
+        get() = field.ifBlank { key }
 
     override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
@@ -20,7 +20,7 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : BaseDia
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        context.prefManager.saveOption(type, writeKey!!, newValue)
+        context.prefManager.saveOption(type, writeKey, newValue)
         context.writeSetting(type, writeKey, newValue)
     }
 }

@@ -19,9 +19,9 @@ class CameraGestures(context: Context, attrs: AttributeSet) : ScrollView(context
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        cameraData.cameraGestureDisabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 1)!!.toInt()
-        cameraData.doubleTapPowerDisabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 1)!!.toInt()
-        cameraData.doubleTwistToFlipEnabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, 0)!!.toInt()
+        cameraData.cameraGestureDisabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 1)?.toIntOrNull() ?: 1
+        cameraData.doubleTapPowerDisabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, 1)?.toIntOrNull() ?: 1
+        cameraData.doubleTwistToFlipEnabled = context.getSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, 0)?.toIntOrNull() ?: 1
 
         binding.cameraGesture.apply {
             isChecked = cameraData.cameraGestureDisabled == 0

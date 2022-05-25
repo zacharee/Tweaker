@@ -20,7 +20,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     }
 
     internal open val layoutRes by lazy { requireArguments().getInt(ARG_LAYOUT_RES, 0) }
-    internal val writeKey: String?
+    internal val writeKey: String
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).writeKey else preference.key
     internal val type: SettingsType
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).type else SettingsType.UNDEFINED
@@ -74,6 +74,6 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     }
 
     fun notifyChanged(value: Any?) {
-        (preference as IDialogPreference).onValueChanged(value, writeKey!!)
+        (preference as IDialogPreference).onValueChanged(value, writeKey)
     }
 }

@@ -43,10 +43,10 @@ class SecureListDialog : BaseOptionDialog() {
             onClick(dialog!!, DialogInterface.BUTTON_POSITIVE)
 
             val preference = listPref
-            val value = preference.entryValues!![clickedIndex].toString()
+            val value = preference.entryValues?.get(clickedIndex)?.toString()
             if (preference.callChangeListener(value)) {
                 preference.value = value
-                preference.onValueChanged(value, preference.writeKey!!)
+                preference.onValueChanged(value, preference.writeKey)
             }
         }
 

@@ -28,7 +28,7 @@ class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPrefer
             }
         }
 
-    override var writeKey: String?
+    override var writeKey: String
         get() = key
         set(value) {
             key = value
@@ -56,7 +56,7 @@ class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPrefer
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = preferenceManager.sharedPreferences!!.getString(key, null) ?: defaultValue?.toString() ?: entryValues!![0].toString()
+        value = preferenceManager.sharedPreferences?.getString(key, null) ?: defaultValue?.toString() ?: entryValues?.get(0)?.toString()
         summary = entries?.get(findIndexOfValue(value))
     }
 

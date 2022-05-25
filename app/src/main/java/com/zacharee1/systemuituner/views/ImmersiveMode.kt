@@ -36,7 +36,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
             setText(R.string.reset)
             setOnClickListener {
                 immersiveManager.setAdvancedImmersive(immersiveInfo)
-                list.adapter!!.notifyItemRangeChanged(0, list.adapter!!.itemCount)
+                list.adapter?.notifyItemRangeChanged(0, list.adapter?.itemCount ?: 0)
             }
         }
     }
