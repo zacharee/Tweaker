@@ -2,7 +2,7 @@
 <resources>
     <string name="adb_intro_title">Android Debug Bridge (ADB) Anleitung</string>
     <string name="adb_intro_desc">Sie wissen nicht, wie man ADB benutzt? Kein Problem! Folgen Sie einfach dieser Anleitung und es sollte klappen. (Beachten Sie, dass Sie für diesen Vorgang einen Computer benötigen).</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
+    <string name="adb_intro_desc_no_computer">Sie wissen nicht, wie man ADB benutzt? Kein Problem! Folgen Sie einfach dieser Anleitung und es sollte klappen.</string>
     <string name="adb_choose_computer_os">Wählen Sie Ihr Betriebssystem.</string>
     <string name="adb_choose_computer_os_desc">Welches Betriebssystem läuft auf Ihrem Computer?</string>
     <string name="adb_android_guide">Ersteinrichtung (auf Ihrem Telefon)</string>
@@ -34,15 +34,14 @@
 Wenn Ihr Benutzername beispielsweise XYZ lautet und Sie die ZIP-Datei auf Ihren Desktop entpackt haben, lautet der Befehl „cd /users/XYZ/desktop/platform-tools/” (ohne Anführungszeichen), wobei „platform-tools” der Ordner ist, in dem sich die Datei „adb” befindet.</string>
     <string name="adb_install_adb_debian_1">Öffnen Sie ein Terminal durch Drücken von STRG+ALT+T.</string>
     <string name="adb_install_adb_debian_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo apt install android-tools-adb android-tools-fastboot</string>
-    <string name="adb_install_adb_fedora_1">Terminal öffnen</string>
-    <string name="adb_install_adb_fedora_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo dnf install adb</string>
-    <string name="adb_install_adb_rhel_1">Terminal öffnen</string>
-    <string name="adb_install_adb_rhel_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: yum install android-tools</string>
+    <string name="adb_install_adb_fedora_1">Terminal öffnen.</string>
+    <string name="adb_install_adb_fedora_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo dnf install adb.</string>
+    <string name="adb_install_adb_rhel_1">Terminal öffnen.</string>
+    <string name="adb_install_adb_rhel_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: yum install android-tools.</string>
     <string name="adb_install_adb_linux_other_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
     <string name="adb_install_adb_linux_other_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. in Ihrem Home-Ordner.</string>
-    <string name="adb_install_adb_linux_other_3">Terminal öffnen</string>
-    <string name="adb_install_adb_linux_other_4">Suchen Sie nun die entpackten Dateien mit dem folgenden Befehl: cd /pfad/zu/dateien/
-Wenn Ihr Benutzername beispielsweise XYZ lautet und Sie die ZIP-Datei in Ihren Home-Ordner entpackt haben, lautet der Befehl „cd /home/XYZ/platform-tools/” (ohne Anführungszeichen), wobei „platform-tools” der Ordner ist, in dem sich die Datei „adb” befindet.</string>
+    <string name="adb_install_adb_linux_other_3">Terminal öffnen.</string>
+    <string name="adb_install_adb_linux_other_4">Terminal öffnen.</string>
     <string name="adb_install_adb_general_end_1">Es sollte sich eine Eingabeaufforderung oder ein Terminalfenster öffnen. Geben Sie darin die folgenden Befehle ein und drücken Sie nach jedem Befehl die Eingabetaste. Wenn auf Ihrem Telefon ein Hinweisfenster zum USB-Debugging angezeigt wird, müssen Sie es zulassen.</string>
     <string name="adb_install_adb_general_end_2">Wenn alles geklappt hat, sollte keine Ausgabe der Befehle angezeigt werden. Ist dies der Fall, blättern Sie ganz nach oben zu der Stelle, an der Sie den Befehl eingegeben haben, um die Fehlermeldung zu überprüfen.</string>
     <string name="adb_install_adb_general_end_3">Die Berechtigungen sollten nun erlaubt sein!</string>
