@@ -41,7 +41,7 @@
     <string name="icon_blacklist_location">Standortzugriff</string>
     <string name="icon_blacklist_su">SU</string>
     <string name="icon_blacklist_otg_mouse">On-to-Go (OTG)-Maus</string>
-    <string name="icon_blacklist_otg_keyboard">On-to-Go (OTG)-Tastatur</string>
+    <string name="icon_blacklist_otg_keyboard">On-the-Go (OTG)-Tastatur</string>
     <string name="icon_blacklist_felica_lock">Felica-Passwortsperre</string>
     <string name="icon_blacklist_answering_memo">Memo wird beantwortet</string>
     <string name="icon_blacklist_ime">Eingabemethoden (Input Method Editor/IME)</string>
