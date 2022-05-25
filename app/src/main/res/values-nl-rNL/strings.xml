@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">Fout bij maken van bestand: %s</string>
     <string name="error_restoring_icon_blacklist">Fout tijdens herstellen van %s</string>
     <string name="permission_grant_success">De rechten zijn verleend.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
+    <string name="permission_grant_failure">Het verlenen van de rechten is mislukt. Als je een Xiaomi- of OPPO-/Realme-apparaat hebt, zorg er dan voor dat je de optie ‘USB-foutopsporing (beveiligingsinstellingen)’ inschakelt of ‘Rechtenmonitor uitschakelen’.</string>
     <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
