@@ -2,7 +2,7 @@
 <resources>
     <string name="adb_intro_title">Руководство по ADB</string>
     <string name="adb_intro_desc">Не знаете, как использовать ADB? Без проблем, просто следуйте этому руководству (обратите внимание, что вам необходим компьютер для этого).</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
+    <string name="adb_intro_desc_no_computer">Не знаете, как использовать ADB? Без проблем, просто следуйте этому руководству.</string>
     <string name="adb_choose_computer_os">Выберите вашу операционную систему.</string>
     <string name="adb_choose_computer_os_desc">Какая операционная система на вашем компьютере?</string>
     <string name="adb_android_guide">Первоначальная установка (на вашем телефоне)</string>
