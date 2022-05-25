@@ -20,6 +20,7 @@ import com.zacharee1.systemuituner.util.*
 class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private val binding by lazy { UiSoundsBinding.bind(this) }
 
+    @Suppress("DEPRECATION")
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
@@ -40,8 +41,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
             const val PROVIDER_PKG = "com.android.providers.settings"
         }
 
-        private val settingsProviderResources = context.packageManager.getResourcesForApplication(
-            PROVIDER_PKG)
+        private val settingsProviderResources = context.packageManager.getResourcesForApplication(PROVIDER_PKG)
 
         private val items = arrayListOf(
             SoundItemInfo(

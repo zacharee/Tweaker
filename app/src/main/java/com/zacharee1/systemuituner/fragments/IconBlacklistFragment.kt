@@ -1,9 +1,7 @@
 package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.SearchView
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,23 +43,77 @@ import java.util.*
 class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener,
     SearchView.OnCloseListener, CoroutineScope by MainScope(),
     SharedPreferences.OnSharedPreferenceChangeListener {
-    companion object {
-        const val REQ_BACKUP = 1001
-        const val REQ_RESTORE = 1002
-    }
-
     private val origExpansionStates = HashMap<String, Boolean>()
     private val gson = GsonBuilder().create()
 
-    class BackupRestorePreference(context: Context) : Preference(context),
-        IColorPreference by ColorPreference(context, null) {
-        init {
-            layoutResource = R.layout.custom_preference
+    private val backupLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument()) { result ->
+        result?.let { uri ->
+            requireContext().contentResolver.openOutputStream(uri).use { out ->
+                OutputStreamWriter(out).use { writer ->
+                    writer.appendLine(
+                        gson.toJson(
+                            BlacklistBackupInfo(
+                                requireContext().prefManager.blacklistedItems,
+                                requireContext().prefManager.customBlacklistItems
+                            )
+                        )
+                    )
+                }
+            }
         }
+    }
 
-        override fun onBindViewHolder(holder: PreferenceViewHolder) {
-            super.onBindViewHolder(holder)
-            bindVH(holder)
+    private val restoreLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { result ->
+        result?.let { uri ->
+            try {
+                val lines = ArrayList<String>()
+
+                requireContext().contentResolver.openInputStream(uri).use { input ->
+                    InputStreamReader(input).use { reader ->
+                        reader.forEachLine { line ->
+                            lines.add(line)
+                        }
+                    }
+                }
+
+                if (lines.isNotEmpty()) {
+                    if (lines.size > 1) {
+                        throw Exception("Invalid format!")
+                    }
+
+                    val firstLine = lines[0]
+
+                    val info = try {
+                        gson.fromJson<BlacklistBackupInfo>(
+                            firstLine,
+                            object : TypeToken<BlacklistBackupInfo>() {}.type
+                        )
+                    } catch (e: Exception) {
+                        null
+                    }
+
+                    if (info != null) {
+                        requireContext().apply {
+                            prefManager.blacklistedItems = info.items
+                            prefManager.customBlacklistItems = info.customItems
+                            writeSecure("icon_blacklist", info.items.joinToString(","))
+                        }
+                    } else {
+                        requireContext().prefManager.blacklistedItems =
+                            HashSet(firstLine.split(","))
+                        requireContext().writeSecure("icon_blacklist", firstLine)
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(
+                    context,
+                    resources.getString(
+                        R.string.error_restoring_icon_blacklist,
+                        e.localizedMessage
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
@@ -78,15 +131,8 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setTitle(R.string.back_up)
                     setOnPreferenceClickListener {
                         val formatter = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss", Locale.getDefault())
-                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
+                        backupLauncher.launch("icon_blacklist_${formatter.format(Date())}.suit")
 
-                        intent.type = "*/*"
-                        intent.putExtra(
-                            Intent.EXTRA_TITLE,
-                            "icon_blacklist_${formatter.format(Date())}.suit"
-                        )
-
-                        startActivityForResult(intent, REQ_BACKUP)
                         true
                     }
                 }
@@ -98,10 +144,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setIcon(R.drawable.ic_baseline_restore_24)
                     setTitle(R.string.restore)
                     setOnPreferenceClickListener {
-                        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-
-                        intent.type = "*/*"
-                        startActivityForResult(intent, REQ_RESTORE)
+                        restoreLauncher.launch(arrayOf("*/*"))
                         true
                     }
                 }
@@ -353,88 +396,6 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                REQ_BACKUP -> {
-                    val uri = data?.data
-
-                    if (uri != null) {
-                        requireContext().contentResolver.openOutputStream(uri).use { out ->
-                            OutputStreamWriter(out).use { writer ->
-                                writer.appendLine(
-                                    gson.toJson(
-                                        BlacklistBackupInfo(
-                                            requireContext().prefManager.blacklistedItems,
-                                            requireContext().prefManager.customBlacklistItems
-                                        )
-                                    )
-                                )
-                            }
-                        }
-                    }
-                }
-                REQ_RESTORE -> {
-                    try {
-                        val uri = data?.data
-
-                        if (uri != null) {
-                            val lines = ArrayList<String>()
-
-                            requireContext().contentResolver.openInputStream(uri).use { input ->
-                                InputStreamReader(input).use { reader ->
-                                    reader.forEachLine { line ->
-                                        lines.add(line)
-                                    }
-                                }
-                            }
-
-                            if (lines.isNotEmpty()) {
-                                if (lines.size > 1) {
-                                    throw Exception("Invalid format!")
-                                }
-
-                                val firstLine = lines[0]
-
-                                val info = try {
-                                    gson.fromJson<BlacklistBackupInfo>(
-                                        firstLine,
-                                        object : TypeToken<BlacklistBackupInfo>() {}.type
-                                    )
-                                } catch (e: Exception) {
-                                    null
-                                }
-
-                                if (info != null) {
-                                    requireContext().apply {
-                                        prefManager.blacklistedItems = info.items
-                                        prefManager.customBlacklistItems = info.customItems
-                                        writeSecure("icon_blacklist", info.items.joinToString(","))
-                                    }
-                                } else {
-                                    requireContext().prefManager.blacklistedItems =
-                                        HashSet(firstLine.split(","))
-                                    requireContext().writeSecure("icon_blacklist", firstLine)
-                                }
-                            }
-                        }
-                    } catch (e: Exception) {
-                        Toast.makeText(
-                            context,
-                            resources.getString(
-                                R.string.error_restoring_icon_blacklist,
-                                e.localizedMessage
-                            ),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-        }
-    }
-
     private val grid by lazy {
         object : StaggeredGridLayoutManager(2, VERTICAL) {
             override fun supportsPredictiveItemAnimations(): Boolean {
@@ -600,5 +561,17 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     isCustom = true
                 )
             }
+    }
+
+    class BackupRestorePreference(context: Context) : Preference(context),
+        IColorPreference by ColorPreference(context, null) {
+        init {
+            layoutResource = R.layout.custom_preference
+        }
+
+        override fun onBindViewHolder(holder: PreferenceViewHolder) {
+            super.onBindViewHolder(holder)
+            bindVH(holder)
+        }
     }
 }
