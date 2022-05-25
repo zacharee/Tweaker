@@ -24,7 +24,7 @@
     <string name="failure">Fehlgeschlagen</string>
     <string name="help_translate">Bei Übersetzungen mithelfen</string>
     <string name="sub_cellular">Mobile Daten</string>
-    <string name="sub_wifi">Wlan</string>
+    <string name="sub_wifi">WLAN</string>
     <string name="sub_miscellaneous">Sonstiges</string>
     <string name="sub_htc">HTC</string>
     <string name="sub_huawei">Huawei/Honor</string>
@@ -45,8 +45,8 @@
     <string name="special_sub_icon_blacklist">Symbol-Sperrliste</string>
     <string name="special_sub_icon_blacklist_desc">Wählen Sie die Symbole aus, die in der Statusleiste ausgeblendet werden sollen. Beachten Sie, dass diese Funktion nicht auf allen Geräten oder mit allen Symbolen möglich ist. Benachrichtigungssymbole können mit dieser Funktion nicht ausgeblendet werden.</string>
     <string name="feature_lock_timeout">Benutzerdefiniertes Zeitfenster für die Gerätesperre festlegen</string>
-    <string name="feature_lock_timeout_desc">Unter den „Einstellungen für die sichere Sperre” können Sie eine Zeitspanne für die „automatische Sperre” festlegen. Diese Funktion legt fest, wie lange nach dem Übergang des Geräts in den Ruhezustand der Sperrbildschirm angezeigt werden soll. Mit dieser Option können Sie einen beliebigen Wert (in Millisekunden) festlegen. Wenn Sie einen ausreichend hohen Wert einstellen, wird der Sperrbildschirm im Grunde nie angezeigt (vorausgesetzt, Sie haben die Funktion \"Einschaltknopf sperrt Gerät sofort\" deaktiviert). Wenn Sie einen ausreichend hohen Wert einstellen, wird Ihr Sperrbildschirm im Grunde nie angezeigt (vorausgesetzt, Sie haben die Funktion \"Seitentaste sperrt Gerät sofort\" deaktiviert).</string>
-    <string name="feature_battery_saver_trigger">Benutzerdefinierten Energiesparmodus festlegen (in Prozent) </string>
+    <string name="feature_lock_timeout_desc">Unter den „Einstellungen für die sichere Sperre” können Sie eine Zeitspanne für die „automatische Sperre” festlegen. Diese Funktion legt fest, wie lange nach dem Übergang des Geräts in den Ruhezustand der Sperrbildschirm angezeigt werden soll. Mit dieser Option können Sie einen beliebigen Wert (in Millisekunden) festlegen. Wenn Sie einen ausreichend hohen Wert einstellen, wird der Sperrbildschirm im Grunde nie angezeigt (vorausgesetzt, Sie haben die Funktion \"Einschaltknopf sperrt Gerät sofort\" deaktiviert).</string>
+    <string name="feature_battery_saver_trigger">Benutzerdefinierten Energiesparmodus festlegen (in Prozent)</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Die Batteriesparfunktion von Google kann automatisch ausgelöst werden, wenn der Batteriestand bei 5 oder 15 Prozent liegt. Damit können Sie Ihren eigenen Auslöseprozentsatz festlegen.</string>
     <string name="feature_long_press_delay">Verzögerung für gedrückt halten festlegen</string>
     <string name="feature_long_press_delay_desc">In den Eingabehilfen-Einstellungen gibt es eine Funktion namens \"Berührungs- und Halteverzögerung\", mit der Sie festlegen können, wie lange Sie den Bildschirm gedrückt halten müssen, damit Android einen langen Druck erkennt. Die einzigen Standardoptionen sind jedoch „Kurz”, „Mittel” und „Lang”. Sie können Ihre eigene Verzögerung einstellen.</string>
@@ -93,7 +93,7 @@
     <string name="feature_dnd_in_volume">Schalter „Bitte nicht stören” in der Lautstärkeanzeige</string>
     <string name="feature_dnd_in_volume_desc">Ermöglicht das Umschalten von \"Bitte nicht stören\" in der Lautstärkenanzeige.</string>
     <string name="feature_battery_percent">Batteriestand (in %) in der Statusleiste anzeigen</string>
-    <string name="feature_battery_percent_desc">Zeigt den aktuellen Batteriestand (in %) im Batteriesymbol in der Statusleiste an. Erfordert möglicherweise zur Aktivierung ein gerootetes System.</string>
+    <string name="feature_battery_percent_desc">Zeigt den aktuellen Batteriestand (in %%) im Batteriesymbol in der Statusleiste an. Erfordert möglicherweise zur Aktivierung ein gerootetes System.</string>
     <string name="feature_header_airplane_mode_radios">Ausnahmen</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Umschaltbar</string>
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
@@ -102,7 +102,7 @@
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
-    <string name="option_storage_threshold_percentage">Speicherschwellenwert (in %)</string>
+    <string name="option_storage_threshold_percentage">Speicherschwellenwert (in %%)</string>
     <string name="option_storage_threshold_max_bytes">Speicherschwellenwert (in max. Bytes)</string>
     <string name="option_camera_gesture_double_power">Doppeltes Drücken der Seitentaste</string>
     <string name="option_camera_gesture">Gesten</string>
@@ -320,6 +320,7 @@
     <string name="error_restoring_icon_blacklist">Fehler beim Wiederherstellen: %s</string>
     <string name="permission_grant_success">Berechtigungen wurden erfolgreich erteilt.</string>
     <string name="permission_grant_failure">Es konnten keine Berechtigungen erteilt werden. Wenn Sie ein Xiaomi- oder OPPO/Realme/OnePlus-Gerät besitzen, stellen Sie bitte sicher, dass Sie „USB-Debugging (Sicherheitseinstellungen)” aktivieren oder \"Berechtigungsüberwachung deaktivieren\" aktivieren.</string>
+    <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Für nur 1$/Monat erhalten Sie Zugang zu allen meinen kostenpflichtigen Apps und mehr.</string>
     <string name="supporters">Unterstützer</string>
