@@ -697,7 +697,7 @@ fun String.toFloatOrDefault(default: Float): Float {
     }
 }
 
-fun Context.grantPermissionThroughShizuku(permission: String): Boolean {
+fun Context.grantPermissionThroughShizuku(vararg permissions: String): Boolean {
     return try {
         val ipm = IPackageManager.Stub.asInterface(
             ShizukuBinderWrapper(
@@ -705,23 +705,13 @@ fun Context.grantPermissionThroughShizuku(permission: String): Boolean {
             )
         )
 
-        ipm.grantRuntimePermission(packageName, permission, UserHandle.USER_SYSTEM)
+        permissions.forEach {
+            ipm.grantRuntimePermission(packageName, it, UserHandle.USER_SYSTEM)
+        }
 
         true
-    } catch (e: IllegalStateException) {
+    } catch (e: Exception) {
         false
-    }
-}
-
-fun Context.requestShizukuPermission(code: Int) {
-    if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) {
-        if (this is Activity) {
-            requestPermissions(arrayOf(ShizukuProvider.PERMISSION), code)
-        } else if (this is Fragment) {
-            requestPermissions(arrayOf(ShizukuProvider.PERMISSION), code)
-        }
-    } else {
-        Shizuku.requestPermission(code)
     }
 }
 
