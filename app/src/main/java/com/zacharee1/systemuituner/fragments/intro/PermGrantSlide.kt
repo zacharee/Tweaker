@@ -1,7 +1,9 @@
 package com.zacharee1.systemuituner.fragments.intro
 
+import android.content.pm.IPackageManager
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.UserHandle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +15,12 @@ import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
-import com.zacharee1.systemuituner.util.grantPermissionThroughShizuku
 import com.zacharee1.systemuituner.util.hasShizukuPermission
 import kotlinx.coroutines.*
 import rikka.shizuku.Shizuku
+import rikka.shizuku.ShizukuBinderWrapper
 import rikka.shizuku.ShizukuProvider
+import rikka.shizuku.SystemServiceHelper
 
 abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), Shizuku.OnRequestPermissionResultListener {
     companion object {
@@ -80,7 +83,7 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
     }
 
     private fun performShizukuPermissionsGrant() {
-        if (!requireContext().grantPermissionThroughShizuku(*permissions)) {
+        if (!grantPermissionsThroughShizuku()) {
             showFailureDialog(resources.getString(R.string.permission_grant_failure))
         } else {
             showSuccessToast()
@@ -96,6 +99,24 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
             showSuccessToast()
         } else {
             showFailureDialog(resources.getString(R.string.permission_grant_failure_short, (result.out + result.err).joinToString("\n")))
+        }
+    }
+
+    private fun grantPermissionsThroughShizuku(): Boolean {
+        return try {
+            val ipm = IPackageManager.Stub.asInterface(
+                ShizukuBinderWrapper(
+                    SystemServiceHelper.getSystemService("package")
+                )
+            )
+
+            permissions.forEach {
+                ipm.grantRuntimePermission(requireContext().packageName, it, UserHandle.USER_SYSTEM)
+            }
+
+            true
+        } catch (e: Exception) {
+            false
         }
     }
 

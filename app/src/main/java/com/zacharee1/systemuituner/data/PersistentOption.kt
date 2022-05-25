@@ -1,7 +1,6 @@
 package com.zacharee1.systemuituner.data
 
 import com.google.gson.GsonBuilder
-import com.zacharee1.systemuituner.util.SettingsType
 
 class CustomPersistentOption(
     val label: String,

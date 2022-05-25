@@ -13,7 +13,7 @@ import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadioBinding
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadiosBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 
 class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {

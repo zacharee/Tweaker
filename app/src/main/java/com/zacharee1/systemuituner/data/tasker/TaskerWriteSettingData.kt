@@ -2,7 +2,7 @@ package com.zacharee1.systemuituner.data.tasker
 
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInputField
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInputRoot
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 
 @TaskerInputRoot
 class TaskerWriteSettingData @JvmOverloads constructor(

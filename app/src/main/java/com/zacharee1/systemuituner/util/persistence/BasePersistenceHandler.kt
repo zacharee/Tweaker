@@ -1,7 +1,7 @@
 package com.zacharee1.systemuituner.util.persistence
 
 import android.content.Context
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 
 abstract class BasePersistenceHandler<PreferenceValueType : Any>(internal val context: Context) {

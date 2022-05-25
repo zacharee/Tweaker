@@ -7,7 +7,7 @@ import android.widget.ScrollView
 import com.zacharee1.systemuituner.data.AnimationScalesData
 import com.zacharee1.systemuituner.databinding.AnimationDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.toFloatOrDefault
 import tk.zwander.seekbarpreference.SeekBarView

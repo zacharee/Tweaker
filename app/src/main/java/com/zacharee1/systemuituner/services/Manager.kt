@@ -16,6 +16,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope

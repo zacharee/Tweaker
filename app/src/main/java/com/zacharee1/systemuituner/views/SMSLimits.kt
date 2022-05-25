@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.SmsLimitsBinding
 import com.zacharee1.systemuituner.util.*
 

@@ -1,15 +1,11 @@
 package com.zacharee1.systemuituner.util
 
-import android.animation.LayoutTransition
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.ComponentInfo
-import android.content.pm.IPackageManager
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.BlendMode
@@ -23,119 +19,22 @@ import android.os.Build.VERSION_CODES
 import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.text.TextUtils
-import android.util.Log
-import android.util.TypedValue
-import android.view.View
-import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import androidx.preference.*
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
-import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuBinderWrapper
-import rikka.shizuku.ShizukuProvider
-import rikka.shizuku.SystemServiceHelper
 import java.util.*
 import java.util.regex.Pattern
-import kotlin.math.floor
-import kotlin.math.roundToInt
-
-enum class SettingsType(val value: Int) {
-    UNDEFINED(-1),
-    GLOBAL(0),
-    SECURE(1),
-    SYSTEM(2);
-
-    companion object {
-        const val UNDEFINED_LITERAL = "undefined"
-        const val GLOBAL_LITERAL = "global"
-        const val SECURE_LITERAL = "secure"
-        const val SYSTEM_LITERAL = "system"
-
-        fun fromString(input: String): SettingsType {
-            return when (input.lowercase()) {
-                GLOBAL_LITERAL -> GLOBAL
-                SECURE_LITERAL -> SECURE
-                SYSTEM_LITERAL -> SYSTEM
-                else -> UNDEFINED
-            }
-        }
-
-        fun fromValue(value: Int): SettingsType {
-            return when (value) {
-                0 -> GLOBAL
-                1 -> SECURE
-                2 -> SYSTEM
-                else -> UNDEFINED
-            }
-        }
-    }
-
-    override fun toString(): String {
-        return when (this) {
-            UNDEFINED -> UNDEFINED_LITERAL
-            GLOBAL -> GLOBAL_LITERAL
-            SECURE -> SECURE_LITERAL
-            SYSTEM -> SYSTEM_LITERAL
-        }
-    }
-}
 
 val mainHandler = Handler(Looper.getMainLooper())
-
-val api: Int = SDK_INT
-
-val Context.prefManager: PrefManager
-    get() = PrefManager.getInstance(this)
 
 val Context.hasSdCard: Boolean
     get() = ContextCompat.getExternalFilesDirs(this, null).size >= 2
 
-val Context.hasWss: Boolean
-    get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
-
-val Context.hasDump: Boolean
-    get() = checkCallingOrSelfPermission(android.Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED
-
-val Context.hasPackageUsageStats: Boolean
-    get() = checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED
-
-val Context.isTouchWiz: Boolean
-    get() = packageManager.hasSystemFeature("com.samsung.feature.samsung_experience_mobile")
-
 val ComponentInfo.component: ComponentName
     get() = ComponentName(packageName, name)
-
-val isHTC: Boolean
-    get() = !SystemProperties.get("ro.build.sense.version").isNullOrBlank()
-
-val isLG: Boolean
-    get() = !SystemProperties.get("ro.lge.lguiversion").isNullOrBlank()
-
-val isHuawei: Boolean
-    get() = !SystemProperties.get("ro.build.hw_emui_api_level").isNullOrBlank()
-
-val isXiaomi: Boolean
-    get() = !SystemProperties.get("ro.miui.ui.version.code").isNullOrBlank()
-
-val Preference.defaultValue: Any?
-    get() {
-        return Preference::class.java
-            .getDeclaredField("mDefaultValue")
-            .apply { isAccessible = true }
-            .get(this)
-    }
 
 val TextView.hasEllipsis: Boolean
     get() {
@@ -157,132 +56,6 @@ val TextView.hasEllipsis: Boolean
         return false
     }
 
-fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean {
-    return when (type) {
-        SettingsType.GLOBAL -> writeGlobal(key, value)
-        SettingsType.SECURE -> writeSecure(key, value)
-        SettingsType.SYSTEM -> writeSystem(key, value)
-        SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
-    }
-}
-
-fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): String? {
-    return try {
-        when (type) {
-            SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
-            SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
-            SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
-            SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
-        }.orEmpty().ifBlank { def?.toString() }
-    } catch (e: SecurityException) {
-        if (Shizuku.pingBinder() && hasShizukuPermission) {
-            Shizuku.newProcess(
-                arrayOf("settings", "get", type.toString(), key),
-                null,
-                null
-            ).run {
-                inputStream.bufferedReader().use { it.readLine() }
-            }
-        } else {
-            prefManager.savedOptions.find { it.key == key && it.type == type }?.value
-        }
-    }
-}
-
-fun Context.resetAll() {
-    prefManager.reset()
-
-    try {
-        Settings.Global.resetToDefaults(contentResolver, null)
-    } catch (_: SecurityException) {
-    } catch (e: NoSuchMethodError) {
-        Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
-    }
-
-    try {
-        Settings.Secure.resetToDefaults(contentResolver, null)
-    } catch (_: SecurityException) {
-    } catch (e: NoSuchMethodError) {
-        Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
-    }
-
-    //There doesn't seem to be a reset option for Settings.System
-}
-
-fun Context.writeGlobal(key: String?, value: Any?): Boolean {
-    if (key.isNullOrBlank()) return false
-    return try {
-        Settings.Global.putString(contentResolver, key, value?.toString())
-        true
-    } catch (e: SecurityException) {
-        Log.e("SystemUI Tuner", "Failed to write to Global", e)
-        false
-    }
-}
-
-fun Context.writeSecure(key: String?, value: Any?): Boolean {
-    if (key.isNullOrBlank()) return false
-    return try {
-        Settings.Secure.putString(contentResolver, key, value?.toString())
-        true
-    } catch (e: SecurityException) {
-        Log.e("SystemUI Tuner", "Failed to write to Secure", e)
-        false
-    }
-}
-
-fun Context.writeSystem(key: String?, value: Any?): Boolean {
-    if (key.isNullOrBlank()) return false
-    fun onFail(e: Exception): Boolean {
-        return when {
-            Shell.rootAccess() -> {
-                Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
-                    .exec()
-                true
-            }
-            isAddOnInstalled() -> {
-                writeSystemSettingsWithAddOnNoResult(key, value)
-                true
-            }
-            Shizuku.pingBinder() && hasShizukuPermission -> {
-                Shizuku.newProcess(
-                    arrayOf(
-                        "content", "insert",
-                        "--uri content://settings/system",
-                        "--bind name:s:$key",
-                        "--bind value:s:$value",
-                        "--bind package:s:$packageName"
-                    ),
-                    null, null
-                ).waitFor() == 0
-            }
-            else -> {
-                Log.e("SystemUI Tuner", "Failed to write to System", e)
-                false
-            }
-        }
-    }
-
-    return try {
-        Settings.System.putString(contentResolver, key, value?.toString())
-        true
-    } catch (e: SecurityException) {
-        onFail(e)
-    } catch (e: IllegalArgumentException) {
-        onFail(e)
-    } catch (e: NullPointerException) {
-        onFail(e)
-    }
-}
-
-fun Fragment.updateTitle(title: Int) {
-    activity?.setTitle(title)
-}
-
-fun Fragment.updateTitle(title: CharSequence?) {
-    activity?.title = title
-}
-
 fun Context.apiToName(api: Int): String {
     return resources.getString(
         when (api) {
@@ -300,23 +73,6 @@ fun Context.apiToName(api: Int): String {
         }
     )
 }
-
-fun Context.dpAsPx(dpVal: Number) =
-    TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP,
-        dpVal.toFloat(),
-        resources.displayMetrics
-    ).roundToInt()
-
-fun Context.spAsPx(spVal: Number) =
-    TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_SP,
-        spVal.toFloat(),
-        resources.displayMetrics
-    ).roundToInt()
-
-fun Context.asDp(value: Number) =
-    value.toFloat() / resources.displayMetrics.density
 
 @SuppressLint("InlinedApi")
 fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
@@ -348,22 +104,6 @@ fun Context.getNotificationSettingsForChannel(channel: String?): Intent {
     }
 
     return intent
-}
-
-fun PreferenceGroup.hasPreference(key: String): Boolean {
-    forEach { child ->
-        if (key == child.key) return@hasPreference true
-    }
-
-    return false
-}
-
-fun PreferenceGroup.indexOf(preference: Preference): Int {
-    forEachIndexed { index, child ->
-        if (child == preference) return index
-    }
-
-    return -1
 }
 
 fun <T> SortedList<T>.toList(): ArrayList<T> {
@@ -465,53 +205,6 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
     return color
 }
 
-fun ViewGroup.addAnimation() {
-    layoutTransition = LayoutTransition().apply {
-        this.enableTransitionType(LayoutTransition.CHANGING)
-    }
-}
-
-fun ViewGroup.invalidateRecursive() {
-    val count = childCount
-    var child: View
-    for (i in 0 until count) {
-        child = getChildAt(i)
-        if (child is ViewGroup) child.invalidateRecursive() else child.invalidate()
-    }
-}
-
-fun PreferenceGroupAdapter.updatePreferences() {
-    PreferenceGroupAdapter::class.java
-        .getDeclaredMethod("updatePreferences")
-        .apply { isAccessible = true }
-        .invoke(this)
-}
-
-fun Context.buildNonResettablePreferences(): Set<String> {
-    val names = HashSet<String>()
-    try {
-        val cursor = contentResolver.query(
-            Uri.parse("content://settings/system"),
-            arrayOf("name", "package"),
-            null,
-            null,
-            null
-        )
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                val pkg = cursor.getString(1)
-                if (pkg == packageName || pkg == "tk.zwander.systemuituner.systemsettings" || pkg == "com.android.shell") {
-                    names.add("${resources.getString(R.string.system)}: ${cursor.getString(0)}")
-                }
-            }
-            cursor.close()
-        }
-    } catch (_: IllegalArgumentException) {
-    }
-    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { "${resources.getString(R.string.system)}: ${it.key}" })
-    return names
-}
-
 fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
     val slots = ArrayList<String>()
 
@@ -548,102 +241,6 @@ fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
     }
 
     return if (slots.isEmpty() && !alternate) parseAutoIconBlacklistSlots(true) else slots
-}
-
-fun View.scaleAnimatedVisible(visible: Boolean, listener: Animation.AnimationListener? = null) {
-    val anim =
-        AnimationUtils.loadAnimation(context, if (visible) R.anim.scale_in else R.anim.scale_out)
-    anim.setAnimationListener(object : Animation.AnimationListener {
-        override fun onAnimationRepeat(animation: Animation?) {
-            listener?.onAnimationRepeat(animation)
-        }
-
-        override fun onAnimationStart(animation: Animation?) {
-            listener?.onAnimationStart(animation)
-        }
-
-        override fun onAnimationEnd(animation: Animation?) {
-            if (!visible) {
-                isVisible = false
-                alpha = 0f
-            } else {
-                alpha = 1f
-            }
-            listener?.onAnimationEnd(animation)
-        }
-    })
-    if (visible) {
-        isVisible = true
-        alpha = 0f
-    } else {
-        alpha = 1f
-    }
-    startAnimation(anim)
-}
-
-var View.scaleAnimatedVisible: Boolean
-    get() = isVisible
-    set(value) {
-        scaleAnimatedVisible(value)
-    }
-
-object WriteSystemAddOnValues {
-    const val ACTION_WRITE_SYSTEM = "com.zacharee1.systemuituner.WRITE_SYSTEM"
-    const val ACTION_WRITE_SYSTEM_RESULT = "com.zacharee1.systemuituner.WRITE_SYSTEM_RESULT"
-
-    const val EXTRA_KEY = "WRITE_SYSTEM_KEY"
-    const val EXTRA_VALUE = "WRITE_SYSTEM_VALUE"
-    const val EXTRA_EXCEPTION = "WRITE_SYSTEM_EXCEPTION"
-
-    const val PERMISSION = "com.zacharee1.systemuituner.permission.WRITE_SETTINGS"
-    const val WRITE_SYSTEM_REQUEST_CODE = 123456
-}
-
-fun Context.writeSystemSettingsWithAddOnNoResult(key: String?, value: Any?) {
-    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName(
-        "tk.zwander.systemuituner.systemsettings",
-        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
-    )
-
-    try {
-        startActivity(intent)
-    } catch (e: ActivityNotFoundException) {
-        Log.e("SystemUITuner", "Add-on error", e)
-    }
-}
-
-fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
-    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName(
-        "tk.zwander.systemuituner.systemsettings",
-        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
-    )
-
-    try {
-        startActivityForResult(intent, WriteSystemAddOnValues.WRITE_SYSTEM_REQUEST_CODE)
-    } catch (e: ActivityNotFoundException) {
-        Log.e("SystemUITuner", "Add-on error", e)
-    }
-}
-
-fun Fragment.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
-    requireActivity().writeSystemSettingsWithAddOnResult(key, value)
-}
-
-fun Context.isAddOnInstalled(): Boolean {
-    return try {
-        packageManager.getPackageInfo("tk.zwander.systemuituner.systemsettings", 0)
-        true
-    } catch (e: Exception) {
-        false
-    }
 }
 
 fun Context.launchUrl(url: String) {
@@ -696,31 +293,6 @@ fun String.toFloatOrDefault(default: Float): Float {
         default
     }
 }
-
-fun Context.grantPermissionThroughShizuku(vararg permissions: String): Boolean {
-    return try {
-        val ipm = IPackageManager.Stub.asInterface(
-            ShizukuBinderWrapper(
-                SystemServiceHelper.getSystemService("package")
-            )
-        )
-
-        permissions.forEach {
-            ipm.grantRuntimePermission(packageName, it, UserHandle.USER_SYSTEM)
-        }
-
-        true
-    } catch (e: Exception) {
-        false
-    }
-}
-
-val Context.hasShizukuPermission: Boolean
-    get() = if (Shizuku.isPreV11() || Shizuku.getVersion() < 11) {
-        checkCallingOrSelfPermission(ShizukuProvider.PERMISSION) == PackageManager.PERMISSION_GRANTED
-    } else {
-        Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
-    }
 
 val String.capitalized: String
     get() = replaceFirstChar {
@@ -775,57 +347,6 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
         }
         else -> true
     }
-}
-
-fun Fragment.chooseLayoutManager(
-    view: View?,
-    grid: RecyclerView.LayoutManager,
-    linear: RecyclerView.LayoutManager,
-    extraFlags: Boolean = true,
-    spanCount: (Float) -> Int = {
-        floor(it / 400).toInt()
-    }
-): RecyclerView.LayoutManager {
-    val dpWidth = requireContext().asDp(view?.width ?: 0)
-
-    return if (extraFlags && dpWidth >= 800) {
-        grid.also {
-            if (it is GridLayoutManager) {
-                it.spanCount = spanCount(dpWidth)
-            }
-
-            if (it is StaggeredGridLayoutManager) {
-                it.spanCount = spanCount(dpWidth)
-            }
-        }
-    } else {
-        linear
-    }
-}
-
-fun Fragment.chooseLayoutManagerWithoutSetting(
-    view: View?,
-    grid: RecyclerView.LayoutManager,
-    linear: RecyclerView.LayoutManager,
-    extraFlags: Boolean = true,
-): RecyclerView.LayoutManager {
-    val dpWidth = requireContext().asDp(view?.width ?: 0)
-
-    return if (extraFlags && dpWidth >= 800) {
-        grid
-    } else {
-        linear
-    }
-}
-
-fun Fragment.updateLayoutManager(
-    view: View?,
-    recycler: RecyclerView?,
-    grid: RecyclerView.LayoutManager,
-    linear: RecyclerView.LayoutManager,
-    extraFlags: Boolean = true
-) {
-    recycler?.layoutManager = chooseLayoutManager(view, grid, linear, extraFlags)
 }
 
 @RequiresApi(VERSION_CODES.N)

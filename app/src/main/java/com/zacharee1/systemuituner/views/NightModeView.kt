@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.databinding.NightModeBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import tk.zwander.seekbarpreference.SeekBarView
 

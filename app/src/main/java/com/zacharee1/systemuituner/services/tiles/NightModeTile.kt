@@ -6,6 +6,7 @@ import android.os.Build
 import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
 
 @TargetApi(Build.VERSION_CODES.N)

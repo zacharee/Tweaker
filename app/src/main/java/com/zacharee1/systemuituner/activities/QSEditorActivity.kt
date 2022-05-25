@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.ActivityQsEditorBinding
 import com.zacharee1.systemuituner.databinding.QsTileBinding
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog

@@ -7,7 +7,7 @@ import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
 import com.zacharee1.systemuituner.databinding.TaskerWriteSettingBinding
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.tasker.helpers.WriteSettingHelper
 
 class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<TaskerWriteSettingData> {

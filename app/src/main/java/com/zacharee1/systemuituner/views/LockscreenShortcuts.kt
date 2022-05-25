@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.LockscreenShortcutSelector
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.LockscreenShortcutBinding
 import com.zacharee1.systemuituner.util.*
 

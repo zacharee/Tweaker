@@ -10,6 +10,7 @@ import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.jaredrummler.android.colorpicker.ColorShape
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.TouchwizNavigationBarColorDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.*

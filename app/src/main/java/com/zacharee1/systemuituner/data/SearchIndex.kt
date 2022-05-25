@@ -9,7 +9,6 @@ import android.text.style.ForegroundColorSpan
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
-import com.zacharee1.systemuituner.util.SettingsType
 import kotlinx.coroutines.*
 import java.util.*
 import kotlin.Comparator

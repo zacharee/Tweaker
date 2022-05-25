@@ -7,7 +7,7 @@ import android.widget.ScrollView
 import com.zacharee1.systemuituner.data.CameraGesturesData
 import com.zacharee1.systemuituner.databinding.CameraGesturesBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 
 class CameraGestures(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {

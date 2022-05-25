@@ -11,7 +11,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 
 abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     companion object {

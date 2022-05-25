@@ -10,10 +10,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.MalformedJsonException
-import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
-import com.zacharee1.systemuituner.data.CustomPersistentOption
-import com.zacharee1.systemuituner.data.PersistentOption
-import com.zacharee1.systemuituner.data.SavedOption
+import com.zacharee1.systemuituner.data.*
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {

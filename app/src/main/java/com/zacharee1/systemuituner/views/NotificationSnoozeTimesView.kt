@@ -6,7 +6,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import com.zacharee1.systemuituner.databinding.NotificationSnoozeTimesBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 
 class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback {
