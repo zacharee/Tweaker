@@ -2,7 +2,7 @@
 <resources>
     <string name="adb_intro_title">ADB 指南</string>
     <string name="adb_intro_desc">不知道如何使用 ADB 吗？没问题。只需遵循本指南并设置您。 (请注意，您需要在电脑上完成此过程。)</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
+    <string name="adb_intro_desc_no_computer">不知道如何使用 ADB 吗？没问题。只需遵循本指南并设置您。</string>
     <string name="adb_choose_computer_os">选择您的操作系统。</string>
     <string name="adb_choose_computer_os_desc">您的电脑正在运行哪个操作系统？</string>
     <string name="adb_android_guide">初始设置(在您的手机上)</string>
