@@ -50,14 +50,14 @@
     <string name="feature_battery_saver_trigger_desc" formatted="false">La fonction d’économiseur de batterie de Google peut se déclencher automatiquement lorsque le niveau de la batterie est de 5\% ou 15\%. Avec cette option, vous pouvez définir un autre pourcentage de déclenchement.</string>
     <string name="feature_long_press_delay">Définir un délai d\'appui long personnalisé</string>
     <string name="feature_long_press_delay_desc">Dans les paramètres d\'accessibilité, il y a une fonctionnalité appelée \"Délai d\'appui long\" qui vous permet de spécifier pendant combien de temps vous devez appuyer sur l\'écran pour qu\'Android reconnaisse un appui long. Cependant, les seules options par défaut sont \"court\", \"moyen\" et \"long\". Vous pouvez régler le délai de votre choix.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
-    <string name="feature_freeform">Enable Freeform Multiwindow</string>
-    <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
-    <string name="feature_app_install_location">Set Default App Install Location</string>
+    <string name="feature_font_scale">Choisir une taille de police personnalisée</string>
+    <string name="feature_font_scale_desc">Android vous permet de définir la taille du texte affiché sur votre appareil en spécifiant une taille de police par défault, applicable à l\'ensemble du système. Ces valeurs sont généralement représentées dans les paramètres de la taille de police sous les noms \"Petite\", \"Normale\" ou \"Par défaut\", \"Grande\", et \"Trés grande\". Cependant, vous pouvez définir ici vos propres valeurs personnalisées.</string>
+    <string name="feature_freeform">Activer le mode \"Fenêtres de forme libre\"</string>
+    <string name="feature_freeform_desc">Choisir ou non d\'activer la prise en charge du mode \"Fenêtres de forme libre\". Requis un redémarrage du système. Fonctionne uniquement sur les appareils tournant sous Android 7.0 et plus.</string>
+    <string name="feature_app_install_location">Définir le chemin d\'installation par défaut des applications</string>
     <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
-    <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
-    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
+    <string name="feature_heads_up_notifications">Activer/Désactiver les notifications</string>
+    <string name="feature_heads_up_notifications_desc">Permet de totalement désactiver/réactiver les notifications. Les notifications sont situées dans la barre d\'état, en haut de l\'écran.</string>
     <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
     <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
     <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
