@@ -17,7 +17,7 @@
     <string name="adb_install_android_7">Si vous ne voyez pas le menu Options pour les développeurs, trouvez le menu intitulé \"Système\" ou \"Paramètres supplémentaires\". Vous devriez voir le menu \"Options pour les développeurs\" à l\'intérieur.</string>
     <string name="adb_install_android_8">Faites défiler jusqu\'à ce que vous trouviez le commutateur nommé \"Débogage USB\" et activez-le.</string>
     <string name="adb_install_android_9">Sur les téléphones Xiaomi, vous devrez également trouver et désactiver l\'option intitulée \"Débogage USB (Paramètres de sécurité)\".</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">Sur les appareils de marque OPPO, Realme et OnePlus, vous aurez besoin de trouver et d\'activer l\'option intitulée \"Désactiver le suivi des permissions\".</string>
     <string name="adb_install_android_11">Maintenant, branchez votre téléphone sur votre ordinateur. Si une fenêtre de confirmation à propos du débogage USB apparaît, autorisez-la.</string>
     <string name="adb_install_android_12">Une fois cela fait, il est temps de continuer sur votre ordinateur.</string>
     <string name="adb_install_local_1"><![CDATA[Téléchargez et installez l'application Shizuku depuis le [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
