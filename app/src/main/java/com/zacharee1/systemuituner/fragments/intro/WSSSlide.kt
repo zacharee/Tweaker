@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.button.MaterialButton
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.WssSlideBinding
 
@@ -11,6 +12,8 @@ class WSSSlide : PermGrantSlide() {
     override val permissions = arrayOf(
         android.Manifest.permission.WRITE_SECURE_SETTINGS
     )
+    override val grantButton: MaterialButton?
+        get() = view?.let { WssSlideBinding.bind(it).grant }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,5 +34,9 @@ class WSSSlide : PermGrantSlide() {
                 startTutorialActivity()
             }
         }
+    }
+
+    override fun canGoForward(): Boolean {
+        return hasPermissions()
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.button.MaterialButton
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.ExtraPermsSlideBinding
 
@@ -12,6 +13,8 @@ class ExtraPermsSlide : PermGrantSlide() {
         android.Manifest.permission.PACKAGE_USAGE_STATS,
         android.Manifest.permission.DUMP
     )
+    override val grantButton: MaterialButton?
+        get() = view?.let { ExtraPermsSlideBinding.bind(it).grant }
 
     override fun onCreateView(
         inflater: LayoutInflater,

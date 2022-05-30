@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.topjohnwu.superuser.Shell
@@ -28,6 +29,7 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
     }
 
     protected abstract val permissions: Array<String>
+    protected abstract val grantButton: MaterialButton?
 
     private val permissionsRequester = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         onRequestPermissionResult(REQ_SHIZUKU, if (granted) PackageManager.PERMISSION_GRANTED else PackageManager.PERMISSION_DENIED)
@@ -39,27 +41,55 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
         savedInstanceState: Bundle?
     ): View?
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        updateButtonState()
+    }
+
     protected fun tryPermissionsGrant() {
         launch {
-            val hasRoot = async { Shell.rootAccess() }
-            val hasShizuku = async { Shizuku.pingBinder() }
+            if (!hasPermissions()) {
+                val hasRoot = async { Shell.rootAccess() }
+                val hasShizuku = async { Shizuku.pingBinder() }
 
-            if (hasRoot.await()) {
-                performRootPermissionsGrant()
-            } else if (hasShizuku.await()) {
-                if (requireContext().hasShizukuPermission) {
-                    performShizukuPermissionsGrant()
+                if (hasRoot.await()) {
+                    performRootPermissionsGrant()
+                } else if (hasShizuku.await()) {
+                    if (requireContext().hasShizukuPermission) {
+                        performShizukuPermissionsGrant()
+                    } else {
+                        Shizuku.addRequestPermissionResultListener(this@PermGrantSlide)
+                        requestShizukuPermission()
+                    }
                 } else {
-                    Shizuku.addRequestPermissionResultListener(this@PermGrantSlide)
-                    requestShizukuPermission()
+                    AlertDialog.Builder(requireActivity())
+                        .setTitle(R.string.no_root_title)
+                        .setMessage(R.string.no_root_msg)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
                 }
-            } else {
-                AlertDialog.Builder(requireActivity())
-                    .setTitle(R.string.no_root_title)
-                    .setMessage(R.string.no_root_msg)
-                    .setPositiveButton(android.R.string.ok, null)
-                    .show()
             }
+
+            updateButtonState()
+        }
+    }
+
+    protected fun hasPermissions(): Boolean {
+        return permissions.all {
+            requireContext().checkCallingOrSelfPermission(it) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    protected fun updateButtonState() {
+        grantButton?.apply {
+            val hasPermissions = hasPermissions()
+
+            text = resources.getString(
+                if (hasPermissions) R.string.permission_grant_success
+                else R.string.grant
+            )
+            isEnabled = !hasPermissions
         }
     }
 
@@ -73,6 +103,7 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
     override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
         if (requestCode == REQ_SHIZUKU && grantResult == PackageManager.PERMISSION_GRANTED) {
             performShizukuPermissionsGrant()
+            updateButtonState()
         }
     }
 
