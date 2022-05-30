@@ -196,8 +196,8 @@
     <string name="reset">重設</string>
     <string name="grant">授予</string>
     <string name="help">說明</string>
-    <string name="no_root_title">無 Root</string>
-    <string name="no_root_msg">未檢測到 Root。如果您的裝置已經 Root，請確保 SystemUI Tuner 有 Root 權限。否則按「說明」按鈕來獲取 ADB 說明。</string>
+    <string name="no_root_title">無 Root 或 Shizuku</string>
+    <string name="no_root_msg">未偵測到 Root 或 Shizuku。若您的裝置已 Root，請確保 SystemUI Tuner 有 Root 存取權。否則按「說明」按鈕來獲取 ADB 和 Shizuku 說明。</string>
     <string name="wss_required_msg">未授予 WRITE_SECURE_SETTTINGS 权限。</string>
     <string name="mode">模式</string>
     <string name="key">金鑰</string>
