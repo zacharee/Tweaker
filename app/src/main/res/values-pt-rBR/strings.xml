@@ -196,8 +196,8 @@
     <string name="reset">Redefinir</string>
     <string name="grant">Conceder</string>
     <string name="help">Ajuda</string>
-    <string name="no_root_title">No Root or Shizuku</string>
-    <string name="no_root_msg">Root or Shizuku wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_title">Sem root ou Shizuku</string>
+    <string name="no_root_msg">Acesso root ou Shizuku não foi detectado. Se o seu dispositivo tem acesso root, certifique-se de que o SystemUI Tuner tem esse acesso liberado no SuperSU ou Magisk. Caso contrário, pressione o botão HELP para obter instruções sobre os comandos ADB e Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS não foi concedido.</string>
     <string name="mode">Modo</string>
     <string name="key">Chave</string>
