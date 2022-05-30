@@ -202,8 +202,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="reset">Sıfırla</string>
     <string name="grant">İzin ver</string>
     <string name="help">Yardım</string>
-    <string name="no_root_title">Root erişimi sağlanamadı</string>
-    <string name="no_root_msg">Kök tespit edilmedi. Cihazınız rootluysa, SystemUI Tuner\'ın root erişimine sahip olduğundan emin olun. Aksi takdirde, ADB talimatları için HELP düğmesine basın.</string>
+    <string name="no_root_title">No Root or Shizuku</string>
+    <string name="no_root_msg">Root or Shizuku wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">GÜVENLİ AYARLARI YAZ VERİLEMEMİŞTİR.</string>
     <string name="mode">Mod</string>
     <string name="key">Anahtar</string>
