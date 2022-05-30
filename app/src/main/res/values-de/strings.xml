@@ -196,8 +196,8 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_title">Kein Root-Zugriff</string>
-    <string name="no_root_msg">Root wurde nicht erkannt. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff erhält. Andernfalls drücken Sie die Schaltfläche Hilfe für ADB-Anweisungen (Android Debug Bridge).</string>
+    <string name="no_root_title">Kein Root oder Shizuku</string>
+    <string name="no_root_msg">Root oder Shizuku wurde nicht erkannt. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff erhält. Andernfalls drücken Sie die Schaltfläche Hilfe für ADB- (Android Debug Bridge) und Shizuku-Anweisungen.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
@@ -320,7 +320,7 @@
     <string name="error_restoring_icon_blacklist">Fehler beim Wiederherstellen: %s</string>
     <string name="permission_grant_success">Berechtigungen wurden erfolgreich erteilt.</string>
     <string name="permission_grant_failure">Es konnten keine Berechtigungen erteilt werden. Wenn Sie ein Xiaomi- oder OPPO/Realme/OnePlus-Gerät besitzen, stellen Sie bitte sicher, dass Sie „USB-Debugging (Sicherheitseinstellungen)” aktivieren oder \"Berechtigungsüberwachung deaktivieren\" aktivieren.</string>
-    <string name="permission_grant_failure_short">Es konnten keine Berechtigungen erteilt werden.\n%s</string>
+    <string name="permission_grant_failure_short">Erteilen der Berechtigung fehlgeschlagen.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Für nur 1$/Monat erhalten Sie Zugang zu allen meinen kostenpflichtigen Apps und mehr.</string>
     <string name="supporters">Unterstützer</string>

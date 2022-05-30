@@ -196,8 +196,8 @@
     <string name="reset">Сбросить</string>
     <string name="grant">Предоставить</string>
     <string name="help">Справка</string>
-    <string name="no_root_title">Root отсутствует</string>
-    <string name="no_root_msg">Root-доступ не был обнаружен. Если ваше устройство имеет рут-доступ, убедитесь, что у SystemUI Tuner есть рут-доступ. В противном случае нажмите кнопку СПРАВКА для получения инструкций ADB.</string>
+    <string name="no_root_title">Нет Root или Shizuku</string>
+    <string name="no_root_msg">Не был обнаружен root-доступ или Shizuku. Если ваше устройство футеровано, убедитесь, что у SystemUI Tuner есть root-доступ. В противном случае нажмите кнопку ПОМОЩЬ, чтобы прочесть инструкции по ADB и Shizuku.</string>
     <string name="wss_required_msg">разрешение WRITE_SECURE_SETTINGS не предоставлено.</string>
     <string name="mode">Режим</string>
     <string name="key">Ключ</string>
@@ -319,7 +319,7 @@
     <string name="error_creating_file_template">Ошибка создания файла: %s</string>
     <string name="error_restoring_icon_blacklist">Ошибка восстановления: %s</string>
     <string name="permission_grant_success">Разрешения успешно предоставлены.</string>
-    <string name="permission_grant_failure">Не удалось предоставить разрешения. Если у вас устройство Xiaomi или OPPO/Realme/OnePlus, убедитесь, что вы включили \"Отладку по USB (Настройки безопасности)\" или включите \"Отключить Мониторинг Разрешений\".</string>
+    <string name="permission_grant_failure">Не удалось предоставить разрешения. Если у вас Xiaomi или OPPO/Realme/OnePlus, убедитесь, что вы включили \"Отладку по USB (Настройки безопасности)\" или включите \"Отключить Мониторинг Разрешений\".</string>
     <string name="permission_grant_failure_short">Не удалось предоставить разрешения.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">За $1 в месяц вы получаете доступ ко всем моим платным приложениям и многому другому.</string>
