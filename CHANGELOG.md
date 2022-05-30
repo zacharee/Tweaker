@@ -1,3 +1,13 @@
+## 339
+- Crash fixes.
+- Update dependencies.
+- Remove local dependencies for easier builds.
+- Include OnePlus in the instructions for OPPO/Realme.
+- Update some text.
+- Make permissions pages show clearer status.
+- Add Czech translation.
+- Update translations.
+
 ## 338
 - Update dependencies.
 - Add Traditional Chinese translation.
