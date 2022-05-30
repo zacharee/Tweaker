@@ -196,8 +196,8 @@
     <string name="reset">초기화</string>
     <string name="grant">허용</string>
     <string name="help">도움말</string>
-    <string name="no_root_title">루트 권한 없음</string>
-    <string name="no_root_msg">루트를 감지할 수 없습니다. 기기가 루팅되었다면, SystemUI Tuner가 루트 권한을 갖도록 해주십시오. 아니라면 ADB 설치를 안내하는 도움말 버튼을 누르십시오.</string>
+    <string name="no_root_title">No Root or Shizuku</string>
+    <string name="no_root_msg">Root or Shizuku wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 권한이 부여되지 않았습니다.</string>
     <string name="mode">모드</string>
     <string name="key">키</string>
