@@ -196,8 +196,8 @@
     <string name="reset">Standaardwaarden</string>
     <string name="grant">Toestaan</string>
     <string name="help">Help</string>
-    <string name="no_root_title">No Root</string>
-    <string name="no_root_msg">Root wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB instructions.</string>
+    <string name="no_root_title">No Root or Shizuku</string>
+    <string name="no_root_msg">Root or Shizuku wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Modus</string>
     <string name="key">Sleutel</string>
