@@ -196,8 +196,8 @@
     <string name="reset">Сбросить</string>
     <string name="grant">Предоставить</string>
     <string name="help">Справка</string>
-    <string name="no_root_title">Root отсутствует</string>
-    <string name="no_root_msg">Root-доступ не был обнаружен. Если ваше устройство имеет рут-доступ, убедитесь, что у SystemUI Tuner есть рут-доступ. В противном случае нажмите кнопку СПРАВКА для получения инструкций ADB.</string>
+    <string name="no_root_title">Нет Root или Shizuku</string>
+    <string name="no_root_msg">Не был обнаружен root-доступ или Shizuku. Если ваше устройство футеровано, убедитесь, что у SystemUI Tuner есть root-доступ. В противном случае нажмите кнопку ПОМОЩЬ, чтобы прочесть инструкции по ADB и Shizuku.</string>
     <string name="wss_required_msg">разрешение WRITE_SECURE_SETTINGS не предоставлено.</string>
     <string name="mode">Режим</string>
     <string name="key">Ключ</string>
