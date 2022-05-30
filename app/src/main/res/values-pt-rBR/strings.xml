@@ -320,7 +320,7 @@
     <string name="error_restoring_icon_blacklist">Erro restaurando: %s</string>
     <string name="permission_grant_success">Permissões concedidas com sucesso.</string>
     <string name="permission_grant_failure">Falha ao conceder permissões. Se você tiver um dispositivo Xiaomi ou OPPO/Realme/OnePlus, certifique-se de ativar a \"Depuração USB (Configuraçoes de Segurança)\" nas Opções do Desenvolvedor ou habilite \"Desativar monitor de permissões\".</string>
-    <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
+    <string name="permission_grant_failure_short">Falha ao conceder permissões.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">Por 1 dólar ao mês, você tem acesso a todos os meus aplicativos premium e muito mais.</string>
     <string name="supporters">Apoiadores</string>
