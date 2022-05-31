@@ -45,12 +45,12 @@
     <string name="special_sub_icon_blacklist">القائمة السوداء للأيقونات</string>
     <string name="special_sub_icon_blacklist_desc">اختر أيقونات محددة لإخفائها من شريط الحالة. لاحظ أن هذه الميزة لن تعمل على جميع الأجهزة أو مع جميع الأيقونة. لا يمكن إخفاء أيقونات الإشعارات باستخدام هذه الميزة.</string>
     <string name="feature_lock_timeout">تعيين مهلة قفل الجهاز المخصصة</string>
-    <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
-    <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
-    <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
-    <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
+    <string name="feature_lock_timeout_desc">في (إعدادات قفل الحماية), يمكنك ضبط مؤقت(القفل التلقائي). هذا المؤقت يحدد المدة الزمنية لقفل الجهاز بعد دخوله وضع السبات. من خلال هذا الخيار, يمكنك ضبط التوقيت كيفما تريد. اذا قمت بوضع مدة زمنية طويلة جدا حينها لن يظهر قفل الشاشة نهائيا.</string>
+    <string name="feature_battery_saver_trigger">ضبط نسبة بطارية مخصصة لوضع توفير الطاقة</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">يمكن تشغيل خاصية توفير البطارية في جوجل تلقائياً عندما يكون مستوى البطارية عند 5\% أو 15\٪. مع هذا، يمكنك تعيين مشغل خاص بك بالمئة.</string>
+    <string name="feature_long_press_delay">تعيين تأخير الضغط المطول المخصص</string>
+    <string name="feature_long_press_delay_desc">في إعدادات إمكانية الوصول، هناك ميزة تسمى \"اللمس &amp; الاستمرار بالتأخير\" والتي تسمح لك بتحديد المدة التي يجب عليك خلالها الاستمرار في الضغط على الشاشة للأندرويد للتعرف على حدث الضغط المطول. ومع ذلك، فإن الخيارات الوحيدة بشكل افتراضي هي \"قصير\" و\"متوسط\" و\"طويلة\". يمكنك تحديد تأخيرك الخاص.</string>
+    <string name="feature_font_scale">تعيين مقياس خط مخصص</string>
     <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
     <string name="feature_freeform">Enable Freeform Multiwindow</string>
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
