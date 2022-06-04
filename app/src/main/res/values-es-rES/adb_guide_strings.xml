@@ -2,7 +2,7 @@
 <resources>
     <string name="adb_intro_title">Guía ADB</string>
     <string name="adb_intro_desc">¿No sabes cómo usar el ADB? No hay problema. Simplemente sigue esta guía y deberías estar configurado. (Tenga en cuenta que necesitará un ordenador para este proceso.)</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
+    <string name="adb_intro_desc_no_computer">¿No sabes cómo usar ADB? No hay problema. Simplemente sigue esta guía y deberías estar listo.</string>
     <string name="adb_choose_computer_os">Elija su sistema operativo</string>
     <string name="adb_choose_computer_os_desc">Windows 8.1</string>
     <string name="adb_android_guide">Configuración inicial (en tu teléfono)</string>
@@ -17,7 +17,7 @@
     <string name="adb_install_android_7">Si no ve el menú Opciones de Desarrollador, busque el menú etiquetado como \"Sistema\" o \"Ajustes Adicionales\". Deberías ver el menú Opciones de desarrollador dentro de eso.</string>
     <string name="adb_install_android_8">Desplácese hacia abajo hasta que encuentre el interruptor etiquetado \"Debugging USB\" y actívelo.</string>
     <string name="adb_install_android_9">En los teléfonos Xiaomi, también tendrás que encontrar y desactivar la opción \"Debugging USB (Configuración de seguridad)\".</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">En los teléfonos OPPO, Realme y OnePlus, también tendrás que encontrar y activar la opción \"Desactivar el seguimiento de permisos\".</string>
     <string name="adb_install_android_11">Ahora conecte su teléfono al ordenador. Si aparece una confirmación sobre la depuración USB, permita.</string>
     <string name="adb_install_android_12">Una vez hecho esto, es hora de continuar en tu ordenador.</string>
     <string name="adb_install_local_1"><![CDATA[Descargar e instalar la aplicación Shizuku desde la [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
@@ -26,7 +26,7 @@
     <string name="adb_install_adb_windows_1">Descargue el ZIP de ADB desde aquí: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
     <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as C:\\adb.  </string>
     <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
-    <string name="adb_install_adb_windows_4">Click inside the search bar and replace what\'s there with \"cmd\" (without quotes). Then hit Enter.</string>
+    <string name="adb_install_adb_windows_4">Haga clic dentro de la barra de búsqueda y reemplace lo que hay con \"cmd\" (sin comillas). Y luego pulse Enter.</string>
     <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
     <string name="adb_install_adb_mac_2">Extract the ZIP to a convenient location, such as the Desktop.</string>
     <string name="adb_install_adb_mac_3">Now, open the terminal. You can do so by pressing CMD+SPACE at the same time to open Spotlight Search, and searching for \"Terminal\".</string>
