@@ -68,7 +68,7 @@
     <string name="feature_custom_rotation_desc">La plupart des téléphones vous permettent uniquement d\'avoir l\'écran de verrouillage en mode Portrait. Avec ce paramètre, vous pouvez verrouiller l\'orientation de l\'écran sur n\'importe quelle mode. Vous devrez cependant désactiver la rotation automatique pour que paramètre puisse fonctionner.</string>
     <string name="feature_immersive_mode">Mode immersif</string>
     <string name="feature_immersive_mode_desc">La plupart des applications qui vous permettent de basculer en mode immersif n\'ont que quelques options : masquer la barre de navigation ou masquer la barre d\'état, mais il est possible de définir un paramètre personnalisé pour chaque application, en suivant un modèle de liste blanche/liste noire.</string>
-    <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
+    <string name="feature_heads_up_snooze_length">Leads-Une Notification Snooker Lent</string>
     <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
     <string name="feature_camera_gestures">Caméra gestuelle</string>
     <string name="feature_camera_gestures_desc">L\'activation de cette option peut permettre à votre appareil de lancer rapidement l\'application appareil photo en appuyant deux fois sur le bouton d\'alimentation ou en retournant l\'appareil.</string>
