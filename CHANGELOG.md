@@ -7,6 +7,7 @@
 - Make permissions pages show clearer status.
 - Add Czech translation.
 - Update translations.
+- Add Spanish translation.
 
 ## 338
 - Update dependencies.
