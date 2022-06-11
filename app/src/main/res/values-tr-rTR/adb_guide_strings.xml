@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
-    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
-    <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
-    <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
-    <string name="adb_install_android_3">Now, find the option labeled \"Build Number\". On some devices, this may simply be called \"Version\".</string>
-    <string name="adb_install_android_4">Tap that option 7 times to enable Developer Mode. You may need to enter your passcode to enable it.</string>
-    <string name="adb_install_android_5">Now, go back to the main Settings page.</string>
-    <string name="adb_install_android_6">Depending on your device, you may see a new menu called \"Developer Options\". If so, tap it and skip the next step.</string>
-    <string name="adb_install_android_7">If you don\'t see the Developer Options menu, find the menu labeled either \"System\" or \"Additional Settings\". You should see the Developer Options menu inside that.</string>
-    <string name="adb_install_android_8">Scroll down until you find the switch labeled \"USB Debugging\" and enable it.</string>
+    <string name="adb_intro_title">ADB kılavuzu</string>
+    <string name="adb_intro_desc">ADB\'yi nasıl kullanacağınızı bilmiyor musunuz? Sorun değil. Sadece bu kılavuzu takip etmeniz yeterli. (Bu işlem için bir bilgisayara ihtiyacınız olacağını unutmayın.)</string>
+    <string name="adb_intro_desc_no_computer">ADB\'yi nasıl kullanacağınızı bilmiyor musunuz? Sorun değil. Sadece bu kılavuzu takip etmeniz yeterli.</string>
+    <string name="adb_choose_computer_os">Kullandığınız işletim sistemini seçin.</string>
+    <string name="adb_choose_computer_os_desc">Bilgisayarınız hangi işletim sistemiyle çalışıyor?</string>
+    <string name="adb_android_guide">İlk Kurulum (Telefonunuzda)</string>
+    <string name="adb_final_title">Bitti</string>
+    <string name="adb_final_desc">Bu kadar! Her şey yolunda giderse, izin(ler) şimdi verilmelidir.</string>
+    <string name="adb_install_android_1">Ayarlar uygulamasını açın ve Telefon Hakkında\'ya tıklayın.</string>
+    <string name="adb_install_android_2">Cihazınıza bağlı olarak \"Yazılım Bilgileri\" adlı bir menü görebilirsiniz. Eğer öyleyse, ona tıklayın.</string>
+    <string name="adb_install_android_3">Şimdi, \"Derleme numarası\" etiketli seçeneği bulun. Bazı cihazlarda buna basitçe \"Sürüm\" adı verilebilir.</string>
+    <string name="adb_install_android_4">Geliştirici Modunu etkinleştirmek için bu seçeneğe 7 kez dokunun. Etkinleştirmek için şifrenizi girmeniz gerekebilir.</string>
+    <string name="adb_install_android_5">Şimdi ana Ayarlar sayfasına geri dönün.</string>
+    <string name="adb_install_android_6">Cihazınıza bağlı olarak \"Geliştirici Seçenekleri\" adlı yeni bir menü görebilirsiniz. Eğer öyleyse, ona dokunun ve bir sonraki adımı atlayın.</string>
+    <string name="adb_install_android_7">Geliştirici Seçenekleri menüsünü görmüyorsanız, \"Sistem\" veya \"Ek Ayarlar\" etiketli menüyü bulun. Bunun içinde Geliştirici Seçenekleri menüsünü görmelisiniz.</string>
+    <string name="adb_install_android_8">\"USB Hata Ayıklama\" etiketli anahtarı bulana kadar aşağı kaydırın ve etkinleştirin.</string>
     <string name="adb_install_android_9">On Xiaomi phones, you\'ll also need to find and disable the option labeled \"USB Debugging (Security Settings)\".</string>
     <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
     <string name="adb_install_android_11">Now, plug your phone into your computer. If a confirmation popup about USB Debugging appears, allow it.</string>
