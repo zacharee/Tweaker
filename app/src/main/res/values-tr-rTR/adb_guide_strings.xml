@@ -16,11 +16,11 @@
     <string name="adb_install_android_6">Cihazınıza bağlı olarak \"Geliştirici Seçenekleri\" adlı yeni bir menü görebilirsiniz. Eğer öyleyse, ona dokunun ve bir sonraki adımı atlayın.</string>
     <string name="adb_install_android_7">Geliştirici Seçenekleri menüsünü görmüyorsanız, \"Sistem\" veya \"Ek Ayarlar\" etiketli menüyü bulun. Bunun içinde Geliştirici Seçenekleri menüsünü görmelisiniz.</string>
     <string name="adb_install_android_8">\"USB Hata Ayıklama\" etiketli anahtarı bulana kadar aşağı kaydırın ve etkinleştirin.</string>
-    <string name="adb_install_android_9">On Xiaomi phones, you\'ll also need to find and disable the option labeled \"USB Debugging (Security Settings)\".</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
-    <string name="adb_install_android_11">Now, plug your phone into your computer. If a confirmation popup about USB Debugging appears, allow it.</string>
-    <string name="adb_install_android_12">Once that\'s done, it\'s time to continue on your computer.</string>
-    <string name="adb_install_local_1"><![CDATA[Download and install the Shizuku app from the [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_android_9">Xiaomi cihazlarında, \"USB Hata Ayıklama (Güvenlik Ayarları)\" etiketli seçeneği de bulmanız ve devre dışı bırakmanız gerekir.</string>
+    <string name="adb_install_android_10">OPPO, Realme ve OnePlus telefonlarında ayrıca \"İzin İzlemeyi Devre Dışı Bırak\" etiketli seçeneği bulmanız ve etkinleştirmeniz gerekir.</string>
+    <string name="adb_install_android_11">Şimdi telefonunuzu bilgisayarınıza takın. USB Hata Ayıklama hakkında bir onay penceresi görünürse, izin verin.</string>
+    <string name="adb_install_android_12">Bu yapıldıktan sonra, bilgisayarınızda devam etme zamanı.</string>
+    <string name="adb_install_local_1"><![CDATA[Shizuku uygulamasını [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)'den indirip yükleyin.]]></string>
     <string name="adb_install_local_2">Open the Shizuku app and follow the instructions under \"Start via Wireless Debugging\".</string>
     <string name="adb_install_local_3">Close this screen and tap the \"GRANT\" button.</string>
     <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
