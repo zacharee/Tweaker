@@ -46,7 +46,7 @@
     <string name="special_sub_icon_blacklist_desc">Vyberte konkrétní ikony, které chcete skrýt ze stavového řádku. Tato funkce nebude fungovat na všech zařízeních nebo u všech ikon. Pomocí této funkce nelze skrýt ikony oznámení.</string>
     <string name="feature_lock_timeout">Nastavit časový limit uzamčení zařízení</string>
     <string name="feature_lock_timeout_desc">V části „nastavení zabezpečeného zámku“ můžete nastavit časovač „automatického uzamčení“. Tento časovač určuje, jak dlouho po přechodu zařízení do režimu spánku by měla být zobrazena obrazovka uzamčení. Prostřednictvím této možnosti můžete nastavit libovolnou hodnotu (v milisekundách), kterou chcete. Pokud nastavíte dostatečně vysokou hodnotu, pak se v zásadě vaše obrazovka uzamčení nikdy nezobrazí (za předpokladu, že jste deaktivovali funkci „tlačítko napájení okamžitě uzamkne zařízení“).</string>
-    <string name="feature_battery_saver_trigger">Nastavit vlastní hodnotu procenta spuštění úsporného režimu</string>
+    <string name="feature_battery_saver_trigger">Nastavit vlastní hodnotu procenta baterie pro spuštění úsporného režimu</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Funkce Google Spořič baterie se může aktivovat automaticky, když je úroveň baterie na 5\% nebo 15\%. S tím můžete nastavit vlastní procento aktivace.</string>
     <string name="feature_long_press_delay">Nastavit vlastní zpoždění dlouhého stisku</string>
     <string name="feature_long_press_delay_desc">V nastavení přístupnosti, existuje funkce s názvem \"dotyk &amp; zpoždění přidržení\", která vám umožňuje určit, jak dlouho budete muset Android držet obrazovku zapnutou, abyste rozpoznali událost dlouhého stisknutí. Ve výchozím nastavení jsou však jen možnosti \"krátké\", \"střední\" a \"dlouhé\". Můžete si nastavit vlastní zpoždění.</string>
@@ -64,7 +64,7 @@
     <string name="feature_keep_screen_on_desc">Ve vývojářském nastavení systému Android můžete vybrat možnost, aby obrazovka zůstala zapnutá, když je připojena k napájení. Ve výchozím nastavení je tato funkce povolena pro všechny zdroje napájení. Můžete určit, u kterých zdrojů napájení má obrazovka telefonu zůstat zapnutá.</string>
     <string name="feature_custom_animation_scales">Nastavit vlastní měřítka animace</string>
     <string name="feature_custom_animation_scales_desc">V Nastavení pro vývojáře systému Android můžete nastavit měřítka animací a řídit tak dobu jejich trvání. Pokud jsou pro vás dostupné možnosti příliš rychlé nebo pomalé, můžete zde nastavit vlastní hodnoty.</string>
-    <string name="feature_custom_rotation">Nastavení rrientace zamčené obrazovky na vlastní hodnotu</string>
+    <string name="feature_custom_rotation">Nastavení orientace zamčené obrazovky na vlastní hodnotu</string>
     <string name="feature_custom_rotation_desc">Většina telefonů umožňuje uzamknout orientaci obrazovky telefonu pouze v režimu na výšku. Pomocí tohoto nastavení můžete uzamknout orientaci obrazovky na libovolnou orientaci. Předtím, než bude tato funkce fungovat, budete muset nejprve zakázat automatické otáčení.</string>
     <string name="feature_immersive_mode">Režim celé obrazovky</string>
     <string name="feature_immersive_mode_desc">Většina ostatních aplikací, které umožňují přepínat režim na celou obrazovku, má pouze několik možností: skrýt navigační panel nebo skrýt stavový řádek. Ve skutečnosti je to možné nastavit pro každou aplikaci zvlášť, a to buď v režimu bílé, nebo černé listiny.</string>
@@ -171,9 +171,9 @@
     <string name="option_qs_editor_desc">Zatímco vlastní dlaždice rychlého nastavení jsou k dispozici pouze v systému Android Nougat (7.0) a novějších verzích, v systému Marshmallow (6.0) jsou úpravy rychlého nastavení stále omezené. Můžete měnit pořadí, odstraňovat a přidávat výchozí dlaždice rychlého nastavení.</string>
     <string name="option_qs_fancy_anim">Hezčí Animace</string>
     <string name="option_qs_fancy_anim_desc">Na podporovaných zařízeních můžete pomocí této funkce zakázat hezčí pohyb a blednutí dlaždic QS při úplném rozbalení centra oznámení. Pokud se zdá, že to na vašem zařízení nemá vliv, nechte ji zapnutou, abyste se vyhnuli dalším problémům.</string>
-    <string name="option_qs_move_full_rows">Přesun řádků rychlého nastavení</string>
+    <string name="option_qs_move_full_rows">Posun řádků rychlého nastavení</string>
     <string name="option_qs_move_full_rows_desc">Co to vlastně dělá, není příliš dobře vysvětleno, ale něco to dělá a můžete to vyzkoušet, pokud chcete. Má to něco společného se stažením oznamovacího centra.</string>
-    <string name="option_back_gesture_inset_scale_left">Šířka hrany zadního gesta (vlevo)</string>
+    <string name="option_back_gesture_inset_scale_left">Šířka hrany gesta zpět (vlevo)</string>
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 zavádí možnost nastavit citlivost pro gesto zadní okraje obrazovky nastavením šířky detekční oblasti. Použijte tuto možnost pro konečné nastavení šířky levého okraje nebo ji úplně odstrante.</string>
     <string name="option_back_gesture_inset_scale_right">Šířka hrany gesta zpět (vlevo)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11 zavádí možnost nastavit citlivost pro gesto zadní okraje obrazovky nastavením šířky detekční oblasti. Použijte tuto možnost pro konečné nastavení šířky pravého okraje nebo ji úplně odstrante.</string>
