@@ -316,7 +316,7 @@
     <string name="icon_blacklist_rotation_lock_desc">Modificar a lista negra do ícone pode fazer com que o ícone mostrado aqui apareça na sua barra de status. Este é o ícone Bloqueio de Rotacionamento. Você pode colocar na lista negra abaixo.</string>
     <string name="hide_battery_android_bug_msg">Ocultar o ícone da bateria não é mais possível usando o ícone da lista negra do Android 10. Este é um erro no Android. Deve ser corrigido no Android 11.</string>
     <string name="hide_battery_android_bug_btn_view_issue">Ver problemas</string>
-    <string name="error_creating_file_template">Erro de gravação de arquivo %s</string>
+    <string name="error_creating_file_template">Erro de gravação de arquivo: %s</string>
     <string name="error_restoring_icon_blacklist">Erro restaurando: %s</string>
     <string name="permission_grant_success">Permissões concedidas com sucesso.</string>
     <string name="permission_grant_failure">Falha ao conceder permissões. Se você tiver um dispositivo Xiaomi ou OPPO/Realme/OnePlus, certifique-se de ativar a \"Depuração USB (Configuraçoes de Segurança)\" nas Opções do Desenvolvedor ou habilite \"Desativar monitor de permissões\".</string>
