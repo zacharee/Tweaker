@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -131,7 +132,11 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setTitle(R.string.back_up)
                     setOnPreferenceClickListener {
                         val formatter = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss", Locale.getDefault())
-                        backupLauncher.launch("icon_blacklist_${formatter.format(Date())}.suit")
+                        try {
+                            backupLauncher.launch("icon_blacklist_${formatter.format(Date())}.suit")
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(requireContext(), resources.getString(R.string.error_creating_file_template, e.localizedMessage), Toast.LENGTH_SHORT).show()
+                        }
 
                         true
                     }
@@ -144,7 +149,11 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                     setIcon(R.drawable.ic_baseline_restore_24)
                     setTitle(R.string.restore)
                     setOnPreferenceClickListener {
-                        restoreLauncher.launch(arrayOf("*/*"))
+                        try {
+                            restoreLauncher.launch(arrayOf("*/*"))
+                        } catch (e: ActivityNotFoundException) {
+                            Toast.makeText(requireContext(), resources.getText(R.string.error_restoring_icon_blacklist, e.localizedMessage), Toast.LENGTH_SHORT).show()
+                        }
                         true
                     }
                 }
