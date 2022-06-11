@@ -89,7 +89,7 @@
     <string name="feature_dark_mode">啟用全域深色模式</string>
     <string name="feature_dark_mode_desc">Android Pie 和 10 引入了全域深色模式選項，目前為止這個選項是 Andorid 的一部分已經有一段時間了。這個選項可以在支援此功能的應用程式 (如 Instagram) 中啟用深色模式。可能需要重新啟動以生效。</string>
     <string name="feature_clock_seconds">顯示時鐘秒數</string>
-    <string name="feature_clock_seconds_desc">啟用狀態列時鐘秒數。這不對所有裝置和配置生效，包括 MIUI 和 One UI。</string>
+    <string name="feature_clock_seconds_desc">啟用狀態列時鐘秒數。這不對所有裝置和組態生效，包括 MIUI 和 One UI。</string>
     <string name="feature_dnd_in_volume">音量指示器切換零打擾</string>
     <string name="feature_dnd_in_volume_desc">允許您切換「零打擾」音量彈出式視窗。</string>
     <string name="feature_battery_percent">在狀態列中顯示電量百分比</string>
@@ -336,7 +336,7 @@
     <string name="demo_mode_activity_type_in">輸入</string>
     <string name="demo_mode_activity_type_out">輸出</string>
     <string name="demo_mode_activity_type_inout">輸入/輸出</string>
-    <string name="safe_audio_state_not_configured">未配置</string>
+    <string name="safe_audio_state_not_configured">未設定</string>
     <string name="safe_audio_state_disabled">停用</string>
     <string name="safe_audio_state_inactive">未生效</string>
     <string name="safe_audio_state_active">生效</string>
