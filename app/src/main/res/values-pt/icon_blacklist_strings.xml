@@ -71,7 +71,7 @@
     <string name="icon_blacklist_wifi_oxygen">Wi-Fi Oxygen</string>
     <string name="icon_blacklist_phone_signal_second_stub">Sinal de Segundo Stub</string>
     <string name="icon_blacklist_toddler">Criança pequena</string>
-    <string name="icon_blacklist_keyguard_wakeup">Despertar do Teclado</string>
+    <string name="icon_blacklist_keyguard_wakeup">Despertar do Keyguard</string>
     <string name="icon_blacklist_safezone">Zona de Segurança</string>
     <string name="icon_blacklist_wimax">WiMax</string>
     <string name="icon_blacklist_smart_bonding">Ligação Inteligente</string>
