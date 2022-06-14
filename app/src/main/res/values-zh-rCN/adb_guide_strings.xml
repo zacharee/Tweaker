@@ -40,7 +40,7 @@
     <string name="adb_install_adb_linux_other_1">从这里下载ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-linux.zip。</string>
     <string name="adb_install_adb_linux_other_2">提取ZIP到一个方便的位置，如桌面。</string>
     <string name="adb_install_adb_linux_other_3">打开终端</string>
-    <string name="adb_install_adb_linux_other_4">现在，使用以下命令浏览到已提取的文件：`cd /path/to/files/`。 例如，如果您的用户名是Zachary 并且您提取了ZIP到您的桌面， 命令将是“cd /Userss/Zachary/Desktop/platform-tools/`”，其中“平台工具”是名为\"adb\"文件的文件夹。</string>
+    <string name="adb_install_adb_linux_other_4">现在，使用以下命令浏览到已提取的文件：`cd /path/to/files/`。 例如，如果您的用户名是Zachary 并且您提取了ZIP到您的主目录， 命令将是“cd /home/Zachary/platform-tools/”，其中“platform-tools”是文件名为\"adb\"的文件夹。</string>
     <string name="adb_install_adb_general_end_1">命令提示或终端窗口应打开。请输入其中的以下命令(s)，并在每个命令之后点击Enter/return。 如果在您的手机上出现了关于 USB 调试的弹出窗口，请确保允许它。</string>
     <string name="adb_install_adb_general_end_2">如果一切都正确，命令就不会输出。 如果有，请务必滚动到您输入的命令以查看错误。</string>
     <string name="adb_install_adb_general_end_3">现在应该授予权限！</string>
