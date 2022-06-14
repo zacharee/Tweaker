@@ -41,7 +41,7 @@ adb shell pm grant com. zacharee0.01. systemuituner android. permission. PACKAGE
     <string name="adb_install_adb_debian_2">Install ADB with the following command: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
     <string name="adb_install_adb_fedora_1">Open a terminal.</string>
     <string name="adb_install_adb_fedora_2">Install ADB with the following command: `sudo dnf install adb`.</string>
-    <string name="adb_install_adb_rhel_1">Open a terminal.</string>
+    <string name="adb_install_adb_rhel_1">.A.</string>
     <string name="adb_install_adb_rhel_2">Install ADB with the following command: `yum install android-tools`.</string>
     <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
     <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
