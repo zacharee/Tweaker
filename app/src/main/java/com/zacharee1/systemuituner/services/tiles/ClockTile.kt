@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.provider.AlarmClock
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
@@ -27,7 +28,7 @@ class ClockTile : TileService() {
             updateTime()
         }
     }
-    private val handler = Handler()
+    private val handler = Handler(Looper.getMainLooper())
 
     private var shouldRun = false
 
