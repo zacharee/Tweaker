@@ -37,7 +37,7 @@ interface IVerifierPreference {
             }
         } && (enabledVerifier?.shouldBeEnabled != false).also {
             if (!it) {
-                pref.summary = enabledVerifier?.message
+                pref.summary = enabledVerifier?.message ?: pref.summary
             }
         })
 
