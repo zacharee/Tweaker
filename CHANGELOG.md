@@ -1,3 +1,8 @@
+## 340
+- Crash fixes.
+- Target API 32.
+- Code cleanup.
+
 ## 339
 - Crash fixes.
 - Update dependencies.
