@@ -11,7 +11,7 @@ interface ISecurePreference : IDangerousPreference {
     var writeKey: String
 
     fun initSecure(pref: Preference) {
-        if (writeKey.isBlank()) writeKey = pref.key
+        if (writeKey.isBlank()) writeKey = pref.key ?: ""
     }
 }
 

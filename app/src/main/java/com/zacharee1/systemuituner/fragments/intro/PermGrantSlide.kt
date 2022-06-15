@@ -77,7 +77,7 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
 
     protected fun hasPermissions(): Boolean {
         return permissions.all {
-            requireContext().checkCallingOrSelfPermission(it) == PackageManager.PERMISSION_GRANTED
+            context?.checkCallingOrSelfPermission(it) == PackageManager.PERMISSION_GRANTED
         }
     }
 
