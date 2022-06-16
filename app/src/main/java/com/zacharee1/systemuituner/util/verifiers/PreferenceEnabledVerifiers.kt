@@ -24,7 +24,7 @@ class EnableLockscreenShortcuts(context: Context) : BasePreferenceEnabledVerifie
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return true
             if (context.isTouchWiz) return true
 
-            val resNames = arrayOf("config_keyguardShowLeftAffordance", "config_keyguardShowRightAffordance")
+            val resNames = arrayOf("config_keyguardShowLeftAffordance", "config_keyguardShowCameraAffordance")
             val remRes = context.packageManager.getResourcesForApplication("com.android.systemui")
 
             return resNames.map { remRes.getBoolean(remRes.getIdentifier(it, "bool", "com.android.systemui")) }.all { it }
