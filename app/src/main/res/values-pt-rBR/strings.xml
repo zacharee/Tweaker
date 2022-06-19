@@ -9,7 +9,7 @@
     <string name="category_apps">Aplicativos</string>
     <string name="category_audio">Áudio &amp; Som</string>
     <string name="category_developer">Desenvolvedor</string>
-    <string name="category_easter_eggs">Easter Eggs</string>
+    <string name="category_easter_eggs">Segredos Escondidos</string>
     <string name="category_network">Redes</string>
     <string name="category_notifications">Notificações</string>
     <string name="category_status_bar">Barra de Status</string>
@@ -35,21 +35,21 @@
     <string name="sub_xiaomi">Xiaomi</string>
     <string name="sub_security">Segurança</string>
     <string name="sub_storage">Armazenamento</string>
-    <string name="sub_power">Energia</string>
+    <string name="sub_power">Ligar/Desligar</string>
     <string name="add_to_blacklist">Adicionar à Lista Negra de Ícones</string>
     <string name="remove_from_blacklist">Remover da Lista Negra de Ícones</string>
     <string name="sub_demo">Modo de Demonstração</string>
-    <string name="sub_demo_desc">O Modo de Demonstração permite que você force a barra de status do seu dispositivo de diferentes maneiras. Você pode usá-lo para mostrar ou ocultar ícones específicos, especificar forças do sinal e algumas outras coisas. Útil ao tirar uma printscreen, para não mostrar seus dados.</string>
+    <string name="sub_demo_desc">O Modo de Demonstração permite que você force a barra de status do seu dispositivo de diferentes maneiras. Você pode usá-lo para mostrar ou ocultar ícones específicos, especificar forças do sinal e algumas outras coisas. Útil ao tirar uma Foto da Tela, para não mostrar seus dados.</string>
     <string name="special_sub_airplane_mode">Ajustes do Modo Avião</string>
     <string name="special_sub_airplane_mode_desc">O modo avião desativa automaticamente todas as conexões no seu dispositivo quando ele é ativado. Você pode especificar quais conexões devem ser desativados (como, por exemplo, manter o Wi-Fi ligado quando habilitar o modo avião). Além disso, você pode alterar quais conexões podem ser alternados manualmente quando o dispositivo entrar em modo avião.</string>
     <string name="special_sub_icon_blacklist">Lista Negra de Ícones</string>
-    <string name="special_sub_icon_blacklist_desc">Escolha ícones específicos para ocultar da barra de status. Observe que esta funcionalidade não funcionará em todos os dispositivos ou com todos os ícones. Ícones das notificação de aplicativos não podem ser ocultados usando este recurso.</string>
+    <string name="special_sub_icon_blacklist_desc">Escolha ícones específicos para ocultar da barra de status. Observe que esta funcionalidade não funcionará em todos os dispositivos ou com todos os ícones. Ícones das notificações de aplicativos não podem ser escondidos usando este recurso.</string>
     <string name="feature_lock_timeout">Definir um limite de tempo para bloquear a tela do dispositivo</string>
     <string name="feature_lock_timeout_desc">Em \"configurações de bloqueio seguras\", você pode definir um temporizador de \"bloqueio automaticamente\". Este temporizador determina quanto tempo depois de o dispositivo entrar em modo de descanso que a tela de bloqueio deve ser exibida. Através desta opção, você pode definir qualquer valor (em milissegundos) que desejar. Se você definir um valor alto o suficiente, então essencialmente sua tela de bloqueio nunca mostrará (desde que você tenha desabilitado o recurso \"botão liga/desliga bloqueia o dispositivo\").</string>
     <string name="feature_battery_saver_trigger">Definir percentual de bateria para ativar o modo Economia de Bateria</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">O recurso de Economia de Bateria do Google pode ser ativado automaticamente quando o nível de bateria for de 5\% ou 15\%. Com isso, você pode definir a sua própria porcentagem em que o recurso será ativado.</string>
-    <string name="feature_long_press_delay">Definir atraso personalizado para o toque longo</string>
-    <string name="feature_long_press_delay_desc">Em Acessibilidade, no app de Configurações, há um recurso chamado \"toque &amp; segurar atraso\" que permite que você especifique quanto tempo você precisa segurar na tela para que o Android reconheça um evento de toque longo. No entanto, as únicas opções, por padrão, são \"curtas\", \"médio\" e \"longas\". Você pode definir seu próprio atraso aqui.</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">O recurso de Economia de Bateria do Google pode ser ativado automaticamente quando o nível de bateria for de 5% ou 15%. Com isso, você pode definir a sua própria porcentagem em que o recurso será ativado.</string>
+    <string name="feature_long_press_delay">Definir atraso de toque longo personalizado</string>
+    <string name="feature_long_press_delay_desc">Nas configurações de Acessibilidade, há um recurso chamado \"atraso de toque e espera\" que permite especificar quanto tempo você precisa manter a tela pressionada para que o Android reconheça um evento de pressionamento longo. No entanto, as únicas opções por padrão são \"curto\", \"médio\" e \"longo\".</string>
     <string name="feature_font_scale">Definir uma escala personalizada para a fonte</string>
     <string name="feature_font_scale_desc">O Android permite que você defina o tamanho do texto mostrado no seu dispositivo, especificando uma escala para a fonte em todo o sistema. Esse valor é normalmente representado como \"pequeno\", \"normal\", \"grande\" e \"extra grande\". No entanto, você pode definir seu próprio valor personalizado.</string>
     <string name="feature_freeform">Ativar janelas de forma livre</string>
