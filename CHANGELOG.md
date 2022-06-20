@@ -1,3 +1,8 @@
+## 341
+- Disable the lock screen shortcuts option if it's unavailable on the current device.
+- Try a workaround for foreground Service crashes.
+- Update translations.
+
 ## 340
 - Crash fixes.
 - Target API 32.
