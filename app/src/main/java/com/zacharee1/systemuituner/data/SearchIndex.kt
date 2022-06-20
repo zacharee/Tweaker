@@ -10,11 +10,15 @@ import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
 import kotlinx.coroutines.*
+import java.util.*
+import kotlin.Comparator
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 @SuppressLint("RestrictedApi")
 class SearchIndex private constructor(context: Context) : ContextWrapper(context), CoroutineScope by MainScope() {
     companion object {
+        @SuppressLint("StaticFieldLeak")
         private var instance: SearchIndex? = null
 
         val toInflate = arrayOf(
@@ -71,15 +75,36 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    fun filter(query: String?, result: (ArrayList<ActionedPreference>) -> Unit) = launch {
+    fun filter(query: String?, result: (Collection<ActionedPreference>) -> Unit) = launch {
         val filter = async {
-            ArrayList(
-                preferences.filter {
-                    query.isNullOrBlank() ||
-                            it.title.toString().contains(query, true) ||
-                            it.summary.toString().contains(query, true)
+            TreeSet(
+                Comparator<ActionedPreference> { o1, o2 ->
+                    if (query.isNullOrBlank()) {
+                        o1.title.toString().compareTo(o2.title.toString(), true)
+                    } else {
+                        val o1Title = o1.title?.contains(query, true) == true
+                        val o2Title = o2.title?.contains(query, true) == true
+
+                        when {
+                            o1Title && !o2Title -> -1
+                            !o1Title && o2Title -> 1
+                            else -> o1.title.toString().compareTo(o2.title.toString(), true)
+                        }
+                    }
                 }
-            )
+            ).apply {
+                addAll(
+                    preferences.filter {
+                        query.isNullOrBlank() ||
+                                it.title.toString().contains(query, true) ||
+                                it.summary.toString().contains(query, true)
+                    }
+                )
+
+                forEachIndexed { index, pref ->
+                    pref.order = index
+                }
+            }
         }
 
         result(filter.await())
@@ -99,6 +124,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                     summary = preference.summary
                     icon = preference.icon
                     key = preference.key
+                    order = preference.order
                     if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
                     }
@@ -106,7 +132,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
                         type = preference.type
                     }
                     if (preference is ISpecificPreference) {
-                        _keys.addAll(preference.keys)
+                        _keys.putAll(preference.keys)
                     }
                     if (preference is IColorPreference) {
                         iconColor = preference.iconColor
@@ -126,10 +152,10 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             }
         }
 
-        val _keys = ArrayList<String>()
+        val _keys = HashMap<SettingsType, Array<String>>()
 
-        override val keys: Array<String>
-            get() = _keys.toTypedArray()
+        override val keys: HashMap<SettingsType, Array<String>>
+            get() = _keys
 
         var action: Int = 0
 

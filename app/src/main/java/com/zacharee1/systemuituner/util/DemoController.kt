@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.util
 
+import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
 
@@ -25,6 +26,11 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
         const val KEY_PLUGGED = "plugged"
         const val KEY_HHMM = "hhmm"
         const val KEY_MODE = "mode"
+
+        const val KEY_ACTIVITY = "activiy"
+        const val KEY_INFLATE = "inflate"
+        const val KEY_CARRIERNETWORKCHANGE = "carriernetworkchange"
+        const val KEY_ROAM = "roam"
     }
 
     companion object {
@@ -42,12 +48,14 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
         const val COMMAND_BATTERY = "battery"
         const val COMMAND_BARS = "bars"
 
+        @SuppressLint("StaticFieldLeak")
         private var instance: DemoController? = null
 
         fun getInstance(context: Context): DemoController {
             return instance ?: run {
-                instance = DemoController(context.applicationContext)
-                instance!!
+                DemoController(context.applicationContext).apply {
+                    instance = this
+                }
             }
         }
     }
@@ -130,6 +138,7 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
             putString(Keys.KEY_WIFI, prefs.wifiState)
             putString(Keys.KEY_LEVEL, prefs.wifiLevel.toString())
             putString(Keys.KEY_FULLY, prefs.wifiFully.toString())
+            putString(Keys.KEY_ACTIVITY, prefs.wifiActivityMode)
         })
     }
 
@@ -139,6 +148,10 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
             putString(Keys.KEY_LEVEL, prefs.mobileLevel.toString())
             putString(Keys.KEY_FULLY, prefs.mobileFully.toString())
             putString(Keys.KEY_DATATYPE, prefs.mobileType)
+            putString(Keys.KEY_INFLATE, prefs.inflateState)
+            putString(Keys.KEY_CARRIERNETWORKCHANGE, prefs.networkChangeState)
+            putString(Keys.KEY_ROAM, prefs.roamState)
+            putString(Keys.KEY_ACTIVITY, prefs.mobileActivityMode)
         })
     }
 
@@ -196,6 +209,9 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
             const val WIFI_STATE = "wifi_state"
             const val MOBILE_STATE = "mobile_state"
             const val SPEAKERPHONE_STATE = "speakerphone_state"
+            const val INFLATE_STATE = "inflate_state"
+            const val NETWORK_CHANGE_STATE = "network_change_state"
+            const val ROAM_STATE = "roam_state"
 
             const val WIFI_LEVEL = "wifi_level"
             const val MOBILE_LEVEL = "mobile_level"
@@ -208,6 +224,8 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
             const val MOBILE_TYPE = "mobile_type"
             const val CLOCK_TIME = "clock_time"
             const val BAR_MODE = "bar_mode"
+            const val MOBILE_ACTIVITY_MODE = "mobile_activity_mode"
+            const val WIFI_ACTIVITY_MODE = "wifi_activity_mode"
         }
 
         private val wrapped = getSharedPreferences(DEMO_PREFS, Context.MODE_PRIVATE)
@@ -244,6 +262,16 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
             get() = getString(CLOCK_TIME, "1200")
         val barMode: String
             get() = getString(BAR_MODE, BarModes.MODE_OPAQUE)
+        val inflateState: String
+            get() = getString(INFLATE_STATE, "false")
+        val networkChangeState: String
+            get() = getString(NETWORK_CHANGE_STATE, STATE_HIDE)
+        val roamState: String
+            get() = getString(ROAM_STATE, STATE_HIDE)
+        val mobileActivityMode: String
+            get() = getString(MOBILE_ACTIVITY_MODE, "none")
+        val wifiActivityMode: String
+            get() = getString(WIFI_ACTIVITY_MODE, "none")
 
         val wifiLevel: Int
             get() = getFloat(WIFI_LEVEL, 0f).toInt()

@@ -1,10 +1,10 @@
 package com.zacharee1.systemuituner.interfaces
 
 import android.content.Context
+import android.os.Build
 import android.util.AttributeSet
 import androidx.preference.Preference
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.api
 import com.zacharee1.systemuituner.util.apiToName
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
@@ -23,6 +23,7 @@ interface IVerifierPreference {
     fun initVerify(pref: Preference) {
         val lowUndefined = lowApi == API_UNDEFINED
         val highUndefined = highApi == API_UNDEFINED
+        val api: Int = Build.VERSION.SDK_INT
 
         pref.isEnabled = pref.context.prefManager.forceEnableAll || (((lowUndefined || api >= lowApi) && (highUndefined || api <= highApi)).also {
             if (!it) {
@@ -36,7 +37,7 @@ interface IVerifierPreference {
             }
         } && (enabledVerifier?.shouldBeEnabled != false).also {
             if (!it) {
-                pref.summary = enabledVerifier?.message
+                pref.summary = enabledVerifier?.message ?: pref.summary
             }
         })
 
@@ -44,7 +45,7 @@ interface IVerifierPreference {
     }
 }
 
-open class VerifierPreference(private val context: Context, attrs: AttributeSet?) : IVerifierPreference {
+open class VerifierPreference(context: Context, attrs: AttributeSet?) : IVerifierPreference {
     override var visibilityVerifier: BaseVisibilityVerifier? = null
     override var enabledVerifier: BasePreferenceEnabledVerifier? = null
     override var lowApi: Int =

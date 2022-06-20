@@ -9,9 +9,6 @@ import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IListPreference
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
-import kotlinx.android.synthetic.main.list_dialog.view.*
 
 class SecureListDialog : BaseOptionDialog() {
     companion object {
@@ -36,16 +33,20 @@ class SecureListDialog : BaseOptionDialog() {
 
         val checkedIndex = listPref.findIndexOfValue(listPref.value)
         val entries = listPref.entries
-        val list = View.inflate(requireContext(), R.layout.list_dialog, view.wrapper).select_dialog_listview as RecyclerView
+
+        View.inflate(requireContext(), R.layout.list_dialog, view.findViewById(R.id.wrapper))
+
+        val list = view.findViewById<RecyclerView>(R.id.select_dialog_listview)
+
         val adapter = Adapter(entries?.mapIndexed { index, charSequence -> ItemInfo(charSequence, index == checkedIndex) } ?: ArrayList()) {
             clickedIndex = it
-            onClick(dialog, DialogInterface.BUTTON_POSITIVE)
+            onClick(dialog!!, DialogInterface.BUTTON_POSITIVE)
 
             val preference = listPref
-            val value = preference.entryValues!![clickedIndex].toString()
+            val value = preference.entryValues?.get(clickedIndex)?.toString()
             if (preference.callChangeListener(value)) {
                 preference.value = value
-                preference.onValueChanged(value, preference.writeKey!!)
+                preference.onValueChanged(value, preference.writeKey)
             }
         }
 
@@ -82,10 +83,12 @@ class SecureListDialog : BaseOptionDialog() {
                 }
 
                 setOnClickListener {
-                    val pos = holder.adapterPosition
+                    val pos = holder.bindingAdapterPosition
 
-                    clickCallback(pos)
-                    setChecked(pos, true)
+                    if (pos != -1) {
+                        clickCallback(pos)
+                        setChecked(pos, true)
+                    }
                 }
             }
         }
@@ -93,10 +96,11 @@ class SecureListDialog : BaseOptionDialog() {
         fun setChecked(index: Int, checked: Boolean) {
             items.filter { it.isChecked }.forEach { itemInfo ->
                 itemInfo.isChecked = false
+                notifyItemChanged(items.indexOf(itemInfo))
             }
             items[index].isChecked = checked
 
-            notifyDataSetChanged()
+            notifyItemChanged(index)
         }
 
         class VH(view: View) : RecyclerView.ViewHolder(view)

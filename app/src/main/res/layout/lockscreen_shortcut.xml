@@ -15,6 +15,7 @@
         android:id="@+id/app_icon"
         android:layout_width="48dp"
         android:layout_height="match_parent"
+        android:contentDescription="@null"
         tools:src="@mipmap/ic_launcher"
         />
 
@@ -69,6 +70,7 @@
         android:background="?android:selectableItemBackgroundBorderless"
         android:src="@drawable/ic_baseline_undo_24"
         android:scaleType="center"
+        android:contentDescription="@string/reset"
         />
 
 </LinearLayout>

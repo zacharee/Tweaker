@@ -1,14 +1,11 @@
 package com.zacharee1.systemuituner.prefs.demo
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.util.AttributeSet
-import android.util.Log
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.demo.base.BaseDemoPreference
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 
 class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPreference(context, attrs) {
     var minValue: Int = 0
@@ -33,9 +30,9 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
         layoutResource = R.layout.custom_preference
     }
 
-    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
-        val prefValue = sharedPreferences.all[key]?.toString()?.toFloat()
+        val prefValue = sharedPreferences?.all?.get(key)?.toString()?.toFloat()
 
         summary = prefValue?.toString() ?: (this.defaultValue * scale).toString()
     }
@@ -43,7 +40,7 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
     override fun onValueChanged(newValue: Any?, key: String) {
         val value = newValue?.toString()?.toFloat()
 
-        sharedPreferences.edit {
+        sharedPreferences?.edit {
             if (value != null) {
                 putFloat(key, value)
             } else {

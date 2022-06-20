@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.text.TextUtils
 import android.util.AttributeSet
+import androidx.core.content.edit
 import androidx.core.content.res.TypedArrayUtils
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
@@ -25,7 +26,14 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
             if (changed || !setValue) {
                 field = value
                 setValue = true
-                persistString(value)
+                try {
+                    persistString(value)
+                } catch (e: ClassCastException) {
+                    preferenceManager.sharedPreferences?.edit(true) {
+                        remove(key)
+                    }
+                    persistString(value)
+                }
                 if (changed) {
                     notifyChanged()
                 }
@@ -41,9 +49,9 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
         array.getString(R.styleable.SecureListPreference_verifier)?.let {
             verifier = context.classLoader.loadClass(it)
                 .getConstructor(Context::class.java)
-                .newInstance(context) as BaseListPreferenceVerifier
+                .newInstance(context) as? BaseListPreferenceVerifier
 
-            verifier!!.verifyEntries(entries, entryValues).apply {
+            verifier?.verifyEntries(entries, entryValues)?.apply {
                 entries = first
                 entryValues = second
             }
@@ -63,7 +71,7 @@ class SecureListPreference(context: Context, attrs: AttributeSet) : BaseSecurePr
     }
 
     override fun onSetInitialValue(defaultValue: Any?) {
-        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues!![0].toString()
+        value = context.getSetting(type, key) ?: defaultValue?.toString() ?: entryValues?.get(0)?.toString()
     }
 
     override fun onGetDefaultValue(a: TypedArray, index: Int): Any? {

@@ -9,10 +9,8 @@ import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.util.*
 
 @TargetApi(Build.VERSION_CODES.N)
 class HeadsUpTile : TileService() {
@@ -40,13 +38,13 @@ class HeadsUpTile : TileService() {
     override fun onStopListening() {
         try {
             contentResolver.unregisterContentObserver(observer)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     private fun updateState() {
         qsTile?.state = if (isEnabled) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
         setIcon()
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     private fun setIcon() {

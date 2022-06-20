@@ -1,30 +1,33 @@
 package com.zacharee1.systemuituner.fragments.tutorial
 
 import android.annotation.SuppressLint
-import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.HorizontalScrollView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.TutorialStepInfo
+import com.zacharee1.systemuituner.databinding.StepsListBinding
 import io.noties.markwon.Markwon
-import kotlinx.android.synthetic.main.steps_list.view.*
-import kotlinx.android.synthetic.main.steps_list_item.view.*
+import io.noties.markwon.movement.MovementMethodPlugin
 
 class StepsListSlide : SlideFragment() {
     private val steps = ArrayList<TutorialStepInfo>()
     private val adapter = StepsAdapter(steps)
+
+    private val binding by lazy { StepsListBinding.bind(requireView()) }
 
     private var title: CharSequence = ""
         set(value) {
             field = value
 
             if (view != null) {
-                view?.mi_title?.text = value
+                binding.miTitle.text = value
             }
         }
     private var desc: CharSequence? = null
@@ -32,11 +35,16 @@ class StepsListSlide : SlideFragment() {
             field = value
 
             if (view != null) {
-                view?.mi_description?.text = value
+                binding.miTitle.text = value
             }
         }
 
-    fun setSteps(title: CharSequence, desc: CharSequence? = null, steps: Array<TutorialStepInfo>): StepsListSlide {
+    @SuppressLint("NotifyDataSetChanged")
+    fun setSteps(
+        title: CharSequence,
+        desc: CharSequence? = null,
+        steps: Array<TutorialStepInfo>
+    ): StepsListSlide {
         this.steps.clear()
         this.steps.addAll(steps)
         adapter.notifyDataSetChanged()
@@ -56,14 +64,13 @@ class StepsListSlide : SlideFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.apply {
-            mi_title.text = title
-            mi_description.text = desc
-            steps_list.adapter = adapter
-        }
+        binding.miTitle.text = title
+        binding.miDescription.text = desc
+        binding.stepsList.adapter = adapter
     }
 
-    class StepsAdapter(private val items: ArrayList<TutorialStepInfo>) : RecyclerView.Adapter<StepsAdapter.BaseVH>() {
+    class StepsAdapter(private val items: ArrayList<TutorialStepInfo>) :
+        RecyclerView.Adapter<StepsAdapter.BaseVH>() {
         companion object {
             const val TYPE_STEP = 0
             const val TYPE_COMMAND = 1
@@ -79,7 +86,11 @@ class StepsListSlide : SlideFragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseVH {
             return BaseVH(
-                LayoutInflater.from(parent.context).inflate(if (viewType == TYPE_STEP) R.layout.steps_list_item else R.layout.steps_list_command, parent, false)
+                LayoutInflater.from(parent.context).inflate(
+                    if (viewType == TYPE_STEP) R.layout.steps_list_item else R.layout.steps_list_command,
+                    parent,
+                    false
+                )
             )
         }
 
@@ -89,11 +100,22 @@ class StepsListSlide : SlideFragment() {
 
         open class BaseVH(view: View) : RecyclerView.ViewHolder(view) {
             //TODO: maybe make this global to the adapter?
-            private val markwon = Markwon.create(itemView.context)
+            private val markwon = Markwon.builder(itemView.context)
+                .usePlugin(MovementMethodPlugin.link())
+                .build()
 
             @SuppressLint("SetTextI18n")
             open fun onBind(text: TutorialStepInfo) {
-                itemView.step.text = "${if (text.isCommand) "" else "- "}${markwon.toMarkdown(text.text.toString())}"
+                itemView.findViewById<TextView>(R.id.step).apply {
+                    this.text = SpannableStringBuilder().apply {
+                        if (text.isCommand) {
+                            append("- ")
+                        }
+
+                        append(markwon.toMarkdown(text.text.toString()))
+                    }
+                    movementMethod = LinkMovementMethod.getInstance()
+                }
             }
         }
     }

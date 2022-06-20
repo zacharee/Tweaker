@@ -2,6 +2,20 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.zacharee1.systemuituner.prefs.NavHeaderPreference
+        android:key="header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        />
+
+    <PreferenceCategory
+        android:title="@string/tweaks"
+        android:key="tweaks_header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false"
+        />
+
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
         android:title="@string/category_apps"
         android:key="go_to_apps"
@@ -123,10 +137,102 @@
         app:navigation_action="@id/advancedFragment"
         />
 
+    <PreferenceCategory
+        android:title="@string/more"
+        android:key="more_header"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="false"
+        app:iconSpaceReserved="false"
+        />
+
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/screen_persistent"
+        android:key="go_to_persistent_options"
+        android:icon="@drawable/ic_baseline_save_24"
+        app:navigation_action="@id/persistentActivity"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
+        android:title="@string/reset"
+        android:key="reset_options"
+        android:icon="@drawable/ic_baseline_restore_24"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.ResetDialog"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
+        android:title="@string/oneui_tuner"
+        android:key="oneui_tuner_option"
+        android:icon="@drawable/ic_baseline_android_24"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.OneUITunerDialog"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/help_translate"
+        android:key="help_translate_link"
+        android:icon="@drawable/ic_baseline_translate_24"
+        app:link="https://crowdin.com/project/systemui-tuner"
+        />
+
+    <PreferenceCategory
+        android:title="@string/social"
+        android:key="social_header"
+        app:iconSpaceReserved="false"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
         android:title="@string/donate"
         android:key="donate"
         android:icon="@drawable/ic_baseline_attach_money_24"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.DonateDialog"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
+        android:title="@string/supporters"
+        android:key="supporters"
+        android:icon="@drawable/heart_outline"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.SupportersDialog"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
+        android:title="@string/patreon"
+        android:key="patreon"
+        android:icon="@drawable/patreon"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.PatreonDialog"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/twitter"
+        android:key="twitter"
+        android:icon="@drawable/twitter"
+        app:link="https://twitter.com/wander1236"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/telegram"
+        android:key="telegram"
+        android:icon="@drawable/telegram"
+        app:link="https://bit.ly/ZachareeTG"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/email"
+        android:key="email"
+        android:icon="@drawable/ic_baseline_email_24"
+        app:link="mailto:zachary%40zwander.dev?subject=SystemUI%20Tuner"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/website"
+        android:key="website"
+        android:icon="@drawable/earth"
+        app:link="https://zwander.dev"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/more_apps"
+        android:key="more_apps"
+        android:icon="@drawable/ic_baseline_apps_24"
+        app:link="https://play.google.com/store/apps/dev?id=6168495537212917027"
         />
 
 </PreferenceScreen>

@@ -8,20 +8,35 @@ import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
 
+open class InlineActivityPreference(context: Context, intent: Intent) : Preference(context),
+    IColorPreference by ColorPreference(context, null), ISecurePreference by SecurePreference(context, null) {
+    init {
+        layoutResource = R.layout.custom_preference
+
+        this.intent = intent
+
+        initSecure(this)
+    }
+
+    override fun onBindViewHolder(holder: PreferenceViewHolder) {
+        super.onBindViewHolder(holder)
+
+        bindVH(holder)
+    }
+}
+
 class NonPersistentActivityPreference(context: Context, attrs: AttributeSet) : ActivityPreference(context, attrs), INoPersistPreference
 
 open class ActivityPreference(context: Context, attrs: AttributeSet) : Preference(context, attrs), IColorPreference by ColorPreference(
     context,
     attrs
 ), IVerifierPreference by VerifierPreference(context, attrs), ISecurePreference by SecurePreference(context, attrs) {
-    private val activityIntent: Intent?
-
     init {
         layoutResource = R.layout.custom_preference
 
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.ActivityPreference, 0, 0)
 
-        activityIntent = run {
+        intent = run {
             val c = array.getString(R.styleable.ActivityPreference_activity_class)
             if (c != null) try {
                 Intent(context, context.classLoader.loadClass(c))
@@ -38,11 +53,5 @@ open class ActivityPreference(context: Context, attrs: AttributeSet) : Preferenc
         super.onBindViewHolder(holder)
 
         bindVH(holder)
-    }
-
-    override fun onClick() {
-        super.onClick()
-
-        if (activityIntent != null) context.startActivity(activityIntent)
     }
 }

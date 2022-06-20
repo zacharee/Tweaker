@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSetting
 
 class SecureEditTextPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
     var inputType: Int = InputType.TYPE_CLASS_TEXT

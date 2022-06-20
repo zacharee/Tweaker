@@ -5,16 +5,17 @@ import android.provider.Settings
 import android.util.AttributeSet
 import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeGlobal
 
-class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs),
+class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
-    override var type: SettingsType = SettingsType.GLOBAL
-    override val keys: Array<String> = arrayOf(Settings.Global.STAY_ON_WHILE_PLUGGED_IN)
+    override val keys = hashMapOf(
+        SettingsType.GLOBAL to arrayOf(Settings.Global.STAY_ON_WHILE_PLUGGED_IN)
+    )
 
     init {
         key = "keep_device_on"

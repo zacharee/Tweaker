@@ -4,18 +4,18 @@ import android.content.Context
 import android.provider.Settings
 import android.util.AttributeSet
 import android.widget.ScrollView
-import com.zacharee1.systemuituner.util.SettingsType
-import com.zacharee1.systemuituner.util.SimpleSeekBarListener
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
-import kotlinx.android.synthetic.main.storage_thresholds.view.*
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.databinding.StorageThresholdsBinding
+import com.zacharee1.systemuituner.util.*
 
 class StorageThresholds(context: Context, attrs: AttributeSet) : ScrollView(context, attrs) {
+    private val binding by lazy { StorageThresholdsBinding.bind(this) }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        threshold_percent.apply {
-            scaledProgress = Settings.Global.getInt(context.contentResolver, Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, 5).toFloat()
+        binding.thresholdPercent.apply {
+            scaledProgress = context.getSetting(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, 5f)?.toFloatOrNull() ?: 5f
             listener = object : SimpleSeekBarListener() {
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
                     context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, newScaledValue.toInt())
@@ -24,8 +24,8 @@ class StorageThresholds(context: Context, attrs: AttributeSet) : ScrollView(cont
             }
         }
 
-        threshold_bytes.apply {
-            scaledProgress = Settings.Global.getInt(context.contentResolver, Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, 500000000) * scale
+        binding.thresholdBytes.apply {
+            scaledProgress = (context.getSetting(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, 500000000f)?.toFloatOrNull() ?: 500000000f) * scale
             listener = object : SimpleSeekBarListener() {
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
                     context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, newValue)

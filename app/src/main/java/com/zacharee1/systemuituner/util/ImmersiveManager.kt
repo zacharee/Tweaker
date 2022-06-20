@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.util
 import android.content.Context
 import android.content.ContextWrapper
 import android.provider.Settings
+import com.zacharee1.systemuituner.data.SettingsType
 
 class ImmersiveManager(context: Context) : ContextWrapper(context) {
     enum class ImmersiveMode(val type: String) {
@@ -128,7 +129,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         if (all) builder.append("$type=*")
         else if (apps.isNotEmpty()) builder.append("$type=${apps.joinToString(separator = ",")}")
 
-        if (bl.isNotEmpty()) builder.append(bl.joinToString(separator = ",-", prefix = if (apps.isEmpty()) "$type=-" else ",-"))
+        if (bl.isNotEmpty()) builder.append(bl.joinToString(separator = ",-", prefix = if (builder.isEmpty()) "$type=-" else ",-"))
 
         return builder.toString()
     }

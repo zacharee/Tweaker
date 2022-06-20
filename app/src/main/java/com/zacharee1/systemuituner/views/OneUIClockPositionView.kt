@@ -4,12 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.OneUiClockPositionBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
-import kotlinx.android.synthetic.main.one_ui_clock_position.view.*
 
 class OneUIClockPositionView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
@@ -19,6 +17,8 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
         const val POSITION_MIDDLE = "middle_clock_position"
         const val POSITION_RIGHT = "right_clock_position"
     }
+
+    private val binding by lazy { OneUiClockPositionBinding.bind(this) }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -30,21 +30,21 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
             else -> R.id.position_left
         }
 
-        clock_position.check(currentPosition)
-        clock_position.setOnCheckedChangeListener { _, checkedId ->
+        binding.clockPosition.check(currentPosition)
+        binding.clockPosition.setOnCheckedChangeListener { _, checkedId ->
             val blacklistSet = HashSet((context.getSetting(SettingsType.SECURE, "icon_blacklist") ?: "").split(","))
 
             when (checkedId) {
                 R.id.position_left -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_MIDDLE, POSITION_RIGHT))
+                    blacklistSet.removeAll(arrayOf(POSITION_MIDDLE, POSITION_RIGHT).toSet())
                     blacklistSet.add(POSITION_LEFT)
                 }
                 R.id.position_middle -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_RIGHT))
+                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_RIGHT).toSet())
                     blacklistSet.add(POSITION_MIDDLE)
                 }
                 R.id.position_right -> {
-                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_MIDDLE))
+                    blacklistSet.removeAll(arrayOf(POSITION_LEFT, POSITION_MIDDLE).toSet())
                     blacklistSet.add(POSITION_RIGHT)
                 }
             }

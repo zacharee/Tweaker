@@ -3,9 +3,10 @@ package com.zacharee1.systemuituner.dialogs
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import com.google.android.material.textfield.TextInputLayout
+import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.SecureEditTextPreference
 import com.zacharee1.systemuituner.util.defaultValue
-import kotlinx.android.synthetic.main.better_edittext_dialog.view.*
 
 class SecureEditTextDialog : BaseOptionDialog() {
     private var editText: EditText? = null
@@ -45,11 +46,12 @@ class SecureEditTextDialog : BaseOptionDialog() {
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
+
         editText = view.findViewById(android.R.id.edit)
         editText?.inputType = editTextPreference.inputType
         editText?.setText(text)
 
-        view.edit_wrapper.apply {
+        view.findViewById<TextInputLayout>(R.id.edit_wrapper).apply {
             setStartIconOnClickListener {
                 apply(preference.defaultValue?.toString())
                 editText?.setText(preference.defaultValue?.toString())
@@ -66,7 +68,7 @@ class SecureEditTextDialog : BaseOptionDialog() {
     private fun apply(text: String?) {
         if (preference.callChangeListener(text)) {
             editTextPreference.text = text
-            editTextPreference.onValueChanged(text, writeKey!!)
+            editTextPreference.onValueChanged(text, writeKey)
         }
     }
 

@@ -14,12 +14,10 @@
         <item name="android:alertDialogStyle">@style/DialogTheme</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="toolbarStyle">@style/ActionBarStyle</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
 
         <item name="windowActionModeOverlay">true</item>
-
-        <item name="materialDrawerStyle">@style/Widget.MaterialDrawerStyle</item>
-        <item name="materialDrawerHeaderStyle">@style/Widget.MaterialDrawerHeaderStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -33,6 +31,10 @@
 
     <style name="ActionBarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/toolbarColor</item>
+    </style>
+
+    <style name="ActionBarStyle.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="DialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">

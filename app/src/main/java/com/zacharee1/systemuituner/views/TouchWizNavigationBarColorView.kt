@@ -4,17 +4,18 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Color
 import android.util.AttributeSet
+import android.widget.FrameLayout
 import androidx.fragment.app.FragmentActivity
 import com.jaredrummler.android.colorpicker.ColorPickerDialog
 import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import com.jaredrummler.android.colorpicker.ColorShape
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.databinding.TouchwizNavigationBarColorDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.touchwiz_navigation_bar_color_dialog.view.*
 
-
-class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : RoundedFrameCardView(context, attrs), ColorPickerDialogListener, IOptionDialogCallback {
+class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), ColorPickerDialogListener, IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
 
     private val dialog: ColorPickerDialog = ColorPickerDialog.newBuilder()
@@ -25,20 +26,22 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Ro
         .setAllowCustom(true)
         .setShowAlphaSlider(true)
         .setShowColorShades(true)
-        .setColor((context.getSetting(SettingsType.GLOBAL, "navigationbar_color") ?: "${Color.WHITE}").toInt())
+        .setColor(context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toIntOrNull() ?: Color.WHITE)
         .create()
+
+    private val binding by lazy { TouchwizNavigationBarColorDialogBinding.bind(this) }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
 
         dialog.setColorPickerDialogListener(this)
-        set_color.setOnClickListener {
+        binding.setColor.setOnClickListener {
             getActivity().supportFragmentManager
                 .beginTransaction()
                 .add(dialog, null)
                 .commitAllowingStateLoss()
         }
-        current_color.color = context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toInt() ?: Color.WHITE
+        binding.currentColor.color = context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toIntOrNull() ?: Color.WHITE
     }
 
     override fun onColorReset(dialogId: Int) {
@@ -52,7 +55,7 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Ro
     override fun onDialogDismissed(dialogId: Int) {}
 
     private fun persistColor(color: Int?) {
-        current_color.color = color ?: Color.WHITE
+        binding.currentColor.color = color ?: Color.WHITE
         callback?.invoke(color)
     }
 

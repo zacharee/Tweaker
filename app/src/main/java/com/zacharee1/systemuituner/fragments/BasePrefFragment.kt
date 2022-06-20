@@ -4,7 +4,6 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
@@ -14,11 +13,12 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.animation.doOnEnd
-import androidx.core.view.ViewCompat
-import androidx.core.view.isVisible
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.*
 import androidx.preference.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +40,6 @@ import com.zacharee1.systemuituner.prefs.secure.SecureSeekBarPreference
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.prefs.secure.specific.*
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.custom_preference.view.*
 import kotlinx.coroutines.*
 
 abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
@@ -55,7 +54,12 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     open val limitSummary = true
     open val supportsGrid = true
 
-    override fun onDisplayPreferenceDialog(preference: Preference?) {
+    open val paddingDp = arrayOf(8f, 8f, 8f, 8f)
+    open val preferencePadding: ((Preference) -> Array<Float>)? = null
+
+    open val hasCategories = false
+
+    override fun onDisplayPreferenceDialog(preference: Preference) {
         val fragment = when (preference) {
             is ForceEnableAllPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
@@ -76,7 +80,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                ((requireContext().getSetting(preference.type, preference.writeKey!!)?.toFloat() ?: preference.defaultValue * preference.scale) / preference.scale).toInt()
+                (((requireContext().getSetting(preference.type, preference.writeKey)?.toFloatOrNull()
+                    ?: (preference.defaultValue * preference.scale)) / preference.scale)).toInt()
             )
             is AnimationScalesPreference -> OptionDialog.newInstance(
                 preference.key,
@@ -124,13 +129,13 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                 preference.defaultValue,
                 preference.units,
                 preference.scale,
-                (preference.sharedPreferences.getFloat(preference.key, preference.defaultValue * preference.scale) / preference.scale).toInt()
+                (preference.sharedPreferences!!.getFloat(preference.key, preference.defaultValue * preference.scale) / preference.scale).toInt()
             )
             is DemoSwitchPreference -> SwitchOptionDialog.newInstance(
                 preference.key,
                 preference.disabled,
                 preference.enabled,
-                preference.sharedPreferences.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
+                preference.sharedPreferences!!.getString(preference.key, preference.defaultValue?.toString()) == preference.enabled
             )
             is ReadSettingPreference -> OptionDialog.newInstance(
                 preference.key,
@@ -172,23 +177,30 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         markDangerous(preferenceScreen)
         super.onBindPreferences()
 
-        setDivider(resources.getDrawable(R.drawable.custom_divider, requireContext().theme))
+        setDivider(ResourcesCompat.getDrawable(resources, R.drawable.custom_divider, requireContext().theme))
     }
 
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (highlightKey != null) {
+        view.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
+                updateLayoutManager(view, listView, grid, linear, supportsGrid)
+                updateListWidthAndGravity()
+            }
+        }
+
+        highlightKey?.let { hKey ->
             listView?.post {
                 listView?.apply {
                     val a = adapter as PreferenceGroupAdapter
-                    val index = a.getPreferenceAdapterPosition(highlightKey)
+                    val index = a.getPreferenceAdapterPosition(hKey)
 
                     scrollToPosition(index)
 
                     launch {
-                        val item = layoutManager!!.findViewByPosition(index) as MaterialCardView? ?: return@launch
+                        val item = layoutManager?.findViewByPosition(index) as? MaterialCardView ?: return@launch
 
                         delay(200)
                         val time = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
@@ -207,24 +219,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                             item.isPressed = false
                         }
                         anim.start()
-
-//                        item.animate()
-//                            .scaleY(1.2f)
-//                            .scaleX(1.2f)
-//                            .setDuration(time)
-//                            .setInterpolator(AnticipateOvershootInterpolator())
-//                            .withEndAction {
-//                                item.animate()
-//                                    .scaleX(1f)
-//                                    .scaleY(1f)
-//                                    .setDuration(time)
-//                                    .setInterpolator(OvershootInterpolator())
-//                                    .withEndAction {
-//                                        item.isPressed = false
-//                                    }
-//                                    .start()
-//                            }
-//                            .start()
                     }
                 }
             }
@@ -234,14 +228,14 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     }
 
     override fun onCreateRecyclerView(
-        inflater: LayoutInflater?,
-        parent: ViewGroup?,
+        inflater: LayoutInflater,
+        parent: ViewGroup,
         savedInstanceState: Bundle?
     ): RecyclerView {
         return super.onCreateRecyclerView(inflater, parent, savedInstanceState).also {
-            val padding = requireContext().dpAsPx(8)
-
-            it.setPaddingRelative(padding, padding, padding, padding)
+            requireContext().apply {
+                it.setPaddingRelative(dpAsPx(paddingDp[0]), dpAsPx(paddingDp[1]), dpAsPx(paddingDp[2]), dpAsPx(paddingDp[3]))
+            }
             it.clipToPadding = false
             it.itemAnimator = PrefAnimator().apply {
                 addDuration = 300
@@ -253,13 +247,18 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    override fun onCreateAdapter(preferenceScreen: PreferenceScreen?): RecyclerView.Adapter<*> {
+    open fun onBindViewHolder(holder: PreferenceViewHolder, position: Int, preference: Preference?) {
+
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onCreateAdapter(preferenceScreen: PreferenceScreen): RecyclerView.Adapter<*> {
         return object : PreferenceGroupAdapter(preferenceScreen) {
             private val descriptors = ArrayList<PreferenceHolder>()
 
             @SuppressLint("RestrictedApi")
             override fun getItemViewType(position: Int): Int {
-                val descriptor = PreferenceHolder(getItem(position))
+                val descriptor = PreferenceHolder(getItem(position)!!)
                 val index = descriptors.indexOf(descriptor)
 
                 return if (index != -1) {
@@ -274,36 +273,62 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             override fun onBindViewHolder(holder: PreferenceViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
 
+                val preference = getItem(position)
+
+                if (hasCategories) {
+                    if (chooseLayoutManagerWithoutSetting(view, grid, linear) == grid && holder.itemView.layoutParams !is StaggeredGridLayoutManager.LayoutParams) {
+                        holder.itemView.layoutParams = StaggeredGridLayoutManager.LayoutParams(holder.itemView.layoutParams).apply {
+                            isFullSpan = getItem(position) is PreferenceCategory
+                        }
+                    }
+                }
+
                 (holder.itemView as ViewGroup).apply {
+                    context.apply {
+                        preference?.let {
+                            preferencePadding?.invoke(preference)?.apply {
+                                setPaddingRelative(
+                                    dpAsPx(this[0]),
+                                    dpAsPx(this[1]),
+                                    dpAsPx(this[2]),
+                                    dpAsPx(this[3]),
+                                )
+                            }
+                        }
+                    }
+
                     val summaryView = findViewById<TextView>(android.R.id.summary)
 
                     summaryView.post {
-                        title_summary_wrapper?.apply {
-                            val topPadding = paddingTop
+                        findViewById<View>(R.id.expand_summary)?.apply {
+                            val image = findViewById<ImageView>(R.id.expand_summary_icon)
 
-                            setPadding(
-                                0,
-                                topPadding,
-                                0,
-                                if (summaryView.hasEllipsis) 0 else topPadding
-                            )
-                        }
-                        expand_summary?.apply {
                             summaryView as ExpandableTextView
-                            summaryView.collapse()
-                            isVisible = summaryView.hasEllipsis
+                            isVisible = summaryView.lineCount > summaryView.maxLines || summaryView.hasEllipsis
+
+                            image.rotation = if (!summaryView.isExpanded) 0f else 180f
                             setOnClickListener {
                                 if (summaryView.isExpanded) {
-                                    scaleY = -1f
+                                    image.animate()
+                                        .rotation(0f)
+                                        .withEndAction {
+                                            image.rotation = 0f
+                                        }
                                     summaryView.collapse()
                                 } else {
-                                    scaleY = 1f
+                                    image.animate()
+                                        .rotation(180f)
+                                        .withEndAction {
+                                            image.rotation = 180f
+                                        }
                                     summaryView.expand()
                                 }
                             }
                         }
                     }
                 }
+
+                this@BasePrefFragment.onBindViewHolder(holder, position, preference)
             }
 
             @SuppressLint("RestrictedApi", "PrivateResource")
@@ -380,22 +405,8 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        val widthDp = newConfig.screenWidthDp
-
-        listView?.layoutManager = if (supportsGrid && newConfig.screenWidthDp >= 800)
-            grid else linear
-
-        updateListWidthAndGravity(widthDp)
-    }
-
     override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
-        val widthDp = resources.configuration.screenWidthDp
-
-        return if (supportsGrid && widthDp >= 800)
-            grid else linear
+        return chooseLayoutManager(view, grid, linear, supportsGrid)
     }
 
     override fun onDestroy() {
@@ -421,11 +432,16 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         }
     }
 
-    private fun updateListWidthAndGravity(widthDp: Int = resources.configuration.screenWidthDp) {
+    private fun updateListWidthAndGravity(widthDp: Float = requireContext().asDp(requireView().width)) {
         if (!supportsGrid) {
             listView.layoutParams = (listView.layoutParams as FrameLayout.LayoutParams).apply {
                 width = if (widthDp >= 800) requireContext().dpAsPx(800) else ViewGroup.LayoutParams.MATCH_PARENT
                 gravity = if (widthDp >= 800) Gravity.CENTER_HORIZONTAL else Gravity.START
+            }
+        } else {
+            listView.layoutParams = (listView.layoutParams as FrameLayout.LayoutParams).apply {
+                width = ViewGroup.LayoutParams.MATCH_PARENT
+                gravity = Gravity.START
             }
         }
     }

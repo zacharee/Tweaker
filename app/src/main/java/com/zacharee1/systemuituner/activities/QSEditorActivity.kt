@@ -12,15 +12,19 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.QSTileInfo
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.databinding.ActivityQsEditorBinding
+import com.zacharee1.systemuituner.databinding.QsTileBinding
 import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.activity_qs_editor.*
-import kotlinx.android.synthetic.main.qs_tile.view.*
+import com.zacharee1.systemuituner.views.GridAutofitLayoutManager
 import java.util.*
-import kotlin.collections.ArrayList
+import kotlin.math.max
 
 class QSEditorActivity : AppCompatActivity() {
     private val adapter by lazy { QSEditorAdapter(this) }
+    private val binding by lazy { ActivityQsEditorBinding.inflate(layoutInflater) }
 
     private val touchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP or ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT, 0) {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
@@ -33,20 +37,51 @@ class QSEditorActivity : AppCompatActivity() {
             adapter.move(viewHolder.bindingAdapterPosition, target.bindingAdapterPosition)
             return true
         }
+
+        override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+            super.onSelectedChanged(viewHolder, actionState)
+
+            viewHolder as QSEditorAdapter.QSVH?
+
+            viewHolder?.apply {
+                showRemove = !showRemove
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_qs_editor)
+        setContentView(binding.root)
 
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
 
-        qs_list.adapter = adapter
-        ItemTouchHelper(touchHelperCallback).attachToRecyclerView(qs_list)
+        fun updateLayout() {
+            val fullWidth = binding.root.width
+            val sidePadding = max(0f, (fullWidth - dpAsPx(800)) / 2f).toInt()
+
+            binding.qsList.setPaddingRelative(
+                sidePadding, 0,
+                sidePadding, 0
+            )
+
+            binding.qsList.layoutManager = GridAutofitLayoutManager(this, dpAsPx(130))
+        }
+
+        updateLayout()
+
+        binding.root.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+            if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
+                updateLayout()
+            }
+        }
+
+        binding.qsList.adapter = adapter
+
+        ItemTouchHelper(touchHelperCallback).attachToRecyclerView(binding.qsList)
 
         adapter.populateTiles()
     }
@@ -56,8 +91,8 @@ class QSEditorActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.add -> {
                 AddQSTileDialog(this, adapter)
                     .show()
@@ -87,17 +122,45 @@ class QSEditorActivity : AppCompatActivity() {
                 } catch (e: Exception) {
                     0
                 }
+                val samsungId = try {
+                    remRes.getIdentifier("sec_quick_settings_tiles_default", "string", "com.android.systemui")
+                } catch (e: Exception) {
+                    0
+                }
 
-                val items = if (amazonId == 0) {
-                    remRes.getString(id)
-                } else {
-                    //Fire tablets have a lot of different default lists, so we're just
-                    //going to add them manually here.
-                    "wifi,bt,airplane,moonlight,privacy,home,dnd,smarthome,camera,lowpower,rotation,exitkft"
+                val items = when {
+                    amazonId != 0 -> {
+                        //Fire tablets have a lot of different default lists, so we're just
+                        //going to add them manually here.
+                        "wifi,bt,airplane,moonlight,privacy,home,dnd,smarthome,camera,lowpower,rotation,exitkft"
+                    }
+                    samsungId != 0 -> {
+                        val result = remRes.getString(samsungId)
+                        val tiles = result.split(",").toMutableList()
+
+                        remRes.getString(remRes.getIdentifier("quick_settings_custom_tile_component_names", "string", "com.android.systemui"))
+                            .split(",")
+                            .forEach { item ->
+                                val (key, _) = item.split(":")
+
+                                tiles.remove(key)
+                            }
+
+                        tiles.joinToString(",")
+                    }
+                    else -> {
+                        remRes.getString(id)
+                    }
                 }
 
                 addAll(items.split(","))
-            } catch (e: Exception) {}
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+                    && (!contains("wifi") && !contains("cell") && contains("internet"))) {
+                    add("wifi")
+                    add("cell")
+                }
+            } catch (_: Exception) {}
         }
 
         private val customTiles = ArrayList<String>().apply {
@@ -185,41 +248,62 @@ class QSEditorActivity : AppCompatActivity() {
             )
         }
 
-        @ExperimentalStdlibApi
         override fun onBindViewHolder(holder: QSVH, position: Int) {
             holder.onBind(currentTiles[position])
         }
 
         inner class QSVH(view: View) : RecyclerView.ViewHolder(view) {
-            init {
-                itemView.setOnLongClickListener {
-                    itemView.remove.apply { isVisible = !isVisible }
-                    true
+            var showRemove: Boolean
+                get() = vhBinding.remove.isVisible
+                set(value) {
+                    vhBinding.remove.isVisible = value
                 }
 
-                itemView.remove.setOnClickListener {
+            private val vhBinding = QsTileBinding.bind(itemView)
+
+            init {
+//                vhBinding.clickTarget.setOnLongClickListener {
+//                    vhBinding.remove.apply { isVisible = !isVisible }
+//                    true
+//                }
+
+                vhBinding.remove.setOnClickListener {
                     val newPos = bindingAdapterPosition
 
                     if (newPos != -1) {
                         removeTile(newPos)
-                        itemView.remove.isVisible = false
+                        vhBinding.remove.isVisible = false
                     }
                 }
             }
 
-            @ExperimentalStdlibApi
             fun onBind(info: QSTileInfo) {
-                itemView.qs_tile_icon.setImageDrawable(info.getIcon(itemView.context))
-                itemView.label.text = info.getLabel(itemView.context)
-                itemView.qs_tile_component.apply {
-                    if (info.type == QSTileInfo.Type.CUSTOM) {
-                        isVisible = true
-                        text = info.getNameAndComponentForCustom().flattenToShortString()
-                    } else {
-                        isVisible = false
-                        text = null
+                vhBinding.clickTarget.setOnClickListener {
+                    if (info.type == QSTileInfo.Type.CUSTOM || info.type == QSTileInfo.Type.INTENT) {
+                        RoundedBottomSheetDialog(context).apply {
+                            setIcon(info.getIcon(context))
+                            setTitle(info.getLabel(context))
+
+                            setMessage(
+                                info.key
+                            )
+
+                            setPositiveButton(android.R.string.ok, null)
+
+                            show()
+                        }
                     }
                 }
+
+                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
+                vhBinding.label.text = info.getLabel(itemView.context)
+                vhBinding.qsTileType.setText(
+                    when (info.type) {
+                        QSTileInfo.Type.CUSTOM -> R.string.tile_custom
+                        QSTileInfo.Type.INTENT -> R.string.intent
+                        QSTileInfo.Type.STANDARD -> R.string.snooze_default
+                    }
+                )
             }
         }
     }

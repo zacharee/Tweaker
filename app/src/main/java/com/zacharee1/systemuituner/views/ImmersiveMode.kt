@@ -5,17 +5,17 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ImmersiveListSelector
+import com.zacharee1.systemuituner.databinding.ImmersiveModeBinding
+import com.zacharee1.systemuituner.databinding.ImmersiveModeItemBinding
 import com.zacharee1.systemuituner.util.ImmersiveManager
 import com.zacharee1.systemuituner.util.prefManager
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.immersive_mode.view.*
-import kotlinx.android.synthetic.main.immersive_mode_item.view.*
 
 class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private val immersiveManager = ImmersiveManager(context)
@@ -23,18 +23,20 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         immersiveManager.loadInSavedLists(this)
     }
 
+    private val binding by lazy { ImmersiveModeBinding.bind(this) }
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val list = mode_list
+        val list = binding.modeList
         list.adapter = ImmersiveAdapter(immersiveInfo, immersiveManager)
 
-        rootView.negative_button.apply {
+        rootView.findViewById<Button>(R.id.negative_button).apply {
             isVisible = true
             setText(R.string.reset)
             setOnClickListener {
                 immersiveManager.setAdvancedImmersive(immersiveInfo)
-                list.adapter!!.notifyItemRangeChanged(0, list.adapter!!.itemCount)
+                list.adapter?.notifyItemRangeChanged(0, list.adapter?.itemCount ?: 0)
             }
         }
     }
@@ -74,35 +76,36 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             val info = items[position]
+            val binding = ImmersiveModeItemBinding.bind(holder.itemView)
 
             holder.itemView.apply {
-                immersive_name.text = resources.getText(info.name)
-                all.isChecked = when (info.type) {
+                binding.immersiveName.text = resources.getText(info.name)
+                binding.all.isChecked = when (info.type) {
                     ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull
                     ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus
                     ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav
                     else -> false
                 }
-                whitelist_button.isEnabled = !all.isChecked
+                binding.whitelistButton.isEnabled = !binding.all.isChecked
 
-                all.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
-                    all.isChecked = !all.isChecked
+                binding.all.setOnClickListener {
+                    val newInfo = items[holder.bindingAdapterPosition]
+                    binding.all.isChecked = !binding.all.isChecked
 
                     when (newInfo.type) {
-                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull = all.isChecked
-                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus = all.isChecked
-                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav = all.isChecked
+                        ImmersiveManager.ImmersiveMode.FULL -> immInfo.allFull = binding.all.isChecked
+                        ImmersiveManager.ImmersiveMode.STATUS -> immInfo.allStatus = binding.all.isChecked
+                        ImmersiveManager.ImmersiveMode.NAV -> immInfo.allNav = binding.all.isChecked
                         else -> {}
                     }
 
-                    whitelist_button.isEnabled = !all.isChecked
+                    binding.whitelistButton.isEnabled = !binding.all.isChecked
 
                     update()
                 }
 
-                whitelist_button.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                binding.whitelistButton.setOnClickListener {
+                    val newInfo = items[holder.bindingAdapterPosition]
                     val apps = when (newInfo.type) {
                         ImmersiveManager.ImmersiveMode.FULL -> immInfo.fullApps
                         ImmersiveManager.ImmersiveMode.STATUS -> immInfo.statusApps
@@ -118,8 +121,8 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
                     })
                 }
 
-                blacklist.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
+                binding.blacklist.setOnClickListener {
+                    val newInfo = items[holder.bindingAdapterPosition]
                     val apps = when (newInfo.type) {
                         ImmersiveManager.ImmersiveMode.FULL -> immInfo.fullBl
                         ImmersiveManager.ImmersiveMode.STATUS -> immInfo.statusBl

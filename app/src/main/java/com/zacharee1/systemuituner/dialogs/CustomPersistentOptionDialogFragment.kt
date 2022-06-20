@@ -4,18 +4,13 @@ import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
+import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.textfield.TextInputEditText
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomPersistentOption
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import kotlinx.android.synthetic.main.base_dialog_layout.*
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.*
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.key_entry
-import kotlinx.android.synthetic.main.custom_persistent_option_dialog.view.settings_type
 
 class CustomPersistentOptionDialogFragment : DialogFragment() {
     companion object {
@@ -48,23 +43,26 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
         val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
         builder.findViewById<View>(android.R.id.content)?.let {
-            View.inflate(it.context, R.layout.custom_persistent_option_dialog, it.wrapper)
+            View.inflate(it.context, R.layout.custom_persistent_option_dialog, it.findViewById(R.id.wrapper))
         }
         builder.setTitle(if (isEditing) R.string.edit_custom_item else R.string.add_custom_item)
-        builder.wrapper.apply {
+        builder.findViewById<View>(R.id.wrapper)?.apply {
             if (isEditing) {
-                label_entry?.setText(initialLabel)
-                key_entry?.setText(initialKey)
-                value_entry?.setText(initialValue)
-                if (initialType.value != -1) settings_type?.setSelection(initialType.value)
+                findViewById<TextInputEditText>(R.id.label_entry).setText(initialLabel)
+                findViewById<TextInputEditText>(R.id.key_entry).setText(initialKey)
+                findViewById<TextInputEditText>(R.id.value_entry).setText(initialValue)
+                if (initialType.value != -1) findViewById<Spinner>(R.id.settings_type).setSelection(initialType.value)
             }
         }
-        builder.setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+        builder.setPositiveButton(android.R.string.ok) { _, _ ->
             this.dialog?.findViewById<View>(android.R.id.content)?.apply {
-                val label = this.label_entry?.text?.toString() ?: return@apply
-                val key = this.key_entry?.text?.toString() ?: return@apply
-                val value = this.value_entry?.text?.toString()
-                val type = SettingsType.fromValue(settings_type.selectedItemPosition)
+                val label = findViewById<TextInputEditText>(R.id.label_entry).text?.toString()
+                    ?: return@apply
+                val key =
+                    findViewById<TextInputEditText>(R.id.key_entry).text?.toString() ?: return@apply
+                val value = findViewById<TextInputEditText>(R.id.value_entry).text?.toString()
+                val type =
+                    SettingsType.fromValue(findViewById<Spinner>(R.id.settings_type).selectedItemPosition)
 
                 if (key.isBlank()) return@apply
 
@@ -85,14 +83,16 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
                 }
             }
             dismiss()
-        })
-        builder.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { _, _ ->
-            dismiss()
-        })
-        builder.setOnCancelListener {
+        }
+        builder.setNegativeButton(android.R.string.cancel) { _, _ ->
             dismiss()
         }
 
         return builder
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        dismiss()
     }
 }

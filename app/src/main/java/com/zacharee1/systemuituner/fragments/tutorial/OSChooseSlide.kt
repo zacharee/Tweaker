@@ -1,14 +1,16 @@
 package com.zacharee1.systemuituner.fragments.tutorial
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.heinrichreimersoftware.materialintro.app.SlideFragment
 import com.zacharee1.systemuituner.IOSSelectionCallback
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.databinding.ChooseOsSlideBinding
 import com.zacharee1.systemuituner.util.callSafely
-import kotlinx.android.synthetic.main.choose_os_slide.view.choose_os
 
 class OSChooseSlide : SlideFragment() {
     companion object {
@@ -42,7 +44,10 @@ class OSChooseSlide : SlideFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.choose_os.setOnCheckedChangeListener { group, checkedId ->
+        val binding = ChooseOsSlideBinding.bind(view)
+
+        binding.osLocal.isVisible = Build.VERSION.SDK_INT > Build.VERSION_CODES.Q
+        binding.chooseOs.setOnCheckedChangeListener { group, checkedId ->
             if (previousSelected != checkedId) {
                 previousSelected = checkedId
                 group.post {
@@ -55,6 +60,10 @@ class OSChooseSlide : SlideFragment() {
     }
 
     override fun canGoForward(): Boolean {
-        return view?.choose_os?.checkedRadioButtonId != -1
+        if (view == null) return false
+
+        val binding = ChooseOsSlideBinding.bind(requireView())
+
+        return binding.chooseOs.checkedRadioButtonId != -1
     }
 }

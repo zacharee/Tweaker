@@ -4,7 +4,9 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.content.*
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Build
@@ -14,8 +16,12 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 //TODO: something weird is going on here where some settings are overridden incorrectly when first enabled as persistent.
 //TODO: Figure it out?
@@ -45,7 +51,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
         try {
             doInitialCheck()
-        } catch (e: IllegalStateException) {}
+        } catch (_: IllegalStateException) {}
         observer.register()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -66,7 +72,8 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
                     PendingIntent.getActivity(
                         this, 100, getNotificationSettingsForChannel(
                             NOTIFICATION_CHANNEL_ID
-                        ), 0
+                        ),
+                        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
                     )
                 )
                 .build()
@@ -124,9 +131,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         }
     }
 
-    inner class ManagerImpl : IManager.Stub() {
-
-    }
+    inner class ManagerImpl : IManager.Stub()
 
     inner class Observer : ContentObserver(mainHandler) {
         fun register() {
@@ -147,7 +152,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         fun unregister() {
             try {
                 contentResolver.unregisterContentObserver(this)
-            } catch (e: Exception) {}
+            } catch (_: Exception) {}
         }
 
         override fun onChange(selfChange: Boolean, uri: Uri) {

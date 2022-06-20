@@ -26,7 +26,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:baselineAligned="false"
     android:clipToPadding="false"
     android:fitsSystemWindows="false"
@@ -45,6 +44,14 @@
             android:id="@+id/choose_os"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/os_local"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/adb_local"
+                />
 
             <RadioButton
                 android:id="@+id/os_windows"

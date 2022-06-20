@@ -52,6 +52,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:orientation="horizontal">
 
                 <FrameLayout
@@ -83,8 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp">
+                    android:layout_gravity="center_vertical">
 
                     <TextView
                         android:id="@android:id/title"
@@ -93,21 +94,21 @@
                         android:ellipsize="marquee"
                         android:singleLine="false"
                         android:textAppearance="?android:attr/textAppearanceListItem"
-                        />
+                        tools:text="Some Preference" />
 
                     <at.blogc.android.views.ExpandableTextView
                         android:id="@android:id/summary"
+                        style="@style/PreferenceSummaryTextStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
-                        android:maxLines="10"
                         android:ellipsize="end"
+                        android:maxLines="2"
                         android:textAlignment="viewStart"
                         android:textColor="?android:attr/textColorSecondary"
                         app:animation_duration="@android:integer/config_mediumAnimTime"
-                        style="@style/PreferenceSummaryTextStyle"
                         tools:ignore="PrivateResource"
-                        />
+                        tools:text="Some long expandable summary we need a lot of text here to overflow so let's keep going shall we come on overflow already please overflow this is so much text gotta keep going to force an overflow come on so many lines please hurry up and overflow" />
 
                 </LinearLayout>
 
@@ -125,19 +126,30 @@
 
         </LinearLayout>
 
-        <ImageView
+        <FrameLayout
             android:id="@+id/expand_summary"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/arrow_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_ripple"
+            android:layout_gravity="bottom|center"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:selectableItemBackgroundBorderless"
-            android:scaleY="-1"
-            android:layout_gravity="bottom|center"
             android:visibility="gone"
+            android:contentDescription="@string/more"
             tools:visibility="visible"
-            />
+            tools:ignore="TouchTargetSizeCheck">
+
+            <ImageView
+                android:id="@+id/expand_summary_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:scaleY="-1"
+                android:src="@drawable/arrow_up"
+                tools:ignore="ContentDescription"
+                />
+
+        </FrameLayout>
 
     </LinearLayout>
 

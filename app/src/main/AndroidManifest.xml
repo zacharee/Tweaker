@@ -7,15 +7,22 @@
         android:protectionLevel="signature"
         />
 
-    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.DUMP" />
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.DUMP"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="com.zacharee1.systemuituner.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
 
     <application
         android:allowBackup="true"
@@ -28,9 +35,9 @@
         tools:ignore="AllowBackup">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:theme="@style/Splash"
-            android:configChanges="orientation|screenSize|screenLayout">
+            android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -58,19 +65,26 @@
             android:exported="false"
             />
         <activity android:name=".activities.IconBlacklistActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
             android:label="@string/special_sub_icon_blacklist"
+            android:exported="false"
+            />
+        <activity android:name=".activities.ManageQSActivity"
+            android:label="@string/option_advanced_manage_qs_tiles"
             android:exported="false"
             />
         <activity android:name=".activities.ExtraPermsRetroactive"
             android:exported="false"
             />
         <activity android:name=".activities.DemoModeActivity"
+            android:label="@string/sub_demo"
             android:exported="false"
             />
         <activity android:name=".activities.tutorial.TutorialActivity"
             android:exported="false"
             />
         <activity android:name=".activities.QSEditorActivity"
+            android:label="@string/option_qs_editor"
             android:exported="false"
             android:theme="@style/AppTheme"
             />
@@ -106,6 +120,7 @@
             android:name=".services.tiles.BatteryTile"
             android:icon="@drawable/battery_full"
             android:label="@string/tile_battery"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -116,6 +131,7 @@
             android:name=".services.tiles.ClockTile"
             android:icon="@drawable/progress_clock"
             android:label="@string/tile_clock"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -126,6 +142,7 @@
             android:name=".services.tiles.DemoTile"
             android:icon="@drawable/ic_baseline_tv_24"
             android:label="@string/tile_demo"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -136,6 +153,7 @@
             android:name=".services.tiles.HeadsUpTile"
             android:icon="@drawable/ic_baseline_notifications_active_24"
             android:label="@string/tile_heads_up"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -146,6 +164,8 @@
             android:name=".services.tiles.NightModeTile"
             android:icon="@drawable/ic_baseline_nights_stay_24"
             android:label="@string/tile_night_mode"
+            android:enabled="false"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -156,6 +176,7 @@
             android:name=".services.tiles.FullImmersiveTile"
             android:icon="@drawable/ic_baseline_fullscreen_24"
             android:label="@string/tile_full_immersive"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -166,6 +187,7 @@
             android:name=".services.tiles.NavImmersiveTile"
             android:icon="@drawable/ic_baseline_vertical_align_bottom_24"
             android:label="@string/tile_nav_immersive"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -176,6 +198,7 @@
             android:name=".services.tiles.StatusImmersiveTile"
             android:icon="@drawable/ic_baseline_vertical_align_top_24"
             android:label="@string/tile_status_immersive"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -189,6 +212,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="${applicationId}.shizuku"
+            android:multiprocess="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
         <meta-data
             android:name="google_analytics_adid_collection_enabled"

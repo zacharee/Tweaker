@@ -1,56 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.zacharee1.systemuituner.views.RoundedFrameCardView android:layout_width="match_parent"
+<com.zacharee1.systemuituner.views.SMSLimits
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.zacharee1.systemuituner.views.SMSLimits
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/max_count"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/option_sms_limit_count"
+            app:startIconDrawable="@drawable/ic_undo_black_24dp"
+            app:endIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconMode="custom">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/max_count"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/option_sms_limit_count"
-                app:startIconDrawable="@drawable/ic_undo_black_24dp"
-                app:endIconDrawable="@drawable/ic_baseline_check_24"
-                app:endIconMode="custom">
+                android:layout_height="match_parent"
+                android:inputType="number"
+                />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="number"
-                    />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/option_sms_limit_interval"
+            app:suffixText="ms"
+            app:startIconDrawable="@drawable/ic_undo_black_24dp"
+            app:endIconDrawable="@drawable/ic_baseline_check_24"
+            app:endIconMode="custom">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/interval"
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/option_sms_limit_interval"
-                app:suffixText="ms"
-                app:startIconDrawable="@drawable/ic_undo_black_24dp"
-                app:endIconDrawable="@drawable/ic_baseline_check_24"
-                app:endIconMode="custom">
+                android:layout_height="match_parent"
+                android:inputType="number"
+                />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="number"
-                    />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </com.zacharee1.systemuituner.views.SMSLimits>
-
-</com.zacharee1.systemuituner.views.RoundedFrameCardView>
+</com.zacharee1.systemuituner.views.SMSLimits>

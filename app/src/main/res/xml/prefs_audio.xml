@@ -2,14 +2,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+    <com.zacharee1.systemuituner.prefs.secure.SecureListPreference
         android:title="@string/feature_disable_safe_audio_warning"
         android:summary="@string/feature_disable_safe_audio_warning_desc"
         android:key="audio_safe_volume_state"
         android:icon="@drawable/ic_baseline_volume_off_24"
+        android:defaultValue="0"
         app:icon_color="@color/pref_color_7"
-        app:enabled_value="0"
-        app:disabled_value="1"
+        app:entries="@array/safe_audio_labels"
+        app:entryValues="@array/safe_audio_values"
         app:settings_type="global"
         />
 

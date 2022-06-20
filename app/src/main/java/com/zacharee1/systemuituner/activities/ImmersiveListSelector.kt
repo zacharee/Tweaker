@@ -13,15 +13,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
+import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.reddit.indicatorfastscroll.FastScrollerView
 import com.rey.material.widget.CheckedImageView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.LoadedAppInfo
+import com.zacharee1.systemuituner.databinding.ActivityImmersiveSelectorBinding
 import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.util.addAnimation
 import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.getColorPrimary
-import kotlinx.android.synthetic.main.activity_immersive_selector.*
 import kotlinx.coroutines.*
 
 class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope(), SearchView.OnQueryTextListener, SearchView.OnCloseListener {
@@ -49,6 +51,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     }
     private val adapter by lazy { ImmersiveAdapter(checked, this) }
     private val origItems = ArrayList<LoadedAppInfo>()
+    private val binding by lazy { ActivityImmersiveSelectorBinding.inflate(layoutInflater) }
 
     override fun onClose(): Boolean {
         onFilter(null)
@@ -78,21 +81,41 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_immersive_selector)
+        setContentView(binding.root)
 
         if (callback == null) {
             finish()
             return
         }
 
-        setSupportActionBar(toolbar)
-        toolbar.addAnimation()
+        setSupportActionBar(binding.toolbar)
+        binding.toolbar.addAnimation()
 
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_check_24)
 
-        selector.adapter = adapter
+        binding.selector.adapter = adapter
+        binding.scroller.useDefaultScroller = false
+        binding.scroller.itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+            override fun onItemIndicatorSelected(
+                indicator: FastScrollItemIndicator,
+                indicatorCenterY: Int,
+                itemPosition: Int
+            ) {
+                binding.selector.scrollToPosition(itemPosition)
+            }
+        }
+        binding.scroller.setupWithRecyclerView(
+            binding.selector,
+            { position ->
+                val item = adapter.items[position]
+
+                FastScrollItemIndicator.Text(
+                    item.label.run { if (isBlank()) "?" else substring(0, 1) }.uppercase()
+                )
+            }
+        )
 
         launch {
             val apps = withContext(Dispatchers.IO) {
@@ -111,12 +134,12 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
             }
 
             setItems(apps)
-            progress.visibility = View.GONE
+            binding.progress.visibility = View.GONE
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
             finish()
             return true
         }
@@ -196,7 +219,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
                 override fun compare(o1: LoadedAppInfo, o2: LoadedAppInfo): Int {
                     return if (o1.isChecked && !o2.isChecked) -1
                     else if (!o1.isChecked && o2.isChecked) 1
-                    else o1.label.compareTo(o2.label)
+                    else o1.label.compareTo(o2.label, true)
                 }
 
                 override fun onInserted(position: Int, count: Int) {

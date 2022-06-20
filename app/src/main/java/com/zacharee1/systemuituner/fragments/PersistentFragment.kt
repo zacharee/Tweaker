@@ -2,9 +2,10 @@ package com.zacharee1.systemuituner.fragments
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -16,15 +17,16 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.PersistentOption
 import com.zacharee1.systemuituner.data.SearchIndex
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.databinding.CustomPersistentOptionWidgetBinding
 import com.zacharee1.systemuituner.dialogs.CustomPersistentOptionDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.prefs.InlineActivityPreference
 import com.zacharee1.systemuituner.util.*
-import kotlinx.android.synthetic.main.custom_persistent_option_widget.view.*
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
 
 class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, SharedPreferences.OnSharedPreferenceChangeListener {
     override val widgetLayout: Int = Int.MIN_VALUE
@@ -64,6 +66,16 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
 
         preferenceScreen.removeAll()
+        preferenceScreen.addPreference(
+            InlineActivityPreference(
+                requireContext(),
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://dontkillmyapp.com"))
+            ).apply {
+                title = resources.getString(R.string.persistent_options_not_sticking_title)
+                summary = resources.getString(R.string.persistent_options_not_sticking_desc)
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
+            }
+        )
         filterPersistent(null) {
             it.forEach { pref ->
                 preferenceScreen.addPreference(construct(pref))
@@ -91,7 +103,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         filterPersistent(newText) {
             val toRemove = ArrayList<Preference>()
 
-            preferenceScreen.forEach { _, child ->
+            preferenceScreen.forEach { child ->
                 if (!it.map { c -> c.key }.contains(child.key)) {
                     toRemove.add(child)
                 }
@@ -131,21 +143,19 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     }
 
     private fun filterPersistent(query: String?, result: (ArrayList<PersistentPreference>) -> Unit) = launch {
-        val lowercase = query?.toLowerCase(Locale.getDefault())
-
         isLoaded.await()
 
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    (lowercase == null || lowercase.isBlank() ||
-                            it.title.toString().contains(lowercase, true) ||
-                            it.origSummary?.toString()?.contains(lowercase, true) == true)
+                    (query == null || query.isBlank() ||
+                            it.title.toString().contains(query, true) ||
+                            it.origSummary?.toString()?.contains(query, true) == true)
                 }.map { PersistentPreference.fromPreference(false, it, this@PersistentFragment) } +
                         requireContext().prefManager.customPersistentOptions.filter {
-                            lowercase == null || lowercase.isBlank() ||
-                                    it.label.contains(lowercase, true) ||
-                                    it.key.contains(lowercase, true)
+                            query == null || query.isBlank() ||
+                                    it.label.contains(query, true) ||
+                                    it.key.contains(query, true)
                         }.map {
                             PersistentPreference.fromCustomPersistentOption(this@PersistentFragment, it)
                         }
@@ -157,25 +167,30 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
     private fun construct(pref: PersistentPreference): PersistentPreference {
         return PersistentPreference.copy(pref, this).apply {
-            isChecked = context.prefManager.persistentOptions.filter { it.type == type && keys.contains(it.key) }.size == keys.size
+            val options = context.prefManager.persistentOptions
+            isChecked = keys.all { key ->
+                key.value.all { k ->
+                    options.any { opt -> opt.key == k && opt.type == key.key }
+                }
+            }
+
             setOnPreferenceChangeListener { preference, newValue ->
                 preference as PersistentPreference
 
                 if (newValue.toString().toBoolean()) {
                     context.prefManager.apply {
                         persistentOptions = persistentOptions.apply {
-                            addAll(preference.keys.map {
-                                PersistentOption(
-                                    preference.type,
-                                    it
-                                )
-                            })
+                            preference.keys.forEach { (t, ks) ->
+                                ks.forEach { k ->
+                                    add(PersistentOption(t, k))
+                                }
+                            }
                         }
                     }
                 } else {
                     context.prefManager.apply {
                         persistentOptions = persistentOptions.apply {
-                            removeAll { item -> item.type == preference.type && preference.keys.contains(item.key) }
+                            removeAll { item -> preference.keys.keys.contains(item.type) && preference.keys[item.type]?.contains(item.key) == true }
                         }
                     }
                 }
@@ -202,7 +217,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     title = info.label
                     key = info.key
                     type = info.type
-                    keys.add(key)
+                    keys[type] = arrayOf(key)
                 }
             }
             fun fromPreference(isCustom: Boolean, preference: Preference, fragment: PersistentFragment): PersistentPreference {
@@ -217,10 +232,10 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                         preference.summary
                     }
                     if (preference is PersistentPreference) {
-                        keys.addAll(preference.keys)
+                        keys.putAll(preference.keys)
                     }
                     if (preference is ISpecificPreference) {
-                        keys.addAll(preference.keys)
+                        keys.putAll(preference.keys)
                     }
                     if (preference is IDangerousPreference) {
                         dangerous = preference.dangerous
@@ -239,7 +254,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                     }
 
                     if (keys.isEmpty()) {
-                        keys.add(preference.key)
+                        keys[type] = keys[type].run {
+                            if (this == null) {
+                                arrayOf(preference.key)
+                            } else {
+                                this + arrayOf(preference.key)
+                            }
+                        }
                     }
 
                     initSecure(this)
@@ -252,7 +273,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
             }
         }
 
-        val keys: ArrayList<String> = ArrayList()
+        val keys = HashMap<SettingsType, Array<String>>()
         var origSummary: CharSequence? = null
 
         init {
@@ -282,7 +303,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
             } else sup
         }
 
-        override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+        override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
             super.onAttachedToHierarchy(preferenceManager)
 
             if (isCustom) {
@@ -297,11 +318,13 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
             if (isCustom) {
                 holder.itemView.apply {
-                    remove_button.setOnClickListener {
+                    val binding = CustomPersistentOptionWidgetBinding.bind(findViewById(R.id.check_wrapper))
+
+                    binding.removeButton.setOnClickListener {
                         RoundedBottomSheetDialog(context).apply {
                             setTitle(R.string.remove_item)
                             setMessage(R.string.remove_item_desc)
-                            setPositiveButton(android.R.string.ok, DialogInterface.OnClickListener { _, _ ->
+                            setPositiveButton(android.R.string.ok) { _, _ ->
                                 context.prefManager.apply {
                                     persistentOptions = persistentOptions.apply {
                                         removeAll { it.type == type && it.key == key }
@@ -312,12 +335,12 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                                 }
                                 fragment.preferenceScreen.removePreference(this@PersistentPreference)
                                 dismiss()
-                            })
+                            }
                             setNegativeButton(android.R.string.cancel, null)
                         }.show()
                     }
 
-                    edit_button.setOnClickListener {
+                    binding.editButton.setOnClickListener {
                         val customInfo = context.prefManager.customPersistentOptions.find {
                             it.key == key && it.type == type
                         } ?: return@setOnClickListener

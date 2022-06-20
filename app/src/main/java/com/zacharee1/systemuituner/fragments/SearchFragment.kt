@@ -5,9 +5,9 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
+import androidx.preference.forEach
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SearchIndex
-import com.zacharee1.systemuituner.util.forEach
 import com.zacharee1.systemuituner.util.hasPreference
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
@@ -21,6 +21,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
+        preferenceScreen.isOrderingAsAdded = false
     }
 
     fun onShow() {
@@ -51,7 +52,7 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
         view.background = ContextCompat.getDrawable(requireContext(), R.drawable.search_bg)
     }
 
-    override fun onPreferenceTreeClick(preference: Preference?): Boolean {
+    override fun onPreferenceTreeClick(preference: Preference): Boolean {
         if (preference is SearchIndex.ActionedPreference) {
             onItemClickListener?.invoke(preference.action, preference.key)
         }
@@ -59,24 +60,28 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        searchIndex.filter(newText) {
-            val toRemove = ArrayList<Preference>()
+        if (context != null) {
+            searchIndex.filter(newText) {
+                val toRemove = ArrayList<Preference>()
 
-            preferenceScreen.forEach { _, child ->
-                if (!it.map { c -> c.key }.contains(child.key)) {
-                    toRemove.add(child)
+                preferenceScreen.forEach { child ->
+                    if (!it.map { c -> c.key }.contains(child.key)) {
+                        toRemove.add(child)
+                    }
                 }
-            }
 
-            toRemove.forEach { pref ->
-                preferenceScreen.removePreferenceRecursively(pref.key)
-            }
+                toRemove.forEach { pref ->
+                    preferenceScreen.removePreferenceRecursively(pref.key)
+                }
 
-            it.forEach { pref ->
-                if (!preferenceScreen.hasPreference(pref.key)) {
-                    preferenceScreen.addPreference(
-                        SearchIndex.ActionedPreference.copy(requireContext(), pref)
-                    )
+                it.forEach { pref ->
+                    if (!preferenceScreen.hasPreference(pref.key)) {
+                        preferenceScreen.addPreference(
+                            SearchIndex.ActionedPreference.copy(requireContext(), pref)
+                        )
+                    } else {
+                        preferenceScreen.findPreference<Preference>(pref.key)?.order = pref.order
+                    }
                 }
             }
         }

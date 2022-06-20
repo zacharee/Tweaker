@@ -4,27 +4,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.mikepenz.materialdrawer.widget.MaterialDrawerSliderView
-        android:id="@+id/slider"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
+        android:orientation="vertical"
+        android:layout_gravity="start">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_home_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.zacharee1.systemuituner.fragments.HomeFragment"
+            />
+
+        <LinearLayout
+            android:id="@+id/search_holder"
+            android:visibility="gone"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/search_bg"
+            tools:alpha="1"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?listPreferredItemHeight"
+                android:imeOptions="flagNoExtractUi"
+                />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/search_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.zacharee1.systemuituner.fragments.SearchFragment"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/content_width"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?android:actionBarSize"
+            android:layout_height="?actionBarSize"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextSwitcher
@@ -38,14 +73,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:textAppearance="@style/ActionBarStyle.Title"
                     tools:text="@string/app_name" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:textAppearance="@style/ActionBarStyle.Title"
                     />
 
             </TextSwitcher>
@@ -61,29 +96,14 @@
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <fragment
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/nav_host_fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/navigation_main" />
-
-            <FrameLayout
-                android:id="@+id/search_holder"
-                android:visibility="gone"
-                android:alpha="0"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <fragment
-                    android:id="@+id/search_fragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:name="com.zacharee1.systemuituner.fragments.SearchFragment" />
-
-            </FrameLayout>
+                app:navGraph="@navigation/navigation_main"
+                />
 
         </FrameLayout>
 

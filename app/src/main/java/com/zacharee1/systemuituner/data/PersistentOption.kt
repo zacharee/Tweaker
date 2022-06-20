@@ -1,7 +1,6 @@
 package com.zacharee1.systemuituner.data
 
 import com.google.gson.GsonBuilder
-import com.zacharee1.systemuituner.util.SettingsType
 
 class CustomPersistentOption(
     val label: String,
@@ -13,7 +12,7 @@ class CustomPersistentOption(
         private val gson = GsonBuilder().create()
 
         fun fromString(input: String): CustomPersistentOption {
-            val fromJson = gson.fromJson<CustomPersistentOption>(
+            val fromJson = gson.fromJson(
                 input,
                 CustomPersistentOption::class.java
             )

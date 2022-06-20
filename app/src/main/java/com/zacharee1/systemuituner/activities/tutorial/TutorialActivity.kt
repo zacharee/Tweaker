@@ -2,9 +2,9 @@ package com.zacharee1.systemuituner.activities.tutorial
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import com.heinrichreimersoftware.materialintro.app.IntroActivity
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
 import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
@@ -32,7 +32,7 @@ class TutorialActivity : IntroActivity() {
     private val introSlide by lazy {
         SimpleSlide.Builder()
             .title(R.string.adb_intro_title)
-            .description(R.string.adb_intro_desc)
+            .description(if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) R.string.adb_intro_desc_no_computer else R.string.adb_intro_desc)
             .background(R.color.slide_1)
             .build()
     }
@@ -102,6 +102,9 @@ class TutorialActivity : IntroActivity() {
                     }
                     R.id.os_linux -> {
                         linuxOtherAdbSlideSteps to R.string.adb_linux_other
+                    }
+                    R.id.os_local -> {
+                        localSlideSteps to R.string.adb_local
                     }
                     else -> throw IllegalArgumentException("Given OS ID isn't valid! ${resources.getResourceName(which)}")
                 }
@@ -303,6 +306,20 @@ class TutorialActivity : IntroActivity() {
                         getString(R.string.adb_install_adb_general_end_3)
                     )
                 )
+    }
+
+    private val localSlideSteps by lazy {
+        arrayOf(
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_1)
+            ),
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_2)
+            ),
+            TutorialStepInfo(
+                getString(R.string.adb_install_local_3)
+            )
+        )
     }
 
     private val finalSlide by lazy {

@@ -15,7 +15,7 @@ open class BaseDialogPreference(context: Context, attrs: AttributeSet) : DialogP
         layoutResource = R.layout.custom_preference
     }
 
-    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager?) {
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
         super.onAttachedToHierarchy(preferenceManager)
 
         dialogMessage = summary

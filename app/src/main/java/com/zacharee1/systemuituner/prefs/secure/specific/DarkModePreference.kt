@@ -7,7 +7,7 @@ import android.provider.Settings
 import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 
 class DarkModePreference(context: Context, attrs: AttributeSet) : SecureSwitchPreference(context, attrs) {
     private val uim = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
@@ -29,7 +29,7 @@ class DarkModePreference(context: Context, attrs: AttributeSet) : SecureSwitchPr
         dialogMessage = summary
     }
 
-    override fun onGetDefaultValue(a: TypedArray?, index: Int): Any {
+    override fun onGetDefaultValue(a: TypedArray, index: Int): Any {
         return UiModeManager.MODE_NIGHT_NO.toString()
     }
 

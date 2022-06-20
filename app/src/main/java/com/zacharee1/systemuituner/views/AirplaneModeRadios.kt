@@ -10,14 +10,16 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
+import com.zacharee1.systemuituner.databinding.AirplaneModeRadioBinding
+import com.zacharee1.systemuituner.databinding.AirplaneModeRadiosBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
-import kotlinx.android.synthetic.main.airplane_mode_radio.view.*
-import kotlinx.android.synthetic.main.airplane_mode_radios.view.*
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 
 class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {
     override var callback: ((data: Any?) -> Unit)? = null
+
+    private val binding by lazy { AirplaneModeRadiosBinding.bind(this) }
 
     companion object {
         const val CELL = "cell"
@@ -37,8 +39,8 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val currentBlacklisted = (Settings.Global.getString(context.contentResolver, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
-        val currentToggleable = (Settings.Global.getString(context.contentResolver, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
+        val currentBlacklisted = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
+        val currentToggleable = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
 
         val items = arrayListOf(
             RadioInfo(
@@ -74,7 +76,7 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
         )
 
         val adapter = RadioAdapter(items, callback)
-        radio_recycler.adapter = adapter
+        binding.radioRecycler.adapter = adapter
     }
 
     class RadioAdapter(private val items: ArrayList<RadioInfo>, private val callback: ((data: Any?) -> Unit)?) : RecyclerView.Adapter<RadioAdapter.VH>() {
@@ -90,28 +92,30 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             holder.itemView.apply {
+                val itemBinding = AirplaneModeRadioBinding.bind(this)
+
                 val info = items[position]
 
-                radio.text = resources.getText(info.name)
-                exempt.isChecked = info.isExempt
-                toggleable.isChecked = info.isToggleable
+                itemBinding.radio.text = resources.getText(info.name)
+                itemBinding.exempt.isChecked = info.isExempt
+                itemBinding.toggleable.isChecked = info.isToggleable
 
-                exempt.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
-                    exempt.isChecked = !exempt.isChecked
-                    newInfo.isExempt = exempt.isChecked
-                    update(context)
+                itemBinding.exempt.setOnClickListener {
+                    val newInfo = items[holder.bindingAdapterPosition]
+                    itemBinding.exempt.isChecked = !itemBinding.exempt.isChecked
+                    newInfo.isExempt = itemBinding.exempt.isChecked
+                    update()
                 }
-                toggleable.setOnClickListener {
-                    val newInfo = items[holder.adapterPosition]
-                    toggleable.isChecked = !toggleable.isChecked
-                    newInfo.isToggleable = toggleable.isChecked
-                    update(context)
+                itemBinding.toggleable.setOnClickListener {
+                    val newInfo = items[holder.bindingAdapterPosition]
+                    itemBinding.toggleable.isChecked = !itemBinding.toggleable.isChecked
+                    newInfo.isToggleable = itemBinding.toggleable.isChecked
+                    update()
                 }
             }
         }
 
-        private fun update(context: Context) {
+        private fun update() {
             val blacklisted = ArrayList<String>()
             val toggleable = ArrayList<String>()
 

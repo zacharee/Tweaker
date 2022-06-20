@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="max_bottom_sheet_width">600dp</dimen>
+    <dimen name="drawer_width">300dp</dimen>
+    <dimen name="content_width">350dp</dimen>
 </resources>

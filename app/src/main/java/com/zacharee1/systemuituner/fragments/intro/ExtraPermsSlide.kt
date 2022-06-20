@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
-import com.heinrichreimersoftware.materialintro.app.SlideFragment
+import com.google.android.material.button.MaterialButton
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
-import eu.chainfire.libsuperuser.Shell
-import kotlinx.android.synthetic.main.extra_perms_slide.*
-import kotlinx.coroutines.*
+import com.zacharee1.systemuituner.databinding.ExtraPermsSlideBinding
 
-class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope() {
+class ExtraPermsSlide : PermGrantSlide() {
+    override val permissions = arrayOf(
+        android.Manifest.permission.PACKAGE_USAGE_STATS,
+        android.Manifest.permission.DUMP
+    )
+    override val grantButton: MaterialButton?
+        get() = view?.let { ExtraPermsSlideBinding.bind(it).grant }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,42 +25,15 @@ class ExtraPermsSlide : SlideFragment(), CoroutineScope by MainScope() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val binding = ExtraPermsSlideBinding.bind(view)
+
         view.apply {
-            grant.setOnClickListener {
-                launch {
-                    val hasRoot = async { Shell.SU.available() }
-
-                    if (hasRoot.await()) {
-                        val result = async {
-                            Shell.Pool.SU.run("pm grant ${requireContext().packageName} ${android.Manifest.permission.PACKAGE_USAGE_STATS}")
-                            Shell.Pool.SU.run("pm grant ${requireContext().packageName} ${android.Manifest.permission.DUMP}")
-                        }
-
-                        result.await()
-                    } else {
-                        AlertDialog.Builder(
-                            requireActivity()
-                        )
-                            .setTitle(R.string.no_root_title)
-                            .setMessage(R.string.no_root_msg)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
-                    }
-                }
+            binding.grant.setOnClickListener {
+                tryPermissionsGrant()
             }
-            help.setOnClickListener {
-                TutorialActivity.start(requireContext(), android.Manifest.permission.PACKAGE_USAGE_STATS, android.Manifest.permission.DUMP)
+            binding.help.setOnClickListener {
+                startTutorialActivity()
             }
         }
-    }
-
-    override fun canGoForward(): Boolean {
-        return true //Maybe add a confirmation dialog?
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        cancel()
     }
 }

@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.data
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import com.zacharee1.systemuituner.util.SettingsType
 
 data class SavedOption(
     val type: SettingsType,

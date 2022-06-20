@@ -3,10 +3,6 @@ package com.zacharee1.systemuituner.dialogs
 import android.os.Bundle
 import android.view.View
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSetting
-import kotlinx.android.synthetic.main.seekbar_dialog.view.*
 import tk.zwander.seekbarpreference.SeekBarView
 
 class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
@@ -46,7 +42,7 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        view.seekbar_view.onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
+        view.findViewById<SeekBarView>(R.id.seekbar_view).onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
     }
 
 

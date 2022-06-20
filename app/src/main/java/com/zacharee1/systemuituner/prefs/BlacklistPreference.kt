@@ -1,7 +1,6 @@
 package com.zacharee1.systemuituner.prefs
 
 import android.content.Context
-import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.view.isVisible
@@ -9,6 +8,8 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreference
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSecure
 
@@ -36,7 +37,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
         super.onAttached()
         super.setOnPreferenceChangeListener(this)
 
-        val currentlyBlacklisted = HashSet(Settings.Secure.getString(context.contentResolver, "icon_blacklist")?.split(",") ?: HashSet<String>())
+        val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
         isChecked = !currentlyBlacklisted.containsAll(allKeys)
     }
 
@@ -50,10 +51,10 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
         //no-op
     }
 
-    override fun onPreferenceChange(preference: Preference?, newValue: Any): Boolean {
+    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
         val isChecked = newValue.toString().toBoolean()
 
-        val currentlyBlacklisted = HashSet(Settings.Secure.getString(context.contentResolver, "icon_blacklist")?.split(",") ?: HashSet<String>())
+        val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
 
         if (!isChecked) {
             currentlyBlacklisted.addAll(allKeys)
@@ -72,7 +73,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
     }
 
     fun removeAdditionalKeys(keys: Collection<String>) {
-        additionalKeys.removeAll(keys)
+        additionalKeys.removeAll(keys.toSet())
     }
 
     fun clearAdditionalKeys() {

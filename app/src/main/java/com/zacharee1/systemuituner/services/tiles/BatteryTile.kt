@@ -11,6 +11,7 @@ import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.util.safeUpdateTile
 
 @TargetApi(Build.VERSION_CODES.N)
 class BatteryTile : TileService() {
@@ -26,7 +27,7 @@ class BatteryTile : TileService() {
         registerReceiver(receiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
 
         qsTile?.state = Tile.STATE_ACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     override fun onStopListening() {
@@ -45,7 +46,7 @@ class BatteryTile : TileService() {
 
         try {
             startActivityAndCollapse(intentBatteryUsage)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
 
         super.onClick()
     }
@@ -54,9 +55,8 @@ class BatteryTile : TileService() {
         val batteryStatus = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
         val batteryCharging = batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING || batteryStatus == BatteryManager.BATTERY_STATUS_FULL
         val batteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-        val resId: Int
 
-        resId = when {
+        val resId: Int = when {
             batteryLevel >= 95 -> if (batteryCharging) R.drawable.battery_charging_100 else R.drawable.battery_full
             batteryLevel >= 85 -> if (batteryCharging) R.drawable.battery_charging_90 else R.drawable.battery_90
             batteryLevel >= 75 -> if (batteryCharging) R.drawable.battery_charging_80 else R.drawable.battery_80
@@ -72,6 +72,6 @@ class BatteryTile : TileService() {
 
         qsTile?.icon = Icon.createWithResource(this, resId)
         qsTile?.label = "$batteryLevel%"
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 }

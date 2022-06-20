@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">Android Debug Bridge (ADB) Anleitung</string>
+    <string name="adb_intro_desc">Sie wissen nicht, wie man ADB benutzt? Kein Problem! Folgen Sie einfach dieser Anleitung und es sollte klappen. (Beachten Sie, dass Sie für diesen Vorgang einen Computer benötigen).</string>
+    <string name="adb_intro_desc_no_computer">Sie wissen nicht, wie man ADB benutzt? Kein Problem! Folgen Sie einfach dieser Anleitung und es sollte klappen.</string>
+    <string name="adb_choose_computer_os">Wählen Sie Ihr Betriebssystem.</string>
+    <string name="adb_choose_computer_os_desc">Welches Betriebssystem läuft auf Ihrem Computer?</string>
+    <string name="adb_android_guide">Ersteinrichtung (auf Ihrem Telefon)</string>
+    <string name="adb_final_title">Fertig</string>
+    <string name="adb_final_desc">Das war\'s schon! Wenn alles gut gegangen ist, sollte(n) die Genehmigung(en) nun erteilt werden.</string>
+    <string name="adb_install_android_1">Öffnen Sie die App „Einstellungen” und blättern Sie nach unten zu „Über das Telefon”. Tippen Sie darauf.</string>
+    <string name="adb_install_android_2">Je nach Gerät sehen Sie möglicherweise ein Menü mit der Bezeichnung „Softwareinformationen”. Wenn ja, tippen Sie darauf.</string>
+    <string name="adb_install_android_3">Suchen Sie nun die Option „Build-Nummer”. Auf manchen Geräten wird dies einfach „Version” genannt.</string>
+    <string name="adb_install_android_4">Tippen Sie 7 Mal auf diese Option, um den Entwicklermodus zu aktivieren. Möglicherweise müssen Sie Ihren Passcode eingeben, um den Entwicklermodus zu aktivieren.</string>
+    <string name="adb_install_android_5">Kehren Sie nun zur Hauptseite der Einstellungen zurück.</string>
+    <string name="adb_install_android_6">Je nach Gerät sehen Sie möglicherweise ein neues Menü namens „Entwickleroptionen”. Wenn ja, tippen Sie darauf und überspringen Sie den nächsten Schritt.</string>
+    <string name="adb_install_android_7">Wenn das Menü „Entwickleroptionen” nicht angezeigt wird, suchen Sie das Menü mit der Bezeichnung „System” oder „Zusätzliche Einstellungen”. Darin sollten Sie das Menü „Entwickleroptionen” aufgeführt sein.</string>
+    <string name="adb_install_android_8">Blättern Sie nach unten, bis Sie den Schalter „USB-Debugging” finden, und aktivieren Sie ihn.</string>
+    <string name="adb_install_android_9">Auf Xiaomi-Telefonen müssen Sie außerdem die Option „USB-Debugging (Sicherheitseinstellungen)” suchen und deaktivieren.</string>
+    <string name="adb_install_android_10">Auf OPPO-, Realme-, und OnePlus-Telefonen müssen Sie außerdem die Option „Berechtigungsüberwachung deaktivieren” suchen und aktivieren.</string>
+    <string name="adb_install_android_11">Schließen Sie nun Ihr Telefon an Ihren Computer an. Wenn ein Bestätigungsdialog zum USB-Debugging angezeigt wird, bestätigen Sie ihn.</string>
+    <string name="adb_install_android_12">Sobald das abgeschlossen ist, können Sie mit Ihrem Computer fortfahren.</string>
+    <string name="adb_install_local_1"><![CDATA[Laden Sie die Shizuku-App aus dem [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api) herunter und installieren Sie sie.]]></string>
+    <string name="adb_install_local_2">Öffnen Sie die App Shizuku und folgen Sie den Anweisungen unter „Start via Wireless Debugging”.</string>
+    <string name="adb_install_local_3">Schließen Sie diesen Bildschirm und tippen Sie auf die Schaltfläche „Erlauben”.</string>
+    <string name="adb_install_adb_windows_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
+    <string name="adb_install_adb_windows_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. C:\\adb.</string>
+    <string name="adb_install_adb_windows_3">Verwenden Sie den Datei-Explorer, um das entpackte ZIP-Archiv zu durchsuchen. Sie sollten eine Reihe von Dateien sehen, darunter eine mit dem Namen „adb”.</string>
+    <string name="adb_install_adb_windows_4">Klicken Sie in die Suchleiste und ersetzen Sie den Eintrag durch „cmd” (ohne Anführungszeichen). Drücken Sie dann die Eingabetaste.</string>
+    <string name="adb_install_adb_mac_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. dem Schreibtisch.</string>
+    <string name="adb_install_adb_mac_3">Öffnen Sie nun das Terminal. Sie können dies tun, indem Sie CMD+LEERTASTE gleichzeitig drücken, um die Spotlight-Suche zu öffnen, und nach „Terminal” suchen.</string>
+    <string name="adb_install_adb_mac_4">Suchen Sie nun die entpackten Dateien mit dem folgenden Befehl: cd /pfad/zu/dateien/
+Wenn Ihr Benutzername beispielsweise XYZ lautet und Sie die ZIP-Datei auf Ihren Desktop entpackt haben, lautet der Befehl „cd /users/XYZ/desktop/platform-tools/” (ohne Anführungszeichen), wobei „platform-tools” der Ordner ist, in dem sich die Datei „adb” befindet.</string>
+    <string name="adb_install_adb_debian_1">Öffnen Sie ein Terminal durch Drücken von STRG+ALT+T.</string>
+    <string name="adb_install_adb_debian_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo apt install android-tools-adb android-tools-fastboot</string>
+    <string name="adb_install_adb_fedora_1">Terminal öffnen.</string>
+    <string name="adb_install_adb_fedora_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo dnf install adb.</string>
+    <string name="adb_install_adb_rhel_1">Terminal öffnen.</string>
+    <string name="adb_install_adb_rhel_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: yum install android-tools.</string>
+    <string name="adb_install_adb_linux_other_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
+    <string name="adb_install_adb_linux_other_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. in Ihrem Home-Ordner.</string>
+    <string name="adb_install_adb_linux_other_3">Terminal öffnen.</string>
+    <string name="adb_install_adb_linux_other_4">Terminal öffnen.</string>
+    <string name="adb_install_adb_general_end_1">Es sollte sich eine Eingabeaufforderung oder ein Terminalfenster öffnen. Geben Sie darin die folgenden Befehle ein und drücken Sie nach jedem Befehl die Eingabetaste. Wenn auf Ihrem Telefon ein Hinweisfenster zum USB-Debugging angezeigt wird, müssen Sie es zulassen.</string>
+    <string name="adb_install_adb_general_end_2">Wenn alles geklappt hat, sollte keine Ausgabe der Befehle angezeigt werden. Ist dies der Fall, blättern Sie ganz nach oben zu der Stelle, an der Sie den Befehl eingegeben haben, um die Fehlermeldung zu überprüfen.</string>
+    <string name="adb_install_adb_general_end_3">Die Berechtigungen sollten nun erlaubt sein!</string>
+    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (Andere)</string>
+    <string name="adb_local">Android (Dieses Gerät)</string>
+</resources>

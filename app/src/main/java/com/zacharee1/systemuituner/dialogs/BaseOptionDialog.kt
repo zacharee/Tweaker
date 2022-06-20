@@ -2,18 +2,16 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.app.Dialog
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.preference.PreferenceDialogFragmentCompat
+import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
-import com.zacharee1.systemuituner.util.SettingsType
-import kotlinx.android.synthetic.main.base_dialog_layout.view.*
-import kotlinx.android.synthetic.main.base_message_pref_dialog_layout.view.*
+import com.zacharee1.systemuituner.data.SettingsType
 
 abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     companion object {
@@ -22,7 +20,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     }
 
     internal open val layoutRes by lazy { requireArguments().getInt(ARG_LAYOUT_RES, 0) }
-    internal val writeKey: String?
+    internal val writeKey: String
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).writeKey else preference.key
     internal val type: SettingsType
         get() = if (preference is ISecurePreference) (preference as ISecurePreference).type else SettingsType.UNDEFINED
@@ -39,7 +37,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         return builder
     }
 
-    final override fun onCreateDialogView(context: Context?): View? {
+    final override fun onCreateDialogView(context: Context): View? {
         return null
     }
 
@@ -48,9 +46,9 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         super.onBindDialogView(view)
 
         if (layoutRes != 0) {
-            View.inflate(view.context, layoutRes, view.wrapper)
+            View.inflate(view.context, layoutRes, view.findViewById(R.id.wrapper))
 
-            findCallbackView(view.wrapper)?.callback = { data ->
+            findCallbackView(view.findViewById(R.id.wrapper))?.callback = { data ->
                 notifyChanged(data)
             }
         }
@@ -76,6 +74,6 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     }
 
     fun notifyChanged(value: Any?) {
-        (preference as IDialogPreference).onValueChanged(value, writeKey!!)
+        (preference as IDialogPreference).onValueChanged(value, writeKey)
     }
 }

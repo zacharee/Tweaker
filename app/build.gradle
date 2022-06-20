@@ -1,17 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.zacharee1.systemuituner"
         minSdkVersion 23
-        targetSdkVersion 29
-        versionCode 318
+        targetSdkVersion 32
+        versionCode 340
         versionName versionCode.toString()
     }
 
@@ -27,53 +27,62 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-rc1'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation ('androidx.slidingpanelayout:slidingpanelayout:1.2.0')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation 'com.google.android.material:material:1.2.0'
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.1'
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.android.material:material:1.7.0-alpha01'
+    implementation 'com.google.firebase:firebase-analytics:21.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.10'
+    implementation 'com.github.zacharee:colorpicker:c300c66e93'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
-    implementation 'com.android.billingclient:billing:3.0.0'
-    implementation 'com.android.billingclient:billing-ktx:3.0.0'
+    implementation 'com.android.billingclient:billing:5.0.0'
+    implementation 'com.android.billingclient:billing-ktx:5.0.0'
 
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
-    implementation 'com.github.zacharee:Unblacklister:1.1'
-    implementation "com.mikepenz:materialdrawer:8.0.1"
-    implementation "com.mikepenz:materialdrawer-nav:8.0.1"
-    implementation project(':seekbar')
-    implementation project(':category')
-//    implementation 'com.github.zacharee:Android-ExpandableTextView:5007e77df0'
-    implementation project(':expandabletv')
-    implementation 'com.github.zacharee:material:a2ab4a2d3c'
+    implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:4.3'
+    implementation 'com.github.zacharee:material:18bda1a64b'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
-    implementation 'eu.chainfire:libsuperuser:1.1.0.+'
-    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
-    implementation 'io.noties.markwon:core:4.4.0'
-    implementation 'com.github.zacharee.colorpicker:library:9ea5085260'
-    implementation 'com.joaomgcd:taskerpluginlibrary:0.3'
+    implementation 'com.github.reddit:IndicatorFastScroll:1.4.0'
+    implementation "com.github.topjohnwu.libsu:core:3.1.2"
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation 'io.noties.markwon:core:4.6.2'
+    implementation 'io.noties.markwon:html:4.6.2'
+    implementation 'com.joaomgcd:taskerpluginlibrary:0.4.2'
+    implementation 'dev.rikka.shizuku:api:12.1.0'
+    implementation 'dev.rikka.shizuku:provider:12.1.0'
+    implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
+    implementation 'me.grantland:autofittextview:0.2.1'
+
+    implementation 'com.github.zacharee:SeekBarPreference:46a6643c79'
+    implementation 'com.github.zacharee:CollapsiblePreferenceCategory:e192e39bf0'
+    implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
 }

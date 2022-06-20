@@ -33,11 +33,13 @@ class ExtraPermsRetroactive : IntroActivity(), CoroutineScope by MainScope() {
             return
         }
 
-        addSlide(
-            FragmentSlide.Builder()
-                .background(R.color.slide_5)
-                .fragment(fragmentClass!!.newInstance() as SlideFragment)
-                .build()
-        )
+        fragmentClass?.let {
+            addSlide(
+                FragmentSlide.Builder()
+                    .background(R.color.slide_5)
+                    .fragment(it.newInstance() as Fragment)
+                    .build()
+            )
+        }
     }
 }

@@ -4,10 +4,10 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
-import androidx.preference.PreferenceViewHolder
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
-import kotlinx.android.synthetic.main.custom_preference.view.*
+import com.zacharee1.systemuituner.databinding.CustomPreferenceBinding
+import com.zacharee1.systemuituner.util.setColorFilterCompat
 
 interface IColorPreference {
     var iconColor: Int
@@ -28,14 +28,16 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
     }
 
     override fun bindVH(holder: RecyclerView.ViewHolder) {
-        holder.itemView.icon_frame.apply {
+        val binding = CustomPreferenceBinding.bind(holder.itemView)
+
+        binding.iconFrame.apply {
             (background as StateListDrawable).apply {
                 val drawable = getStateDrawable(1)
 
                 if (iconColor != Int.MIN_VALUE) {
-                    drawable.setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP)
+                    drawable?.setColorFilterCompat(iconColor, PorterDuff.Mode.SRC_ATOP)
                 } else {
-                    drawable.clearColorFilter()
+                    drawable?.clearColorFilter()
                 }
             }
         }

@@ -1,20 +1,21 @@
 package com.zacharee1.systemuituner.prefs.secure.specific
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz
 import com.zacharee1.systemuituner.util.writeGlobal
 
 class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
-    override val keys: Array<String>
-        get() = arrayOf(key, "navigationbar_current_color")
-    override var type = SettingsType.GLOBAL
+    override val keys
+        get() = hashMapOf(
+            SettingsType.GLOBAL to arrayOf(key, "navigationbar_current_color")
+        )
+    override var type = SettingsType.UNDEFINED
 
     init {
         key = "navigationbar_color"

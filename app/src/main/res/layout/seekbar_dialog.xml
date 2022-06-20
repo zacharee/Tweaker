@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zacharee1.systemuituner.views.RoundedFrameCardView android:layout_height="wrap_content"
+<tk.zwander.seekbarpreference.SeekBarView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/seekbar_view"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <tk.zwander.seekbarpreference.SeekBarView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/seekbar_view"
-        android:layout_width="match_parent"
-        android:layout_height="?listPreferredItemHeightLarge"
-        android:layout_margin="8dp"
-        app:isPreference="true" />
-
-</com.zacharee1.systemuituner.views.RoundedFrameCardView>
+    android:layout_height="?listPreferredItemHeightLarge"
+    android:layout_margin="8dp"
+    app:isPreference="true" />

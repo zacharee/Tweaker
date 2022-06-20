@@ -5,11 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.joaomgcd.taskerpluginlibrary.config.TaskerPluginConfig
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
-import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
-import com.zacharee1.systemuituner.util.SettingsType
+import com.zacharee1.systemuituner.databinding.TaskerWriteSettingBinding
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.tasker.helpers.WriteSettingHelper
-import kotlinx.android.synthetic.main.tasker_write_setting.*
 
 class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<TaskerWriteSettingData> {
     override val context: Context
@@ -22,6 +21,7 @@ class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<Ta
     private var value: String? = null
 
     private val helper by lazy { WriteSettingHelper(this) }
+    private val binding by lazy { TaskerWriteSettingBinding.inflate(layoutInflater) }
 
     override fun assignFromInput(input: TaskerInput<TaskerWriteSettingData>) {
         type = input.regular.type
@@ -33,20 +33,20 @@ class WriteSettingConfigureActivity : AppCompatActivity(), TaskerPluginConfig<Ta
         super.onCreate(savedInstanceState)
         helper.onCreate()
 
-        setContentView(R.layout.tasker_write_setting)
+        setContentView(binding.root)
 
-        key_entry.setText(key)
-        value_entry.setText(value)
+        binding.keyEntry.setText(key)
+        binding.valueEntry.setText(value)
 
         val parsedType = SettingsType.fromString(type).value
         if (parsedType != -1) {
-            settings_type.setSelection(parsedType)
+            binding.settingsType.setSelection(parsedType)
         }
 
-        apply.setOnClickListener {
-            key = key_entry.text?.toString() ?: ""
-            value = value_entry.text?.toString()
-            type = settings_type.selectedItem.toString()
+        binding.apply.setOnClickListener {
+            key = binding.keyEntry.text?.toString() ?: ""
+            value = binding.valueEntry.text?.toString()
+            type = binding.settingsType.selectedItem.toString()
 
             helper.finishForTasker()
         }

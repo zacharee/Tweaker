@@ -1,14 +1,18 @@
 package com.zacharee1.systemuituner.services.tiles
 
 import android.annotation.TargetApi
-import android.content.*
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.provider.AlarmClock
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.text.format.DateFormat
-import kotlinx.coroutines.*
+import com.zacharee1.systemuituner.util.safeUpdateTile
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,7 +28,7 @@ class ClockTile : TileService() {
             updateTime()
         }
     }
-    private val handler = Handler()
+    private val handler = Handler(Looper.getMainLooper())
 
     private var shouldRun = false
 
@@ -35,7 +39,7 @@ class ClockTile : TileService() {
         updateTime()
 
         qsTile?.state = Tile.STATE_ACTIVE
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
     }
 
     override fun onStopListening() {
@@ -43,7 +47,7 @@ class ClockTile : TileService() {
 
         try {
             unregisterReceiver(receiver)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     override fun onClick() {
@@ -70,7 +74,7 @@ class ClockTile : TileService() {
 
         try {
             startActivityAndCollapse(intentClock)
-        } catch (e: Exception) {}
+        } catch (_: Exception) {}
     }
 
     private fun updateTime() {
@@ -78,7 +82,7 @@ class ClockTile : TileService() {
         val date = SimpleDateFormat(formatOption, Locale.getDefault()).format(Date())
 
         qsTile?.label = date
-        qsTile?.updateTile()
+        qsTile?.safeUpdateTile()
 
         if (shouldRun) {
             handler.postDelayed({

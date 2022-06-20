@@ -3,8 +3,9 @@ package com.zacharee1.systemuituner.data
 import android.content.ComponentName
 import android.content.Context
 import android.graphics.drawable.Drawable
+import androidx.core.content.res.ResourcesCompat
 import com.zacharee1.systemuituner.R
-import java.util.*
+import com.zacharee1.systemuituner.util.capitalized
 import java.util.regex.Pattern
 
 class QSTileInfo(
@@ -25,16 +26,15 @@ class QSTileInfo(
         else -> Type.STANDARD
     }
 
-    @ExperimentalStdlibApi
     fun getLabel(context: Context): String {
         return _label ?: when (type) {
             Type.INTENT -> getIntentLabel()
             Type.CUSTOM -> context.getCustomLabel()
-            Type.STANDARD -> key.capitalize(Locale.US)
+            Type.STANDARD -> key.capitalized
         }.also { _label = it }
     }
 
-    fun getIcon(context: Context): Drawable {
+    fun getIcon(context: Context): Drawable? {
         return _icon ?: when (type) {
             Type.INTENT -> context.getDefaultDrawable()
             Type.CUSTOM -> context.getCustomDrawable()
@@ -59,18 +59,23 @@ class QSTileInfo(
         val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
-                .toString()
+            if (component != null) {
+                packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
+                    .toString()
+            } else {
+                packageManager.getApplicationInfo(packageName, 0).loadLabel(packageManager)
+                    .toString()
+            }
         } catch (e: Exception) {
             try {
-                component.className.split(".").run { this[size - 1] }
+                component?.className?.split(".")?.run { this[size - 1] } ?: packageName
             } catch (e: Exception) {
                 packageName
             }
         }
     }
 
-    fun getNameAndComponentForCustom(): ComponentName {
+    fun getNameAndComponentForCustom(): ComponentName? {
         val p = Pattern.compile("\\((.*?)\\)")
         val m = p.matcher(key)
 
@@ -82,10 +87,10 @@ class QSTileInfo(
 
         name = name.replace("(", "").replace(")", "")
 
-        return ComponentName.unflattenFromString(name) ?: throw IllegalArgumentException("Invalid component name: $name")
+        return ComponentName.unflattenFromString(name)
     }
 
-    private fun Context.getCustomDrawable(): Drawable {
+    private fun Context.getCustomDrawable(): Drawable? {
         val component = getNameAndComponentForCustom()
 
         return try {
@@ -96,14 +101,15 @@ class QSTileInfo(
             } catch (e: Exception) {
                 getDefaultDrawable()
             }
-        }.mutate().apply {
+        }?.mutate()?.apply {
             setTint(resources.getColor(android.R.color.white, theme))
         }
     }
 
-    private fun Context.chooseStandardDrawable(): Drawable {
-        return resources.getDrawable(
-            when (key.toLowerCase(Locale.US)) {
+    private fun Context.chooseStandardDrawable(): Drawable? {
+        return ResourcesCompat.getDrawable(
+            resources,
+            when (key.lowercase()) {
                 "wifi" -> R.drawable.ic_baseline_signal_wifi_4_bar_24
                 "bluetooth", "bt" -> R.drawable.ic_baseline_bluetooth_24
                 "color_inversion" -> R.drawable.ic_baseline_invert_colors_24
@@ -128,13 +134,19 @@ class QSTileInfo(
                 "exitkft" -> R.drawable.ic_baseline_child_care_24
                 "recordscreentile", "screenrecorder" -> R.drawable.ic_baseline_videocam_24
                 "screencapture" -> R.drawable.ic_baseline_camera_24
+                "internet" -> R.drawable.ic_network
+                "controls" -> R.drawable.ic_baseline_home_24
+                "mictoggle" -> R.drawable.microphone
+                "cameratoggle" -> R.drawable.ic_baseline_camera_24
+                "screenrecord" -> R.drawable.record
+                "wallet" -> R.drawable.credit_card
                 else -> R.drawable.ic_baseline_android_24
             },
-            null
+            theme
         )
     }
 
-    private fun Context.getDefaultDrawable(): Drawable {
-        return resources.getDrawable(R.drawable.ic_baseline_android_24, null)
+    private fun Context.getDefaultDrawable(): Drawable? {
+        return ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_android_24, theme)
     }
 }

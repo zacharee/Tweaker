@@ -30,14 +30,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Switch
+            <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/night_display_enabled"
                 android:layout_width="match_parent"
                 android:layout_height="?listPreferredItemHeightSmall"
                 android:text="@string/enabled"
                 />
 
-            <Switch
+            <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/night_display_auto"
                 android:layout_width="match_parent"
                 android:layout_height="?listPreferredItemHeightSmall"
