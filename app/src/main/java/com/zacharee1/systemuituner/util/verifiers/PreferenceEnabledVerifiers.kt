@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.util.verifiers
 
 import android.content.Context
+import android.content.res.Resources
 import android.os.Build
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.hasSdCard
@@ -27,7 +28,14 @@ class EnableLockscreenShortcuts(context: Context) : BasePreferenceEnabledVerifie
             val resNames = arrayOf("config_keyguardShowLeftAffordance", "config_keyguardShowCameraAffordance")
             val remRes = context.packageManager.getResourcesForApplication("com.android.systemui")
 
-            return resNames.map { remRes.getBoolean(remRes.getIdentifier(it, "bool", "com.android.systemui")) }.all { it }
+            return resNames.map {
+                try {
+                    remRes.getBoolean(remRes.getIdentifier(it, "bool", "com.android.systemui"))
+                } catch (e: Resources.NotFoundException) {
+                    // If the resource doesn't exist, just assume we can use the shortcuts.
+                    true
+                }
+            }.all { it }
         }
 
     override val message: CharSequence?
