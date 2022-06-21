@@ -57,12 +57,12 @@
     <string name="feature_app_install_location">Đặt Vị Trí Cài Đặt Ứng Dụng Mặc Định</string>
     <string name="feature_app_install_location_desc">Vị trí cài đặt ứng dụng mặc định. Chọn ứng dụng lưu trữ được cài đặt theo mặc định. Thông thường, các ứng dụng tự quyết định bằng cách chỉ định giá trị trong AndroidManifest, nhưng bạn có thể chọn cài đặt chúng vào phương tiện lưu trữ có thể sử dụng nếu bạn muốn.</string>
     <string name="feature_heads_up_notifications">Chuyển đổi Thông báo Cảnh báo</string>
-    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
+    <string name="feature_heads_up_notifications_desc">Chuyển sang bật hoặc tắt thông báo cảnh báo trên toàn cầu. Thông báo cảnh báo là những thông báo bật lên ở đầu màn hình.</string>
     <string name="feature_insufficient_storage_warning">Bỏ qua cảnh báo \"Dung lượng bộ nhớ không đủ\"</string>
-    <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
+    <string name="feature_insufficient_storage_warning_desc">Khi thiết bị của bạn đạt đến một giá trị ngưỡng nhất định của bộ nhớ khả dụng, Android sẽ hiển thị cảnh báo rằng thiết bị của bạn không có đủ dung lượng bộ nhớ. Điều này có thể ngăn bạn cài đặt các ứng dụng hoặc bản cập nhật mới. Bạn có thể giảm giá trị ngưỡng theo cách thủ công để ngăn cảnh báo này hiển thị.</string>
     <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
-    <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
-    <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
+    <string name="feature_keep_screen_on_desc">Trong Cài đặt dành cho nhà phát triển của Android, bạn có thể chọn tùy chọn để màn hình luôn sáng khi được cắm vào nguồn điện. Theo mặc định, điều này sẽ bật tính năng này cho tất cả các nguồn điện. Bạn có thể chỉ định nguồn điện nào bạn muốn để màn hình điện thoại luôn bật.</string>
+    <string name="feature_custom_animation_scales">Đặt tỷ lệ hoạt ảnh tùy chỉnh</string>
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
     <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
