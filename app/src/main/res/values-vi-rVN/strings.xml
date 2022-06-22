@@ -270,6 +270,8 @@
     <string name="intro_grant_wss_desc">SystemUI Tuner needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
     <string name="intro_grant_extra">Grant Extra Permissions</string>
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
+    <string name="intro_system_alert_window">System Alert Window</string>
+    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
     <string name="intro_last">Cảm ơn vì đã sử dụng ứng dụng!</string>
     <string name="intro_last_desc">Theo dõi tôi trên Twitter cho các cập nhật mới nhất.</string>
     <string name="compatibility_message_lower">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %s trở lên</string>
