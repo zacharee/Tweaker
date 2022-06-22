@@ -270,6 +270,8 @@
     <string name="intro_grant_wss_desc">System UI Tuner necesita un permiso especial para trabajar. Para concederlo, necesita usar ADB o ser rooteado. Presionando GRANT a continuación intentará usar root para conceder el permiso. De lo contrario, pulse el botón HELP y le ayudaremos a configurar el ADB. No se preocupe, ADB es perfectamente seguro de usar. No anulará su garantía, la salida de Samsung Knox, la raíz de su teléfono, ni desbloqueará el cargador de arranque.</string>
     <string name="intro_grant_extra">Conceder permisos adicionales</string>
     <string name="intro_grant_extra_desc">Para ciertas características, SystemUI Tuner necesita algunos permisos ADB extra para funcionar correctamente. No tienes que concederlos ahora, y se te pedirá si es necesario.</string>
+    <string name="intro_system_alert_window">System Alert Window</string>
+    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
