@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/layout/activity_icon_blacklist.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/layout/activity_immersive_selector.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_persistent.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/activity_qs_editor.xml" value="0.1" />
         <entry key="app/src/main/res/layout/app_activity_item.xml" value="0.20520833333333333" />
         <entry key="app/src/main/res/layout/base_dialog_layout.xml" value="0.22135416666666666" />
@@ -40,6 +41,7 @@
         <entry key="app/src/main/res/layout/ui_sounds_item.xml" value="0.10052083333333334" />
         <entry key="app/src/main/res/layout/widget_only_preference.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/menu/menu_search.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/xml/prefs_apps.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/xml/prefs_home.xml" value="0.1" />
         <entry key="app/src/main/res/xml/prefs_search.xml" value="0.19972826086956522" />
       </map>

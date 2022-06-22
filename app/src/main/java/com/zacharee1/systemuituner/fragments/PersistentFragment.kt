@@ -6,7 +6,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.View
@@ -76,6 +78,18 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                 icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
             }
         )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !Settings.canDrawOverlays(requireContext())) {
+            preferenceScreen.addPreference(
+                InlineActivityPreference(
+                    requireContext(),
+                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+                ).apply {
+                    title = resources.getString(R.string.intro_system_alert_window)
+                    summary = resources.getString(R.string.intro_system_alert_window_desc)
+                    icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
+                }
+            )
+        }
         filterPersistent(null) {
             it.forEach { pref ->
                 preferenceScreen.addPreference(construct(pref))

@@ -340,6 +340,9 @@
     <string name="intro_grant_extra">Grant Extra Permissions</string>
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
 
+    <string name="intro_system_alert_window">System Alert Window</string>
+    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
+
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
 

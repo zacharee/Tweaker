@@ -35,6 +35,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val SAVED_NAV_IMMERSIVE_BLACKLIST = "nav_immersive_blacklist"
         const val SAVED_STATUS_IMMERSIVE_WHITELIST = "status_immersive_whitelist"
         const val SAVED_STATUS_IMMERSIVE_BLACKLIST = "status_immersive_blacklist"
+        const val SAW_SYSTEM_ALERT_WINDOW = "saw_system_alert_window"
     }
 
     /**
@@ -99,6 +100,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = getBoolean(FORCE_ENABLE_ALL, false)
         set(value) {
             putBoolean(FORCE_ENABLE_ALL, value)
+        }
+
+    var sawSystemAlertWindow: Boolean
+        get() = getBoolean(SAW_SYSTEM_ALERT_WINDOW, false)
+        set(value) {
+            putBoolean(SAW_SYSTEM_ALERT_WINDOW, value)
         }
 
     val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)

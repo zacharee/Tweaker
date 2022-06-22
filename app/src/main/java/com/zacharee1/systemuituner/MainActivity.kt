@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner
 import android.animation.ValueAnimator
 import android.content.res.Configuration
 import android.os.Bundle
+import android.provider.Settings
 import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
@@ -37,8 +38,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
 
-        if (!hasWss)
+        if (!hasWss) {
             Intro.start(this)
+        } else if (!Settings.canDrawOverlays(this) && !prefManager.sawSystemAlertWindow) {
+            Intro.start(this, Intro.Companion.StartReason.SYSTEM_ALERT_WINDOW)
+        }
 
         setContentView(mainBinding.root)
         setSupportActionBar(mainBinding.toolbar)

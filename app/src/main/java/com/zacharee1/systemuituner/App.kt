@@ -7,6 +7,7 @@ import android.os.IBinder
 import android.os.Looper
 import android.util.AndroidRuntimeException
 import android.util.Log
+import androidx.core.content.ContextCompat
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
@@ -32,9 +33,18 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                     try {
                         bindService(Intent(this, Manager::class.java), connection, Context.BIND_AUTO_CREATE)
                     } catch (e: Exception) {
-                        Log.e("SystemUITuner", "Unable to start foreground service. Build SDK ${Build.VERSION.SDK_INT}.", e)
+                        Log.e("SystemUITuner", "Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}.", e)
                         FirebaseCrashlytics.getInstance().apply {
-                            recordException(Exception("Unable to start foreground service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                            recordException(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                        }
+
+                        try {
+                            ContextCompat.startForegroundService(context, Intent(this, Manager::class.java))
+                        } catch (e: Exception) {
+                            Log.e("SystemUITuner", "Unable to start service. Build SDK ${Build.VERSION.SDK_INT}.", e)
+                            FirebaseCrashlytics.getInstance().apply {
+                                recordException(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                            }
                         }
                     }
                 }
