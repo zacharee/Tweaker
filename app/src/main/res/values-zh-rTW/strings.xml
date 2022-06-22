@@ -89,7 +89,7 @@
     <string name="feature_dark_mode">啟用全域深色模式</string>
     <string name="feature_dark_mode_desc">Android Pie 和 10 引入了全域深色模式選項，目前為止這個選項是 Andorid 的一部分已經有一段時間了。這個選項可以在支援此功能的應用程式 (如 Instagram) 中啟用深色模式。可能需要重新啟動以生效。</string>
     <string name="feature_clock_seconds">顯示時鐘秒數</string>
-    <string name="feature_clock_seconds_desc">啟用狀態列時鐘秒數。這不對所有裝置和配置生效，包括 MIUI 和 One UI。</string>
+    <string name="feature_clock_seconds_desc">啟用狀態列時鐘秒數。這不對所有裝置和組態生效，包括 MIUI 和 One UI。</string>
     <string name="feature_dnd_in_volume">音量指示器切換零打擾</string>
     <string name="feature_dnd_in_volume_desc">允許您切換「零打擾」音量彈出式視窗。</string>
     <string name="feature_battery_percent">在狀態列中顯示電量百分比</string>
@@ -270,6 +270,8 @@
     <string name="intro_grant_wss_desc">SystemUI Tuner 在工作前需要一個特殊的權限。要授予它，你要麼需要使用 ADB，要麼需要 Root。按下面的「授予」按鈕將嘗試使用 Root 來授權。否則按下「說明」按鈕，我們將幫你設定 ADB。不過，不要擔心；使用 ADB 是完全安全的。絕對不會讓你的保固失效，不會讓 Samsung Knox 解除，不會讓你的手機 Root，也不會解鎖 Bootloader。</string>
     <string name="intro_grant_extra">授予額外權限</string>
     <string name="intro_grant_extra_desc">對於某些功能，SystemUI Tuner 需要一些額外的 ADB 權限才能正常工作。你現在不需要授予這些權限，如果需要的話，你會被提醒。</string>
+    <string name="intro_system_alert_window">系統警示視窗</string>
+    <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景和裝置 啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
@@ -336,7 +338,7 @@
     <string name="demo_mode_activity_type_in">輸入</string>
     <string name="demo_mode_activity_type_out">輸出</string>
     <string name="demo_mode_activity_type_inout">輸入/輸出</string>
-    <string name="safe_audio_state_not_configured">未配置</string>
+    <string name="safe_audio_state_not_configured">未設定</string>
     <string name="safe_audio_state_disabled">停用</string>
     <string name="safe_audio_state_inactive">未生效</string>
     <string name="safe_audio_state_active">生效</string>

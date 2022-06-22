@@ -273,6 +273,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_grant_wss_desc">Nástroj SystemUI Tuner potřebuje ke své práci zvláštní oprávnění. Abyste jej mohli udělit, musíte buď použít ADB, nebo mít root. Stisknutím tlačítka UDĚLIT níže se k udělení oprávnění pokusíte použít root. V opačném případě stiskněte tlačítko POMOC a my vám pomůžeme s nastavením ADB. Nemějte však obavy, používání ADB je naprosto bezpečné. Nezrušíte tím záruku, nespustíte Samsung Knox, nezrušíte root telefonu ani neodemknete bootloader.</string>
     <string name="intro_grant_extra">Udělit extra oprávnění</string>
     <string name="intro_grant_extra_desc">Pro správnou funkci některých funkcí potřebuje SystemUI Tuner některá další oprávnění ADB. Nyní je nemusíte udělovat a budete vyzváni, pokud budou potřeba.</string>
+    <string name="intro_system_alert_window">Varovná hláška</string>
+    <string name="intro_system_alert_window_desc">Android 12 a novější výrazně omezily schopnost aplikací spouštět operace na pozadí a při startu zařízení. Udělením oprávnění SystemUI Tuner k zobrazení přes ostatní se aplikace osvobodí od těchto omezení a zlepší spolehlivost přetrvávajících nastavení. Toto oprávnění je zcela nepovinné.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
     <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>

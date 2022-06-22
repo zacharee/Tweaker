@@ -1,3 +1,8 @@
+## 342
+- Fix some crashes.
+- Update translations.
+- Add in a prompt to enable SYSTEM_ALERT_WINDOW on Android 12 for background operations.
+
 ## 341
 - Disable the lock screen shortcuts option if it's unavailable on the current device.
 - Try a workaround for foreground Service crashes.
