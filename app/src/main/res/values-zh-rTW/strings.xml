@@ -271,7 +271,8 @@
     <string name="intro_grant_extra">授予額外權限</string>
     <string name="intro_grant_extra_desc">對於某些功能，SystemUI Tuner 需要一些額外的 ADB 權限才能正常工作。你現在不需要授予這些權限，如果需要的話，你會被提醒。</string>
     <string name="intro_system_alert_window">系統警示視窗</string>
-    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
+    <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景和裝置
+啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
