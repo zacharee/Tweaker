@@ -270,6 +270,8 @@
     <string name="intro_grant_wss_desc">SystemUI Tuner 在工作前需要一個特殊的權限。要授予它，你要麼需要使用 ADB，要麼需要 Root。按下面的「授予」按鈕將嘗試使用 Root 來授權。否則按下「說明」按鈕，我們將幫你設定 ADB。不過，不要擔心；使用 ADB 是完全安全的。絕對不會讓你的保固失效，不會讓 Samsung Knox 解除，不會讓你的手機 Root，也不會解鎖 Bootloader。</string>
     <string name="intro_grant_extra">授予額外權限</string>
     <string name="intro_grant_extra_desc">對於某些功能，SystemUI Tuner 需要一些額外的 ADB 權限才能正常工作。你現在不需要授予這些權限，如果需要的話，你會被提醒。</string>
+    <string name="intro_system_alert_window">System Alert Window</string>
+    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
