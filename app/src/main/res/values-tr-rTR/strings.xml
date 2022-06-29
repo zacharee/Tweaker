@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">Tr</string>
     <string name="tap_to_disable">Bu Bildiriyi kapatmak için buraya tıkla</string>
     <string name="home">Ana Sayfa</string>
     <string name="category_display">Görüntüle</string>
