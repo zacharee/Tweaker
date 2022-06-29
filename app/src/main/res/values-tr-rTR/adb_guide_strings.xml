@@ -30,7 +30,7 @@
     <string name="adb_install_adb_mac_1">ADB ZIP buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
     <string name="adb_install_adb_mac_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
     <string name="adb_install_adb_mac_3">Şimdi, Terminali açın. Spotlight Search\'ü açmak için aynı anda CMD+SPACE tuşlarına basarak, \"Terminal\"i arayabilirsin.</string>
-    <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
+    <string name="adb_install_adb_mac_4">Adb_install_adb_mac_4.</string>
     <string name="adb_install_adb_debian_1">CTRL+ALT+T ye basarak Terminali açın.</string>
     <string name="adb_install_adb_debian_2">Şu komutla ADB yi kurun: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
     <string name="adb_install_adb_fedora_1">Terminali açın.</string>
@@ -38,7 +38,7 @@
     <string name="adb_install_adb_rhel_1">Terminali açın.</string>
     <string name="adb_install_adb_rhel_2">Şu komutla ADB yi kurun: `yum install android-tools`.</string>
     <string name="adb_install_adb_linux_other_1">ADB ZIP buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
-    <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
+    <string name="adb_install_adb_linux_other_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
     <string name="adb_install_adb_linux_other_3">Terminali açın.</string>
     <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
