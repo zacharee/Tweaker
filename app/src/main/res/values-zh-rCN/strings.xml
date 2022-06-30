@@ -196,8 +196,8 @@
     <string name="reset">重置</string>
     <string name="grant">允许</string>
     <string name="help">帮助</string>
-    <string name="no_root_title">无Root</string>
-    <string name="no_root_msg">未检测到Root。如果您的设备已root，请确保SystemUI Tuner有Root权限。否则，请按 HELP 按钮来获取ADB 指令。</string>
+    <string name="no_root_title">无根目录或 Shizuku</string>
+    <string name="no_root_msg">未检测到 Root 或 Shizuku。如果您的设备已root，请确保SystemUI Tuner 有Root权限。 否则，请按下HELP按钮用于ADB和Shizuku的指示。</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 未被授予访问权限。</string>
     <string name="mode">模式</string>
     <string name="key">密钥</string>
@@ -270,6 +270,8 @@
     <string name="intro_grant_wss_desc">系统界面调节器需要特殊权限才能工作。要授予它，您需要使用 ADB 或root 权限。 按下面的 GRANT 将尝试使用 root 授予权限。 否则，请按HELP按钮，我们会帮助您建立ADB。别担心，ADB完全可以安全使用。 您将不会撤销您的保修，使用 Samsung Knox, Root您的手机，或解锁引导器。</string>
     <string name="intro_grant_extra">授予额外权限</string>
     <string name="intro_grant_extra_desc">系统界面调节器需要额外的 ADB 权限才能正常工作。 您现在就不必授予这些。如果需要的话，您将会被提示。</string>
+    <string name="intro_system_alert_window">系统警报窗口</string>
+    <string name="intro_system_alert_window_desc">Android 12及更高版本已经严重限制了应用在后台和设备启动时运行的能力。 给予系统界面调节器在其他应用上显示的权限将免除这些限制，并提高持久性选项的可靠性。 此权限完全可选.</string>
     <string name="intro_last">感谢您使用我的应用！</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
@@ -320,7 +322,7 @@
     <string name="error_restoring_icon_blacklist">错误还原: %s</string>
     <string name="permission_grant_success">已成功授予权限。</string>
     <string name="permission_grant_failure">无法授予权限。若您手持的是小米或 OPPO/Realme/OnePlus 设备，请确保您开启了 “USB 调试 (安全设置)” 或 “禁用权限监控” 设置。</string>
-    <string name="permission_grant_failure_short">无法授予权限。\n%s</string>
+    <string name="permission_grant_failure_short">授予权限失败。\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">每月捐赠 $1 即可使用我的所有付费应用等等。</string>
     <string name="supporters">支持者</string>
