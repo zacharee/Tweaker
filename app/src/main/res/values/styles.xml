@@ -16,6 +16,7 @@
         <item name="toolbarStyle">@style/ActionBarStyle</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDarkTranslucent</item>
 
         <item name="windowActionModeOverlay">true</item>
     </style>

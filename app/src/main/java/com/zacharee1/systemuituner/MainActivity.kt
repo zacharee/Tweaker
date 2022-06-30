@@ -57,8 +57,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         mainBinding.toolbar.addAnimation()
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-
         with(titleSwitcher) {
             inAnimation = AnimationUtils.loadAnimation(this@MainActivity, R.anim.scale_in)
             outAnimation = AnimationUtils.loadAnimation(this@MainActivity, R.anim.scale_out)
