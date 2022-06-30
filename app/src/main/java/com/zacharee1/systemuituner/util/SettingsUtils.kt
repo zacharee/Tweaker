@@ -35,6 +35,7 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
         }.orEmpty().ifBlank { def?.toString() }
     } catch (e: SecurityException) {
         if (Shizuku.pingBinder() && hasShizukuPermission) {
+            @Suppress("DEPRECATION")
             Shizuku.newProcess(
                 arrayOf("settings", "get", type.toString(), key),
                 null,
@@ -104,6 +105,7 @@ fun Context.writeSystem(key: String?, value: Any?): Boolean {
                 true
             }
             Shizuku.pingBinder() && hasShizukuPermission -> {
+                @Suppress("DEPRECATION")
                 Shizuku.newProcess(
                     arrayOf(
                         "content", "insert",

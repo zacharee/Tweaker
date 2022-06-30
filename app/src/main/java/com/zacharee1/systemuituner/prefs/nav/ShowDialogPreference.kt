@@ -15,6 +15,7 @@ class ShowDialogPreference(context: Context, attrs: AttributeSet?) : Preference(
             val array = context.theme.obtainStyledAttributes(attrs, R.styleable.ShowDialogPreference, 0, 0)
 
             array.getString(R.styleable.ShowDialogPreference_dialog_class)?.let {
+                @Suppress("UNCHECKED_CAST")
                 context.classLoader.loadClass(it) as Class<RoundedBottomSheetDialog>
             }
         } else {

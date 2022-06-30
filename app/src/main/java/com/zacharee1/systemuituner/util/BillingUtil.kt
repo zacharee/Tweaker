@@ -6,6 +6,7 @@ import android.view.ContextThemeWrapper
 import androidx.core.view.isVisible
 import com.android.billingclient.api.*
 import com.android.billingclient.api.BillingClient.BillingResponseCode.OK
+import com.android.billingclient.api.QueryProductDetailsParams.Product
 import com.zacharee1.systemuituner.databinding.LayoutDonateBinding
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import kotlinx.coroutines.*
@@ -47,17 +48,20 @@ class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScop
     }
 
     fun doDonate(sku: String) = launch {
-        val skus = arrayListOf(sku)
+        val skus = arrayListOf(sku).map { Product.newBuilder().setProductId(it).setProductType(BillingClient.ProductType.INAPP).build() }
 
-        val params = SkuDetailsParams.newBuilder()
-        params.setSkusList(skus).setType(BillingClient.SkuType.INAPP)
         val result = withContext(Dispatchers.IO) {
-            client.querySkuDetails(params.build())
+            client.queryProductDetails(QueryProductDetailsParams.newBuilder().setProductList(skus).build())
         }
 
-        val list = result.skuDetailsList
+        val list = result.productDetailsList
         if (result.billingResult.responseCode == OK && list != null && list.isNotEmpty()) {
-            client.launchBillingFlow(activity, BillingFlowParams.newBuilder().setSkuDetails(list[0]).build())
+            client.launchBillingFlow(
+                activity,
+                BillingFlowParams.newBuilder().setProductDetailsParamsList(
+                    list.map { BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(it).build() }
+                ).build()
+            )
         }
     }
 

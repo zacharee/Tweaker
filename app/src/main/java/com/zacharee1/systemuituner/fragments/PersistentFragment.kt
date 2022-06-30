@@ -152,6 +152,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         else CustomPersistentOptionDialogFragment.forEdit(
             label, key, value, type
         )
+        @Suppress("DEPRECATION")
         fragment.setTargetFragment(this, 0)
         fragment.show(parentFragmentManager, null)
     }

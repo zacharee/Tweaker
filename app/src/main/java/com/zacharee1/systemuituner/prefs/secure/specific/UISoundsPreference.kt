@@ -15,6 +15,7 @@ class UISoundsPreference(context: Context, attrs: AttributeSet) : BaseDialogPref
     ISpecificPreference, IDangerousPreference by DangerousPreference(context, attrs) {
     override var dangerous: Boolean = true
 
+    @Suppress("DEPRECATION")
     override val keys = hashMapOf(
         SettingsType.GLOBAL to arrayOf(
             Settings.Global.CAR_DOCK_SOUND,

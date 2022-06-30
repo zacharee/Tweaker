@@ -164,6 +164,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
             else -> null
         }
 
+        @Suppress("DEPRECATION")
         fragment?.setTargetFragment(this, 0)
         fragment?.show(parentFragmentManager, null)
 
@@ -184,7 +185,7 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+        view.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
             if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
                 updateLayoutManager(view, listView, grid, linear, supportsGrid)
                 updateListWidthAndGravity()

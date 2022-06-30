@@ -47,7 +47,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     private val origExpansionStates = HashMap<String, Boolean>()
     private val gson = GsonBuilder().create()
 
-    private val backupLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument()) { result ->
+    private val backupLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("text/*")) { result ->
         result?.let { uri ->
             requireContext().contentResolver.openOutputStream(uri).use { out ->
                 OutputStreamWriter(out).use { writer ->
@@ -373,6 +373,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             else -> null
         }
 
+        @Suppress("DEPRECATION")
         fragment?.setTargetFragment(this, 0)
         fragment?.show(parentFragmentManager, null)
 
@@ -427,7 +428,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.addOnLayoutChangeListener { v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
+        view.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
             if (left != oldLeft || top != oldTop || right != oldRight || bottom != oldBottom) {
                 updateLayoutManager(view, listView, grid, linear)
             }

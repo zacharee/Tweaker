@@ -318,7 +318,12 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
                         PackageManager.GET_RECEIVERS or
                         PackageManager.GET_SERVICES or
                         PackageManager.GET_PROVIDERS or
-                        PackageManager.GET_DISABLED_COMPONENTS
+                        if (SDK_INT >= VERSION_CODES.N) {
+                            PackageManager.MATCH_DISABLED_COMPONENTS
+                        } else {
+                            @Suppress("DEPRECATION")
+                            PackageManager.GET_DISABLED_COMPONENTS
+                        }
             )
 
             val components = arrayListOf<ComponentInfo>()
