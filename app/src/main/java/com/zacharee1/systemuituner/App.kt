@@ -1,10 +1,12 @@
 package com.zacharee1.systemuituner
 
+import android.app.ActivityManager
+import android.app.ActivityThread
 import android.app.Application
+import android.app.ApplicationErrorReport.ParcelableCrashInfo
+import android.app.IApplicationThread
 import android.content.*
-import android.os.Build
-import android.os.IBinder
-import android.os.Looper
+import android.os.*
 import android.util.AndroidRuntimeException
 import android.util.Log
 import androidx.core.content.ContextCompat
@@ -14,6 +16,7 @@ import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
 import org.lsposed.hiddenapibypass.HiddenApiBypass
+import kotlin.system.exitProcess
 
 class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
@@ -78,13 +81,45 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
     private fun initExceptionHandler() {
         val previousHandler = Thread.getDefaultUncaughtExceptionHandler()
 
-        Thread.setDefaultUncaughtExceptionHandler { t, e ->
-            if (e is AndroidRuntimeException) {
-                Log.e("SystemUITuner", "Caught a runtime Exception!", e)
-                FirebaseCrashlytics.getInstance().recordException(Exception("Caught a runtime Exception!", e))
-                Looper.loop()
-            } else {
-                previousHandler?.uncaughtException(t, e)
+        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(previousHandler))
+    }
+
+    class ExceptionHandler(private val previousHandler: Thread.UncaughtExceptionHandler?) : Thread.UncaughtExceptionHandler {
+        private var crashing = false
+
+        override fun uncaughtException(t: Thread, e: Throwable) {
+            when {
+                e is AndroidRuntimeException -> {
+                    Log.e("SystemUITuner", "Caught a runtime Exception!", e)
+                    FirebaseCrashlytics.getInstance().recordException(Exception("Caught a runtime Exception!", e))
+                    Looper.loop()
+                }
+                e is DeadObjectException || e.cause is DeadObjectException -> {
+                    if (!crashing) {
+                        crashing = true
+
+                        // Try to end profiling. If a profiler is running at this point, and we kill the
+                        // process (below), the in-memory buffer will be lost. So try to stop, which will
+                        // flush the buffer. (This makes method trace profiling useful to debug crashes.)
+                        if (ActivityThread.currentActivityThread() != null) {
+                            ActivityThread.currentActivityThread().stopProfiling()
+                        }
+
+                        // Bring up crash dialog, wait for it to be dismissed
+
+                        // Bring up crash dialog, wait for it to be dismissed
+                        ActivityManager.getService().handleApplicationCrash(
+                            (ActivityThread.currentActivityThread()?.applicationThread as? IApplicationThread)?.asBinder(), ParcelableCrashInfo(e)
+                        )
+                    }
+
+                    // Try everything to make sure this process goes away.
+                    Process.killProcess(Process.myPid())
+                    exitProcess(10)
+                }
+                else -> {
+                    previousHandler?.uncaughtException(t, e)
+                }
             }
         }
     }
