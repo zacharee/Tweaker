@@ -1,3 +1,8 @@
+## 343
+- Code cleanup.
+- Update dependencies.
+- Crash fixes.
+
 ## 342
 - Fix some crashes.
 - Update translations.
