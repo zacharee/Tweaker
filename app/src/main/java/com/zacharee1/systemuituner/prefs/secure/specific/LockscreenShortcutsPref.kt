@@ -8,9 +8,6 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.interfaces.IVerifierPreference
-import com.zacharee1.systemuituner.interfaces.VerifierPreference
-import com.zacharee1.systemuituner.util.verifiers.BasePreferenceEnabledVerifier
 import com.zacharee1.systemuituner.util.verifiers.EnableLockscreenShortcuts
 
 class LockscreenShortcutsPref(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),

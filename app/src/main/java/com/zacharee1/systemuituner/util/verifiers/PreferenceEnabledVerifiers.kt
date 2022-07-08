@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.util.verifiers
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Build
 import com.zacharee1.systemuituner.R
@@ -26,7 +27,11 @@ class EnableLockscreenShortcuts(context: Context) : BasePreferenceEnabledVerifie
             if (context.isTouchWiz) return true
 
             val resNames = arrayOf("config_keyguardShowLeftAffordance", "config_keyguardShowCameraAffordance")
-            val remRes = context.packageManager.getResourcesForApplication("com.android.systemui")
+            val remRes = try {
+                context.packageManager.getResourcesForApplication("com.android.systemui")
+            } catch (e: PackageManager.NameNotFoundException) {
+                return true
+            }
 
             return resNames.map {
                 try {
