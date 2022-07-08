@@ -103,6 +103,8 @@ This app modifies system settings, and gives you the power to break your device.
 
 Immersive Mode is a **system** function. I did not make it and I do not control it. If problems arise through usage, *THIS IS THE FAULT OF YOUR MANUFACTURER*.
 
+Global Immersive Mode has also been removed in Android 11 and later. While some manufacturers, such as Samsung, have added it back, others, such as Google and OnePlus, no longer support its use.
+
 # Limitations
 Since this app is **not** a system app, and does **not** have full system access, it has quite a few limitations.
  - This is **not** a theming app, nor is it meant to be! It cannot change the position, color or size of any system elements (with the exception of the status bar clock on Samsung Experience Oreo).
