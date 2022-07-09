@@ -1,3 +1,7 @@
+## 344
+- Add Hungarian translation.
+- Update translations.
+
 ## 343
 - Code cleanup.
 - Update dependencies.
