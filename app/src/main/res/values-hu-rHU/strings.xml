@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kezelőfelület-hangoló</string>
+    <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (kikapcsol)</string>
     <string name="tap_to_disable">Érintsd az értesítés letiltásához</string>
     <string name="home">Kezdőlap</string>
