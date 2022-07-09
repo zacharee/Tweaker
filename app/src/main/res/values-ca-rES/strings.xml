@@ -14,7 +14,7 @@
     <string name="category_notifications">Notifications</string>
     <string name="category_status_bar">Status Bar</string>
     <string name="category_oem">OEM Features</string>
-    <string name="category_system">System</string>
+    <string name="category_system">System animations</string>
     <string name="category_ui">UI</string>
     <string name="category_quick_settings">Quick Settings</string>
     <string name="screen_persistent">Persistent Options</string>
