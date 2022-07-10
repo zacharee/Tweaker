@@ -17,7 +17,7 @@
     <string name="category_system">Sistema</string>
     <string name="category_ui">UI</string>
     <string name="category_quick_settings">Configuración Rápida</string>
-    <string name="screen_persistent">Registros persistentes</string>
+    <string name="screen_persistent">Persistente Opciones</string>
     <string name="category_interaction">Interacciones</string>
     <string name="more">Más</string>
     <string name="tweaks">Ajustes</string>
