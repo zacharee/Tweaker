@@ -191,7 +191,7 @@
     <string name="immersive_whitelist">白名單</string>
     <string name="advanced">進階</string>
     <string name="all_apps">所有應用程式</string>
-    <string name="select_apps">選擇應用程式</string>
+    <string name="select_apps">選取應用程式</string>
     <string name="radio">無線電</string>
     <string name="reset">重設</string>
     <string name="grant">授予</string>
@@ -292,7 +292,7 @@
     <string name="write_system_fail_desc">很不幸，Android 對可寫入 Setting.System 的內容新增了一些限制，而你似乎碰到了這些限制的設定之一。但幸運的是，透過使用一個附加的應用程式，有辦法繞過這個限制。你必須從 XDA Labs 下載它，而且它是免費且開放原始碼的。</string>
     <string name="write_system_fail_get_add_on">獲取附加程式</string>
     <string name="donate">贊助</string>
-    <string name="donate_desc">我在閒時時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
+    <string name="donate_desc">我在閒時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
     <string name="paypal">PayPal</string>
     <string name="google_play">Google Play</string>
     <string name="social">社群</string>
