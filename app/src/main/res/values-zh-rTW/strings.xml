@@ -61,7 +61,7 @@
     <string name="feature_insufficient_storage_warning">忽略「內部儲存空間不足」警告</string>
     <string name="feature_insufficient_storage_warning_desc">當你的裝置內部剩餘空間剩下特定空間時，Android 系統會跳出裝置剩餘空間不足的提示。可能會影響你安裝新的應用程式或是更新現有應用程式。你能夠手動調整剩餘量以防止警告跳出。</string>
     <string name="feature_keep_screen_on">在充電時防止裝置進入休眠模式</string>
-    <string name="feature_keep_screen_on_desc">在 Android 系統的開發人員設定中，你能夠選擇充電時是否讓手機進入休眠模式，但這功能預設在所有形式電源插入時開啟。你能夠選擇何種形式的電源插入時保持你的裝置螢幕開啟。</string>
+    <string name="feature_keep_screen_on_desc">在 Android 系統的開發人員設定中，你能夠選取充電時是否讓手機進入休眠模式的選項，但這功能預設在所有形式電源插入時開啟。你能夠指定何種形式的電源插入時保持你的裝置螢幕開啟。</string>
     <string name="feature_custom_animation_scales">自訂動畫縮放</string>
     <string name="feature_custom_animation_scales_desc">在 Android 的開發人員設定中，你可以設定動畫縮放來控制動畫的存續時長。若可用的選項對您來說太快或太慢，您可以在這裡設定自訂值。</string>
     <string name="feature_custom_rotation">鎖定螢幕方向到自訂值</string>
@@ -279,7 +279,7 @@
     <string name="compatibility_message_higher">抱歉，此功能僅適用於 Android %s</string>
     <string name="compatibility_message_storage">抱歉，你需要一張 SD 卡才能變更此選項。</string>
     <string name="reset_confirm">你將重設由 SystemUI Tuner 做出的大多數變更。下面的選項必須手動重設。我建議你在重設後重新啟動裝置。\n%s</string>
-    <string name="persistent_options_desc">在這裡選擇一個選項，將其數值鎖定為 SystemUI Tuner 所設定的數值。</string>
+    <string name="persistent_options_desc">在這裡選取一個選項，將其數值鎖定為 SystemUI Tuner 所設定的數值。</string>
     <string name="android_marshmallow">Marshmallow 6.0</string>
     <string name="android_nougat">Nougat 7.0</string>
     <string name="android_nougat_7_1">Nougat 7.1</string>
