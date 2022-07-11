@@ -94,7 +94,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                     FirebaseCrashlytics.getInstance().recordException(Exception("Caught a runtime Exception!", e))
                     Looper.loop()
                 }
-                e is DeadObjectException || e.cause is DeadObjectException -> {
+                e.hasDeadObjectCause -> {
                     if (!crashing) {
                         crashing = true
 
@@ -122,5 +122,8 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                 }
             }
         }
+
+        private val Throwable?.hasDeadObjectCause: Boolean
+            get() = this != null && (this is DeadObjectException || this.cause.hasDeadObjectCause)
     }
 }
