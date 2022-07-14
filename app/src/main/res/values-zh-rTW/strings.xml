@@ -71,9 +71,9 @@
     <string name="feature_heads_up_snooze_length">彈出式通知延後時間</string>
     <string name="feature_heads_up_snooze_length_desc">彈出式通知後的毫秒數會在應用程式再次中斷之前被推回。(預設：60 秒)。</string>
     <string name="feature_camera_gestures">相機手勢</string>
-    <string name="feature_camera_gestures_desc">啟用該選項會使你的手機透過按下兩次電源鍵或在背面和正面之間翻轉手機來快速啟動相機。</string>
+    <string name="feature_camera_gestures_desc">啟用此選項會使你的手機透過按下兩次電源鍵或在背面和正面之間翻轉手機來快速啟動相機。</string>
     <string name="feature_disable_safe_audio_warning">停用音量安全警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧型手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變該警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
+    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧型手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變此警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
     <string name="feature_custom_ui_sounds">自訂 UI 音效</string>
     <string name="feature_custom_ui_sounds_desc">Android 在 UI 的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用。</string>
     <string name="feature_fix_tethering">修復網路共用</string>
@@ -85,7 +85,7 @@
     <string name="feature_lockscreen_shortcuts">鎖定畫面捷徑</string>
     <string name="feature_lockscreen_shortcuts_desc">從 Android Oreo 開發人員預覽版本 3 開始，Google 移除了自訂鎖定螢幕捷徑的能力。然而，偏好值仍可手動設定。</string>
     <string name="feature_enable_adb">啟用 ADB</string>
-    <string name="feature_enable_adb_desc">某些裝置在不活動一段時間後會自動停用 ADB。啟用該選項並將其設定為持續選項以強制啟用 ADB。</string>
+    <string name="feature_enable_adb_desc">某些裝置在不活動一段時間後會自動停用 ADB。啟用此選項並將其設定為持續選項以強制啟用 ADB。</string>
     <string name="feature_dark_mode">啟用全域深色模式</string>
     <string name="feature_dark_mode_desc">Android Pie 和 10 引入了全域深色模式選項，目前為止這個選項是 Andorid 的一部分已經有一段時間了。這個選項可以在支援此功能的應用程式 (如 Instagram) 中啟用深色模式。可能需要重新啟動以生效。</string>
     <string name="feature_clock_seconds">顯示時鐘秒數</string>
@@ -180,7 +180,7 @@
     <string name="option_hide_multi_sim_panel">隱藏快速設定多 SIM 面板</string>
     <string name="option_hide_multi_sim_panel_desc">在 Samsung 裝置上，你可以使用這個選項來隱藏出現在快速設定面板上的多 SIM 卡視圖。</string>
     <string name="option_disable_combined_internet">停用組合網路選項</string>
-    <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用該選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
+    <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用此選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
     <string name="home_welcome_title">歡迎！</string>
     <string name="search">搜尋</string>
     <string name="immersive_none">無</string>
@@ -306,7 +306,7 @@
     <string name="check_it_out">看看這個</string>
     <string name="add_custom_item">新增自訂項</string>
     <string name="edit_custom_item">編輯自訂項</string>
-    <string name="remove_item">移除該項</string>
+    <string name="remove_item">移除此項目</string>
     <string name="remove_item_desc">您是否確定要移除此項？</string>
     <string name="custom_persistent_option_summary_template">設定類型：%s，金鑰：%s，值：%s</string>
     <string name="tile_battery">電量</string>
