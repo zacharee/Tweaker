@@ -7,7 +7,7 @@
     <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
     <string name="adb_android_guide">SOV39</string>
     <string name="adb_final_title">Todo Printer Gudie All Done.</string>
-    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
+    <string name="adb_final_desc">完了！すべてが正常に処理されていれば権限が与えられます。</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
     <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
     <string name="adb_install_android_3">Now, find the option labeled \"Build Number\". On some devices, this may simply be called \"Version\".</string>
