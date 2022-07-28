@@ -69,12 +69,12 @@
     <string name="feature_immersive_mode">Mode immersif</string>
     <string name="feature_immersive_mode_desc">La plupart des applications qui vous permettent de basculer en mode immersif n\'ont que quelques options : masquer la barre de navigation ou masquer la barre d\'état, mais il est possible de définir un paramètre personnalisé pour chaque application, en suivant un modèle de liste blanche/liste noire.</string>
     <string name="feature_heads_up_snooze_length">Leads-Une Notification Snooker Lent</string>
-    <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
+    <string name="feature_heads_up_snooze_length_desc">Durée en millisecondes après qu\'une notification flottante soit masquée avant que l\'application ne puisse interrompre à nouveau. (Par défaut : 60 secondes).</string>
     <string name="feature_camera_gestures">Caméra gestuelle</string>
     <string name="feature_camera_gestures_desc">L\'activation de cette option peut permettre à votre appareil de lancer rapidement l\'application appareil photo en appuyant deux fois sur le bouton d\'alimentation ou en retournant l\'appareil.</string>
     <string name="feature_disable_safe_audio_warning">Désactiver l\'avertissement de limitation du niveau sonore</string>
     <string name="feature_disable_safe_audio_warning_desc">Les réglementations européennes exigent que les appareils envoient une notification d\'avertissement lorsqu\'ils dépassent un certain niveau sonore (85 dB). Cet avertissement doit s\'afficher au moins une fois après chaque redémarrage ou après 20 heures de lecture de musique en continue. Utilisez ce paramètre pour modifier le comportement de cet avertissement ou désactivez-le entièrement. Assurez-vous d\'activer ce paramètre dans les options persistantes pour qu\'il reste.</string>
-    <string name="feature_custom_ui_sounds">Set Custom UI Sounds</string>
+    <string name="feature_custom_ui_sounds">Définir les sons personnalisés de l\'interface utilisateur</string>
     <string name="feature_custom_ui_sounds_desc">Android has a lot of sounds for different parts of the UI. A lot of these can actually be changed to your own custom sounds. You just need to specify the file for Android to use.</string>
     <string name="feature_fix_tethering">Fix Tethering</string>
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
