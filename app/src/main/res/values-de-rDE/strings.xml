@@ -184,7 +184,7 @@
     <string name="home_welcome_title">Willkommen!</string>
     <string name="search">Suchen</string>
     <string name="immersive_none">Kein(e)</string>
-    <string name="immersive_full">Vollständig</string>
+    <string name="immersive_full">Vollbild</string>
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Navigationsleiste</string>
     <string name="immersive_blacklist">Sperrliste</string>
