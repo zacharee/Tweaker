@@ -105,6 +105,10 @@ Immersive Mode is a **system** function. I did not make it and I do not control 
 
 Global Immersive Mode has also been removed in Android 11 and later. While some manufacturers, such as Samsung, have added it back, others, such as Google and OnePlus, no longer support its use.
 
+Turning on Night Mode on some devices will cause the screen to go black! If you want to test this option on your device, tap the switch to enable it and *keep your finger in place*. If your display goes black, you only need to tap in the same spot again to fix it. Otherwise, you can run this ADB command to reset the option:
+
+`adb shell settings delete secure ui_night_mode`
+
 # Limitations
 Since this app is **not** a system app, and does **not** have full system access, it has quite a few limitations.
  - This is **not** a theming app, nor is it meant to be! It cannot change the position, color or size of any system elements (with the exception of the status bar clock on Samsung Experience Oreo).
