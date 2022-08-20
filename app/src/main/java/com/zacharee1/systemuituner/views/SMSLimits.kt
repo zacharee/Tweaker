@@ -24,13 +24,13 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
 
         binding.maxCount.setStartIconOnClickListener {
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
+            context.writeSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, COUNT_DEF)
             binding.maxCount.editText?.setText(COUNT_DEF.toString())
         }
 
         binding.interval.setStartIconOnClickListener {
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
+            context.writeSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, INTERVAL_DEF)
             binding.interval.editText?.setText(INTERVAL_DEF.toString())
         }
 
@@ -38,14 +38,14 @@ class SMSLimits(context: Context, attrs: AttributeSet) : ScrollView(context, att
             val c = binding.maxCount.editText?.text?.toString()?.toIntOrNullOnError() ?: COUNT_DEF
 
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
+            context.writeSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT, c)
         }
 
         binding.interval.setEndIconOnClickListener {
             val i = binding.interval.editText?.text?.toString()?.toIntOrNullOnError() ?: INTERVAL_DEF
 
             context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
-            context.writeGlobal(Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
+            context.writeSetting(SettingsType.GLOBAL, Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS, i)
         }
     }
 }

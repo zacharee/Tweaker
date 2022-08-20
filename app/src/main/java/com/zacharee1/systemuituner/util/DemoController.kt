@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.util
 import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
+import com.zacharee1.systemuituner.data.SettingsType
 
 class DemoController private constructor(context: Context) : ContextWrapper(context) {
     object Keys {
@@ -81,7 +82,7 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
     }
 
     fun ensureDemoAllowed() {
-        writeGlobal(KEY_DEMO_ALLOWED, 1)
+        writeSetting(SettingsType.GLOBAL, KEY_DEMO_ALLOWED, 1)
     }
 
     fun enterDemo() {

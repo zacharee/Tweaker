@@ -3,7 +3,7 @@ package com.zacharee1.systemuituner.util.persistence
 import android.content.Context
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.writeSetting
 
 class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<HashSet<String>>(context) {
     override val settingsKey: String = "icon_blacklist"
@@ -38,7 +38,7 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
     override fun doInitialSet() {
         val prefValue = getPreferenceValue()
         context.prefManager.saveOption(settingsType, settingsKey, null)
-        context.writeSecure(settingsKey, null)
+        context.writeSetting(SettingsType.SECURE, settingsKey, null)
         context.prefManager.saveOption(settingsType, settingsKey, prefValue)
     }
 }

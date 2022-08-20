@@ -9,7 +9,7 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.writeSetting
 
 class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
@@ -33,6 +33,6 @@ class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : Bas
         newValue as Int
 
         context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
-        context.writeGlobal(Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue)
     }
 }

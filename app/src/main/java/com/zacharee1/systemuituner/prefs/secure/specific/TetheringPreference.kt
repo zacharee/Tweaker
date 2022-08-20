@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.writeSetting
 
 class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
@@ -44,7 +44,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPre
             saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
             saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled)
         }
-        context.writeGlobal(Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
-        context.writeGlobal(Settings.Global.TETHER_SUPPORTED, enabled)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled)
     }
 }

@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.writeSetting
 
 class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
@@ -39,11 +39,11 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseDia
 
         context.apply {
             prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, data.animatorScale)
-            writeGlobal(Settings.Global.ANIMATOR_DURATION_SCALE, data.animatorScale)
+            writeSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, data.animatorScale)
             prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, data.windowScale)
-            writeGlobal(Settings.Global.WINDOW_ANIMATION_SCALE, data.windowScale)
+            writeSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, data.windowScale)
             prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
-            writeGlobal(Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
+            writeSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, data.transitionScale)
         }
     }
 }

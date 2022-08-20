@@ -23,6 +23,7 @@ import com.zacharee1.systemuituner.activities.ExtraPermsRetroactive
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.BlacklistBackupInfo
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
@@ -97,12 +98,12 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                         requireContext().apply {
                             prefManager.blacklistedItems = info.items
                             prefManager.customBlacklistItems = info.customItems
-                            writeSecure("icon_blacklist", info.items.joinToString(","))
+                            writeSetting(SettingsType.SECURE, "icon_blacklist", info.items.joinToString(","))
                         }
                     } else {
                         requireContext().prefManager.blacklistedItems =
                             HashSet(firstLine.split(","))
-                        requireContext().writeSecure("icon_blacklist", firstLine)
+                        requireContext().writeSetting(SettingsType.SECURE, "icon_blacklist", firstLine)
                     }
                 }
             } catch (e: Exception) {

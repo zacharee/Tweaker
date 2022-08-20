@@ -19,7 +19,7 @@ class StorageThresholds(context: Context, attrs: AttributeSet) : ScrollView(cont
             listener = object : SimpleSeekBarListener() {
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
                     context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, newScaledValue.toInt())
-                    context.writeGlobal(Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, newScaledValue.toInt())
+                    context.writeSetting(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE, newScaledValue.toInt())
                 }
             }
         }
@@ -29,7 +29,7 @@ class StorageThresholds(context: Context, attrs: AttributeSet) : ScrollView(cont
             listener = object : SimpleSeekBarListener() {
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
                     context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, newValue)
-                    context.writeGlobal(Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, newValue)
+                    context.writeSetting(SettingsType.GLOBAL, Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES, newValue)
                 }
             }
         }

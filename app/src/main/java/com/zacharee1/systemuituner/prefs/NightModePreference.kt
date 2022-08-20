@@ -10,7 +10,8 @@ import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.SettingsInfo
+import com.zacharee1.systemuituner.util.writeSettingsBulk
 import com.zacharee1.systemuituner.views.NightModeView
 
 class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference, IDangerousPreference {
@@ -42,16 +43,15 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
 
         context.apply {
             if (info == null) {
-                keys.forEach { key ->
-                    key.value.forEach {
-                        writeSecure(it, null)
-                    }
-                }
+                writeSettingsBulk(*keys.flatMap { it.value.map { v -> SettingsInfo(it.key, v, null) } }.toTypedArray())
             } else {
-                writeSecure(NightModeView.TWILIGHT_MODE, info.twilightMode)
-                writeSecure(NightModeView.NIGHT_DISPLAY_ACTIVATED, info.nightModeActivated)
-                writeSecure(NightModeView.NIGHT_DISPLAY_AUTO_MODE, info.nightModeAuto)
-                writeSecure(NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, info.nightModeTemp)
+                writeSettingsBulk(
+                    SettingsInfo(SettingsType.SECURE, NightModeView.TWILIGHT_MODE, info.twilightMode),
+                    SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_ACTIVATED, info.nightModeActivated),
+                    SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_AUTO_MODE, info.nightModeAuto),
+                    SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, info.nightModeTemp),
+                    revertable = true
+                )
             }
         }
     }

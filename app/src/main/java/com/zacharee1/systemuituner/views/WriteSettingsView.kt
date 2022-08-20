@@ -19,7 +19,7 @@ class WriteSettingsView(context: Context, attrs: AttributeSet) : ConstraintLayou
             val type = SettingsType.fromValue(binding.settingsType.selectedItemPosition)
 
             if (!key.isNullOrBlank()) {
-                context.writeSetting(type, key, value)
+                context.writeSetting(type, key, value, true)
             }
         }
     }

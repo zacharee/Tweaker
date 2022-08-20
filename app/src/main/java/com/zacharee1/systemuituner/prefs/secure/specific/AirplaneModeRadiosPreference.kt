@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.writeSetting
 
 class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
@@ -40,7 +40,7 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Base
             saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
             saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
         }
-        context.writeGlobal(Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
-        context.writeGlobal(Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
     }
 }

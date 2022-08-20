@@ -11,7 +11,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.writeSetting
 
 open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs), Preference.OnPreferenceChangeListener {
     private val additionalKeys by lazy { HashSet<String>() }
@@ -63,7 +63,7 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
         }
 
         context.prefManager.blacklistedItems = currentlyBlacklisted
-        context.writeSecure("icon_blacklist", currentlyBlacklisted.joinToString(","))
+        context.writeSetting(SettingsType.SECURE, "icon_blacklist", currentlyBlacklisted.joinToString(","))
 
         return true
     }

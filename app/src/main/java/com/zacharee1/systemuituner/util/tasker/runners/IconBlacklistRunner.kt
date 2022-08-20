@@ -5,9 +5,10 @@ import com.joaomgcd.taskerpluginlibrary.action.TaskerPluginRunnerActionNoOutput
 import com.joaomgcd.taskerpluginlibrary.input.TaskerInput
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResult
 import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultSucess
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.writeSetting
 
 class IconBlacklistRunner : TaskerPluginRunnerActionNoOutput<TaskerIconBlacklistData>() {
     override fun run(context: Context, input: TaskerInput<TaskerIconBlacklistData>): TaskerPluginResult<Unit> {
@@ -18,7 +19,7 @@ class IconBlacklistRunner : TaskerPluginRunnerActionNoOutput<TaskerIconBlacklist
         else blacklisted.add(data.key)
 
         context.prefManager.blacklistedItems = blacklisted
-        context.writeSecure("icon_blacklist", blacklisted.joinToString(","))
+        context.writeSetting(SettingsType.SECURE, "icon_blacklist", blacklisted.joinToString(","))
 
         return TaskerPluginResultSucess()
     }

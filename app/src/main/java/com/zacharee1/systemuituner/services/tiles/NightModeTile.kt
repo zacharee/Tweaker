@@ -43,18 +43,18 @@ class NightModeTile : TileService() {
         if (isActive) {
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
                 prefManager.saveOption(SettingsType.SECURE, "twilight_mode", 0)
-                writeSecure("twilight_mode", 0)
+                writeSetting(SettingsType.SECURE, "twilight_mode", 0)
             } else {
                 prefManager.saveOption(SettingsType.SECURE, "night_display_activated", 0)
-                writeSecure("night_display_activated", 0)
+                writeSetting(SettingsType.SECURE, "night_display_activated", 0)
             }
         } else {
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
                 prefManager.saveOption(SettingsType.SECURE, "twilight_mode", 1)
-                writeSecure("twilight_mode", 1)
+                writeSetting(SettingsType.SECURE, "twilight_mode", 1)
             } else {
                 prefManager.saveOption(SettingsType.SECURE, "night_display_activated", 1)
-                writeSecure("night_display_activated", 1)
+                writeSetting(SettingsType.SECURE, "night_display_activated", 1)
             }
         }
 

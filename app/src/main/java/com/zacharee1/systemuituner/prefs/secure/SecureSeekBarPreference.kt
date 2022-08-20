@@ -30,6 +30,6 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
 
     override fun onValueChanged(newValue: Any?, key: String) {
         context.prefManager.saveOption(type, writeKey, newValue)
-        context.writeSetting(type, writeKey, newValue)
+        context.writeSetting(type, writeKey, newValue, dangerous)
     }
 }

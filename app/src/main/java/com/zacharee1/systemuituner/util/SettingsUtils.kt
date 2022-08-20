@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.CountDownTimer
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
@@ -13,10 +14,100 @@ import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
+import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import rikka.shizuku.Shizuku
 import java.util.HashSet
 
-fun Context.writeSetting(type: SettingsType, key: String?, value: Any?): Boolean {
+data class SettingsInfo(
+    val type: SettingsType,
+    val key: String?,
+    val value: Any?
+)
+
+private fun Context.revertDialog(
+    vararg data: SettingsInfo
+) {
+    if (this is Activity) {
+        val originalValues = data.map { it to getSetting(it.type, it.key) }
+
+        if (originalValues.all { o -> o.first.value.toString() == o.second.toString() }) {
+            // No changes, no confirmation
+            return
+        }
+
+        val timeoutMs = 10_000L
+
+        var remainder = timeoutMs
+
+        val dialog = RoundedBottomSheetDialog(this)
+            .apply {
+                setTitle(R.string.setting_applied_dialog)
+                setMessage(
+                    resources.getString(
+                        R.string.setting_applied_dialog_desc,
+                        (remainder / 1000).toString()
+                    )
+                )
+                setCancelable(false)
+            }
+
+        val timer = object : CountDownTimer(timeoutMs, 1000L) {
+            override fun onFinish() {
+                originalValues.forEach { (info, setting) ->
+                    writeSetting(info.type, info.key, setting, false)
+                }
+                dialog.dismiss()
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                remainder = millisUntilFinished
+                dialog.setMessage(
+                    resources.getString(
+                        R.string.setting_applied_dialog_desc,
+                        (remainder / 1000).toString()
+                    )
+                )
+            }
+        }
+
+        dialog.setPositiveButton(R.string.keep) { _, _ ->
+            timer.cancel()
+            dialog.dismiss()
+        }
+        dialog.setNegativeButton(R.string.revert) { _, _ ->
+            timer.cancel()
+            timer.onFinish()
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        timer.start()
+    }
+}
+
+fun Context.writeSettingsBulk(
+    vararg data: SettingsInfo,
+    revertable: Boolean = false
+): Boolean {
+    if (revertable) {
+        revertDialog(*data)
+    }
+
+    return data.all { (type, key, value) ->
+        writeSetting(type, key, value, false)
+    }
+}
+
+fun Context.writeSetting(
+    type: SettingsType,
+    key: String?,
+    value: Any?,
+    revertable: Boolean = false
+): Boolean {
+    if (revertable) {
+        revertDialog(SettingsInfo(type, key, value))
+    }
+
     return when (type) {
         SettingsType.GLOBAL -> writeGlobal(key, value)
         SettingsType.SECURE -> writeSecure(key, value)
@@ -69,7 +160,7 @@ fun Context.resetAll() {
     //There doesn't seem to be a reset option for Settings.System
 }
 
-fun Context.writeGlobal(key: String?, value: Any?): Boolean {
+private fun Context.writeGlobal(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     return try {
         Settings.Global.putString(contentResolver, key, value?.toString())
@@ -80,7 +171,7 @@ fun Context.writeGlobal(key: String?, value: Any?): Boolean {
     }
 }
 
-fun Context.writeSecure(key: String?, value: Any?): Boolean {
+private fun Context.writeSecure(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     return try {
         Settings.Secure.putString(contentResolver, key, value?.toString())
@@ -91,7 +182,7 @@ fun Context.writeSecure(key: String?, value: Any?): Boolean {
     }
 }
 
-fun Context.writeSystem(key: String?, value: Any?): Boolean {
+private fun Context.writeSystem(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     fun onFail(e: Exception): Boolean {
         return when {
@@ -157,8 +248,13 @@ fun Context.buildNonResettablePreferences(): Set<String> {
         }
     } catch (_: IllegalArgumentException) {
     }
-    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map { "${resources.getString(
-        R.string.system)}: ${it.key}" })
+    names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map {
+        "${
+            resources.getString(
+                R.string.system
+            )
+        }: ${it.key}"
+    })
     return names
 }
 

@@ -8,7 +8,7 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeGlobal
+import com.zacharee1.systemuituner.util.writeSetting
 
 class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs), ISpecificPreference {
     override val keys
@@ -31,6 +31,6 @@ class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) :
 
     override fun onValueChanged(newValue: Any?, key: String) {
         context.prefManager.saveOption(SettingsType.GLOBAL, "notification_snooze_options", newValue)
-        context.writeGlobal("notification_snooze_options", newValue)
+        context.writeSetting(SettingsType.GLOBAL, "notification_snooze_options", newValue)
     }
 }

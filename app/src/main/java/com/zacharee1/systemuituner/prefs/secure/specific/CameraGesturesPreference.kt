@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSecure
+import com.zacharee1.systemuituner.util.writeSetting
 
 class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
     ISpecificPreference {
@@ -44,9 +44,9 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseDial
                 saveOption(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
             }
 
-            writeSecure(Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
-            writeSecure(Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
-            writeSecure(Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
+            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled)
+            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled)
+            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled)
         }
     }
 }
