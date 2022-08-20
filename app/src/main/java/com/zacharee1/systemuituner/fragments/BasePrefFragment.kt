@@ -6,9 +6,7 @@ import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import android.text.SpannableString
 import android.text.TextUtils
-import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateInterpolator
@@ -25,11 +23,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import at.blogc.android.views.ExpandableTextView
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.color.MaterialColors
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.PreferenceHolder
 import com.zacharee1.systemuituner.dialogs.*
-import com.zacharee1.systemuituner.interfaces.IDangerousPreference
 import com.zacharee1.systemuituner.prefs.*
 import com.zacharee1.systemuituner.prefs.demo.DemoListPreference
 import com.zacharee1.systemuituner.prefs.demo.DemoSeekBarPreference
@@ -175,7 +173,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     @SuppressLint("RestrictedApi")
     override fun onBindPreferences() {
-        markDangerous(preferenceScreen)
         super.onBindPreferences()
 
         setDivider(ResourcesCompat.getDrawable(resources, R.drawable.custom_divider, requireContext().theme))
@@ -385,6 +382,14 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
                         }
                     }
 
+                    view.findViewById<TextView>(android.R.id.title)?.apply {
+                        if (item.isDangerous) {
+                            setTextColor(Color.RED)
+                        } else {
+                            setTextColor(MaterialColors.getColor(this, android.R.attr.textColorPrimary))
+                        }
+                    }
+
                     PreferenceViewHolder.createInstanceForTests(view)
                 }
             }
@@ -414,23 +419,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
         super.onDestroy()
 
         cancel()
-    }
-
-    private fun markDangerous(group: PreferenceGroup) {
-        for (i in 0 until group.preferenceCount) {
-            val child = group.getPreference(i)
-
-            if (child is IDangerousPreference && child.dangerous) {
-                markDangerous(child)
-            }
-            if (child is PreferenceGroup) markDangerous(child)
-        }
-    }
-
-    private fun markDangerous(preference: Preference) {
-        preference.title = SpannableString(preference.title).apply {
-            setSpan(ForegroundColorSpan(Color.RED), 0, length, 0)
-        }
     }
 
     private fun updateListWidthAndGravity(widthDp: Float = requireContext().asDp(requireView().width)) {
