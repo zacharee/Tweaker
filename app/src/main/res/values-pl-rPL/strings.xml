@@ -59,10 +59,10 @@
     <string name="feature_app_install_location">Ustaw domyślną lokalizację instalacji aplikacji</string>
     <string name="feature_app_install_location_desc">Domyślna lokalizacja instalacji aplikacji. Wybierz domyślnie zainstalowane aplikacje do przechowywania. Zazwyczaj same aplikacje decydują określając wartość w AndroidManifest, ale jeśli chcesz, możesz je zainstalować na nośniku pamięci.</string>
     <string name="feature_heads_up_notifications">Przełącz wyskakujące powiadomienia</string>
-    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
-    <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
+    <string name="feature_heads_up_notifications_desc">Przełącz, aby włączyć lub wyłączyć wyskakujące powiadomienia. Wyskakujące powiadomienia pojawiają się na górze ekranu.</string>
+    <string name="feature_insufficient_storage_warning">Wyłącz ostrzeżenie \"Za mało wolnego miejsca\"</string>
     <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
-    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
+    <string name="feature_keep_screen_on">Pozostaw ekran włączony podczas ładowania</string>
     <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
     <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
