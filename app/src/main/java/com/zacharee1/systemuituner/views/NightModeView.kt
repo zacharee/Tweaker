@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.FrameLayout
@@ -93,38 +92,6 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
                 nightModeInfo.nightModeAuto = if (isChecked) 1 else 0
                 callback?.invoke(nightModeInfo)
             }
-
-//            binding.nightDisplayTemp.minValue = resources.run {
-//                try {
-//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
-//                } catch (e: Resources.NotFoundException) {
-//                    0
-//                }
-//            }
-//            binding.nightDisplayTemp.maxValue = resources.run {
-//                try {
-//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
-//                } catch (e: Resources.NotFoundException) {
-//                    10000
-//                }
-//            }
-//            binding.nightDisplayTemp.defaultValue = resources.run {
-//                try {
-//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
-//                } catch (e: Resources.NotFoundException) {
-//                    5000
-//                }
-//            }
-//            binding.nightDisplayTemp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
-//            binding.nightDisplayTemp.listener = object : SeekBarView.SeekBarListener {
-//                override fun onProgressAdded() {}
-//                override fun onProgressReset() {}
-//                override fun onProgressSubtracted() {}
-//                override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-//                    nightModeInfo.nightModeTemp = newScaledValue.toInt()
-//                    callback?.invoke(nightModeInfo)
-//                }
-//            }
 
             binding.nightDisplayTemp.onBind(
                 minValue = minValue,
