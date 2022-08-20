@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.FrameLayout
@@ -53,9 +54,31 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
     private fun updateStates() {
         val atLeastNMR1 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
 
+        val minValue = resources.run {
+            try {
+                getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
+            } catch (e: Resources.NotFoundException) {
+                0
+            }
+        }
+        val maxValue = resources.run {
+            try {
+                getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
+            } catch (e: Resources.NotFoundException) {
+                10000
+            }
+        }
+        val defaultValue = resources.run {
+            try {
+                getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
+            } catch (e: Resources.NotFoundException) {
+                5000.coerceAtMost(maxValue).coerceAtLeast(minValue)
+            }
+        }
+
         nightModeInfo.nightModeActivated = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_ACTIVATED)?.toIntOrNull()
         nightModeInfo.nightModeAuto = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_AUTO_MODE)?.toIntOrNull()
-        nightModeInfo.nightModeTemp = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_COLOR_TEMPERATURE, "5000")?.toIntOrNull()
+        nightModeInfo.nightModeTemp = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_COLOR_TEMPERATURE, defaultValue)?.toIntOrNull()
         nightModeInfo.twilightMode = context.getSetting(SettingsType.SECURE, TWILIGHT_MODE, TWILIGHT_OFF.toString())?.toIntOrNull()
 
         if (atLeastNMR1) {
@@ -71,37 +94,57 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
                 callback?.invoke(nightModeInfo)
             }
 
-            binding.nightDisplayTemp.minValue = resources.run {
-                try {
-                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
-                } catch (e: Resources.NotFoundException) {
-                    0
-                }
-            }
-            binding.nightDisplayTemp.maxValue = resources.run {
-                try {
-                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
-                } catch (e: Resources.NotFoundException) {
-                    10000
-                }
-            }
-            binding.nightDisplayTemp.defaultValue = resources.run {
-                try {
-                    getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
-                } catch (e: Resources.NotFoundException) {
-                    5000
-                }
-            }
-            binding.nightDisplayTemp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
-            binding.nightDisplayTemp.listener = object : SeekBarView.SeekBarListener {
-                override fun onProgressAdded() {}
-                override fun onProgressReset() {}
-                override fun onProgressSubtracted() {}
-                override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    nightModeInfo.nightModeTemp = newScaledValue.toInt()
-                    callback?.invoke(nightModeInfo)
-                }
-            }
+//            binding.nightDisplayTemp.minValue = resources.run {
+//                try {
+//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
+//                } catch (e: Resources.NotFoundException) {
+//                    0
+//                }
+//            }
+//            binding.nightDisplayTemp.maxValue = resources.run {
+//                try {
+//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
+//                } catch (e: Resources.NotFoundException) {
+//                    10000
+//                }
+//            }
+//            binding.nightDisplayTemp.defaultValue = resources.run {
+//                try {
+//                    getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
+//                } catch (e: Resources.NotFoundException) {
+//                    5000
+//                }
+//            }
+//            binding.nightDisplayTemp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
+//            binding.nightDisplayTemp.listener = object : SeekBarView.SeekBarListener {
+//                override fun onProgressAdded() {}
+//                override fun onProgressReset() {}
+//                override fun onProgressSubtracted() {}
+//                override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
+//                    nightModeInfo.nightModeTemp = newScaledValue.toInt()
+//                    callback?.invoke(nightModeInfo)
+//                }
+//            }
+
+            binding.nightDisplayTemp.onBind(
+                minValue = minValue,
+                maxValue = maxValue,
+                progress = nightModeInfo.nightModeTemp ?: 5000,
+                defaultValue = defaultValue,
+                scale = 1f,
+                units = null,
+                key = "",
+                listener = object : SeekBarView.SeekBarListener {
+                    override fun onProgressAdded() {}
+                    override fun onProgressReset() {}
+                    override fun onProgressSubtracted() {}
+                    override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
+                        nightModeInfo.nightModeTemp = newScaledValue.toInt()
+                        callback?.invoke(nightModeInfo)
+                    }
+                },
+                prefs = null
+            )
         } else {
             binding.twilightMode.setSelection(nightModeInfo.twilightMode ?: TWILIGHT_OFF)
             binding.twilightMode.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
