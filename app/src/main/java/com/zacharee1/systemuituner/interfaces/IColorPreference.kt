@@ -23,7 +23,7 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
         if (attrs != null) {
             val array = context.theme.obtainStyledAttributes(attrs, R.styleable.ColorPreference, 0, 0)
 
-            iconColor = array.getColor(R.styleable.ColorPreference_icon_color, Int.MIN_VALUE)
+            iconColor = array.getColor(R.styleable.ColorPreference_icon_color, iconColor)
         }
     }
 
@@ -35,9 +35,11 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
                 val drawable = getStateDrawable(1)
 
                 if (iconColor != Int.MIN_VALUE) {
-                    drawable?.setColorFilterCompat(iconColor, PorterDuff.Mode.SRC_ATOP)
+                    drawable?.setTint(iconColor)
+//                    drawable?.setColorFilterCompat(iconColor, PorterDuff.Mode.SCREEN)
                 } else {
-                    drawable?.clearColorFilter()
+                    drawable?.setTintList(null)
+//                    drawable?.clearColorFilter()
                 }
             }
         }

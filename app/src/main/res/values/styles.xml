@@ -1,5 +1,5 @@
 <resources>
-    <style name="AppTheme" parent="Theme.MaterialComponents">
+    <style name="AppTheme" parent="Theme.Material3.DynamicColors.Dark">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -30,7 +30,7 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
-    <style name="ActionBarStyle" parent="Widget.MaterialComponents.Toolbar">
+    <style name="ActionBarStyle" parent="Widget.Material3.Toolbar">
         <item name="android:background">@color/toolbarColor</item>
     </style>
 
@@ -38,7 +38,7 @@
         <item name="android:textSize">20dp</item>
     </style>
 
-    <style name="DialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered">
+    <style name="DialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog.Centered">
         <item name="buttonBarPositiveButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNeutralButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="buttonBarNegativeButtonStyle">@style/AppTheme.Alert.Button</item>
@@ -47,20 +47,20 @@
         <item name="materialAlertDialogTitleTextStyle">@style/DialogTitle</item>
     </style>
 
-    <style name="BottomSheetTheme" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    <style name="BottomSheetTheme" parent="ThemeOverlay.Material3.BottomSheetDialog">
+<!--        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>-->
         <item name="colorPrimarySurface">@color/toolbarColor</item>
     </style>
 
-    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/top_rounded_rect</item>
-    </style>
+<!--    <style name="BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">-->
+<!--        <item name="android:background">@drawable/top_rounded_rect</item>-->
+<!--    </style>-->
 
-    <style name="DialogTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked">
+    <style name="DialogTitle" parent="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
     </style>
 
-    <style name="AppTheme.Alert.Button" parent="Widget.MaterialComponents.Button.TextButton">
+    <style name="AppTheme.Alert.Button" parent="Widget.Material3.Button.TextButton">
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 

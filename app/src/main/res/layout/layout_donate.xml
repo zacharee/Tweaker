@@ -32,7 +32,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:text="@string/donate"
-        android:textColor="?android:textColorPrimary"
         />
 
     <TextView
@@ -62,7 +61,6 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_1"
-            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -75,7 +73,6 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_2"
-            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -88,7 +85,6 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_5"
-            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
 
@@ -101,7 +97,6 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:text="@string/donate_10"
-            android:textColor="?android:textColorPrimary"
             tools:ignore="ButtonStyle"
             />
     </LinearLayout>

@@ -84,6 +84,6 @@ dependencies {
     implementation 'me.grantland:autofittextview:0.2.1'
 
     implementation 'com.github.zacharee:SeekBarPreference:46a6643c79'
-    implementation 'com.github.zacharee:CollapsiblePreferenceCategory:e192e39bf0'
+    implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
 }

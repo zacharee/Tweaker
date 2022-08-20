@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.prefs
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.interfaces.IDangerousPreference
@@ -33,7 +34,7 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
         lowApi = Build.VERSION_CODES.N
         dialogTitle = title
         dialogMessage = summary
-        iconColor = R.color.pref_color_4
+        iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {

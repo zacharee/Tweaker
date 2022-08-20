@@ -101,9 +101,7 @@ class QSTileInfo(
             } catch (e: Exception) {
                 getDefaultDrawable()
             }
-        }?.mutate()?.apply {
-            setTint(resources.getColor(android.R.color.white, theme))
-        }
+        }?.mutate()
     }
 
     private fun Context.chooseStandardDrawable(): Drawable? {

@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.prefs
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceViewHolder
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.INoPersistPreference
@@ -25,7 +26,7 @@ class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSw
 
         layoutResource = R.layout.custom_preference
         key = PrefManager.FORCE_ENABLE_ALL
-        iconColor = R.color.pref_color_4
+        iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
     }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {

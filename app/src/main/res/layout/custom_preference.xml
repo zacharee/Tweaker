@@ -26,7 +26,7 @@
     android:id="@+id/pref_root"
     app:cardBackgroundColor="@android:color/transparent"
     app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
+    app:cardElevation="0dp"
     app:cardForegroundColor="@android:color/transparent"
     app:strokeColor="?android:textColorSecondary"
     app:strokeWidth="0.75dp">
