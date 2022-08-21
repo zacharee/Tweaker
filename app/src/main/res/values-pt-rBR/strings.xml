@@ -344,4 +344,8 @@
     <string name="safe_audio_state_active">Ativo</string>
     <string name="persistent_options_not_sticking_title">Opções não estão redefinindo na inicialização?</string>
     <string name="persistent_options_not_sticking_desc">Pode ser que você precisar dar algumas permissões de otimização de bateria para o SystemUI Tuner. Clique aqui para saber como.</string>
+    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="keep">Keep</string>
+    <string name="revert">Revert</string>
 </resources>
