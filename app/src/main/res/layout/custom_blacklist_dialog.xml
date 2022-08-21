@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/label"
         android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="match_parent"
-        android:hint="@string/label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/key">
+        android:layout_marginEnd="4dp"
+        android:hint="@string/label">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -21,25 +22,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <View
-        android:layout_width="0.75dp"
-        android:layout_height="0dp"
-        android:background="@android:color/black"
-        android:backgroundTint="?android:textColorSecondary"
-        android:backgroundTintMode="src_atop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/key"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:hint="@string/key"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/label">
+        android:layout_weight="1"
+        android:layout_marginStart="4dp"
+        android:hint="@string/key">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -50,4 +39,4 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
