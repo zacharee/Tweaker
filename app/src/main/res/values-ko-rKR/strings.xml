@@ -344,4 +344,8 @@
     <string name="safe_audio_state_active">활성화</string>
     <string name="persistent_options_not_sticking_title">부팅 시 설정이 초기화되지 않나요?</string>
     <string name="persistent_options_not_sticking_desc">모든 배터리 최적화 설정에서 SystemUI Tuner를 제외해야 합니다. 여기를 눌러 방법을 알아보세요.</string>
+    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="keep">Keep</string>
+    <string name="revert">Revert</string>
 </resources>
