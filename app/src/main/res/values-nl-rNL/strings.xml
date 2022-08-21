@@ -344,8 +344,8 @@
     <string name="safe_audio_state_active">Actief</string>
     <string name="persistent_options_not_sticking_title">Worden de opties niet hersteld no het opstarten?</string>
     <string name="persistent_options_not_sticking_desc">Wellicht moet je SystemUI Tuner op de witte lijst zetten van de accu-optimalisatie. Druk hier voor meer informatie.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">De optie is toegepast!</string>
+    <string name="setting_applied_dialog_desc">Wil je de wijzigingen behouden? Anders wordt deze optie over %s seconden teruggedraaid.</string>
+    <string name="keep">Behouden</string>
+    <string name="revert">Terugdraaien</string>
 </resources>
