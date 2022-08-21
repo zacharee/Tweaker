@@ -2,7 +2,6 @@ package com.zacharee1.systemuituner.util
 
 import android.app.Activity
 import android.content.Context
-import android.view.ContextThemeWrapper
 import androidx.core.view.isVisible
 import com.android.billingclient.api.*
 import com.android.billingclient.api.BillingClient.BillingResponseCode.OK
@@ -10,7 +9,6 @@ import com.android.billingclient.api.QueryProductDetailsParams.Product
 import com.zacharee1.systemuituner.databinding.LayoutDonateBinding
 import com.zacharee1.systemuituner.dialogs.DonateDialog
 import kotlinx.coroutines.*
-
 
 class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScope() {
     private val client: BillingClient
@@ -70,11 +68,6 @@ class BillingUtil(private val dialog: DonateDialog) : CoroutineScope by MainScop
     }
 
     private fun Context.extractActivity(): Activity {
-        return when (this) {
-            is Activity -> this
-            is ContextThemeWrapper -> baseContext.extractActivity()
-            is androidx.appcompat.view.ContextThemeWrapper -> baseContext.extractActivity()
-            else -> throw IllegalArgumentException("Unable to extract Activity from ${javaClass.canonicalName}")
-        }
+        return activityContext ?: throw IllegalArgumentException("Unable to extract Activity from ${javaClass.canonicalName}")
     }
 }
