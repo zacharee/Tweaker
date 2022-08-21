@@ -28,7 +28,7 @@ private fun Context.revertDialog(
     vararg data: SettingsInfo,
     saveOption: Boolean
 ) {
-    if (this is Activity) {
+    activityContext?.apply {
         val originalValues = data.map { it to getSetting(it.type, it.key) }
 
         if (originalValues.all { o -> o.first.value.toString() == o.second.toString() }) {

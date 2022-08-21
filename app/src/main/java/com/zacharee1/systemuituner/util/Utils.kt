@@ -1,8 +1,10 @@
 package com.zacharee1.systemuituner.util
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ComponentName
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.ComponentInfo
@@ -21,6 +23,7 @@ import android.service.quicksettings.Tile
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.SortedList
 import com.topjohnwu.superuser.Shell
@@ -352,3 +355,10 @@ fun Tile.safeUpdateTile() {
         updateTile()
     } catch (_: Exception) {}
 }
+
+val Context.activityContext: Activity?
+    get() = when (this) {
+        is Activity -> this
+        is ContextWrapper -> this.baseContext.activityContext
+        else -> null
+    }
