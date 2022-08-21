@@ -344,4 +344,8 @@
     <string name="safe_audio_state_active">Включено</string>
     <string name="persistent_options_not_sticking_title">Не сбрасывать настройки при перезагрузке?</string>
     <string name="persistent_options_not_sticking_desc">Вам может потребоваться исключить SystemUI Tuner из любых оптимизаций батареи. Нажмите сюда, чтобы узнать как это сделать.</string>
+    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="keep">Keep</string>
+    <string name="revert">Revert</string>
 </resources>
