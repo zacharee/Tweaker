@@ -344,8 +344,8 @@
     <string name="safe_audio_state_active">生效</string>
     <string name="persistent_options_not_sticking_title">開機時選項沒有重新設定？</string>
     <string name="persistent_options_not_sticking_desc">你可能需要將 SystemUI Tuner 加入任何電池效能最佳化白名單。點選這裡以瞭解更多。</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">選項已套用！</string>
+    <string name="setting_applied_dialog_desc">要保持變更嗎？此選項將在 %s 秒內還原。</string>
+    <string name="keep">保持</string>
+    <string name="revert">還原</string>
 </resources>
