@@ -347,8 +347,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="safe_audio_state_active">Aktivní</string>
     <string name="persistent_options_not_sticking_title">Volby nejsou při startu obnoveny?</string>
     <string name="persistent_options_not_sticking_desc">Je možné, že budete muset SystemUI Tuner zařadit na bílou listinu optimalizací baterie. Kliknutím sem zjistíte, jak na to.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">Možnost použita!</string>
+    <string name="setting_applied_dialog_desc">Chcete zachovat změny? Tato možnost bude vrácena po %s sekundách.</string>
+    <string name="keep">Zachovat</string>
+    <string name="revert">Vrátit zpět</string>
 </resources>
