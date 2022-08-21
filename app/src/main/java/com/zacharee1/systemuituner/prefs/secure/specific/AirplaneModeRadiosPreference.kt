@@ -9,7 +9,6 @@ import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
 
 class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
@@ -36,11 +35,7 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Base
     override fun onValueChanged(newValue: Any?, key: String) {
         val data = newValue as AirplaneModeRadiosData?
 
-        context.prefManager.apply {
-            saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
-            saveOption(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
-        }
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted)
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted, saveOption = true)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable, saveOption = true)
     }
 }

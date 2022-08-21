@@ -6,9 +6,9 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
 import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.SettingsInfo
 import com.zacharee1.systemuituner.util.verifiers.ShowForTouchWiz
-import com.zacharee1.systemuituner.util.writeSetting
+import com.zacharee1.systemuituner.util.writeSettingsBulk
 
 class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs), ISpecificPreference {
     override val keys
@@ -31,9 +31,10 @@ class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSe
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        context.prefManager.saveOption(SettingsType.GLOBAL, "navigationbar_color", newValue)
-        context.prefManager.saveOption(SettingsType.GLOBAL, "navigationbar_current_color", newValue)
-        context.writeSetting(SettingsType.GLOBAL, "navigationbar_color", newValue)
-        context.writeSetting(SettingsType.GLOBAL, "navigationbar_current_color", newValue)
+        context.writeSettingsBulk(
+            SettingsInfo(SettingsType.GLOBAL, "navigationbar_color", newValue),
+            SettingsInfo(SettingsType.GLOBAL, "navigationbar_current_color", newValue),
+            saveOption = true
+        )
     }
 }

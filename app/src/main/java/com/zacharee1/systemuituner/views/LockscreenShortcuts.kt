@@ -76,9 +76,6 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 binding.reset.setOnClickListener {
                     val newInfo = items[holder.bindingAdapterPosition]
 
-//                    context.prefManager.saveOption(SettingsType.SECURE, newInfo.key, null)
-//                    context.writeSetting(SettingsType.SECURE, newInfo.key, null)
-
                     newInfo.setComponentName(context, null)
                     notifyItemChanged(holder.bindingAdapterPosition)
                 }
@@ -88,9 +85,6 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {
-//                            context.prefManager.saveOption(SettingsType.SECURE, key, component)
-//                            context.writeSetting(SettingsType.SECURE, key, component)
-
                             newInfo.setComponentName(context, ComponentName.unflattenFromString(component))
 
                             if (context.isTouchWiz) {
@@ -174,11 +168,9 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                 val string = current.toSettingsString()
 
-                context.prefManager.saveOption(SettingsType.SYSTEM, key, string)
-                context.writeSetting(SettingsType.SYSTEM, key, string)
+                context.writeSetting(SettingsType.SYSTEM, key, string, saveOption = true)
             } else {
-                context.prefManager.saveOption(SettingsType.SECURE, key, newName?.flattenToString())
-                context.writeSetting(SettingsType.SECURE, key, newName?.flattenToString())
+                context.writeSetting(SettingsType.SECURE, key, newName?.flattenToString(), saveOption = true)
             }
         }
     }

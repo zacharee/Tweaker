@@ -42,19 +42,15 @@ class NightModeTile : TileService() {
     override fun onClick() {
         if (isActive) {
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
-                prefManager.saveOption(SettingsType.SECURE, "twilight_mode", 0)
-                writeSetting(SettingsType.SECURE, "twilight_mode", 0)
+                writeSetting(SettingsType.SECURE, "twilight_mode", 0, saveOption = true)
             } else {
-                prefManager.saveOption(SettingsType.SECURE, "night_display_activated", 0)
-                writeSetting(SettingsType.SECURE, "night_display_activated", 0)
+                writeSetting(SettingsType.SECURE, "night_display_activated", 0, saveOption = true)
             }
         } else {
             if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
-                prefManager.saveOption(SettingsType.SECURE, "twilight_mode", 1)
-                writeSetting(SettingsType.SECURE, "twilight_mode", 1)
+                writeSetting(SettingsType.SECURE, "twilight_mode", 1, saveOption = true)
             } else {
-                prefManager.saveOption(SettingsType.SECURE, "night_display_activated", 1)
-                writeSetting(SettingsType.SECURE, "night_display_activated", 1)
+                writeSetting(SettingsType.SECURE, "night_display_activated", 1, saveOption = true)
             }
         }
 

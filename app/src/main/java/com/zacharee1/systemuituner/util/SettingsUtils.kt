@@ -25,7 +25,8 @@ data class SettingsInfo(
 )
 
 private fun Context.revertDialog(
-    vararg data: SettingsInfo
+    vararg data: SettingsInfo,
+    saveOption: Boolean
 ) {
     if (this is Activity) {
         val originalValues = data.map { it to getSetting(it.type, it.key) }
@@ -54,7 +55,7 @@ private fun Context.revertDialog(
         val timer = object : CountDownTimer(timeoutMs, 1000L) {
             override fun onFinish() {
                 originalValues.forEach { (info, setting) ->
-                    writeSetting(info.type, info.key, setting, false)
+                    writeSetting(info.type, info.key, setting, false, saveOption)
                 }
                 dialog.dismiss()
             }
@@ -87,14 +88,15 @@ private fun Context.revertDialog(
 
 fun Context.writeSettingsBulk(
     vararg data: SettingsInfo,
-    revertable: Boolean = false
+    revertable: Boolean = false,
+    saveOption: Boolean = false
 ): Boolean {
     if (revertable) {
-        revertDialog(*data)
+        revertDialog(*data, saveOption = saveOption)
     }
 
     return data.all { (type, key, value) ->
-        writeSetting(type, key, value, false)
+        writeSetting(type, key, value, false, saveOption)
     }
 }
 
@@ -102,10 +104,20 @@ fun Context.writeSetting(
     type: SettingsType,
     key: String?,
     value: Any?,
-    revertable: Boolean = false
+    revertable: Boolean = false,
+    saveOption: Boolean = false,
 ): Boolean {
     if (revertable) {
-        revertDialog(SettingsInfo(type, key, value))
+        revertDialog(SettingsInfo(type, key, value), saveOption = saveOption)
+    }
+
+    if (saveOption && key != null) {
+        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
+        if (handler != null) {
+            handler.savePreferenceValue(value?.toString())
+        } else {
+            prefManager.saveOption(type, key, value)
+        }
     }
 
     return when (type) {

@@ -27,10 +27,12 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
         binding.disableChargingSound.isChecked = context.getSetting(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == "0"
                 || context.getSetting(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == "0"
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
-            context.prefManager.saveOption(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
-            context.prefManager.saveOption(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
-            context.writeSetting(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
-            context.writeSetting(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1)
+            context.writeSettingsBulk(
+                SettingsInfo(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
+                SettingsInfo(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
+                revertable = true,
+                saveOption = true
+            )
         }
 
         binding.soundsList.adapter = Adapter(context)
@@ -102,8 +104,10 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         private val callback = object : IUISoundSelectionCallback.Stub() {
             override fun onSoundSelected(uri: String, key: String) {
-                context.prefManager.saveOption(SettingsType.GLOBAL, key, uri)
-                context.writeSetting(SettingsType.GLOBAL, key, uri)
+                context.writeSetting(SettingsType.GLOBAL, key, uri,
+                    revertable = true,
+                    saveOption = true
+                )
 
                 val index = items.indexOfFirst { it.key == key }
                 notifyItemChanged(index)
@@ -141,8 +145,10 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 binding.reset.setOnClickListener {
                     val item = items[holder.bindingAdapterPosition]
 
-                    context.prefManager.saveOption(SettingsType.GLOBAL, item.key, item.default)
-                    context.writeSetting(SettingsType.GLOBAL, item.key, item.default)
+                    context.writeSetting(SettingsType.GLOBAL, item.key, item.default,
+                        revertable = true,
+                        saveOption = true
+                    )
                     notifyItemChanged(holder.bindingAdapterPosition)
                 }
             }

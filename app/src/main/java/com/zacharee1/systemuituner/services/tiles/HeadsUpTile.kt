@@ -55,12 +55,7 @@ class HeadsUpTile : TileService() {
     }
 
     override fun onClick() {
-        prefManager.saveOption(
-            SettingsType.GLOBAL,
-            Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
-            if (isEnabled) 0 else 1
-        )
-        writeSetting(SettingsType.GLOBAL, Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, if (isEnabled) 0 else 1)
+        writeSetting(SettingsType.GLOBAL, Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, if (isEnabled) 0 else 1, saveOption = true)
         updateState()
 
         super.onClick()

@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.base.BaseSecurePreference
-import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
 
 class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecurePreference(context, attrs) {
@@ -29,7 +28,6 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        context.prefManager.saveOption(type, writeKey, newValue)
-        context.writeSetting(type, writeKey, newValue, dangerous)
+        context.writeSetting(type, writeKey, newValue, dangerous, true)
     }
 }

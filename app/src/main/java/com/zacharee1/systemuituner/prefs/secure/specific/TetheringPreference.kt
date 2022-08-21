@@ -9,7 +9,6 @@ import com.zacharee1.systemuituner.interfaces.ISpecificPreference
 import com.zacharee1.systemuituner.prefs.base.BaseDialogPreference
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
 
 class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPreference(context, attrs),
@@ -40,11 +39,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPre
     override fun onValueChanged(newValue: Any?, key: String) {
         val enabled = newValue.toString().toBoolean()
 
-        context.prefManager.apply {
-            saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
-            saveOption(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled)
-        }
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1)
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1, saveOption = true)
+        context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_SUPPORTED, enabled, saveOption = true)
     }
 }
