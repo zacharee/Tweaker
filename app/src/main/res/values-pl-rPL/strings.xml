@@ -272,7 +272,7 @@
     <string name="intro_grant_wss_desc">SystemUI Tuner needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
     <string name="intro_grant_extra">Grant Extra Permissions</string>
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
-    <string name="intro_system_alert_window">System Alert Window</string>
+    <string name="intro_system_alert_window">Okno powiadomienia systemowego</string>
     <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
@@ -346,8 +346,8 @@
     <string name="safe_audio_state_active">Active</string>
     <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
     <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">Opcja zastosowana!</string>
+    <string name="setting_applied_dialog_desc">Czy chcesz zachować zmiany? Ta opcja zostanie cofnięta po %s sekundach.</string>
+    <string name="keep">Zachowaj</string>
+    <string name="revert">Cofnij</string>
 </resources>
