@@ -179,10 +179,10 @@
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the left edge\'s width more finely, or remove it altogether.</string>
     <string name="option_back_gesture_inset_scale_right">Back Gesture Edge Width (Right)</string>
     <string name="option_back_gesture_inset_scale_right_desc">Android 11 introduces an option to set the sensitivity for the screen-edge back gesture by adjusting the detection area\'s width. Use this option to set the right edge\'s width more finely, or remove it altogether.</string>
-    <string name="option_hide_multi_sim_panel">Hide QS Multi-SIM Panel</string>
-    <string name="option_hide_multi_sim_panel_desc">On Samsung devices, you can use this option to hide the multi-SIM view that appears in the expanded quick settings panel.</string>
+    <string name="option_hide_multi_sim_panel">Ukryj widok wielu kart SIM w szybkich ustawieniach</string>
+    <string name="option_hide_multi_sim_panel_desc">Na urządzeniach Samsung możesz użyć tej opcji, aby ukryć widok wielu kart SIM, który pojawia się w rozszerzonym panelu szybkich ustawień.</string>
     <string name="option_disable_combined_internet">Disable Combined Network Options</string>
-    <string name="option_disable_combined_internet_desc">On Android 12, Google combined the settings for WiFi, Bluetooth, and cellular into one menu. The quick settings tiles for WiFi and cellular were also combined into a single Internet tile. Enabling this option will bring back the old menus in Settings and allow you to restore the separate QS tiles. You may need to reboot for this to properly take effect. If you don\'t see the WiFi and cellular tiles, you can add them using the Quick Settings Editor feature in SystemUI Tuner.</string>
+    <string name="option_disable_combined_internet_desc">W systemie Android 12 Google połączyło ustawienia WiFi, Bluetooth i dane komórkowe w jednym menu. Kafelki szybkich ustawień dla WiFi i danych komórkowych również zostały połączone w jeden kafelek Internetowy. Włączenie tej opcji spowoduje przywrócenie starego menu w Ustawieniach i pozwoli przywrócić oddzielne kafelki szybkich ustawień. Aby działało to prawidłowo. może być konieczne ponowne uruchomienie urządzenia. Jeśli nie widzisz WiFi i kafelków danych komórkowych, możesz je dodać za pomocą funkcji Edytor Szybkich Ustawień w SystemUI.</string>
     <string name="home_welcome_title">Welcome!</string>
     <string name="search">Search</string>
     <string name="immersive_none">None</string>
@@ -190,7 +190,7 @@
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Nav</string>
     <string name="immersive_blacklist">Blacklist</string>
-    <string name="immersive_whitelist">Wyjątki</string>
+    <string name="immersive_whitelist">Biała lista</string>
     <string name="advanced">Advanced</string>
     <string name="all_apps">All Apps</string>
     <string name="select_apps">Wybierz Aplikacje</string>
@@ -198,8 +198,8 @@
     <string name="reset">Reset</string>
     <string name="grant">Przyznaj</string>
     <string name="help">Help</string>
-    <string name="no_root_title">No Root or Shizuku</string>
-    <string name="no_root_msg">Root or Shizuku wasn\'t detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_title">Bez roota lub Shizuku</string>
+    <string name="no_root_msg">Root lub Shizuku nie zostały wykryte. Jeśli twoje urządzenie jest zrootowane, upewnij się, że SystemUI Tuner ma dostęp do roota. W przeciwnym razie wciśnij przycisk HELP w celu uzyskania instrukcji ADB i Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Tryb</string>
     <string name="key">Klucz</string>
@@ -228,7 +228,7 @@
     <string name="add_qs_tile">Add QS Tile</string>
     <string name="intent">Intent</string>
     <string name="view_online">View Online</string>
-    <string name="tile_custom">Custom</string>
+    <string name="tile_custom">Niestandardowe</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
@@ -273,7 +273,7 @@
     <string name="intro_grant_extra">Grant Extra Permissions</string>
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
     <string name="intro_system_alert_window">Okno powiadomienia systemowego</string>
-    <string name="intro_system_alert_window_desc">Android 12 and later have significantly restricted the ability for apps to run operations in the background and when the device boots. Granting SystemUI Tuner permission to display over other apps will exempt it from these restrictions and improve the reliability of Persistent Options. This permission is completely optional.</string>
+    <string name="intro_system_alert_window_desc">Android 12 i późniejsze znacznie ograniczyły aplikacjom możliwość uruchamiania operacji w tle i startu podczas uruchamiania urządzenia. Przyznanie SystemUI Tuner uprawnień do wyświetlania nad innymi aplikacjami uwolni go od tych ograniczeń i poprawi niezawodność Trwałych Opcji. To uprawnienie jest w pełni opcjonalne.</string>
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
@@ -323,8 +323,8 @@
     <string name="error_creating_file_template">Error creating file: %s</string>
     <string name="error_restoring_icon_blacklist">Error restoring: %s</string>
     <string name="permission_grant_success">Successfully granted permissions.</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
-    <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
+    <string name="permission_grant_failure">Nie udało się przyznać uprawnień. Jeśli masz urządzenie Xiaomi lub OPPO/Realme/OnePlus, upewnij się, że włączona jest opcja \"Debugowanie USB (Ustawienia zabezpieczeń)\" lub włącz opcję \"Wyłącz monitorwanie uprawnień\".</string>
+    <string name="permission_grant_failure_short">Nie udało się przyznać uprawnień.\n%s</string>
     <string name="patreon">Patreon</string>
     <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
     <string name="supporters">Supporters</string>
@@ -344,8 +344,8 @@
     <string name="safe_audio_state_disabled">Disabled</string>
     <string name="safe_audio_state_inactive">Inactive</string>
     <string name="safe_audio_state_active">Active</string>
-    <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_title">Opcje nie resetują przy starcie urządzenia?</string>
+    <string name="persistent_options_not_sticking_desc">Być może musisz dodać SystemUI Tuner do wyjątkmów optymalizacji baterii. Kliknij tutaj, aby dowiedzieć się, jak to zrobić.</string>
     <string name="setting_applied_dialog">Opcja zastosowana!</string>
     <string name="setting_applied_dialog_desc">Czy chcesz zachować zmiany? Ta opcja zostanie cofnięta po %s sekundach.</string>
     <string name="keep">Zachowaj</string>
