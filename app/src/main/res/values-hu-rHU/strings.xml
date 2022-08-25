@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (kikapcsol)</string>
-    <string name="tap_to_disable">Érintsd az értesítés letiltásához</string>
+    <string name="app_name">Rendszer UI Tuner</string>
+    <string name="manager_channel">Kezelő (kikapcsolás)</string>
+    <string name="tap_to_disable">Koppints ide az értesítés letiltásához</string>
     <string name="home">Kezdőlap</string>
     <string name="category_display">Kijelző</string>
     <string name="category_accessibility">Kisegítő lehetőségek</string>
-    <string name="category_apps">App-ok</string>
+    <string name="category_apps">Alkalmazások</string>
     <string name="category_audio">Hang &amp; Zene</string>
     <string name="category_developer">Fejlesztő</string>
     <string name="category_easter_eggs">Húsvéti tojások</string>
@@ -36,21 +36,21 @@
     <string name="sub_security">Biztonság</string>
     <string name="sub_storage">Tárhely</string>
     <string name="sub_power">Tápellátás</string>
-    <string name="add_to_blacklist">Ikon feketelistára tesz</string>
-    <string name="remove_from_blacklist">Eltávolít az ikon feketelistáról</string>
+    <string name="add_to_blacklist">Ikon hozzáadása a feketelistához</string>
+    <string name="remove_from_blacklist">Ikon eltávolítása a feketelistáról</string>
     <string name="sub_demo">Demó mód</string>
     <string name="sub_demo_desc">A Demó mód lehetővé teszi az eszköz állapotsorának különböző állapotokba kényszerítését. Használható adott ikonok megjelenítésére vagy elrejtésére, a jelerősség megadására és még néhány dologra.</string>
     <string name="special_sub_airplane_mode">Repülőgép mód hangolás</string>
     <string name="special_sub_airplane_mode_desc">A repülőgépes mód automatikusan kikapcsolja az eszköz összes rádióját, amikor be van kapcsolva. Megadható, hogy mely rádiókat tiltsa le (például a WiFi bekapcsolva tartása repülőgépes mód engedélyezésekor). Megváltoztatható az is, hogy melyik rádió kapcsolható manuálisan, amikor az eszköz repülőgépes módba lép.</string>
-    <string name="special_sub_icon_blacklist">Ikon Feketelista</string>
+    <string name="special_sub_icon_blacklist">Ikon feketelista</string>
     <string name="special_sub_icon_blacklist_desc">Válaszd ki az ikonokat, amelyeket el akarsz rejteni az állapotsorból. Ne feledd, hogy ez a funkció nem minden eszközön és minden ikonnál működik. Az értesítési ikonokat nem lehet elrejteni ezzel a funkcióval.</string>
-    <string name="feature_lock_timeout">Állítsa be az egyéni eszközzár időkorlátját</string>
-    <string name="feature_lock_timeout_desc">A \'Biztonságos zár beállításai\' alatt beállíthat egy \'automatikus zárolás\' időzítőt. Ez az időzítő határozza meg, hogy az eszköz alvó üzemmódba lépése után mennyi idő múlva jelenjen meg a zárolási képernyő. Ezen a beállításon keresztül bármilyen értéket beállíthat (milliszekundumokban), amit csak akar. Ha elég magas értéket állít be, akkor lényegében soha nem fog megjelenni a zárolási képernyő (feltéve, hogy kikapcsolta a \"bekapcsológomb azonnal zárolja a készüléket\" funkciót).</string>
-    <string name="feature_battery_saver_trigger">Egyedi Százalékhatár Beállítása Energiatakarékos Módhoz</string>
+    <string name="feature_lock_timeout">Állítsd be az egyéni eszközzár időkorlátját</string>
+    <string name="feature_lock_timeout_desc">A \'Biztonságos zár beállításai\' alatt beállíthatsz egy \'automatikus zárolás\' időzítőt. Ez az időzítő határozza meg, hogy az eszköz alvó üzemmódba lépése után mennyi idő múlva jelenjen meg a zárolási képernyő. Ezen a beállításon keresztül bármilyen értéket beállíthatsz (milliszekundumokban). Ha elég magas értéket állítasz be, akkor lényegében soha nem fog megjelenni a zárolási képernyő (feltéve, hogy kikapcsoltad a \"bekapcsológomb azonnal zárolja a készüléket\" funkciót).</string>
+    <string name="feature_battery_saver_trigger">Egyedi százalékhatár beállítása az Energiatakarékos módhoz</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">A Google \"Energiatakarékos Mód\" funkciója automatikusan aktiválódhat ha az akkumulátor töltöttsége 5\% vagy 15\%. Ezzel saját határt állíthat be a funkciónak.</string>
-    <string name="feature_long_press_delay">Egyedi Nyomvatartás-késleltetés Beállítása</string>
+    <string name="feature_long_press_delay">Egyedi nyomvatartás-késleltetés beállítása</string>
     <string name="feature_long_press_delay_desc">A hozzáférési beállításokban van egy \"touch &amp; hold delay\" nevű funkció, amely lehetővé teszi, hogy megadja, mennyi ideig kell lenyomva tartani a képernyőt, hogy az Android felismerje a hosszú nyomást. Alapértelmezés szerint azonban csak a \"rövid\", a \"közepes\" és a \"hosszú\" lehetőségek állnak rendelkezésre. Beállíthatja a saját késleltetését.</string>
-    <string name="feature_font_scale">Egyedi Betűméret Beállítása</string>
+    <string name="feature_font_scale">Egyedi betűméret beállítása</string>
     <string name="feature_font_scale_desc">Az Android lehetővé teszi a rendszer betűméretének beállítását. Az opciók általában \"kicsi\", \"normál\", \"nagy\", \"nagyon nagy\" lehetőségekkel vannak jelölve. Ezzel a beállításal megadhat egy egyedi értéket.</string>
     <string name="feature_freeform">Szabad formájú többablakos mód engedélyezése</string>
     <string name="feature_freeform_desc">A többablakos szabad formájú támogatás engedélyezése. Újraindítást igényel. Csak Android 7.0+ készüléken működik.</string>
@@ -345,8 +345,8 @@ Néma láthatóság</string>
     <string name="safe_audio_state_active">Aktív</string>
     <string name="persistent_options_not_sticking_title">A beállítások nem állnak vissza a rendszerindításkor?</string>
     <string name="persistent_options_not_sticking_desc">Előfordulhat, hogy a SystemUI Tuner-t fehérlistára kell tennie az akkumulátor optimalizálásához. Kattintson ide, ha szeretné megtudni, hogyan.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">Beállítás alkalmazva!</string>
+    <string name="setting_applied_dialog_desc">Szeretnéd megtartani a módosításokat? Ez a beállítás vissza lesz állítva %s másodperc múlva.</string>
+    <string name="keep">Megtartás</string>
+    <string name="revert">Visszaállítás</string>
 </resources>
