@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Bloquear la orientación de la pantalla al valor personalizado</string>
     <string name="feature_custom_rotation_desc">La mayoría de los teléfonos sólo le permiten bloquear la orientación de la pantalla de su teléfono al modo Retrato. Con esta configuración, puede bloquear la orientación de la pantalla a cualquier orientación. Primero tendrá que desactivar la rotación automática antes de que esto funcione.</string>
     <string name="feature_immersive_mode">Modo immersivo</string>
-    <string name="feature_immersive_mode_desc">La mayoría de las otras aplicaciones que permiten alternar el modo inmersivo sólo tienen algunas opciones: ocultar la barra de navegación u ocultar la barra de estado. En realidad es posible establecer esto sobre una base por aplicación, ya sea en la lista blanca o en la lista negra.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Duración del aplazamiento de notificaciones emergentes</string>
     <string name="feature_heads_up_snooze_length_desc">Milisegundos después de que una notificación emergente se retrase antes de que la aplicación pueda interrumpir de nuevo. (por defecto: 60 segundos).</string>
     <string name="feature_camera_gestures">Gestos de cámara</string>
