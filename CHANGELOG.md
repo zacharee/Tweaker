@@ -1,3 +1,19 @@
+# 346
+- Fix temperature slider in Night Mode option.
+- Implement a "revert" dialog for dangerous settings.
+- UI tweaks.
+- Update dependencies.
+- Update Immersive Mode description to mention broken Immersive Mode on Android 11 and later.
+- Update intro to use Material You theming.
+- Request notification permission on Android 13.
+- Target API 33.
+
+# 345
+- Dangerous preferences show up in red again.
+- Add a warning about Night Mode to the terms.
+- Implement Material You theming for Android 12 and later.
+- Update dependencies.
+
 ## 344
 - Add Hungarian translation.
 - Update translations.
