@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Ориентация экрана блокировки</string>
     <string name="feature_custom_rotation_desc">Большинство телефонов позволяют заблокировать ориентацию экрана телефона только в портретном режиме. С этой настройкой можно заблокировать ориентацию экрана в любом направлении. Сначала необходимо отключить автоповорот, прежде чем это будет работать.</string>
     <string name="feature_immersive_mode">Полноэкранный режим</string>
-    <string name="feature_immersive_mode_desc">Большинство других приложений, позволяющих включать полноэкранный режим, имеют лишь несколько опций: скрыть панель навигации или скрыть строку состояния. На самом деле это можно установить для каждого приложения отдельно, используя белый или чёрный список.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Длительность заглушения всплывающих уведомлений</string>
     <string name="feature_heads_up_snooze_length_desc">Время, через которое приложение снова сможет показать всплывающее уведомление (по умолчанию 60 секунд).</string>
     <string name="feature_camera_gestures">Жесты камеры</string>
