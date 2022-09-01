@@ -41,10 +41,10 @@
     <string name="sub_demo">מצב הדגמה</string>
     <string name="sub_demo_desc">מצב הדגמה מאפשר לכם לכפות את שורת המצב למצבים שונים/ באפשרותכם להשתמש בו כדי להציג או להסתיר אייקונים שונים, לציין עוצמת אות ועוד כמה דברים.</string>
     <string name="special_sub_airplane_mode">שפצורי מצב טיסה</string>
-    <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. You can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, you can change which radios can be toggled manually when the device enters airplane mode.</string>
-    <string name="special_sub_icon_blacklist">Icon Blacklist</string>
-    <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
-    <string name="feature_lock_timeout">Set Custom Device Lock Timeout</string>
+    <string name="special_sub_airplane_mode_desc">מצב הטיסה אוטומטית משבית את כל הקליטה (רדיו) שבמכשירך כאשר הוא מופעל. את.ה יכול.ה לפרט אילו קליטות (רדיו) צריכות להיות מושבתות (לדוגמא, ניתן להשאיר את הWiFi דולק כאשר מצב הטיסה מופעל). כמו כן, את.ה יכול.ה לשנות אילו קליטות ניתנות להפעלה/כיבוי ידנית כאשר המצב נכנס למצב הטיסה.</string>
+    <string name="special_sub_icon_blacklist">רשימה שחורה (של אייקונים)</string>
+    <string name="special_sub_icon_blacklist_desc">בחר.י אייקונים ספציפיים שיוסתרו בstatus bar. שימ.י לב שפיצ\'ר זה לא יעבוד בכל המכשירים או עם כל האייקונים. לא ניתן להסתיר אייקונים של נוטיפיקציות בעזרת פיצ\'ר זה.</string>
+    <string name="feature_lock_timeout">הגדר.י זמן טרום נעילת מסך מותאם אישית</string>
     <string name="feature_lock_timeout_desc">Under the \"secure lock settings\", you can set an \"automatically lock\" timer. This timer determines how long after the device enters sleep mode that the lock screen should be displayed. Through this option, you can set whatever value (in milliseconds) that you want. If you set a high enough value, then essentially your lock screen will never show (provided you have disabled the \"power button instantly locks device\" feature).</string>
     <string name="feature_battery_saver_trigger">Set Custom Battery Saver Trigger Percent</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
