@@ -32,7 +32,8 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
 
         enum class StartReason {
             INTRO,
-            SYSTEM_ALERT_WINDOW
+            SYSTEM_ALERT_WINDOW,
+            NOTIFICATIONS
         }
     }
 
@@ -133,14 +134,35 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
             )
         }
 
+        @SuppressLint("InlinedApi")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU || startReason == StartReason.NOTIFICATIONS) {
+            addSlide(
+                FragmentSlide.Builder()
+                    .background(R.color.slide_7)
+                    .fragment(
+                        SimpleSlideFragmentOverride.newInstance(
+                            0, null, R.string.intro_allow_notifications,
+                            null, R.string.intro_allow_notifications_desc,
+                            R.drawable.ic_baseline_notifications_24, R.color.slide_7,
+                            R.layout.mi_fragment_simple_slide, 0
+                        )
+                    )
+                    .buttonCtaLabel(R.string.grant)
+                    .buttonCtaClickListener {
+                        requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 100)
+                    }
+                    .build()
+            )
+        }
+
         addSlide(
             FragmentSlide.Builder()
-                .background(R.color.slide_7)
+                .background(R.color.slide_8)
                 .fragment(
                     SimpleSlideFragmentOverride.newInstance(
                         0, null, R.string.intro_last,
                         null, R.string.intro_last_desc, R.drawable.foreground_unscaled,
-                        R.color.slide_7, R.layout.mi_fragment_simple_slide, 0
+                        R.color.slide_8, R.layout.mi_fragment_simple_slide, 0
                     )
                 )
                 .build()

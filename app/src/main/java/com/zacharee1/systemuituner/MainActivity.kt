@@ -1,7 +1,9 @@
 package com.zacharee1.systemuituner
 
 import android.animation.ValueAnimator
+import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
@@ -38,10 +40,20 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
 
-        if (!hasWss) {
-            Intro.start(this)
-        } else if (!Settings.canDrawOverlays(this) && !prefManager.sawSystemAlertWindow) {
-            Intro.start(this, Intro.Companion.StartReason.SYSTEM_ALERT_WINDOW)
+        when {
+            !hasWss -> {
+                Intro.start(this)
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+                    !Settings.canDrawOverlays(this) &&
+                    !prefManager.sawSystemAlertWindow -> {
+                Intro.start(this, Intro.Companion.StartReason.SYSTEM_ALERT_WINDOW)
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                    checkCallingOrSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
+                    !prefManager.sawNotificationsAlert -> {
+                Intro.start(this, Intro.Companion.StartReason.NOTIFICATIONS)
+            }
         }
 
         setContentView(mainBinding.root)
@@ -168,8 +180,10 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             mainBinding.drawerLayout.width,
             if (visible) resources.getDimensionPixelSize(R.dimen.drawer_width) else 0
         )
-        drawerAnimator?.duration = resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
-        drawerAnimator?.interpolator = if (visible) DecelerateInterpolator() else AccelerateInterpolator()
+        drawerAnimator?.duration =
+            resources.getInteger(android.R.integer.config_mediumAnimTime).toLong()
+        drawerAnimator?.interpolator =
+            if (visible) DecelerateInterpolator() else AccelerateInterpolator()
 
         drawerAnimator?.addUpdateListener {
             mainBinding.drawerLayout.updateLayoutParams<ViewGroup.LayoutParams> {
