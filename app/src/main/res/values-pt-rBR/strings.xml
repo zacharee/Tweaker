@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Orientação da tela de bloqueio para valor personalizado</string>
     <string name="feature_custom_rotation_desc">A maioria dos celulares só permite que você bloqueie a rotação da tela do seu celulares para o Modo Retrato. Com essa configuração, você pode bloquear a rotação da tela em qualquer orientação. Primeiro, você terá que desativar a rotação automática para que isto funcione.</string>
     <string name="feature_immersive_mode">Modo imersivo</string>
-    <string name="feature_immersive_mode_desc">A maioria dos outros aplicativos que permitem a você alternar o modo imersivo só tem algumas opções: ocultar a barra de navegação ou ocultar a barra de status. Na verdade, é possível definir isso por aplicativo, em modo lista branca ou lista negra.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Duração da tela alerta</string>
     <string name="feature_heads_up_snooze_length_desc">Milissegundos após uma notificação flutuante ser empurrada para trás antes que o aplicativo possa interromper novamente. (Padrão: 60 segundos).</string>
     <string name="feature_camera_gestures">Gestos da Câmera</string>
