@@ -272,6 +272,8 @@
     <string name="intro_grant_extra_desc">Для некоторых функций SystemUI Tuner требуются дополнительные разрешения на работу в ADB. Вам сейчас не нужно давать этих полномочий, если они потребуются, вам будет предложено их предоставить.</string>
     <string name="intro_system_alert_window">Окно системного оповещения</string>
     <string name="intro_system_alert_window_desc">Android 12 и выше значительно ограничили возможность работы приложений в фоновом режиме и при загрузке устройства. Предоставление разрешения SystemUI Tuner на отображение поверх других приложений снимает с него эти ограничения и повышает надёжность Постоянных настроек. Это разрешение абсолютно необязательно.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Спасибо за использование моего приложения!</string>
     <string name="intro_last_desc">Подпишитесь на меня в Twitter для актуальной информации.</string>
     <string name="compatibility_message_lower">Извините, эта функция работает только с Android %s и более поздними</string>
