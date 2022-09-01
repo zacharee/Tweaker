@@ -69,7 +69,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_custom_rotation_desc">Çoğu telefon, yalnızca telefonunuzun ekran yönünü Dikey moda kilitlemenize izin verir. Bu ayarla, ekran yönünü herhangi bir yöne kilitleyebilirsiniz. Bunun işe yaraması için önce otomatik döndürmeyi devre dışı bırakmanız gerekir.
  İçerik Taalep.</string>
     <string name="feature_immersive_mode">Tam Ekran Modu</string>
-    <string name="feature_immersive_mode_desc">Sürükleyici modu değiştirmenize izin veren diğer uygulamaların çoğu yalnızca birkaç seçeneğe sahiptir: gezinme çubuğunu gizleyin veya durum çubuğunu gizleyin. Bunu beyaz liste veya kara liste modunda uygulama bazında ayarlamak aslında mümkündür.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Uyarı Bildirimi Erteleme Süresi</string>
     <string name="feature_heads_up_snooze_length_desc">Uygulama tekrar kesintiye uğramadan önce bir uyarı bildiriminin geri itilmesinden sonraki milisaniyeler. (Varsayılan: 60 saniye).</string>
     <string name="feature_camera_gestures">Kamera Hareketi</string>
