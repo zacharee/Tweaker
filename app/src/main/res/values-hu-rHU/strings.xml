@@ -273,6 +273,8 @@ Néma láthatóság</string>
     <string name="intro_grant_extra_desc">Bizonyos funkciókhoz a SystemUI Tuner-nek szüksége van néhány extra ADB-engedélyre a megfelelő működéshez. Ezeket most nem kell megadnia, és a rendszer kérni fogja, ha szükség van rájuk.</string>
     <string name="intro_system_alert_window">Rendszerfigyelmeztető ablak</string>
     <string name="intro_system_alert_window_desc">Az Android 12 és újabb verziók jelentősen korlátozták az alkalmazások azon képességét, hogy a háttérben és a készülék indításakor műveleteket hajtsanak végre. A SystemUI Tuner engedélyezése a más alkalmazások feletti megjelenítésre felmenti a rendszerfelületet e korlátozások alól, és javítja a Tartós beállítások megbízhatóságát. Ez az engedély teljesen opcionális.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
     <string name="intro_last_desc">Kövess a Twitteren, hogy értesülj a legújabb frissítésekről.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
