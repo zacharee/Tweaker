@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Changer l\'orientation de l\'écran de verrouillage par défaut</string>
     <string name="feature_custom_rotation_desc">La plupart des téléphones vous permettent uniquement d\'avoir l\'écran de verrouillage en mode Portrait. Avec ce paramètre, vous pouvez verrouiller l\'orientation de l\'écran sur n\'importe quelle mode. Vous devrez cependant désactiver la rotation automatique pour que paramètre puisse fonctionner.</string>
     <string name="feature_immersive_mode">Mode immersif</string>
-    <string name="feature_immersive_mode_desc">La plupart des applications qui vous permettent de basculer en mode immersif n\'ont que quelques options : masquer la barre de navigation ou masquer la barre d\'état, mais il est possible de définir un paramètre personnalisé pour chaque application, en suivant un modèle de liste blanche/liste noire.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Leads-Une Notification Snooker Lent</string>
     <string name="feature_heads_up_snooze_length_desc">Durée en millisecondes après qu\'une notification flottante soit masquée avant que l\'application ne puisse interrompre à nouveau. (Par défaut : 60 secondes).</string>
     <string name="feature_camera_gestures">Caméra gestuelle</string>
