@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Bildschirmausrichtung auf benutzerdefinierten Wert festlegen</string>
     <string name="feature_custom_rotation_desc">Bei den meisten Handys können Sie die Bildschirmausrichtung nur im Hochformat festlegen. Mit dieser Einstellung können Sie die Bildschirmausrichtung auf eine beliebige Ausrichtung festlegen. Sie müssen zunächst das automatische Drehen deaktivieren, bevor dies funktioniert.</string>
     <string name="feature_immersive_mode">Immersiver Modus</string>
-    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: Ausblenden der Navigationsleiste oder Ausblenden der Statusleiste. Es ist sogar möglich, dies für jede Anwendung einzeln festzulegen, entweder im Modus „Ausnahmenliste” oder „Sperrliste”.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Zurückstell-Dauer der eingeblendeten Benachrichtigungen</string>
     <string name="feature_heads_up_snooze_length_desc">Millisekunden, nachdem eine eingeblendeten Benachrichtigung zurückgestellt wurde, bevor die App erneut unterbrechen kann. (Standard: 60 Sekunden).</string>
     <string name="feature_camera_gestures">Kameragesten</string>
