@@ -275,8 +275,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_grant_extra_desc">Pro správnou funkci některých funkcí potřebuje SystemUI Tuner některá další oprávnění ADB. Nyní je nemusíte udělovat a budete vyzváni, pokud budou potřeba.</string>
     <string name="intro_system_alert_window">Varovná hláška</string>
     <string name="intro_system_alert_window_desc">Android 12 a novější výrazně omezily schopnost aplikací spouštět operace na pozadí a při startu zařízení. Udělením oprávnění SystemUI Tuner k zobrazení přes ostatní se aplikace osvobodí od těchto omezení a zlepší spolehlivost přetrvávajících nastavení. Toto oprávnění je zcela nepovinné.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Povolit notifikace</string>
+    <string name="intro_allow_notifications_desc">Android 13 zavádí nové omezení aplikací vyžadujících oprávnění uživatele k zobrazování oznámení. SystemUI Tuner může zobrazit oznámení při spuštění operací na pozadí. Pokud chcete vidět toto oznámení, povolte SystemUI Tuner zobrazovat oznámení.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
     <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
