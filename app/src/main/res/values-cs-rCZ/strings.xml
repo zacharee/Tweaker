@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Nastavení orientace zamčené obrazovky na vlastní hodnotu</string>
     <string name="feature_custom_rotation_desc">Většina telefonů umožňuje uzamknout orientaci obrazovky telefonu pouze v režimu na výšku. Pomocí tohoto nastavení můžete uzamknout orientaci obrazovky na libovolnou orientaci. Předtím, než bude tato funkce fungovat, budete muset nejprve zakázat automatické otáčení.</string>
     <string name="feature_immersive_mode">Režim celé obrazovky</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">Většina ostatních aplikací, které umožňují přepínat pohlcující režim, má pouze několik možností: skrýt navigační panel nebo skrýt stavový řádek. Ve skutečnosti je to možné nastavit pro každou aplikaci zvlášť, a to buď v režimu bílé, nebo černé. Upozorňujeme, že v systému Android 11 a vyšším je tato možnost v AOSP nefunkční a ve vašem zařízení již nemusí fungovat.</string>
     <string name="feature_heads_up_snooze_length">Délka odložení plovoucího oznámení</string>
     <string name="feature_heads_up_snooze_length_desc">Milisekundy po odsunutí upozornění, než je aplikace opět přerušena. (Výchozí hodnota: 60 sekund).</string>
     <string name="feature_camera_gestures">Gesto fotoaparátu</string>
@@ -275,6 +275,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_grant_extra_desc">Pro správnou funkci některých funkcí potřebuje SystemUI Tuner některá další oprávnění ADB. Nyní je nemusíte udělovat a budete vyzváni, pokud budou potřeba.</string>
     <string name="intro_system_alert_window">Varovná hláška</string>
     <string name="intro_system_alert_window_desc">Android 12 a novější výrazně omezily schopnost aplikací spouštět operace na pozadí a při startu zařízení. Udělením oprávnění SystemUI Tuner k zobrazení přes ostatní se aplikace osvobodí od těchto omezení a zlepší spolehlivost přetrvávajících nastavení. Toto oprávnění je zcela nepovinné.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
     <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
