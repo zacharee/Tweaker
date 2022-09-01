@@ -272,6 +272,8 @@
     <string name="intro_grant_extra_desc">Para ciertas características, SystemUI Tuner necesita algunos permisos ADB extra para funcionar correctamente. No tienes que concederlos ahora, y se te pedirá si es necesario.</string>
     <string name="intro_system_alert_window">Ventana de alerta del sistema</string>
     <string name="intro_system_alert_window_desc">Android 12 y posteriores han restringido significativamente la capacidad para que las aplicaciones ejecuten operaciones en segundo plano y cuando el dispositivo arranque. Conceder permiso de SystemUI Tuner para mostrar sobre otras aplicaciones la eximirá de estas restricciones y mejorará la fiabilidad de las Opciones Persistentes. Este permiso es completamente opcional.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
