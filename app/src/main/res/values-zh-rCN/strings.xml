@@ -272,6 +272,8 @@
     <string name="intro_grant_extra_desc">系统界面调节器需要额外的 ADB 权限才能正常工作。 您现在就不必授予这些。如果需要的话，您将会被提示。</string>
     <string name="intro_system_alert_window">系统警报窗口</string>
     <string name="intro_system_alert_window_desc">Android 12及更高版本已经严重限制了应用在后台和设备启动时运行的能力。 给予系统界面调节器在其他应用上显示的权限将免除这些限制，并提高持久性选项的可靠性。 此权限完全可选.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">感谢您使用我的应用！</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
