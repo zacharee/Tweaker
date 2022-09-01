@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Nastavení orientace zamčené obrazovky na vlastní hodnotu</string>
     <string name="feature_custom_rotation_desc">Většina telefonů umožňuje uzamknout orientaci obrazovky telefonu pouze v režimu na výšku. Pomocí tohoto nastavení můžete uzamknout orientaci obrazovky na libovolnou orientaci. Předtím, než bude tato funkce fungovat, budete muset nejprve zakázat automatické otáčení.</string>
     <string name="feature_immersive_mode">Režim celé obrazovky</string>
-    <string name="feature_immersive_mode_desc">Většina ostatních aplikací, které umožňují přepínat režim na celou obrazovku, má pouze několik možností: skrýt navigační panel nebo skrýt stavový řádek. Ve skutečnosti je to možné nastavit pro každou aplikaci zvlášť, a to buď v režimu bílé, nebo černé listiny.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Délka odložení plovoucího oznámení</string>
     <string name="feature_heads_up_snooze_length_desc">Milisekundy po odsunutí upozornění, než je aplikace opět přerušena. (Výchozí hodnota: 60 sekund).</string>
     <string name="feature_camera_gestures">Gesto fotoaparátu</string>
