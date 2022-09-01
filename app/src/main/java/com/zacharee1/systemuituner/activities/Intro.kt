@@ -181,9 +181,17 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
         super.onDestroy()
 
         if (Activity::class.java.getDeclaredField("mResultCode")
-                .apply { isAccessible = true }.get(this) == Activity.RESULT_OK &&
-            startReason == StartReason.SYSTEM_ALERT_WINDOW) {
-            prefManager.sawSystemAlertWindow = true
+                .apply { isAccessible = true }.get(this) == Activity.RESULT_OK) {
+
+            when (startReason) {
+                StartReason.SYSTEM_ALERT_WINDOW -> prefManager.sawSystemAlertWindow = true
+                StartReason.NOTIFICATIONS -> prefManager.sawNotificationsAlert = true
+                StartReason.INTRO -> {
+                    prefManager.sawSystemAlertWindow = true
+                    prefManager.sawNotificationsAlert = true
+                }
+                else -> {}
+            }
         }
 
         cancel()
