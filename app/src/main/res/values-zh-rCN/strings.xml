@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">锁定屏幕方向到自定义值</string>
     <string name="feature_custom_rotation_desc">大多数手机只允许您锁定手机屏幕方向到肖像模式。 通过此设置，您可以锁定屏幕方向到任何方向。您首先必须禁用自动旋转，然后才能正常工作。</string>
     <string name="feature_immersive_mode">沉浸模式</string>
-    <string name="feature_immersive_mode_desc">允许您切换沉浸模式的大多数其他应用程序只有几个选项：隐藏导航栏或隐藏状态栏。 在白名单或黑名单模式中将此设置为每个应用都是可能的。</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">浮动通知延迟长度</string>
     <string name="feature_heads_up_snooze_length_desc">浮动通知后的毫秒数会在应用程序再次中断之前被推回。(默认：60秒)。</string>
     <string name="feature_camera_gestures">相机手势</string>
