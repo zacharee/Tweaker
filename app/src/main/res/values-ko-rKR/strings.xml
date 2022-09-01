@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">잠금화면 화면 방향 사용자 지정</string>
     <string name="feature_custom_rotation_desc">대부분의 폰은 잠금화면의 화면 방향이 세로로 고정되어 있습니다. 이 설정을 이용하면, 잠금화면의 화면 방향을 사용자 지정할 수 있습니다. 우선 자동 회전을 비활성화한 뒤 이 설정을 적용해야 정상적으로 동작할 것입니다.</string>
     <string name="feature_immersive_mode">몰입 모드</string>
-    <string name="feature_immersive_mode_desc">다른 애플리케이션의 경우 내비게이션 바를 숨기거나 상태 표시줄을 숨기는 등 일부 설정에 한해서만 몰입 모드를 지원합니다. 활성화 목록이나 제외 목록 중 하나를 통해 각 앱에 대하여 몰입 모드 활성화 여부를 지정할 수 있습니다.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">헤드 업 알림 후 유지 기간</string>
     <string name="feature_heads_up_snooze_length_desc">헤드 업 알림이 뜬 후 앱이 다시 중지될 수 있을 때까지의 밀리초 단위 시간(기본값: 60초).</string>
     <string name="feature_camera_gestures">카메라 제스처</string>
