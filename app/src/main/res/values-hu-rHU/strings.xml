@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Zárolási képernyő tájolása egyéni értékre</string>
     <string name="feature_custom_rotation_desc">A legtöbb telefon csak azt teszi lehetővé, hogy a telefon képernyő tájolását Portré módba rögzítse. Ezzel a beállítással a képernyő tájolását bármilyen tájolásra zárolhatja. Először le kell tiltania az automatikus forgatást, mielőtt ez működni fog.</string>
     <string name="feature_immersive_mode">Magával ragadó mód</string>
-    <string name="feature_immersive_mode_desc">A legtöbb más alkalmazás, amely lehetővé teszi az immerzív mód váltását, csak néhány lehetőséget kínál: a navigációs sáv elrejtése vagy az állapotsor elrejtése. Valójában ezt alkalmazásonként is be lehet állítani, akár fehérlista, akár feketelista módban.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up értesítés elhalasztásának hossza</string>
     <string name="feature_heads_up_snooze_length_desc">Milliszekundumok a heads up értesítés visszalökése után, mielőtt az alkalmazás újra megszakíthatja. (Alapértelmezett: 60 másodperc).</string>
     <string name="feature_camera_gestures">Kamera gesztusok</string>
