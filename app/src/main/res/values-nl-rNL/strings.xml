@@ -272,8 +272,8 @@
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
     <string name="intro_system_alert_window">Systeemwaarschuwingsscherm</string>
     <string name="intro_system_alert_window_desc">Android 12 en hoger hebben de mogelijkheid om apps bewerkingen te laten uitvoeren op de achtergrond en als het apparaat opstart. Het verlenen van toestemming voor Systeem UI-tuner om weer te geven over andere apps zal de weergave van deze beperkingen vrijstellen en de betrouwbaarheid van aanhoudende opties verbeteren. Dit recht is volledig optioneel.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Meldingen toestaan</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduceert een nieuwe beperking voor apps die toestemming van de gebruiker nodig hebben om meldingen te tonen. SystemUI Tuner kan een melding tonen tijdens het uitvoeren van achtergrondbewerkingen. Als je deze melding wilt zien, sta dan toe dat SysteemUI Tuner meldingen toont.</string>
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
