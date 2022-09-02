@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">鎖定螢幕方向到自訂值</string>
     <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为縱向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常工作。</string>
     <string name="feature_immersive_mode">沉浸式模式</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">其他大多數允許你切換沉浸式模式的應用程式只有幾個選項：隱藏導覽列或隱藏狀態列。實際上，在白名單和黑名單模式下，有可能在每個應用程式的基礎上設定這個選項。請注意，在 Android 11 或更新版本，此選項在 AOSP 中已損壞，且可能無法在您的裝置上運作。</string>
     <string name="feature_heads_up_snooze_length">彈出式通知延後時間</string>
     <string name="feature_heads_up_snooze_length_desc">彈出式通知後的毫秒數會在應用程式再次中斷之前被推回。(預設：60 秒)。</string>
     <string name="feature_camera_gestures">相機手勢</string>
@@ -273,7 +273,7 @@
     <string name="intro_system_alert_window">系統警示視窗</string>
     <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景啟動時或裝置啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
     <string name="intro_allow_notifications">允許通知</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景操作時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
