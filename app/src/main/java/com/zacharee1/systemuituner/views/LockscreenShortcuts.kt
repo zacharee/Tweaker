@@ -61,7 +61,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                     )
 
                     binding.appName.text = try {
-                        context.packageManager.getActivityInfo(cName, 0).loadLabel(context.packageManager)
+                        context.packageManager.getActivityInfoCompat(cName).loadLabel(context.packageManager)
                     } catch (e: PackageManager.NameNotFoundException) {
                         null
                     }

@@ -5,9 +5,13 @@ import android.content.Context
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.zacharee1.systemuituner.R
 import kotlin.math.roundToInt
 
@@ -79,3 +83,25 @@ fun Context.spAsPx(spVal: Number) =
 
 fun Context.asDp(value: Number) =
     value.toFloat() / resources.displayMetrics.density
+
+fun View.visibilityChanged(owner: LifecycleOwner, action: (View) -> Unit) {
+    val listener = ViewTreeObserver.OnGlobalLayoutListener {
+        val newVis: Int = this.visibility
+        if (this.tag as Int? != newVis) {
+            this.tag = this.visibility
+
+            // visibility has changed
+            action(this)
+        }
+    }
+
+    owner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+        override fun onResume(owner: LifecycleOwner) {
+            viewTreeObserver.addOnGlobalLayoutListener(listener)
+        }
+
+        override fun onPause(owner: LifecycleOwner) {
+            viewTreeObserver.removeOnGlobalLayoutListener(listener)
+        }
+    })
+}

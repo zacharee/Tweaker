@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -99,7 +100,7 @@ class QSEditorActivity : AppCompatActivity() {
                 true
             }
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -113,6 +114,7 @@ class QSEditorActivity : AppCompatActivity() {
     }
 
     class QSEditorAdapter(private val context: Context) : RecyclerView.Adapter<QSEditorAdapter.QSVH>() {
+        @SuppressLint("DiscouragedApi")
         private val defaultTiles = ArrayList<String>().apply {
             try {
                 val remRes = context.packageManager.getResourcesForApplication("com.android.systemui")
@@ -166,9 +168,9 @@ class QSEditorActivity : AppCompatActivity() {
         private val customTiles = ArrayList<String>().apply {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
                 val customTiles = context.packageManager
-                    .queryIntentServices(Intent("android.service.quicksettings.action.QS_TILE"), PackageManager.MATCH_ALL)
+                    .queryIntentServicesCompat(Intent("android.service.quicksettings.action.QS_TILE"), PackageManager.MATCH_ALL)
 
-                customTiles?.forEach {
+                customTiles.forEach {
                     add("custom(${it.componentInfo.component.flattenToString()})")
                 }
             }

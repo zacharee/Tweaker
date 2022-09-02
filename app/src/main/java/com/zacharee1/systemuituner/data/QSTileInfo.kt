@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.capitalized
+import com.zacharee1.systemuituner.util.getApplicationInfoCompat
+import com.zacharee1.systemuituner.util.getServiceInfoCompat
 import java.util.regex.Pattern
 
 class QSTileInfo(
@@ -60,10 +62,10 @@ class QSTileInfo(
 
         return try {
             if (component != null) {
-                packageManager.getServiceInfo(component, 0).loadLabel(packageManager)
+                packageManager.getServiceInfoCompat(component).loadLabel(packageManager)
                     .toString()
             } else {
-                packageManager.getApplicationInfo(packageName, 0).loadLabel(packageManager)
+                packageManager.getApplicationInfoCompat(packageName).loadLabel(packageManager)
                     .toString()
             }
         } catch (e: Exception) {
@@ -94,10 +96,10 @@ class QSTileInfo(
         val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfo(component, 0).loadIcon(packageManager)
+            packageManager.getServiceInfoCompat(component ?: throw NullPointerException("No component name found")).loadIcon(packageManager)
         } catch (e: Exception) {
             try {
-                packageManager.getApplicationInfo(packageName, 0).loadIcon(packageManager)
+                packageManager.getApplicationInfoCompat(packageName).loadIcon(packageManager)
             } catch (e: Exception) {
                 getDefaultDrawable()
             }

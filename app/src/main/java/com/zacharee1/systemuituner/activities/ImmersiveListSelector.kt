@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.PackageManagerCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -24,17 +26,25 @@ import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.util.addAnimation
 import com.zacharee1.systemuituner.util.callSafely
 import com.zacharee1.systemuituner.util.getColorPrimary
+import com.zacharee1.systemuituner.util.getInstalledPackagesCompat
 import kotlinx.coroutines.*
 
-class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope(), SearchView.OnQueryTextListener, SearchView.OnCloseListener {
+class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope(),
+    SearchView.OnQueryTextListener, SearchView.OnCloseListener {
     companion object {
         const val EXTRA_CHECKED = "checked_packages"
         const val EXTRA_CALLBACK = "callback"
 
-        fun start(context: Context, checked: ArrayList<String>?, onResultListener: IImmersiveSelectionCallback) {
+        fun start(
+            context: Context,
+            checked: ArrayList<String>?,
+            onResultListener: IImmersiveSelectionCallback
+        ) {
             val activity = Intent(context, ImmersiveListSelector::class.java)
             activity.putExtra(EXTRA_CHECKED, checked)
-            activity.putExtra(EXTRA_CALLBACK, Bundle().apply { putBinder(EXTRA_CALLBACK, onResultListener.asBinder()) })
+            activity.putExtra(
+                EXTRA_CALLBACK,
+                Bundle().apply { putBinder(EXTRA_CALLBACK, onResultListener.asBinder()) })
 
             context.startActivity(activity)
         }
@@ -97,7 +107,8 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
         binding.selector.adapter = adapter
         binding.scroller.useDefaultScroller = false
-        binding.scroller.itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+        binding.scroller.itemIndicatorSelectedCallbacks += object :
+            FastScrollerView.ItemIndicatorSelectedCallback {
             override fun onItemIndicatorSelected(
                 indicator: FastScrollItemIndicator,
                 indicatorCenterY: Int,
@@ -119,7 +130,7 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
         launch {
             val apps = withContext(Dispatchers.IO) {
-                packageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES)
+                packageManager.getInstalledPackagesCompat(PackageManager.GET_ACTIVITIES)
                     .filter { !it.activities.isNullOrEmpty() }
                     .map { it.applicationInfo }
                     .map {
@@ -168,7 +179,8 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
     }
 
     @SuppressLint("RestrictedApi")
-    class ImmersiveAdapter(private val checked: HashSet<String>, mainScope: CoroutineScope) : RecyclerView.Adapter<ImmersiveAdapter.ImmersiveVH>(), CoroutineScope by mainScope {
+    class ImmersiveAdapter(private val checked: HashSet<String>, mainScope: CoroutineScope) :
+        RecyclerView.Adapter<ImmersiveAdapter.ImmersiveVH>(), CoroutineScope by mainScope {
         enum class Payload {
             CHECKED_CHANGE
         }
@@ -181,7 +193,8 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImmersiveVH {
             return ImmersiveVH(
-                LayoutInflater.from(parent.context).inflate(R.layout.custom_preference, parent, false).apply {
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.custom_preference, parent, false).apply {
                     findViewById<LinearLayout>(android.R.id.widget_frame).apply {
                         LayoutInflater.from(context).inflate(R.layout.checkbox, this, true)
                     }

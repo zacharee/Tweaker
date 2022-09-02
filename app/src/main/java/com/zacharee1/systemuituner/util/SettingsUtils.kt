@@ -310,7 +310,7 @@ fun Fragment.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
 
 fun Context.isWriteSystemAddOnInstalled(): Boolean {
     return try {
-        packageManager.getPackageInfo("tk.zwander.systemuituner.systemsettings", 0)
+        packageManager.getPackageInfoCompat("tk.zwander.systemuituner.systemsettings")
         true
     } catch (e: Exception) {
         false

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.*
 import android.os.Bundle
 import android.view.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
@@ -16,10 +17,7 @@ import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.AppActivityItemBinding
 import com.zacharee1.systemuituner.databinding.LockscreenShortcutSelectorBinding
-import com.zacharee1.systemuituner.util.addAnimation
-import com.zacharee1.systemuituner.util.callSafely
-import com.zacharee1.systemuituner.util.component
-import com.zacharee1.systemuituner.util.scaleAnimatedVisible
+import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.async
@@ -137,9 +135,20 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             }
         }
 
+        val backPressedCallback = object : OnBackPressedCallback(binding.activitySelectorWrapper.isVisible) {
+            override fun handleOnBackPressed() {
+                updateRecyclerVisibility(false)
+            }
+        }
+        binding.activitySelectorWrapper.visibilityChanged(this) {
+            backPressedCallback.isEnabled = it.isVisible
+        }
+
+        onBackPressedDispatcher.addCallback(backPressedCallback)
+
         launch {
             val deferred = async {
-                packageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES)
+                packageManager.getInstalledPackagesCompat(PackageManager.GET_ACTIVITIES)
                     .filter { it.activities != null && it.activities.isNotEmpty() }
                     .map { LoadedApplicationInfo(packageManager, it) }
             }
@@ -167,7 +176,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
             return true
         }
 
@@ -191,14 +200,6 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     override fun onQueryTextSubmit(query: String?): Boolean {
         return false
-    }
-
-    override fun onBackPressed() {
-        if (binding.activitySelectorWrapper.isVisible) {
-            updateRecyclerVisibility(false)
-        } else {
-            super.onBackPressed()
-        }
     }
 
     private fun updateRecyclerVisibility(forActivity: Boolean) {

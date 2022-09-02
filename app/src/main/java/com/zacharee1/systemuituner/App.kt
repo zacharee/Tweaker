@@ -108,6 +108,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                         // Bring up crash dialog, wait for it to be dismissed
 
                         // Bring up crash dialog, wait for it to be dismissed
+                        @Suppress("INACCESSIBLE_TYPE")
                         ActivityManager.getService().handleApplicationCrash(
                             (ActivityThread.currentActivityThread()?.applicationThread as? IApplicationThread)?.asBinder(), ParcelableCrashInfo(e)
                         )

@@ -142,10 +142,9 @@ fun ApplicationInfo.getColorPrimary(context: Context): Int {
     try {
         theme.applyStyle(
             context.packageManager.run {
-                getActivityInfo(
+                getActivityInfoCompat(
                     getLaunchIntentForPackage(packageName)
-                        .component,
-                    0
+                        .component
                 ).theme
             },
             true
@@ -315,7 +314,7 @@ fun Context.isComponentEnabled(componentName: ComponentName): Boolean {
             false
         }
         PackageManager.COMPONENT_ENABLED_STATE_DEFAULT -> {
-            val info = packageManager.getPackageInfo(
+            val info = packageManager.getPackageInfoCompat(
                 packageName,
                 PackageManager.GET_ACTIVITIES or
                         PackageManager.GET_RECEIVERS or
