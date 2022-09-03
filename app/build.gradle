@@ -11,7 +11,7 @@ android {
         applicationId "com.zacharee1.systemuituner"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 346
+        versionCode 347
         versionName versionCode.toString()
     }
 
