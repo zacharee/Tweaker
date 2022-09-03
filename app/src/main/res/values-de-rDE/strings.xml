@@ -67,7 +67,7 @@
     <string name="feature_custom_rotation">Bildschirmausrichtung auf benutzerdefinierten Wert festlegen</string>
     <string name="feature_custom_rotation_desc">Bei den meisten Handys können Sie die Bildschirmausrichtung nur im Hochformat festlegen. Mit dieser Einstellung können Sie die Bildschirmausrichtung auf eine beliebige Ausrichtung festlegen. Sie müssen zunächst das automatische Drehen deaktivieren, bevor dies funktioniert.</string>
     <string name="feature_immersive_mode">Immersiver Modus</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: Ausblenden der Navigationsleiste oder Ausblenden der Statusleiste. Es ist tatsächlich möglich, dies auf einer pro-App-Basis einzustellen, entweder im Ausnahmen- oder Sperrlisten-Modus. Beachten Sie, dass auf Android 11 und höher, diese Option in AOSP fehlerhaft ist und möglicherweise nicht mehr auf Ihrem Gerät funktioniert.</string>
     <string name="feature_heads_up_snooze_length">Zurückstell-Dauer der eingeblendeten Benachrichtigungen</string>
     <string name="feature_heads_up_snooze_length_desc">Millisekunden, nachdem eine eingeblendeten Benachrichtigung zurückgestellt wurde, bevor die App erneut unterbrechen kann. (Standard: 60 Sekunden).</string>
     <string name="feature_camera_gestures">Kameragesten</string>
@@ -272,8 +272,8 @@
     <string name="intro_grant_extra_desc">Für bestimmte Funktionen benötigt SystemUI Tuner einige zusätzliche ADB-Berechtigungen, um ordnungsgemäß zu funktionieren. Sie müssen diese jetzt nicht gewähren, aber Sie werden dazu aufgefordert, wenn sie benötigt werden.</string>
     <string name="intro_system_alert_window">Systemwarnungsfenster</string>
     <string name="intro_system_alert_window_desc">Android 12 und später haben die Möglichkeiten für Apps erheblich eingeschränkt, Operationen im Hintergrund und beim Starten des Geräts auszuführen. Wenn SystemUI Tuner die Erlaubnis erhält, über andere Apps anzuzeigen, wird es von diesen Einschränkungen befreit und die Zuverlässigkeit von Persistent Optionen verbessert. Diese Berechtigung ist vollständig optional.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Benachrichtigungen erlauben</string>
+    <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
     <string name="intro_last_desc">Folgen Sie mir auf Twitter für die neuesten Aktualisierungen.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
