@@ -94,6 +94,15 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                     FirebaseCrashlytics.getInstance().recordException(Exception("Caught a runtime Exception!", e))
                     Looper.loop()
                 }
+                e is SecurityException &&
+                        e.message?.contains(
+                            "nor current process has android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS",
+                            true
+                        ) == true -> {
+                    Log.e("SystemUITuner", "Google Play Services error!", e)
+                    FirebaseCrashlytics.getInstance().recordException(Exception("Google Play Services error!", e))
+                    Looper.loop()
+                }
                 e.hasDeadObjectCause -> {
                     if (!crashing) {
                         crashing = true
