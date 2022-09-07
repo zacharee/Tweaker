@@ -65,7 +65,7 @@
     <string name="feature_custom_animation_scales">自訂動畫縮放</string>
     <string name="feature_custom_animation_scales_desc">在 Android 的開發人員設定中，你可以設定動畫縮放來控制動畫的存續時長。若可用的選項對您來說太快或太慢，您可以在這裡設定自訂值。</string>
     <string name="feature_custom_rotation">鎖定螢幕方向到自訂值</string>
-    <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为縱向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常工作。</string>
+    <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为直向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常運作。</string>
     <string name="feature_immersive_mode">沉浸式模式</string>
     <string name="feature_immersive_mode_desc">其他大多數允許你切換沉浸式模式的應用程式只有幾個選項：隱藏導覽列或隱藏狀態列。實際上，在白名單和黑名單模式下，有可能在每個應用程式的基礎上設定這個選項。請注意，在 Android 11 或更新版本，此選項在 AOSP 中已損壞，且可能無法在您的裝置上運作。</string>
     <string name="feature_heads_up_snooze_length">彈出式通知延後時間</string>
