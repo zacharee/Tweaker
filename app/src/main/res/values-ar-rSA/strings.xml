@@ -60,10 +60,10 @@
     <string name="feature_heads_up_notifications_desc">التبديل إلى تمكين أو تعطيل التنبيهات العلوية. التنبيهات العلوية هي التنبيهات التي تظهر في الجزء العلوي من الشاشة.</string>
     <string name="feature_insufficient_storage_warning">تجاوز تحذير \"التخزين غير كافي\"</string>
     <string name="feature_insufficient_storage_warning_desc">عندما يصل جهازك إلى قيمة حد أدنى معين للتخزين المتاح، يعرض أندرويد تحذيرا بأن جهازك لا يملك كميات كافية من التخزين المتاحة. هذا يمكن أن يمنعك من تثبيت تطبيقات أو تحديثات جديدة. يمكنك خفض قيمة الحد الأدنى يدوياً لمنع هذا التحذير من العرض.</string>
-    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
-    <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
-    <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
-    <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
+    <string name="feature_keep_screen_on">إبقاء الشاشة مضاءه خلال الشحن</string>
+    <string name="feature_keep_screen_on_desc">في إعدادات مطور الأندرويد، يمكنك تحديد الخِيار للحفاظ على تشغيل الشاشة عند توصيل الجهاز بالشاحن. بشكل افتراضي، هذا يمكن المِيزة لجميع مصادر الطاقة. يمكنك تحديد مصادر الطاقة التي تريد لكي تبقي شاشة هاتفك قيد التشغيل.</string>
+    <string name="feature_custom_animation_scales">تعيين مقاييس الرسوم المتحركة المخصصة</string>
+    <string name="feature_custom_animation_scales_desc">في إعدادات مطوري الأندرويد، يمكنك تعيين مقاييس الرسوم المتحركة للتحكم في مدة الرسوم المتحركة. إذا كانت الخيارات المتاحة سريعة جدا أو بطيئة بالنسبة لك، يمكنك تعيين قيم مخصصة هنا.</string>
     <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
     <string name="feature_immersive_mode">Immersive Mode</string>
