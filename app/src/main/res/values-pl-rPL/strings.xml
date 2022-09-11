@@ -61,12 +61,12 @@
     <string name="feature_heads_up_notifications">Przełącz wyskakujące powiadomienia</string>
     <string name="feature_heads_up_notifications_desc">Przełącz, aby włączyć lub wyłączyć wyskakujące powiadomienia. Wyskakujące powiadomienia pojawiają się na górze ekranu.</string>
     <string name="feature_insufficient_storage_warning">Wyłącz ostrzeżenie \"Za mało wolnego miejsca\"</string>
-    <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
+    <string name="feature_insufficient_storage_warning_desc">Gdy urządzenie osiągnie określoną wartość progową dostępnej pamięci, Android wyświetla ostrzeżenie, że urządzenie nie ma wystarczającej ilości pamięci. Może to uniemożliwić zainstalowanie nowych aplikacji lub aktualizacji. Możesz ręcznie obniżyć wartość progową, aby zapobiec wyświetleniu ostrzeżenia.</string>
     <string name="feature_keep_screen_on">Pozostaw ekran włączony podczas ładowania</string>
-    <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
-    <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
-    <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
-    <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
+    <string name="feature_keep_screen_on_desc">W ustawieniach programisty Androida możesz wybrać opcję, aby ekran był włączony po podłączeniu zasilania. Domyślnie włącza to funkcję dla wszystkich źródeł energii. Możesz określić, które źródła zasilania mają być wykorzystane do zasilania wyświetlacza telefonu.</string>
+    <string name="feature_custom_animation_scales">Ustaw niestandardowe skale animacji</string>
+    <string name="feature_custom_animation_scales_desc">W ustawieniach programisty Androida można ustawić skalę animacji, aby kontrolować czas trwania animacji. Jeśli dostępne opcje są zbyt szybkie lub powolne dla Ciebie, możesz ustawić niestandardowe wartości tutaj.</string>
+    <string name="feature_custom_rotation">Orientacja ekranu blokady do wartości niestandardowej</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
     <string name="feature_immersive_mode">Immersive Mode</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
