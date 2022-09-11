@@ -50,7 +50,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
     private val backupLauncher = registerForActivityResult(ActivityResultContracts.CreateDocument("text/*")) { result ->
         result?.let { uri ->
-            requireContext().contentResolver.openOutputStream(uri).use { out ->
+            requireContext().contentResolver.openOutputStream(uri)?.use { out ->
                 OutputStreamWriter(out).use { writer ->
                     writer.appendLine(
                         gson.toJson(
@@ -70,7 +70,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             try {
                 val lines = ArrayList<String>()
 
-                requireContext().contentResolver.openInputStream(uri).use { input ->
+                requireContext().contentResolver.openInputStream(uri)?.use { input ->
                     InputStreamReader(input).use { reader ->
                         reader.forEachLine { line ->
                             lines.add(line)
