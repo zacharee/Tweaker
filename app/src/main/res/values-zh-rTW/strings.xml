@@ -61,19 +61,19 @@
     <string name="feature_insufficient_storage_warning">忽略「內部儲存空間不足」警告</string>
     <string name="feature_insufficient_storage_warning_desc">當你的裝置內部剩餘空間剩下特定空間時，Android 系統會跳出裝置剩餘空間不足的提示。可能會影響你安裝新的應用程式或是更新現有應用程式。你能夠手動調整剩餘量以防止警告跳出。</string>
     <string name="feature_keep_screen_on">在充電時防止裝置進入休眠模式</string>
-    <string name="feature_keep_screen_on_desc">在 Android 系統的開發人員設定中，你能夠選擇充電時是否讓手機進入休眠模式，但這功能預設在所有形式電源插入時開啟。你能夠選擇何種形式的電源插入時保持你的裝置螢幕開啟。</string>
+    <string name="feature_keep_screen_on_desc">在 Android 系統的開發人員設定中，你能夠選取充電時是否讓手機進入休眠模式的選項，但這功能預設在所有形式電源插入時開啟。你能夠指定何種形式的電源插入時保持你的裝置螢幕開啟。</string>
     <string name="feature_custom_animation_scales">自訂動畫縮放</string>
     <string name="feature_custom_animation_scales_desc">在 Android 的開發人員設定中，你可以設定動畫縮放來控制動畫的存續時長。若可用的選項對您來說太快或太慢，您可以在這裡設定自訂值。</string>
     <string name="feature_custom_rotation">鎖定螢幕方向到自訂值</string>
-    <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为縱向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常工作。</string>
+    <string name="feature_custom_rotation_desc">大多數手機只允許你將手機的螢幕方向鎖定為为直向模式。有了這個設定，你可以將螢幕方向鎖定為任何方向。你首先要停用自動旋轉功能，然后才能正常運作。</string>
     <string name="feature_immersive_mode">沉浸式模式</string>
-    <string name="feature_immersive_mode_desc">其他大多數允許你切換沉浸式模式的應用程式只有幾個選項：隱藏導覽列或隱藏狀態列。實際上，在白名單和黑名單模式下，有可能在每個應用程式的基礎上設定這個選項。</string>
+    <string name="feature_immersive_mode_desc">其他大多數允許你切換沉浸式模式的應用程式只有幾個選項：隱藏導覽列或隱藏狀態列。實際上，在白名單和黑名單模式下，有可能在每個應用程式的基礎上設定這個選項。請注意，在 Android 11 或更新版本，此選項在 AOSP 中已損壞，且可能無法在您的裝置上運作。</string>
     <string name="feature_heads_up_snooze_length">彈出式通知延後時間</string>
     <string name="feature_heads_up_snooze_length_desc">彈出式通知後的毫秒數會在應用程式再次中斷之前被推回。(預設：60 秒)。</string>
     <string name="feature_camera_gestures">相機手勢</string>
-    <string name="feature_camera_gestures_desc">啟用該選項會使你的手機透過按下兩次電源鍵或在背面和正面之間翻轉手機來快速啟動相機。</string>
+    <string name="feature_camera_gestures_desc">啟用此選項會使你的手機透過按下兩次電源鍵或在背面和正面之間翻轉手機來快速啟動相機。</string>
     <string name="feature_disable_safe_audio_warning">停用音量安全警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧型手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變該警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
+    <string name="feature_disable_safe_audio_warning_desc">歐洲聯盟規章要求智慧型手機在超過某些音量等階 (85 分貝) 時發出警告。這個警報必須在每次重新啟動後或連續播放音樂 20 小時後顯示一次。使用這個設定來改變此警告的行為方式，或完全停用它。請確保在持續選項中啟用這一設定，以使其保持不變。</string>
     <string name="feature_custom_ui_sounds">自訂 UI 音效</string>
     <string name="feature_custom_ui_sounds_desc">Android 在 UI 的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用。</string>
     <string name="feature_fix_tethering">修復網路共用</string>
@@ -85,7 +85,7 @@
     <string name="feature_lockscreen_shortcuts">鎖定畫面捷徑</string>
     <string name="feature_lockscreen_shortcuts_desc">從 Android Oreo 開發人員預覽版本 3 開始，Google 移除了自訂鎖定螢幕捷徑的能力。然而，偏好值仍可手動設定。</string>
     <string name="feature_enable_adb">啟用 ADB</string>
-    <string name="feature_enable_adb_desc">某些裝置在不活動一段時間後會自動停用 ADB。啟用該選項並將其設定為持續選項以強制啟用 ADB。</string>
+    <string name="feature_enable_adb_desc">某些裝置在不活動一段時間後會自動停用 ADB。啟用此選項並將其設定為持續選項以強制啟用 ADB。</string>
     <string name="feature_dark_mode">啟用全域深色模式</string>
     <string name="feature_dark_mode_desc">Android Pie 和 10 引入了全域深色模式選項，目前為止這個選項是 Andorid 的一部分已經有一段時間了。這個選項可以在支援此功能的應用程式 (如 Instagram) 中啟用深色模式。可能需要重新啟動以生效。</string>
     <string name="feature_clock_seconds">顯示時鐘秒數</string>
@@ -180,7 +180,7 @@
     <string name="option_hide_multi_sim_panel">隱藏快速設定多 SIM 面板</string>
     <string name="option_hide_multi_sim_panel_desc">在 Samsung 裝置上，你可以使用這個選項來隱藏出現在快速設定面板上的多 SIM 卡視圖。</string>
     <string name="option_disable_combined_internet">停用組合網路選項</string>
-    <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用該選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
+    <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用此選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
     <string name="home_welcome_title">歡迎！</string>
     <string name="search">搜尋</string>
     <string name="immersive_none">無</string>
@@ -191,7 +191,7 @@
     <string name="immersive_whitelist">白名單</string>
     <string name="advanced">進階</string>
     <string name="all_apps">所有應用程式</string>
-    <string name="select_apps">選擇應用程式</string>
+    <string name="select_apps">選取應用程式</string>
     <string name="radio">無線電</string>
     <string name="reset">重設</string>
     <string name="grant">授予</string>
@@ -272,6 +272,8 @@
     <string name="intro_grant_extra_desc">對於某些功能，SystemUI Tuner 需要一些額外的 ADB 權限才能正常工作。你現在不需要授予這些權限，如果需要的話，你會被提醒。</string>
     <string name="intro_system_alert_window">系統警示視窗</string>
     <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景啟動時或裝置啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
+    <string name="intro_allow_notifications">允許通知</string>
+    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景操作時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
@@ -279,7 +281,7 @@
     <string name="compatibility_message_higher">抱歉，此功能僅適用於 Android %s</string>
     <string name="compatibility_message_storage">抱歉，你需要一張 SD 卡才能變更此選項。</string>
     <string name="reset_confirm">你將重設由 SystemUI Tuner 做出的大多數變更。下面的選項必須手動重設。我建議你在重設後重新啟動裝置。\n%s</string>
-    <string name="persistent_options_desc">在這裡選擇一個選項，將其數值鎖定為 SystemUI Tuner 所設定的數值。</string>
+    <string name="persistent_options_desc">在這裡選取一個選項，將其數值鎖定為 SystemUI Tuner 所設定的數值。</string>
     <string name="android_marshmallow">Marshmallow 6.0</string>
     <string name="android_nougat">Nougat 7.0</string>
     <string name="android_nougat_7_1">Nougat 7.1</string>
@@ -292,7 +294,7 @@
     <string name="write_system_fail_desc">很不幸，Android 對可寫入 Setting.System 的內容新增了一些限制，而你似乎碰到了這些限制的設定之一。但幸運的是，透過使用一個附加的應用程式，有辦法繞過這個限制。你必須從 XDA Labs 下載它，而且它是免費且開放原始碼的。</string>
     <string name="write_system_fail_get_add_on">獲取附加程式</string>
     <string name="donate">贊助</string>
-    <string name="donate_desc">我在閒時時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
+    <string name="donate_desc">我在閒時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
     <string name="paypal">PayPal</string>
     <string name="google_play">Google Play</string>
     <string name="social">社群</string>
@@ -306,7 +308,7 @@
     <string name="check_it_out">看看這個</string>
     <string name="add_custom_item">新增自訂項</string>
     <string name="edit_custom_item">編輯自訂項</string>
-    <string name="remove_item">移除該項</string>
+    <string name="remove_item">移除此項目</string>
     <string name="remove_item_desc">您是否確定要移除此項？</string>
     <string name="custom_persistent_option_summary_template">設定類型：%s，金鑰：%s，值：%s</string>
     <string name="tile_battery">電量</string>
@@ -344,4 +346,8 @@
     <string name="safe_audio_state_active">生效</string>
     <string name="persistent_options_not_sticking_title">開機時選項沒有重新設定？</string>
     <string name="persistent_options_not_sticking_desc">你可能需要將 SystemUI Tuner 加入任何電池效能最佳化白名單。點選這裡以瞭解更多。</string>
+    <string name="setting_applied_dialog">選項已套用！</string>
+    <string name="setting_applied_dialog_desc">要保持變更嗎？此選項將在 %s 秒內還原。</string>
+    <string name="keep">保持</string>
+    <string name="revert">還原</string>
 </resources>
