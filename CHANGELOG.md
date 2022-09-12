@@ -1,3 +1,12 @@
+# 348
+- Crash fixes.
+- Update translations.
+
+# 347
+- Try to prevent reports of OBSERVE_GRANT_REVOKE_PERMISSIONS crashes.
+- Make sure AD_ID permission isn't in manifest.
+- Address deprecations.
+
 # 346
 - Fix temperature slider in Night Mode option.
 - Implement a "revert" dialog for dangerous settings.
