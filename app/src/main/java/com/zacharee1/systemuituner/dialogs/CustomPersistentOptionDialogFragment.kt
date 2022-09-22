@@ -11,6 +11,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.writeSetting
 
 class CustomPersistentOptionDialogFragment : DialogFragment() {
     companion object {
@@ -81,6 +82,7 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
                     }
                     saveOption(type, key, value)
                 }
+                context.writeSetting(type, key, value)
             }
             dismiss()
         }
