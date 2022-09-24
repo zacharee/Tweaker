@@ -18,6 +18,10 @@
         android:name="com.zacharee1.systemuituner.fragments.UIFragment"
         android:label="UIFragment" />
     <fragment
+        android:id="@+id/lockFragment"
+        android:name="com.zacharee1.systemuituner.fragments.LockFragment"
+        android:label="LockFragment" />
+    <fragment
         android:id="@+id/storageFragment"
         android:name="com.zacharee1.systemuituner.fragments.system.StorageFragment"
         android:label="StorageFragment" />

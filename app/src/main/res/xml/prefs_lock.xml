@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.zacharee1.systemuituner.prefs.secure.specific.LockscreenShortcutsPref />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_allow_custom_left_lock_shortcut"
+        android:summary="@string/option_allow_custom_left_lock_shortcut_desc"
+        android:key="SG_EN"
+        android:defaultValue="1"
+        android:icon="@drawable/lock_open"
+        app:icon_color="@color/pref_color_2"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:settings_type="global"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForFireOS"
+        />
+
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_disable_lock_screen_ads"
+        android:summary="@string/option_disable_lock_screen_ads_desc"
+        android:key="LOCKSCREEN_AD_ENABLED"
+        android:defaultValue="1"
+        android:icon="@drawable/no_ads"
+        app:icon_color="@color/pref_color_4"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:settings_type="global"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForFireOS"
+        />
+</PreferenceScreen>

@@ -34,7 +34,8 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
             R.xml.prefs_storage to R.id.storageFragment,
             R.xml.prefs_ui to R.id.UIFragment,
             R.xml.prefs_advanced to R.id.advancedFragment,
-            R.xml.prefs_qs to R.id.qsFragment
+            R.xml.prefs_qs to R.id.qsFragment,
+            R.xml.prefs_lock to R.id.lockFragment
         )
 
         fun getInstance(context: Context): SearchIndex {

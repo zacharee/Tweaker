@@ -121,6 +121,13 @@
             app:navigation_action="@id/storageFragment"
             />
 
+        <com.zacharee1.systemuituner.prefs.nav.IndentedNavigationPreference
+            android:title="@string/category_lock_screen"
+            android:icon="@drawable/baseline_lock_24"
+            android:key="go_to_lock_screen"
+            app:navigation_action="@id/lockFragment"
+            />
+
     </tk.zwander.collapsiblepreferencecategory.CollapsiblePreferenceCategoryNew>
 
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
