@@ -16,6 +16,7 @@
     <string name="category_oem">OEM Funktionen</string>
     <string name="category_system">System</string>
     <string name="category_ui">Benutzeroberfläche</string>
+    <string name="category_lock_screen">Sperrbildschirm</string>
     <string name="category_quick_settings">Schnelleinstellungen</string>
     <string name="screen_persistent">Dauerhafte Optionen</string>
     <string name="category_interaction">Interaktion</string>
@@ -183,6 +184,8 @@
     <string name="option_disable_combined_internet_desc">Bei Android 12 hat Google die Einstellungen für WLAN, Bluetooth und Mobiltelefonie in einem Menü zusammengefasst. Die Kacheln für die Schnelleinstellungen für WLAN und Mobilfunk wurden außerdem zu einer einzigen Internet-Kachel zusammengefasst. Wenn Sie diese Option aktivieren, werden die alten Menüs in den Einstellungen wiederhergestellt und Sie können die separaten Schnelleinstellungskacheln wiederherstellen. Möglicherweise muss ein Neustart durchgeführt werden, damit die Änderungen wirksam werden. Wenn die WLAN- und Mobilfunk-Kacheln nicht angezeigt werden, können Sie diese mit der Funktion „Schnelleinstellungen bearbeiten” im SystemUI Tuner hinzufügen.</string>
     <string name="option_disable_lock_screen_ads">Sperrbildschirm-Werbung deaktivieren</string>
     <string name="option_disable_lock_screen_ads_desc">Wenn Ihr Kindle Werbung auf dem Sperrbildschirm angezeigt, können Sie diese Option verwenden, um sie zu deaktivieren. Um sie dauerhaft zu deaktivieren, sollten Sie diese Option auch auf dem Bildschirm „Dauerhafte Optionen” aktivieren.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">Willkommen!</string>
     <string name="search">Suchen</string>
     <string name="immersive_none">Kein(e)</string>
