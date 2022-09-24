@@ -16,6 +16,7 @@
     <string name="category_oem">Oem özelikleri</string>
     <string name="category_system">Sistem</string>
     <string name="category_ui">UI</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">Hızlı Ayarlar</string>
     <string name="screen_persistent">Kalıcı ayarlar</string>
     <string name="category_interaction">Etkileşimler (Automatic Translation)</string>
@@ -84,8 +85,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_shortcode_warning_desc">Belirli kısa kodlara SMS gönderirken, sistem sizi ücretlendirilebileceği konusunda uyarır.  Bu uyarıyı buradan devre dışı bırakabilirsiniz</string>
     <string name="feature_sms_limit">Özel SMS Limit</string>
     <string name="feature_sms_limit_desc">Varsayılan olarak Android, sizi bir pop-up bildirimiyle rahatsız etmeden önce her 30 dakikada bir 30 SMS göndermenizi sınırlar. Bu iki değeri kullanarak, rahatsız edilmeden göndermek istediğiniz birçok SMS\'i özelleştirebilirsiniz.</string>
-    <string name="feature_lockscreen_shortcuts">Kilit Ekranı Kısa Yolları</string>
-    <string name="feature_lockscreen_shortcuts_desc">Android Oreo Developer Preview 3\'ten başlayarak Google, kilit ekranı kısayollarını özelleştirme olanağını kaldırdı. Bununla birlikte, tercih değeri yine de manuel olarak ayarlanabilir.</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">Etkin ADB</string>
     <string name="feature_enable_adb_desc">Bazı cihazlar, bir süre işlem yapılmadığında ADB\'yi otomatik olarak devre dışı bırakır.  Bu seçeneği etkinleştirin ve ADB\'yi zorla etkinleştirmek için Kalıcı Seçenek olarak ayarlayın.
  İÇERİK TALEP</string>
@@ -187,8 +188,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_hide_multi_sim_panel_desc">Samsung cihazlarda, genişletilmiş hızlı ayarlar panelinde görünen çoklu SIM görünümünü gizlemek için bu seçeneği kullanabilirsiniz.</string>
     <string name="option_disable_combined_internet">Birleşik Ağ Seçeneklerini Devre Dışı Bırak</string>
     <string name="option_disable_combined_internet_desc">Android 12\'de Google, WiFi, Bluetooth ve hücresel ayarları tek bir menüde birleştirdi. WiFi ve hücresel için hızlı ayarlar kutucukları da tek bir İnternet kutucuğunda birleştirildi. Bu seçeneği etkinleştirmek, Ayarlar\'daki eski menüleri geri getirecek ve ayrı QS kutucuklarını geri yüklemenize izin verecektir. Bunun doğru şekilde etkili olması için yeniden başlatmanız gerekebilir. WiFi ve hücresel kutucukları görmüyorsanız, bunları SystemUI Tuner\'daki Hızlı Ayarlar Düzenleyici özelliğini kullanarak ekleyebilirsiniz.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">Hoşgeldiniz!</string>
     <string name="search">Arama</string>
     <string name="immersive_none">Hiçbiri</string>
