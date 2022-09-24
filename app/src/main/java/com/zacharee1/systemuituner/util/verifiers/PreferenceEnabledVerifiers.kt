@@ -23,7 +23,7 @@ class EnableStorage(context: Context) : BasePreferenceEnabledVerifier(context) {
 class EnableLockscreenShortcuts(context: Context) : BasePreferenceEnabledVerifier(context) {
     override val shouldBeEnabled: Boolean
         get() {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) return true
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) return true
             if (context.isTouchWiz) return true
 
             val resNames = arrayOf("config_keyguardShowLeftAffordance", "config_keyguardShowCameraAffordance")
