@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">在 Samsung 裝置上，你可以使用這個選項來隱藏出現在快速設定面板上的多 SIM 卡視圖。</string>
     <string name="option_disable_combined_internet">停用組合網路選項</string>
     <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用此選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">歡迎！</string>
     <string name="search">搜尋</string>
     <string name="immersive_none">無</string>
