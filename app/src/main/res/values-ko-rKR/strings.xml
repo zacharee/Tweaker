@@ -16,6 +16,7 @@
     <string name="category_oem">OEM 기능</string>
     <string name="category_system">시스템</string>
     <string name="category_ui">UI</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">빠른 설정</string>
     <string name="screen_persistent">영구 설정</string>
     <string name="category_interaction">상호작용</string>
@@ -82,8 +83,8 @@
     <string name="feature_shortcode_warning_desc">시스템에서는 특정한 짧은 코드로 SMS를 보내는 경우, 사용료가 부과될 수 있다고 경고합니다. 여기서 해당 경고를 끌 수 있습니다.</string>
     <string name="feature_sms_limit">SMS 제한 사용자 지정</string>
     <string name="feature_sms_limit_desc">기본적으로, Android에서는 성가신 팝업 알림이 뜨기 전까지 매 30분마다 최대 30개의 SMS를 보낼 수 있습니다. 이 두 값을 이용하면, 방해 없이 SMS를 얼마나 많이 보낼 수 있도록 할 지 사용자 지정할 수 있습니다.</string>
-    <string name="feature_lockscreen_shortcuts">잠금화면 바로가기</string>
-    <string name="feature_lockscreen_shortcuts_desc">Android 오레오 개발자 프리뷰 3부터, Google은 잠금화면 바로가기를 사용자 지정하는 것을 막았습니다. 그렇지만 설정값은 여전히 수동으로 조작할 수 있습니다.</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">ADB 활성화</string>
     <string name="feature_enable_adb_desc">어떤 기기는 일정 기간동안 사용하지 않으면 알아서 ADB를 끕니다. 이 기능을 활성화하고 영구 설정으로 설정하면 ADB를 활성화 상태로 강제할 수 있습니다.</string>
     <string name="feature_dark_mode">전역 다크 모드 활성화</string>
@@ -181,8 +182,10 @@
     <string name="option_hide_multi_sim_panel_desc">삼성 기기에서는, 이 설정을 이용해 확장된 빠른 설정 창 내에 나타나는 다중 SIM을 숨길 수 있습니다.</string>
     <string name="option_disable_combined_internet">네트워크 설정 병합 해제</string>
     <string name="option_disable_combined_internet_desc">Google은 Android 12에서 Wi-Fi, 블루투스, 모바일 데이터 설정을 하나의 메뉴로 통합했습니다. Wi-Fi 및 모바일 데이터 빠른 설정 타일도 단일 인터넷 타일로 결합되었습니다. 이 설정을 켜면 기기 설정에서 이전 메뉴를 불러오도록 하고, 빠른 설정 타일을 따로 표시하는 방식으로 복원할 수 있습니다. 설정을 잘 적용하려면 기기를 재시작해야 할 수도 있습니다. Wi-Fi 및 모바일 데이터 타일이 표시되지 않으면 SystemUI Tuner의 빠른 설정 편집기 기능을 이용해 추가할 수 있습니다.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">환영합니다!</string>
     <string name="search">검색</string>
     <string name="immersive_none">없음</string>
