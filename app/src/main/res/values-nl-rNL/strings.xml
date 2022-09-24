@@ -16,6 +16,7 @@
     <string name="category_oem">Fabrikantfuncties</string>
     <string name="category_system">Systeem</string>
     <string name="category_ui">Vormgeving</string>
+    <string name="category_lock_screen">Vergrendelscherm</string>
     <string name="category_quick_settings">Snelle instellingen</string>
     <string name="screen_persistent">Permanente opties</string>
     <string name="category_interaction">Interactie</string>
@@ -82,8 +83,8 @@
     <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. You can disable that warning here.</string>
     <string name="feature_sms_limit">Custom SMS Limit</string>
     <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, you can customize however many SMS you want to be able to send without being bothered.</string>
-    <string name="feature_lockscreen_shortcuts">Lockscreen Shortcuts</string>
-    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lockscreen shortcuts. However, the preference value can still be set manually.</string>
+    <string name="feature_lockscreen_shortcuts">Vergrendelschermsnelkoppelingen</string>
+    <string name="feature_lockscreen_shortcuts_desc">Sinds Android Oreo Developer Preview 3 heeft Google de mogelijkheid ontnomen om de vergrendelschermsnelkoppelingen aan te passen. De voorkeurswaarde kan echter nog steeds handmatig worden ingesteld.</string>
     <string name="feature_enable_adb">Enable ADB</string>
     <string name="feature_enable_adb_desc">Certain devices disable ADB automatically after a period of inactivity. Enable this option and set it as a Persistent Option to force-enable ADB.</string>
     <string name="feature_dark_mode">Enable Global Dark Mode</string>
@@ -183,6 +184,8 @@
     <string name="option_disable_combined_internet_desc">On Android 12, Google combined the settings for WiFi, Bluetooth, and cellular into one menu. The quick settings tiles for WiFi and cellular were also combined into a single Internet tile. Enabling this option will bring back the old menus in Settings and allow you to restore the separate QS tiles. You may need to reboot for this to properly take effect. If you don\'t see the WiFi and cellular tiles, you can add them using the Quick Settings Editor feature in SystemUI Tuner.</string>
     <string name="option_disable_lock_screen_ads">Vergrendelschermadvertenties uitschakelen</string>
     <string name="option_disable_lock_screen_ads_desc">Als je Kindle advertenties heeft die op het vergrendelscherm worden getoond, dan kun je deze optie gebruiken om ze uit te schakelen. Om de instelling permanent te maken, moet je deze optie ook bij de permanente instellingen inschakelen.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Aangepaste linker vergrendelschermsnelkoppeling toestaan</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS reserveert normaal gesproken de linker vergrendelschermsnelkoppeling voor de slimmeapparaatbediening, zelfs áls je de snelkoppeling wijzigt. Schakel dit hier en bij de permanente instellingen in om een aangepaste snelkoppeling te kunnen gebruiken.</string>
     <string name="home_welcome_title">Welcome!</string>
     <string name="search">Search</string>
     <string name="immersive_none">None</string>
