@@ -16,6 +16,7 @@
     <string name="category_oem">OEM 功能</string>
     <string name="category_system">系統</string>
     <string name="category_ui">使用者介面</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">快速設定</string>
     <string name="screen_persistent">持續選項</string>
     <string name="category_interaction">反應</string>
@@ -82,8 +83,8 @@
     <string name="feature_shortcode_warning_desc">當你傳送簡訊到特定的短代碼時，系統會警告你簡訊可能會收費。你可以在這裡停用這個警告。</string>
     <string name="feature_sms_limit">自訂簡訊限制</string>
     <string name="feature_sms_limit_desc">預設狀態下，Android 系統限制您每 30 分鐘傳送 30 條訊息，然後用彈出式通知來打擾您。使用這兩個值，你可以自訂您希望能夠傳送多少條訊息而不被打擾。</string>
-    <string name="feature_lockscreen_shortcuts">鎖定畫面捷徑</string>
-    <string name="feature_lockscreen_shortcuts_desc">從 Android Oreo 開發人員預覽版本 3 開始，Google 移除了自訂鎖定螢幕捷徑的能力。然而，偏好值仍可手動設定。</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">啟用 ADB</string>
     <string name="feature_enable_adb_desc">某些裝置在不活動一段時間後會自動停用 ADB。啟用此選項並將其設定為持續選項以強制啟用 ADB。</string>
     <string name="feature_dark_mode">啟用全域深色模式</string>
@@ -181,8 +182,10 @@
     <string name="option_hide_multi_sim_panel_desc">在 Samsung 裝置上，你可以使用這個選項來隱藏出現在快速設定面板上的多 SIM 卡視圖。</string>
     <string name="option_disable_combined_internet">停用組合網路選項</string>
     <string name="option_disable_combined_internet_desc">在 Android 12，Google 將 WiFi、藍牙和蜂巢式行動網路合併為一個選單。WiFi 和蜂巢式行動網路的快速設定圖塊也被合併為一個乙太網路圖塊。啟用此選項將使設定中的舊選單恢復，並允許你恢復獨立的快速設定圖塊。你可能需要重新啟動裝置以確保其生效。如果你沒有看到WiFi和蜂巢式行動網路圖塊，你可以使用 SystemUI Tuner 中的快速設定編輯器新增它們。</string>
-    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">歡迎！</string>
     <string name="search">搜尋</string>
     <string name="immersive_none">無</string>
