@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">Auf Samsung-Geräten können Sie diese Option verwenden, um die Multi-SIM-Ansicht auszublenden, die im erweiterten Schnelleinstellungsbereich angezeigt wird.</string>
     <string name="option_disable_combined_internet">Kombinierte Netzwerkoptionen deaktivieren</string>
     <string name="option_disable_combined_internet_desc">Bei Android 12 hat Google die Einstellungen für WLAN, Bluetooth und Mobiltelefonie in einem Menü zusammengefasst. Die Kacheln für die Schnelleinstellungen für WLAN und Mobilfunk wurden außerdem zu einer einzigen Internet-Kachel zusammengefasst. Wenn Sie diese Option aktivieren, werden die alten Menüs in den Einstellungen wiederhergestellt und Sie können die separaten Schnelleinstellungskacheln wiederherstellen. Möglicherweise muss ein Neustart durchgeführt werden, damit die Änderungen wirksam werden. Wenn die WLAN- und Mobilfunk-Kacheln nicht angezeigt werden, können Sie diese mit der Funktion „Schnelleinstellungen bearbeiten” im SystemUI Tuner hinzufügen.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">Willkommen!</string>
     <string name="search">Suchen</string>
     <string name="immersive_none">Kein(e)</string>
