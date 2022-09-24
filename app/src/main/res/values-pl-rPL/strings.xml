@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">Na urządzeniach Samsung możesz użyć tej opcji, aby ukryć widok wielu kart SIM, który pojawia się w rozszerzonym panelu szybkich ustawień.</string>
     <string name="option_disable_combined_internet">Wyłącz opcje złączonego połączenia sieciowego</string>
     <string name="option_disable_combined_internet_desc">W systemie Android 12 Google połączyło ustawienia WiFi, Bluetooth i dane komórkowe w jednym menu. Kafelki szybkich ustawień dla WiFi i danych komórkowych również zostały połączone w jeden kafelek Internetowy. Włączenie tej opcji spowoduje przywrócenie starego menu w Ustawieniach i pozwoli przywrócić oddzielne kafelki szybkich ustawień. Aby działało to prawidłowo. może być konieczne ponowne uruchomienie urządzenia. Jeśli nie widzisz WiFi i kafelków danych komórkowych, możesz je dodać za pomocą funkcji Edytor Szybkich Ustawień w SystemUI.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">Witaj!</string>
     <string name="search">Szukaj</string>
     <string name="immersive_none">Brak</string>
