@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">En los dispositivos Samsung podemos usar esta opción para ocultar la vista multiSIM que aparece en el panel de ajustes rápidos expandido.</string>
     <string name="option_disable_combined_internet">Desactivar opciones de red combinadas</string>
     <string name="option_disable_combined_internet_desc">En Android 12, Google combinó la configuración de WiFi, Bluetooth, y celular en un menú. Los azulejos de configuración rápida para WiFi y celular también se combinaron en un solo azulejo de Internet. Al activar esta opción, volverá a traer los antiguos menús en Ajustes y le permitirá restaurar los azulejos QS separados. Puede que necesite reiniciar para que esto surta efecto correctamente. Si no ve el WiFi y los azulejos celulares, puede añadirlos usando la función Editor de Ajustes Rápidos en SystemUI Tuner.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">¡Bienvenido!</string>
     <string name="search">Buscar</string>
     <string name="immersive_none">Ninguno</string>
