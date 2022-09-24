@@ -184,6 +184,8 @@
 
 
 Translated with www. DeepL. com/Translator (free version).</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">Vítejte!</string>
     <string name="search">Hledat</string>
     <string name="immersive_none">Žádný</string>
