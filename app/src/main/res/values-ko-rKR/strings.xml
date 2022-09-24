@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">삼성 기기에서는, 이 설정을 이용해 확장된 빠른 설정 창 내에 나타나는 다중 SIM을 숨길 수 있습니다.</string>
     <string name="option_disable_combined_internet">네트워크 설정 병합 해제</string>
     <string name="option_disable_combined_internet_desc">Google은 Android 12에서 Wi-Fi, 블루투스, 모바일 데이터 설정을 하나의 메뉴로 통합했습니다. Wi-Fi 및 모바일 데이터 빠른 설정 타일도 단일 인터넷 타일로 결합되었습니다. 이 설정을 켜면 기기 설정에서 이전 메뉴를 불러오도록 하고, 빠른 설정 타일을 따로 표시하는 방식으로 복원할 수 있습니다. 설정을 잘 적용하려면 기기를 재시작해야 할 수도 있습니다. Wi-Fi 및 모바일 데이터 타일이 표시되지 않으면 SystemUI Tuner의 빠른 설정 편집기 기능을 이용해 추가할 수 있습니다.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">환영합니다!</string>
     <string name="search">검색</string>
     <string name="immersive_none">없음</string>
