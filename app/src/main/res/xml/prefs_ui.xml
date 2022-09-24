@@ -62,4 +62,16 @@
     <com.zacharee1.systemuituner.prefs.secure.specific.DarkModePreference />
     <com.zacharee1.systemuituner.prefs.secure.specific.LockscreenShortcutsPref />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/option_disable_lock_screen_ads"
+        android:summary="@string/option_disable_lock_screen_ads_desc"
+        android:key="LOCKSCREEN_AD_ENABLED"
+        android:defaultValue="1"
+        android:icon="@drawable/no_ads"
+        app:icon_color="@color/pref_color_4"
+        app:enabled_value="0"
+        app:disabled_value="1"
+        app:settings_type="global"
+        app:visibility_verifier="com.zacharee1.systemuituner.util.verifiers.ShowForFireOS"
+        />
 </PreferenceScreen>

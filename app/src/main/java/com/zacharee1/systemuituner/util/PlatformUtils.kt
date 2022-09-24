@@ -17,3 +17,6 @@ val isHuawei: Boolean
 
 val isXiaomi: Boolean
     get() = !SystemProperties.get("ro.miui.ui.version.code").isNullOrBlank()
+
+val Context.isFireOS: Boolean
+    get() = packageManager.hasSystemFeature("com.amazon.software.fireos")
