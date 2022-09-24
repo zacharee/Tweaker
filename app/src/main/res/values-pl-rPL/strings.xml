@@ -16,6 +16,7 @@
     <string name="category_oem">Funkcje OEM</string>
     <string name="category_system">System</string>
     <string name="category_ui">Wygląd</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">Szybkie ustawienia</string>
     <string name="screen_persistent">Ustawienia trwałe</string>
     <string name="category_interaction">Interakcja</string>
@@ -82,8 +83,8 @@
     <string name="feature_shortcode_warning_desc">Wysyłając SMS do niektórych krótkich kodów, system ostrzega, że możesz zostać obciążony opłatą. Możesz wyłączyć to ostrzeżenie tutaj.</string>
     <string name="feature_sms_limit">Niestandardowy limit SMS</string>
     <string name="feature_sms_limit_desc">Domyślnie Android ogranicza wysyłanie 30 SMS co 30 minut przed uruchomieniem wyskakującego powiadomienia. Używając tych dwóch wartości, możesz dostosować ilość wiadomości SMS, które chcesz wysyłać bez konieczności zwłoki.</string>
-    <string name="feature_lockscreen_shortcuts">Skróty ekranu blokady</string>
-    <string name="feature_lockscreen_shortcuts_desc">Począwszy od Android Oreo Developer Preview 3, Google usunął możliwość dostosowania skrótów ekranu blokady. Wartość preferencji może być ustawiona ręcznie.</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">Włącz ADB</string>
     <string name="feature_enable_adb_desc">Niektóre urządzenia wyłączają ADB automatycznie po okresie bezczynności. Włącz tę opcję i ustaw ją jako trwałą opcję wymuszającą włączenie ADB.</string>
     <string name="feature_dark_mode">Włącz globalny tryb ciemny</string>
@@ -181,8 +182,10 @@
     <string name="option_hide_multi_sim_panel_desc">Na urządzeniach Samsung możesz użyć tej opcji, aby ukryć widok wielu kart SIM, który pojawia się w rozszerzonym panelu szybkich ustawień.</string>
     <string name="option_disable_combined_internet">Wyłącz opcje złączonego połączenia sieciowego</string>
     <string name="option_disable_combined_internet_desc">W systemie Android 12 Google połączyło ustawienia WiFi, Bluetooth i dane komórkowe w jednym menu. Kafelki szybkich ustawień dla WiFi i danych komórkowych również zostały połączone w jeden kafelek Internetowy. Włączenie tej opcji spowoduje przywrócenie starego menu w Ustawieniach i pozwoli przywrócić oddzielne kafelki szybkich ustawień. Aby działało to prawidłowo. może być konieczne ponowne uruchomienie urządzenia. Jeśli nie widzisz WiFi i kafelków danych komórkowych, możesz je dodać za pomocą funkcji Edytor Szybkich Ustawień w SystemUI.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">Witaj!</string>
     <string name="search">Szukaj</string>
     <string name="immersive_none">Brak</string>
