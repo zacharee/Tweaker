@@ -73,7 +73,7 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
         }
 
         findPreference<Preference>("oneui_tuner_option")?.apply {
-            if (!requireContext().isTouchWiz) {
+            if (!requireContext().isTouchWiz || Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 isVisible = false
             }
         }
