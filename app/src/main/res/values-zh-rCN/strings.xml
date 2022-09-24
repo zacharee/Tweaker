@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">在三星设备上，您可以使用此选项来隐藏扩展快速设置面板中出现的多SIM视图。</string>
     <string name="option_disable_combined_internet">禁用合并网络选项</string>
     <string name="option_disable_combined_internet_desc">在 Android 12，谷歌将WiFi，蓝牙和蜂窝的设置合并为一个菜单。 WiFi和蜂窝的快速设置瓷块也被合并成一个单一的互联网圈。 启用此选项将在设置中将旧菜单带回来，并允许您还原单独的 QS 瓷砖。 您可能需要重新启动才能正常生效。 如果您看不到WiFi和蜂窝瓷砖，您可以在 SystemUI Tuner 中使用快速设置编辑器功能添加它们。</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">欢迎！</string>
     <string name="search">搜索​​​​</string>
     <string name="immersive_none">无</string>
