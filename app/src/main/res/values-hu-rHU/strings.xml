@@ -181,6 +181,8 @@
     <string name="option_hide_multi_sim_panel_desc">Samsung készülékeken ezzel a beállítással elrejtheti a kibővített gyorsbeállítások panelen megjelenő multi-SIM nézetet.</string>
     <string name="option_disable_combined_internet">Kombinált hálózati beállítások letiltása</string>
     <string name="option_disable_combined_internet_desc">Az Android 12-ben a Google a WiFi, a Bluetooth és a mobiltelefon beállításait egy menübe egyesítette. A WiFi és a mobiltelefonos gyorsbeállítások csempéit is egyetlen Internet csempévé egyesítették. A beállítás engedélyezése visszahozza a régi menüket a Beállításokban, és lehetővé teszi a különálló QS-csempék visszaállítását. Előfordulhat, hogy újra kell indítania a rendszert, hogy ez megfelelően érvényesüljön. Ha nem látja a WiFi és a mobiltelefonos csempéket, a SystemUI Tuner gyorsbeállítás-szerkesztő funkciójával hozzáadhatja őket.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lockscreen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="home_welcome_title">Üdvözöljük!</string>
     <string name="search">Keresés</string>
     <string name="immersive_none">Nincs</string>
