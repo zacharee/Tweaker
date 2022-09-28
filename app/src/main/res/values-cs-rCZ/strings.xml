@@ -186,7 +186,7 @@
 
 Translated with www. DeepL. com/Translator (free version).</string>
     <string name="option_disable_lock_screen_ads">Zakázat reklamy na zamykací obrazovce</string>
-    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_disable_lock_screen_ads_desc">Pokud má vaše Kindle zařízení reklamy, které se zobrazují na zamykací obrazovce, můžete použít tuto možnost pro jejich vypnutí. Aby toto nastavení bylo trvalé, měli byste tuto možnost povolit i v obrazovce trvalých možností.</string>
     <string name="option_allow_custom_left_lock_shortcut">Povolit vlastní zkratky zamykací obrazovky na levé straně</string>
     <string name="option_allow_custom_left_lock_shortcut_desc">FireOS si normálně vyhrazuje zástupce pro chytrý panel obrazovky na levé straně i když změníte zkratku. Povolte tuto možnost v nastavení trvalých, abyste byli schopni použít vlastní zkratky.</string>
     <string name="home_welcome_title">Vítejte!</string>
