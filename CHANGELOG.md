@@ -1,6 +1,13 @@
 # 348
 - Crash fixes.
 - Update translations.
+- After editing a custom persistent option, the new value will be immediately written to the device settings.
+- Hide OneUI Tuner link on One UI 4 and later.
+- Add option to hide lock screen ads on FireOS.
+- Add option to allow custom left lock screen shortcut on FireOS.
+- Move lock screen settings to specific Lock Screen section.
+- Fix lock screen shortcuts resetting on One UI.
+- Add "Flashlight", "Do Not Disturb", and "None" options for One UI lock screen shortcuts.
 
 # 347
 - Try to prevent reports of OBSERVE_GRANT_REVOKE_PERMISSIONS crashes.
