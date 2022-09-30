@@ -39,6 +39,7 @@
     <string name="sub_power">Napájení</string>
     <string name="add_to_blacklist">Přidat do seznamu zakázaných ikon</string>
     <string name="remove_from_blacklist">Odebrat ze seznamu zakázaných ikon</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demo režim</string>
     <string name="sub_demo_desc">Demo režim vám umožní vynutit stavový řádek vašeho zařízení do různých stavů. Můžete jej použít k zobrazení nebo skrytí vybraných ikon, určení síly signálů a několika dalších věcí.</string>
     <string name="special_sub_airplane_mode">Vylepšení režimu Letadlo</string>
