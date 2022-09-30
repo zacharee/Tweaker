@@ -39,6 +39,7 @@
     <string name="sub_power">Питание</string>
     <string name="add_to_blacklist">Добавить в чёрный список иконок</string>
     <string name="remove_from_blacklist">Удалить иконку из чёрного списка</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Демо-режим</string>
     <string name="sub_demo_desc">Демокритам позволяет принудительно изменить строку состояния вашего устройства. Вы можете использовать его для показа или скрытия конкретных значков, указания уровня сигналов и некоторых других вещей.</string>
     <string name="special_sub_airplane_mode">Настройки режима полёта</string>
