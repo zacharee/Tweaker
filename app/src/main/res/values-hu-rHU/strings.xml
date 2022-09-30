@@ -39,6 +39,7 @@
     <string name="sub_power">Tápellátás</string>
     <string name="add_to_blacklist">Ikon hozzáadása a feketelistához</string>
     <string name="remove_from_blacklist">Ikon eltávolítása a feketelistáról</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demó mód</string>
     <string name="sub_demo_desc">A Demó mód lehetővé teszi az eszköz állapotsorának különböző állapotokba kényszerítését. Használható adott ikonok megjelenítésére vagy elrejtésére, a jelerősség megadására és még néhány dologra.</string>
     <string name="special_sub_airplane_mode">Repülőgép mód hangolás</string>
