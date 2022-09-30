@@ -39,6 +39,7 @@
     <string name="sub_power">电源</string>
     <string name="add_to_blacklist">添加到图标黑名单</string>
     <string name="remove_from_blacklist">从图标黑名单中删除</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">演示模式</string>
     <string name="sub_demo_desc">演示模式允许您将设备的状态栏强制为不同的状态。 您可以使用它来显示或隐藏特定的图标，指定信号强度和其他一些东西。</string>
     <string name="special_sub_airplane_mode">飞行模式调整</string>
