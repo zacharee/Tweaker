@@ -39,6 +39,7 @@
     <string name="sub_power">Alimentare</string>
     <string name="add_to_blacklist">Adăugare la lista de pictograme blocate</string>
     <string name="remove_from_blacklist">Eliminare de la lista de pictograme blocate</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Mod Demonstrativ</string>
     <string name="sub_demo_desc">Modul demonstrativ vă permite să forțați bara de stare a dispozitivului dvs. în diverse stări. Îl puteți utiliza pt. a afișa sau a ascunde anumite pictograme, a specifica semnalul și câteva alte lucruri.</string>
     <string name="special_sub_airplane_mode">Ajustări mod avion</string>
