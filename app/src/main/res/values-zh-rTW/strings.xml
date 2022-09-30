@@ -39,6 +39,7 @@
     <string name="sub_power">電源</string>
     <string name="add_to_blacklist">新增至圖示黑名單</string>
     <string name="remove_from_blacklist">從圖示黑名單中移除</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">示範模式</string>
     <string name="sub_demo_desc">示範模式允許你將裝置的狀態列顯示成不同模式。你可以用來顯示或隱藏特定圖示、訊號強度以及其他功能。</string>
     <string name="special_sub_airplane_mode">飛航模式調校</string>
