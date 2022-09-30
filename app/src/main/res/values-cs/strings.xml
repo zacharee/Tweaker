@@ -16,6 +16,7 @@
     <string name="category_oem">Funkce OEM</string>
     <string name="category_system">Systém</string>
     <string name="category_ui">UI</string>
+    <string name="category_lock_screen">Zamykací obrazovka</string>
     <string name="category_quick_settings">Rychlá nastavení</string>
     <string name="screen_persistent">Trvalé možnosti</string>
     <string name="category_interaction">Interakce</string>
@@ -38,6 +39,7 @@
     <string name="sub_power">Napájení</string>
     <string name="add_to_blacklist">Přidat do seznamu zakázaných ikon</string>
     <string name="remove_from_blacklist">Odebrat ze seznamu zakázaných ikon</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demo režim</string>
     <string name="sub_demo_desc">Demo režim vám umožní vynutit stavový řádek vašeho zařízení do různých stavů. Můžete jej použít k zobrazení nebo skrytí vybraných ikon, určení síly signálů a několika dalších věcí.</string>
     <string name="special_sub_airplane_mode">Vylepšení režimu Letadlo</string>
@@ -83,7 +85,7 @@
     <string name="feature_sms_limit">Vlastní limit znaků SMS</string>
     <string name="feature_sms_limit_desc">Ve výchozím nastavení vás systém Android omezuje na odeslání 30 SMS každých 30 minut, než vás začne obtěžovat vyskakovacím upozorněním. Pomocí těchto dvou hodnot si můžete přizpůsobit libovolný počet SMS, které chcete moci odeslat, aniž byste byli obtěžováni.</string>
     <string name="feature_lockscreen_shortcuts">Zkratky na zamykací obrazovce</string>
-    <string name="feature_lockscreen_shortcuts_desc">Počínaje verzí Android Oreo Developer Preview 3 společnost Google odstranila možnost přizpůsobení zkratek na zamykací obrazovce. Hodnotu předvoleb však lze stále nastavit ručně.</string>
+    <string name="feature_lockscreen_shortcuts_desc">Počínaje verzí Android Oreo Developer Preview 3, společnost Google odstranila možnost přizpůsobení zkratek na zamykací obrazovce. Hodnotu předvoleb však lze stále nastavit ručně.</string>
     <string name="feature_enable_adb">Povolit ADB</string>
     <string name="feature_enable_adb_desc">Některá zařízení po určité době nečinnosti automaticky vypnou ADB. Povolte tuto možnost a nastavte ji jako trvalou volbu, abyste vynutili zapnutí ADB.</string>
     <string name="feature_dark_mode">Povolit globální tmavý režim</string>
@@ -184,6 +186,10 @@
 
 
 Translated with www. DeepL. com/Translator (free version).</string>
+    <string name="option_disable_lock_screen_ads">Zakázat reklamy na zamykací obrazovce</string>
+    <string name="option_disable_lock_screen_ads_desc">Pokud má vaše Kindle zařízení reklamy, které se zobrazují na zamykací obrazovce, můžete použít tuto možnost pro jejich vypnutí. Aby toto nastavení bylo trvalé, měli byste tuto možnost povolit i v obrazovce trvalých možností.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Povolit vlastní zkratky zamykací obrazovky na levé straně</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS si normálně vyhrazuje zástupce pro chytrý panel obrazovky na levé straně i když změníte zkratku. Povolte tuto možnost v nastavení trvalých, abyste byli schopni použít vlastní zkratky.</string>
     <string name="home_welcome_title">Vítejte!</string>
     <string name="search">Hledat</string>
     <string name="immersive_none">Žádný</string>

@@ -16,6 +16,7 @@
     <string name="category_oem">OEM 기능</string>
     <string name="category_system">시스템</string>
     <string name="category_ui">UI</string>
+    <string name="category_lock_screen">잠금 화면</string>
     <string name="category_quick_settings">빠른 설정</string>
     <string name="screen_persistent">영구 설정</string>
     <string name="category_interaction">상호작용</string>
@@ -38,6 +39,7 @@
     <string name="sub_power">전원</string>
     <string name="add_to_blacklist">아이콘 제외 목록에 추가</string>
     <string name="remove_from_blacklist">아이콘 제외 목록에서 제거</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">데모 모드</string>
     <string name="sub_demo_desc">데모 모드를 통하여 상태 표시줄을 다른 상태로 바꿀 수 있습니다. 특정 아이콘을 보이거나 가리고, 신호 강도를 지정하는 등의 다른 작업들을 할 수 있습니다.</string>
     <string name="special_sub_airplane_mode">비행기 모드 개조</string>
@@ -67,7 +69,7 @@
     <string name="feature_custom_rotation">잠금화면 화면 방향 사용자 지정</string>
     <string name="feature_custom_rotation_desc">대부분의 폰은 잠금화면의 화면 방향이 세로로 고정되어 있습니다. 이 설정을 이용하면, 잠금화면의 화면 방향을 사용자 지정할 수 있습니다. 우선 자동 회전을 비활성화한 뒤 이 설정을 적용해야 정상적으로 동작할 것입니다.</string>
     <string name="feature_immersive_mode">몰입 모드</string>
-    <string name="feature_immersive_mode_desc">다른 애플리케이션의 경우 내비게이션 바를 숨기거나 상태 표시줄을 숨기는 등 일부 설정에 한해서만 몰입 모드를 지원합니다. 활성화 목록이나 제외 목록 중 하나를 통해 각 앱에 대하여 몰입 모드 활성화 여부를 지정할 수 있습니다.</string>
+    <string name="feature_immersive_mode_desc">다른 애플리케이션의 경우 내비게이션 바를 숨기거나 상태 표시줄을 숨기는 등 일부 설정에 한해서만 몰입 모드를 지원합니다. 활성화 목록이나 제외 목록 중 하나를 통해 각 앱에 대하여 몰입 모드 활성화 여부를 지정할 수 있습니다. Android 11 이상에서는 이 설정이 AOSP에 의해 더 이상 동작하지 않을 수 있습니다.</string>
     <string name="feature_heads_up_snooze_length">헤드 업 알림 후 유지 기간</string>
     <string name="feature_heads_up_snooze_length_desc">헤드 업 알림이 뜬 후 앱이 다시 중지될 수 있을 때까지의 밀리초 단위 시간(기본값: 60초).</string>
     <string name="feature_camera_gestures">카메라 제스처</string>
@@ -181,6 +183,10 @@
     <string name="option_hide_multi_sim_panel_desc">삼성 기기에서는, 이 설정을 이용해 확장된 빠른 설정 창 내에 나타나는 다중 SIM을 숨길 수 있습니다.</string>
     <string name="option_disable_combined_internet">네트워크 설정 병합 해제</string>
     <string name="option_disable_combined_internet_desc">Google은 Android 12에서 Wi-Fi, 블루투스, 모바일 데이터 설정을 하나의 메뉴로 통합했습니다. Wi-Fi 및 모바일 데이터 빠른 설정 타일도 단일 인터넷 타일로 결합되었습니다. 이 설정을 켜면 기기 설정에서 이전 메뉴를 불러오도록 하고, 빠른 설정 타일을 따로 표시하는 방식으로 복원할 수 있습니다. 설정을 잘 적용하려면 기기를 재시작해야 할 수도 있습니다. Wi-Fi 및 모바일 데이터 타일이 표시되지 않으면 SystemUI Tuner의 빠른 설정 편집기 기능을 이용해 추가할 수 있습니다.</string>
+    <string name="option_disable_lock_screen_ads">잠금화면 광고 비활성화</string>
+    <string name="option_disable_lock_screen_ads_desc">Kindle에서 잠금화면에 광고를 띄우는 경우 이 설정을 통해 광고를 끌 수 있습니다. 영구적으로 광고를 끄려면 \'영구 옵션\' 메뉴에서도 이 설정을 켜야 합니다.</string>
+    <string name="option_allow_custom_left_lock_shortcut">좌측 잠금화면 바로가기 사용자 지정 허용</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS는 기본적으로 바로가기를 변경하더라도 왼쪽 잠금화면 바로가기는 스마트 기기 대시보드로 고정되어 있습니다. 이곳과 \'영구 설정\' 메뉴에서 설정을 켜두면 사용자 지정 잠금화면 바로가기를 이용할 수 있습니다.</string>
     <string name="home_welcome_title">환영합니다!</string>
     <string name="search">검색</string>
     <string name="immersive_none">없음</string>
@@ -272,6 +278,8 @@
     <string name="intro_grant_extra_desc">일부 기능에 한해서, SystemUI Tuner는 추가적인 ADB 권한이 필요합니다. 이 권한들은 지금 부여하지 않아도 되며, 필요한 경우 안내가 될 것입니다.</string>
     <string name="intro_system_alert_window">시스템 알림창</string>
     <string name="intro_system_alert_window_desc">Android 12 이상에서는 앱이 백그라운드 혹은 기기 시작 시 작업을 실행하는 기능이 크게 제한되었습니다. SystemUI Tuner에 \'다른 앱 위에 표시\' 권한을 부여하면 이런 기능 제한에서 제외될 수 있으며, 더욱 안정적으로 설정을 유지할 수 있게 됩니다. 권한을 부여할지는 선택 사항입니다.</string>
+    <string name="intro_allow_notifications">알림 승인</string>
+    <string name="intro_allow_notifications_desc">Android 13부터는 앱에서 알림을 보내려면 사용자로부터 허가를 받아야 합니다. SystemUI Tuner에서는 백그라운드 작업을 실행할 때 알림을 표시할 수 있습니다. 이 알림을 보려면 SystemUI Tuner가 알림을 표시할 수 있도록 권한을 부여해주십시오.</string>
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
     <string name="intro_last_desc">최근 업데이트를 보려면 트위터에서 저를 팔로우하십시오.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
@@ -344,4 +352,8 @@
     <string name="safe_audio_state_active">활성화</string>
     <string name="persistent_options_not_sticking_title">부팅 시 설정이 초기화되지 않나요?</string>
     <string name="persistent_options_not_sticking_desc">모든 배터리 최적화 설정에서 SystemUI Tuner를 제외해야 합니다. 여기를 눌러 방법을 알아보세요.</string>
+    <string name="setting_applied_dialog">설정 적용 완료!</string>
+    <string name="setting_applied_dialog_desc">변경된 설정으로 유지하시겠습니까? %s초 후 이전 설정으로 되돌아갑니다.</string>
+    <string name="keep">유지</string>
+    <string name="revert">되돌리기</string>
 </resources>

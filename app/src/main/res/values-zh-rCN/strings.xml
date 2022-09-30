@@ -16,6 +16,7 @@
     <string name="category_oem">OEM 功能</string>
     <string name="category_system">系统</string>
     <string name="category_ui">用户界面</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">快速设置</string>
     <string name="screen_persistent">永久选项</string>
     <string name="category_interaction">交互</string>
@@ -38,6 +39,7 @@
     <string name="sub_power">电源</string>
     <string name="add_to_blacklist">添加到图标黑名单</string>
     <string name="remove_from_blacklist">从图标黑名单中删除</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">演示模式</string>
     <string name="sub_demo_desc">演示模式允许您将设备的状态栏强制为不同的状态。 您可以使用它来显示或隐藏特定的图标，指定信号强度和其他一些东西。</string>
     <string name="special_sub_airplane_mode">飞行模式调整</string>
@@ -67,7 +69,7 @@
     <string name="feature_custom_rotation">锁定屏幕方向到自定义值</string>
     <string name="feature_custom_rotation_desc">大多数手机只允许您锁定手机屏幕方向到肖像模式。 通过此设置，您可以锁定屏幕方向到任何方向。您首先必须禁用自动旋转，然后才能正常工作。</string>
     <string name="feature_immersive_mode">沉浸模式</string>
-    <string name="feature_immersive_mode_desc">允许您切换沉浸模式的大多数其他应用程序只有几个选项：隐藏导航栏或隐藏状态栏。 在白名单或黑名单模式中将此设置为每个应用都是可能的。</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">浮动通知延迟长度</string>
     <string name="feature_heads_up_snooze_length_desc">浮动通知后的毫秒数会在应用程序再次中断之前被推回。(默认：60秒)。</string>
     <string name="feature_camera_gestures">相机手势</string>
@@ -82,8 +84,8 @@
     <string name="feature_shortcode_warning_desc">当向某些短代码发送短信时，系统警告您可能会收取费用。您可以在此禁用此警告。</string>
     <string name="feature_sms_limit">自定义短信限制</string>
     <string name="feature_sms_limit_desc">默认情况下，Android 限制您每隔30分钟发送30短信，然后用弹出通知给您。 使用这两个值，你可以定制无论你想要发送多少短信而不需要机器人。</string>
-    <string name="feature_lockscreen_shortcuts">锁屏界面快捷方式</string>
-    <string name="feature_lockscreen_shortcuts_desc">从 Android Oreo 开发者预览3 开始，谷歌删除了自定义锁屏快捷方式的能力。然而，设置值仍然可以手动设置。</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">启用 ADB</string>
     <string name="feature_enable_adb_desc">某些设备在一段时间内不活动后自动禁用 ADB。启用此选项并将其设置为持久选项以强制启用 ADB。</string>
     <string name="feature_dark_mode">启用全局暗色模式</string>
@@ -181,6 +183,10 @@
     <string name="option_hide_multi_sim_panel_desc">在三星设备上，您可以使用此选项来隐藏扩展快速设置面板中出现的多SIM视图。</string>
     <string name="option_disable_combined_internet">禁用合并网络选项</string>
     <string name="option_disable_combined_internet_desc">在 Android 12，谷歌将WiFi，蓝牙和蜂窝的设置合并为一个菜单。 WiFi和蜂窝的快速设置瓷块也被合并成一个单一的互联网圈。 启用此选项将在设置中将旧菜单带回来，并允许您还原单独的 QS 瓷砖。 您可能需要重新启动才能正常生效。 如果您看不到WiFi和蜂窝瓷砖，您可以在 SystemUI Tuner 中使用快速设置编辑器功能添加它们。</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">欢迎！</string>
     <string name="search">搜索​​​​</string>
     <string name="immersive_none">无</string>
@@ -272,6 +278,8 @@
     <string name="intro_grant_extra_desc">系统界面调节器需要额外的 ADB 权限才能正常工作。 您现在就不必授予这些。如果需要的话，您将会被提示。</string>
     <string name="intro_system_alert_window">系统警报窗口</string>
     <string name="intro_system_alert_window_desc">Android 12及更高版本已经严重限制了应用在后台和设备启动时运行的能力。 给予系统界面调节器在其他应用上显示的权限将免除这些限制，并提高持久性选项的可靠性。 此权限完全可选.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">感谢您使用我的应用！</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
@@ -344,4 +352,8 @@
     <string name="safe_audio_state_active">激活</string>
     <string name="persistent_options_not_sticking_title">在启动时不重置选项？</string>
     <string name="persistent_options_not_sticking_desc">您可能需要将任何电池优化的 SystemUI 调节器加入白名单。点击此处寻找方法。</string>
+    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="keep">Keep</string>
+    <string name="revert">Revert</string>
 </resources>

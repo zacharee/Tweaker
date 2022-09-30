@@ -16,6 +16,7 @@
     <string name="category_oem">Recursos da Fabricante</string>
     <string name="category_system">Sistema</string>
     <string name="category_ui">Interface de usuário</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">Configurações rápidas</string>
     <string name="screen_persistent">Opções Persistentes</string>
     <string name="category_interaction">Interações</string>
@@ -38,6 +39,7 @@
     <string name="sub_power">Ligar/Desligar</string>
     <string name="add_to_blacklist">Adicionar à Lista Negra de Ícones</string>
     <string name="remove_from_blacklist">Remover da Lista Negra de Ícones</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Modo de Demonstração</string>
     <string name="sub_demo_desc">O Modo de Demonstração permite que você force a barra de status do seu dispositivo de diferentes maneiras. Você pode usá-lo para mostrar ou ocultar ícones específicos, especificar forças do sinal e algumas outras coisas. Útil ao tirar uma Foto da Tela, para não mostrar seus dados.</string>
     <string name="special_sub_airplane_mode">Ajustes do Modo Avião</string>
@@ -67,7 +69,7 @@
     <string name="feature_custom_rotation">Orientação da tela de bloqueio para valor personalizado</string>
     <string name="feature_custom_rotation_desc">A maioria dos celulares só permite que você bloqueie a rotação da tela do seu celulares para o Modo Retrato. Com essa configuração, você pode bloquear a rotação da tela em qualquer orientação. Primeiro, você terá que desativar a rotação automática para que isto funcione.</string>
     <string name="feature_immersive_mode">Modo imersivo</string>
-    <string name="feature_immersive_mode_desc">A maioria dos outros aplicativos que permitem a você alternar o modo imersivo só tem algumas opções: ocultar a barra de navegação ou ocultar a barra de status. Na verdade, é possível definir isso por aplicativo, em modo lista branca ou lista negra.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Duração da tela alerta</string>
     <string name="feature_heads_up_snooze_length_desc">Milissegundos após uma notificação flutuante ser empurrada para trás antes que o aplicativo possa interromper novamente. (Padrão: 60 segundos).</string>
     <string name="feature_camera_gestures">Gestos da Câmera</string>
@@ -82,8 +84,8 @@
     <string name="feature_shortcode_warning_desc">Ao enviar SMS para alguns números, o sistema avisa que você poderá receber uma cobrança da sua operadora. Você pode desativar este aviso aqui.</string>
     <string name="feature_sms_limit">Limite de SMS personalizado</string>
     <string name="feature_sms_limit_desc">Por padrão, o Android limita você a enviar 30 SMS a cada 30 minutos antes de incomodá-lo com uma notificação pop-up. Usando esses dois valores, você pode personalizar quantos SMS quiser enviar sem ser incomodado.</string>
-    <string name="feature_lockscreen_shortcuts">Atalhos na tela de bloqueio</string>
-    <string name="feature_lockscreen_shortcuts_desc">A partir do Android Oreo Developer Preview 3, o Google removeu a capacidade de personalizar os atalhos da tela de bloqueio. No entanto, o valor de preferência ainda pode ser definido manualmente.</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">Ativar ADB</string>
     <string name="feature_enable_adb_desc">Existem certos dispositivos que, depois de um tempo, desativam a Depuração ADB automaticamente. Ative está opção para forçar a ativação da Depuração ADB permanentemente.</string>
     <string name="feature_dark_mode">Ativar o Modo Escuro global</string>
@@ -181,6 +183,10 @@
     <string name="option_hide_multi_sim_panel_desc">Em aparelhos da Samsung, você pode usar esta opção para ocultar a exibição de mais de um chip que aparece no painel de configurações rápidas quando expandido.</string>
     <string name="option_disable_combined_internet">Desativar Opções de Rede Combinada</string>
     <string name="option_disable_combined_internet_desc">No Android 12, o Google combinou as configurações de WiFi, Bluetooth e celular em um menu. Os blocos de configurações rápidas para WiFi e celular também foram combinados em um único bloco de Internet. Ativar esta opção retornará os menus antigos nas Configurações e permitirá que você restaure os blocos separados nas configurações rápidas. Pode ser necessário reiniciar para que a reinicialização tenha efeito. Se você não ver os botões Wi-Fi e celulares, pode adicioná-los usando o recurso do Editor de Configurações Rápidas no Configurador de Sistema.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">Bem-vindo!</string>
     <string name="search">Pesquisar</string>
     <string name="immersive_none">Nenhum</string>
@@ -272,6 +278,8 @@
     <string name="intro_grant_extra_desc">Para certos recursos, o SystemUI Tuner precisa de algumas permissões adicionais para funcionar corretamente. Você não precisa conceder isso agora, e você será solicitado se eles forem necessários.</string>
     <string name="intro_system_alert_window">Janela de Alerta do Sistema</string>
     <string name="intro_system_alert_window_desc">O Android 12 e versões posteriores restringiram significativamente a capacidade dos aplicativos de executar operações em segundo plano e quando o dispositivo é inicializado. Dar permissão ao SystemUI Tuner para exibir sobre outros aplicativos o isentará dessas restrições e melhorará a confiabilidade das Opções Persistentes. Esta permissão é completamente opcional.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Obrigado por usar meu app!</string>
     <string name="intro_last_desc">Siga-me no Twitter para as últimas atualizações do app.</string>
     <string name="compatibility_message_lower">Desculpe, este recurso só funciona com Android %s ou superior</string>
@@ -344,4 +352,8 @@
     <string name="safe_audio_state_active">Ativo</string>
     <string name="persistent_options_not_sticking_title">Opções não estão redefinindo na inicialização?</string>
     <string name="persistent_options_not_sticking_desc">Pode ser que você precisar dar algumas permissões de otimização de bateria para o SystemUI Tuner. Clique aqui para saber como.</string>
+    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="keep">Keep</string>
+    <string name="revert">Revert</string>
 </resources>

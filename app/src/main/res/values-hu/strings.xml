@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (kikapcsol)</string>
-    <string name="tap_to_disable">Érintsd az értesítés letiltásához</string>
+    <string name="app_name">Rendszer UI Tuner</string>
+    <string name="manager_channel">Kezelő (kikapcsolás)</string>
+    <string name="tap_to_disable">Koppints ide az értesítés letiltásához</string>
     <string name="home">Kezdőlap</string>
     <string name="category_display">Kijelző</string>
     <string name="category_accessibility">Kisegítő lehetőségek</string>
-    <string name="category_apps">App-ok</string>
+    <string name="category_apps">Alkalmazások</string>
     <string name="category_audio">Hang &amp; Zene</string>
     <string name="category_developer">Fejlesztő</string>
     <string name="category_easter_eggs">Húsvéti tojások</string>
@@ -16,6 +16,7 @@
     <string name="category_oem">OEM jellemzők</string>
     <string name="category_system">Rendszer</string>
     <string name="category_ui">Felület</string>
+    <string name="category_lock_screen">Lock Screen</string>
     <string name="category_quick_settings">Gyorsbeállítások</string>
     <string name="screen_persistent">Állandó opciók</string>
     <string name="category_interaction">Interakció</string>
@@ -36,21 +37,22 @@
     <string name="sub_security">Biztonság</string>
     <string name="sub_storage">Tárhely</string>
     <string name="sub_power">Tápellátás</string>
-    <string name="add_to_blacklist">Ikon feketelistára tesz</string>
-    <string name="remove_from_blacklist">Eltávolít az ikon feketelistáról</string>
+    <string name="add_to_blacklist">Ikon hozzáadása a feketelistához</string>
+    <string name="remove_from_blacklist">Ikon eltávolítása a feketelistáról</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demó mód</string>
     <string name="sub_demo_desc">A Demó mód lehetővé teszi az eszköz állapotsorának különböző állapotokba kényszerítését. Használható adott ikonok megjelenítésére vagy elrejtésére, a jelerősség megadására és még néhány dologra.</string>
     <string name="special_sub_airplane_mode">Repülőgép mód hangolás</string>
     <string name="special_sub_airplane_mode_desc">A repülőgépes mód automatikusan kikapcsolja az eszköz összes rádióját, amikor be van kapcsolva. Megadható, hogy mely rádiókat tiltsa le (például a WiFi bekapcsolva tartása repülőgépes mód engedélyezésekor). Megváltoztatható az is, hogy melyik rádió kapcsolható manuálisan, amikor az eszköz repülőgépes módba lép.</string>
-    <string name="special_sub_icon_blacklist">Ikon Feketelista</string>
+    <string name="special_sub_icon_blacklist">Ikon feketelista</string>
     <string name="special_sub_icon_blacklist_desc">Válaszd ki az ikonokat, amelyeket el akarsz rejteni az állapotsorból. Ne feledd, hogy ez a funkció nem minden eszközön és minden ikonnál működik. Az értesítési ikonokat nem lehet elrejteni ezzel a funkcióval.</string>
-    <string name="feature_lock_timeout">Állítsa be az egyéni eszközzár időkorlátját</string>
-    <string name="feature_lock_timeout_desc">A \'Biztonságos zár beállításai\' alatt beállíthat egy \'automatikus zárolás\' időzítőt. Ez az időzítő határozza meg, hogy az eszköz alvó üzemmódba lépése után mennyi idő múlva jelenjen meg a zárolási képernyő. Ezen a beállításon keresztül bármilyen értéket beállíthat (milliszekundumokban), amit csak akar. Ha elég magas értéket állít be, akkor lényegében soha nem fog megjelenni a zárolási képernyő (feltéve, hogy kikapcsolta a \"bekapcsológomb azonnal zárolja a készüléket\" funkciót).</string>
-    <string name="feature_battery_saver_trigger">Egyedi Százalékhatár Beállítása Energiatakarékos Módhoz</string>
+    <string name="feature_lock_timeout">Állítsd be az egyéni eszközzár időkorlátját</string>
+    <string name="feature_lock_timeout_desc">A \'Biztonságos zár beállításai\' alatt beállíthatsz egy \'automatikus zárolás\' időzítőt. Ez az időzítő határozza meg, hogy az eszköz alvó üzemmódba lépése után mennyi idő múlva jelenjen meg a zárolási képernyő. Ezen a beállításon keresztül bármilyen értéket beállíthatsz (milliszekundumokban). Ha elég magas értéket állítasz be, akkor lényegében soha nem fog megjelenni a zárolási képernyő (feltéve, hogy kikapcsoltad a \"bekapcsológomb azonnal zárolja a készüléket\" funkciót).</string>
+    <string name="feature_battery_saver_trigger">Egyedi százalékhatár beállítása az Energiatakarékos módhoz</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">A Google \"Energiatakarékos Mód\" funkciója automatikusan aktiválódhat ha az akkumulátor töltöttsége 5\% vagy 15\%. Ezzel saját határt állíthat be a funkciónak.</string>
-    <string name="feature_long_press_delay">Egyedi Nyomvatartás-késleltetés Beállítása</string>
+    <string name="feature_long_press_delay">Egyedi nyomvatartás-késleltetés beállítása</string>
     <string name="feature_long_press_delay_desc">A hozzáférési beállításokban van egy \"touch &amp; hold delay\" nevű funkció, amely lehetővé teszi, hogy megadja, mennyi ideig kell lenyomva tartani a képernyőt, hogy az Android felismerje a hosszú nyomást. Alapértelmezés szerint azonban csak a \"rövid\", a \"közepes\" és a \"hosszú\" lehetőségek állnak rendelkezésre. Beállíthatja a saját késleltetését.</string>
-    <string name="feature_font_scale">Egyedi Betűméret Beállítása</string>
+    <string name="feature_font_scale">Egyedi betűméret beállítása</string>
     <string name="feature_font_scale_desc">Az Android lehetővé teszi a rendszer betűméretének beállítását. Az opciók általában \"kicsi\", \"normál\", \"nagy\", \"nagyon nagy\" lehetőségekkel vannak jelölve. Ezzel a beállításal megadhat egy egyedi értéket.</string>
     <string name="feature_freeform">Szabad formájú többablakos mód engedélyezése</string>
     <string name="feature_freeform_desc">A többablakos szabad formájú támogatás engedélyezése. Újraindítást igényel. Csak Android 7.0+ készüléken működik.</string>
@@ -67,7 +69,7 @@
     <string name="feature_custom_rotation">Zárolási képernyő tájolása egyéni értékre</string>
     <string name="feature_custom_rotation_desc">A legtöbb telefon csak azt teszi lehetővé, hogy a telefon képernyő tájolását Portré módba rögzítse. Ezzel a beállítással a képernyő tájolását bármilyen tájolásra zárolhatja. Először le kell tiltania az automatikus forgatást, mielőtt ez működni fog.</string>
     <string name="feature_immersive_mode">Magával ragadó mód</string>
-    <string name="feature_immersive_mode_desc">A legtöbb más alkalmazás, amely lehetővé teszi az immerzív mód váltását, csak néhány lehetőséget kínál: a navigációs sáv elrejtése vagy az állapotsor elrejtése. Valójában ezt alkalmazásonként is be lehet állítani, akár fehérlista, akár feketelista módban.</string>
+    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up értesítés elhalasztásának hossza</string>
     <string name="feature_heads_up_snooze_length_desc">Milliszekundumok a heads up értesítés visszalökése után, mielőtt az alkalmazás újra megszakíthatja. (Alapértelmezett: 60 másodperc).</string>
     <string name="feature_camera_gestures">Kamera gesztusok</string>
@@ -82,8 +84,8 @@
     <string name="feature_shortcode_warning_desc">Bizonyos rövid kódokra küldött SMS-ek küldésekor a rendszer figyelmezteti Önt, hogy díjat számíthatnak fel. Ezt a figyelmeztetést itt kikapcsolhatja.</string>
     <string name="feature_sms_limit">Egyéni SMS Limit</string>
     <string name="feature_sms_limit_desc">Alapértelmezés szerint az Android 30 SMS küldésére korlátozza 30 percenként, mielőtt egy felugró értesítéssel zavarja Önt. E két érték segítségével testre szabhatja, hogy mennyi SMS-t küldhessen anélkül, hogy zavarják.</string>
-    <string name="feature_lockscreen_shortcuts">A záróképernyő parancsikonjai</string>
-    <string name="feature_lockscreen_shortcuts_desc">Az Android Oreo Developer Preview 3-tól kezdve a Google eltávolította a záróképernyő parancsikonok testreszabásának lehetőségét. A beállítási érték azonban továbbra is beállítható manuálisan.</string>
+    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
+    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">ADB engedélyezése</string>
     <string name="feature_enable_adb_desc">Bizonyos készülékek egy bizonyos ideig tartó inaktivitás után automatikusan letiltják az ADB-t. Engedélyezze ezt az opciót, és állítsa be állandó opcióként az ADB kényszerített bekapcsolásához.</string>
     <string name="feature_dark_mode">Globális sötét üzemmód engedélyezése</string>
@@ -181,6 +183,10 @@
     <string name="option_hide_multi_sim_panel_desc">Samsung készülékeken ezzel a beállítással elrejtheti a kibővített gyorsbeállítások panelen megjelenő multi-SIM nézetet.</string>
     <string name="option_disable_combined_internet">Kombinált hálózati beállítások letiltása</string>
     <string name="option_disable_combined_internet_desc">Az Android 12-ben a Google a WiFi, a Bluetooth és a mobiltelefon beállításait egy menübe egyesítette. A WiFi és a mobiltelefonos gyorsbeállítások csempéit is egyetlen Internet csempévé egyesítették. A beállítás engedélyezése visszahozza a régi menüket a Beállításokban, és lehetővé teszi a különálló QS-csempék visszaállítását. Előfordulhat, hogy újra kell indítania a rendszert, hogy ez megfelelően érvényesüljön. Ha nem látja a WiFi és a mobiltelefonos csempéket, a SystemUI Tuner gyorsbeállítás-szerkesztő funkciójával hozzáadhatja őket.</string>
+    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
+    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
     <string name="home_welcome_title">Üdvözöljük!</string>
     <string name="search">Keresés</string>
     <string name="immersive_none">Nincs</string>
@@ -273,6 +279,8 @@ Néma láthatóság</string>
     <string name="intro_grant_extra_desc">Bizonyos funkciókhoz a SystemUI Tuner-nek szüksége van néhány extra ADB-engedélyre a megfelelő működéshez. Ezeket most nem kell megadnia, és a rendszer kérni fogja, ha szükség van rájuk.</string>
     <string name="intro_system_alert_window">Rendszerfigyelmeztető ablak</string>
     <string name="intro_system_alert_window_desc">Az Android 12 és újabb verziók jelentősen korlátozták az alkalmazások azon képességét, hogy a háttérben és a készülék indításakor műveleteket hajtsanak végre. A SystemUI Tuner engedélyezése a más alkalmazások feletti megjelenítésre felmenti a rendszerfelületet e korlátozások alól, és javítja a Tartós beállítások megbízhatóságát. Ez az engedély teljesen opcionális.</string>
+    <string name="intro_allow_notifications">Allow Notifications</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
     <string name="intro_last_desc">Kövess a Twitteren, hogy értesülj a legújabb frissítésekről.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
@@ -345,4 +353,8 @@ Néma láthatóság</string>
     <string name="safe_audio_state_active">Aktív</string>
     <string name="persistent_options_not_sticking_title">A beállítások nem állnak vissza a rendszerindításkor?</string>
     <string name="persistent_options_not_sticking_desc">Előfordulhat, hogy a SystemUI Tuner-t fehérlistára kell tennie az akkumulátor optimalizálásához. Kattintson ide, ha szeretné megtudni, hogyan.</string>
+    <string name="setting_applied_dialog">Beállítás alkalmazva!</string>
+    <string name="setting_applied_dialog_desc">Szeretnéd megtartani a módosításokat? Ez a beállítás vissza lesz állítva %s másodperc múlva.</string>
+    <string name="keep">Megtartás</string>
+    <string name="revert">Visszaállítás</string>
 </resources>
