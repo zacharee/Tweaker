@@ -210,17 +210,22 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                 true
             }
             Shizuku.pingBinder() && hasShizukuPermission -> {
-                @Suppress("DEPRECATION")
-                Shizuku.newProcess(
-                    arrayOf(
-                        "content", "insert",
-                        "--uri content://settings/system",
-                        "--bind name:s:$key",
-                        "--bind value:s:$value",
-                        "--bind package:s:$packageName"
-                    ),
-                    null, null
-                ).waitFor() == 0
+                try {
+                    @Suppress("DEPRECATION")
+                    Shizuku.newProcess(
+                        arrayOf(
+                            "content", "insert",
+                            "--uri content://settings/system",
+                            "--bind name:s:$key",
+                            "--bind value:s:$value",
+                            "--bind package:s:$packageName"
+                        ),
+                        null, null
+                    ).waitFor() == 0
+                } catch (e: Throwable) {
+                    Log.e("SystemUI Tuner", "Failed to write to System", e)
+                    false
+                }
             }
             else -> {
                 Log.e("SystemUI Tuner", "Failed to write to System", e)
