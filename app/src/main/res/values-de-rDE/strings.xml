@@ -39,6 +39,7 @@
     <string name="sub_power">Ladezustand</string>
     <string name="add_to_blacklist">Zur Icon Blacklist hinzufügen</string>
     <string name="remove_from_blacklist">Aus Icon Blacklist Entfernen</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demo Modus</string>
     <string name="sub_demo_desc">Mit dem Demo Modus können Sie die Statusleiste Ihres Geräts in verschiedene Zustände zwingen. Sie können es verwenden, um bestimmte Symbole anzuzeigen oder zu verstecken, Signalstärken und ein paar andere Dinge anzugeben.</string>
     <string name="special_sub_airplane_mode">Flugmodus Anpassungen</string>
