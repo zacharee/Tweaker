@@ -39,7 +39,7 @@
     <string name="sub_power">전원</string>
     <string name="add_to_blacklist">아이콘 제외 목록에 추가</string>
     <string name="remove_from_blacklist">아이콘 제외 목록에서 제거</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">손전등</string>
     <string name="sub_demo">데모 모드</string>
     <string name="sub_demo_desc">데모 모드를 통하여 상태 표시줄을 다른 상태로 바꿀 수 있습니다. 특정 아이콘을 보이거나 가리고, 신호 강도를 지정하는 등의 다른 작업들을 할 수 있습니다.</string>
     <string name="special_sub_airplane_mode">비행기 모드 개조</string>
