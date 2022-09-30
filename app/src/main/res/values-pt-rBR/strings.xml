@@ -39,6 +39,7 @@
     <string name="sub_power">Ligar/Desligar</string>
     <string name="add_to_blacklist">Adicionar à Lista Negra de Ícones</string>
     <string name="remove_from_blacklist">Remover da Lista Negra de Ícones</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Modo de Demonstração</string>
     <string name="sub_demo_desc">O Modo de Demonstração permite que você force a barra de status do seu dispositivo de diferentes maneiras. Você pode usá-lo para mostrar ou ocultar ícones específicos, especificar forças do sinal e algumas outras coisas. Útil ao tirar uma Foto da Tela, para não mostrar seus dados.</string>
     <string name="special_sub_airplane_mode">Ajustes do Modo Avião</string>
