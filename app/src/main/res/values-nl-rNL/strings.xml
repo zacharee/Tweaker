@@ -39,7 +39,7 @@
     <string name="sub_power">Energie</string>
     <string name="add_to_blacklist">Toevoegen aan zwarte lijst</string>
     <string name="remove_from_blacklist">Verwijderen van zwarte lijst</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Zaklamp</string>
     <string name="sub_demo">Demonstratiemodus</string>
     <string name="sub_demo_desc">Met de demonstratiemodus kun je de statusbalk van je apparaat in verschillende modi zetten. Je kunt dit gebruiken om specifieke pictogrammen te tonen of verbergen, bereiksterktes en een paar andere dingen.</string>
     <string name="special_sub_airplane_mode">Vliegtuigmodus-aanpassingen</string>
