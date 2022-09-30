@@ -39,6 +39,7 @@
     <string name="sub_power">電源</string>
     <string name="add_to_blacklist">アイコンをブラックリストに追加</string>
     <string name="remove_from_blacklist">アイコンをブラックリストから削除</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">デモモード</string>
     <string name="sub_demo_desc">デモモードでは、デバイスのステータスバーを強制的に異なる状態にすることができます。特定のアイコンを表示/非表示、電波強度を指定したり、さまざまな使い方ができます。</string>
     <string name="special_sub_airplane_mode">機内モードの調整</string>
