@@ -39,6 +39,7 @@
     <string name="sub_power">Güç</string>
     <string name="add_to_blacklist">Kara listeye ekle</string>
     <string name="remove_from_blacklist">Kara listeden kaldır</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Demo Modu</string>
     <string name="sub_demo_desc">Demo Modu, cihazınızın durum çubuğunu farklı durumlara zorlamanızı sağlar.
 Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birkaç başka şey için kullanabilirsiniz.</string>
