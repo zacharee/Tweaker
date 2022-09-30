@@ -186,7 +186,7 @@
     <string name="option_disable_lock_screen_ads">Отключить рекламу на экране блокировки</string>
     <string name="option_disable_lock_screen_ads_desc">Если в Вашем Kindle есть реклама на экране блокировки, с помощью этой настройки Вы можете её отключить. Для того чтобы сделать настройку постоянной, Вы также должны включить эту опцию в меню Постоянных Настроек.</string>
     <string name="option_allow_custom_left_lock_shortcut">Настраиваемый левый ярлык на экране блокировки</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS обычно резервирует левый ярлык экрана блокировки для дашборда смарт-устройств даже если вы измените ярлык. Включите это здесь и в Постоянных Настройках, чтобы иметь возможность использовать пользовательские ярлыки.</string>
     <string name="home_welcome_title">Добро пожаловать!</string>
     <string name="search">Поиск</string>
     <string name="immersive_none">Нет</string>
