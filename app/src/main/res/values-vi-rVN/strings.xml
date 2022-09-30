@@ -39,6 +39,7 @@
     <string name="sub_power">Điện</string>
     <string name="add_to_blacklist">Thêm icon vào danh sách đen</string>
     <string name="remove_from_blacklist">Loại icon khỏi danh sách đen</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Chế độ demo</string>
     <string name="sub_demo_desc">Chế độ Demo cho phép bạn buộc thanh trạng thái của thiết bị sang nhiều trạng thái khác nhau. Bạn có thể dùng nó để hiện hoặc ẩn icon cụ thể, cường độ tín hiệu và vài thứ khác.</string>
     <string name="special_sub_airplane_mode">Tweaks chế độ máy bay</string>
