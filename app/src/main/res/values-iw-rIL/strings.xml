@@ -39,6 +39,7 @@
     <string name="sub_power">כוח</string>
     <string name="add_to_blacklist">הוסף לרשימה השחורה</string>
     <string name="remove_from_blacklist">הסר מהרשימה השחורה</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">מצב הדגמה</string>
     <string name="sub_demo_desc">מצב הדגמה מאפשר לכם לכפות את שורת המצב למצבים שונים/ באפשרותכם להשתמש בו כדי להציג או להסתיר אייקונים שונים, לציין עוצמת אות ועוד כמה דברים.</string>
     <string name="special_sub_airplane_mode">שפצורי מצב טיסה</string>
