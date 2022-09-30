@@ -39,6 +39,7 @@
     <string name="sub_power">التشغيل</string>
     <string name="add_to_blacklist">إضافة إلى القائمة السوداء للأيقونة</string>
     <string name="remove_from_blacklist">إزالة من القائمة السوداء للأيقونات</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">الوضع التجريبي</string>
     <string name="sub_demo_desc">الوضع التجريبي يسمح لك بفرض شريط حالة جهازك على حالات مختلفة. يمكنك استخدامه لإظهار أو إخفاء أيقونات محددة، وتحديد نقاط قوة الإشارة، وبعض الأشياء الأخرى.</string>
     <string name="special_sub_airplane_mode">تعديلات وضع الطيران</string>
