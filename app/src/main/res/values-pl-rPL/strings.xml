@@ -39,6 +39,7 @@
     <string name="sub_power">Zasilanie</string>
     <string name="add_to_blacklist">Dodaj do czarnej listy ikon</string>
     <string name="remove_from_blacklist">Usuń z czarnej listy ikon</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Tryb demonstracyjny</string>
     <string name="sub_demo_desc">Tryb demonstracyjny pozwala wymusić stany ikon na pasku stanu urządzenia. Może zostać użyty do pokazania ub ukrycia określonych ikon, wyświetlenia określenilych poziomów sygnałów i kilku innych rzeczy.</string>
     <string name="special_sub_airplane_mode">Ulepszenia trybu samolotowego</string>
