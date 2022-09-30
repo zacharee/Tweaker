@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
@@ -52,20 +53,41 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 binding.typeName.text = resources.getText(item.label)
 
                 if (cName != null) {
-                    binding.appIcon.setImageDrawable(
+                    val icon = if (cName.contains("NoUnlockNeeded/") && !cName.contains(".")) {
+                        when {
+                            cName.contains("Flashlight") -> ContextCompat.getDrawable(context, R.drawable.baseline_flashlight_on_24)
+                            cName.contains("Dnd") -> ContextCompat.getDrawable(context, R.drawable.do_not_disturb)
+                            else -> null
+                        }
+                    } else {
                         try {
-                            context.packageManager.getApplicationIcon(cName.packageName)
+                            context.packageManager.getApplicationIcon(ComponentName.unflattenFromString(cName)?.packageName)
                         } catch (e: PackageManager.NameNotFoundException) {
                             null
                         }
-                    )
-
-                    binding.appName.text = try {
-                        context.packageManager.getActivityInfoCompat(cName).loadLabel(context.packageManager)
-                    } catch (e: PackageManager.NameNotFoundException) {
-                        null
                     }
-                    binding.component.text = cName.flattenToShortString()
+
+                    val label = if (cName.contains("NoUnlockNeeded/") && !cName.contains(".")) {
+                        when {
+                            cName.contains("Flashlight") -> resources.getString(R.string.flashlight)
+                            cName.contains("Dnd") -> resources.getString(R.string.icon_blacklist_do_not_disturb)
+                            else -> null
+                        }
+                    } else {
+                        ComponentName.unflattenFromString(cName)?.let {
+                            try {
+                                context.packageManager.getActivityInfoCompat(it)
+                                    .loadLabel(context.packageManager)
+                            } catch (e: PackageManager.NameNotFoundException) {
+                                null
+                            }
+                        }
+                    }
+
+                    binding.appIcon.setImageDrawable(icon)
+
+                    binding.appName.text = label
+                    binding.component.text = cName
                 } else {
                     binding.appIcon.setImageDrawable(null)
 
@@ -76,7 +98,16 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 binding.reset.setOnClickListener {
                     val newInfo = items[holder.bindingAdapterPosition]
 
-                    newInfo.setComponentName(context, null)
+                    newInfo.setComponentName(
+                        context,
+                        if (context.isTouchWiz) {
+                            ShortcutInfo.ComponentValues.fromString(
+                                context.buildDefaultSamsungLockScreenShortcuts()
+                            ).getForSide(item.side)
+                        } else {
+                            null
+                        }
+                    )
                     notifyItemChanged(holder.bindingAdapterPosition)
                 }
 
@@ -85,7 +116,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {
-                            newInfo.setComponentName(context, ComponentName.unflattenFromString(component))
+                            newInfo.setComponentName(context, component)
 
                             if (context.isTouchWiz) {
                                 notifyItemRangeChanged(0, items.size)
@@ -112,8 +143,8 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
         }
 
         data class ComponentValues(
-            var left: ComponentName?,
-            var right: ComponentName?
+            var left: String?,
+            var right: String?
         ) {
             companion object {
                 fun fromString(value: String?): ComponentValues {
@@ -121,27 +152,27 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     val split = value.split(";")
 
-                    if (split.size < 5) return ComponentValues(null, null)
+                    if (split.size < 4) return ComponentValues(null, null)
 
                     return ComponentValues(
-                        ComponentName.unflattenFromString(split[1]),
-                        ComponentName.unflattenFromString(split[3])
+                        split[1],
+                        split[3]
                     )
                 }
             }
 
             fun toSettingsString(): String {
-                return "1;${left?.flattenToString()};1;${right?.flattenToString()};"
+                return "1;${left};1;${right};"
             }
 
-            fun getForSide(side: Side): ComponentName? {
+            fun getForSide(side: Side): String? {
                 return when (side) {
                     Side.LEFT -> left
                     Side.RIGHT -> right
                 }
             }
 
-            fun setForSide(side: Side, newName: ComponentName?) {
+            fun setForSide(side: Side, newName: String?) {
                 when (side) {
                     Side.LEFT -> left = newName
                     Side.RIGHT -> right = newName
@@ -149,19 +180,17 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
             }
         }
 
-        fun getComponentName(context: Context): ComponentName? {
+        fun getComponentName(context: Context): String? {
             return if (context.isTouchWiz) {
                 val values = ComponentValues.fromString(context.getSetting(SettingsType.SYSTEM, key))
 
                 values.getForSide(side)
             } else {
-                context.getSetting(SettingsType.SECURE, key)?.run {
-                    ComponentName.unflattenFromString(this)
-                }
+                context.getSetting(SettingsType.SECURE, key)
             }
         }
 
-        fun setComponentName(context: Context, newName: ComponentName?) {
+        fun setComponentName(context: Context, newName: String?) {
             if (context.isTouchWiz) {
                 val current = ComponentValues.fromString(context.getSetting(SettingsType.SYSTEM, key))
                 current.setForSide(side, newName)
@@ -170,7 +199,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                 context.writeSetting(SettingsType.SYSTEM, key, string, saveOption = true)
             } else {
-                context.writeSetting(SettingsType.SECURE, key, newName?.flattenToString(), saveOption = true)
+                context.writeSetting(SettingsType.SECURE, key, newName, saveOption = true)
             }
         }
     }

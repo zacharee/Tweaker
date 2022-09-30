@@ -3,11 +3,13 @@ package com.zacharee1.systemuituner.activities
 import android.content.Context
 import android.content.Intent
 import android.content.pm.*
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SortedList
@@ -58,17 +60,28 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
     private val appAdapter = AppAdapter {
         launch {
-            searchView?.setQuery("", false)
-            searchView?.isIconified = true
+            when (it) {
+                is LoadedApplicationInfo -> {
+                    searchView?.setQuery("", false)
+                    searchView?.isIconified = true
 
-            val deferred = async {
-                it.orig.activities?.map { LoadedActivityInfo(packageManager, it) }
+                    val deferred = async {
+                        it.orig.activities?.map { LoadedActivityInfo(packageManager, it) }
+                    }
+
+                    activityAdapter.items.clear()
+                    activityAdapter.items.addAll(deferred.await() ?: return@launch)
+
+                    updateRecyclerVisibility(true)
+                }
+
+                else -> {
+                    callback?.callSafely { callback ->
+                        callback.onSelected(it.key, key)
+                    }
+                    finish()
+                }
             }
-
-            activityAdapter.items.clear()
-            activityAdapter.items.addAll(deferred.await() ?: return@launch)
-
-            updateRecyclerVisibility(true)
         }
     }
 
@@ -155,6 +168,13 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
             appAdapter.items.apply {
                 clear()
+                if (isTouchWiz) {
+                    addAll(
+                        FlashlightSpecialInfo(this@LockscreenShortcutSelector),
+                        DNDSpecialInfo(this@LockscreenShortcutSelector),
+                        NoneSpecialInfo(this@LockscreenShortcutSelector)
+                    )
+                }
                 addAll(deferred.await())
             }
 
@@ -170,6 +190,9 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
         searchView?.setOnQueryTextListener(this)
         searchView?.addAnimation()
+        searchView?.setOnSearchClickListener {
+            searchView?.setQuery(if (!binding.appSelectorWrapper.isVisible) activityAdapter.query else appAdapter.query, false)
+        }
 
         return true
     }
@@ -186,11 +209,9 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
     override fun onQueryTextChange(newText: String?): Boolean {
         when {
             binding.appSelectorWrapper.isVisible -> {
-                activityAdapter.query = null
                 appAdapter.query = newText
             }
             binding.activitySelectorWrapper.isVisible -> {
-                appAdapter.query = null
                 activityAdapter.query = newText
             }
         }
@@ -207,13 +228,13 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         binding.appSelectorWrapper.scaleAnimatedVisible = !forActivity
     }
 
-    class AppAdapter(private val selectionCallback: (LoadedApplicationInfo) -> Unit) : BaseAdapter<LoadedApplicationInfo>() {
-        override val items = object : SortedList<LoadedApplicationInfo>(
-            LoadedApplicationInfo::class.java,
-            object : Callback<LoadedApplicationInfo>() {
+    class AppAdapter(private val selectionCallback: (ApplicationInfoItem) -> Unit) : BaseAdapter<ApplicationInfoItem>() {
+        override val items = object : SortedList<ApplicationInfoItem>(
+            ApplicationInfoItem::class.java,
+            object : Callback<ApplicationInfoItem>() {
                 override fun areItemsTheSame(
-                    item1: LoadedApplicationInfo?,
-                    item2: LoadedApplicationInfo?
+                    item1: ApplicationInfoItem?,
+                    item2: ApplicationInfoItem?
                 ): Boolean {
                     return item1 == item2
                 }
@@ -223,34 +244,42 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                 override fun onInserted(position: Int, count: Int) {}
                 override fun onRemoved(position: Int, count: Int) {}
 
-                override fun compare(o1: LoadedApplicationInfo, o2: LoadedApplicationInfo): Int {
+                override fun compare(o1: ApplicationInfoItem, o2: ApplicationInfoItem): Int {
+                    if (o1 is SpecialApplicationInfo && o2 !is SpecialApplicationInfo) {
+                        return -1
+                    }
+
+                    if (o2 is SpecialApplicationInfo && o1 !is SpecialApplicationInfo) {
+                        return 1
+                    }
+
                     return o1.label.toString().compareTo(o2.label.toString())
                 }
 
                 override fun areContentsTheSame(
-                    oldItem: LoadedApplicationInfo,
-                    newItem: LoadedApplicationInfo
+                    oldItem: ApplicationInfoItem,
+                    newItem: ApplicationInfoItem
                 ): Boolean {
-                    return oldItem.packageName == newItem.packageName
+                    return oldItem.key == newItem.key
                 }
             }
         ) {
-            override fun add(item: LoadedApplicationInfo): Int {
+            override fun add(item: ApplicationInfoItem): Int {
                 if (matchesQuery(item)) visibleItems.add(item)
                 return super.add(item)
             }
 
-            override fun addAll(vararg items: LoadedApplicationInfo) {
+            override fun addAll(vararg items: ApplicationInfoItem) {
                 visibleItems.addAll(items.filter { matchesQuery(it) })
                 super.addAll(*items)
             }
 
-            override fun addAll(items: MutableCollection<LoadedApplicationInfo>) {
+            override fun addAll(items: MutableCollection<ApplicationInfoItem>) {
                 visibleItems.addAll(items.filter { matchesQuery(it) })
                 super.addAll(items)
             }
 
-            override fun addAll(items: Array<out LoadedApplicationInfo>, mayModifyInput: Boolean) {
+            override fun addAll(items: Array<out ApplicationInfoItem>, mayModifyInput: Boolean) {
                 visibleItems.addAll(items.filter { matchesQuery(it) })
                 super.addAll(items, mayModifyInput)
             }
@@ -262,11 +291,11 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         }
 
         override val visibleItems = SortedList(
-            LoadedApplicationInfo::class.java,
-            object : SortedList.Callback<LoadedApplicationInfo>() {
+            ApplicationInfoItem::class.java,
+            object : SortedList.Callback<ApplicationInfoItem>() {
                 override fun areItemsTheSame(
-                    item1: LoadedApplicationInfo?,
-                    item2: LoadedApplicationInfo?
+                    item1: ApplicationInfoItem?,
+                    item2: ApplicationInfoItem?
                 ): Boolean {
                     return item1 == item2
                 }
@@ -287,15 +316,23 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                     notifyItemRangeRemoved(position, count)
                 }
 
-                override fun compare(o1: LoadedApplicationInfo, o2: LoadedApplicationInfo): Int {
+                override fun compare(o1: ApplicationInfoItem, o2: ApplicationInfoItem): Int {
+                    if (o1 is SpecialApplicationInfo && o2 !is SpecialApplicationInfo) {
+                        return -1
+                    }
+
+                    if (o2 is SpecialApplicationInfo && o1 !is SpecialApplicationInfo) {
+                        return 1
+                    }
+
                     return o1.label.toString().compareTo(o2.label.toString())
                 }
 
                 override fun areContentsTheSame(
-                    oldItem: LoadedApplicationInfo,
-                    newItem: LoadedApplicationInfo
+                    oldItem: ApplicationInfoItem,
+                    newItem: ApplicationInfoItem
                 ): Boolean {
-                    return oldItem.packageName == newItem.packageName
+                    return oldItem.key == newItem.key
                 }
             }
         )
@@ -307,7 +344,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
 
                 itemBinding.icon.setImageDrawable(info.loadIcon(context.packageManager))
                 itemBinding.name.text = info.label
-                itemBinding.component.text = info.packageName
+                itemBinding.component.text = info.key
 
                 setOnClickListener {
                     val newPosition = holder.bindingAdapterPosition
@@ -432,7 +469,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
         }
     }
 
-    abstract class BaseAdapter<InfoType : PackageItemInfo> : RecyclerView.Adapter<VH>() {
+    abstract class BaseAdapter<InfoType : Any> : RecyclerView.Adapter<VH>() {
         var query: String? = null
             set(value) {
                 if (field != value) {
@@ -468,7 +505,7 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
             )
         }
 
-        fun matchesQuery(item: PackageItemInfo, query: String? = this.query): Boolean {
+        fun matchesQuery(item: Any, query: String? = this.query): Boolean {
             return query.isNullOrBlank() ||
                     (item is LoadedActivityInfo
                             && (item.label.toString().contains(query, true)
@@ -476,17 +513,51 @@ class LockscreenShortcutSelector : AppCompatActivity(), CoroutineScope by MainSc
                             || item.component.flattenToShortString().contains(query, true)
                             ))
                     ||
-                    (item is LoadedApplicationInfo
+                    (item is ApplicationInfoItem
                             && (item.label.toString().contains(query, true)
-                            || item.packageName.contains(query, true)
+                            || item.key.contains(query, true)
                     ))
         }
     }
 
     class VH(view: View) : RecyclerView.ViewHolder(view)
 
-    class LoadedApplicationInfo(packageManager: PackageManager, val orig: PackageInfo) : ApplicationInfo(orig.applicationInfo) {
-        val label: CharSequence = loadLabel(packageManager)
+    interface ApplicationInfoItem {
+        val label: CharSequence
+        val key: String
+
+        fun loadIcon(pm: PackageManager): Drawable?
+    }
+
+    abstract class SpecialApplicationInfo(override val label: CharSequence, override val key: String) : ApplicationInfoItem
+    class FlashlightSpecialInfo(private val context: Context) : SpecialApplicationInfo(
+        context.resources.getString(R.string.flashlight),
+        "NoUnlockNeeded/Flashlight"
+    ) {
+        override fun loadIcon(pm: PackageManager): Drawable? {
+            return ContextCompat.getDrawable(context, R.drawable.baseline_flashlight_on_24)
+        }
+    }
+    class DNDSpecialInfo(private val context: Context) : SpecialApplicationInfo(
+        context.resources.getString(R.string.icon_blacklist_do_not_disturb),
+        "NoUnlockNeeded/Dnd"
+    ) {
+        override fun loadIcon(pm: PackageManager): Drawable? {
+            return ContextCompat.getDrawable(context, R.drawable.do_not_disturb)
+        }
+    }
+    class NoneSpecialInfo(private val context: Context) : SpecialApplicationInfo(
+        context.resources.getString(R.string.immersive_none),
+        "NoUnlockNeeded/None"
+    ) {
+        override fun loadIcon(pm: PackageManager): Drawable? {
+            return null
+        }
+    }
+
+    class LoadedApplicationInfo(packageManager: PackageManager, val orig: PackageInfo) : ApplicationInfo(orig.applicationInfo), ApplicationInfoItem {
+        override val label: CharSequence = loadLabel(packageManager)
+        override val key: String = packageName
     }
 
     class LoadedActivityInfo(packageManager: PackageManager, orig: ActivityInfo) : ActivityInfo(orig) {

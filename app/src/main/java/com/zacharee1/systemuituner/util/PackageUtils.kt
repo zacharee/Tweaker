@@ -57,7 +57,7 @@ fun PackageManager.getPackageInfoCompat(pkg: String, flags: Int = 0): PackageInf
     }
 }
 
-fun PackageManager.getActivityInfoCompat(componentName: ComponentName, flags: Int = 0): ActivityInfo {
+fun PackageManager.getActivityInfoCompat(componentName: ComponentName?, flags: Int = 0): ActivityInfo {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         getActivityInfo(componentName, PackageManager.ComponentInfoFlags.of(flags.toLong()))
     } else {

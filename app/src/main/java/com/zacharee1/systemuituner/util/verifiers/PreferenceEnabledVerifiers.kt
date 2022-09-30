@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.util.verifiers
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Resources
@@ -22,6 +23,7 @@ class EnableStorage(context: Context) : BasePreferenceEnabledVerifier(context) {
 
 class EnableLockscreenShortcuts(context: Context) : BasePreferenceEnabledVerifier(context) {
     override val shouldBeEnabled: Boolean
+        @SuppressLint("DiscouragedApi")
         get() {
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) return true
             if (context.isTouchWiz) return true

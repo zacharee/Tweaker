@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.CountDownTimer
+import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
+import com.zacharee1.systemuituner.views.LockscreenShortcuts
 import rikka.shizuku.Shizuku
 import java.util.HashSet
 
@@ -239,6 +241,36 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
     }
 }
 
+fun Context.getDefaultForSetting(type: SettingsType, key: String): String? {
+    val possibleDefaults = arrayListOf<String>()
+
+    try {
+        val cursor = contentResolver.query(
+            Uri.parse("content://settings/${type.name.lowercase()}"),
+            arrayOf("name", "defaultValue"),
+            null,
+            null,
+            null
+        )
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                val default = cursor.getString(1)
+                val name = cursor.getString(0)
+                if (!default.isNullOrBlank() && name == key) possibleDefaults.add(default)
+            }
+
+            cursor.close()
+        }
+    } catch (e: Exception) {
+        Log.e("SystemUITuner", "Error", e)
+    }
+
+    Log.e("SystemUITuner", "possible defaults $possibleDefaults")
+
+    return if (possibleDefaults.isEmpty()) null else possibleDefaults[0]
+}
+
 fun Context.buildNonResettablePreferences(): Set<String> {
     val names = HashSet<String>()
     try {
@@ -258,7 +290,8 @@ fun Context.buildNonResettablePreferences(): Set<String> {
             }
             cursor.close()
         }
-    } catch (_: IllegalArgumentException) {
+    } catch (e: IllegalArgumentException) {
+        Log.e("SystemUITuner", "Error", e)
     }
     names.addAll(prefManager.savedOptions.filter { it.type == SettingsType.SYSTEM }.map {
         "${
@@ -315,4 +348,70 @@ fun Context.isWriteSystemAddOnInstalled(): Boolean {
     } catch (e: Exception) {
         false
     }
+}
+
+fun Context.buildDefaultSamsungLockScreenShortcuts(): String {
+    val isTablet = SystemProperties.get("ro.build.characteristics").contains("tablet")
+    val hasSPen = packageManager.hasSystemFeature("com.sec.feature.spen_usp")
+    val isNotesInstalled = try {
+        packageManager.getApplicationInfoCompat("com.samsung.android.app.notes")
+        true
+    } catch (e: Exception) {
+        false
+    }
+    val isSBrowserInstalled = try {
+        packageManager.getApplicationInfoCompat("com.sec.android.app.sbrowser")
+        true
+    } catch (e: Exception) {
+        false
+    }
+    val cscDefault = try {
+        Class.forName("com.samsung.android.feature.SemCscFeature").run {
+            val instance = this.getDeclaredMethod("getInstance").invoke(null)
+            getMethod("getString", String::class.java)
+                .invoke(instance, "CscFeature_Setting_ConfigDefAppShortcutForLockScreen")
+                ?.toString()
+        }
+    } catch (e: Exception) {
+        null
+    }
+
+    val final = when {
+        cscDefault.isNullOrBlank() || cscDefault.split(";").size < 4 -> {
+            var left = "com.samsung.android.dialer/com.samsung.android.dialer.DialtactsActivity"
+            val right = "com.sec.android.app.camera/com.sec.android.app.camera.Camera"
+
+            if (isTablet) {
+                left = when {
+                    hasSPen && isNotesInstalled -> {
+                        "com.samsung.android.app.notes/com.samsung.android.app.notes.memolist.MemoListActivity"
+                    }
+                    isSBrowserInstalled -> {
+                        "com.sec.android.app.sbrowser/com.sec.android.app.sbrowser.SBrowserMainActivity"
+                    }
+                    else -> {
+                        "com.android.chrome/com.google.android.apps.chrome.Main"
+                    }
+                }
+            }
+
+            LockscreenShortcuts.ShortcutInfo.ComponentValues(left, right).toSettingsString()
+        }
+
+        isTablet && cscDefault.split(";")[3] == "com.samsung.android.app.notes/com.samsung.android.app.notes.memolist.MemoListActivity" -> {
+            val values = LockscreenShortcuts.ShortcutInfo.ComponentValues.fromString(cscDefault)
+
+            val left = values.left
+            val right = values.right
+
+            values.left = right
+            values.right = left
+
+            values.toSettingsString()
+        }
+
+        else -> cscDefault
+    }
+
+    return final
 }

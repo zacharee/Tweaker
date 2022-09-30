@@ -41,6 +41,7 @@
     <string name="sub_power">Power</string>
     <string name="add_to_blacklist">Add to Icon Blacklist</string>
     <string name="remove_from_blacklist">Remove from Icon Blacklist</string>
+    <string name="flashlight">Flashlight</string>
 
     <string name="sub_demo">Demo Mode</string>
     <string name="sub_demo_desc">Demo Mode allows you to force your device\'s status bar into different states. You can use it to show or hide specific icons, specify signal strengths, and a few other things.</string>
