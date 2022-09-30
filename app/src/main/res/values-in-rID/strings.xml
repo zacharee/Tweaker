@@ -39,6 +39,7 @@
     <string name="sub_power">Daya</string>
     <string name="add_to_blacklist">Tambah ke Daftar Hitam Ikon</string>
     <string name="remove_from_blacklist">Hapus dari Daftar Hitam Ikon</string>
+    <string name="flashlight">Flashlight</string>
     <string name="sub_demo">Mode Demo</string>
     <string name="sub_demo_desc">Mode Demo mengizinkan Anda memaksa bilah status perangkat menjadi status berbeda. Dapat dipakai untuk memunculkan atau menyembunyikan ikon tertentu, menentukan kekuatan sinyal, dan sejumlah hal lain.</string>
     <string name="special_sub_airplane_mode">Koprek Mode Pesawat</string>
