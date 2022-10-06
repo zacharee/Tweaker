@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">Manager (oprire)</string>
     <string name="tap_to_disable">Atingeți pentru a dezactiva această notificare</string>
     <string name="home">Acasă</string>
     <string name="category_display">Afișaj</string>
@@ -16,7 +16,7 @@
     <string name="category_oem">Caracteristici producător</string>
     <string name="category_system">Sistem</string>
     <string name="category_ui">Interfață</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Ecran de blocare</string>
     <string name="category_quick_settings">Setări rapide</string>
     <string name="screen_persistent">Opțiuni persistente</string>
     <string name="category_interaction">Interacțiune</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">Alimentare</string>
     <string name="add_to_blacklist">Adăugare la lista de pictograme blocate</string>
     <string name="remove_from_blacklist">Eliminare de la lista de pictograme blocate</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Lanternă</string>
     <string name="sub_demo">Mod Demonstrativ</string>
     <string name="sub_demo_desc">Modul demonstrativ vă permite să forțați bara de stare a dispozitivului dvs. în diverse stări. Îl puteți utiliza pt. a afișa sau a ascunde anumite pictograme, a specifica semnalul și câteva alte lucruri.</string>
     <string name="special_sub_airplane_mode">Ajustări mod avion</string>
