@@ -9,21 +9,21 @@
     <string name="category_apps">Uygulamalar</string>
     <string name="category_audio">Ses ve görüntü</string>
     <string name="category_developer">Geliştiriciler</string>
-    <string name="category_easter_eggs">Easter Eggs</string>
+    <string name="category_easter_eggs">Easter Eggler</string>
     <string name="category_network">Ağ</string>
     <string name="category_notifications">Bildirimler</string>
     <string name="category_status_bar">Durum Çubuğu</string>
     <string name="category_oem">Oem özelikleri</string>
     <string name="category_system">Sistem</string>
     <string name="category_ui">UI</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Kilit Ekranı</string>
     <string name="category_quick_settings">Hızlı Ayarlar</string>
     <string name="screen_persistent">Kalıcı ayarlar</string>
     <string name="category_interaction">Etkileşimler (Automatic Translation)</string>
     <string name="more">Daha Fazla</string>
     <string name="tweaks">İnce Ayarlar</string>
-    <string name="failure">Failure</string>
-    <string name="help_translate">Help Translate</string>
+    <string name="failure">Arıza</string>
+    <string name="help_translate">Çeviriye Yardım</string>
     <string name="sub_cellular">Hücresel</string>
     <string name="sub_wifi">Kablosuz</string>
     <string name="sub_miscellaneous">Çeşitli</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">Güç</string>
     <string name="add_to_blacklist">Kara listeye ekle</string>
     <string name="remove_from_blacklist">Kara listeden kaldır</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">El feneri</string>
     <string name="sub_demo">Demo Modu</string>
     <string name="sub_demo_desc">Demo Modu, cihazınızın durum çubuğunu farklı durumlara zorlamanızı sağlar.
 Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birkaç başka şey için kullanabilirsiniz.</string>
@@ -71,7 +71,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_custom_rotation_desc">Çoğu telefon, yalnızca telefonunuzun ekran yönünü Dikey moda kilitlemenize izin verir. Bu ayarla, ekran yönünü herhangi bir yöne kilitleyebilirsiniz. Bunun işe yaraması için önce otomatik döndürmeyi devre dışı bırakmanız gerekir.
  İçerik Taalep.</string>
     <string name="feature_immersive_mode">Tam Ekran Modu</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">Tam Ekran modu değiştirmenize izin veren diğer çoğu uygulamanın yalnızca birkaç seçeneği vardır: gezinme çubuğunu gizleme veya durum çubuğunu gizleme. Bunu, beyaz liste veya kara liste modunda, uygulama bazında ayarlamak gerçekten mümkündür. Android 11 ve sonraki sürümlerde bu seçeneğin AOSP\'de bozuk olduğunu ve artık cihazınızda çalışmayabileceğini unutmayın.</string>
     <string name="feature_heads_up_snooze_length">Uyarı Bildirimi Erteleme Süresi</string>
     <string name="feature_heads_up_snooze_length_desc">Uygulama tekrar kesintiye uğramadan önce bir uyarı bildiriminin geri itilmesinden sonraki milisaniyeler. (Varsayılan: 60 saniye).</string>
     <string name="feature_camera_gestures">Kamera Hareketi</string>
@@ -86,8 +86,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_shortcode_warning_desc">Belirli kısa kodlara SMS gönderirken, sistem sizi ücretlendirilebileceği konusunda uyarır.  Bu uyarıyı buradan devre dışı bırakabilirsiniz</string>
     <string name="feature_sms_limit">Özel SMS Limit</string>
     <string name="feature_sms_limit_desc">Varsayılan olarak Android, sizi bir pop-up bildirimiyle rahatsız etmeden önce her 30 dakikada bir 30 SMS göndermenizi sınırlar. Bu iki değeri kullanarak, rahatsız edilmeden göndermek istediğiniz birçok SMS\'i özelleştirebilirsiniz.</string>
-    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
-    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
+    <string name="feature_lockscreen_shortcuts">Kilit Ekranı Kısayolları</string>
+    <string name="feature_lockscreen_shortcuts_desc">Android Oreo İçerik Üreticisi Ön İzlemi 3\'ten başlayarak Google, kilit ekranı kısayollarını özelleştirme özelliğini kaldırdı.  Ancak tercih değeri yine de manuel olarak ayarlanabilir.</string>
     <string name="feature_enable_adb">Etkin ADB</string>
     <string name="feature_enable_adb_desc">Bazı cihazlar, bir süre işlem yapılmadığında ADB\'yi otomatik olarak devre dışı bırakır.  Bu seçeneği etkinleştirin ve ADB\'yi zorla etkinleştirmek için Kalıcı Seçenek olarak ayarlayın.
  İÇERİK TALEP</string>
@@ -130,10 +130,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_lockscreen_shortcut_left">Sol kısayol</string>
     <string name="option_lockscreen_shortcut_right">Sağ kısayol</string>
     <string name="option_ui_sound_car_dock">Araç Kiti</string>
-    <string name="option_ui_sound_car_dock_desc">Audio that is played when the phone is docked in a car dock.</string>
-    <string name="option_ui_sound_car_undock">Car Undock</string>
-    <string name="option_ui_sound_car_undock_desc">Audio that is played when the phone is removed from a car dock.</string>
-    <string name="option_ui_sound_desk_dock">Desk Dock</string>
+    <string name="option_ui_sound_car_dock_desc">Telefon araba standına takılıyken çıkan ses.</string>
+    <string name="option_ui_sound_car_undock">Araba Kilidi</string>
+    <string name="option_ui_sound_car_undock_desc">Telefon araba standından çıkarılınca çıkan ses.</string>
+    <string name="option_ui_sound_desk_dock">Masa Yuvası</string>
     <string name="option_ui_sound_desk_dock_desc">Audio that is played when the phone is docked in a desk dock.</string>
     <string name="option_ui_sound_desk_undock">Desk Undock</string>
     <string name="option_ui_sound_desk_undock_desc">Audio that is played when the phone is removed from a desk dock.</string>
