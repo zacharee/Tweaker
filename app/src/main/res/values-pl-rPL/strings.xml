@@ -186,7 +186,7 @@
     <string name="option_disable_lock_screen_ads">Wyłącz reklamy na ekranie blokady</string>
     <string name="option_disable_lock_screen_ads_desc">Jeśli twój Kindle ma reklamy wyświetlane na ekranie blokady, możesz użyć tej opcji, aby je wyłączyć. Aby ustawić tę opcję na stałe, powinieneś również włączyć tę opcję na ekranie Opcje Trwałe.</string>
     <string name="option_allow_custom_left_lock_shortcut">Zezwalaj na niestandardowy skrót do lewej blokady ekranu</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS zazwyczaj rezerwuje skrót po lewej stronie ekranu blokady dla inteligentnego panelu urządzenia, nawet jeśli zmienisz skrót. Włącz to tutaj i w stałych opcjach aby móc używać niestandardowego skrótu.</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS zazwyczaj rezerwuje skrót po lewej stronie ekranu blokady dla inteligentnego panelu urządzenia, nawet jeśli zmienisz skrót. Włącz to tutaj i w stałych opcjach, aby móc używać niestandardowego skrótu.</string>
     <string name="home_welcome_title">Witaj!</string>
     <string name="search">Szukaj</string>
     <string name="immersive_none">Brak</string>
