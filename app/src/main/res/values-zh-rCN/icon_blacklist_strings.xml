@@ -20,7 +20,7 @@
     <string name="icon_blacklist_volte">VoLTE</string>
     <string name="icon_blacklist_vowifi">VoWiFi</string>
     <string name="icon_blacklist_dmb">DMB</string>
-    <string name="icon_blacklist_wifi_calling">WiFi 通话中</string>
+    <string name="icon_blacklist_wifi_calling">WiFi 通话</string>
     <string name="icon_blacklist_cdma_eri">CDMA ERI</string>
     <string name="icon_blacklist_data_connection">数据连接</string>
     <string name="icon_blacklist_phone_evdo_signal">手机 EvDO 信号</string>
@@ -37,7 +37,7 @@
     <string name="icon_blacklist_managed_profile">管理用户配置</string>
     <string name="icon_blacklist_battery">电量</string>
     <string name="icon_blacklist_cast">投射</string>
-    <string name="icon_blacklist_nfc">近场通信</string>
+    <string name="icon_blacklist_nfc">近场通讯(NFC)</string>
     <string name="icon_blacklist_location">定位</string>
     <string name="icon_blacklist_su">SU</string>
     <string name="icon_blacklist_otg_mouse">OTG 鼠标</string>
