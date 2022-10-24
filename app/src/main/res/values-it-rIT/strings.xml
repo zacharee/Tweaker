@@ -16,7 +16,7 @@
     <string name="category_oem">Caratteristiche OEM</string>
     <string name="category_system">Sistema</string>
     <string name="category_ui">Interfaccia utente</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Schermata di Blocco</string>
     <string name="category_quick_settings">Impostazioni Rapide</string>
     <string name="screen_persistent">Opzioni persistenti</string>
     <string name="category_interaction">Interazione</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">Accensione/spegnimento</string>
     <string name="add_to_blacklist">Aggiungi alla lista nera delle icone</string>
     <string name="remove_from_blacklist">Rimuovi dalla lista nera delle icone</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Torcia</string>
     <string name="sub_demo">Modalità Demo</string>
     <string name="sub_demo_desc">La modalità demo permette di forzare la barra di stato del dispositivo in diversi stati. Può essere usata per mostrare o nascondere specifiche icone, indicare il livello del segnale e alcune altre cose.</string>
     <string name="special_sub_airplane_mode">Tweaks Modalità Aereo</string>
