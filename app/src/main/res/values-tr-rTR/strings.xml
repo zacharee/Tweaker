@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Tr</string>
+    <string name="manager_channel">Manager (Turn Off)</string>
     <string name="tap_to_disable">Bu Bildiriyi kapatmak için buraya tıkla</string>
     <string name="home">Ana Sayfa</string>
     <string name="category_display">Görüntüle</string>
@@ -144,7 +144,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_ui_sound_low_battery">Düşük Pil</string>
     <string name="option_ui_sound_low_battery_desc">Düşük batarya durumundayken bildirimleri göster.</string>
     <string name="option_ui_sound_trusted">Güvenilir</string>
-    <string name="option_ui_sound_trusted_desc">Audio that is played when the device enters the “trusted” state without unlocking.</string>
+    <string name="option_ui_sound_trusted_desc">Tr</string>
     <string name="option_ui_sound_wireless_charging">Şarj oluyor</string>
     <string name="option_ui_sound_wireless_charging_desc">Cihaz şarjdayken bildirimleri göster.</string>
     <string name="option_ui_sound_disable_charging">Şarj oluyor sesini devre dışı bırak</string>
