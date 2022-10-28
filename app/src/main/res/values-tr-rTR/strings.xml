@@ -135,7 +135,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_ui_sound_car_undock_desc">Telefon araba standından çıkarılınca çıkan ses.</string>
     <string name="option_ui_sound_desk_dock">Masa Yuvası</string>
     <string name="option_ui_sound_desk_dock_desc">Audio that is played when the phone is docked in a desk dock.</string>
-    <string name="option_ui_sound_desk_undock">Desk Undock</string>
+    <string name="option_ui_sound_desk_undock">Masa Yuvası</string>
     <string name="option_ui_sound_desk_undock_desc">Audio that is played when the phone is removed from a desk dock.</string>
     <string name="option_ui_sound_lock">Kilit</string>
     <string name="option_ui_sound_lock_desc">Bildirimleri telefon ekran kilitliyken göster</string>
