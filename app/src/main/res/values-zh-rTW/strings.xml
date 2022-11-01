@@ -150,9 +150,9 @@
     <string name="option_advanced_write_setting">寫入自訂設定</string>
     <string name="option_advanced_write_setting_desc">如果你有一個特殊的設定想要改變，但又不屬於 SystemUI Tuner 的一部分，你可以在此設定。</string>
     <string name="option_qqs_tiles">快速設定標頭數</string>
-    <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕。使用此選項可調整一行內的按鈕數量。若您使用的是 One UI，您則需要安裝 OneUI Tuner。</string>
+    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
     <string name="option_oneui_clock_position">時鐘位置</string>
-    <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。或者，您可以使用 OneUI Tuner。要使此選項持續存在，啟用圖示黑名單。</string>
+    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
     <string name="option_touchwiz_navbar_color">導覽列顏色</string>
     <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列顏色。請使用此選項。</string>
     <string name="option_custom_notification_snooze_times">自訂通知延後時間</string>
