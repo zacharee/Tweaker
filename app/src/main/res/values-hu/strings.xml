@@ -150,9 +150,9 @@
     <string name="option_advanced_write_setting">Egyéni beállítások írása</string>
     <string name="option_advanced_write_setting_desc">Ha van olyan beállítása, amelyet meg szeretne változtatni, és amely nem része a SystemUI Tunernek, akkor itt beállíthatja.</string>
     <string name="option_qqs_tiles">Gyorsbeállítások Fejlécek száma</string>
-    <string name="option_qqs_tiles_desc">Az Android Nougat bevezetett egy új gyorsbeállítási funkciót, a Gyorsbeállítások fejlécet, amely az első néhány gyorsbeállítási csempét egyetlen sorban jeleníti meg az értesítési területen. Ezzel az opcióval növelhető vagy csökkenthető az adott sorban megjelenő csempék száma. Ez nem fog működni One UI-n, hacsak nem használja a OneUI Tunert.</string>
+    <string name="option_qqs_tiles_desc">Az Android Nougat bevezetett egy új gyorsbeállítási funkciót, a Gyorsbeállítások fejlécet, amely az első néhány gyorsbeállítási csempét egyetlen sorban jeleníti meg az értesítési területen. Ezzel az opcióval növelhető vagy csökkenthető az adott sorban megjelenő csempék száma. Ez nem fog működni One UI-n.</string>
     <string name="option_oneui_clock_position">Az óra pozíciója</string>
-    <string name="option_oneui_clock_position_desc">A Samsung One felhasználói felületén (Android Pie vagy újabb) lehetőség van az állapotsor órapozíciójának megváltoztatására. A Good Lock QuickStar lehetővé teszi, hogy ezt megtegye, de a lehetőségek néha korlátozottak az eszköztől függően. Ezzel beállíthatja balra, középre vagy jobbra. Ne feledje, hogy a One UI 2.0 (Android 10) rendszeren telepítenie kell a QuickStar-t ahhoz, hogy ez a lehetőség érvénybe lépjen. Alternatív megoldásként használhatja a OneUI Tunert is. Ha ezt a beállítást állandóvá szeretné tenni, engedélyezze az Ikonok feketelistáját az Állandó beállításokban.</string>
+    <string name="option_oneui_clock_position_desc">A Samsung One felhasználói felületén (Android Pie vagy újabb) lehetőség van az állapotsor órapozíciójának megváltoztatására. A Good Lock QuickStar lehetővé teszi, hogy ezt megtegye, de a lehetőségek néha korlátozottak az eszköztől függően. Ezzel beállíthatja balra, középre vagy jobbra. Ne feledje, hogy a One UI 2.0 (Android 10) rendszeren telepítenie kell a QuickStar-t ahhoz, hogy ez a lehetőség érvénybe lépjen. Ha ezt a beállítást állandóvá szeretné tenni, engedélyezze az Ikonok feketelistáját az Állandó beállításokban.</string>
     <string name="option_touchwiz_navbar_color">Navigációs sáv színe</string>
     <string name="option_touchwiz_navbar_color_desc">A Samsung Experience és a One UI esetében lehetőség van a navigációs sáv színének saját, egyéni színre való beállítására. Ehhez használja ezt az opciót.</string>
     <string name="option_custom_notification_snooze_times">Egyéni értesítési szundi idők</string>
@@ -310,7 +310,7 @@ Néma láthatóság</string>
     <string name="website">Weboldal</string>
     <string name="more_apps">További alkalmazások</string>
     <string name="telegram">Telegram</string>
-    <string name="oneui_tuner">OneUI hangoló</string>
+    <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Ha van olyan Samsung készüléked, amelyen Android Pie vagy újabb Android One UI fut, észrevehetted, hogy néhány olyan opció, amely az Oreo-n működött, már nem működik, például a Clock Seconds. Készítettem egy külön alkalmazást, amely a rendszerfelületeket használja, hogy visszahozzon néhányat ezekből az opciókból. Ehhez nem kell root vagy ADB.</string>
     <string name="check_it_out">Tekintse meg</string>
     <string name="add_custom_item">Egyéni elem hozzáadása</string>
