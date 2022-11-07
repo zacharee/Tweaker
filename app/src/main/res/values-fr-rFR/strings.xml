@@ -16,7 +16,7 @@
     <string name="category_oem">Fonctionnalités OEM</string>
     <string name="category_system">Système</string>
     <string name="category_ui">Interface utilisateur</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Écran de verrouillage</string>
     <string name="category_quick_settings">Paramètres rapides</string>
     <string name="screen_persistent">Options persistantes</string>
     <string name="category_interaction">Interaction</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">Alimentation</string>
     <string name="add_to_blacklist">Ajouter à la liste noire des icônes</string>
     <string name="remove_from_blacklist">Retirer de la liste noire des icônes</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Lampe torche</string>
     <string name="sub_demo">Mode démo</string>
     <string name="sub_demo_desc">Le mode démo vous permet de forcer la barre d\'état de votre appareil sur différents modes. Vous pouvez l\'utiliser pour afficher ou masquer certaines icônes, modifier l\'affichage du signal, et quelques autres choses.</string>
     <string name="special_sub_airplane_mode">Paramètres du mode avion</string>
