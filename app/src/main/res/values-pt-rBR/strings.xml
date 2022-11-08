@@ -16,7 +16,7 @@
     <string name="category_oem">Recursos da Fabricante</string>
     <string name="category_system">Sistema</string>
     <string name="category_ui">Interface de usuário</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Tela de bloqueio</string>
     <string name="category_quick_settings">Configurações rápidas</string>
     <string name="screen_persistent">Opções Persistentes</string>
     <string name="category_interaction">Interações</string>
