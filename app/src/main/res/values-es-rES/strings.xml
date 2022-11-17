@@ -39,7 +39,7 @@
     <string name="sub_power">Power</string>
     <string name="add_to_blacklist">Añadir a la lista negra</string>
     <string name="remove_from_blacklist">Remove from Icon Blacklist</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Luz de flash</string>
     <string name="sub_demo">Demo Modo</string>
     <string name="sub_demo_desc">El modo Demo te permite forzar la barra de estado de tu dispositivo a diferentes estados. Puede usarlo para mostrar u ocultar iconos específicos, especificar puntos fuertes de señal y algunas cosas más.</string>
     <string name="special_sub_airplane_mode">Ajustes del modo avión</string>
