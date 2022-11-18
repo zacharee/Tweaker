@@ -69,7 +69,7 @@
     <string name="feature_custom_rotation">Bloquear la orientación de la pantalla al valor personalizado</string>
     <string name="feature_custom_rotation_desc">La mayoría de los teléfonos sólo le permiten bloquear la orientación de la pantalla de su teléfono al modo Retrato. Con esta configuración, puede bloquear la orientación de la pantalla a cualquier orientación. Primero tendrá que desactivar la rotación automática antes de que esto funcione.</string>
     <string name="feature_immersive_mode">Modo immersivo</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">Asp</string>
     <string name="feature_heads_up_snooze_length">Duración del aplazamiento de notificaciones emergentes</string>
     <string name="feature_heads_up_snooze_length_desc">Milisegundos después de que una notificación emergente se retrase antes de que la aplicación pueda interrumpir de nuevo. (por defecto: 60 segundos).</string>
     <string name="feature_camera_gestures">Gestos de cámara</string>
@@ -84,8 +84,8 @@
     <string name="feature_shortcode_warning_desc">Al enviar SMS a ciertos códigos cortos, el sistema te advierte de que se te puede cobrar una cuota. Puedes desactivar esa advertencia aquí.</string>
     <string name="feature_sms_limit">Límite de SMS personalizado</string>
     <string name="feature_sms_limit_desc">Por defecto, Android le limita a enviar 30 SMS cada 30 minutos antes de molestarle con una notificación emergente. Usando estos dos valores, puede personalizar cuantos SMS desee enviar sin preocuparse.</string>
-    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
-    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
+    <string name="feature_lockscreen_shortcuts">Atajos en la pantalla de bloqueo</string>
+    <string name="feature_lockscreen_shortcuts_desc">A partir de Android Oreo Developer Preview 3, Google eliminó la capacidad de personalizar los atajos de la pantalla de bloqueo. Sin embargo, el valor de preferencia puede ser establecido manualmente.</string>
     <string name="feature_enable_adb">Activar ADB</string>
     <string name="feature_enable_adb_desc">Ciertos dispositivos desactivan ADB automáticamente después de un período de inactividad. Activa esta opción y establecerla como una opción persistente para activar ADB.</string>
     <string name="feature_dark_mode">Activar el Modo Oscuro Global</string>
@@ -150,9 +150,9 @@
     <string name="option_advanced_write_setting">Escribir configuración personalizada</string>
     <string name="option_advanced_write_setting_desc">Si tiene una configuración en particular que desea cambiar que no es parte de SystemUI Tuner, puede establecerla aquí.</string>
     <string name="option_qqs_tiles">Conteo de encabezado de ajustes rápidos</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
+    <string name="option_qqs_tiles_desc">Android Nougat introdujo una nueva función de configuración rápida, llamada Quick Settings Header, que muestra los primeros azulejos de configuración rápida en una sola fila en el sombreado de notificaciones. Usando esta opción, es posible aumentar o disminuir el número de baldosas mostradas en esa fila. Esto no funcionará en OneUI a menos que utilices OneUI Tuner.</string>
     <string name="option_oneui_clock_position">Posición del reloj</string>
-    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
+    <string name="option_oneui_clock_position_desc">En One UI de Samsung (Android Pie o posterior), es posible cambiar la posición del reloj en la barra de estado. El QuickStar de Good Lock le permitirá hacerlo, pero las opciones puden ser limitadas, dependiendo del dispositivo. Esto pude colocarlo a la izquierda, centro o derecha. Tenga en cuenta que en One UI 2.0 (Android 10) es necesario que QuickStar se encuentre instalada para que esta opción funcione. Alternativamente puede usar OneUI Tuner. Para mantener persistente esta opción, habilite la lista negra de íconos, en opciones de persistencia.</string>
     <string name="option_touchwiz_navbar_color">Color de la barra de navegación</string>
     <string name="option_touchwiz_navbar_color_desc">En Samsung Experience y One UI es posible ajustar el color de la barra de navegación a tu propio color personalizado. Usa esta opción para hacer eso.</string>
     <string name="option_custom_notification_snooze_times">Tiempos de aplazamiento de notificaciones personalizados</string>
@@ -183,10 +183,10 @@
     <string name="option_hide_multi_sim_panel_desc">En los dispositivos Samsung podemos usar esta opción para ocultar la vista multiSIM que aparece en el panel de ajustes rápidos expandido.</string>
     <string name="option_disable_combined_internet">Desactivar opciones de red combinadas</string>
     <string name="option_disable_combined_internet_desc">En Android 12, Google combinó la configuración de WiFi, Bluetooth, y celular en un menú. Los azulejos de configuración rápida para WiFi y celular también se combinaron en un solo azulejo de Internet. Al activar esta opción, volverá a traer los antiguos menús en Ajustes y le permitirá restaurar los azulejos QS separados. Puede que necesite reiniciar para que esto surta efecto correctamente. Si no ve el WiFi y los azulejos celulares, puede añadirlos usando la función Editor de Ajustes Rápidos en SystemUI Tuner.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
-    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
-    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
+    <string name="option_disable_lock_screen_ads">Desactivar la pantalla de bloqueo</string>
+    <string name="option_disable_lock_screen_ads_desc">Si su Kindle tiene anuncios que se muestran en la pantalla de bloqueo, puede utilizar esta opción para desactivarlos. Para hacerlo permanente, debe activar esta opción también en la pantalla de opciones persistentes.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Permitir acceso directo a la pantalla de bloqueo izquierdo personalizado</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normalmente reserva el acceso directo a la pantalla de bloqueo izquierdo para el panel de control del dispositivo inteligente, incluso si cambia el acceso directo. Habilite esto aquí y en Opciones Persistentes para poder utilizar un acceso directo personalizado.</string>
     <string name="home_welcome_title">¡Bienvenido!</string>
     <string name="search">Buscar</string>
     <string name="immersive_none">Ninguno</string>
@@ -278,8 +278,8 @@
     <string name="intro_grant_extra_desc">Para ciertas características, SystemUI Tuner necesita algunos permisos ADB extra para funcionar correctamente. No tienes que concederlos ahora, y se te pedirá si es necesario.</string>
     <string name="intro_system_alert_window">Ventana de alerta del sistema</string>
     <string name="intro_system_alert_window_desc">Android 12 y posteriores han restringido significativamente la capacidad para que las aplicaciones ejecuten operaciones en segundo plano y cuando el dispositivo arranque. Conceder permiso de SystemUI Tuner para mostrar sobre otras aplicaciones la eximirá de estas restricciones y mejorará la fiabilidad de las Opciones Persistentes. Este permiso es completamente opcional.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Permitir notificaciones</string>
+    <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
@@ -352,8 +352,8 @@
     <string name="safe_audio_state_active">Activo</string>
     <string name="persistent_options_not_sticking_title">¿Opciones no reiniciando en el arranque?</string>
     <string name="persistent_options_not_sticking_desc">Puede que necesite usar la lista blanca SystemUI Tuner desde cualquier optimización de la batería. Haga clic aquí para saber cómo.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="setting_applied_dialog">¡Opción aplicada!</string>
+    <string name="setting_applied_dialog_desc">¿Quieres mantener los cambios? Esta opción se revertirá después de %s segundos.</string>
+    <string name="keep">Mantener</string>
+    <string name="revert">Restaurar</string>
 </resources>
