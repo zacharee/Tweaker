@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
+    <string name="adb_intro_title">ADB मार्गदर्शण</string>
+    <string name="adb_intro_desc">ADB का उपयोग करना नहीं जानते? कोई बात नहीं। बस इस गाइड का पालन करें और आपको प्रयोग करना आ जाएगा। (ध्यान दें कि इस प्रक्रिया के लिए आपको एक कंप्यूटर की आवश्यकता होगी।)
+संदर्भ:</string>
     <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Choose your Operating System.</string>
     <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
