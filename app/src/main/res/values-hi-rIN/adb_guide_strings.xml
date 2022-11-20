@@ -3,10 +3,10 @@
     <string name="adb_intro_title">ADB मार्गदर्शण</string>
     <string name="adb_intro_desc">ADB का उपयोग करना नहीं जानते? कोई बात नहीं। बस इस गाइड का पालन करें और आपको प्रयोग करना आ जाएगा। (ध्यान दें कि इस प्रक्रिया के लिए आपको एक कंप्यूटर की आवश्यकता होगी।)
 संदर्भ:</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
+    <string name="adb_intro_desc_no_computer">सुनिश्चित नहीं हैं कि ADB का उपयोग कैसे करें? कोई बात नहीं ! इसका उपयोग करने के लिए तैयार होने के लिए बस इस गाइड का पालन करें।</string>
+    <string name="adb_choose_computer_os">अपना ऑपरेटिंग सिस्टम चुनें।</string>
+    <string name="adb_choose_computer_os_desc">आपके कंप्यूटर पर कौनसा ऑपरेटिंग सिस्टम चल रहा है?</string>
+    <string name="adb_android_guide">शुरुआती व्यवस्था</string>
     <string name="adb_final_title">All Done</string>
     <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
