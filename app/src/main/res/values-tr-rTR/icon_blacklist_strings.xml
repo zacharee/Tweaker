@@ -6,7 +6,8 @@
     <string name="category_icon_blacklist_xiaomi">Xiaomi</string>
     <string name="category_icon_blacklist_htc">HTC</string>
     <string name="category_icon_blacklist_sony">Sony</string>
-    <string name="category_icon_blacklist_lg">LG</string>
+    <string name="category_icon_blacklist_lg">Key: category_icon_blacklist_lg
+category_icon_blacklist_lg</string>
     <string name="category_icon_blacklist_auto">Otomatik</string>
     <string name="category_icon_blacklist_custom">Özel</string>
     <string name="category_icon_blacklist_auto_desc">Genişletmek için basın</string>
