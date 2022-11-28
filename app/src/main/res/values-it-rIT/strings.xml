@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Tuner SystemUI</string>
+    <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (Disattiva)</string>
     <string name="tap_to_disable">Tocca per disabilitare questa notifica</string>
-    <string name="home">Pagina iniziale</string>
+    <string name="home">Home</string>
     <string name="category_display">Schermo</string>
     <string name="category_accessibility">Accessibilità</string>
     <string name="category_apps">Applicazioni</string>
@@ -152,7 +152,8 @@
     <string name="option_qqs_tiles">Conteggio Intestazione Impostazioni Rapide</string>
     <string name="option_qqs_tiles_desc">Android Nougat ha introdotto un nuova funzionalità nelle impostazioni rapide, chiamata intestazione delle impostazioni rapide. Questa funzionalità mostra i primi riquadri in una sola linea nel pannello delle notifiche. Usando questa opzione, è possibile aumentare o diminuire il numero di riquadri mostrati nella intestazione. Questo non funziona su One UI.</string>
     <string name="option_oneui_clock_position">Posizione Orologio</string>
-    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
+    <string name="option_oneui_clock_position_desc">In Samsung One UI (Android 9 o superiore), è possibile cambiare la posizione dell\'orologio nella barra di stato.
+Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limitate in base al dispositivo. Puoi usare questo per impostrlo a sinistra, centro o a destra. Tieni conto che in One UI 2.0 (Android 10), hai bisogno di avere QuickStar installato per fare in modo che questa opzione abbia effetto. Per impostare questa opzione persistente, abilita la Blacklist delle icone nelle opzioni persistenti.</string>
     <string name="option_touchwiz_navbar_color">Colore Barra Di Navigazione</string>
     <string name="option_touchwiz_navbar_color_desc">Su Samsung Experience e One UI è possibile impostare il colore della barra di navigazione al proprio colore personalizzato. Utilizza questa opzione per farlo.</string>
     <string name="option_custom_notification_snooze_times">Tempi Di Notifica Personalizzati</string>
