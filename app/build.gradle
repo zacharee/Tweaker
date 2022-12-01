@@ -59,14 +59,14 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.work:work-runtime-ktx:2.7.1"
 
-    implementation 'com.google.android.material:material:1.8.0-alpha02'
+    implementation 'com.google.android.material:material:1.8.0-alpha03'
     implementation 'com.google.firebase:firebase-analytics:21.2.0'
-    implementation 'com.google.firebase:firebase-crashlytics:18.3.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.2'
     implementation 'com.github.zacharee:colorpicker:c300c66e93'
     implementation 'com.google.code.gson:gson:2.10'
 
-    implementation 'com.android.billingclient:billing:5.0.0'
-    implementation 'com.android.billingclient:billing-ktx:5.0.0'
+    implementation 'com.android.billingclient:billing:5.1.0'
+    implementation 'com.android.billingclient:billing-ktx:5.1.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
@@ -75,11 +75,11 @@ dependencies {
     implementation 'com.github.zacharee:material:7b22984aee'
     implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
     implementation 'com.github.reddit:IndicatorFastScroll:1.4.0'
-    implementation "com.github.topjohnwu.libsu:core:3.1.2"
+    implementation "com.github.topjohnwu.libsu:core:3.2.1"
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'io.noties.markwon:core:4.6.2'
     implementation 'io.noties.markwon:html:4.6.2'
-    implementation 'com.joaomgcd:taskerpluginlibrary:0.4.3'
+    implementation 'com.joaomgcd:taskerpluginlibrary:0.4.5'
     implementation 'dev.rikka.shizuku:api:12.2.0'
     implementation 'dev.rikka.shizuku:provider:12.2.0'
     implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
