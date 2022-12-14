@@ -68,7 +68,7 @@
     <string name="feature_custom_animation_scales_desc">Di Pengaturan Pengembang Android, Anda dapat mengatur skala animasi untuk mengontrol durasi animasi. Jika opsi yang tersedia itu terlalu cepat atau lambat untuk Anda, Anda dapat mengatur nilai kustom di sini.</string>
     <string name="feature_custom_rotation">Kunci Orientasi Layar ke Nilai Kustom</string>
     <string name="feature_custom_rotation_desc">Sebagian besar ponsel hanya mengizinkan Anda mengunci orientasi layar ponsel ke mode Potret. Dengan pengaturan ini, Anda dapat mengunci orientasi layar ke orientasi apa pun. Anda harus menonaktifkan putar orientasi otomatis terlebih dahulu sebelum fitur ini akan berfungsi.</string>
-    <string name="feature_immersive_mode">Immersive Mode</string>
+    <string name="feature_immersive_mode">Mode Mendalam</string>
     <string name="feature_immersive_mode_desc">Sebagian besar aplikasi lain yang memungkinkan Anda beralih ke mode mendalam hanya memiliki beberapa opsi: sembunyikan bar navigasi atau sembunyikan bar status. Sebenarnya memungkinkan untuk mengatur ini berdasarkan aplikasi, baik dalam mode daftar putih atau daftar hitam. Perhatikan bahwa di Android 11 dan seterusnya, opsi ini rusak di AOSP dan mungkin tidak lagi berfungsi di perangkat Anda.</string>
     <string name="feature_heads_up_snooze_length">Durasi Tunda Pemberitahuan Awal</string>
     <string name="feature_heads_up_snooze_length_desc">Milidetik setelah pemberitahuan awal didorong kembali sebelum aplikasi dapat diganggu lagi. (Default: 60 detik).</string>
