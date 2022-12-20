@@ -16,7 +16,7 @@
     <string name="category_oem">OEM 機能</string>
     <string name="category_system">システム</string>
     <string name="category_ui">インターフェース</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">ロック画面</string>
     <string name="category_quick_settings">クイック設定</string>
     <string name="screen_persistent">永続的なオプション</string>
     <string name="category_interaction">相互作用</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">電源</string>
     <string name="add_to_blacklist">アイコンをブラックリストに追加</string>
     <string name="remove_from_blacklist">アイコンをブラックリストから削除</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">懐中電灯</string>
     <string name="sub_demo">デモモード</string>
     <string name="sub_demo_desc">デモモードでは、デバイスのステータスバーを強制的に異なる状態にすることができます。特定のアイコンを表示/非表示、電波強度を指定したり、さまざまな使い方ができます。</string>
     <string name="special_sub_airplane_mode">機内モードの調整</string>
@@ -51,18 +51,18 @@
     <string name="feature_battery_saver_trigger">カスタムバッテリーセーバーのトリガー率を設定</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Googleのバッテリーセーバー機能は、バッテリー残量が5\%または15\%の場合に自動的にトリガーされます。これで、独自のトリガーパーセントを設定できます。</string>
     <string name="feature_long_press_delay">長押しの遅延を設定</string>
-    <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
-    <string name="feature_freeform">Enable Freeform Multiwindow</string>
-    <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
-    <string name="feature_app_install_location">Set Default App Install Location</string>
-    <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
+    <string name="feature_long_press_delay_desc">アクセシビリティ設定には、Android が長押しを認識するために画面を押し続けなければならない時間を指定できる「タッチ アンド ホールド ディレイ」という機能があります。 ただし、デフォルトのオプションは「短」、「中」、「長」のみです。独自の長さを設定できます。</string>
+    <string name="feature_font_scale">フォントの大きさを設定する</string>
+    <string name="feature_font_scale_desc">Android では、システム全体のフォントサイズを指定することで、デバイスに表示されるテキストのサイズを設定できます。 この値は通常、「小さい」、「通常」、「大きい」、「大きい」、および「非常に大きい」で表されます。 こちらでは独自のカスタム値を設定できます。</string>
+    <string name="feature_freeform">フリーフォームウィンドウを有効化する</string>
+    <string name="feature_freeform_desc">フリーフォームウィンドウ サポートを有効にするかどうか。 再起動が必要となります。  Android 7.0 以降のデバイスでのみ動作します。</string>
+    <string name="feature_app_install_location">規定のアプリインストール先を設定</string>
+    <string name="feature_app_install_location_desc">デフォルトのアプリのインストール先。 デフォルトでインストールされるストレージ アプリを選択します。 通常、アプリ自体が AndroidManifest に値を指定して決定しますが、必要に応じて採用可能な記憶媒体にインストールすることも選択できます。</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
-    <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
-    <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
-    <string name="feature_insufficient_storage_warning_desc">When your device reaches a certain threshold value of available storage, Android displays a warning that your device has insufficient amounts of storage available. This can prevent you from installing new apps or updates. You can manually lower the threshold value to prevent this warning from showing.</string>
-    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
+    <string name="feature_heads_up_notifications_desc">ヘッドアップ通知をグローバルに有効または無効に切り替えます。 ヘッドアップ通知は、画面の上部に出現する通知です</string>
+    <string name="feature_insufficient_storage_warning">「利用可能なストレージが不足しています」の警告を回避する</string>
+    <string name="feature_insufficient_storage_warning_desc">デバイスが使用可能なストレージの特定のしきい値に達すると、Android は、デバイスの使用可能なストレージの量が足りていないことを示す警告を表示します。 これにより、新しいアプリや更新プログラムをインストールできなくなる可能性があります。 この警告が表示されないように、しきい値を手動で下げることができます。</string>
+    <string name="feature_keep_screen_on">接続中も端末をオンのままにする</string>
     <string name="feature_keep_screen_on_desc">In Android\'s Developer Settings, you can select the option to keep the screen on when plugged into power. By default, this enables the feature for all power sources. You can specify which power sources you want to have your phone\'s screen to stay on.</string>
     <string name="feature_custom_animation_scales">Set Custom Animation Scales</string>
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
