@@ -43,7 +43,7 @@
     <string name="sub_demo">Demonstratiemodus</string>
     <string name="sub_demo_desc">Met de demonstratiemodus kun je de statusbalk van je apparaat in verschillende modi zetten. Je kunt dit gebruiken om specifieke pictogrammen te tonen of verbergen, bereiksterktes en een paar andere dingen.</string>
     <string name="special_sub_airplane_mode">Vliegtuigmodus-aanpassingen</string>
-    <string name="special_sub_airplane_mode_desc">Airplane mode automatically disables all radios on your device when it is toggled. You can specify which radios should be disabled (such as keeping WiFi on when enabling airplane mode). Also, you can change which radios can be toggled manually when the device enters airplane mode.</string>
+    <string name="special_sub_airplane_mode_desc">English.</string>
     <string name="special_sub_icon_blacklist">Zwarte lijst</string>
     <string name="special_sub_icon_blacklist_desc">Choose specific icons to hide from the status bar. Note that this feature will not work on all devices or with all icons. Notification icons cannot be hidden using this feature.</string>
     <string name="feature_lock_timeout">Aangepaste vergrendeltime-out voor apparaat instellen</string>
