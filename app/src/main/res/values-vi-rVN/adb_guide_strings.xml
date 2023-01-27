@@ -17,7 +17,7 @@
     <string name="adb_install_android_7">Nếu bạn không thấy menu Tùy chọn nhà phát triển, hãy tìm menu có tên \"Hệ thống\" hoặc \"Cài đặt bổ sung\". Bạn sẽ thấy menu Tùy chọn nhà phát triển bên trong đó.</string>
     <string name="adb_install_android_8">Vuốt xuống cho đến khi bạn tìm được nút có tên \"Gỡ lỗi USB\" và bật nó.</string>
     <string name="adb_install_android_9">Trên các điện thoại Xiaomi, bạn cũng sẽ cần tìm và tắt tùy chọn có nhãn \"Gỡ lỗi USB (Cài đặt bảo mật)\".</string>
-    <string name="adb_install_android_10">On OPPO, Realme, and OnePlus phones, you\'ll also need to find and enable the option labeled \"Disable Permission Monitoring\".</string>
+    <string name="adb_install_android_10">Trên điện thoại OPPO, Realme và OnePlus, bạn cũng cần tìm và bật tùy chọn có tên \"Tắt giám sát quyền\".</string>
     <string name="adb_install_android_11">Bây giờ, hãy cắm điện thoại của bạn vào máy tính. Nếu cửa sổ xác nhận bật lên về Gỡ lỗi USB xuất hiện, hãy cho phép nó.</string>
     <string name="adb_install_android_12">Sau khi hoàn tất, đã đến lúc tiếp tục trên máy tính của bạn.</string>
     <string name="adb_install_local_1"><![CDATA[Tải xuống và cài đặt ứng dụng Shizuku từ [Cửa hàng Google Play]
