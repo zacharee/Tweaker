@@ -202,8 +202,8 @@
     <string name="reset">重置</string>
     <string name="grant">允许</string>
     <string name="help">帮助</string>
-    <string name="no_root_title">无根目录或 Shizuku</string>
-    <string name="no_root_msg">未检测到 Root 或 Shizuku。如果您的设备已root，请确保SystemUI Tuner 有Root权限。 否则，请按下HELP按钮用于ADB和Shizuku的指示。</string>
+    <string name="no_root_title">无 Root 或 Shizuku</string>
+    <string name="no_root_msg">未检测到 Root 或 Shizuku。如果您的设备已root，请确保SystemUI Tuner 已获取Root权限。 否则，请按下HELP按钮获取通过ADB和Shizuku使用的相关指示说明。</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 未被授予访问权限。</string>
     <string name="mode">模式</string>
     <string name="key">密钥</string>
@@ -300,7 +300,7 @@
     <string name="write_system_fail_desc">不幸的是，安卓系统添加了一些可以写入设置的限制。看起来您已经点击了其中一个受限制的设置。 幸运的是，可以通过使用附加组件应用来绕过这种限制。 您必须从 XDA 实验室下载，但它是免费和开源的。</string>
     <string name="write_system_fail_get_add_on">获取附加组件</string>
     <string name="donate">捐赠</string>
-    <string name="donate_desc">我在我的空闲时间制作这个应用程序。 如果你喜欢使用它，考虑购买一杯咖啡(即使我不喝咖啡)。 当然，这是一种捐赠，你不必做任何事情。系统界面调节中没有带薪的功能。</string>
+    <string name="donate_desc">我在空闲时间制作了这个应用程序。 如果您喜欢使用它，请考虑给我买杯咖啡（即使我不喝咖啡）。 当然，这是捐赠，你也可以什么都不做。在  SystemUI Tuner 中没有任何付费功能。</string>
     <string name="paypal">PayPal</string>
     <string name="google_play">Google Play</string>
     <string name="social">社交方式</string>
@@ -310,7 +310,7 @@
     <string name="more_apps">更多应用</string>
     <string name="telegram">Telegram</string>
     <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">如果您有一个三星设备运行安卓Pie，或稍后在三星的一个界面上运行， 您可能已经注意到，一些在 Oreo 上工作的选项已经不再工作，例如时钟秒。 我已经创建了一个单独的应用，使用系统叠加层来将其中一些选项带回来。它不需要根或ADB。</string>
+    <string name="oneui_tuner_desc">如果您的三星设备运行着 Android Pie 或更高版本的One UI，您可能已经注意到某些在 Oreo 上有效的选项不再有效，例如时钟秒数显示。 我制作了一个单独的应用程序，它利用系统覆盖来恢复其中一些选项。 它不需要 root 或 ADB。</string>
     <string name="check_it_out">立即查看</string>
     <string name="add_custom_item">添加自定义项</string>
     <string name="edit_custom_item">编辑自定义项</string>
