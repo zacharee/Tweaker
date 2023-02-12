@@ -5,7 +5,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
         namespace "com.zacharee1.systemuituner"
@@ -34,6 +34,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        aidl = true
     }
 
     kotlinOptions {
