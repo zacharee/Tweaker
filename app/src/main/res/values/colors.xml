@@ -28,4 +28,5 @@
     <color name="selected_item">#33ffffff</color>
 
     <color name="icon_color">@android:color/white</color>
+    <color name="icon_foreground_color">@color/icon_color</color>
 </resources>
