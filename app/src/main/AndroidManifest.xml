@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-sdk tools:overrideLibrary="rikka.shizuku.api" />
+
     <permission android:name="com.zacharee1.systemuituner.permission.WRITE_SETTINGS"
         android:protectionLevel="signature"
         />
