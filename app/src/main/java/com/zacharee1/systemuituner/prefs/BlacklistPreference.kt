@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.prefs
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
@@ -45,6 +46,11 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
         super.onBindViewHolder(holder)
 
         holder.itemView.findViewById<View>(R.id.icon_frame).isVisible = false
+
+        holder.itemView.findViewById<TextView>(android.R.id.summary).apply {
+            isVisible = autoWriteKey == null
+            text = allKeys.joinToString(", ")
+        }
     }
 
     override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
