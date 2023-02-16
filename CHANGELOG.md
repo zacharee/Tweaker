@@ -1,3 +1,12 @@
+# 349
+- Update translations.
+- Add Italian translation.
+- Crash fixes.
+- Remove OneUI Tuner references.
+- Update icon colors for Android 12+.
+- Update dependencies.
+- Show keys for predefined Icon Blacklist items.
+
 # 348
 - Crash fixes.
 - Update translations.
