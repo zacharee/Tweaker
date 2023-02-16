@@ -60,7 +60,7 @@
     <string name="feature_app_install_location_desc">預設應用程式安裝位置。選擇應用程式預設要安裝在哪裡。正常來說，應用程式會依據 AndroidManifest 的設定值來選擇安裝位置，你能夠選擇將應用程式安裝在外接儲存裝置中。</string>
     <string name="feature_heads_up_notifications">彈出式通知</string>
     <string name="feature_heads_up_notifications_desc">切換啟用或是停用彈出式通知。彈出式通知為裝置頂端彈出的通知。</string>
-    <string name="feature_insufficient_storage_warning">忽略「內部儲存空間不足」警告</string>
+    <string name="feature_insufficient_storage_warning">略過「內部儲存空間不足」警告</string>
     <string name="feature_insufficient_storage_warning_desc">當你的裝置內部剩餘空間剩下特定空間時，Android 系統會跳出裝置剩餘空間不足的提示。可能會影響你安裝新的應用程式或是更新現有應用程式。你能夠手動調整剩餘量以防止警告跳出。</string>
     <string name="feature_keep_screen_on">在充電時防止裝置進入休眠模式</string>
     <string name="feature_keep_screen_on_desc">在 Android 系統的開發人員設定中，你能夠選取充電時是否讓手機進入休眠模式的選項，但這功能預設在所有形式電源插入時開啟。你能夠指定何種形式的電源插入時保持你的裝置螢幕開啟。</string>
@@ -79,7 +79,7 @@
     <string name="feature_custom_ui_sounds">自訂 UI 音效</string>
     <string name="feature_custom_ui_sounds_desc">Android 在 UI 的每個部分上都有許多的音效，他們大部分能夠換成你的自訂音效。你只需要選擇檔案來讓系統使用。</string>
     <string name="feature_fix_tethering">修復網路共用</string>
-    <string name="feature_fix_tethering_desc">在某些裝置和 Android 版本上，這可能會繞過電信業者對連線的限制。</string>
+    <string name="feature_fix_tethering_desc">在某些裝置和 Android 版本上，這可能會略過電信業者對連線的限制。</string>
     <string name="feature_shortcode_warning">停用簡訊短代碼確認</string>
     <string name="feature_shortcode_warning_desc">當你傳送簡訊到特定的短代碼時，系統會警告你簡訊可能會收費。你可以在這裡停用這個警告。</string>
     <string name="feature_sms_limit">自訂簡訊限制</string>
@@ -150,9 +150,9 @@
     <string name="option_advanced_write_setting">寫入自訂設定</string>
     <string name="option_advanced_write_setting_desc">如果你有一個特殊的設定想要改變，但又不屬於 SystemUI Tuner 的一部分，你可以在此設定。</string>
     <string name="option_qqs_tiles">快速設定標頭數</string>
-    <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕。使用此選項可調整一行內的按鈕數量。這不適用於 One UI</string>
+    <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕，使用此選項可調整一行內的按鈕數量。此選項無法在 One UI 上正常運作。</string>
     <string name="option_oneui_clock_position">時鐘位置</string>
-    <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。要使此選項持續存在，啟用圖示黑名單。</string>
+    <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。要使此選項持續存在，請啟用圖示黑名單。</string>
     <string name="option_touchwiz_navbar_color">導覽列顏色</string>
     <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列顏色。請使用此選項。</string>
     <string name="option_custom_notification_snooze_times">自訂通知延後時間</string>

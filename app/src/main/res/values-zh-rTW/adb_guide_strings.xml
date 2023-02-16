@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">ADB 指南</string>
-    <string name="adb_intro_desc">不知道如何使用 ADB 嗎？沒問題，只需要遵循該指南，您將完成設定。 (請注意，您需要一台電腦以完成該過程)</string>
-    <string name="adb_intro_desc_no_computer">不知道如何使用 ADB 嗎？沒問題，只需要遵循該指南，您將完成設定。</string>
+    <string name="adb_intro_desc">不知道如何使用 ADB 嗎？沒問題，只需要遵循此指南，您將完成設定。(請注意，您需要一台電腦以完成此過程)</string>
+    <string name="adb_intro_desc_no_computer">不知道如何使用 ADB 嗎？沒問題，只需要遵循此指南，您將完成設定。</string>
     <string name="adb_choose_computer_os">選擇你的作業系統。</string>
     <string name="adb_choose_computer_os_desc">您電腦的作業系統是？</string>
     <string name="adb_android_guide">初始設定 (在您的手機上)</string>
@@ -11,13 +11,13 @@
     <string name="adb_install_android_1">開啟「設定」應用程式，向下捲動並輕觸「關於手機」。</string>
     <string name="adb_install_android_2">根據您的裝置，您可能會看到一個名為「軟體資訊」的選單，若這樣，輕觸它。</string>
     <string name="adb_install_android_3">現在，找到標籤為「版本號碼」的選項。在某些裝置上，可能名為「版本」。</string>
-    <string name="adb_install_android_4">輕觸該選項 7 次以啟用開發人員模式。您可能需要輸入您的密碼才能啟用它。</string>
+    <string name="adb_install_android_4">輕觸此選項 7 次以啟用開發人員模式。您可能需要輸入您的密碼才能啟用它。</string>
     <string name="adb_install_android_5">現在回到主設定頁。</string>
     <string name="adb_install_android_6">根據您的裝置，您可能會看到一個名為「開發人員選項」的新選單。如果是，輕觸它並略過下一步。</string>
     <string name="adb_install_android_7">如果您沒有看到開發人員選單，找到「系統」或「附加設定」選單。你應該會在這裡看到開發人員選項選單。</string>
     <string name="adb_install_android_8">向下捲動直到您看到「USB 偵錯」標籤，啟用它。</string>
     <string name="adb_install_android_9">在小米手機上，您還需要找到並停用標籤為「USB 偵錯 (安全設定)」的選項。</string>
-    <string name="adb_install_android_10">在 OPPO, Realme, 和 OnePlus 手機上，您還需要找到並啟用標籤為「停用權限監視」的選項。</string>
+    <string name="adb_install_android_10">在 OPPO、Realme 和 OnePlus 手機上，您還需要找到並啟用標籤為「停用權限監視」的選項。</string>
     <string name="adb_install_android_11">現在，將您的手機插入電腦。如果有確認 USB 偵錯的彈出式視窗，請允許。</string>
     <string name="adb_install_android_12">一旦完成這些，就可以繼續在您的電腦上進行了。</string>
     <string name="adb_install_local_1"><![CDATA[從 [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.priveged.api) 下載並安裝 Shizuku 應用程式。]]></string>
@@ -26,7 +26,7 @@
     <string name="adb_install_adb_windows_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-windows.zip。</string>
     <string name="adb_install_adb_windows_2">將壓縮檔解壓縮到方便的位置，如 C:\\adb。</string>
     <string name="adb_install_adb_windows_3">使用檔案總管瀏覽已解壓縮的壓縮檔。你會看到一些檔案，包括一個叫做「adb」的檔案。</string>
-    <string name="adb_install_adb_windows_4">點選搜尋列內，用「cmd」(無引號) 替換其中的內容。然後按輸入鍵。</string>
+    <string name="adb_install_adb_windows_4">點選搜尋列內，用「cmd」(無引號) 取代其中的內容。然後按輸入鍵。</string>
     <string name="adb_install_adb_mac_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-darwin.zip。</string>
     <string name="adb_install_adb_mac_2">將壓縮檔解壓縮到方便的位置，如桌面。</string>
     <string name="adb_install_adb_mac_3">現在，開啟「終端機」。你可以同時按下 Command + 空白鍵，並搜尋「終端機」。</string>

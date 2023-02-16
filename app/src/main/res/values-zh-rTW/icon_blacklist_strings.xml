@@ -13,7 +13,7 @@
     <string name="icon_blacklist_add_custom">新增自訂項</string>
     <string name="icon_blacklist_add_custom_desc">如果你找不到你想要隱藏的圖視，但你知道它的金鑰，你可以在此新增。</string>
     <string name="icon_blacklist_remove_custom">移除此項</string>
-    <string name="icon_blacklist_remove_custom_desc">您確定要移除該自訂黑名單項嗎？</string>
+    <string name="icon_blacklist_remove_custom_desc">您確定要移除此自訂黑名單項目嗎？</string>
     <string name="icon_blacklist_rotate">旋轉鎖定</string>
     <string name="icon_blacklist_airplane">飛航模式</string>
     <string name="icon_blacklist_wifi">WiFi</string>
@@ -46,7 +46,7 @@
     <string name="icon_blacklist_answering_memo">語音備忘錄</string>
     <string name="icon_blacklist_ime">輸入法</string>
     <string name="icon_blacklist_sync_failing">同步失敗</string>
-    <string name="icon_blacklist_sync_active">同步處理已啟用</string>
+    <string name="icon_blacklist_sync_active">同步啟用</string>
     <string name="icon_blacklist_nfclock">NFC 鎖</string>
     <string name="icon_blacklist_secure">安全</string>
     <string name="icon_blacklist_power_saver">電力節省</string>
@@ -85,7 +85,7 @@
     <string name="icon_blacklist_call_record">電話錄音</string>
     <string name="icon_blacklist_privacy_mode">隱私模式</string>
     <string name="icon_blacklist_ble_unlock_mode">BLE 解除鎖定模式</string>
-    <string name="icon_blacklist_quiet">安靜</string>
+    <string name="icon_blacklist_quiet">靜音</string>
     <string name="icon_blacklist_missed_call">未接來電</string>
     <string name="icon_blacklist_bluetooth_handsfree_battery">藍牙免持式電池</string>
     <string name="icon_blacklist_rtt">RTT</string>

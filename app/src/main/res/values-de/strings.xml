@@ -39,7 +39,7 @@
     <string name="sub_power">Ladezustand</string>
     <string name="add_to_blacklist">Zur Icon Blacklist hinzufügen</string>
     <string name="remove_from_blacklist">Aus Icon Blacklist Entfernen</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Taschenlampe</string>
     <string name="sub_demo">Demo Modus</string>
     <string name="sub_demo_desc">Mit dem Demo Modus können Sie die Statusleiste Ihres Geräts in verschiedene Zustände zwingen. Sie können es verwenden, um bestimmte Symbole anzuzeigen oder zu verstecken, Signalstärken und ein paar andere Dinge anzugeben.</string>
     <string name="special_sub_airplane_mode">Flugmodus Anpassungen</string>
@@ -185,8 +185,8 @@
     <string name="option_disable_combined_internet_desc">Bei Android 12 hat Google die Einstellungen für WLAN, Bluetooth und Mobiltelefonie in einem Menü zusammengefasst. Die Kacheln für die Schnelleinstellungen für WLAN und Mobilfunk wurden außerdem zu einer einzigen Internet-Kachel zusammengefasst. Wenn Sie diese Option aktivieren, werden die alten Menüs in den Einstellungen wiederhergestellt und Sie können die separaten Schnelleinstellungskacheln wiederherstellen. Möglicherweise muss ein Neustart durchgeführt werden, damit die Änderungen wirksam werden. Wenn die WLAN- und Mobilfunk-Kacheln nicht angezeigt werden, können Sie diese mit der Funktion „Schnelleinstellungen bearbeiten” im SystemUI Tuner hinzufügen.</string>
     <string name="option_disable_lock_screen_ads">Sperrbildschirm-Werbung deaktivieren</string>
     <string name="option_disable_lock_screen_ads_desc">Wenn Ihr Kindle Werbung auf dem Sperrbildschirm angezeigt, können Sie diese Option verwenden, um sie zu deaktivieren. Um sie dauerhaft zu deaktivieren, sollten Sie diese Option auch auf dem Bildschirm „Dauerhafte Optionen” aktivieren.</string>
-    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Benutzerdefinierte Verknüpfung für den linken Sperrbildschirm zulassen</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS reserviert normalerweise die linke Sperrbildschirm-Verknüpfung für das Smart Device Dashboard, auch wenn Sie die Verknüpfung ändern. Aktivieren Sie dies hier und in den dauerhaften Optionen, um eine benutzerdefinierte Verknüpfung verwenden zu können.</string>
     <string name="home_welcome_title">Willkommen!</string>
     <string name="search">Suchen</string>
     <string name="immersive_none">Kein(e)</string>
@@ -279,7 +279,7 @@
     <string name="intro_system_alert_window">Systemwarnungsfenster</string>
     <string name="intro_system_alert_window_desc">Android 12 und später haben die Möglichkeiten für Apps erheblich eingeschränkt, Operationen im Hintergrund und beim Starten des Geräts auszuführen. Wenn SystemUI Tuner die Erlaubnis erhält, über andere Apps anzuzeigen, wird es von diesen Einschränkungen befreit und die Zuverlässigkeit von Persistent Optionen verbessert. Diese Berechtigung ist vollständig optional.</string>
     <string name="intro_allow_notifications">Benachrichtigungen erlauben</string>
-    <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
+    <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
     <string name="intro_last_desc">Folgen Sie mir auf Twitter für die neuesten Aktualisierungen.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
