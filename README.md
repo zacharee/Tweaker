@@ -16,4 +16,4 @@ To successfully build, you'll need to grab the Android 12L (API 32) JAR from [he
 SystemUI Tuner is on Crowdin! [Check out the project page](https://crowdin.com/project/systemui-tuner) if you want to help translate the app to your language.
 
 # Error Reporting
-[![image](https://user-images.githubusercontent.com/9020352/220169406-4dbfee1e-8406-444a-9c7a-1c1e3459cb00.png)](https://www.bugsnag.com)
+[![image](https://assets-global.website-files.com/607f4f6df411bd01527dc7d5/63bc40cd9d502eda8ea74ce7_Bugsnag%20Full%20Color.svg)](https://www.bugsnag.com)
