@@ -228,6 +228,9 @@
         <meta-data
             android:name="google_analytics_adid_collection_enabled"
             android:value="false" />
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="008dface4800461a56c5031441311d5f"/>
     </application>
 
 </manifest>

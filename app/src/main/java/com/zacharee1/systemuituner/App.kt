@@ -10,7 +10,7 @@ import android.os.*
 import android.util.AndroidRuntimeException
 import android.util.Log
 import androidx.core.content.ContextCompat
-import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.bugsnag.android.Bugsnag
 import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
@@ -37,17 +37,13 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                         bindService(Intent(this, Manager::class.java), connection, Context.BIND_AUTO_CREATE)
                     } catch (e: Exception) {
                         Log.e("SystemUITuner", "Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                        FirebaseCrashlytics.getInstance().apply {
-                            recordException(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
-                        }
+                        Bugsnag.getClient().notify(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
 
                         try {
                             ContextCompat.startForegroundService(context, Intent(this, Manager::class.java))
                         } catch (e: Exception) {
                             Log.e("SystemUITuner", "Unable to start service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                            FirebaseCrashlytics.getInstance().apply {
-                                recordException(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
-                            }
+                            Bugsnag.getClient().notify(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
                         }
                     }
                 }
@@ -57,6 +53,8 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onCreate() {
         super.onCreate()
+
+        Bugsnag.start(this)
 
         initExceptionHandler()
 
@@ -91,7 +89,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
             when {
                 e is AndroidRuntimeException -> {
                     Log.e("SystemUITuner", "Caught a runtime Exception!", e)
-                    FirebaseCrashlytics.getInstance().recordException(Exception("Caught a runtime Exception!", e))
+                    Bugsnag.getClient().notify(e)
                     Looper.loop()
                 }
                 e is SecurityException &&
@@ -100,7 +98,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
                             true
                         ) == true -> {
                     Log.e("SystemUITuner", "Google Play Services error!", e)
-                    FirebaseCrashlytics.getInstance().recordException(Exception("Google Play Services error!", e))
+                    Bugsnag.getClient().notify(e)
                     Looper.loop()
                 }
                 e.hasDeadObjectCause -> {
