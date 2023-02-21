@@ -202,8 +202,7 @@
     <string name="reset">Сбросить</string>
     <string name="grant">Предоставить</string>
     <string name="help">Справка</string>
-    <string name="no_root_title">Нет Root или Shizuku</string>
-    <string name="no_root_msg">Не был обнаружен root-доступ или Shizuku. Если ваше устройство футеровано, убедитесь, что у SystemUI Tuner есть root-доступ. В противном случае нажмите кнопку ПОМОЩЬ, чтобы прочесть инструкции по ADB и Shizuku.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">разрешение WRITE_SECURE_SETTINGS не предоставлено.</string>
     <string name="mode">Режим</string>
     <string name="key">Ключ</string>
@@ -239,6 +238,7 @@
     <string name="previous">Назад</string>
     <string name="exit">Выход</string>
     <string name="done">Готово</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Значки строки состояния</string>
     <string name="network_states">Состояния сети</string>
     <string name="volume_visibility">Видимость громкости</string>
