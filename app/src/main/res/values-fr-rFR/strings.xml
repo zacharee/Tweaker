@@ -212,6 +212,7 @@
     <string name="hide">Cacher</string>
     <string name="show">Montrer</string>
     <string name="enabled">Activé</string>
+    <string name="enable">Enable</string>
     <string name="global">Global</string>
     <string name="secure">Sécuriser</string>
     <string name="system">Système</string>
@@ -233,6 +234,11 @@
     <string name="intent">Intention</string>
     <string name="view_online">View Online</string>
     <string name="tile_custom">Custom</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 introduit une nouvelle restriction pour les applications nécessitant l\'autorisation de l\'utilisateur d\'afficher les notifications. SystemUI Tuner peut afficher une notification lors de l\'exécution d\'opérations en arrière-plan. Si vous souhaitez voir cette notification, veuillez autoriser SystemUI Tuner à afficher des notifications.</string>
     <string name="intro_last">Merci d\'utiliser mon application !</string>
     <string name="intro_last_desc">Suivez moi sur Twitter pour les dernières mises à jour.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Désolé, cette fonctionnalité ne fonctionne qu\'avec Android %s et plus tard</string>
     <string name="compatibility_message_both">Désolé, cette fonctionnalité ne fonctionne que d\'Android %1$s à Android %2$s</string>
     <string name="compatibility_message_higher">Désolé, cette fonctionnalité ne fonctionne qu\'avec Android %s</string>
