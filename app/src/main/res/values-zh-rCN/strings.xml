@@ -212,6 +212,7 @@
     <string name="hide">隐藏</string>
     <string name="show">显示</string>
     <string name="enabled">已启用</string>
+    <string name="enable">Enable</string>
     <string name="global">全局</string>
     <string name="secure">安全</string>
     <string name="system">系统</string>
@@ -233,6 +234,11 @@
     <string name="intent">意图</string>
     <string name="view_online">在线查看</string>
     <string name="tile_custom">自定义</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">状态栏图标</string>
     <string name="network_states">网络状态</string>
     <string name="volume_visibility">音量可见性</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13对需要用户许可才能显示通知的应用程序引入了新的限制。SystemUI Tuner可能会在运行后台操作时显示通知。如果您希望看到这个通知，请允许SystemUI Tuner显示通知。</string>
     <string name="intro_last">感谢您使用我的应用！</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
     <string name="compatibility_message_both">对不起，此功能只能从 Android %1$s 到 Android %2$s 正常工作</string>
     <string name="compatibility_message_higher">抱歉，此功能只能通过 Android %s 工作</string>
