@@ -213,7 +213,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="hide">Nascondi</string>
     <string name="show">Mostra</string>
     <string name="enabled">Abilitato</string>
-    <string name="enable">Enable</string>
+    <string name="enable">Attiva</string>
     <string name="global">Globale</string>
     <string name="secure">Sicuro</string>
     <string name="system">Sistema</string>
@@ -235,11 +235,11 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intent">Intent</string>
     <string name="view_online">Visualizza online</string>
     <string name="tile_custom">Personalizzato</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="next">Successivo</string>
+    <string name="finish">Termina</string>
+    <string name="previous">Precedente</string>
+    <string name="exit">Esci</string>
+    <string name="done">Fatto</string>
     <string name="status_bar_icons">Icone barra di stato</string>
     <string name="network_states">Stato della rete</string>
     <string name="volume_visibility">Visibilità Volume</string>
@@ -289,8 +289,8 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intro_allow_notifications_desc">Android 13 introduce una nuova restrizione sulle app che richiedono l\'autorizzazione dell\'utente per visualizzare le notifiche. SystemUI Tuner può mostrare una notifica quando si eseguono operazioni in background. Se si desidera visualizzare questa notifica, si prega di consentire SystemUI Tuner per mostrare le notifiche.</string>
     <string name="intro_last">Grazie per usare la mia app!</string>
     <string name="intro_last_desc">Seguimi su Twitter per aggiornamenti sul progetto.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="intro_crash_reports">Abilita report di crash</string>
+    <string name="intro_crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare l\'app a funzionare senza intoppi. Nessuna informazione personale viene raccolta. Puoi modificare questa impostazione successivamente.</string>
     <string name="compatibility_message_lower">Siamo spiacenti, questa funzione funziona solo con Android %s e versioni successive</string>
     <string name="compatibility_message_both">Siamo spiacenti, questa funzione funziona solo da Android %1$s ad Android %2$s</string>
     <string name="compatibility_message_higher">Siamo spiacenti, questa funzione funziona solo tramite Android %s</string>
