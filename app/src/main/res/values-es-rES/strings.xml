@@ -212,6 +212,7 @@
     <string name="hide">Ocultar</string>
     <string name="show">Mostrar</string>
     <string name="enabled">Habilitado</string>
+    <string name="enable">Enable</string>
     <string name="global">Global</string>
     <string name="secure">Seguro</string>
     <string name="system">Sistema</string>
@@ -233,6 +234,11 @@
     <string name="intent">Intento</string>
     <string name="view_online">Ver en línea</string>
     <string name="tile_custom">Personalizado</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Iconos de la barra de estado</string>
     <string name="network_states">Estados de la red</string>
     <string name="volume_visibility">Visibilidad del volumen</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
     <string name="compatibility_message_both">Lo sentimos, esta característica solo funciona desde Android %1$s a Android %2$s</string>
     <string name="compatibility_message_higher">Lo sentimos, esta característica solo funciona a través de Android %s</string>
