@@ -62,7 +62,7 @@
     <string name="feature_heads_up_notifications_desc">Chuyển sang bật hoặc tắt thông báo cảnh báo trên toàn cầu. Thông báo cảnh báo là những thông báo bật lên ở đầu màn hình.</string>
     <string name="feature_insufficient_storage_warning">Bỏ qua cảnh báo \"Dung lượng bộ nhớ không đủ\"</string>
     <string name="feature_insufficient_storage_warning_desc">Khi thiết bị của bạn đạt đến một giá trị ngưỡng nhất định của bộ nhớ khả dụng, Android sẽ hiển thị cảnh báo rằng thiết bị của bạn không có đủ dung lượng bộ nhớ. Điều này có thể ngăn bạn cài đặt các ứng dụng hoặc bản cập nhật mới. Bạn có thể giảm giá trị ngưỡng theo cách thủ công để ngăn cảnh báo này hiển thị.</string>
-    <string name="feature_keep_screen_on">Keep the Device On when Plugged In</string>
+    <string name="feature_keep_screen_on">Giữ thiết bị bật khi được cắm vào</string>
     <string name="feature_keep_screen_on_desc">Trong Cài đặt dành cho nhà phát triển của Android, bạn có thể chọn tùy chọn để màn hình luôn sáng khi được cắm vào nguồn điện. Theo mặc định, điều này sẽ bật tính năng này cho tất cả các nguồn điện. Bạn có thể chỉ định nguồn điện nào bạn muốn để màn hình điện thoại luôn bật.</string>
     <string name="feature_custom_animation_scales">Đặt tỷ lệ hoạt ảnh tùy chỉnh</string>
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
@@ -212,7 +212,7 @@
     <string name="hide">Ẩn</string>
     <string name="show">Hiển thị</string>
     <string name="enabled">Bật</string>
-    <string name="enable">Enable</string>
+    <string name="enable">Kích hoạt</string>
     <string name="global">Global</string>
     <string name="secure">Bảo Mật</string>
     <string name="system">Hệ thống</string>
@@ -234,11 +234,11 @@
     <string name="intent">Ý định</string>
     <string name="view_online">Xem online</string>
     <string name="tile_custom">Custom</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="next">Tiếp theo</string>
+    <string name="finish">Hoàn tất</string>
+    <string name="previous">Trước</string>
+    <string name="exit">Thoát</string>
+    <string name="done">Xong</string>
     <string name="status_bar_icons">Biểu tượng thanh trạng thái</string>
     <string name="network_states">Trạng thái Mạng</string>
     <string name="volume_visibility">Hiển thị Âm lượng</string>
@@ -288,8 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Cảm ơn vì đã sử dụng ứng dụng!</string>
     <string name="intro_last_desc">Theo dõi tôi trên Twitter cho các cập nhật mới nhất.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="intro_crash_reports">Bật Báo cáo Lỗi</string>
+    <string name="intro_crash_reports_desc">Bạn có thể chọn bật báo cáo sự cố ẩn danh để giúp ứng dụng chạy trơn tru. Không có thông tin cá nhân nào được thu thập. Bạn có thể thay đổi cài đặt này sau.</string>
     <string name="compatibility_message_lower">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %s trở lên</string>
     <string name="compatibility_message_both">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %1$s đến Android %2$s</string>
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
