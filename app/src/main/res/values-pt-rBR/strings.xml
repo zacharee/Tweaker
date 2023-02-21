@@ -58,7 +58,7 @@
     <string name="feature_freeform_desc">Deve habilitar o suporte a várias janelas de forma livre. Requer reinicialização. Funciona apenas em dispositivos Android 7.0+.</string>
     <string name="feature_app_install_location">Definir local de instalação padrão</string>
     <string name="feature_app_install_location_desc">Local padrão de instalação do aplicativo. Escolha em quais aplicativos de armazenamento são instalados por padrão. Normalmente, os próprios aplicativos decidem especificando o valor no AndroidManifest, mas você pode optar por instalá-los no meio de armazenamento adotável, se desejar.</string>
-    <string name="feature_heads_up_notifications">Alternar notificação de alerta</string>
+    <string name="feature_heads_up_notifications">Notificações flutuantes</string>
     <string name="feature_heads_up_notifications_desc">Alterne para ativar ou desativar globalmente as notificações de alerta. As notificações de alerta são as notificações que aparecem na parte superior da tela.</string>
     <string name="feature_insufficient_storage_warning">Ignorar o aviso de \"Armazenamento disponível insuficiente\"</string>
     <string name="feature_insufficient_storage_warning_desc">Quando seu dispositivo atinge um certo valor limite de armazenamento disponível, o Android exibe um aviso de que seu dispositivo não tem quantidade suficiente de armazenamento disponível. Isso pode impedir que você instale novos apps ou atualizações. Você pode diminuir manualmente o valor limite para impedir que este aviso seja exibido.</string>
@@ -70,7 +70,7 @@
     <string name="feature_custom_rotation_desc">A maioria dos celulares só permite que você bloqueie a rotação da tela do seu celulares para o Modo Retrato. Com essa configuração, você pode bloquear a rotação da tela em qualquer orientação. Primeiro, você terá que desativar a rotação automática para que isto funcione.</string>
     <string name="feature_immersive_mode">Modo imersivo</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
-    <string name="feature_heads_up_snooze_length">Duração da tela alerta</string>
+    <string name="feature_heads_up_snooze_length">Duração da notificação flutuante</string>
     <string name="feature_heads_up_snooze_length_desc">Milissegundos após uma notificação flutuante ser empurrada para trás antes que o aplicativo possa interromper novamente. (Padrão: 60 segundos).</string>
     <string name="feature_camera_gestures">Gestos da Câmera</string>
     <string name="feature_camera_gestures_desc">Ativar isso pode permitir que o celular inicie a câmera rapidamente tocando duas vezes no botão liga/desliga ou girando o celular entre os dois lados e a frente.</string>
@@ -80,7 +80,7 @@
     <string name="feature_custom_ui_sounds_desc">O Android tem muitos sons predefinidos para diferentes partes da Interface de Usuário. Muitos destes podem, realmente, ser alterados para seus próprios sons personalizados. Você só precisa especificar o arquivo para o Android usar.</string>
     <string name="feature_fix_tethering">Corrigir o tethering</string>
     <string name="feature_fix_tethering_desc">Em alguns dispositivos e versões do Android, isso pode ignorar as restrições da operadora no tethering.</string>
-    <string name="feature_shortcode_warning">Desativar confirmação de código curto SMS</string>
+    <string name="feature_shortcode_warning">Desativar aviso para o envio de SMS</string>
     <string name="feature_shortcode_warning_desc">Ao enviar SMS para alguns números, o sistema avisa que você poderá receber uma cobrança da sua operadora. Você pode desativar este aviso aqui.</string>
     <string name="feature_sms_limit">Limite de SMS personalizado</string>
     <string name="feature_sms_limit_desc">Por padrão, o Android limita você a enviar 30 SMS a cada 30 minutos antes de incomodá-lo com uma notificação pop-up. Usando esses dois valores, você pode personalizar quantos SMS quiser enviar sem ser incomodado.</string>
@@ -97,7 +97,7 @@
     <string name="feature_battery_percent">Mostrar porcentagem da bateria na barra de status</string>
     <string name="feature_battery_percent_desc">Mostra a porcentagem atual da bateria no ícone da bateria na barra de status. Pode exigir root para ativar.</string>
     <string name="feature_header_airplane_mode_radios">Manter</string>
-    <string name="feature_header_airplane_mode_toggleable_radios">Alterável</string>
+    <string name="feature_header_airplane_mode_toggleable_radios">Desativar</string>
     <string name="option_keep_awake_on_ac">Conectado à tomada</string>
     <string name="option_keep_awake_on_usb">Conectado ao USB</string>
     <string name="option_keep_awake_on_wireless">Conectado ao Wireless Charger</string>
@@ -118,7 +118,7 @@
     <string name="option_app_install_location_internal">Armazenamento interno</string>
     <string name="option_app_install_location_sd">Cartão SD</string>
     <string name="option_user_rotation_0">Retrato</string>
-    <string name="option_user_rotation_90">Paisagem CCW</string>
+    <string name="option_user_rotation_90">Paisagem no sentido anti-horário</string>
     <string name="option_user_rotation_180">Retrato Invertido</string>
     <string name="option_user_rotation_270">Paisagem no sentido horário</string>
     <string name="option_sms_limit_count">Contagem máxima de envio</string>
@@ -155,7 +155,7 @@
     <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
     <string name="option_touchwiz_navbar_color">Cor da barra de navegação</string>
     <string name="option_touchwiz_navbar_color_desc">Na Samsung Experience e OneUI é possível definir a cor da barra de navegação para sua própria cor personalizada. Use esta opção para fazer isso.</string>
-    <string name="option_custom_notification_snooze_times">Tempos de adiamento de notificações personalizadas</string>
+    <string name="option_custom_notification_snooze_times">Tempos de soneca para notificações personalizadas</string>
     <string name="option_custom_notification_snooze_times_desc">O Android Oreo 8.1 introduziu uma opção para adiar notificações. Você pode usar essa configuração para definir valores personalizados para os tempos de soneca.</string>
     <string name="option_night_mode">Modo noturno</string>
     <string name="option_night_mode_desc">O Android Nougat 7.0 introduziu uma opção nativa para colorir a exibição de amarelo à noite. Foi refinado em Nougat 7.1, e renomeado para Modo Noturno. Você pode habilitá-lo aqui e ajustar opções diferentes. ATENÇÃO: em alguns dispositivos Android, ativar isso fará com que a tela fique preta!</string>
@@ -212,6 +212,7 @@
     <string name="hide">Ocultar</string>
     <string name="show">Exibir</string>
     <string name="enabled">Ativado</string>
+    <string name="enable">Enable</string>
     <string name="global">Global</string>
     <string name="secure">Seguro</string>
     <string name="system">Sistema</string>
@@ -233,6 +234,11 @@
     <string name="intent">Intenção</string>
     <string name="view_online">Ver online</string>
     <string name="tile_custom">Personalizar</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Ícones da barra de status</string>
     <string name="network_states">Estado da rede</string>
     <string name="volume_visibility">Visibilidade do Volume</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Obrigado por usar meu app!</string>
     <string name="intro_last_desc">Siga-me no Twitter para as últimas atualizações do app.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Desculpe, este recurso só funciona com Android %s ou superior</string>
     <string name="compatibility_message_both">Desculpe, esse recurso só funciona do Android %1$s para Android %2$s</string>
     <string name="compatibility_message_higher">Desculpe, este recurso só funciona com Android %s</string>
