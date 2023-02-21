@@ -213,6 +213,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="hide">Elrejt</string>
     <string name="show">Megjelenítés</string>
     <string name="enabled">Engedélyezve</string>
+    <string name="enable">Enable</string>
     <string name="global">Globális</string>
     <string name="secure">Biztonságos</string>
     <string name="system">Rendszer</string>
@@ -234,6 +235,11 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="intent">Szándék</string>
     <string name="view_online">Online megtekintés</string>
     <string name="tile_custom">Egyéni</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Állapotsor ikonjai</string>
     <string name="network_states">Hálózati állapotok</string>
     <string name="volume_visibility">Hangerő láthatóság</string>
@@ -284,6 +290,8 @@ Néma láthatóság</string>
     <string name="intro_allow_notifications_desc">Az Android 13 új korlátozást vezet be azokra az alkalmazásokra, amelyek engedélyt kérnek a felhasználótól az értesítések megjelenítéséhez. A SystemUI Tuner értesítést jeleníthet meg a háttérben végzett műveletek futtatásakor. Ha szeretné látni ezt az értesítést, engedélyezze a SystemUI Tuner számára az értesítések megjelenítését.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
     <string name="intro_last_desc">Kövess a Twitteren, hogy értesülj a legújabb frissítésekről.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
     <string name="compatibility_message_both">Sajnáljuk, ez a funkció csak az Android %1$s és az Android %2$s között működik</string>
     <string name="compatibility_message_higher">Sajnáljuk, ez a funkció csak az Android %s rendszeren keresztül működik</string>
