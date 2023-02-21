@@ -212,6 +212,7 @@
     <string name="hide">Ukryj</string>
     <string name="show">Pokaż</string>
     <string name="enabled">Włączone</string>
+    <string name="enable">Enable</string>
     <string name="global">Ogólne</string>
     <string name="secure">Bezpieczeństwo</string>
     <string name="system">System</string>
@@ -233,6 +234,11 @@
     <string name="intent">Cel</string>
     <string name="view_online">Zobacz online</string>
     <string name="tile_custom">Niestandardowe</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Ikony paska stanu</string>
     <string name="network_states">Stan sieci</string>
     <string name="volume_visibility">Widoczność głośności</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Sorry, this feature only works from Android %1$s to Android %2$s</string>
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
