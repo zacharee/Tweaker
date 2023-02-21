@@ -212,6 +212,7 @@
     <string name="hide">Ausblenden</string>
     <string name="show">Anzeigen</string>
     <string name="enabled">Aktiviert</string>
+    <string name="enable">Enable</string>
     <string name="global">Allgemein</string>
     <string name="secure">Sicher</string>
     <string name="system">System</string>
@@ -233,6 +234,11 @@
     <string name="intent">Absicht</string>
     <string name="view_online">Online anzeigen</string>
     <string name="tile_custom">Benutzerdefiniert</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Symbole der Statusleiste</string>
     <string name="network_states">Netzwerkstatus</string>
     <string name="volume_visibility">Sichtbarkeit der Lautstärke</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
     <string name="intro_last_desc">Folgen Sie mir auf Twitter für die neuesten Aktualisierungen.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
     <string name="compatibility_message_both">Leider kann diese Funktion nur in Android %1$s bis Android %2$s genutzt werden.</string>
     <string name="compatibility_message_higher">Leider kann dieses Funktion nur mit Android %s genutzt werden</string>
