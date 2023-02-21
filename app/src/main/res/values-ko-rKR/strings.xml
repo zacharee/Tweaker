@@ -212,7 +212,7 @@
     <string name="hide">숨기기</string>
     <string name="show">표시</string>
     <string name="enabled">활성화됨</string>
-    <string name="enable">Enable</string>
+    <string name="enable">활성화</string>
     <string name="global">전체</string>
     <string name="secure">보안</string>
     <string name="system">시스템</string>
@@ -234,11 +234,11 @@
     <string name="intent">의도</string>
     <string name="view_online">온라인 보기</string>
     <string name="tile_custom">사용자 지정</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="next">다음</string>
+    <string name="finish">마침</string>
+    <string name="previous">이전</string>
+    <string name="exit">종료</string>
+    <string name="done">완료</string>
     <string name="status_bar_icons">상태 표시줄 아이콘</string>
     <string name="network_states">네트워크 상태</string>
     <string name="volume_visibility">음량 표시</string>
@@ -288,8 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13부터는 앱에서 알림을 보내려면 사용자로부터 허가를 받아야 합니다. SystemUI Tuner에서는 백그라운드 작업을 실행할 때 알림을 표시할 수 있습니다. 이 알림을 보려면 SystemUI Tuner가 알림을 표시할 수 있도록 권한을 부여해주십시오.</string>
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
     <string name="intro_last_desc">최근 업데이트를 보려면 트위터에서 저를 팔로우하십시오.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="intro_crash_reports">충돌 보고서 활성화</string>
+    <string name="intro_crash_reports_desc">익명으로 보내는 충돌 보고서를 활성화하여 앱이 보다 원활히 동작할 수 있게 도울 수 있습니다. 개인정보는 수집되지 않습니다. 설정은 나중에 변경할 수 있습니다.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
     <string name="compatibility_message_both">죄송합니다, 안드로이드 %1$s에서 %2$s 버전까지만 지원하는 기능입니다.</string>
     <string name="compatibility_message_higher">죄송합니다, 이 기능은 안드로이드 %s에서만 작동합니다.</string>
