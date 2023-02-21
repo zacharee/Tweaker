@@ -215,7 +215,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="hide">Skrýt</string>
     <string name="show">Zobrazit</string>
     <string name="enabled">Povoleno</string>
-    <string name="enable">Enable</string>
+    <string name="enable">Povolit</string>
     <string name="global">Globální</string>
     <string name="secure">Bezpečnost</string>
     <string name="system">Systém</string>
@@ -237,11 +237,11 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intent">Záměr</string>
     <string name="view_online">Zobrazit online</string>
     <string name="tile_custom">Vlastní</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="next">Další</string>
+    <string name="finish">Dokončit</string>
+    <string name="previous">Předchozí</string>
+    <string name="exit">Odejít</string>
+    <string name="done">Hotovo</string>
     <string name="status_bar_icons">Ikony stavového řádku</string>
     <string name="network_states">Stavy sítě</string>
     <string name="volume_visibility">Zobrazení hlasitosti</string>
@@ -291,8 +291,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_allow_notifications_desc">Android 13 zavádí nové omezení aplikací vyžadujících oprávnění uživatele k zobrazování oznámení. SystemUI Tuner může zobrazit oznámení při spuštění operací na pozadí. Pokud chcete vidět toto oznámení, povolte SystemUI Tuner zobrazovat oznámení.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
     <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="intro_crash_reports">Povolit hlášení o pádech</string>
+    <string name="intro_crash_reports_desc">Můžete povolit anonymní zprávy o chybách, které pomohou udržet aplikaci v chodu. Nejsou shromažďovány žádné osobní údaje. Toto nastavení můžete později změnit.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
     <string name="compatibility_message_both">Omlouváme se, tato funkce funguje pouze od Android %1$s do Android %2$s</string>
     <string name="compatibility_message_higher">Omlouváme se, tato funkce funguje pouze na Android %s</string>
