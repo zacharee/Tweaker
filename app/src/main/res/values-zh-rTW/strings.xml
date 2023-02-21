@@ -202,8 +202,7 @@
     <string name="reset">重設</string>
     <string name="grant">授予</string>
     <string name="help">說明</string>
-    <string name="no_root_title">無 Root 或 Shizuku</string>
-    <string name="no_root_msg">未偵測到 Root 或 Shizuku。若您的裝置已 Root，請確保 SystemUI Tuner 有 Root 存取權。否則按「說明」按鈕來獲取 ADB 和 Shizuku 說明。</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">未授予 WRITE_SECURE_SETTTINGS 权限。</string>
     <string name="mode">模式</string>
     <string name="key">金鑰</string>
@@ -239,6 +238,7 @@
     <string name="previous">上一個</string>
     <string name="exit">離開</string>
     <string name="done">完成</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">狀態列圖示</string>
     <string name="network_states">網路狀態</string>
     <string name="volume_visibility">音量可見性</string>
