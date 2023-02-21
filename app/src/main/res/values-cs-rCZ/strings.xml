@@ -205,8 +205,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="reset">Resetovat</string>
     <string name="grant">Udělit</string>
     <string name="help">Nápověda</string>
-    <string name="no_root_title">Žádný Root ani Shizuku</string>
-    <string name="no_root_msg">Root ani Shizuku nebyl detekován. Pokud je vaše zařízení rootnuté, ujistěte se, že SystemUI Tuner má root přístup. V opačném případě stiskněte tlačítko NÁPOVĚDA pro pokyny ADB.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS povolení neuděleno.</string>
     <string name="mode">Režim</string>
     <string name="key">Klíč</string>
@@ -242,6 +241,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="previous">Předchozí</string>
     <string name="exit">Odejít</string>
     <string name="done">Hotovo</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Ikony stavového řádku</string>
     <string name="network_states">Stavy sítě</string>
     <string name="volume_visibility">Zobrazení hlasitosti</string>
