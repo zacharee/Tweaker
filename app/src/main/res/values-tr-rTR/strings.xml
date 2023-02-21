@@ -218,6 +218,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="hide">Gizle</string>
     <string name="show">Göster</string>
     <string name="enabled">Etkin</string>
+    <string name="enable">Enable</string>
     <string name="global">Küresel</string>
     <string name="secure">Güvenli</string>
     <string name="system">Sistem</string>
@@ -239,6 +240,11 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="intent">Maksat</string>
     <string name="view_online">Çevrimiçi görüntüleyin</string>
     <string name="tile_custom">Özel</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Durum Çubuğu Simgeleri</string>
     <string name="network_states">Ağ Durumları</string>
     <string name="volume_visibility">Ses görünürlüğü</string>
@@ -289,6 +295,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">%s kullandığınız için teşekkürler!</string>
     <string name="intro_last_desc">Proje güncellemeleri için beni Twitter üzerinden takip edin.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Maalesef bu özellik yalnızca Android% 1 $ s ile Android% 2 $ s arasında çalışır</string>
     <string name="compatibility_message_higher">Üzgünüz, bu özellik yalnızca Android üzerinden çalışır %s</string>
