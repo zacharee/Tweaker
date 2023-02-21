@@ -100,7 +100,6 @@ private fun HorizontalPagerIndicator(
     spacing: Dp = indicatorWidth,
     indicatorShape: Shape = CircleShape,
 ) {
-
     val indicatorWidthPx = LocalDensity.current.run { indicatorWidth.roundToPx() }
     val spacingPx = LocalDensity.current.run { spacing.roundToPx() }
 

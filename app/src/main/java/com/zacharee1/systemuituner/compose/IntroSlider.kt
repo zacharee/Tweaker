@@ -1,17 +1,23 @@
 package com.zacharee1.systemuituner.compose
 
+import android.util.Log
+import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.excludeFromSystemGesture
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PagerDefaults
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -20,28 +26,35 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Done
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.zacharee1.systemuituner.R
 import kotlinx.coroutines.launch
+import kotlin.math.absoluteValue
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.sign
 
 interface IntroPage {
     val canMoveForward: @Composable () -> Boolean
@@ -70,29 +83,50 @@ open class SimpleIntroPage(
             }),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
+            @Composable
+            fun TitleAndIcon() {
                 Icon(
                     painter = icon,
                     contentDescription = null,
-                    modifier = Modifier.size(128.dp)
+                    modifier = Modifier.size(128.dp),
+                    tint = MaterialTheme.colorScheme.contentColorFor(slideColor())
                 )
-
-                Spacer(modifier = Modifier.size(16.dp))
 
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.headlineMedium
                 )
+            }
+
+            if (extraContent != null) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    TitleAndIcon()
+                }
+            } else {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    TitleAndIcon()
+                }
             }
 
             Spacer(modifier = Modifier.size(8.dp))
 
-            Text(
-                text = description,
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(if (extraContent != null) Modifier else Modifier.weight(1f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = description,
+                )
+            }
 
             extraContent?.invoke(this)
         }
@@ -109,30 +143,49 @@ fun IntroSlider(
 ) {
     val state = rememberPagerState()
     val count = pages.size
-    val currentPage by remember {
-        derivedStateOf { pages[state.currentPage] }
-    }
+    val currentPage = pages[state.currentPage]
     val canMoveForward = currentPage.canMoveForward()
-    val slideColor = currentPage.slideColor()
-    val currentColor by animateColorAsState(targetValue = slideColor)
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(state.currentPage, state.targetPage, canMoveForward) {
-        if (state.targetPage > state.currentPage && !canMoveForward) {
-            state.animateScrollToPage(state.currentPage)
-        }
-    }
+    val currentColor = Color(run {
+        val position = state.currentPage
+        val offset = state.currentPageOffsetFraction
+        val next = state.currentPage + offset.sign.toInt()
+        val scrollPosition = ((next - position) * offset.absoluteValue + position)
+            .coerceIn(
+                0f,
+                (count - 1)
+                    .coerceAtLeast(0)
+                    .toFloat()
+            )
+
+        ArgbEvaluatorCompat.getInstance()
+            .evaluate(
+                scrollPosition,
+                (if (scrollPosition >= 0.5) pages[next] else currentPage).slideColor().toArgb(),
+                (if (scrollPosition >= 0.5) currentPage else pages[next]).slideColor().toArgb(),
+            )
+    })
+
+    val firstBlocked = pages.indexOfFirst { !it.canMoveForward() }
+    val filteredPages = pages.take(firstBlocked + 1).ifEmpty { pages }
+    val filteredCount = filteredPages.size
 
     Surface(modifier = modifier, color = currentColor) {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize().systemBarsPadding().imePadding()) {
             HorizontalPager(
-                pageCount = count,
+                pageCount = filteredCount,
                 state = state,
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .weight(1f),
+                beyondBoundsPageCount = 3,
             ) {
-                pages[it].Render(modifier = Modifier)
+                pages[it].Render(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxSize()
+                )
             }
 
             Row(

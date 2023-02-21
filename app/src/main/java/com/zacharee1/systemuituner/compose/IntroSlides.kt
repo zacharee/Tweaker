@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.compose
 
 import android.text.Spanned
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
@@ -16,17 +17,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColor
-import androidx.core.text.toSpannable
-import com.halilibo.richtext.markdown.Markdown
-import com.halilibo.richtext.ui.material3.Material3RichText
+import androidx.compose.ui.viewinterop.AndroidView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.Intro
 import io.noties.markwon.Markwon
@@ -36,9 +31,6 @@ fun rememberIntroSlides(startReason: Intro.Companion.StartReason): List<IntroPag
     val context = LocalContext.current
     val slides = remember(startReason) {
         mutableStateListOf<IntroPage>()
-    }
-    val markwon = remember {
-        Markwon.create(context)
     }
 
     if (slides.isEmpty()) {
@@ -66,14 +58,16 @@ fun rememberIntroSlides(startReason: Intro.Companion.StartReason): List<IntroPag
                         Text(text = stringResource(id = R.string.view_online))
                     }
 
-                    var termsText by rememberSaveable {
-                        mutableStateOf<String?>(null)
+                    var termsText by remember {
+                        mutableStateOf<Spanned?>(null)
                     }
 
                     LaunchedEffect(key1 = null) {
                         if (termsText == null) {
-                            termsText = context.resources.assets.open("terms.md").bufferedReader()
-                                .useLines { it.joinToString("\n") }
+                            termsText = Markwon.create(context).toMarkdown(
+                                context.resources.assets.open("terms.md").bufferedReader()
+                                    .useLines { it.joinToString("\n") }
+                            )
                         }
                     }
 
@@ -83,10 +77,11 @@ fun rememberIntroSlides(startReason: Intro.Companion.StartReason): List<IntroPag
                             .verticalScroll(termsScrollState)
                             .weight(1f)
                     ) {
-                        Material3RichText(
+                        AndroidView(
+                            factory = { AppCompatTextView(it) },
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            Markdown(content = termsText ?: "")
+                            it.text = termsText
                         }
                     }
                 }
