@@ -202,8 +202,7 @@
     <string name="reset">Reset</string>
     <string name="grant">Przyznaj</string>
     <string name="help">Pomoc</string>
-    <string name="no_root_title">Bez roota lub Shizuku</string>
-    <string name="no_root_msg">Root lub Shizuku nie zostały wykryte. Jeśli twoje urządzenie jest zrootowane, upewnij się, że SystemUI Tuner ma dostęp do roota. W przeciwnym razie wciśnij przycisk HELP w celu uzyskania instrukcji ADB i Shizuku.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">Uprawnienie WRITE_SECURE_SETTINGS nie zostało udzielone.</string>
     <string name="mode">Tryb</string>
     <string name="key">Klucz</string>
@@ -239,6 +238,7 @@
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
     <string name="done">Done</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Ikony paska stanu</string>
     <string name="network_states">Stan sieci</string>
     <string name="volume_visibility">Widoczność głośności</string>
