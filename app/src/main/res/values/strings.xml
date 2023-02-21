@@ -277,6 +277,7 @@
     <string name="hide">Hide</string>
     <string name="show">Show</string>
     <string name="enabled">Enabled</string>
+    <string name="enable">Enable</string>
     <string name="global">Global</string>
     <string name="secure">Secure</string>
     <string name="system">System</string>
@@ -298,6 +299,11 @@
     <string name="intent">Intent</string>
     <string name="view_online">View Online</string>
     <string name="tile_custom">Custom</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
 
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
@@ -356,6 +362,9 @@
 
     <string name="intro_last">Thanks for using my app!</string>
     <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
+
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
 
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Sorry, this feature only works from Android %1$s to Android %2$s</string>

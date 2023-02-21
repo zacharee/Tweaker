@@ -36,6 +36,7 @@ android {
     buildFeatures {
         viewBinding = true
         aidl = true
+        compose = true
     }
 
     kotlinOptions {
@@ -90,4 +91,14 @@ dependencies {
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
 
     implementation "com.bugsnag:bugsnag-android:5.28.4"
+
+    implementation "com.google.android.material:compose-theme-adapter:1.2.1"
+    implementation 'androidx.compose.material3:material3:1.1.0-alpha06'
+    implementation 'androidx.compose.foundation:foundation:1.4.0-beta01'
+    implementation 'androidx.compose.foundation:foundation-layout:1.4.0-beta01'
+    implementation 'androidx.compose.runtime:runtime:1.4.0-beta01'
+    implementation 'androidx.activity:activity-compose:1.6.1'
+
+    implementation "com.halilibo.compose-richtext:richtext-ui-material3:0.16.0"
+    implementation "com.halilibo.compose-richtext:richtext-commonmark:0.16.0"
 }

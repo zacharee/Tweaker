@@ -6,11 +6,14 @@ import android.content.ContextWrapper
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
+import com.bugsnag.android.Bugsnag
+import com.bugsnag.android.Configuration
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.MalformedJsonException
 import com.zacharee1.systemuituner.data.*
+import kotlin.system.exitProcess
 
 class PrefManager private constructor(context: Context) : ContextWrapper(context) {
     companion object {
@@ -37,6 +40,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val SAVED_STATUS_IMMERSIVE_BLACKLIST = "status_immersive_blacklist"
         const val SAW_SYSTEM_ALERT_WINDOW = "saw_system_alert_window"
         const val SAW_NOTIFICATIONS_ALERT = "saw_notifications_alert"
+        const val ENABLE_CRASH_REPORTS = "enable_crash_reports"
     }
 
     /**
@@ -113,6 +117,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = getBoolean(SAW_NOTIFICATIONS_ALERT, false)
         set(value) {
             putBoolean(SAW_NOTIFICATIONS_ALERT, value)
+        }
+
+    var enableCrashReports: Boolean?
+        get() = getString(ENABLE_CRASH_REPORTS, null)?.toBooleanStrictOrNull()
+        set(value) {
+            putString(ENABLE_CRASH_REPORTS, value?.toString())
         }
 
     val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)

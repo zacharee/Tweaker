@@ -8,8 +8,10 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.heinrichreimersoftware.materialintro.app.IntroActivity
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
+import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
 import com.zacharee1.systemuituner.fragments.intro.SimpleSlideFragmentOverride
@@ -33,7 +35,8 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
         enum class StartReason {
             INTRO,
             SYSTEM_ALERT_WINDOW,
-            NOTIFICATIONS
+            NOTIFICATIONS,
+            CRASH_REPORTS,
         }
     }
 
@@ -150,6 +153,21 @@ class Intro : IntroActivity(), CoroutineScope by MainScope() {
                     .buttonCtaLabel(R.string.grant)
                     .buttonCtaClickListener {
                         requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 100)
+                    }
+                    .build()
+            )
+        }
+
+        if (startReason == StartReason.CRASH_REPORTS) {
+            addSlide(
+                SimpleSlide.Builder()
+                    .background(R.color.slide_4)
+                    .title(R.string.intro_crash_reports)
+                    .description(R.string.intro_crash_reports_desc)
+                    .image(R.drawable.baseline_bug_report_24)
+                    .buttonCtaLabel(R.string.enable)
+                    .buttonCtaClickListener {
+                        prefManager.enableCrashReports = true
                     }
                     .build()
             )
