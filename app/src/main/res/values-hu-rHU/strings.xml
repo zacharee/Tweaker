@@ -203,8 +203,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="reset">Alaphelyzet</string>
     <string name="grant">Engedélyezés</string>
     <string name="help">Súgó</string>
-    <string name="no_root_title">No Root vagy Shizuku</string>
-    <string name="no_root_msg">Root vagy Shizuku nem észlelhető. Ha a készülék rootolt, győződjön meg róla, hogy a SystemUI Tuner rendelkezik root hozzáféréssel. Ellenkező esetben nyomja meg a HELP gombot az ADB és Shizuku utasításokért.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">A WRITE_SECURE_SETTINGS nem engedélyezett.</string>
     <string name="mode">Mód</string>
     <string name="key">Kulcs</string>
@@ -240,6 +239,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
     <string name="done">Done</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Állapotsor ikonjai</string>
     <string name="network_states">Hálózati állapotok</string>
     <string name="volume_visibility">Hangerő láthatóság</string>
