@@ -212,6 +212,7 @@
     <string name="hide">Скрыть</string>
     <string name="show">Показать</string>
     <string name="enabled">Включено</string>
+    <string name="enable">Enable</string>
     <string name="global">Общее</string>
     <string name="secure">Безопасность</string>
     <string name="system">Система</string>
@@ -233,6 +234,11 @@
     <string name="intent">Намерения</string>
     <string name="view_online">Смотреть онлайн</string>
     <string name="tile_custom">Пользовательские настройки</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
     <string name="status_bar_icons">Значки строки состояния</string>
     <string name="network_states">Состояния сети</string>
     <string name="volume_visibility">Видимость громкости</string>
@@ -282,6 +288,8 @@
     <string name="intro_allow_notifications_desc">Android 13 вводит новое ограничение - приложения должны запрашивать разрешение у пользователя на отображение уведомлений. SystemUI Tuner может показывать уведомление при выполнении фоновых операций. Если вы хотите видеть это уведомление, пожалуйста, разрешите SystemUI Tuner показывать уведомления.</string>
     <string name="intro_last">Спасибо за использование моего приложения!</string>
     <string name="intro_last_desc">Подпишитесь на меня в Twitter для актуальной информации.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Извините, эта функция работает только с Android %s и более поздними</string>
     <string name="compatibility_message_both">К сожалению, эта функция работает только с Android %1$s до Android %2$s</string>
     <string name="compatibility_message_higher">К сожалению, эта функция работает только через Android %s</string>
