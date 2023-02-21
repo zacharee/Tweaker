@@ -202,8 +202,7 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_title">Kein Root oder Shizuku</string>
-    <string name="no_root_msg">Root oder Shizuku wurde nicht erkannt. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff erhält. Andernfalls drücken Sie die Schaltfläche Hilfe für ADB- (Android Debug Bridge) und Shizuku-Anweisungen.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
@@ -239,6 +238,7 @@
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
     <string name="done">Done</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Symbole der Statusleiste</string>
     <string name="network_states">Netzwerkstatus</string>
     <string name="volume_visibility">Sichtbarkeit der Lautstärke</string>
