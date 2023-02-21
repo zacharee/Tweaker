@@ -203,8 +203,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="reset">Formatta</string>
     <string name="grant">Consenti</string>
     <string name="help">Aiuto</string>
-    <string name="no_root_title">Nessun Root o Shizuku</string>
-    <string name="no_root_msg">Root o Shizuku non sono stati rilevati. Se il dispositivo è rootato, assicurati che SystemUI Tuner abbia accesso al root. In caso contrario, premere il pulsante HELP per le istruzioni ADB e Shizuku.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS non è concesso.</string>
     <string name="mode">Modalità</string>
     <string name="key">Chiave</string>
@@ -240,6 +239,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="previous">Precedente</string>
     <string name="exit">Esci</string>
     <string name="done">Fatto</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Icone barra di stato</string>
     <string name="network_states">Stato della rete</string>
     <string name="volume_visibility">Visibilità Volume</string>
