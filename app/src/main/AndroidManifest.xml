@@ -116,6 +116,11 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.intro.ComposeIntroActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            />
 
         <service android:name=".services.Manager"
             android:exported="false"

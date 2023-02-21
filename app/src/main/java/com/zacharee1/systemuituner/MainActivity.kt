@@ -17,7 +17,7 @@ import androidx.core.view.updateLayoutParams
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
-import com.zacharee1.systemuituner.activities.Intro
+import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
 import com.zacharee1.systemuituner.databinding.ActivityMainBinding
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.fragments.HomeFragment
@@ -41,18 +41,21 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         super.onCreate(savedInstanceState)
 
         when {
+            !prefManager.didIntro -> {
+                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.INTRO)
+            }
             !hasWss -> {
-                Intro.start(this)
+                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS)
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
                     !Settings.canDrawOverlays(this) &&
                     !prefManager.sawSystemAlertWindow -> {
-                Intro.start(this, Intro.Companion.StartReason.SYSTEM_ALERT_WINDOW)
+                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW)
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                     checkCallingOrSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
                     !prefManager.sawNotificationsAlert -> {
-                Intro.start(this, Intro.Companion.StartReason.NOTIFICATIONS)
+                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.NOTIFICATIONS)
             }
         }
 

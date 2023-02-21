@@ -41,6 +41,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         const val SAW_SYSTEM_ALERT_WINDOW = "saw_system_alert_window"
         const val SAW_NOTIFICATIONS_ALERT = "saw_notifications_alert"
         const val ENABLE_CRASH_REPORTS = "enable_crash_reports"
+        const val DID_INTRO = "did_intro"
     }
 
     /**
@@ -123,6 +124,12 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         get() = getString(ENABLE_CRASH_REPORTS, null)?.toBooleanStrictOrNull()
         set(value) {
             putString(ENABLE_CRASH_REPORTS, value?.toString())
+        }
+
+    var didIntro: Boolean
+        get() = getBoolean(DID_INTRO, false)
+        set(value) {
+            putBoolean(DID_INTRO, value)
         }
 
     val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)

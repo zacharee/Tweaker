@@ -63,11 +63,11 @@ abstract class PermGrantSlide : SlideFragment(), CoroutineScope by MainScope(), 
                         requestShizukuPermission()
                     }
                 } else {
-                    AlertDialog.Builder(requireActivity())
-                        .setTitle(R.string.no_root_title)
-                        .setMessage(R.string.no_root_msg)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show()
+//                    AlertDialog.Builder(requireActivity())
+//                        .setTitle(R.string.no_root_title)
+//                        .setMessage(R.string.no_root_msg)
+//                        .setPositiveButton(android.R.string.ok, null)
+//                        .show()
                 }
             }
 
