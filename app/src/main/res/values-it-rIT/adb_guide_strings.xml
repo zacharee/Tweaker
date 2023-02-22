@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Dovrebbe aprirsi una finestra di prompt dei comandi o del terminale. Digitare i seguenti comandi al suo interno, e premere Invio/Invio dopo ciascuno di essi. Se sul telefono appare un popup sul debug USB, assicurati di consentirlo.</string>
     <string name="adb_install_adb_general_end_2">Se tutto è andato a buon fine, non ci dovrebbe essere alcun output dai comandi. Se c\'è, assicurati di scorrere fino a dove hai inserito il comando per vedere l\'errore.</string>
     <string name="adb_install_adb_general_end_3">I permessi ora dovrebbero essere concessi!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
