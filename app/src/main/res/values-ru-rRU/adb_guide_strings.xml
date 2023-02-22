@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Должно быть открыто окно командной строки или терминала. Введите внутри него следующую команду(ы) и нажмите Ввод после каждой из них. Если на вашем телефоне появится всплывающее окно об отладке по USB, убедитесь, что выдали разрешения.</string>
     <string name="adb_install_adb_general_end_2">Если все прошло правильно, команды ничего не должны показать. Если же вывод команд есть, не забудьте прокрутить наверх до места ввода команды, чтобы увидеть ошибку.</string>
     <string name="adb_install_adb_general_end_3">Разрешения теперь должны быть предоставлены!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
