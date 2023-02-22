@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Meg kell nyílnia egy parancssor vagy terminál ablaknak. Írja be a következő parancs(ok) at, és mindegyik után nyomja le az Enter/Return billentyűt. Ha a telefonon megjelenik egy felugró ablak az USB hibakeresésről, engedélyezze.</string>
     <string name="adb_install_adb_general_end_2">Ha minden rendben ment, akkor a parancsoknak nem szabad megjelenniük. Ha van, feltétlenül görgessen egészen addig, ahol beírta a parancsot a hiba megtekintéséhez.</string>
     <string name="adb_install_adb_general_end_3">Az engedélyeket most meg kell adni!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
