@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[从 [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.priveged.api)下载并安装Shizuku应用程序。]]></string>
     <string name="adb_install_local_2">打开Shizuku应用程序，按“通过无线调试启动”下的说明操作。</string>
     <string name="adb_install_local_3">关闭此屏幕并点击\"GRANT\"按钮。</string>
-    <string name="adb_install_adb_windows_1">从这里下载ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-windows.zip。</string>
-    <string name="adb_install_adb_windows_2">提取ZIP到方便的位置，例如C:\\adb。</string>
+    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">使用文件浏览器浏览到提取的ZIP。您应该看到一堆文件，包括一个叫做“adb”的文件。</string>
     <string name="adb_install_adb_windows_4">点击搜索栏内的内容，用“cmd”(不带引号) 替换那里的内容。然后点击Enter。</string>
-    <string name="adb_install_adb_mac_1">从这里下载ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-darwin.zip。</string>
+    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">提取ZIP到一个方便的位置，如桌面。</string>
     <string name="adb_install_adb_mac_3">现在打开终端。您可以同时按 CMD + SPACE 打开Spotlight Search，并搜索“终端”。</string>
     <string name="adb_install_adb_mac_4">现在，使用以下命令浏览到已提取的文件：`cd /path/to/files/`。 例如，如果您的用户名是Zachary 并且您提取了ZIP到您的桌面， 命令将是“cd /Users/Zachary/Desktop/platform-tools/`”，其中“platform-tools”是名为\"adb\"文件的文件夹。</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">通过以下命令安装 ADB: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">打开终端</string>
     <string name="adb_install_adb_rhel_2">通过以下命令安装 ADB: `sudo dnf install adb`.</string>
-    <string name="adb_install_adb_linux_other_1">从这里下载ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-linux.zip。</string>
+    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">提取ZIP到一个方便的位置，如桌面。</string>
     <string name="adb_install_adb_linux_other_3">打开终端</string>
     <string name="adb_install_adb_linux_other_4">现在，使用以下命令浏览到已提取的文件：`cd /path/to/files/`。 例如，如果您的用户名是Zachary 并且您提取了ZIP到您的主目录， 命令将是“cd /home/Zachary/platform-tools/”，其中“platform-tools”是文件名为\"adb\"的文件夹。</string>
