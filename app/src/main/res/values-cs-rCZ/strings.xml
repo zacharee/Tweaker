@@ -290,7 +290,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_allow_notifications">Povolit notifikace</string>
     <string name="intro_allow_notifications_desc">Android 13 zavádí nové omezení aplikací vyžadujících oprávnění uživatele k zobrazování oznámení. SystemUI Tuner může zobrazit oznámení při spuštění operací na pozadí. Pokud chcete vidět toto oznámení, povolte SystemUI Tuner zobrazovat oznámení.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
-    <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Povolit hlášení o pádech</string>
     <string name="intro_crash_reports_desc">Můžete povolit anonymní zprávy o chybách, které pomohou udržet aplikaci v chodu. Nejsou shromažďovány žádné osobní údaje. Toto nastavení můžete později změnit.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
@@ -320,6 +320,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="website">Webová stránka</string>
     <string name="more_apps">Další aplikace</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Pokud máte zařízení Samsung se systémem Android Pie nebo novějším v uživatelském rozhraní One UI společnosti Samsung, možná jste si všimli, že některé možnosti, které fungovaly v systému Oreo, již nefungují, například sekundy hodin. Vytvořil jsem samostatnou aplikaci, která využívá systémové překryvy, aby některé z těchto možností vrátila zpět. Nepotřebuje root ani ADB.</string>
     <string name="check_it_out">Podívat se na to</string>
@@ -367,7 +368,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="setting_applied_dialog_desc">Chcete zachovat změny? Tato možnost bude vrácena po %s sekundách.</string>
     <string name="keep">Zachovat</string>
     <string name="revert">Vrátit zpět</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="blocked_reason_read_terms">Než budete pokračovat, nezapomeňte si přečíst podmínky.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner nemůže fungovat bez oprávnění Write Secure Settings. Pokud máte potíže s udělením, klepněte na tlačítko \"Nápověda\".</string>
+    <string name="blocked_reason_choose_os">Před pokračováním vyberte operační systém.</string>
 </resources>
