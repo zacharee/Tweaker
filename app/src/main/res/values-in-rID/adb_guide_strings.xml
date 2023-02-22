@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Jendela Command Prompt atau Terminal seharusnya terbuka. Ketik perintah berikut di dalamnya, dan tekan Enter/Return setelah masing-masing perintah dijalankan. Jika popup muncul di ponsel Anda tentang USB Debugging, pastikan untuk mengizinkannya.</string>
     <string name="adb_install_adb_general_end_2">Jika semuanya berjalan dengan baik, seharusnya tidak ada output dari Command Prompt atau Terminal. Jika ada, pastikan untuk menggulir keatas sampai ke tempat dimana Anda memasukkan perintah untuk melihat kesalahannya.</string>
     <string name="adb_install_adb_general_end_3">Sekarang, Seharusnya izin sudah diberikan!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
