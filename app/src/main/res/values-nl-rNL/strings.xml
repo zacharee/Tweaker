@@ -202,7 +202,7 @@
     <string name="reset">Standaardwaarden</string>
     <string name="grant">Toestaan</string>
     <string name="help">Help</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg">Kan geen toegang verlenen tot het apparaat als geen root of Shizuku is gedetecteerd. Als je apparaat geroot is, zorg er dan voor dat SystemUI Tuner roottoegang heeft. Druk anders op de hulpknop voor ADB- en Shizuku-instructies.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS isn\'t granted.</string>
     <string name="mode">Modus</string>
     <string name="key">Sleutel</string>
@@ -238,7 +238,7 @@
     <string name="previous">Vorige</string>
     <string name="exit">Afsluiten</string>
     <string name="done">Klaar</string>
-    <string name="error">Error</string>
+    <string name="error">Foutmelding</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
