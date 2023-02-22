@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.bugsnag.android.Bugsnag
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.prefManager
 
@@ -36,6 +37,10 @@ fun CrashReportsToggle(
 
     LaunchedEffect(key1 = enabled) {
         context.prefManager.enableCrashReports = enabled
+
+        if (enabled && !Bugsnag.isStarted()) {
+            Bugsnag.start(context)
+        }
     }
 
     val interactionSource = remember {
