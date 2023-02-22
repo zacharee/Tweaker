@@ -45,9 +45,6 @@
     <string name="adb_install_adb_general_end_1">Cửa sổ Command Prompt hoặc Terminal sẽ mở ra. Nhập (các) lệnh sau vào bên trong nó và nhấn Enter/Return sau mỗi lệnh. Nếu một cửa sổ bật lên xuất hiện trên điện thoại của bạn về Gỡ lỗi USB, hãy đảm bảo rằng cho phép nó.</string>
     <string name="adb_install_adb_general_end_2">Nếu mọi thứ diễn ra tốt, sẽ không có đầu ra từ các lệnh. Nếu có, hãy nhớ cuộn đến nơi bạn đã nhập lệnh để xem lỗi.</string>
     <string name="adb_install_adb_general_end_3">Quyền bây giờ sẽ được cấp!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
