@@ -27,4 +27,4 @@ SystemUI Tuner is on Crowdin! [Check out the project page](https://crowdin.com/p
 # Error Reporting
 SystemUI Tuner uses Bugsnag for error reporting as of version 350. Previous versions use Firebase Crashlytics.
 
-[![image](https://assets-global.website-files.com/607f4f6df411bd01527dc7d5/63bc40cd9d502eda8ea74ce7_Bugsnag%20Full%20Color.svg)](https://www.bugsnag.com | width=200)
+[![image](https://assets-global.website-files.com/607f4f6df411bd01527dc7d5/63bc40cd9d502eda8ea74ce7_Bugsnag%20Full%20Color.svg | width=200)](https://www.bugsnag.com)
