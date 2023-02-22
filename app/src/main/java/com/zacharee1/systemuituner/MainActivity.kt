@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             var needsResult = false
 
             if (!prefManager.didIntro) {
+                if (hasWss) {
+                    prefManager.didIntro = true
+                }
+
                 reasons.add(ComposeIntroActivity.Companion.StartReason.INTRO)
             }
 
