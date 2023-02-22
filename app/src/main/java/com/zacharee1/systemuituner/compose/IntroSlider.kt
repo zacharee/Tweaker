@@ -1,9 +1,10 @@
 package com.zacharee1.systemuituner.compose
 
 import android.graphics.Typeface
-import android.os.storage.StorageManager.AppIoBlockedReason
 import android.text.util.Linkify
 import android.util.TypedValue
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -27,7 +28,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
@@ -50,6 +50,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -67,10 +68,12 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.compose.ui.window.isPopupLayout
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.zacharee1.systemuituner.R
 import io.noties.markwon.Markwon
+import io.noties.markwon.core.CorePlugin
+import io.noties.markwon.html.HtmlPlugin
+import io.noties.markwon.movement.MovementMethodPlugin
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 import kotlin.math.max
@@ -162,11 +165,15 @@ open class SimpleStepsPage(
                                 AppCompatTextView(it).apply {
                                     setTextIsSelectable(true)
                                     setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
-                                    autoLinkMask = Linkify.WEB_URLS
                                 }
                             }
                         ) { tv ->
-                            tv.text = Markwon.create(context).toMarkdown(it.text)
+                            tv.text = Markwon.builder(context)
+                                .usePlugin(CorePlugin.create())
+                                .usePlugin(MovementMethodPlugin.link())
+                                .usePlugin(HtmlPlugin.create())
+                                .build()
+                                .toMarkdown(it.text)
                             tv.typeface = if (it.isCommand) Typeface.MONOSPACE else Typeface.DEFAULT
                             tv.maxLines = if (it.isCommand) 1 else Int.MAX_VALUE
                         }
@@ -371,6 +378,24 @@ fun IntroSlider(
 
     var forwardAlert by remember {
         mutableStateOf<String?>(null)
+    }
+
+    val backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher
+
+    DisposableEffect(backPressedDispatcher, state.currentPage) {
+        val callback = object : OnBackPressedCallback(state.currentPage > 0) {
+            override fun handleOnBackPressed() {
+                scope.launch {
+                    state.animateScrollToPage(max(state.currentPage - 1, 0))
+                }
+            }
+        }
+
+        backPressedDispatcher?.addCallback(callback)
+
+        onDispose {
+            callback.remove()
+        }
     }
 
     Surface(modifier = modifier, color = currentColor) {
