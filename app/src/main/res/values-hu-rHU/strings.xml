@@ -289,7 +289,7 @@ Néma láthatóság</string>
     <string name="intro_allow_notifications">Értesítések engedélyezése</string>
     <string name="intro_allow_notifications_desc">Az Android 13 új korlátozást vezet be azokra az alkalmazásokra, amelyek engedélyt kérnek a felhasználótól az értesítések megjelenítéséhez. A SystemUI Tuner értesítést jeleníthet meg a háttérben végzett műveletek futtatásakor. Ha szeretné látni ezt az értesítést, engedélyezze a SystemUI Tuner számára az értesítések megjelenítését.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
-    <string name="intro_last_desc">Kövess a Twitteren, hogy értesülj a legújabb frissítésekről.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
@@ -319,6 +319,7 @@ Néma láthatóság</string>
     <string name="website">Weboldal</string>
     <string name="more_apps">További alkalmazások</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI hangoló</string>
     <string name="oneui_tuner_desc">Ha van olyan Samsung készüléked, amelyen Android Pie vagy újabb Android One UI fut, észrevehetted, hogy néhány olyan opció, amely az Oreo-n működött, már nem működik, például a Clock Seconds. Készítettem egy külön alkalmazást, amely a rendszerfelületeket használja, hogy visszahozzon néhányat ezekből az opciókból. Ehhez nem kell root vagy ADB.</string>
     <string name="check_it_out">Tekintse meg</string>
