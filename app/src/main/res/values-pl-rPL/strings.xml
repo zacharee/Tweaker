@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Allow Notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Thanks for using my app!</string>
-    <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
@@ -317,6 +317,7 @@
     <string name="website">Strona internetowa</string>
     <string name="more_apps">Więcej aplikacji</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Jeśli masz urządzenie Samsung z Androidem Pie lub później, na Samsung One UI, Być może zauważyłeś, że niektóre opcje, które działały na Oreo, przestały działać, takie jak zegary sekund. Stworzyłem oddzielną aplikację, która korzysta z nakładek systemowych, aby przywrócić niektóre z tych opcji. Nie potrzebuje ona roota ani ADB.</string>
     <string name="check_it_out">Sprawdź to</string>
