@@ -289,7 +289,8 @@
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
     <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">충돌 보고서 활성화</string>
-    <string name="intro_crash_reports_desc">익명으로 보내는 충돌 보고서를 활성화하여 앱이 보다 원활히 동작할 수 있게 도울 수 있습니다. 개인정보는 수집되지 않습니다. 설정은 나중에 변경할 수 있습니다.</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
     <string name="compatibility_message_both">죄송합니다, 안드로이드 %1$s에서 %2$s 버전까지만 지원하는 기능입니다.</string>
     <string name="compatibility_message_higher">죄송합니다, 이 기능은 안드로이드 %s에서만 작동합니다.</string>
