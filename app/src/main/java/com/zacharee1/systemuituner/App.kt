@@ -54,7 +54,9 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
     override fun onCreate() {
         super.onCreate()
 
-        Bugsnag.start(this)
+        if (prefManager.enableCrashReports == true) {
+            Bugsnag.start(this)
+        }
 
         initExceptionHandler()
 
