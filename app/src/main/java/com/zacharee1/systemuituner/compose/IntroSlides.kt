@@ -50,15 +50,15 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
         mutableStateListOf<IntroPage>()
     }
     val termsScrollState = rememberScrollState()
-    var rawTermsText by rememberSaveable {
+    var rawTermsText by remember {
         mutableStateOf<String?>(null)
     }
-    var hasHitBottomOfTerms by rememberSaveable {
+    var hasHitBottomOfTerms by remember {
         mutableStateOf(false)
     }
 
-    LaunchedEffect(key1 = termsScrollState.canScrollForward) {
-        if (!termsScrollState.canScrollForward) {
+    LaunchedEffect(termsScrollState.maxValue, termsScrollState.canScrollForward, rawTermsText) {
+        if (termsScrollState.maxValue > 0 && !termsScrollState.canScrollForward && rawTermsText != null) {
             hasHitBottomOfTerms = true
         }
     }
