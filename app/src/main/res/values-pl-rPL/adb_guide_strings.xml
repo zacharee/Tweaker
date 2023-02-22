@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Okno Wiersza Polecenia lub Terminala powinno zostać otwarte. Wpisz następujące polecenie (polecenia) wewnątrz niego i wciśnij Enter po każdym z nich. Jeśli na telefonie pojawi się wyskakujące okno dotyczące debugowania USB, upewnij się, aby zezwolić na dostęp.</string>
     <string name="adb_install_adb_general_end_2">Jeśli wszystko poszło dobrze, nie powinny pojawiś się żadne komunikaty. Jeśli jakieś pojawiły się, przewiń w górę do miejsca, w którym wprowadziłeś polecenie, aby zweryfikować błąd.</string>
     <string name="adb_install_adb_general_end_3">Uprawnienia powinny być teraz przyznane!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
