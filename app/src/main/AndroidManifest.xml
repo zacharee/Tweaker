@@ -53,10 +53,6 @@
             android:name=".activities.ImmersiveListSelector"
             android:exported="false"
             />
-        <activity android:name=".activities.Intro"
-            android:exported="false"
-            android:theme="@style/IntroTheme"
-            />
         <activity android:name=".activities.UISoundSelector"
             android:exported="false"
             />
@@ -75,9 +71,6 @@
             />
         <activity android:name=".activities.ManageQSActivity"
             android:label="@string/option_advanced_manage_qs_tiles"
-            android:exported="false"
-            />
-        <activity android:name=".activities.ExtraPermsRetroactive"
             android:exported="false"
             />
         <activity android:name=".activities.DemoModeActivity"
