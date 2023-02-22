@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.activities.ExtraPermsRetroactive
+import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
 import com.zacharee1.systemuituner.anim.PrefAnimator
 import com.zacharee1.systemuituner.data.BlacklistBackupInfo
 import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
@@ -302,7 +302,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             onExpandChangeListener = {
                 if (preferenceCount == 0 && it) {
                     if (!requireContext().run { hasDump && hasPackageUsageStats }) {
-                        ExtraPermsRetroactive.start(requireContext(), ExtraPermsSlide::class.java)
+                        ComposeIntroActivity.start(requireContext(), ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS)
                         expanded = false
                     } else {
                         launch {

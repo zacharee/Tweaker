@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">명령 프롬프트나 터미널 창이 열려 있어야 합니다. 아래 명령어를 창에 입력하십시오. 각 명령어를 입력하고 Enter나 Return 키를 누르십시오. 폰에 USB 디버깅과 관련된 팝업이 뜬다면, 허용해주십시오.</string>
     <string name="adb_install_adb_general_end_2">모두 잘 되고 있다면, 명령어를 실행했을 때 출력이 없어야 합니다. 출력이 있는 경우 명령어를 입력한 위치까지 스크롤하여 오류를 확인하십시오.</string>
     <string name="adb_install_adb_general_end_3">이제 권한이 부여되었을 것입니다!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>

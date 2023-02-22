@@ -86,6 +86,7 @@
             />
         <activity android:name=".activities.tutorial.TutorialActivity"
             android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"
             />
         <activity android:name=".activities.QSEditorActivity"
             android:label="@string/option_qs_editor"

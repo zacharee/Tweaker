@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">命令提示或终端窗口应打开。请输入其中的以下命令(s)，并在每个命令之后点击Enter/return。 如果在您的手机上出现了关于 USB 调试的弹出窗口，请确保允许它。</string>
     <string name="adb_install_adb_general_end_2">如果一切都正确，命令就不会输出。 如果有，请务必滚动到您输入的命令以查看错误。</string>
     <string name="adb_install_adb_general_end_3">现在应该授予权限！</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm 授权 %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows系统</string>
     <string name="adb_mac">macOS 系统</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>

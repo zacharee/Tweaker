@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Mělo by se otevřít okno příkazového řádku nebo terminálu. Zadejte do něj následující příkazy a po každém z nich stiskněte Enter/Return. Pokud se v telefonu zobrazí vyskakovací okno o ladění USB, nezapomeňte jej povolit.</string>
     <string name="adb_install_adb_general_end_2">Pokud vše proběhlo správně, neměly by se zobrazit žádné výstupy příkazů. Pokud ano, nezapomeňte se posunout až na místo, kde jste příkaz zadali, abyste viděli chybu.</string>
     <string name="adb_install_adb_general_end_3">Oprávnění by nyní měla být udělena!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>

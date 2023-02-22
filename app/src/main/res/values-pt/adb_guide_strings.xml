@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Um Prompt de Comando ou uma janela de Terminal deve abrir. Digite os seguintes comandos dentro dele, e pressione Enter/Return após cada um. Se um pop-up aparecer em seu telefone sobre a depuração USB, certifique-se de permiti-lo e mantenha o seu telefone conectado.</string>
     <string name="adb_install_adb_general_end_2">Se tudo ocorreu bem, não deverá haver erros dos comandos. Se houver, certifique-se de rolar até onde você digitou o comando para ver o erro.</string>
     <string name="adb_install_adb_general_end_3">As permissões agora devem estar concedidas!</string>
-    <string name="adb_command_template_windows">\".\\adb shell pm grant %1$s %2$s\"</string>
-    <string name="adb_command_template_mac_linux">\"./adb shell pm grant %1$s %2$s\"</string>
-    <string name="adb_command_template_linux_installed">\"adb shell pm grant %1$s %2$s\"</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>

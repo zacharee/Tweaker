@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
 import com.zacharee1.systemuituner.databinding.ActivityDemoModeBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
@@ -26,7 +27,7 @@ class DemoModeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (!hasDump) {
-            ExtraPermsRetroactive.start(this, ExtraPermsSlide::class.java)
+            ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS)
             finish()
         }
     }
