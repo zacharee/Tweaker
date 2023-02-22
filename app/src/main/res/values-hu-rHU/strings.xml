@@ -289,8 +289,8 @@ Néma láthatóság</string>
     <string name="intro_allow_notifications">Értesítések engedélyezése</string>
     <string name="intro_allow_notifications_desc">Az Android 13 új korlátozást vezet be azokra az alkalmazásokra, amelyek engedélyt kérnek a felhasználótól az értesítések megjelenítéséhez. A SystemUI Tuner értesítést jeleníthet meg a háttérben végzett műveletek futtatásakor. Ha szeretné látni ezt az értesítést, engedélyezze a SystemUI Tuner számára az értesítések megjelenítését.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_last_desc">Kövess Mastodon vagy Twitteren, hogy értesülj a legújabb frissítésekről.</string>
+    <string name="intro_crash_reports">Összeomlás riportok engedélyezése</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
