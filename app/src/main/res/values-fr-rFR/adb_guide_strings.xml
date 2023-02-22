@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">Un invité de commande ou un terminal devrait s\'ouvrir. Tapez la ou les commandes suivantes à l\'intérieur, et appuyez sur Entrer/Retourner après chaque commande. Si une popup apparaît sur votre téléphone à propos du débogage USB, assurez-vous de l\'autoriser.</string>
     <string name="adb_install_adb_general_end_2">Si tout se passe bien, il ne devrait pas y avoir de sortie des commandes. S\'il y en a, assurez-vous de faire défiler jusqu\'à l\'endroit où vous avez entré la commande pour voir l\'erreur.</string>
     <string name="adb_install_adb_general_end_3">Les autorisations devraient maintenant être accordées !</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
