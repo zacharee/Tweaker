@@ -177,6 +177,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                             startReason == ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW
                     )
         ) {
+            context.prefManager.sawSystemAlertWindow = true
+
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_system_alert_window) },
                 description = stringResource(id = R.string.intro_system_alert_window_desc),
