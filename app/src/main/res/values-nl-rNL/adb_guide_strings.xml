@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Download and install the Shizuku app from the [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Open the Shizuku app and follow the instructions under \"Start via Wireless Debugging\".</string>
     <string name="adb_install_local_3">Close this screen and tap the \"GRANT\" button.</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_1">Download de ADB-ZIP hier: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Pak het zipbestand uit naar een handige locatie, zoals `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
     <string name="adb_install_adb_windows_4">Click inside the search bar and replace what\'s there with \"cmd\" (without quotes). Then hit Enter.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Download de ADB-ZIP hier: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Extract the ZIP to a convenient location, such as the Desktop.</string>
     <string name="adb_install_adb_mac_3">Now, open the terminal. You can do so by pressing CMD+SPACE at the same time to open Spotlight Search, and searching for \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Install ADB with the following command: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Open a terminal.</string>
     <string name="adb_install_adb_rhel_2">Install ADB with the following command: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">Download de ADB-ZIP hier: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
     <string name="adb_install_adb_linux_other_3">Open a terminal.</string>
     <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
