@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import androidx.preference.forEach
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SearchIndex
@@ -19,24 +20,26 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
 
     override val limitSummary: Boolean = false
 
+    private val prefsCategory: PreferenceCategory?
+        get() = preferenceScreen.findPreference("prefs_group")
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
-        preferenceScreen.isOrderingAsAdded = false
     }
 
     fun onShow() {
         launch {
             searchIndex.load().await()
 
-            preferenceScreen.removeAll()
+            prefsCategory?.removeAll()
             searchIndex.filter(null) {
                 it.forEach { pref ->
-                    preferenceScreen.addPreference(
+                    prefsCategory?.addPreference(
                         SearchIndex.ActionedPreference.copy(requireContext(), pref)
                     )
                 }
             }
-            preferenceScreen.isOrderingAsAdded = false
+            prefsCategory?.isOrderingAsAdded = false
         }
     }
 
@@ -64,23 +67,23 @@ class SearchFragment : BasePrefFragment(), SearchView.OnQueryTextListener {
             searchIndex.filter(newText) {
                 val toRemove = ArrayList<Preference>()
 
-                preferenceScreen.forEach { child ->
+                prefsCategory?.forEach { child ->
                     if (!it.map { c -> c.key }.contains(child.key)) {
                         toRemove.add(child)
                     }
                 }
 
                 toRemove.forEach { pref ->
-                    preferenceScreen.removePreferenceRecursively(pref.key)
+                    prefsCategory?.removePreferenceRecursively(pref.key)
                 }
 
                 it.forEach { pref ->
-                    if (!preferenceScreen.hasPreference(pref.key)) {
-                        preferenceScreen.addPreference(
+                    if (prefsCategory?.hasPreference(pref.key) == false) {
+                        prefsCategory?.addPreference(
                             SearchIndex.ActionedPreference.copy(requireContext(), pref)
                         )
                     } else {
-                        preferenceScreen.findPreference<Preference>(pref.key)?.order = pref.order
+                        prefsCategory?.findPreference<Preference>(pref.key)?.order = pref.order
                     }
                 }
             }

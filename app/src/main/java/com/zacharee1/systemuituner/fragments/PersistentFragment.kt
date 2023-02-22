@@ -47,6 +47,11 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         true
     }
 
+    private val persistentCategory: PreferenceCategory?
+        get() = preferenceScreen.findPreference("prefs_group")
+    private val noticeCategory: PreferenceCategory?
+        get() = preferenceScreen.findPreference("notices")
+
     @SuppressLint("RestrictedApi")
     private fun inflate(resource: Int): PreferenceScreen {
         return preferenceManager.inflateFromResource(requireContext(), resource, null).also { process(it) }
@@ -67,37 +72,16 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.prefs_search, rootKey)
 
-        preferenceScreen.removeAll()
-        preferenceScreen.addPreference(
-            InlineActivityPreference(
-                requireContext(),
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://dontkillmyapp.com"))
-            ).apply {
-                title = resources.getString(R.string.persistent_options_not_sticking_title)
-                summary = resources.getString(R.string.persistent_options_not_sticking_desc)
-                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
-            }
-        )
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !Settings.canDrawOverlays(requireContext())) {
-            preferenceScreen.addPreference(
-                InlineActivityPreference(
-                    requireContext(),
-                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
-                ).apply {
-                    title = resources.getString(R.string.intro_system_alert_window)
-                    summary = resources.getString(R.string.intro_system_alert_window_desc)
-                    icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
-                }
-            )
-        }
+        addNoticePreferences()
         filterPersistent(null) {
             it.forEach { pref ->
-                preferenceScreen.addPreference(construct(pref))
+                persistentCategory?.addPreference(construct(pref))
             }
         }
 
-        preferenceScreen.isOrderingAsAdded = false
+        persistentCategory?.isOrderingAsAdded = false
         requireContext().prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+        onQueryTextChange(null)
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
@@ -114,22 +98,25 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
 
     override fun onQueryTextChange(newText: String?): Boolean {
         currentQuery = newText
+
+        noticeCategory?.isVisible = newText == null
+
         filterPersistent(newText) {
             val toRemove = ArrayList<Preference>()
 
-            preferenceScreen.forEach { child ->
+            persistentCategory?.forEach { child ->
                 if (!it.map { c -> c.key }.contains(child.key)) {
                     toRemove.add(child)
                 }
             }
 
             toRemove.forEach { pref ->
-                preferenceScreen.removePreference(pref)
+                persistentCategory?.removePreference(pref)
             }
 
             it.forEach { pref ->
-                if (!preferenceScreen.hasPreference(pref.key)) {
-                    preferenceScreen.addPreference(construct(pref))
+                if (persistentCategory?.hasPreference(pref.key) == false) {
+                    persistentCategory?.addPreference(construct(pref))
                 }
             }
         }
@@ -163,12 +150,12 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         val filter = async {
             ArrayList(
                 preferences.filter {
-                    (query == null || query.isBlank() ||
+                    (query.isNullOrBlank() ||
                             it.title.toString().contains(query, true) ||
                             it.origSummary?.toString()?.contains(query, true) == true)
                 }.map { PersistentPreference.fromPreference(false, it, this@PersistentFragment) } +
                         requireContext().prefManager.customPersistentOptions.filter {
-                            query == null || query.isBlank() ||
+                            query.isNullOrBlank() ||
                                     it.label.contains(query, true) ||
                                     it.key.contains(query, true)
                         }.map {
@@ -178,6 +165,31 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
         }
 
         result(filter.await())
+    }
+
+    private fun addNoticePreferences() {
+        noticeCategory?.addPreference(
+            InlineActivityPreference(
+                requireContext(),
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://dontkillmyapp.com"))
+            ).apply {
+                title = resources.getString(R.string.persistent_options_not_sticking_title)
+                summary = resources.getString(R.string.persistent_options_not_sticking_desc)
+                icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
+            }
+        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !Settings.canDrawOverlays(requireContext())) {
+            noticeCategory?.addPreference(
+                InlineActivityPreference(
+                    requireContext(),
+                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
+                ).apply {
+                    title = resources.getString(R.string.intro_system_alert_window)
+                    summary = resources.getString(R.string.intro_system_alert_window_desc)
+                    icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_help_outline_24)
+                }
+            )
+        }
     }
 
     private fun construct(pref: PersistentPreference): PersistentPreference {
@@ -348,7 +360,7 @@ class PersistentFragment : BasePrefFragment(), SearchView.OnQueryTextListener, S
                                         removeAll { it.type == type && it.key == key }
                                     }
                                 }
-                                fragment.preferenceScreen.removePreference(this@PersistentPreference)
+                                fragment.preferenceScreen.removePreferenceRecursively(key)
                                 dismiss()
                             }
                             setNegativeButton(android.R.string.cancel, null)

@@ -43,6 +43,13 @@ class PersistentActivity : AppCompatActivity() {
 
         searchView?.setOnQueryTextListener(persistentFragment)
         searchView?.addAnimation()
+        searchView?.setOnCloseListener {
+            persistentFragment.onQueryTextChange(null)
+            false
+        }
+        searchView?.setOnSearchClickListener {
+            persistentFragment.onQueryTextChange("")
+        }
 
         val addItem = menu.findItem(R.id.add)
         addItem.isVisible = true
