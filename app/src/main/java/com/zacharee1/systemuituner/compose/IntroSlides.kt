@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
 import android.text.Spanned
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatTextView
@@ -25,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,6 +39,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
 import com.zacharee1.systemuituner.compose.components.IntroSpecialPermissionGrantGroup
+import com.zacharee1.systemuituner.util.launchUrl
 import com.zacharee1.systemuituner.util.prefManager
 import io.noties.markwon.Markwon
 
@@ -45,6 +48,19 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
     val context = LocalContext.current
     val slides = remember(startReason) {
         mutableStateListOf<IntroPage>()
+    }
+    val termsScrollState = rememberScrollState()
+    var rawTermsText by rememberSaveable {
+        mutableStateOf<String?>(null)
+    }
+    var hasHitBottomOfTerms by rememberSaveable {
+        mutableStateOf(false)
+    }
+
+    LaunchedEffect(key1 = termsScrollState.canScrollForward) {
+        if (!termsScrollState.canScrollForward) {
+            hasHitBottomOfTerms = true
+        }
     }
 
     if (slides.isEmpty()) {
@@ -58,34 +74,26 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                 )
             )
 
-            val termsScrollState = rememberScrollState()
-
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_terms) },
                 description = stringResource(id = R.string.intro_terms_desc),
                 icon = { painterResource(id = R.drawable.ic_baseline_format_list_numbered_24) },
                 slideColor = { colorResource(id = R.color.slide_2) },
                 scrollable = false,
-                canMoveForward = {
-                    !termsScrollState.canScrollForward
-                },
+                canMoveForward = { hasHitBottomOfTerms },
                 horizontalTitleRow = true,
                 fullWeightDescription = false,
                 extraContent = {
-                    OutlinedButton(onClick = { /* launch url */ }) {
+                    OutlinedButton(onClick = {
+                        context.launchUrl("https://github.com/zacharee/Tweaker/blob/master/app/src/main/assets/terms.md")
+                    }) {
                         Text(text = stringResource(id = R.string.view_online))
                     }
 
-                    var termsText by remember {
-                        mutableStateOf<Spanned?>(null)
-                    }
-
                     LaunchedEffect(key1 = null) {
-                        if (termsText == null) {
-                            termsText = Markwon.create(context).toMarkdown(
-                                context.resources.assets.open("terms.md").bufferedReader()
-                                    .useLines { it.joinToString("\n") }
-                            )
+                        if (rawTermsText == null) {
+                            rawTermsText = context.resources.assets.open("terms.md").bufferedReader()
+                                .useLines { it.joinToString("\n") }
                         }
                     }
 
@@ -99,7 +107,7 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                             factory = { AppCompatTextView(it) },
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            it.text = termsText
+                            it.text = Markwon.create(context).toMarkdown(rawTermsText ?: "")
                         }
                     }
                 }

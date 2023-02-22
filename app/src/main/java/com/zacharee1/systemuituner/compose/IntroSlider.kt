@@ -1,10 +1,8 @@
 package com.zacharee1.systemuituner.compose
 
 import android.graphics.Typeface
-import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
 import android.util.TypedValue
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -13,6 +11,7 @@ import androidx.compose.foundation.gestures.ScrollScope
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -23,19 +22,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -62,10 +58,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.compose.ui.window.isPopupLayout
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.zacharee1.systemuituner.R
 import io.noties.markwon.Markwon
@@ -189,14 +186,14 @@ open class SimpleIntroPage(
     val extraContent: (@Composable ColumnScope.() -> Unit)? = null,
 ) : IntroPage {
     @Composable
-    override fun Render(modifier: Modifier) {
+    private fun RenderTitleAndIcon(
+        modifier: Modifier,
+        includeDescription: Boolean = true,
+        landscape: Boolean = false,
+    ) {
         Column(
-            modifier = modifier.then(if (scrollable) {
-                Modifier.verticalScroll(rememberScrollState())
-            } else {
-                Modifier
-            }),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier,
+            verticalArrangement = if (landscape) Arrangement.Center else Arrangement.Top
         ) {
             @Composable
             fun TitleAndIcon() {
@@ -232,22 +229,82 @@ open class SimpleIntroPage(
                 }
             }
 
-            Spacer(modifier = Modifier.size(8.dp))
+            if (includeDescription) {
+                Spacer(modifier = Modifier.size(8.dp))
 
-            description?.let {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .then(if (!fullWeightDescription) Modifier else Modifier.weight(1f)),
-                    contentAlignment = Alignment.Center
+                RenderDescription(isLandscape = landscape)
+            }
+        }
+    }
+
+    @Composable
+    private fun ColumnScope.RenderDescription(isLandscape: Boolean) {
+        description?.let {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(if (!fullWeightDescription || isLandscape) Modifier else Modifier.weight(1f)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = description,
+                )
+            }
+        }
+    }
+
+    @Composable
+    override fun Render(modifier: Modifier) {
+        BoxWithConstraints(
+            modifier = modifier
+        ) {
+            if (constraints.maxWidth > with (LocalDensity.current) { 600.dp.toPx() }) {
+                Row(
+                    modifier = Modifier.fillMaxHeight()
+                        .then(if (scrollable) {
+                            Modifier.verticalScroll(rememberScrollState())
+                        } else {
+                            Modifier
+                        }),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        text = description,
+                    RenderTitleAndIcon(
+                        modifier = Modifier
+                            .weight(1f),
+                        includeDescription = extraContent != null,
+                        landscape = true,
                     )
+
+                    Spacer(Modifier.size(8.dp))
+
+                    Column(
+                        modifier = Modifier
+                            .weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        extraContent?.invoke(this) ?: RenderDescription(true)
+                    }
+                }
+            } else {
+                Column(
+                    modifier = Modifier.fillMaxHeight()
+                        .then(if (scrollable) {
+                            Modifier.verticalScroll(rememberScrollState())
+                        } else {
+                            Modifier
+                        }),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    RenderTitleAndIcon(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .then(if (fullWeightDescription) Modifier.weight(1f) else Modifier)
+                    )
+
+                    extraContent?.invoke(this)
                 }
             }
-
-            extraContent?.invoke(this)
         }
     }
 }
@@ -301,14 +358,12 @@ fun IntroSlider(
                 pageCount = filteredCount,
                 state = state,
                 modifier = Modifier
-                    .fillMaxSize()
                     .weight(1f),
                 beyondBoundsPageCount = 3
             ) {
                 pages[it].Render(
                     modifier = Modifier
                         .padding(16.dp)
-                        .fillMaxSize()
                 )
             }
 

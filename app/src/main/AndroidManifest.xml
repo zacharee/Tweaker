@@ -80,6 +80,23 @@
         <activity android:name=".activities.tutorial.TutorialActivity"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation
+            |keyboard
+            |screenSize
+            |smallestScreenSize
+            |keyboardHidden
+            |screenLayout
+            |colorMode
+            |density
+            |fontScale
+            |fontWeightAdjustment
+            |layoutDirection
+            |locale
+            |mcc
+            |mnc
+            |navigation
+            |touchscreen
+            |uiMode"
             />
         <activity android:name=".activities.QSEditorActivity"
             android:label="@string/option_qs_editor"
@@ -94,6 +111,26 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.RecommendSystemAddOn"
+            android:exported="false"
+            android:configChanges="orientation
+            |keyboard
+            |screenSize
+            |smallestScreenSize
+            |keyboardHidden
+            |screenLayout
+            |colorMode
+            |density
+            |fontScale
+            |fontWeightAdjustment
+            |layoutDirection
+            |locale
+            |mcc
+            |mnc
+            |navigation
+            |touchscreen
+            |uiMode"
+            />
         <activity android:name=".activities.tasker.RemoveFromIconBlacklistConfigureActivity"
             android:exported="true"
             android:theme="@style/AppTheme"
@@ -114,6 +151,23 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation
+            |keyboard
+            |screenSize
+            |smallestScreenSize
+            |keyboardHidden
+            |screenLayout
+            |colorMode
+            |density
+            |fontScale
+            |fontWeightAdjustment
+            |layoutDirection
+            |locale
+            |mcc
+            |mnc
+            |navigation
+            |touchscreen
+            |uiMode"
             />
 
         <service android:name=".services.Manager"
