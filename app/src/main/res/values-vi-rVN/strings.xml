@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Allow Notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Cảm ơn vì đã sử dụng ứng dụng!</string>
-    <string name="intro_last_desc">Theo dõi tôi trên Twitter cho các cập nhật mới nhất.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Bật Báo cáo Lỗi</string>
     <string name="intro_crash_reports_desc">Bạn có thể chọn bật báo cáo sự cố ẩn danh để giúp ứng dụng chạy trơn tru. Không có thông tin cá nhân nào được thu thập. Bạn có thể thay đổi cài đặt này sau.</string>
     <string name="compatibility_message_lower">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %s trở lên</string>
@@ -317,6 +317,7 @@
     <string name="website">Trang web</string>
     <string name="more_apps">Ứng dụng khác</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">Bộ điều chỉnh OneUI</string>
     <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
     <string name="check_it_out">Check it Out</string>
