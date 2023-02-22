@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
+import com.zacharee1.systemuituner.compose.components.CrashReportsToggle
 import com.zacharee1.systemuituner.compose.components.IntroSpecialPermissionGrantGroup
 import com.zacharee1.systemuituner.util.launchUrl
 import com.zacharee1.systemuituner.util.prefManager
@@ -243,47 +244,9 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                 icon = { painterResource(id = R.drawable.baseline_bug_report_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
                 extraContent = {
-                    var enabled by remember {
-                        if (context.prefManager.enableCrashReports == null) {
-                            context.prefManager.enableCrashReports = false
-                        }
-                        mutableStateOf(context.prefManager.enableCrashReports == true)
-                    }
-
-                    LaunchedEffect(key1 = enabled) {
-                        context.prefManager.enableCrashReports = enabled
-                    }
-
-                    val interactionSource = remember {
-                        MutableInteractionSource()
-                    }
-                    
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable(
-                                interactionSource = interactionSource,
-                                indication = null,
-                                onClick = {
-                                    enabled = !enabled
-                                }
-                            ),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(text = stringResource(id = R.string.intro_crash_reports))
-                        
-                        Spacer(modifier = Modifier
-                            .weight(1f)
-                            .widthIn(min = 8.dp))
-                        
-                        Switch(
-                            checked = enabled, 
-                            onCheckedChange = {
-                                enabled = it
-                            },
-                            interactionSource = interactionSource
-                        )
-                    }
+                    CrashReportsToggle(
+                        modifier = Modifier.fillMaxWidth()
+                    )
                 }
             ))
         }

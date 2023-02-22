@@ -152,6 +152,13 @@
         app:iconSpaceReserved="false"
         />
 
+    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
+        android:title="@string/intro_crash_reports"
+        android:key="enable_crash_reports"
+        android:icon="@drawable/baseline_bug_report_24"
+        app:dialog_class="com.zacharee1.systemuituner.dialogs.EnableCrashReportsDialog"
+        />
+
     <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
         android:title="@string/screen_persistent"
         android:key="go_to_persistent_options"

@@ -8,11 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.setViewTreeLifecycleOwner
+import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.BaseDialogLayoutBinding
+import com.zacharee1.systemuituner.util.activityContext
 
 open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
     private var positiveListener: DialogInterface.OnClickListener? = null
@@ -41,6 +45,17 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
                 updateSize()
             }
         }
+    }
+
+    override fun onAttachedToWindow() {
+        findViewById<View>(android.R.id.content)?.apply {
+            (context.activityContext as? ComponentActivity)?.let { activity ->
+                setViewTreeLifecycleOwner(activity)
+                setViewTreeSavedStateRegistryOwner(activity)
+            }
+        }
+
+        super.onAttachedToWindow()
     }
 
     private fun updateSize() {

@@ -365,6 +365,7 @@
 
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected.</string>
 
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
     <string name="compatibility_message_both">Sorry, this feature only works from Android %1$s to Android %2$s</string>
