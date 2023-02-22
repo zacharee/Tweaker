@@ -288,7 +288,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intro_allow_notifications">Consenti notifiche</string>
     <string name="intro_allow_notifications_desc">Android 13 introduce una nuova restrizione sulle app che richiedono l\'autorizzazione dell\'utente per visualizzare le notifiche. SystemUI Tuner può mostrare una notifica quando si eseguono operazioni in background. Se si desidera visualizzare questa notifica, si prega di consentire SystemUI Tuner per mostrare le notifiche.</string>
     <string name="intro_last">Grazie per usare la mia app!</string>
-    <string name="intro_last_desc">Seguimi su Twitter per aggiornamenti sul progetto.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Abilita report di crash</string>
     <string name="intro_crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare l\'app a funzionare senza intoppi. Nessuna informazione personale viene raccolta. Puoi modificare questa impostazione successivamente.</string>
     <string name="compatibility_message_lower">Siamo spiacenti, questa funzione funziona solo con Android %s e versioni successive</string>
@@ -318,6 +318,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="website">Sito web</string>
     <string name="more_apps">Altre app</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Se possiedi un dispositivo Samsung con Android Pie o più, su Samsung One UI potresti aver notato che alcune opzioni che funzionavano su Oreo non funzionano più, come Clock Seconds. Ho fatto un\'app separata che fa uso di overlay di sistema per riportare alcune di queste opzioni. Non ha bisogno di root o ADB.</string>
     <string name="check_it_out">Dai un\'occhiata</string>
