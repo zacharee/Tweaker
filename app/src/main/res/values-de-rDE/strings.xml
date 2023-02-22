@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Benachrichtigungen erlauben</string>
     <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
-    <string name="intro_last_desc">Folgen Sie mir auf Twitter für die neuesten Aktualisierungen.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
@@ -317,6 +317,7 @@
     <string name="website">Webseite</string>
     <string name="more_apps">Weitere Apps</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Wenn Sie ein Samsung-Gerät besitzen, auf dem Android Pie oder eine neuere Version von Samsungs One UI läuft, haben Sie vielleicht bemerkt, dass einige Optionen, die unter Oreo noch funktionierten, nicht mehr verfügbar sind, wie z. B. Sekunden der Uhrzeit. Ich habe eine separate Anwendung entwickelt, die Systemüberlagerungen nutzt, um einige dieser Optionen wiederherzustellen. Es wird weder ein Root-Zugang noch ADB (Android-Debug-Bridge) benötigt.</string>
     <string name="check_it_out">Probieren Sie es aus</string>
