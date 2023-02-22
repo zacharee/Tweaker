@@ -364,4 +364,7 @@
     <string name="setting_applied_dialog_desc">您想要保留更改吗？此选项将在%s秒后恢复。</string>
     <string name="keep">保持</string>
     <string name="revert">还原</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>
