@@ -4,24 +4,16 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.Settings
-import android.text.Spanned
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,9 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -48,9 +38,9 @@ import com.zacharee1.systemuituner.util.prefManager
 import io.noties.markwon.Markwon
 
 @Composable
-fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason): List<IntroPage> {
+fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.StartReason>): List<IntroPage> {
     val context = LocalContext.current
-    val slides = remember(startReason) {
+    val slides = remember(startReasons) {
         mutableStateListOf<IntroPage>()
     }
     val termsScrollState = rememberScrollState()
@@ -75,7 +65,7 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
     }
 
     if (slides.isEmpty()) {
-        if (startReason == ComposeIntroActivity.Companion.StartReason.INTRO) {
+        if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO)) {
             slides.add(
                 SimpleIntroPage(
                     title = { stringResource(R.string.intro_welcome) },
@@ -133,8 +123,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
             ))
         }
 
-        if (startReason == ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS ||
-            startReason == ComposeIntroActivity.Companion.StartReason.INTRO
+        if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS) ||
+            startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO)
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_grant_wss) },
@@ -154,8 +144,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
             ))
         }
 
-        if (startReason == ComposeIntroActivity.Companion.StartReason.INTRO ||
-            startReason == ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS
+        if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO) ||
+            startReasons.contains(ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS)
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_grant_extra) },
@@ -174,8 +164,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && (
-                    startReason == ComposeIntroActivity.Companion.StartReason.INTRO ||
-                            startReason == ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW
+                    startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO) ||
+                            startReasons.contains(ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW)
                     )
         ) {
             context.prefManager.sawSystemAlertWindow = true
@@ -203,8 +193,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && (
-                    startReason == ComposeIntroActivity.Companion.StartReason.NOTIFICATIONS ||
-                            startReason == ComposeIntroActivity.Companion.StartReason.INTRO
+                    startReasons.contains(ComposeIntroActivity.Companion.StartReason.NOTIFICATIONS) ||
+                            startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO)
                     )
         ) {
             slides.add(SimpleIntroPage(
@@ -235,8 +225,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
             ))
         }
 
-        if (startReason == ComposeIntroActivity.Companion.StartReason.INTRO ||
-            startReason == ComposeIntroActivity.Companion.StartReason.CRASH_REPORTS
+        if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO) ||
+            startReasons.contains(ComposeIntroActivity.Companion.StartReason.CRASH_REPORTS)
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_crash_reports) },
@@ -251,7 +241,7 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
             ))
         }
         
-        if (startReason == ComposeIntroActivity.Companion.StartReason.INTRO) {
+        if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO)) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_last) },
                 description = stringResource(id = R.string.intro_last_desc),

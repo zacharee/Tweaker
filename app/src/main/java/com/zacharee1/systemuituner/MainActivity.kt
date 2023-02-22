@@ -48,35 +48,50 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
 
-        when {
-            !prefManager.didIntro -> {
-                if (!hasWss) {
-                    ComposeIntroActivity.startForResult(
-                        this,
-                        introLauncher,
-                        ComposeIntroActivity.Companion.StartReason.INTRO
-                    )
-                } else {
-                    ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.INTRO)
-                    prefManager.didIntro = true
-                }
+        val (introReasons, needsResult) = run {
+            val reasons = arrayListOf<ComposeIntroActivity.Companion.StartReason>()
+            var needsResult = false
+
+            if (!prefManager.didIntro) {
+                reasons.add(ComposeIntroActivity.Companion.StartReason.INTRO)
             }
-            !hasWss -> {
+
+            if (!hasWss) {
+                reasons.add(ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS)
+                needsResult = true
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+                !Settings.canDrawOverlays(this) &&
+                !prefManager.sawSystemAlertWindow) {
+                reasons.add(ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW)
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                checkCallingOrSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
+                !prefManager.sawNotificationsAlert) {
+                reasons.add(ComposeIntroActivity.Companion.StartReason.NOTIFICATIONS)
+            }
+
+            if (prefManager.enableCrashReports == null) {
+                reasons.add(ComposeIntroActivity.Companion.StartReason.CRASH_REPORTS)
+            }
+
+            (reasons to needsResult)
+        }
+
+        if (introReasons.isNotEmpty()) {
+            if (needsResult) {
                 ComposeIntroActivity.startForResult(
                     this,
                     introLauncher,
-                    ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS
+                    introReasons.toTypedArray()
                 )
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                    !Settings.canDrawOverlays(this) &&
-                    !prefManager.sawSystemAlertWindow -> {
-                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.SYSTEM_ALERT_WINDOW)
-            }
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-                    checkCallingOrSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
-                    !prefManager.sawNotificationsAlert -> {
-                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.NOTIFICATIONS)
+            } else {
+                ComposeIntroActivity.start(
+                    this,
+                    introReasons.toTypedArray()
+                )
             }
         }
 

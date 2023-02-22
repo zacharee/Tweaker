@@ -301,7 +301,7 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
             onExpandChangeListener = {
                 if (preferenceCount == 0 && it) {
                     if (!requireContext().run { hasDump && hasPackageUsageStats }) {
-                        ComposeIntroActivity.start(requireContext(), ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS)
+                        ComposeIntroActivity.start(requireContext(), arrayOf(ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS))
                         expanded = false
                     } else {
                         launch {

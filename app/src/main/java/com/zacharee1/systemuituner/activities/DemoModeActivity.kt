@@ -26,7 +26,7 @@ class DemoModeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (!hasDump) {
-            ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS)
+            ComposeIntroActivity.start(this, arrayOf(ComposeIntroActivity.Companion.StartReason.EXTRA_PERMISSIONS))
             finish()
         }
     }

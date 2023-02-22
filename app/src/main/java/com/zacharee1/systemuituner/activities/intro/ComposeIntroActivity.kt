@@ -23,16 +23,16 @@ class ComposeIntroActivity : ComponentActivity() {
     companion object {
         private const val EXTRA_START_REASON = "start_reason"
 
-        fun start(context: Context, startReason: StartReason = StartReason.INTRO) {
+        fun start(context: Context, startReasons: Array<StartReason> = arrayOf(StartReason.INTRO)) {
             context.startActivity(Intent(context, ComposeIntroActivity::class.java).apply {
-                putExtra(EXTRA_START_REASON, startReason)
+                putExtra(EXTRA_START_REASON, startReasons)
             })
         }
 
-        fun startForResult(context: Context, launcher: ActivityResultLauncher<Intent>, startReason: StartReason = StartReason.INTRO) {
+        fun startForResult(context: Context, launcher: ActivityResultLauncher<Intent>, startReasons: Array<StartReason> = arrayOf(StartReason.INTRO)) {
             launcher.launch(
                 Intent(context, ComposeIntroActivity::class.java).apply {
-                    putExtra(EXTRA_START_REASON, startReason)
+                    putExtra(EXTRA_START_REASON, startReasons)
                 }
             )
         }
@@ -47,7 +47,7 @@ class ComposeIntroActivity : ComponentActivity() {
         }
     }
 
-    private val startReason by lazy { intent?.getSerializableExtra(EXTRA_START_REASON) as? StartReason }
+    private val startReasons by lazy { intent?.getSerializableExtra(EXTRA_START_REASON) as? Array<StartReason> }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +58,7 @@ class ComposeIntroActivity : ComponentActivity() {
 
         setContent {
             MainContent(
-                startReason = startReason ?: StartReason.INTRO,
+                startReasons = startReasons ?: arrayOf(StartReason.INTRO),
                 onFinish = { success ->
                     setResult(if (success) Activity.RESULT_OK else Activity.RESULT_CANCELED)
                     finish()
@@ -71,11 +71,12 @@ class ComposeIntroActivity : ComponentActivity() {
 @Composable
 @Preview
 fun MainContent(
-    startReason: ComposeIntroActivity.Companion.StartReason = ComposeIntroActivity.Companion.StartReason.INTRO,
+    startReasons: Array<ComposeIntroActivity.Companion.StartReason> =
+        arrayOf(ComposeIntroActivity.Companion.StartReason.INTRO),
     onFinish: (success: Boolean) -> Unit = {},
 ) {
     Mdc3Theme {
-        val slides = rememberIntroSlides(startReason = startReason)
+        val slides = rememberIntroSlides(startReasons = startReasons)
         val context = LocalContext.current
 
         IntroSlider(
