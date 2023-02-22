@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">允许通知</string>
     <string name="intro_allow_notifications_desc">Android 13对需要用户许可才能显示通知的应用程序引入了新的限制。SystemUI Tuner可能会在运行后台操作时显示通知。如果您希望看到这个通知，请允许SystemUI Tuner显示通知。</string>
     <string name="intro_last">感谢您使用我的应用！</string>
-    <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
@@ -317,6 +317,7 @@
     <string name="website">网站</string>
     <string name="more_apps">更多应用</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">如果您的三星设备运行着 Android Pie 或更高版本的One UI，您可能已经注意到某些在 Oreo 上有效的选项不再有效，例如时钟秒数显示。 我制作了一个单独的应用程序，它利用系统覆盖来恢复其中一些选项。 它不需要 root 或 ADB。</string>
     <string name="check_it_out">立即查看</string>
