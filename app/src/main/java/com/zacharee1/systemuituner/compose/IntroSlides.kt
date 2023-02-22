@@ -81,6 +81,7 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                 slideColor = { colorResource(id = R.color.slide_2) },
                 scrollable = false,
                 canMoveForward = { hasHitBottomOfTerms },
+                blockedReason = { stringResource(id = R.string.blocked_reason_read_terms) },
                 horizontalTitleRow = true,
                 fullWeightDescription = false,
                 extraContent = {
@@ -134,6 +135,7 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                         android.Manifest.permission.WRITE_SECURE_SETTINGS
                     ) == PackageManager.PERMISSION_GRANTED
                 },
+                blockedReason = { stringResource(id = R.string.blocked_reason_write_secure_settings) },
                 extraContent = {
                     IntroSpecialPermissionGrantGroup(permissions = arrayOf(android.Manifest.permission.WRITE_SECURE_SETTINGS))
                 }

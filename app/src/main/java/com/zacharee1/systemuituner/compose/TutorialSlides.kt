@@ -334,6 +334,7 @@ fun rememberTutorialSlides(
             slideColor = { colorResource(id = R.color.slide_3) },
             fullWeightDescription = false,
             canMoveForward = { selectedOs != null },
+            blockedReason = { stringResource(id = R.string.blocked_reason_choose_os) },
             extraContent = {
                 LazyColumn(
                     modifier = Modifier

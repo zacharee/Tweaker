@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.compose
 
 import android.graphics.Typeface
+import android.os.storage.StorageManager.AppIoBlockedReason
 import android.text.util.Linkify
 import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
@@ -38,6 +39,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
@@ -45,12 +47,15 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -74,6 +79,7 @@ import kotlin.math.sign
 
 interface IntroPage {
     val canMoveForward: () -> Boolean
+    val blockedReason: (@Composable () -> String)?
     val slideColor: @Composable () -> Color
 
     @Composable
@@ -86,6 +92,7 @@ open class SimpleStepsPage(
     icon: (@Composable () -> Painter)? = null,
     slideColor: @Composable () -> Color,
     canMoveForward: () -> Boolean = { true },
+    blockedReason: (@Composable () -> String)? = null,
     scrollable: Boolean = true,
     horizontalTitleRow: Boolean = false
 ) : SimpleIntroPage(
@@ -94,6 +101,7 @@ open class SimpleStepsPage(
     icon = icon,
     slideColor = slideColor,
     canMoveForward = canMoveForward,
+    blockedReason = blockedReason,
     scrollable = scrollable,
     horizontalTitleRow = horizontalTitleRow,
     fullWeightDescription = false,
@@ -180,6 +188,7 @@ open class SimpleIntroPage(
     val icon: (@Composable () -> Painter)? = null,
     override val slideColor: @Composable () -> Color,
     override val canMoveForward: () -> Boolean = { true },
+    override val blockedReason: @Composable() (() -> String)? = null,
     val scrollable: Boolean = true,
     val horizontalTitleRow: Boolean = false,
     val fullWeightDescription: Boolean = true,
@@ -243,7 +252,11 @@ open class SimpleIntroPage(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .then(if (!fullWeightDescription || isLandscape) Modifier else Modifier.weight(1f)),
+                    .then(
+                        if (!fullWeightDescription || isLandscape) Modifier else Modifier.weight(
+                            1f
+                        )
+                    ),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
@@ -260,12 +273,15 @@ open class SimpleIntroPage(
         ) {
             if (constraints.maxWidth > with (LocalDensity.current) { 600.dp.toPx() }) {
                 Row(
-                    modifier = Modifier.fillMaxHeight()
-                        .then(if (scrollable) {
-                            Modifier.verticalScroll(rememberScrollState())
-                        } else {
-                            Modifier
-                        }),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .then(
+                            if (scrollable) {
+                                Modifier.verticalScroll(rememberScrollState())
+                            } else {
+                                Modifier
+                            }
+                        ),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RenderTitleAndIcon(
@@ -288,12 +304,15 @@ open class SimpleIntroPage(
                 }
             } else {
                 Column(
-                    modifier = Modifier.fillMaxHeight()
-                        .then(if (scrollable) {
-                            Modifier.verticalScroll(rememberScrollState())
-                        } else {
-                            Modifier
-                        }),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .then(
+                            if (scrollable) {
+                                Modifier.verticalScroll(rememberScrollState())
+                            } else {
+                                Modifier
+                            }
+                        ),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     RenderTitleAndIcon(
@@ -321,6 +340,7 @@ fun IntroSlider(
     val count = pages.size
     val currentPage = pages[state.currentPage]
     val canMoveForward = currentPage.canMoveForward
+    val blockedReason = currentPage.blockedReason?.invoke()
     val scope = rememberCoroutineScope()
 
     val currentColor = Color(run {
@@ -346,6 +366,10 @@ fun IntroSlider(
     val firstBlocked = pages.indexOfFirst { !it.canMoveForward() }
     val filteredPages = pages.take(firstBlocked + 1).ifEmpty { pages }
     val filteredCount = filteredPages.size
+
+    var forwardAlert by remember {
+        mutableStateOf<String?>(null)
+    }
 
     Surface(modifier = modifier, color = currentColor) {
         Column(
@@ -413,6 +437,8 @@ fun IntroSlider(
                                 scope.launch {
                                     state.animateScrollToPage(min(state.currentPage + 1, count - 1))
                                 }
+                            } else {
+                                forwardAlert = blockedReason
                             }
                         } else {
                             onDone()
@@ -426,5 +452,18 @@ fun IntroSlider(
                 }
             }
         }
+    }
+
+    forwardAlert?.let { a ->
+        AlertDialog(
+            onDismissRequest = { forwardAlert = null },
+            title = { Text(text = stringResource(id = R.string.error)) },
+            text = { Text(text = a) },
+            confirmButton = {
+                TextButton(onClick = { forwardAlert = null }) {
+                    Text(text = stringResource(id = android.R.string.ok))
+                }
+            }
+        )
     }
 }
