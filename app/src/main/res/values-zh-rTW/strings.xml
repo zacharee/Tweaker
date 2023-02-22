@@ -289,7 +289,8 @@
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">啟用當機報告</string>
-    <string name="intro_crash_reports_desc">您可以選擇啟用匿名當機報告以助於保持應用程式的順暢執行，您的個人資訊將不會被蒐集，您也可以稍後變更此設定。</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
     <string name="compatibility_message_both">抱歉，此功能僅適用於 Android %1$s 到 Android %2$s 版本</string>
     <string name="compatibility_message_higher">抱歉，此功能僅適用於 Android %s</string>
