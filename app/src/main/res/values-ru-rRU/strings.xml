@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Разрешить уведомления</string>
     <string name="intro_allow_notifications_desc">Android 13 вводит новое ограничение - приложения должны запрашивать разрешение у пользователя на отображение уведомлений. SystemUI Tuner может показывать уведомление при выполнении фоновых операций. Если вы хотите видеть это уведомление, пожалуйста, разрешите SystemUI Tuner показывать уведомления.</string>
     <string name="intro_last">Спасибо за использование моего приложения!</string>
-    <string name="intro_last_desc">Подпишитесь на меня в Twitter для актуальной информации.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Включить отчёты о сбоях</string>
     <string name="intro_crash_reports_desc">Чтобы помочь нормальной работе приложения, Вы можете включить анонимные отчёты о сбоях. Никакой личной информации собираться не будет. Вы можете изменить эту настройку позже.</string>
     <string name="compatibility_message_lower">Извините, эта функция работает только с Android %s и более поздними</string>
@@ -317,6 +317,7 @@
     <string name="website">Сайт</string>
     <string name="more_apps">Ещё приложения</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Если у вас есть устройство Samsung с Android Pie или более поздней версией на Samsung One UI, вы могли заметить, что некоторые параметры, которые работали на Oreo, больше не работают, например, «секунды часов». Я создал отдельное приложение, использущее системные оверлеи, чтобы вернуть некоторые из этих параметров. Это не требует root или ADB.</string>
     <string name="check_it_out">Попробуйте</string>
