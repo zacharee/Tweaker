@@ -10,21 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/on_ac"
             android:text="@string/option_keep_awake_on_ac"
             android:layout_width="match_parent"
             android:layout_height="?listPreferredItemHeight"
             />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/on_usb"
             android:text="@string/option_keep_awake_on_usb"
             android:layout_width="match_parent"
             android:layout_height="?listPreferredItemHeight"
             />
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/on_wireless"
             android:text="@string/option_keep_awake_on_wireless"
             android:layout_width="match_parent"

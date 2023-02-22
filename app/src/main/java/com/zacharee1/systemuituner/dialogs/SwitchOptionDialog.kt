@@ -2,7 +2,7 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.switchmaterial.SwitchMaterial
+import com.google.android.material.materialswitch.MaterialSwitch
 import com.zacharee1.systemuituner.R
 
 class SwitchOptionDialog : BaseOptionDialog() {
@@ -32,7 +32,7 @@ class SwitchOptionDialog : BaseOptionDialog() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        view.findViewById<SwitchMaterial>(R.id.secure_switch).apply {
+        view.findViewById<MaterialSwitch>(R.id.secure_switch).apply {
             text = preference.title
             isChecked = shouldBeChecked
             setOnCheckedChangeListener { _, isChecked ->
