@@ -26,7 +26,6 @@ import com.zacharee1.systemuituner.data.CustomBlacklistItemInfo
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.dialogs.CustomBlacklistItemDialogFragment
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
-import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
 import com.zacharee1.systemuituner.interfaces.ColorPreference
 import com.zacharee1.systemuituner.interfaces.IColorPreference
 import com.zacharee1.systemuituner.prefs.BlacklistBrokenBatteryAndroid10Preference

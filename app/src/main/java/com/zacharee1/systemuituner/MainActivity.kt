@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner
 
 import android.animation.ValueAnimator
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Build
@@ -10,6 +11,7 @@ import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.core.os.bundleOf
@@ -36,16 +38,35 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     private val searchView by lazy { mainBinding.searchBar }
 
+    private val introLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode != Activity.RESULT_OK) {
+            finish()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
 
         when {
             !prefManager.didIntro -> {
-                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.INTRO)
+                if (!hasWss) {
+                    ComposeIntroActivity.startForResult(
+                        this,
+                        introLauncher,
+                        ComposeIntroActivity.Companion.StartReason.INTRO
+                    )
+                } else {
+                    ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.INTRO)
+                    prefManager.didIntro = true
+                }
             }
             !hasWss -> {
-                ComposeIntroActivity.start(this, ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS)
+                ComposeIntroActivity.startForResult(
+                    this,
+                    introLauncher,
+                    ComposeIntroActivity.Companion.StartReason.WRITE_SECURE_SETTINGS
+                )
             }
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
                     !Settings.canDrawOverlays(this) &&

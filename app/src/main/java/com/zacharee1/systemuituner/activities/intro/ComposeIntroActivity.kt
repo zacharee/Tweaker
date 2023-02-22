@@ -7,11 +7,11 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
@@ -29,6 +29,14 @@ class ComposeIntroActivity : ComponentActivity() {
             })
         }
 
+        fun startForResult(context: Context, launcher: ActivityResultLauncher<Intent>, startReason: StartReason = StartReason.INTRO) {
+            launcher.launch(
+                Intent(context, ComposeIntroActivity::class.java).apply {
+                    putExtra(EXTRA_START_REASON, startReason)
+                }
+            )
+        }
+
         enum class StartReason {
             INTRO,
             SYSTEM_ALERT_WINDOW,
@@ -41,7 +49,6 @@ class ComposeIntroActivity : ComponentActivity() {
 
     private val startReason by lazy { intent?.getSerializableExtra(EXTRA_START_REASON) as? StartReason }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,7 +59,10 @@ class ComposeIntroActivity : ComponentActivity() {
         setContent {
             MainContent(
                 startReason = startReason ?: StartReason.INTRO,
-                onFinish = ::finish
+                onFinish = { success ->
+                    setResult(if (success) Activity.RESULT_OK else Activity.RESULT_CANCELED)
+                    finish()
+                }
             )
         }
     }
@@ -62,7 +72,7 @@ class ComposeIntroActivity : ComponentActivity() {
 @Preview
 fun MainContent(
     startReason: ComposeIntroActivity.Companion.StartReason = ComposeIntroActivity.Companion.StartReason.INTRO,
-    onFinish: () -> Unit = {},
+    onFinish: (success: Boolean) -> Unit = {},
 ) {
     Mdc3Theme {
         val slides = rememberIntroSlides(startReason = startReason)
@@ -70,10 +80,10 @@ fun MainContent(
 
         IntroSlider(
             pages = slides,
-            onExit = onFinish,
+            onExit = { onFinish(false) },
             onDone = {
                 context.prefManager.didIntro = true
-                onFinish()
+                onFinish(true)
             },
             modifier = Modifier.fillMaxSize()
         )

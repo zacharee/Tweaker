@@ -2,26 +2,15 @@ package com.zacharee1.systemuituner.activities.tutorial
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
-import androidx.fragment.app.Fragment
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
-import com.heinrichreimersoftware.materialintro.app.IntroActivity
-import com.heinrichreimersoftware.materialintro.slide.FragmentSlide
-import com.heinrichreimersoftware.materialintro.slide.SimpleSlide
-import com.heinrichreimersoftware.materialintro.slide.Slide
-import com.zacharee1.systemuituner.IOSSelectionCallback
-import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.compose.IntroSlider
 import com.zacharee1.systemuituner.compose.rememberTutorialSlides
-import com.zacharee1.systemuituner.data.TutorialStepInfo
-import com.zacharee1.systemuituner.fragments.tutorial.OSChooseSlide
-import com.zacharee1.systemuituner.fragments.tutorial.StepsListSlide
 
 class TutorialActivity : ComponentActivity() {
     companion object {

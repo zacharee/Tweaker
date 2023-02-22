@@ -8,7 +8,6 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.intro.ComposeIntroActivity
 import com.zacharee1.systemuituner.databinding.ActivityDemoModeBinding
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
-import com.zacharee1.systemuituner.fragments.intro.ExtraPermsSlide
 import com.zacharee1.systemuituner.util.addAnimation
 import com.zacharee1.systemuituner.util.hasDump
 
