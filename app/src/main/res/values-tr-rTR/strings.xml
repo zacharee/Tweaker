@@ -294,7 +294,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="intro_allow_notifications">Allow Notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">%s kullandığınız için teşekkürler!</string>
-    <string name="intro_last_desc">Proje güncellemeleri için beni Twitter üzerinden takip edin.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
@@ -325,6 +325,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="website">Website</string>
     <string name="more_apps">Daha Fazla Uygulama</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Samsung\'un One UI\'sinde Android Pie veya sonraki bir sürümünü çalıştıran bir Samsung cihazınız varsa, Clock Seconds gibi Oreo\'da çalışan bazı seçeneklerin artık çalışmadığını fark etmiş olabilirsiniz. Bu seçeneklerden bazılarını geri getirmek için sistem kaplamalarını kullanan ayrı bir uygulama yaptım. Kök veya ADB\'ye ihtiyaç duymaz.</string>
     <string name="check_it_out">Göz at</string>
