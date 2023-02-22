@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Autoriser les notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduit une nouvelle restriction pour les applications nécessitant l\'autorisation de l\'utilisateur d\'afficher les notifications. SystemUI Tuner peut afficher une notification lors de l\'exécution d\'opérations en arrière-plan. Si vous souhaitez voir cette notification, veuillez autoriser SystemUI Tuner à afficher des notifications.</string>
     <string name="intro_last">Merci d\'utiliser mon application !</string>
-    <string name="intro_last_desc">Suivez moi sur Twitter pour les dernières mises à jour.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Désolé, cette fonctionnalité ne fonctionne qu\'avec Android %s et plus tard</string>
@@ -317,6 +317,7 @@
     <string name="website">Site internet</string>
     <string name="more_apps">Plus d’Apps</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Si vous avez un appareil Samsung qui exécute Android Pie ou plus tard sur une interface utilisateur de Samsung, vous avez peut-être remarqué que certaines options qui fonctionnaient sur Oreo ne fonctionnent plus, comme les secondes de l\'horloge. J\'ai fait une application séparée qui utilise les superpositions système pour ramener certaines de ces options. Elle n\'a pas besoin de root ou ADB.</string>
     <string name="check_it_out">Aller la voir</string>
