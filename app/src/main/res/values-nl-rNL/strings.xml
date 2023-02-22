@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Meldingen toestaan</string>
     <string name="intro_allow_notifications_desc">Android 13 introduceert een nieuwe beperking voor apps die toestemming van de gebruiker nodig hebben om meldingen te tonen. SystemUI Tuner kan een melding tonen tijdens het uitvoeren van achtergrondbewerkingen. Als je deze melding wilt zien, sta dan toe dat SysteemUI Tuner meldingen toont.</string>
     <string name="intro_last">Thanks for using my app!</string>
-    <string name="intro_last_desc">Follow me on Twitter for the latest updates.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Crashverslagen inschakelen</string>
     <string name="intro_crash_reports_desc">Je kunt er voor kiezen om anonieme crashverslagen in te schakelen, zodat je kunt helpen om de app soepel te laten werken. Er worden geen persoonlijke gegevens verzameld en je kunt deze instelling te allen tijde wijzigen.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
@@ -317,6 +317,7 @@
     <string name="website">Website</string>
     <string name="more_apps">More Apps</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
     <string name="check_it_out">Check it Out</string>
@@ -364,7 +365,7 @@
     <string name="setting_applied_dialog_desc">Wil je de wijzigingen behouden? Anders wordt deze optie over %s seconden teruggedraaid.</string>
     <string name="keep">Behouden</string>
     <string name="revert">Terugdraaien</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="blocked_reason_read_terms">Lees de voorwaarden voordat je doorgaat.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI-tuner kan niet functioneren zonder het Write Secure Settings-recht. Druk op ‘Hulp’ als je problemen ondervindt met het toekennen ervan.</string>
+    <string name="blocked_reason_choose_os">Kies een besturingssysteem voordat je doorgaat.</string>
 </resources>
