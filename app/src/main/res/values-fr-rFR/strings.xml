@@ -289,7 +289,8 @@
     <string name="intro_last">Merci d\'utiliser mon application !</string>
     <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Désolé, cette fonctionnalité ne fonctionne qu\'avec Android %s et plus tard</string>
     <string name="compatibility_message_both">Désolé, cette fonctionnalité ne fonctionne que d\'Android %1$s à Android %2$s</string>
     <string name="compatibility_message_higher">Désolé, cette fonctionnalité ne fonctionne qu\'avec Android %s</string>
