@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">알림 승인</string>
     <string name="intro_allow_notifications_desc">Android 13부터는 앱에서 알림을 보내려면 사용자로부터 허가를 받아야 합니다. SystemUI Tuner에서는 백그라운드 작업을 실행할 때 알림을 표시할 수 있습니다. 이 알림을 보려면 SystemUI Tuner가 알림을 표시할 수 있도록 권한을 부여해주십시오.</string>
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
-    <string name="intro_last_desc">최근 업데이트를 보려면 트위터에서 저를 팔로우하십시오.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">충돌 보고서 활성화</string>
     <string name="intro_crash_reports_desc">익명으로 보내는 충돌 보고서를 활성화하여 앱이 보다 원활히 동작할 수 있게 도울 수 있습니다. 개인정보는 수집되지 않습니다. 설정은 나중에 변경할 수 있습니다.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
@@ -317,6 +317,7 @@
     <string name="website">웹사이트</string>
     <string name="more_apps">앱 더보기</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Android 파이 이후 One UI를 구동하는 삼성 기기를 사용하는 경우, 오레오에서 작동하던 몇몇 설정들이 더 이상 작동하지 않는다는 사실을 아실 겁니다. 시스템 오버레이를 이용하여 이런 설정들 중 일부를 다시 구현한 앱을 따로 만들었습니다. 루트나 ADB 설정이 필요하지 않습니다.</string>
     <string name="check_it_out">확인하기</string>
