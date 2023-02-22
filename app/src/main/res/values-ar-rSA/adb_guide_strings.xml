@@ -44,9 +44,6 @@
     <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
     <string name="adb_install_adb_general_end_2">If everything\'s gone right, there should be no output from the commands. If there is, make sure to scroll all the way up to where you entered the command to see the error.</string>
     <string name="adb_install_adb_general_end_3">The permissions should now be granted!</string>
-    <string name="adb_command_template_windows">`.\\adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_mac_linux">`./adb shell pm grant %1$s %2$s`</string>
-    <string name="adb_command_template_linux_installed">`adb shell pm grant %1$s %2$s`</string>
     <string name="adb_windows">Windows</string>
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
