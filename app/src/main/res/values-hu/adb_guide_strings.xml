@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Töltse le és telepítse a Shizuku alkalmazást a [Google Play Áruházból](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Nyissa meg a Shizuku alkalmazást, és kövesse a \"Start via Wireless Debugging\" (Vezeték nélküli hibakeresésen keresztül történő indítás) alatti utasításokat.</string>
     <string name="adb_install_local_3">Zárja be ezt a képernyőt, és koppintson a \"GRANT\" gombra.</string>
-    <string name="adb_install_adb_windows_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
+    <string name="adb_install_adb_windows_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
     <string name="adb_install_adb_windows_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a C:\\\adb.</string>
     <string name="adb_install_adb_windows_3">A fájlkezelővel keresse meg a kibontott ZIP-fájlt. Látnia kell egy csomó fájlt, köztük egy \'adb\' nevű fájlt.</string>
     <string name="adb_install_adb_windows_4">Kattintson a keresősávon belülre, és cserélje le az ott található szöveget a „cmd” kifejezésre (idézőjelek nélkül). Ezután nyomja meg az Entert.</string>
-    <string name="adb_install_adb_mac_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például az Asztalra.</string>
     <string name="adb_install_adb_mac_3">Most nyissa meg a terminált. Ezt úgy teheti meg, hogy egyszerre megnyomja a CMD+SZÓKÖZ billentyűkombinációt a Spotlight kereső megnyitásához, és keresse meg a „Terminal” kifejezést.</string>
     <string name="adb_install_adb_mac_4">Most keresse meg a kicsomagolt fájlokat a következő paranccsal: `cd /elérési út/a/fájlokhoz/`. Például, ha a felhasználóneved Zachary, és a ZIP csomagot a asztalodra csomagoltad ki, a parancs a következő lesz: `cd /Users/Zachary/Desktop/platform-tools/`, ahol a \"platform-tools\" az a mappa, amelyben az \"adb\" nevű fájl található.</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Az ADB-t a következő paranccsal telepíthetjük: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Terminál megnyitása.</string>
     <string name="adb_install_adb_rhel_2">Az ADB-t a következő paranccsal telepíthetjük: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Töltse le az ADB ZIP-et innen: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
+    <string name="adb_install_adb_linux_other_1">Töltse le az ADB ZIP-et innen: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a Home könyvtárba.</string>
     <string name="adb_install_adb_linux_other_3">Terminál megnyitása.</string>
     <string name="adb_install_adb_linux_other_4">Most keresse meg a kicsomagolt fájlokat a következő paranccsal: `cd /elérési út/a/fájlokhoz/`. Például, ha a felhasználóneved Zachary, és a ZIP csomagot a Home könyvtáradba csomagoltad, a parancs a következő lesz: `cd /home/Zachary/platform-tools/`, ahol a \"platform-tools\" az a mappa, amelyben az \"adb\" nevű fájl található.</string>

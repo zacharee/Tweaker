@@ -202,7 +202,6 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_title">Kein Root oder Shizuku</string>
     <string name="no_root_msg">Root oder Shizuku wurde nicht erkannt. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff erhält. Andernfalls drücken Sie die Schaltfläche Hilfe für ADB- (Android Debug Bridge) und Shizuku-Anweisungen.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>

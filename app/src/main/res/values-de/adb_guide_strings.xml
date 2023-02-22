@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Laden Sie die Shizuku-App aus dem [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api) herunter und installieren Sie sie.]]></string>
     <string name="adb_install_local_2">Öffnen Sie die App Shizuku und folgen Sie den Anweisungen unter „Start via Wireless Debugging”.</string>
     <string name="adb_install_local_3">Schließen Sie diesen Bildschirm und tippen Sie auf die Schaltfläche „Erlauben”.</string>
-    <string name="adb_install_adb_windows_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
-    <string name="adb_install_adb_windows_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. C:\\adb.</string>
+    <string name="adb_install_adb_windows_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Verwenden Sie den Datei-Explorer, um das entpackte ZIP-Archiv zu durchsuchen. Sie sollten eine Reihe von Dateien sehen, darunter eine mit dem Namen „adb”.</string>
     <string name="adb_install_adb_windows_4">Klicken Sie in die Suchleiste und ersetzen Sie den Eintrag durch „cmd” (ohne Anführungszeichen). Drücken Sie dann die Eingabetaste.</string>
-    <string name="adb_install_adb_mac_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. dem Schreibtisch.</string>
     <string name="adb_install_adb_mac_3">Öffnen Sie nun das Terminal. Sie können dies tun, indem Sie CMD+LEERTASTE gleichzeitig drücken, um die Spotlight-Suche zu öffnen, und nach „Terminal” suchen.</string>
     <string name="adb_install_adb_mac_4">Suchen Sie nun die entpackten Dateien mit dem folgenden Befehl: cd /pfad/zu/dateien/
@@ -38,7 +38,7 @@ Wenn Ihr Benutzername beispielsweise XYZ lautet und Sie die ZIP-Datei auf Ihren 
     <string name="adb_install_adb_fedora_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: sudo dnf install adb.</string>
     <string name="adb_install_adb_rhel_1">Terminal öffnen.</string>
     <string name="adb_install_adb_rhel_2">Installieren Sie Android Debug Bridge (ADB) mit dem folgenden Befehl: yum install android-tools.</string>
-    <string name="adb_install_adb_linux_other_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
+    <string name="adb_install_adb_linux_other_1">Laden Sie das Android Debug Bridge (ADB)-Archiv von hier herunter: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. in Ihrem Home-Ordner.</string>
     <string name="adb_install_adb_linux_other_3">Terminal öffnen.</string>
     <string name="adb_install_adb_linux_other_4">Terminal öffnen.</string>

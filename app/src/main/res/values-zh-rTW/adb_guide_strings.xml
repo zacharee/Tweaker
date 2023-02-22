@@ -24,7 +24,7 @@
     <string name="adb_install_local_2">開啟 Shizuku 應用程式並遵循「透過無線偵錯啟動」下的說明。</string>
     <string name="adb_install_local_3">關閉此螢幕並輕觸「授予」按鈕。</string>
     <string name="adb_install_adb_windows_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-windows.zip。</string>
-    <string name="adb_install_adb_windows_2">將壓縮檔解壓縮到方便的位置，如 C:\\adb。</string>
+    <string name="adb_install_adb_windows_2">將壓縮檔解壓縮到方便的位置，如 `C:\\adb`。</string>
     <string name="adb_install_adb_windows_3">使用檔案總管瀏覽已解壓縮的壓縮檔。你會看到一些檔案，包括一個叫做「adb」的檔案。</string>
     <string name="adb_install_adb_windows_4">點選搜尋列內，用「cmd」(無引號) 取代其中的內容。然後按輸入鍵。</string>
     <string name="adb_install_adb_mac_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-darwin.zip。</string>

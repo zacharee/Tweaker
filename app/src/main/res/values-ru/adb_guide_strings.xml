@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Скачайте и установите приложение Shizuku из [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Откройте приложение Shizuku и следуйте инструкциям в разделе \"Начать через беспроводную отладку\".</string>
     <string name="adb_install_local_3">Закройте этот экран и нажмите кнопку «GRANT»/«ПРЕДОСТАВИТЬ».</string>
-    <string name="adb_install_adb_windows_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-windows.zip.</string>
-    <string name="adb_install_adb_windows_2">Распакуйте ZIP в удобное место, например, C:\\adb.</string>
+    <string name="adb_install_adb_windows_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Распакуйте ZIP в удобное место, например, `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Откройте папку с распакованным ZIPом. Вы должны увидеть несколько файлов, включая \"adb\".</string>
     <string name="adb_install_adb_windows_4">Кликните внутри строки поиска в проводнике и замените то, что там есть на \"cmd\" (без кавычек), затем нажмите Enter.</string>
-    <string name="adb_install_adb_mac_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip.</string>
+    <string name="adb_install_adb_mac_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Распакуйте ZIP в удобное место, например, на Рабочий стол.</string>
     <string name="adb_install_adb_mac_3">Теперь откройте терминал нажав одновременно кнопки Cmd+SPACE для открытия поиска Spotlight и введите \"Терминал\".</string>
     <string name="adb_install_adb_mac_4">Теперь выберите извлеченные файлы, используя следующую команду: `cd /path/to/files/`. Например, если ваше имя пользователя Zachary и вы распаковали ZIP на свой рабочий стол, командой будет `cd /Users/Zachary/Desktop/platform-tools/`, где \"platform-tools\" это папка с файлом \"adb\".</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Установите ADB следующей командой: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Откройте Терминал.</string>
     <string name="adb_install_adb_rhel_2">Установите ADB следующей командой: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-linux.zip.</string>
+    <string name="adb_install_adb_linux_other_1">Скачайте ADB в ZIPе здесь: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Распакуйте ZIP в удобное место, например в домашний каталог.</string>
     <string name="adb_install_adb_linux_other_3">Откройте Терминал.</string>
     <string name="adb_install_adb_linux_other_4">Теперь перейдите к распакованным файла, используя следующую команду: `cd /путь/до/файлов/`. Например, если ваше имя пользователя Zachary и вы распаковали ZIP в домашнюю директорию, командой будет `cd /home/Zachary/platform-tools/`, где \"platform-tools\" это папка с файлом \"adb\".</string>

@@ -203,7 +203,6 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="reset">Formatta</string>
     <string name="grant">Consenti</string>
     <string name="help">Aiuto</string>
-    <string name="no_root_title">Nessun Root o Shizuku</string>
     <string name="no_root_msg">Root o Shizuku non sono stati rilevati. Se il dispositivo è rootato, assicurati che SystemUI Tuner abbia accesso al root. In caso contrario, premere il pulsante HELP per le istruzioni ADB e Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS non è concesso.</string>
     <string name="mode">Modalità</string>

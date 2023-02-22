@@ -1,5 +1,11 @@
 package com.zacharee1.systemuituner.compose
 
+import android.graphics.Typeface
+import android.text.method.LinkMovementMethod
+import android.text.util.Linkify
+import android.util.TypedValue
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.FlingBehavior
@@ -39,6 +45,7 @@ import androidx.compose.material.icons.filled.Done
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -54,11 +61,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.zacharee1.systemuituner.R
+import io.noties.markwon.Markwon
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 import kotlin.math.max
@@ -92,6 +102,7 @@ open class SimpleStepsPage(
     fullWeightDescription = false,
     extraContent = {
         val items = steps()
+        val context = LocalContext.current
 
         LazyColumn(
             modifier = Modifier
@@ -139,12 +150,20 @@ open class SimpleStepsPage(
                                 }
                             )
                     ) {
-                        SelectionContainer {
-                            Text(
-                                text = it.text,
-                                fontFamily = if (it.isCommand) FontFamily.Monospace else FontFamily.Default,
-                                maxLines = if (it.isCommand) 1 else Int.MAX_VALUE,
-                            )
+                        val textSize = LocalTextStyle.current.fontSize.value
+
+                        AndroidView(
+                            factory = {
+                                AppCompatTextView(it).apply {
+                                    setTextIsSelectable(true)
+                                    setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+                                    autoLinkMask = Linkify.WEB_URLS
+                                }
+                            }
+                        ) { tv ->
+                            tv.text = Markwon.create(context).toMarkdown(it.text)
+                            tv.typeface = if (it.isCommand) Typeface.MONOSPACE else Typeface.DEFAULT
+                            tv.maxLines = if (it.isCommand) 1 else Int.MAX_VALUE
                         }
                     }
                 }

@@ -202,7 +202,6 @@
     <string name="reset">重置</string>
     <string name="grant">允许</string>
     <string name="help">帮助</string>
-    <string name="no_root_title">无根目录或 Shizuku</string>
     <string name="no_root_msg">未检测到 Root 或 Shizuku。如果您的设备已root，请确保SystemUI Tuner 有Root权限。 否则，请按下HELP按钮用于ADB和Shizuku的指示。</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 未被授予访问权限。</string>
     <string name="mode">模式</string>

@@ -205,7 +205,6 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="reset">Resetovat</string>
     <string name="grant">Udělit</string>
     <string name="help">Nápověda</string>
-    <string name="no_root_title">Žádný Root ani Shizuku</string>
     <string name="no_root_msg">Root ani Shizuku nebyl detekován. Pokud je vaše zařízení rootnuté, ujistěte se, že SystemUI Tuner má root přístup. V opačném případě stiskněte tlačítko NÁPOVĚDA pro pokyny ADB.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS povolení neuděleno.</string>
     <string name="mode">Režim</string>

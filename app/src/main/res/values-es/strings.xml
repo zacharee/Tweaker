@@ -202,7 +202,6 @@
     <string name="reset">Restablecer</string>
     <string name="grant">Autorizar</string>
     <string name="help">Ayuda</string>
-    <string name="no_root_title">Sin Root o Shizuku</string>
     <string name="no_root_msg">No se ha detectado root o Shizuku. Si su dispositivo está rooteado, asegúrese de que System UI Tuner tiene acceso root. De lo contrario, pulse el botón HELP para las instrucciones de ADB y Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS no está concedido.</string>
     <string name="mode">Modo</string>

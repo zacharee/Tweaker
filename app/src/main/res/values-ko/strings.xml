@@ -202,7 +202,6 @@
     <string name="reset">초기화</string>
     <string name="grant">허용</string>
     <string name="help">도움말</string>
-    <string name="no_root_title">루트 및 Shizuku 없음</string>
     <string name="no_root_msg">루트 혹은 Shizuku를 감지할 수 없습니다. 기기가 루팅되었다면, SystemUI Tuner가 루트 권한을 갖도록 해주십시오. 아니라면 ADB 및 Shizuku 설치를 안내하는 도움말 버튼을 누르십시오.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 권한이 부여되지 않았습니다.</string>
     <string name="mode">모드</string>
