@@ -365,4 +365,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="setting_applied_dialog_desc">Vuoi mantenere le modifiche? Questa opzione sarà ripristinata dopo %s secondi.</string>
     <string name="keep">Mantieni</string>
     <string name="revert">Ripristina</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>
