@@ -1,3 +1,15 @@
+# 350
+- Remove a lot of Google dependencies.
+- Migrate to Bugsnag from Crashlytics.
+- Redo intro sliders in Compose.
+- Add a toggle to disable/enable crash reports.
+- Fix search icon color.
+- Fix disappearing notices in Persistent Options.
+- Update some text in the tutorial and intro slides.
+- The intro will appear once even if you've already gone through it in this update. Just exit it and it shouldn't show up again.
+- Add Mastodon link.
+- Use Material Design 3 switches.
+
 # 349
 - Update translations.
 - Add Italian translation.
