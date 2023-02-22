@@ -290,9 +290,10 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_allow_notifications">Povolit notifikace</string>
     <string name="intro_allow_notifications_desc">Android 13 zavádí nové omezení aplikací vyžadujících oprávnění uživatele k zobrazování oznámení. SystemUI Tuner může zobrazit oznámení při spuštění operací na pozadí. Pokud chcete vidět toto oznámení, povolte SystemUI Tuner zobrazovat oznámení.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">Sledujte mě na Mastodonu nebo Twitteru pro nejnovější aktualizace.</string>
     <string name="intro_crash_reports">Povolit hlášení o pádech</string>
-    <string name="intro_crash_reports_desc">Můžete povolit anonymní zprávy o chybách, které pomohou udržet aplikaci v chodu. Nejsou shromažďovány žádné osobní údaje. Toto nastavení můžete později změnit.</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
     <string name="compatibility_message_both">Omlouváme se, tato funkce funguje pouze od Android %1$s do Android %2$s</string>
     <string name="compatibility_message_higher">Omlouváme se, tato funkce funguje pouze na Android %s</string>
