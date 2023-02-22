@@ -289,7 +289,8 @@
     <string name="intro_last">Cảm ơn vì đã sử dụng ứng dụng!</string>
     <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Bật Báo cáo Lỗi</string>
-    <string name="intro_crash_reports_desc">Bạn có thể chọn bật báo cáo sự cố ẩn danh để giúp ứng dụng chạy trơn tru. Không có thông tin cá nhân nào được thu thập. Bạn có thể thay đổi cài đặt này sau.</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %s trở lên</string>
     <string name="compatibility_message_both">Xin lỗi, tính năng chỉ chỉ hoạt động từ Android %1$s đến Android %2$s</string>
     <string name="compatibility_message_higher">Sorry, this feature only works through Android %s</string>
