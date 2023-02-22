@@ -202,7 +202,7 @@
     <string name="reset">重設</string>
     <string name="grant">授予</string>
     <string name="help">說明</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg">無法在裝置上授予權限，因為未偵測到 Root 或 Shizuku。若您的裝置已 Root，請確保 SystemUI Tuner 有 Root 存取權。否則按「說明」按鈕來取得 ADB 和 Shizuku 說明。</string>
     <string name="wss_required_msg">未授予 WRITE_SECURE_SETTTINGS 权限。</string>
     <string name="mode">模式</string>
     <string name="key">金鑰</string>
@@ -238,7 +238,7 @@
     <string name="previous">上一個</string>
     <string name="exit">離開</string>
     <string name="done">完成</string>
-    <string name="error">Error</string>
+    <string name="error">錯誤</string>
     <string name="status_bar_icons">狀態列圖示</string>
     <string name="network_states">網路狀態</string>
     <string name="volume_visibility">音量可見性</string>
@@ -306,7 +306,7 @@
     <string name="android_11">11</string>
     <string name="write_system_fail">無法寫入 Settings.System！</string>
     <string name="write_system_fail_desc">很不幸，Android 對可寫入 Setting.System 的內容新增了一些限制，而你似乎碰到了這些限制的設定之一。但幸運的是，透過使用一個附加的應用程式，有辦法繞過這個限制。你必須從 XDA Labs 下載它，而且它是免費且開放原始碼的。</string>
-    <string name="write_system_fail_get_add_on">獲取附加程式</string>
+    <string name="write_system_fail_get_add_on">取得附加程式</string>
     <string name="donate">贊助</string>
     <string name="donate_desc">我在閒時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
     <string name="paypal">PayPal</string>
