@@ -56,6 +56,13 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
     var hasHitBottomOfTerms by remember {
         mutableStateOf(false)
     }
+    var hasWss by remember {
+        mutableStateOf(
+            context.checkCallingOrSelfPermission(
+                android.Manifest.permission.WRITE_SECURE_SETTINGS
+            ) == PackageManager.PERMISSION_GRANTED
+        )
+    }
 
     LaunchedEffect(termsScrollState.maxValue, termsScrollState.canScrollForward, rawTermsText) {
         if (termsScrollState.maxValue > 0 && !termsScrollState.canScrollForward && rawTermsText != null) {
@@ -130,14 +137,15 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                 description = stringResource(id = R.string.intro_grant_wss_desc),
                 icon = { painterResource(id = R.drawable.ic_baseline_adb_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
-                canMoveForward = {
-                    context.checkCallingOrSelfPermission(
-                        android.Manifest.permission.WRITE_SECURE_SETTINGS
-                    ) == PackageManager.PERMISSION_GRANTED
-                },
+                canMoveForward = { hasWss },
                 blockedReason = { stringResource(id = R.string.blocked_reason_write_secure_settings) },
                 extraContent = {
-                    IntroSpecialPermissionGrantGroup(permissions = arrayOf(android.Manifest.permission.WRITE_SECURE_SETTINGS))
+                    IntroSpecialPermissionGrantGroup(
+                        permissions = arrayOf(android.Manifest.permission.WRITE_SECURE_SETTINGS),
+                        grantCallback = {
+                            hasWss = it
+                        }
+                    )
                 }
             ))
         }

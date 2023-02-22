@@ -81,7 +81,7 @@ import kotlin.math.min
 import kotlin.math.sign
 
 interface IntroPage {
-    val canMoveForward: () -> Boolean
+    val canMoveForward: @Composable () -> Boolean
     val blockedReason: (@Composable () -> String)?
     val slideColor: @Composable () -> Color
 
@@ -94,7 +94,7 @@ open class SimpleStepsPage(
     steps: @Composable () -> Array<StepInfo>,
     icon: (@Composable () -> Painter?)? = null,
     slideColor: @Composable () -> Color,
-    canMoveForward: () -> Boolean = { true },
+    canMoveForward: @Composable () -> Boolean = { true },
     blockedReason: (@Composable () -> String)? = null,
     scrollable: Boolean = true,
     horizontalTitleRow: Boolean = false
@@ -194,7 +194,7 @@ open class SimpleIntroPage(
     val description: String? = null,
     val icon: (@Composable () -> Painter?)? = null,
     override val slideColor: @Composable () -> Color,
-    override val canMoveForward: () -> Boolean = { true },
+    override val canMoveForward: @Composable () -> Boolean = { true },
     override val blockedReason: @Composable() (() -> String)? = null,
     val scrollable: Boolean = true,
     val horizontalTitleRow: Boolean = false,
@@ -348,7 +348,7 @@ fun IntroSlider(
     val state = rememberPagerState()
     val count = pages.size
     val currentPage = pages[state.currentPage]
-    val canMoveForward = currentPage.canMoveForward
+    val canMoveForward = currentPage.canMoveForward()
     val blockedReason = currentPage.blockedReason?.invoke()
     val scope = rememberCoroutineScope()
 
@@ -460,7 +460,7 @@ fun IntroSlider(
                 IconButton(
                     onClick = {
                         if (showAsNext) {
-                            if (canMoveForward()) {
+                            if (canMoveForward) {
                                 scope.launch {
                                     state.animateScrollToPage(min(state.currentPage + 1, count - 1))
                                 }

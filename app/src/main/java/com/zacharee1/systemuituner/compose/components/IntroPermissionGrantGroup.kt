@@ -14,6 +14,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -40,7 +41,7 @@ import rikka.shizuku.SystemServiceHelper
 
 private const val REQ_SHIZUKU = 3003
 
-private fun Context.performShizukuPermissionsGrant(permissions: Array<String>): String? {
+private fun Context.performShizukuPermissionsGrant(permissions: Array<String>): String {
     return if (!grantPermissionsThroughShizuku(permissions)) {
         resources.getString(R.string.permission_grant_failure)
     } else {
@@ -93,6 +94,7 @@ private fun requestShizukuPermission(permissionsRequester: ActivityResultLaunche
 fun IntroSpecialPermissionGrantGroup(
     permissions: Array<String>,
     modifier: Modifier = Modifier,
+    grantCallback: ((Boolean) -> Unit)? = null,
 ) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
@@ -100,8 +102,16 @@ fun IntroSpecialPermissionGrantGroup(
     var error by remember {
         mutableStateOf<String?>(null)
     }
-    val hasPermissions = permissions.all {
-        context.checkCallingOrSelfPermission(it) == PackageManager.PERMISSION_GRANTED
+    val hasPermissions = remember(error) {
+        permissions.all {
+            context.checkCallingOrSelfPermission(it) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    LaunchedEffect(error, hasPermissions) {
+        if (error != null) {
+            grantCallback?.invoke(hasPermissions)
+        }
     }
 
     val onRequestPermissionResult: (requestCode: Int, grantResult: Int) -> Unit = { requestCode, grantResult ->
