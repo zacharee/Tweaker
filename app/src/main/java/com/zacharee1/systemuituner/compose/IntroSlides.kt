@@ -9,11 +9,14 @@ import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -244,9 +247,25 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                         }
                         mutableStateOf(context.prefManager.enableCrashReports == true)
                     }
+
+                    LaunchedEffect(key1 = enabled) {
+                        context.prefManager.enableCrashReports = enabled
+                    }
+
+                    val interactionSource = remember {
+                        MutableInteractionSource()
+                    }
                     
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(
+                                interactionSource = interactionSource,
+                                indication = null,
+                                onClick = {
+                                    enabled = !enabled
+                                }
+                            ),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(text = stringResource(id = R.string.intro_crash_reports))
@@ -259,8 +278,8 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                             checked = enabled, 
                             onCheckedChange = {
                                 enabled = it
-                                context.prefManager.enableCrashReports = it
-                            }
+                            },
+                            interactionSource = interactionSource
                         )
                     }
                 }
@@ -272,7 +291,18 @@ fun rememberIntroSlides(startReason: ComposeIntroActivity.Companion.StartReason)
                 title = { stringResource(id = R.string.intro_last) },
                 description = stringResource(id = R.string.intro_last_desc),
                 icon = { painterResource(id = R.drawable.foreground_unscaled) },
-                slideColor = { colorResource(id = R.color.slide_8) }
+                slideColor = { colorResource(id = R.color.slide_8) },
+                extraContent = {
+                    OutlinedButton(onClick = { context.launchUrl("https://androiddev.social/@wander1236") }) {
+                        Text(text = stringResource(id = R.string.mastodon))
+                    }
+
+                    Spacer(modifier = Modifier.size(4.dp))
+
+                    OutlinedButton(onClick = { context.launchUrl("https://twitter.com/Wander1236") }) {
+                        Text(text = stringResource(id = R.string.twitter))
+                    }
+                }
             ))
         }
     }

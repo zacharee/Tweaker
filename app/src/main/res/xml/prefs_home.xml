@@ -208,6 +208,13 @@
         />
 
     <com.zacharee1.systemuituner.prefs.nav.LinkPreference
+        android:title="@string/mastodon"
+        android:key="mastodon"
+        android:icon="@drawable/mastodon"
+        app:link="https://androiddev.social/@wander1236"
+        />
+
+    <com.zacharee1.systemuituner.prefs.nav.LinkPreference
         android:title="@string/twitter"
         android:key="twitter"
         android:icon="@drawable/twitter"
