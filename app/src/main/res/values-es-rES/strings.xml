@@ -287,7 +287,7 @@
     <string name="intro_allow_notifications">Permitir notificaciones</string>
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
-    <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. You can change this setting later.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
@@ -317,6 +317,7 @@
     <string name="website">Sitio web</string>
     <string name="more_apps">Más Aplicaciones</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Si tienes un dispositivo Samsung con Android Pie o posterior que utiliza One UI, quizá hayas notado que algunas opciones que funcionaban en Android Oreo ya no funcionan, como por ejemplo mostrar los segundos en el reloj. He hecho una app por separado que hace uso de capas del sistema para volver a hacer disponibles algunas de estas opciones. No necesita ADB ni ser root.</string>
     <string name="check_it_out">Echale un vistazo</string>
