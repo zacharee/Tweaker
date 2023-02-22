@@ -89,7 +89,7 @@ interface IntroPage {
 open class SimpleStepsPage(
     title: @Composable () -> String,
     steps: @Composable () -> Array<StepInfo>,
-    icon: (@Composable () -> Painter)? = null,
+    icon: (@Composable () -> Painter?)? = null,
     slideColor: @Composable () -> Color,
     canMoveForward: () -> Boolean = { true },
     blockedReason: (@Composable () -> String)? = null,
@@ -185,7 +185,7 @@ open class SimpleStepsPage(
 open class SimpleIntroPage(
     val title: @Composable () -> String,
     val description: String? = null,
-    val icon: (@Composable () -> Painter)? = null,
+    val icon: (@Composable () -> Painter?)? = null,
     override val slideColor: @Composable () -> Color,
     override val canMoveForward: () -> Boolean = { true },
     override val blockedReason: @Composable() (() -> String)? = null,
@@ -207,12 +207,14 @@ open class SimpleIntroPage(
             @Composable
             fun TitleAndIcon() {
                 icon?.let { icon ->
-                    Icon(
-                        painter = icon(),
-                        contentDescription = null,
-                        modifier = Modifier.size(128.dp),
-                        tint = MaterialTheme.colorScheme.contentColorFor(slideColor())
-                    )
+                    icon()?.let {
+                        Icon(
+                            painter = it,
+                            contentDescription = null,
+                            modifier = Modifier.size(128.dp),
+                            tint = MaterialTheme.colorScheme.contentColorFor(slideColor())
+                        )
+                    }
                 }
 
                 Text(

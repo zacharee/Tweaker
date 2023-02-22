@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material3.Icon
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,13 +24,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.zacharee1.systemuituner.R
 
-private sealed class SelectedOS(val nameRes: Int) {
-    object Windows : SelectedOS(R.string.adb_windows) {
+private sealed class SelectedOS(val nameRes: Int, val iconRes: Int) {
+    object Windows : SelectedOS(R.string.adb_windows, R.drawable.microsoft_windows) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -64,7 +66,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object MacOS : SelectedOS(R.string.adb_mac) {
+    object MacOS : SelectedOS(R.string.adb_mac, R.drawable.baseline_keyboard_command_key_24) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -99,7 +101,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object Fedora : SelectedOS(R.string.adb_linux_fedora) {
+    object Fedora : SelectedOS(R.string.adb_linux_fedora, R.drawable.penguin) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -128,7 +130,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object Debian : SelectedOS(R.string.adb_linux_debian) {
+    object Debian : SelectedOS(R.string.adb_linux_debian, R.drawable.penguin) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -157,7 +159,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object RHEL : SelectedOS(R.string.adb_linux_rhel) {
+    object RHEL : SelectedOS(R.string.adb_linux_rhel, R.drawable.penguin) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -186,7 +188,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object GenericLinux : SelectedOS(R.string.adb_linux_other) {
+    object GenericLinux : SelectedOS(R.string.adb_linux_other, R.drawable.penguin) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             val commands = permissions.map {
                 SimpleStepsPage.StepInfo(
@@ -221,7 +223,7 @@ private sealed class SelectedOS(val nameRes: Int) {
                     )
         }
     }
-    object LocalADB : SelectedOS(R.string.adb_local) {
+    object LocalADB : SelectedOS(R.string.adb_local, R.drawable.ic_baseline_android_24) {
         override fun Context.makeSteps(permissions: Array<String>): Array<SimpleStepsPage.StepInfo> {
             return arrayOf(
                 SimpleStepsPage.StepInfo(
@@ -280,12 +282,14 @@ fun rememberTutorialSlides(
             } else {
                 R.string.adb_intro_desc
             }),
-            slideColor = { colorResource(id = R.color.slide_1) }
+            slideColor = { colorResource(id = R.color.slide_1) },
+            icon = { painterResource(id = R.drawable.ic_baseline_adb_24) }
         ))
 
         slides.add(SimpleStepsPage(
             title = { stringResource(id = R.string.adb_android_guide) },
             slideColor = { colorResource(id = R.color.slide_2) },
+            icon = { painterResource(id = R.drawable.ic_baseline_smartphone_24) },
             steps = {
                 arrayOf(
                     SimpleStepsPage.StepInfo(
@@ -332,6 +336,7 @@ fun rememberTutorialSlides(
             title = { stringResource(id = R.string.adb_choose_computer_os) },
             description = stringResource(id = R.string.adb_choose_computer_os_desc),
             slideColor = { colorResource(id = R.color.slide_3) },
+            icon = { painterResource(id = R.drawable.baseline_computer_24) },
             fullWeightDescription = false,
             canMoveForward = { selectedOs != null },
             blockedReason = { stringResource(id = R.string.blocked_reason_choose_os) },
@@ -370,6 +375,11 @@ fun rememberTutorialSlides(
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.weight(1f)
                             )
+
+                            Icon(
+                                painter = painterResource(id = it.iconRes),
+                                contentDescription = stringResource(id = it.nameRes)
+                            )
                         }
                     }
                 }
@@ -379,13 +389,15 @@ fun rememberTutorialSlides(
         slides.add(SimpleStepsPage(
             title = { selectedOs?.nameRes?.let { stringResource(id = it) } ?: "" },
             steps = { selectedOs?.run { context.makeSteps(permissions) } ?: arrayOf() },
+            icon = { selectedOs?.iconRes?.let { painterResource(id = it) } },
             slideColor = { colorResource(id = R.color.slide_4) }
         ))
 
         slides.add(SimpleIntroPage(
             title = { stringResource(id = R.string.adb_final_title) },
             description = stringResource(id = R.string.adb_final_desc),
-            slideColor = { colorResource(id = R.color.slide_5) }
+            slideColor = { colorResource(id = R.color.slide_5) },
+            icon = { painterResource(id = R.drawable.ic_baseline_check_24) }
         ))
     }
 
