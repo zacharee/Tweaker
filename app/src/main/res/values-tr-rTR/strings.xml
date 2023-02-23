@@ -314,7 +314,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Sürücüye yazılamadı!</string>
-    <string name="write_system_fail_desc">Maalesef Android, Ayarlar Sistemine ne yazılabileceğine dair bazı kısıtlamalar ekledi ve bu kısıtlanmış ayarlardan birine ulaşmışsınız gibi görünüyor. Neyse ki, bir eklenti uygulamasının kullanımıyla bu kısıtlamayı aşmanın bir yolu var. XDA Labs\'tan indirmeniz gerekecek, ancak ücretsiz ve açık kaynak.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Eklenti edinin</string>
     <string name="donate">Bağış</string>
     <string name="donate_desc">Bu uygulamayı boş zamanlarımda yapıyorum. Kullanmaktan hoşlanıyorsan, bana bir fincan kahve ısmarlamayı düşün (kahve içmesem bile). Tabii ki bu bir bağış ve hiçbir şey yapmanıza gerek yok. SystemUI Tuner\'da ödeme duvarlı özellik yoktur.</string>
