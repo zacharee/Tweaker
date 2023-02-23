@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.views
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.content.res.Resources
 import android.os.Build
 import android.util.AttributeSet
@@ -12,10 +13,12 @@ import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.databinding.NightModeBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.prefManager
 import tk.zwander.seekbarpreference.SeekBarView
 
-class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback {
+class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback, SharedPreferences.OnSharedPreferenceChangeListener {
     companion object {
         const val TWILIGHT_MODE = "twilight_mode"
         const val NIGHT_DISPLAY_ACTIVATED = "night_display_activated"
@@ -48,6 +51,26 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         }
 
         updateStates()
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+
+        context.prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+
+        context.prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == PrefManager.SAVED_OPTIONS) {
+            post {
+                updateStates()
+            }
+        }
     }
 
     private fun updateStates() {

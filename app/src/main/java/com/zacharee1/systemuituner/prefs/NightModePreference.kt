@@ -39,18 +39,23 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
     }
 
     override fun onValueChanged(newValue: Any?, key: String) {
-        val info = newValue as NightModeInfo?
+        val info = newValue as? NightModeInfo
 
         context.apply {
             if (info == null) {
-                writeSettingsBulk(*keys.flatMap { it.value.map { v -> SettingsInfo(it.key, v, null) } }.toTypedArray())
+                writeSettingsBulk(
+                    *keys.flatMap { it.value.map { v -> SettingsInfo(it.key, v, null) } }.toTypedArray(),
+                    revertable = true,
+                    saveOption = true,
+                )
             } else {
                 writeSettingsBulk(
                     SettingsInfo(SettingsType.SECURE, NightModeView.TWILIGHT_MODE, info.twilightMode),
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_ACTIVATED, info.nightModeActivated),
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_AUTO_MODE, info.nightModeAuto),
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, info.nightModeTemp),
-                    revertable = true
+                    revertable = true,
+                    saveOption = true,
                 )
             }
         }

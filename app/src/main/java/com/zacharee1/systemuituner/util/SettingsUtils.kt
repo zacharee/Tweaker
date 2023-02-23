@@ -108,7 +108,7 @@ fun Context.writeSetting(
     key: String?,
     value: Any?,
     revertable: Boolean = false,
-    saveOption: Boolean = false,
+    saveOption: Boolean = true,
 ): Boolean {
     if (revertable) {
         revertDialog(SettingsInfo(type, key, value), saveOption = saveOption)

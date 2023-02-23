@@ -1,6 +1,8 @@
 package com.zacharee1.systemuituner.views
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -17,15 +19,16 @@ import com.zacharee1.systemuituner.databinding.UiSoundsBinding
 import com.zacharee1.systemuituner.databinding.UiSoundsItemBinding
 import com.zacharee1.systemuituner.util.*
 
-class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), SharedPreferences.OnSharedPreferenceChangeListener {
     private val binding by lazy { UiSoundsBinding.bind(this) }
 
     @Suppress("DEPRECATION")
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        binding.disableChargingSound.isChecked = context.getSetting(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == "0"
-                || context.getSetting(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == "0"
+        context.prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+
+        updateChargingSoundToggle()
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
             context.writeSettingsBulk(
                 SettingsInfo(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
@@ -36,6 +39,28 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
         }
 
         binding.soundsList.adapter = Adapter(context)
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+
+        context.prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
+    }
+
+    @Suppress("DEPRECATION")
+    private fun updateChargingSoundToggle() {
+        binding.disableChargingSound.isChecked = context.getSetting(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == "0"
+                || context.getSetting(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, 1) == "0"
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+        if (key == PrefManager.SAVED_OPTIONS) {
+            post {
+                updateChargingSoundToggle()
+                binding.soundsList.adapter?.notifyDataSetChanged()
+            }
+        }
     }
 
     class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.VH>() {
