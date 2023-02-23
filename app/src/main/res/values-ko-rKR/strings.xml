@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Settings.System에 쓰는 데 실패했습니다!</string>
-    <string name="write_system_fail_desc">안타깝게도 Android에서 Settings.System에 쓸 수 있는 내용에 몇 가지 제약을 걸었는데, 해당 제약에 걸려 버린 설정을 누르신 것 같습니다. 다행히 애드온 앱을 이용하면 이런 제약을 우회할 수 있습니다. 앱은 XDA Labs에서 내려받아야 하지만, 무료에다가 오픈 소스입니다.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
     <string name="donate">기부</string>
     <string name="donate_desc">저는 이 앱을 여가 시간에 만들었습니다. 재밌게 쓰고 계신다면 (제가 커피를 마시진 않지만) 제게 커피 한 잔 정도를 사 주시는 건 어떨까요? 물론 이건 후원의 개념이고, 반드시 하지 않으셔도 됩니다. SystemUI Tuner에 유료로 결제해야만 이용할 수 있는 기능은 없습니다.</string>
