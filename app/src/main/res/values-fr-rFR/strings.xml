@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Échec d\'écriture dans Settings.System !</string>
-    <string name="write_system_fail_desc">Malheureusement, Android a ajouté quelques restrictions quant à ce qui peut être écrit dans Settings.System, et il semble que vous ayez atteint l\'un de ces paramètres restreints. Heureusement, il y a un moyen de contourner cette restriction, grâce à l\'utilisation d\'une application complémentaire. Vous devrez le télécharger depuis XDA Labs, mais il est gratuit et open source.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Obtenir des Add-On</string>
     <string name="donate">Faire un don</string>
     <string name="donate_desc">Je fais cette application dans mon temps libre. Si vous aimez l\'utiliser, pensez à m\'acheter une tasse de café (même si je ne bois pas de café). Bien sûr, c\'est un don, et vous n\'avez rien à faire. Il n\'y a pas de fonctionnalités payantes dans SystemUI Tuner.</string>
