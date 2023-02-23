@@ -186,7 +186,7 @@
     <string name="option_disable_lock_screen_ads">Desativar anúncios na tela de bloqueio</string>
     <string name="option_disable_lock_screen_ads_desc">Se o seu Kindle tiver anúncios que são exibidos na tela de bloqueio, você pode usar esta opção para desativá-los. Para torná-lo permanente, você também deve habilitar esta opção na tela de Opções Persistentes.</string>
     <string name="option_allow_custom_left_lock_shortcut">Permitir atalho personalizado no canto esquerdo da tela de bloqueio</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">O FireOS normalmente reserva o atalho esquerdo da tela de bloqueio para o painel do dispositivo inteligente, mesmo que você altere o atalho. Habilite isso aqui e em Opções Persistentes para poder usar um atalho personalizado.</string>
     <string name="home_welcome_title">Bem-vindo!</string>
     <string name="search">Pesquisar</string>
     <string name="immersive_none">Nenhum</string>
@@ -202,7 +202,7 @@
     <string name="reset">Redefinir</string>
     <string name="grant">Conceder</string>
     <string name="help">Ajuda</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg">Não foi possível conceder permissões no dispositivo porque não foram encontrados os acessos necessários, Root ou Shizuko. Se o seu dispositivo estiver enraizado, certifique-se de que o SystemUI Tuner tenha acesso root. Caso contrário, pressione o botão AJUDA para obter instruções sobre ADB e Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS não foi concedido.</string>
     <string name="mode">Modo</string>
     <string name="key">Chave</string>
@@ -238,7 +238,7 @@
     <string name="previous">Anterior</string>
     <string name="exit">Sair</string>
     <string name="done">Concluído</string>
-    <string name="error">Error</string>
+    <string name="error">Falha</string>
     <string name="status_bar_icons">Ícones da barra de status</string>
     <string name="network_states">Estado da rede</string>
     <string name="volume_visibility">Visibilidade do Volume</string>
@@ -284,13 +284,13 @@
     <string name="intro_grant_extra_desc">Para certos recursos, o SystemUI Tuner precisa de algumas permissões adicionais para funcionar corretamente. Você não precisa conceder isso agora, e você será solicitado se eles forem necessários.</string>
     <string name="intro_system_alert_window">Janela de Alerta do Sistema</string>
     <string name="intro_system_alert_window_desc">O Android 12 e versões posteriores restringiram significativamente a capacidade dos aplicativos de executar operações em segundo plano e quando o dispositivo é inicializado. Dar permissão ao SystemUI Tuner para exibir sobre outros aplicativos o isentará dessas restrições e melhorará a confiabilidade das Opções Persistentes. Esta permissão é completamente opcional.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Permitir Notificações</string>
+    <string name="intro_allow_notifications_desc">O Android 13 introduz uma nova restrição em aplicativos que exigem permissão do usuário para exibir notificações. O SystemUI Tuner pode mostrar uma notificação ao executar operações em segundo plano. Se você deseja ver esta notificação, permita que o SystemUI Tuner mostre as notificações.</string>
     <string name="intro_last">Obrigado por usar meu app!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">Siga-me no Twitter para as últimas atualizações do app.</string>
     <string name="intro_crash_reports">Ativar relatórios de erros</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports_desc">Você pode optar por habilitar relatórios de falhas anônimos para ajudar a manter o aplicativo funcionando sem problemas. Nenhuma informação pessoal é coletada. Para desabilitar totalmente a coleta depois de habilitada, você precisará forçar a parada do SystemUI Tuner. Você pode alterar essa configuração mais tarde.</string>
+    <string name="crash_reports_desc">Você pode optar por habilitar relatórios de falhas anônimos para ajudar a manter o aplicativo funcionando sem problemas. Nenhuma informação pessoal é coletada. Para desabilitar totalmente a coleta depois de habilitada, você precisará forçar a parada do SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Desculpe, este recurso só funciona com Android %s ou superior</string>
     <string name="compatibility_message_both">Desculpe, esse recurso só funciona do Android %1$s para Android %2$s</string>
     <string name="compatibility_message_higher">Desculpe, este recurso só funciona com Android %s</string>
@@ -306,7 +306,7 @@
     <string name="android_10">Q 10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Falha ao gravar em Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">Infelizmente, o Android adicionou algumas restrições ao que pode ser escrito em Settings.System, e parece que você atingiu uma dessas configurações restritas. Felizmente, existe uma maneira de contornar essa restrição, através do uso de um aplicativo de complementos. Você terá que baixá-lo pelo meu site, fique tranquilo, é gratuito e de código aberto.</string>
     <string name="write_system_fail_get_add_on">Baixar complemento</string>
     <string name="donate">Doar</string>
     <string name="donate_desc">Eu faço esse aplicativo no meu tempo livre. Se você gosta de usá-lo, considere comprar uma xícara de café para mim (mesmo que eu não tome café). Claro, isto é uma doação, e você não tem que fazer nada. Não há recursos pagos no SystemUI Tuner.</string>
@@ -362,11 +362,11 @@
     <string name="safe_audio_state_active">Ativo</string>
     <string name="persistent_options_not_sticking_title">Opções não estão redefinindo na inicialização?</string>
     <string name="persistent_options_not_sticking_desc">Pode ser que você precisar dar algumas permissões de otimização de bateria para o SystemUI Tuner. Clique aqui para saber como.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="setting_applied_dialog">Opção aplicada!</string>
+    <string name="setting_applied_dialog_desc">Você quer manter as alterações? Esta opção será revertida após %s segundos.</string>
+    <string name="keep">Manter</string>
+    <string name="revert">Desfazer</string>
+    <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>
