@@ -307,7 +307,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Impossibile scrivere su impostazioni di sistema!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">Purtroppo, Android ha aggiunto alcune restrizioni su ciò che può essere scritto sulle impostazioni di sistema, e sembra che tu ne abbia incontrato una. Per fortuna, è possibile aggirare questa restrizione attraverso l\'uso di un\'app aggiuntiva. Dovrai scaricarla da XDA Labs, ma è gratuita e open source.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
     <string name="donate">Dona</string>
     <string name="donate_desc">Sviluppo questa app nel mio tempo libero. Se ti piace usarla, considera di comprarmi una tazza di caffè (anche se non bevo caffè). Naturalmente, questa è una donazione, e non devi fare nulla. Non ci sono funzioni a pagamento in SystemUl Tuner.</string>
