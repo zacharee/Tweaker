@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">无法写入 Settings.System!</string>
-    <string name="write_system_fail_desc">不幸的是，安卓系统添加了一些可以写入设置的限制。看起来您已经点击了其中一个受限制的设置。 幸运的是，可以通过使用附加组件应用来绕过这种限制。 您必须从 XDA 实验室下载，但它是免费和开源的。</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">获取附加组件</string>
     <string name="donate">捐赠</string>
     <string name="donate_desc">我在空闲时间制作了这个应用程序。 如果您喜欢使用它，请考虑给我买杯咖啡（即使我不喝咖啡）。 当然，这是捐赠，你也可以什么都不做。在  SystemUI Tuner 中没有任何付费功能。</string>
