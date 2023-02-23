@@ -309,7 +309,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nepodařilo se zapsat do Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">Systém Android bohužel přidal některá omezení, co lze do souboru Settings.System zapisovat, a zdá se, že jste narazili na jedno z těchto omezených nastavení. Naštěstí existuje způsob, jak toto omezení obejít, a to pomocí doplňkové aplikace. Musíte si ji stáhnout z Xda Labs, ale je zdarma a s otevřeným zdrojovým kódem.</string>
     <string name="write_system_fail_get_add_on">Získat doplňek</string>
     <string name="donate">Podpořit</string>
     <string name="donate_desc">Tuto aplikaci vytvářím ve svém volném čase. Pokud se vám bude líbit, zvažte, jestli mi koupíte šálek kávy (i když kávu nepiju). Samozřejmě se jedná o dar a nemusíte nic dělat. V aplikaci SystemUI Tuner nejsou žádné placené funkce.</string>
