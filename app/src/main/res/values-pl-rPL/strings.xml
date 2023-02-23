@@ -150,9 +150,9 @@
     <string name="option_advanced_write_setting">Zapisz ustawienia niestandardowe</string>
     <string name="option_advanced_write_setting_desc">Jeśli masz określone ustawienia, chcesz zmienić które nie jest częścią SystemUI Tuner, możesz ustawić je tutaj.</string>
     <string name="option_qqs_tiles">Liczba nagłówków szybkich ustawień</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
+    <string name="option_qqs_tiles_desc">Android Nougat wprowadził nową funkcję szybkich ustawień, zwaną nagłówkiem szybkich ustawień, które pokazuje kilka pierwszych kafelków w jednym wierszu w menu powiadomień. Używając tej opcji, możliwe jest zwiększenie lub zmniejszenie liczby płytek pokazanych w tym rzędzie. To nie będzie działać na OneUI, chyba że używasz OneUI Tuner.</string>
     <string name="option_oneui_clock_position">Pozycja zegara</string>
-    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
+    <string name="option_oneui_clock_position_desc">W OneUI Samsunga (Android Pie lub nowszym) można zmienić pozycję zegara na pasku stanu. Good Lock QuickStar pozwala to zrobić, ale opcje są czasami ograniczone w zależności od urządzenia. Możesz użyć tego aby ustawić go na lewo, środek lub prawo. Pamiętaj, że w OneUI 2.0 (Android 10), musisz zainstalować QuickStar, aby ta opcja odniosła skutek. Aby ta opcja nie resetowała się, włącz czarną listę ikon w trwałych opcjach.</string>
     <string name="option_touchwiz_navbar_color">Kolor paska nawigacji</string>
     <string name="option_touchwiz_navbar_color_desc">Na doświadczeniu Samsung i jednym interfejsie użytkownika możliwe jest ustawienie koloru paska nawigacji na swój własny kolor. Użyj tej opcji, aby to zrobić.</string>
     <string name="option_custom_notification_snooze_times">Niestandardowe czasy drzemki powiadomień</string>
@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nie udało się zapisać do Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">Niestety, Android dodał pewne ograniczenia jak na przykład które ustawienia w Settings.System mogą być modyfikowane. Wygląda na to, że natrafiłeś na jedno z tych ograniczonych ustawień. Na szczęście istnieje pewien sposób na ominięcie tego ograniczenia poprzez zastosowanie dodatkowej aplikacji. Będziesz ją musiał pobrać z mojej strony internetowej. Jest ona darmowa i otwartoźródłowa.</string>
     <string name="write_system_fail_get_add_on">Pobierz dodatek</string>
     <string name="donate">Wesprzyj mnie</string>
     <string name="donate_desc">Tworzę tę aplikację w czasie wolnym. Jeśli lubisz jej używać, rozważ zakup filiżanki kawy dla mnie (nawet jeśli nie piję kawy). Oczywiście jest to darowizna i nie jest obowiązkowa. W Tunerze SystemUI nie ma żadnych płatnych funkcji.</string>
