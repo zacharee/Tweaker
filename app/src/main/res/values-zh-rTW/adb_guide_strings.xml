@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[從 [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.priveged.api) 下載並安裝 Shizuku 應用程式。]]></string>
     <string name="adb_install_local_2">開啟 Shizuku 應用程式並遵循「透過無線偵錯啟動」下的說明。</string>
     <string name="adb_install_local_3">關閉此螢幕並輕觸「授予」按鈕。</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">將壓縮檔解壓縮到方便的位置，如「C:\\adb」。</string>
     <string name="adb_install_adb_windows_3">使用檔案總管瀏覽已解壓縮的壓縮檔。你會看到一些檔案，包括一個叫做「adb」的檔案。</string>
     <string name="adb_install_adb_windows_4">點選搜尋列內，用「cmd」(無引號) 取代其中的內容。然後按輸入鍵。</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">將壓縮檔解壓縮到方便的位置，如桌面。</string>
     <string name="adb_install_adb_mac_3">現在，開啟「終端機」。你可以同時按下 Command + 空白鍵，並搜尋「終端機」。</string>
     <string name="adb_install_adb_mac_4">現在，使用以下命令瀏覽已解壓縮的檔案：「cd /path/to/files/」。例如，如果您的使用者名稱為 Zachary 並且已經將壓縮檔解壓縮到您的桌面，命令將是「cd /Users/Zachary/Desktop/platform-tools/」，其中「platform-tools」是名為「adb」檔案的資料夾。</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">用以下命令安裝 ADB：「sudo dnf install adb」。</string>
     <string name="adb_install_adb_rhel_1">開啟終端機。</string>
     <string name="adb_install_adb_rhel_2">用以下命令安裝 ADB：「sudo dnf install adb」。</string>
-    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">從這裡下載 ADB ZIP：https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">將壓縮檔解壓縮到方便的位置，如桌面。</string>
     <string name="adb_install_adb_linux_other_3">開啟終端機。</string>
     <string name="adb_install_adb_linux_other_4">現在，使用以下命令瀏覽已解壓縮的檔案：「cd /path/to/files/」。例如，如果您的使用者名稱為 Zachary 並且已經將壓縮檔解壓縮到您的桌面，命令將是「cd /home/Zachary/platform-tools/」，其中「platform-tools」是名為「adb」檔案的資料夾。</string>
