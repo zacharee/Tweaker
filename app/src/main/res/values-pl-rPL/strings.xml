@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nie udało się zapisać do Settings.System!</string>
-    <string name="write_system_fail_desc">Niestety, Android dodał pewne ograniczenia co można zapisać w Ustawieniach. Wygląda na to, że uderzyłeś w jedno z tych ograniczonych ustawień. Na szczęście istnieje pewien sposób doprowadzenia do tego ograniczenia poprzez zastosowanie dodatkowej aplikacji. Będziesz ją musiał pobrać z XDA Labs, ale jest darmowa i open source.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Pobierz dodatek</string>
     <string name="donate">Wesprzyj mnie</string>
     <string name="donate_desc">Tworzę tę aplikację w czasie wolnym. Jeśli lubisz jej używać, rozważ zakup filiżanki kawy dla mnie (nawet jeśli nie piję kawy). Oczywiście jest to darowizna i nie jest obowiązkowa. W Tunerze SystemUI nie ma żadnych płatnych funkcji.</string>
