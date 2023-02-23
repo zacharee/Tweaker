@@ -136,7 +136,7 @@ fun IntroSpecialPermissionGrantGroup(
     ) {
         OutlinedButton(
             onClick = {
-                scope.launch {
+                scope.launch(Dispatchers.IO) {
                     val hasRoot = async { Shell.rootAccess() }
                     val hasShizuku = async { Shizuku.pingBinder() }
 
