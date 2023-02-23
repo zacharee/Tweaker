@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.activities.RecommendSystemAddOn
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
@@ -243,6 +244,10 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
         onFail(e)
     } catch (e: NullPointerException) {
         onFail(e)
+    }.also {
+        if (!it) {
+            RecommendSystemAddOn.start(this)
+        }
     }
 }
 
