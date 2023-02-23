@@ -202,7 +202,7 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg">Es können keine Berechtigungen auf dem Gerät erteilt werden, da weder Root- noch Shizuku-Zugriff erkannt wurde. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff hat. Andernfalls drücken Sie die Schaltfläche „Hilfe” für ADB- und Shizuku-Anweisungen.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
@@ -211,7 +211,7 @@
     <string name="hide">Ausblenden</string>
     <string name="show">Anzeigen</string>
     <string name="enabled">Aktiviert</string>
-    <string name="enable">Enable</string>
+    <string name="enable">Aktivieren</string>
     <string name="global">Allgemein</string>
     <string name="secure">Sicher</string>
     <string name="system">System</string>
@@ -233,12 +233,12 @@
     <string name="intent">Absicht</string>
     <string name="view_online">Online anzeigen</string>
     <string name="tile_custom">Benutzerdefiniert</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
-    <string name="error">Error</string>
+    <string name="next">Weiter</string>
+    <string name="finish">Fertig</string>
+    <string name="previous">Zurück</string>
+    <string name="exit">Beenden</string>
+    <string name="done">Fertig</string>
+    <string name="error">Fehler</string>
     <string name="status_bar_icons">Symbole der Statusleiste</string>
     <string name="network_states">Netzwerkstatus</string>
     <string name="volume_visibility">Sichtbarkeit der Lautstärke</string>
@@ -287,8 +287,8 @@
     <string name="intro_allow_notifications">Benachrichtigungen erlauben</string>
     <string name="intro_allow_notifications_desc">Android 13 führt eine neue Einschränkung für Apps ein, die Erlaubnis des Benutzers zur Anzeige von Benachrichtigungen benötigen. SystemUI Tuner zeigt möglicherweise eine Benachrichtigung an, wenn Hintergrundvorgänge ausgeführt werden. Wenn Sie diese Benachrichtigung sehen möchten, erlauben Sie bitte SystemUI Tuner, Benachrichtigungen anzuzeigen.</string>
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_last_desc">Folgen Sie uns auf Mastodon oder Twitter für die neuesten Aktualisierungen.</string>
+    <string name="intro_crash_reports">Absturzberichte aktivieren</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
@@ -366,7 +366,7 @@
     <string name="setting_applied_dialog_desc">Möchten Sie die Änderungen beibehalten? Diese Option wird nach %s Sekunden zurückgesetzt.</string>
     <string name="keep">Beibehalten</string>
     <string name="revert">Zurücksetzen</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="blocked_reason_read_terms">Bitte lesen Sie unbedingt die Bedingungen, bevor Sie fortfahren.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner kann ohne die Berechtigung „Schreibrechte für Sicherheitseinstellungen” nicht funktionieren. Tippen Sie auf die Schaltfläche „Hilfe”, wenn Sie Probleme bei der Erteilung der Berechtigung haben.</string>
+    <string name="blocked_reason_choose_os">Bitte wählen Sie ein Betriebssystem, bevor Sie fortfahren.</string>
 </resources>
