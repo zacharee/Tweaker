@@ -289,8 +289,8 @@
     <string name="intro_last">Спасибо за использование моего приложения!</string>
     <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
     <string name="intro_crash_reports">Включить отчёты о сбоях</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports_desc">Чтобы помочь работе приложения, Вы можете включить анонимные отчеты о сбоях. Личная информация не собирается. Чтобы полностью отключить сбор информации, вам нужно остановить SystemUI Tuner. Вы можете изменить эту настройку позже.</string>
+    <string name="crash_reports_desc">Чтобы помочь работе приложения, Вы можете включить анонимные отчеты о сбоях. Личная информация не собирается. Чтобы полностью отключить сбор информации, вам нужно остановить SystemUI Tuner. Вы можете изменить эту настройку позже.</string>
     <string name="compatibility_message_lower">Извините, эта функция работает только с Android %s и более поздними</string>
     <string name="compatibility_message_both">К сожалению, эта функция работает только с Android %1$s до Android %2$s</string>
     <string name="compatibility_message_higher">К сожалению, эта функция работает только через Android %s</string>
