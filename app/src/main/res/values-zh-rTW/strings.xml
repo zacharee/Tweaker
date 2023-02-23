@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">管理員 (關閉)</string>
-    <string name="tap_to_disable">按一下以關閉通知</string>
+    <string name="tap_to_disable">輕觸以停用通知</string>
     <string name="home">首頁</string>
     <string name="category_display">顯示</string>
     <string name="category_accessibility">無障礙</string>
