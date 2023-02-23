@@ -308,7 +308,7 @@ Néma láthatóság</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nem sikerült írni a Settings.System-be!</string>
-    <string name="write_system_fail_desc">Sajnos az Android bizonyos korlátozásokat adott a Settings.Systembe írható tartalmakra vonatkozóan, és úgy tűnik, hogy elérte a korlátozott beállítások egyikét. Szerencsére van mód ennek a korlátozásnak a megkerülésére egy kiegészítő alkalmazás használatával. Le kell töltenie az XDA Labs oldaláról, de ingyenes és nyílt forráskódú.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Add-On beszerzése</string>
     <string name="donate">Támogatás</string>
     <string name="donate_desc">Ezt az alkalmazást a szabadidőmben készítem. Ha élvezed a használatát, vegyél nekem egy csésze kávét (annak ellenére, hogy nem iszom kávét). Természetesen ez egy adomány, és nem kell semmit sem tenned. A SystemUI Tunerben nincsenek fizetős funkciók.</string>
