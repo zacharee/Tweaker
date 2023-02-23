@@ -1,5 +1,6 @@
 package com.zacharee1.systemuituner.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
@@ -73,6 +74,7 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         }
     }
 
+    @SuppressLint("DiscouragedApi")
     private fun updateStates() {
         val atLeastNMR1 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
 
