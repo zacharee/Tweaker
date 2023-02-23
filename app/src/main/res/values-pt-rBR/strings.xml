@@ -7,7 +7,7 @@
     <string name="category_display">Tela</string>
     <string name="category_accessibility">Acessibilidade</string>
     <string name="category_apps">Aplicativos</string>
-    <string name="category_audio">Áudio &amp; Som</string>
+    <string name="category_audio">Áudio e Som</string>
     <string name="category_developer">Desenvolvedor</string>
     <string name="category_easter_eggs">Segredos Escondidos</string>
     <string name="category_network">Redes</string>
@@ -129,12 +129,12 @@
     <string name="option_ui_sound_car_dock_desc">Áudio que é reproduzido quando o celular é conectado a um carro.</string>
     <string name="option_ui_sound_car_undock">Desconectado do carro</string>
     <string name="option_ui_sound_car_undock_desc">Áudio que é reproduzido quando o celular é desconectado de um carro.</string>
-    <string name="option_ui_sound_desk_dock">Conectado na mesa</string>
-    <string name="option_ui_sound_desk_dock_desc">Áudio que é reproduzido quando o celular está encaixado em um encaixe de mesa.</string>
-    <string name="option_ui_sound_desk_undock">Desconectado da mesa</string>
-    <string name="option_ui_sound_desk_undock_desc">Áudio que é reproduzido quando o celular é removido de uma área de trabalho.</string>
+    <string name="option_ui_sound_desk_dock">Conectado ao desk dock</string>
+    <string name="option_ui_sound_desk_dock_desc">Áudio que é reproduzido quando o celular está conectado a um desk dock.</string>
+    <string name="option_ui_sound_desk_undock">Desconectado do desk dock</string>
+    <string name="option_ui_sound_desk_undock_desc">Áudio que é reproduzido quando o celular é desconectado do desk dock.</string>
     <string name="option_ui_sound_lock">Bloqueado</string>
-    <string name="option_ui_sound_lock_desc">Áudio que é reproduzido quando o celular é bloqueado.</string>
+    <string name="option_ui_sound_lock_desc">Áudio que é reproduzido quando o dispositivo é bloqueado.</string>
     <string name="option_ui_sound_unlock">Desbloqueado</string>
     <string name="option_ui_sound_unlock_desc">Áudio que é reproduzido quando o dispositivo é desbloqueado.</string>
     <string name="option_ui_sound_low_battery">Bateria fraca</string>
@@ -367,6 +367,6 @@
     <string name="keep">Manter</string>
     <string name="revert">Desfazer</string>
     <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">O SystemUI Tuner não pode funcionar sem a permissão de Gravar Configurações Seguras. Toque no botão \"Ajuda\" se você estiver com problemas para concedê-lo.</string>
+    <string name="blocked_reason_choose_os">Por favor, escolha um sistema operacional antes de continuar.</string>
 </resources>
