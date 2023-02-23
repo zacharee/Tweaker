@@ -306,7 +306,7 @@
     <string name="android_10">Q 10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Falha ao gravar em Settings.System!</string>
-    <string name="write_system_fail_desc">Infelizmente, o Android adicionou algumas restrições ao que pode ser escrito em Settings.System, e parece que você atingiu uma dessas configurações restritas. Felizmente, existe uma maneira de contornar essa restrição, através do uso de um aplicativo de complementos. Você terá que baixá-lo pelo XDA Labs, mas é gratuito e de código aberto.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Baixar complemento</string>
     <string name="donate">Doar</string>
     <string name="donate_desc">Eu faço esse aplicativo no meu tempo livre. Se você gosta de usá-lo, considere comprar uma xícara de café para mim (mesmo que eu não tome café). Claro, isto é uma doação, e você não tem que fazer nada. Não há recursos pagos no SystemUI Tuner.</string>
