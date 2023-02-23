@@ -73,7 +73,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         return null
     }
 
-    fun notifyChanged(value: Any?) {
-        (preference as IDialogPreference).onValueChanged(value, writeKey)
+    fun notifyChanged(value: Any?): Boolean {
+        return (preference as IDialogPreference).onValueChanged(value, writeKey)
     }
 }

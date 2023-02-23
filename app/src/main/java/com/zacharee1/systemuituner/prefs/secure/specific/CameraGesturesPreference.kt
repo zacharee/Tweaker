@@ -33,13 +33,13 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseDial
         iconColor = ContextCompat.getColor(context, R.color.pref_color_6)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val data = newValue as CameraGesturesData
 
-        context.apply {
-            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled, saveOption = true)
-            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled, saveOption = true)
-            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled, saveOption = true)
+        return context.run {
+            writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED, data.doubleTwistToFlipEnabled, saveOption = true) &&
+                    writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_GESTURE_DISABLED, data.cameraGestureDisabled, saveOption = true) &&
+                    writeSetting(SettingsType.SECURE, Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED, data.doubleTapPowerDisabled, saveOption = true)
         }
     }
 }

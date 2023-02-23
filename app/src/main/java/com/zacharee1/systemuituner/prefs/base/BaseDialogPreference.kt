@@ -29,5 +29,7 @@ open class BaseDialogPreference(context: Context, attrs: AttributeSet) : DialogP
         bindVH(holder)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {}
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+        return true
+    }
 }

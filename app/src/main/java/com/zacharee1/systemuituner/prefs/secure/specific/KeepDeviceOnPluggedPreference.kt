@@ -28,9 +28,9 @@ class KeepDeviceOnPluggedPreference(context: Context, attrs: AttributeSet) : Bas
         iconColor = ContextCompat.getColor(context, R.color.pref_color_2)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         newValue as Int
 
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue, saveOption = true)
+        return context.writeSetting(SettingsType.GLOBAL, Settings.Global.STAY_ON_WHILE_PLUGGED_IN, newValue, saveOption = true)
     }
 }

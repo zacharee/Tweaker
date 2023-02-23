@@ -66,6 +66,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.material.animation.ArgbEvaluatorCompat
@@ -226,7 +227,8 @@ open class SimpleIntroPage(
 
                 Text(
                     text = title(),
-                    style = MaterialTheme.typography.headlineMedium
+                    style = MaterialTheme.typography.headlineMedium,
+                    textAlign = TextAlign.Center,
                 )
             }
 

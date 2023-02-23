@@ -21,10 +21,10 @@ class OneUIClockPositionPreference(context: Context, attrs: AttributeSet) : Base
         bindVH(holder)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val string = newValue?.toString()
 
         context.prefManager.blacklistedItems = HashSet(string?.split(",") ?: listOf())
-        context.writeSetting(SettingsType.SECURE, "icon_blacklist", string)
+        return context.writeSetting(SettingsType.SECURE, "icon_blacklist", string)
     }
 }

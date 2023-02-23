@@ -38,10 +38,10 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
         iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val info = newValue as? NightModeInfo
 
-        context.apply {
+        return context.run {
             if (info == null) {
                 writeSettingsBulk(
                     *keys.flatMap { it.value.map { v -> SettingsInfo(it.key, v, null) } }.toTypedArray(),

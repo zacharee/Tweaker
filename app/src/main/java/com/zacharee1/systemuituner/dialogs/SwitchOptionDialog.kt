@@ -38,7 +38,9 @@ class SwitchOptionDialog : BaseOptionDialog() {
             setOnCheckedChangeListener { _, isChecked ->
                 val newValue = if (isChecked) enabled else disabled
 
-                notifyChanged(newValue)
+                if (!notifyChanged(newValue)) {
+                    this.isChecked = !isChecked
+                }
             }
         }
     }

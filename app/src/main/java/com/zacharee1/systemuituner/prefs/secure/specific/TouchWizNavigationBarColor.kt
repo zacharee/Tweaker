@@ -30,8 +30,8 @@ class TouchWizNavigationBarColor(context: Context, attrs: AttributeSet) : BaseSe
         visibilityVerifier = ShowForTouchWiz(context)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
-        context.writeSettingsBulk(
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+        return context.writeSettingsBulk(
             SettingsInfo(SettingsType.GLOBAL, "navigationbar_color", newValue),
             SettingsInfo(SettingsType.GLOBAL, "navigationbar_current_color", newValue),
             saveOption = true

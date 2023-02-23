@@ -32,10 +32,10 @@ class AirplaneModeRadiosPreference(context: Context, attrs: AttributeSet) : Base
         iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val data = newValue as AirplaneModeRadiosData?
 
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted, saveOption = true)
-        context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable, saveOption = true)
+        return context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS, data?.blacklisted, saveOption = true) &&
+                context.writeSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS, data?.toggleable, saveOption = true)
     }
 }

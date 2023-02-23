@@ -28,7 +28,7 @@ class NotificationSnoozeTimesPreference(context: Context, attrs: AttributeSet) :
         lowApi = Build.VERSION_CODES.O_MR1
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
-        context.writeSetting(SettingsType.GLOBAL, "notification_snooze_options", newValue, saveOption = true)
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+        return context.writeSetting(SettingsType.GLOBAL, "notification_snooze_options", newValue, saveOption = true)
     }
 }

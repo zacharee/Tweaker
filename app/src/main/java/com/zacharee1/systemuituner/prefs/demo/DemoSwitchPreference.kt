@@ -33,8 +33,9 @@ open class DemoSwitchPreference(context: Context, attrs: AttributeSet) : BaseDem
         summary = sharedPreferences?.getString(key, disabled)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
-        super.onValueChanged(newValue, key)
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+        val result = super.onValueChanged(newValue, key)
         summary = newValue?.toString()
+        return result
     }
 }

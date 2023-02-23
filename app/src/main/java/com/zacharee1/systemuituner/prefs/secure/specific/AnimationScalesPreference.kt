@@ -34,10 +34,10 @@ class AnimationScalesPreference(context: Context, attrs: AttributeSet) : BaseDia
         iconColor = ContextCompat.getColor(context, R.color.pref_color_7)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val data = newValue as AnimationScalesData
 
-        context.apply {
+        return context.run {
             writeSettingsBulk(
                 SettingsInfo(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, data.animatorScale),
                 SettingsInfo(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, data.windowScale),

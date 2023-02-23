@@ -37,7 +37,7 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
         summary = prefValue?.toString() ?: (this.defaultValue * scale).toString()
     }
 
-    override fun onValueChanged(newValue: Any?, key: String) {
+    override fun onValueChanged(newValue: Any?, key: String): Boolean {
         val value = newValue?.toString()?.toFloat()
 
         sharedPreferences?.edit {
@@ -49,5 +49,7 @@ class DemoSeekBarPreference(context: Context, attrs: AttributeSet) : BaseDemoPre
         }
 
         summary = value.toString()
+
+        return true
     }
 }
