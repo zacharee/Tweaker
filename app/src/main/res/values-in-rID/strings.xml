@@ -96,7 +96,7 @@
     <string name="feature_dnd_in_volume_desc">Memungkinkan Anda untuk mengalihkan Jangan Ganggu dari popup volume.</string>
     <string name="feature_battery_percent">Tampilkan Persentase Baterai pada Bilah Status</string>
     <string name="feature_battery_percent_desc">Menampilkan persentase baterai saat ini di ikon baterai pada bilah status. Mungkin memerlukan akses root untuk mengaktifkannya.</string>
-    <string name="feature_header_airplane_mode_radios">Exempt</string>
+    <string name="feature_header_airplane_mode_radios">Y</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Dapat Dicetik</string>
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">Pada Daya USB</string>
