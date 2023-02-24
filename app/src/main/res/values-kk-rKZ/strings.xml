@@ -52,7 +52,7 @@
     <string name="feature_battery_saver_trigger_desc" formatted="false">Гуглдың батарея сақтау режимі батареяның 5% немесе 15%-тен төмен болған жағдайда қосылады. Бұл арқылы, сіз қашан қосылатындығын өзгерте аласыз.</string>
     <string name="feature_long_press_delay">Ұзақ басу уақытын өзгерту</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
-    <string name="feature_font_scale">Set Custom Font Scale</string>
+    <string name="feature_font_scale">Қаріп өлшемін өзгерту</string>
     <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
     <string name="feature_freeform">Enable Freeform Multiwindow</string>
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
