@@ -153,8 +153,8 @@
     <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕，使用此選項可調整一行內的按鈕數量。此選項無法在 One UI 上正常運作。</string>
     <string name="option_oneui_clock_position">時鐘位置</string>
     <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。要使此選項持續存在，請啟用圖示黑名單。</string>
-    <string name="option_touchwiz_navbar_color">導覽列顏色</string>
-    <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列顏色。請使用此選項。</string>
+    <string name="option_touchwiz_navbar_color">導覽列色彩</string>
+    <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列色彩。請使用此選項。</string>
     <string name="option_custom_notification_snooze_times">自訂通知延後時間</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 引入了通知延後的選項。您可以使用此設定來自訂延後時間值。</string>
     <string name="option_night_mode">夜間模式</string>
@@ -277,7 +277,7 @@
     <string name="intro_terms">使用條款</string>
     <string name="intro_terms_desc">請閱讀這些條款，我保證它們是值得的。對你們中的大多數人來說，它們可以為你節省一封電子郵件。</string>
     <string name="intro_disclaimer">免責聲明</string>
-    <string name="intro_disclaimer_desc">SystemUI Tuner 可以變更隱藏的設定。不幸的是，由於它們是隱藏的，您的特定裝置可能對某些變更沒有反應。在深度客製化的 Android 版本上，如 EMUI、MIUI 和 ColorOS，會有很多功能無法使用。請記住，我對此無能為力。</string>
+    <string name="intro_disclaimer_desc">SystemUI Tuner 可以變更隱藏的設定。不幸的是，由於它們是隱藏的，您的特定裝置可能對某些變更沒有回應。在深度客製化的 Android 版本上，如 EMUI、MIUI 和 ColorOS，會有很多功能無法使用。請記住，我對此無能為力。</string>
     <string name="intro_grant_wss">授予寫入安全設定</string>
     <string name="intro_grant_wss_desc">SystemUI Tuner 在工作前需要一個特殊的權限。要授予它，你要麼需要使用 ADB，要麼需要 Root。按下面的「授予」按鈕將嘗試使用 Root 來授權。否則按下「說明」按鈕，我們將幫你設定 ADB。不過，不要擔心；使用 ADB 是完全安全的。絕對不會讓你的保固失效，不會讓 Samsung Knox 解除，不會讓你的手機 Root，也不會解鎖 Bootloader。</string>
     <string name="intro_grant_extra">授予額外權限</string>
