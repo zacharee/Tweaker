@@ -35,7 +35,7 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
                 && split.containsAll(preferenceValue)
     }
 
-    override fun doInitialSet() {
+    override suspend fun doInitialSet() {
         val prefValue = getPreferenceValue()
         context.prefManager.saveOption(settingsType, settingsKey, null)
         context.writeSetting(SettingsType.SECURE, settingsKey, null)

@@ -13,7 +13,7 @@ abstract class BasePersistenceHandler<PreferenceValueType : Any>(internal val co
     abstract fun getPreferenceValueAsString(): String?
     abstract fun savePreferenceValue(value: String?)
 
-    open fun doInitialSet() {}
+    open suspend fun doInitialSet() {}
 
     fun getSettingsValue(): String? {
         return context.getSetting(settingsType, settingsKey)

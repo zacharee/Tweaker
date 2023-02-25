@@ -40,7 +40,7 @@ import com.zacharee1.systemuituner.prefs.secure.specific.*
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.*
 
-abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by MainScope() {
+abstract class BasePrefFragment : CoroutinePreferenceFragment() {
     companion object {
         const val ARG_HIGHLIGHT_KEY = "highlight_key"
     }
@@ -413,12 +413,6 @@ abstract class BasePrefFragment : PreferenceFragmentCompat(), CoroutineScope by 
 
     override fun onCreateLayoutManager(): RecyclerView.LayoutManager {
         return chooseLayoutManager(view, grid, linear, supportsGrid)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        cancel()
     }
 
     private fun updateListWidthAndGravity(widthDp: Float = requireContext().asDp(requireView().width)) {

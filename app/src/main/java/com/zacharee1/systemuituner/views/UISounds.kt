@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
 import com.zacharee1.systemuituner.R
@@ -18,8 +20,13 @@ import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.UiSoundsBinding
 import com.zacharee1.systemuituner.databinding.UiSoundsItemBinding
 import com.zacharee1.systemuituner.util.*
+import kotlinx.coroutines.launch
 
 class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), SharedPreferences.OnSharedPreferenceChangeListener {
+    companion object {
+        const val PROVIDER_PKG = "com.android.providers.settings"
+    }
+
     private val binding by lazy { UiSoundsBinding.bind(this) }
 
     @Suppress("DEPRECATION")
@@ -30,12 +37,14 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         updateChargingSoundToggle()
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
-            context.writeSettingsBulk(
-                SettingsInfo(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
-                SettingsInfo(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
-                revertable = true,
-                saveOption = true
-            )
+            findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                context.writeSettingsBulk(
+                    SettingsInfo(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
+                    SettingsInfo(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
+                    revertable = true,
+                    saveOption = true
+                )
+            }
         }
 
         binding.soundsList.adapter = Adapter(context)
@@ -63,11 +72,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
         }
     }
 
-    class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.VH>() {
-        companion object {
-            const val PROVIDER_PKG = "com.android.providers.settings"
-        }
-
+    inner class Adapter(private val context: Context) : RecyclerView.Adapter<Adapter.VH>() {
         private val settingsProviderResources = context.packageManager.getResourcesForApplication(PROVIDER_PKG)
 
         private val items = arrayListOf(
@@ -129,13 +134,15 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         private val callback = object : IUISoundSelectionCallback.Stub() {
             override fun onSoundSelected(uri: String, key: String) {
-                context.writeSetting(SettingsType.GLOBAL, key, uri,
-                    revertable = true,
-                    saveOption = true
-                )
+                findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                    context.writeSetting(SettingsType.GLOBAL, key, uri,
+                        revertable = true,
+                        saveOption = true
+                    )
 
-                val index = items.indexOfFirst { it.key == key }
-                notifyItemChanged(index)
+                    val index = items.indexOfFirst { it.key == key }
+                    notifyItemChanged(index)
+                }
             }
         }
 
@@ -170,16 +177,18 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 binding.reset.setOnClickListener {
                     val item = items[holder.bindingAdapterPosition]
 
-                    context.writeSetting(SettingsType.GLOBAL, item.key, item.default,
-                        revertable = true,
-                        saveOption = true
-                    )
-                    notifyItemChanged(holder.bindingAdapterPosition)
+                    findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                        context.writeSetting(SettingsType.GLOBAL, item.key, item.default,
+                            revertable = true,
+                            saveOption = true
+                        )
+                        notifyItemChanged(holder.bindingAdapterPosition)
+                    }
                 }
             }
         }
 
-        class VH(view: View) : RecyclerView.ViewHolder(view)
+        inner class VH(view: View) : RecyclerView.ViewHolder(view)
     }
 
     data class SoundItemInfo(

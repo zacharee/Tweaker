@@ -64,7 +64,7 @@ class DemoListPreference(context: Context, attrs: AttributeSet) : BaseDemoPrefer
         return a.getString(index)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         summary = entries?.get(findIndexOfValue(newValue?.toString()))
         return super.onValueChanged(newValue, key)
     }

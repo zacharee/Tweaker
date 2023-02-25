@@ -5,18 +5,15 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
 import androidx.core.view.isVisible
-import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreference
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSetting
 
-open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs), Preference.OnPreferenceChangeListener {
+open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchPreference(context, attrs) {
     private val additionalKeys by lazy { HashSet<String>() }
-    private val allKeys: HashSet<String>
+    val allKeys: HashSet<String>
         get() = HashSet(additionalKeys).apply { add(autoWriteKey ?: key) }
 
     var autoWriteKey: String? = null
@@ -36,7 +33,6 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
 
     override fun onAttached() {
         super.onAttached()
-        super.setOnPreferenceChangeListener(this)
 
         val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
         isChecked = !currentlyBlacklisted.containsAll(allKeys)
@@ -51,27 +47,6 @@ open class BlacklistPreference(context: Context, attrs: AttributeSet?) : SwitchP
             isVisible = autoWriteKey == null
             text = allKeys.joinToString(", ")
         }
-    }
-
-    override fun setOnPreferenceChangeListener(onPreferenceChangeListener: OnPreferenceChangeListener?) {
-        //no-op
-    }
-
-    override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-        val isChecked = newValue.toString().toBoolean()
-
-        val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
-
-        if (!isChecked) {
-            currentlyBlacklisted.addAll(allKeys)
-        } else {
-            currentlyBlacklisted.removeAll(allKeys)
-        }
-
-        context.prefManager.blacklistedItems = currentlyBlacklisted
-        context.writeSetting(SettingsType.SECURE, "icon_blacklist", currentlyBlacklisted.joinToString(","))
-
-        return true
     }
 
     fun addAdditionalKeys(keys: Collection<String>) {

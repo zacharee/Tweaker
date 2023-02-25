@@ -37,7 +37,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         }
     }
 
-    fun setAdvancedImmersive(info: ImmersiveInfo) {
+    suspend fun setAdvancedImmersive(info: ImmersiveInfo) {
         val modes = ArrayList<String?>()
 
         val fullMode = buildModeString(ImmersiveMode.FULL.type, info.allFull, info.fullApps, info.fullBl)

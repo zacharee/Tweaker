@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.dialogs
 import android.os.Bundle
 import android.view.View
 import com.zacharee1.systemuituner.R
+import kotlinx.coroutines.launch
 import tk.zwander.seekbarpreference.SeekBarView
 
 class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
@@ -50,6 +51,8 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-        notifyChanged(if (scale == 1f) newValue else newScaledValue)
+        launch {
+            notifyChanged(if (scale == 1f) newValue else newScaledValue)
+        }
     }
 }

@@ -8,7 +8,7 @@ import com.zacharee1.systemuituner.interfaces.IDialogPreference
 
 open class BaseDemoPreference(context: Context, attrs: AttributeSet) : DialogPreference(context, attrs),
     IDialogPreference {
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         sharedPreferences?.edit {
             putString(key, newValue?.toString())
         }

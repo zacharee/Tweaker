@@ -5,12 +5,12 @@ import android.database.ContentObserver
 import android.os.Build
 import android.provider.Settings
 import android.service.quicksettings.Tile
-import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.util.ImmersiveManager
 import com.zacharee1.systemuituner.util.safeUpdateTile
+import kotlinx.coroutines.launch
 
 @TargetApi(Build.VERSION_CODES.N)
-abstract class BaseImmersiveTile : TileService() {
+abstract class BaseImmersiveTile : CoroutineTileService() {
     protected abstract val type: ImmersiveManager.ImmersiveMode
 
     private val immersiveManager by lazy { ImmersiveManager(this) }
@@ -66,8 +66,10 @@ abstract class BaseImmersiveTile : TileService() {
             ImmersiveManager.ImmersiveMode.NONE -> {}
         }
 
-        immersiveManager.setAdvancedImmersive(info)
-        updateState()
+        launch {
+            immersiveManager.setAdvancedImmersive(info)
+            updateState()
+        }
     }
 
     private fun updateState() {

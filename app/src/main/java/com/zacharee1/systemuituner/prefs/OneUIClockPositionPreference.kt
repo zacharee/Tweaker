@@ -21,7 +21,7 @@ class OneUIClockPositionPreference(context: Context, attrs: AttributeSet) : Base
         bindVH(holder)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         val string = newValue?.toString()
 
         context.prefManager.blacklistedItems = HashSet(string?.split(",") ?: listOf())

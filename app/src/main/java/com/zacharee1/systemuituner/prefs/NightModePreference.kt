@@ -38,7 +38,7 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
         iconColor = ContextCompat.getColor(context, R.color.pref_color_4)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         val info = newValue as? NightModeInfo
 
         return context.run {

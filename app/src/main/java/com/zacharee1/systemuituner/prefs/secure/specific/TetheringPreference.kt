@@ -36,7 +36,7 @@ class TetheringPreference(context: Context, attrs: AttributeSet) : BaseDialogPre
         iconColor = ContextCompat.getColor(context, R.color.pref_color_1)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         val enabled = newValue.toString().toBoolean()
 
         return context.writeSetting(SettingsType.GLOBAL, Settings.Global.TETHER_DUN_REQUIRED, if (enabled) 0 else 1, saveOption = true) &&

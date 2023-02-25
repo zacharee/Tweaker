@@ -6,14 +6,17 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
+import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.preference.PreferenceDialogFragmentCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
 import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.fragments.CoroutinePreferenceDialogFragment
+import kotlinx.coroutines.launch
 
-abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
+abstract class BaseOptionDialog : CoroutinePreferenceDialogFragment() {
     companion object {
         const val ARG_LAYOUT_RES = "layout_res"
         const val ARG_KEY = "key"
@@ -45,11 +48,15 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
+        view.setViewTreeLifecycleOwner(this)
+
         if (layoutRes != 0) {
             View.inflate(view.context, layoutRes, view.findViewById(R.id.wrapper))
 
             findCallbackView(view.findViewById(R.id.wrapper))?.callback = { data ->
-                notifyChanged(data)
+                launch {
+                    notifyChanged(data)
+                }
             }
         }
     }
@@ -73,7 +80,7 @@ abstract class BaseOptionDialog : PreferenceDialogFragmentCompat() {
         return null
     }
 
-    fun notifyChanged(value: Any?): Boolean {
+    suspend fun notifyChanged(value: Any?): Boolean {
         return (preference as IDialogPreference).onValueChanged(value, writeKey)
     }
 }

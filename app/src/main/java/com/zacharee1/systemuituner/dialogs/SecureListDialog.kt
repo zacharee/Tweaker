@@ -9,6 +9,7 @@ import android.widget.CheckedTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.IListPreference
+import kotlinx.coroutines.launch
 
 class SecureListDialog : BaseOptionDialog() {
     companion object {
@@ -46,7 +47,10 @@ class SecureListDialog : BaseOptionDialog() {
             val value = preference.entryValues?.get(clickedIndex)?.toString()
             if (preference.callChangeListener(value)) {
                 preference.value = value
-                preference.onValueChanged(value, preference.writeKey)
+
+                launch {
+                    preference.onValueChanged(value, preference.writeKey)
+                }
             }
         }
 

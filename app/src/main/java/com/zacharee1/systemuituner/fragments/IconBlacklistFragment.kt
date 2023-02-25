@@ -41,8 +41,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @SuppressLint("RestrictedApi")
-class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryTextListener,
-    SearchView.OnCloseListener, CoroutineScope by MainScope(),
+class IconBlacklistFragment : CoroutinePreferenceFragment(), SearchView.OnQueryTextListener,
+    SearchView.OnCloseListener,
     SharedPreferences.OnSharedPreferenceChangeListener {
     private val origExpansionStates = HashMap<String, Boolean>()
     private val gson = GsonBuilder().create()
@@ -93,16 +93,18 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
                         null
                     }
 
-                    if (info != null) {
-                        requireContext().apply {
-                            prefManager.blacklistedItems = info.items
-                            prefManager.customBlacklistItems = info.customItems
-                            writeSetting(SettingsType.SECURE, "icon_blacklist", info.items.joinToString(","))
+                    launch {
+                        if (info != null) {
+                            requireContext().apply {
+                                prefManager.blacklistedItems = info.items
+                                prefManager.customBlacklistItems = info.customItems
+                                writeSetting(SettingsType.SECURE, "icon_blacklist", info.items.joinToString(","))
+                            }
+                        } else {
+                            requireContext().prefManager.blacklistedItems =
+                                HashSet(firstLine.split(","))
+                            requireContext().writeSetting(SettingsType.SECURE, "icon_blacklist", firstLine)
                         }
-                    } else {
-                        requireContext().prefManager.blacklistedItems =
-                            HashSet(firstLine.split(","))
-                        requireContext().writeSetting(SettingsType.SECURE, "icon_blacklist", firstLine)
                     }
                 }
             } catch (e: Exception) {
@@ -528,6 +530,25 @@ class IconBlacklistFragment : PreferenceFragmentCompat(), SearchView.OnQueryText
 
                 addPreference(this)
                 order = Preference.DEFAULT_ORDER
+
+                setOnPreferenceChangeListener { _, newValue ->
+                    val isChecked = newValue.toString().toBoolean()
+
+                    val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
+
+                    if (!isChecked) {
+                        currentlyBlacklisted.addAll(allKeys)
+                    } else {
+                        currentlyBlacklisted.removeAll(allKeys)
+                    }
+
+                    launch {
+                        context.prefManager.blacklistedItems = currentlyBlacklisted
+                        context.writeSetting(SettingsType.SECURE, "icon_blacklist", currentlyBlacklisted.joinToString(","))
+                    }
+
+                    true
+                }
             }
 
             override fun onBindViewHolder(holder: PreferenceViewHolder) {

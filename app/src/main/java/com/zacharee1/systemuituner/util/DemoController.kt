@@ -81,11 +81,11 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
         registerReceiver(stateReceiver, IntentFilter(ACTION_DEMO))
     }
 
-    fun ensureDemoAllowed() {
+    suspend fun ensureDemoAllowed() {
         writeSetting(SettingsType.GLOBAL, KEY_DEMO_ALLOWED, 1)
     }
 
-    fun enterDemo() {
+    suspend fun enterDemo() {
         ensureDemoAllowed()
         sendDemoCommand(COMMAND_ENTER)
         updateAll()

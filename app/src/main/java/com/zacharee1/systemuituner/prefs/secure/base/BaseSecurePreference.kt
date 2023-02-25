@@ -19,7 +19,7 @@ open class BaseSecurePreference(context: Context, attrs: AttributeSet) : BaseDia
         initSecure(this)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         return context.writeSetting(type, writeKey, newValue, dangerous, true)
     }
 }

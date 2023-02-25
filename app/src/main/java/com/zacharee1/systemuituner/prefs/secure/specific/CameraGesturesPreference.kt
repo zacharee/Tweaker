@@ -33,7 +33,7 @@ class CameraGesturesPreference(context: Context, attrs: AttributeSet) : BaseDial
         iconColor = ContextCompat.getColor(context, R.color.pref_color_6)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         val data = newValue as CameraGesturesData
 
         return context.run {

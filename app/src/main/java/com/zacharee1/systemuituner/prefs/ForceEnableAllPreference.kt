@@ -34,7 +34,7 @@ class ForceEnableAllPreference(context: Context, attrs: AttributeSet) : SecureSw
         bindVH(holder)
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         persistBoolean(newValue.toString().toBoolean())
         return true
     }

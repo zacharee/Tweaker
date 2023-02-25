@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.DemoController
+import kotlinx.coroutines.launch
 
 class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenceChangeListener {
     private val controller by lazy { DemoController.getInstance(requireContext()) }
@@ -20,17 +21,19 @@ class DemoModeFragment : BasePrefFragment(), SharedPreferences.OnSharedPreferenc
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-        when (key) {
-            "demo_enabled" -> {
-                if (enabled) {
-                    controller.enterDemo()
-                } else {
-                    controller.exitDemo()
+        launch {
+            when (key) {
+                "demo_enabled" -> {
+                    if (enabled) {
+                        controller.enterDemo()
+                    } else {
+                        controller.exitDemo()
+                    }
                 }
-            }
-            else -> {
-                if (enabled) {
-                    controller.enterDemo()
+                else -> {
+                    if (enabled) {
+                        controller.enterDemo()
+                    }
                 }
             }
         }

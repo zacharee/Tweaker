@@ -7,13 +7,13 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.service.quicksettings.Tile
-import android.service.quicksettings.TileService
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
+import kotlinx.coroutines.launch
 
 @TargetApi(Build.VERSION_CODES.N)
-class HeadsUpTile : TileService() {
+class HeadsUpTile : CoroutineTileService() {
     private val observer = object : ContentObserver(null) {
         override fun onChange(selfChange: Boolean, uri: Uri) {
             if (uri == Settings.Global.getUriFor(Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED)) {
@@ -55,8 +55,10 @@ class HeadsUpTile : TileService() {
     }
 
     override fun onClick() {
-        writeSetting(SettingsType.GLOBAL, Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, if (isEnabled) 0 else 1, saveOption = true)
-        updateState()
+        launch {
+            writeSetting(SettingsType.GLOBAL, Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, if (isEnabled) 0 else 1, saveOption = true)
+            updateState()
+        }
 
         super.onClick()
     }

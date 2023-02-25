@@ -9,6 +9,7 @@ import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.tasker.TaskerIconBlacklistData
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
+import kotlinx.coroutines.runBlocking
 
 class IconBlacklistRunner : TaskerPluginRunnerActionNoOutput<TaskerIconBlacklistData>() {
     override fun run(context: Context, input: TaskerInput<TaskerIconBlacklistData>): TaskerPluginResult<Unit> {
@@ -19,7 +20,10 @@ class IconBlacklistRunner : TaskerPluginRunnerActionNoOutput<TaskerIconBlacklist
         else blacklisted.add(data.key)
 
         context.prefManager.blacklistedItems = blacklisted
-        context.writeSetting(SettingsType.SECURE, "icon_blacklist", blacklisted.joinToString(","))
+
+        runBlocking {
+            context.writeSetting(SettingsType.SECURE, "icon_blacklist", blacklisted.joinToString(","))
+        }
 
         return TaskerPluginResultSucess()
     }

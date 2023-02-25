@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.*
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -20,10 +21,11 @@ import com.zacharee1.systemuituner.dialogs.AddQSTileDialog
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
 import com.zacharee1.systemuituner.views.GridAutofitLayoutManager
+import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.math.max
 
-class QSEditorActivity : AppCompatActivity() {
+class QSEditorActivity : CoroutineActivity() {
     private val adapter by lazy { QSEditorAdapter(this) }
     private val binding by lazy { ActivityQsEditorBinding.inflate(layoutInflater) }
 
@@ -55,7 +57,7 @@ class QSEditorActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        supportActionBar?.apply {
+        actionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
@@ -113,7 +115,7 @@ class QSEditorActivity : AppCompatActivity() {
         adapter.saveTiles()
     }
 
-    class QSEditorAdapter(private val context: Context) : RecyclerView.Adapter<QSEditorAdapter.QSVH>() {
+    inner class QSEditorAdapter(private val context: Context) : RecyclerView.Adapter<QSEditorAdapter.QSVH>() {
         @SuppressLint("DiscouragedApi")
         private val defaultTiles = ArrayList<String>().apply {
             try {
@@ -236,7 +238,9 @@ class QSEditorActivity : AppCompatActivity() {
         fun saveTiles() {
             val tileString = currentTiles.joinToString(",") { it.key }
 
-            context.writeSetting(SettingsType.SECURE, "sysui_qs_tiles", tileString, saveOption = true)
+            launch {
+                context.writeSetting(SettingsType.SECURE, "sysui_qs_tiles", tileString, saveOption = true)
+            }
         }
 
         override fun getItemCount(): Int {

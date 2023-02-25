@@ -12,8 +12,12 @@ import com.zacharee1.systemuituner.data.CustomPersistentOption
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
-class CustomPersistentOptionDialogFragment : DialogFragment() {
+class CustomPersistentOptionDialogFragment : DialogFragment(), CoroutineScope by MainScope() {
     companion object {
         const val ARG_LABEL = "label"
         const val ARG_KEY = "key"
@@ -82,7 +86,9 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
                     }
                     saveOption(type, key, value)
                 }
-                context.writeSetting(type, key, value)
+                launch {
+                    context.writeSetting(type, key, value)
+                }
             }
             dismiss()
         }
@@ -91,6 +97,11 @@ class CustomPersistentOptionDialogFragment : DialogFragment() {
         }
 
         return builder
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cancel()
     }
 
     override fun onCancel(dialog: DialogInterface) {

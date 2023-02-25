@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
 import com.zacharee1.systemuituner.R
@@ -15,6 +17,7 @@ import com.zacharee1.systemuituner.activities.LockscreenShortcutSelector
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.LockscreenShortcutBinding
 import com.zacharee1.systemuituner.util.*
+import kotlinx.coroutines.launch
 
 class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(context, attrs) {
     init {
@@ -98,17 +101,19 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 binding.reset.setOnClickListener {
                     val newInfo = items[holder.bindingAdapterPosition]
 
-                    newInfo.setComponentName(
-                        context,
-                        if (context.isTouchWiz) {
-                            ShortcutInfo.ComponentValues.fromString(
-                                context.buildDefaultSamsungLockScreenShortcuts()
-                            ).getForSide(item.side)
-                        } else {
-                            null
-                        }
-                    )
-                    notifyItemChanged(holder.bindingAdapterPosition)
+                    findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                        newInfo.setComponentName(
+                            context,
+                            if (context.isTouchWiz) {
+                                ShortcutInfo.ComponentValues.fromString(
+                                    context.buildDefaultSamsungLockScreenShortcuts()
+                                ).getForSide(item.side)
+                            } else {
+                                null
+                            }
+                        )
+                        notifyItemChanged(holder.bindingAdapterPosition)
+                    }
                 }
 
                 setOnClickListener {
@@ -116,12 +121,14 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {
-                            newInfo.setComponentName(context, component)
+                            findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                                newInfo.setComponentName(context, component)
 
-                            if (context.isTouchWiz) {
-                                notifyItemRangeChanged(0, items.size)
-                            } else {
-                                notifyItemChanged(items.indexOfFirst { it.key == key })
+                                if (context.isTouchWiz) {
+                                    notifyItemRangeChanged(0, items.size)
+                                } else {
+                                    notifyItemChanged(items.indexOfFirst { it.key == key })
+                                }
                             }
                         }
                     })
@@ -190,7 +197,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
             }
         }
 
-        fun setComponentName(context: Context, newName: String?) {
+        suspend fun setComponentName(context: Context, newName: String?) {
             if (context.isTouchWiz) {
                 val current = ComponentValues.fromString(context.getSetting(SettingsType.SYSTEM, key))
                 current.setForSide(side, newName)

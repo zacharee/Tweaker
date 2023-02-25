@@ -18,8 +18,12 @@ import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.views.LockscreenShortcuts
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import rikka.shizuku.Shizuku
 import java.util.HashSet
+import kotlin.concurrent.timer
 
 data class SettingsInfo(
     val type: SettingsType,
@@ -27,7 +31,7 @@ data class SettingsInfo(
     val value: Any?
 )
 
-private fun Context.revertDialog(
+private suspend fun Context.revertDialog(
     vararg data: SettingsInfo,
     saveOption: Boolean
 ) {
@@ -57,8 +61,10 @@ private fun Context.revertDialog(
 
         val timer = object : CountDownTimer(timeoutMs, 1000L) {
             override fun onFinish() {
-                originalValues.forEach { (info, setting) ->
-                    writeSetting(info.type, info.key, setting, false, saveOption)
+                suspend {
+                    originalValues.forEach { (info, setting) ->
+                        writeSetting(info.type, info.key, setting, false, saveOption)
+                    }
                 }
                 dialog.dismiss()
             }
@@ -89,7 +95,7 @@ private fun Context.revertDialog(
     }
 }
 
-fun Context.writeSettingsBulk(
+suspend fun Context.writeSettingsBulk(
     vararg data: SettingsInfo,
     revertable: Boolean = false,
     saveOption: Boolean = false
@@ -103,7 +109,7 @@ fun Context.writeSettingsBulk(
     }
 }
 
-fun Context.writeSetting(
+suspend fun Context.writeSetting(
     type: SettingsType,
     key: String?,
     value: Any?,
@@ -123,11 +129,13 @@ fun Context.writeSetting(
         }
     }
 
-    return when (type) {
-        SettingsType.GLOBAL -> writeGlobal(key, value)
-        SettingsType.SECURE -> writeSecure(key, value)
-        SettingsType.SYSTEM -> writeSystem(key, value)
-        SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
+    return withContext(Dispatchers.IO) {
+        when (type) {
+            SettingsType.GLOBAL -> writeGlobal(key, value)
+            SettingsType.SECURE -> writeSecure(key, value)
+            SettingsType.SYSTEM -> writeSystem(key, value)
+            SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
+        }
     }
 }
 

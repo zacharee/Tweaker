@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.zacharee1.systemuituner.R
+import kotlinx.coroutines.launch
 
 class SwitchOptionDialog : BaseOptionDialog() {
     companion object {
@@ -38,8 +39,10 @@ class SwitchOptionDialog : BaseOptionDialog() {
             setOnCheckedChangeListener { _, isChecked ->
                 val newValue = if (isChecked) enabled else disabled
 
-                if (!notifyChanged(newValue)) {
-                    this.isChecked = !isChecked
+                launch {
+                    if (!notifyChanged(newValue)) {
+                        this@apply.isChecked = !isChecked
+                    }
                 }
             }
         }

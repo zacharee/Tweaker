@@ -27,7 +27,7 @@ class SecureSeekBarPreference(context: Context, attrs: AttributeSet) : BaseSecur
         android.recycle()
     }
 
-    override fun onValueChanged(newValue: Any?, key: String): Boolean {
+    override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         return context.writeSetting(type, writeKey, newValue, dangerous, true)
     }
 }

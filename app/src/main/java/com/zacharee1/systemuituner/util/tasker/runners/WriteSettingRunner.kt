@@ -9,6 +9,7 @@ import com.joaomgcd.taskerpluginlibrary.runner.TaskerPluginResultSucess
 import com.zacharee1.systemuituner.data.tasker.TaskerWriteSettingData
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.writeSetting
+import kotlinx.coroutines.runBlocking
 
 class WriteSettingRunner : TaskerPluginRunnerActionNoOutput<TaskerWriteSettingData>() {
     override fun run(context: Context, input: TaskerInput<TaskerWriteSettingData>): TaskerPluginResult<Unit> {
@@ -18,10 +19,12 @@ class WriteSettingRunner : TaskerPluginRunnerActionNoOutput<TaskerWriteSettingDa
 
         val sType = SettingsType.fromString(type)
 
-        return if (context.writeSetting(sType, key, value, true)) {
-            TaskerPluginResultSucess()
-        } else {
-            TaskerPluginResultError(100, "Unable to save $key to $type settings with value $value")
+        return runBlocking {
+            if (context.writeSetting(sType, key, value, true)) {
+                TaskerPluginResultSucess()
+            } else {
+                TaskerPluginResultError(100, "Unable to save $key to $type settings with value $value")
+            }
         }
     }
 }

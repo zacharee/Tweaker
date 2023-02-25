@@ -7,6 +7,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.prefs.secure.SecureEditTextPreference
 import com.zacharee1.systemuituner.util.defaultValue
+import kotlinx.coroutines.launch
 
 class SecureEditTextDialog : BaseOptionDialog() {
     private var editText: EditText? = null
@@ -68,7 +69,9 @@ class SecureEditTextDialog : BaseOptionDialog() {
     private fun apply(text: String?) {
         if (preference.callChangeListener(text)) {
             editTextPreference.text = text
-            editTextPreference.onValueChanged(text, writeKey)
+            launch {
+                editTextPreference.onValueChanged(text, writeKey)
+            }
         }
     }
 
