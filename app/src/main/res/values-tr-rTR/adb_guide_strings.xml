@@ -40,8 +40,8 @@
     <string name="adb_install_adb_linux_other_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
     <string name="adb_install_adb_linux_other_3">Terminali açın.</string>
-    <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
-    <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
+    <string name="adb_install_adb_linux_other_4">Şimdi, aşağıdaki komutu kullanarak ayıklanan dosyalara göz atın: `cd / path /to /files /\'. Örneğin, kullanıcı adınız Zachary ise ve zip\'i Ana dizininize çıkardıysanız, komut `cd / home /Zachary /platform-tools /` olacaktır; burada \"platform-tools\", içinde \"adb\" adlı dosyanın bulunduğu klasördür.</string>
+    <string name="adb_install_adb_general_end_1">Bir Komut İstemi veya Terminal penceresi açılmalıdır. İçine aşağıdaki komutları yazın ve her birinden sonra Enter / Return tuşuna basın. Telefonunuzda USB Hata Ayıklama hakkında bir açılır pencere belirirse, buna izin verdiğinizden emin olun.</string>
     <string name="adb_install_adb_general_end_2">Her şey yolunda giderse, komutlardan çıktı alınmamalıdır. Varsa, hatayı görmek için komutu girdiğiniz yere kadar kaydırdığınızdan emin olun.</string>
     <string name="adb_install_adb_general_end_3">İzinler şimdi verilmiştir!</string>
     <string name="adb_windows">Windows</string>
