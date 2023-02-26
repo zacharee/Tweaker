@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Не удалось записать в Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">К сожалению, Android добавил некоторые ограничения на то, что можно написать в Настройки.Система и похоже, что вы достигли одной из этих настроек ограниченного доступа. К счастью, это ограничение может обойти через использование приложения дополнения. Вы должны скачать его с моего сайта, но это бесплатно и с открытым исходным кодом.</string>
     <string name="write_system_fail_get_add_on">Получить аддон</string>
     <string name="donate">Пожертвования</string>
     <string name="donate_desc">Я делаю это приложение в свободное время. Если вам нравится его использовать, подумайте о покупке чашки кофе (даже если я не пью кофе). Конечно, это пожертвование, и вам ничего не нужно делать. В SystemUI Tuner нет никаких платных функций.</string>
