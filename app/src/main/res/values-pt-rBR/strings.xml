@@ -175,9 +175,9 @@
     <string name="option_qs_fancy_anim_desc">Em dispositivos suportados, você pode usar isso para desativar o movimento do bloco de configurações rápidas chique e desvanecer quando expandindo completamente o centro de notificações. Se isso parece não ter efeito no seu dispositivo, mantenha-o ativado para evitar outros problemas.</string>
     <string name="option_qs_move_full_rows">Mover todas as linhas</string>
     <string name="option_qs_move_full_rows_desc">O que isto realmente faz não é explicado muito bem, mas ele faz algo e você pode tentar se quiser. Tem algo a ver com a descida no centro de notificações.</string>
-    <string name="option_back_gesture_inset_scale_left">Largura da borda do gesto traseiro (esquerda)</string>
+    <string name="option_back_gesture_inset_scale_left">Largura da borda do gesto voltar (esquerda)</string>
     <string name="option_back_gesture_inset_scale_left_desc">O Android 11 introduz uma opção para definir a sensibilidade para o gesto traseiro da tela, ajustando a largura da área de detecção. Use esta opção para definir a largura da borda esquerda final, ou remova-a completamente.</string>
-    <string name="option_back_gesture_inset_scale_right">Largura da borda do gesto traseiro (direita)</string>
+    <string name="option_back_gesture_inset_scale_right">Largura da borda do gesto voltar (direita)</string>
     <string name="option_back_gesture_inset_scale_right_desc">O Android 11 introduz uma opção para definir a sensibilidade para o gesto traseiro da tela, ajustando a largura da área de detecção. Use esta opção para definir a largura da borda direita mais finalmente, ou remova-a completamente.</string>
     <string name="option_hide_multi_sim_panel">Ocultar painel QS Multi-SIM</string>
     <string name="option_hide_multi_sim_panel_desc">Em aparelhos da Samsung, você pode usar esta opção para ocultar a exibição de mais de um chip que aparece no painel de configurações rápidas quando expandido.</string>
