@@ -289,8 +289,8 @@
     <string name="intro_last">Vielen Dank dafür, dass Sie meine App nutzen!</string>
     <string name="intro_last_desc">Folgen Sie uns auf Mastodon oder Twitter für die neuesten Aktualisierungen.</string>
     <string name="intro_crash_reports">Absturzberichte aktivieren</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports_desc">Sie können das Senden anonymer Absturzberichte aktivieren, um den reibungslosen Betrieb der App zu gewährleisten. Es werden keine persönlichen Informationen gesammelt. Um das Sammeln von Daten nach der Aktivierung vollständig zu deaktivieren, müssen Sie SystemUI Tuner zwangsweise beenden. Sie können diese Einstellung später ändern.</string>
+    <string name="crash_reports_desc">Sie können das Senden anonymer Absturzberichte aktivieren, um den reibungslosen Betrieb der App zu gewährleisten. Es werden keine persönlichen Informationen gesammelt. Um das Sammeln von Daten nach der Aktivierung vollständig zu deaktivieren, müssen Sie SystemUI Tuner zwangsweise beenden.</string>
     <string name="compatibility_message_lower">Leider kann dieses Funktion nur mit Android %s und neuer genutzt werden.</string>
     <string name="compatibility_message_both">Leider kann diese Funktion nur in Android %1$s bis Android %2$s genutzt werden.</string>
     <string name="compatibility_message_higher">Leider kann dieses Funktion nur mit Android %s genutzt werden</string>
@@ -306,7 +306,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Fehler beim Schreiben der Systemeinstellungen!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail_desc">Leider hat Android einige Einschränkungen bezüglich der Einstellungen hinzugefügt, die in Settings.System geschrieben werden können, und es scheint, dass Sie auf eine dieser eingeschränkten Einstellungen gestoßen sind. Glücklicherweise gibt es einen Weg, diese Beschränkung zu umgehen, und zwar durch die Verwendung einer Zusatz-App. Sie müssen diese von meiner Website herunterladen, aber sie ist kostenlos und quelloffen.</string>
     <string name="write_system_fail_get_add_on">Add-On installieren</string>
     <string name="donate">Spenden</string>
     <string name="donate_desc">Ich entwickle diese App in meiner Freizeit. Wenn es Ihnen Spaß macht, spendieren Sie mir eine Tasse Kaffee (auch wenn ich keinen Kaffee trinke). Selbstverständlich ist dies eine Spende, und Sie sind dazu nicht verpflichtet. Es gibt keine kostenpflichtigen Funktionen in SystemUI Tuner.</string>
