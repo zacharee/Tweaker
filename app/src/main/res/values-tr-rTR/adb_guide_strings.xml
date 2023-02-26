@@ -21,13 +21,13 @@
     <string name="adb_install_android_11">Şimdi telefonunuzu bilgisayarınıza takın. USB Hata Ayıklama hakkında bir onay penceresi görünürse, izin verin.</string>
     <string name="adb_install_android_12">Bu yapıldıktan sonra, bilgisayarınızda devam etme zamanı.</string>
     <string name="adb_install_local_1"><![CDATA[Shizuku uygulamasını [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)'den indirip yükleyin.]]></string>
-    <string name="adb_install_local_2">Open the Shizuku app and follow the instructions under \"Start via Wireless Debugging\".</string>
+    <string name="adb_install_local_2">Shizuku uygulamasını açın ve \"Kablosuz Hata Ayıklama Yoluyla Başlat\" altındaki talimatları izleyin.</string>
     <string name="adb_install_local_3">Bu ekranı kapatın ve \"İZİN VER\" düğmesine dokunun.</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">ZIP dosyasını \"C:\\adb\" gibi uygun bir konuma çıkarın.</string>
     <string name="adb_install_adb_windows_3">Çıkarılan ZIP\'ye göz atmak için dosya gezginini kullanın. \"Adb\" adlı bir dosya da dahil olmak üzere bir grup dosya görmelisiniz.</string>
     <string name="adb_install_adb_windows_4">Arama çubuğunun içine tıklayın ve orada olanı \"cmd\" (tırnak işaretleri olmadan) ile değiştirin. Ardından Enter\'a basın.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
     <string name="adb_install_adb_mac_3">Şimdi, Terminali açın. Spotlight Search\'ü açmak için aynı anda CMD+SPACE tuşlarına basarak, \"Terminal\"i arayabilirsin.</string>
     <string name="adb_install_adb_mac_4">Adb_install_adb_mac_4.</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Şu komutla ADB yi kurun: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Terminali açın.</string>
     <string name="adb_install_adb_rhel_2">Şu komutla ADB yi kurun: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
     <string name="adb_install_adb_linux_other_3">Terminali açın.</string>
     <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
