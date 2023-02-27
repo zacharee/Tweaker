@@ -166,7 +166,7 @@
     <string name="option_advanced_force_enable_all">تمكين جميع الخيارات المعطلة/المخفية</string>
     <string name="option_advanced_force_enable_all_desc">بعض الخيارات في واجهة النظام تونر مخفية أو معطلة تبعاً لجهازك ولأي إصدار من Android يتم تشغيله. تمكين هذا سيجبر تلك الخيارات على أن تكون مرئية ومفعلة. تحذير: هناك عادة سبب وجيه لأن هذه الخيارات معطلة أو مخفية. قد لا يعملون ببساطة، أو قد يكسروا جهازك. استمر بحذر!</string>
     <string name="option_advanced_manage_qs_tiles">إدارة أعمدة كبو. آس</string>
-    <string name="option_advanced_manage_qs_tiles_desc">Enable or disable SystemUI Tuner\'s QS tiles individually.</string>
+    <string name="option_advanced_manage_qs_tiles_desc">تفعيل أو تعطيل أعمدة كبو آس فرديا ي أنظمة ي آي فرادى.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Disable High Brightness Warning</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">In some regions, Samsung devices will show a warning when you attempt to go above a certain screen brightness level. This setting is usually reset on reboot. Enable this and set it as a Persistent Option to permanently disable this warning.</string>
     <string name="option_qs_editor">Quick Settings Editor</string>
