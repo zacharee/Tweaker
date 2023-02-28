@@ -146,7 +146,7 @@
     <string name="option_ui_sound_disable_charging">Aufladeton deaktivieren</string>
     <string name="option_ui_sound_disable_charging_desc">Legt fest, ob der Ton, der beim Beginn des Ladevorgangs wiedergegeben wird, deaktiviert werden soll.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Das Ändern dieser Optionen erfordert einen Neustart der Systembenutzeroberfläche. Sie müssen die Systembenutzeroberfläche auch nach einem Neustart des Geräts neu starten. Der einfachste Weg, die Systembenutzeroberfläche ohne Neustart neu zu starten, besteht darin, die Berechtigung „Telefon” zu entziehen. Tippen Sie hier, um die Berechtigungen zu verwalten.</string>
     <string name="option_advanced_read_setting">Benutzerdefinierte Einstellung einlesen</string>
     <string name="option_advanced_read_setting_desc">Wenn Sie den Schlüssel zu einer bestimmten Einstellung kennen, so kann dieser dazu verwendet werden, den aktuellen Wert anzuzeigen.</string>
     <string name="option_advanced_write_setting">Benutzerdefinierte Einstellung schreiben</string>
