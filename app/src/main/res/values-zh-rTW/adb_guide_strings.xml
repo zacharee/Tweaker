@@ -11,7 +11,7 @@
     <string name="adb_install_android_1">開啟「設定」應用程式，向下捲動並輕觸「關於手機」。</string>
     <string name="adb_install_android_2">根據您的裝置，您可能會看到一個名為「軟體資訊」的選單，若這樣，輕觸它。</string>
     <string name="adb_install_android_3">現在，找到標籤為「版本號碼」的選項。在某些裝置上，可能名為「版本」。</string>
-    <string name="adb_install_android_4">輕觸此選項 7 次以啟用開發人員模式。您可能需要輸入您的密碼才能啟用它。</string>
+    <string name="adb_install_android_4">輕觸此選項 7 次以啟用開發人員模式，您可能需要輸入您的密碼才能啟用它。</string>
     <string name="adb_install_android_5">現在回到主設定頁。</string>
     <string name="adb_install_android_6">根據您的裝置，您可能會看到一個名為「開發人員選項」的新選單。如果是，輕觸它並略過下一步。</string>
     <string name="adb_install_android_7">如果您沒有看到開發人員選單，找到「系統」或「附加設定」選單。你應該會在這裡看到開發人員選項選單。</string>
