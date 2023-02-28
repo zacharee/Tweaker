@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">Audio qui est lu lorsque l\'appareil est chargé.</string>
     <string name="option_ui_sound_disable_charging">Désactiver le son de charge</string>
     <string name="option_ui_sound_disable_charging_desc">Indique s\'il faut désactiver le son qui joue lorsque l\'appareil commence à se charger.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Lire des paramètres personnalisés</string>
     <string name="option_advanced_read_setting_desc">Si vous connaissez la clé d\'un paramètre particulier, vous pouvez l\'utiliser pour voir sa valeur actuelle.</string>
     <string name="option_advanced_write_setting">Écrire un paramètre personnalisé</string>
