@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.util
 
 import android.annotation.SuppressLint
 import android.content.*
+import android.os.Build
 import android.os.Bundle
 import com.zacharee1.systemuituner.data.SettingsType
 
@@ -54,7 +55,9 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
 
         fun getInstance(context: Context): DemoController {
             return instance ?: run {
-                DemoController(context.applicationContext).apply {
+                val appContext = context.applicationContext ?: context
+
+                DemoController(appContext).apply {
                     instance = this
                 }
             }

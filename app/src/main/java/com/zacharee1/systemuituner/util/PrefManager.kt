@@ -4,10 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import com.bugsnag.android.Bugsnag
-import com.bugsnag.android.Configuration
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -22,7 +21,9 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
 
         fun getInstance(context: Context): PrefManager {
             return instance ?: kotlin.run {
-                PrefManager(context.applicationContext).also { instance = it }
+                val appContext = context.applicationContext ?: context
+
+                PrefManager(appContext).also { instance = it }
             }
         }
 

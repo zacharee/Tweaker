@@ -6,6 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.zacharee1.systemuituner.views.RoundedFrameCardView
+        android:id="@+id/system_ui_permissions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_ui_sound_revoke_system_ui_permission"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="8dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/option_ui_sound_revoke_system_ui_permission_desc"
+                />
+
+        </LinearLayout>
+
+    </com.zacharee1.systemuituner.views.RoundedFrameCardView>
+
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/disable_charging_sound"
         android:text="@string/option_ui_sound_disable_charging"

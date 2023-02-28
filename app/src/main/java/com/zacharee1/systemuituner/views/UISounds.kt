@@ -2,7 +2,9 @@ package com.zacharee1.systemuituner.views
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -34,6 +36,14 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
         super.onAttachedToWindow()
 
         context.prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
+
+        binding.systemUiPermissions.setOnClickListener {
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.data = Uri.parse("package:com.android.systemui")
+
+            context.startActivity(intent)
+        }
 
         updateChargingSoundToggle()
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->

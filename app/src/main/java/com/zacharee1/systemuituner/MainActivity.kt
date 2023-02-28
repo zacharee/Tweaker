@@ -7,7 +7,6 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
@@ -81,8 +80,6 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             if (prefManager.enableCrashReports == null) {
                 reasons.add(ComposeIntroActivity.Companion.StartReason.CRASH_REPORTS)
             }
-
-            Log.e("SystemUITuner", "$reasons")
 
             (reasons to needsResult)
         }

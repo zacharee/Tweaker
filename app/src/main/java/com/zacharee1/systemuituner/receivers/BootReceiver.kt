@@ -9,7 +9,8 @@ import com.zacharee1.systemuituner.services.StartManagerWorker
 
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED ||
+            intent?.action == Intent.ACTION_LOCKED_BOOT_COMPLETED) {
             if (Settings.canDrawOverlays(context)) {
                 StartManagerWorker.start(context)
             } else {
