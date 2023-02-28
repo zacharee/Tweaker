@@ -146,7 +146,7 @@
     <string name="option_ui_sound_disable_charging">停用充電提示音</string>
     <string name="option_ui_sound_disable_charging_desc">是否停用裝置充電音效</string>
     <string name="option_ui_sound_revoke_system_ui_permission">系統 UI 權限</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">變更這些選項需要重新啟動系統 UI。在裝置重新開機後，您仍需重新啟動系統 UI。重新啟動系統 UI 但不重新開機最簡單的方法是撤銷「電話」權限，輕觸這裡以管理權限。</string>
     <string name="option_advanced_read_setting">讀取自訂設定</string>
     <string name="option_advanced_read_setting_desc">如果你知道某個設定的金鑰，你可以用此查看其目前值</string>
     <string name="option_advanced_write_setting">寫入自訂設定</string>
