@@ -280,11 +280,13 @@ fun rememberTutorialSlides(
     if (slides.isEmpty()) {
         slides.add(SimpleIntroPage(
             title = { stringResource(id = R.string.adb_intro_title) },
-            description = stringResource(id = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                R.string.adb_intro_desc_no_computer
-            } else {
-                R.string.adb_intro_desc
-            }),
+            description = {
+                stringResource(id = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    R.string.adb_intro_desc_no_computer
+                } else {
+                    R.string.adb_intro_desc
+                })
+            },
             slideColor = { colorResource(id = R.color.slide_1) },
             icon = { painterResource(id = R.drawable.ic_baseline_adb_24) }
         ))
@@ -337,7 +339,7 @@ fun rememberTutorialSlides(
 
         slides.add(SimpleIntroPage(
             title = { stringResource(id = R.string.adb_choose_computer_os) },
-            description = stringResource(id = R.string.adb_choose_computer_os_desc),
+            description = { stringResource(id = R.string.adb_choose_computer_os_desc) },
             slideColor = { colorResource(id = R.color.slide_3) },
             icon = { painterResource(id = R.drawable.baseline_computer_24) },
             fullWeightDescription = false,
@@ -398,7 +400,7 @@ fun rememberTutorialSlides(
 
         slides.add(SimpleIntroPage(
             title = { stringResource(id = R.string.adb_final_title) },
-            description = stringResource(id = R.string.adb_final_desc),
+            description = { stringResource(id = R.string.adb_final_desc) },
             slideColor = { colorResource(id = R.color.slide_5) },
             icon = { painterResource(id = R.drawable.ic_baseline_check_24) }
         ))

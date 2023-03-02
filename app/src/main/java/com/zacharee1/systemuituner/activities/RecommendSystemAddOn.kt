@@ -4,9 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -32,7 +35,7 @@ class RecommendSystemAddOn : ComponentActivity() {
             Mdc3Theme {
                 val slides = listOf(SimpleIntroPage(
                     title = { stringResource(id = R.string.write_system_fail) },
-                    description = stringResource(id = R.string.write_system_fail_desc),
+                    description = { stringResource(id = R.string.write_system_fail_desc) },
                     icon = { painterResource(id = R.drawable.sad_face) },
                     slideColor = { colorResource(id = R.color.slide_1) },
                     extraContent = {
@@ -44,7 +47,13 @@ class RecommendSystemAddOn : ComponentActivity() {
                     }
                 ))
 
-                IntroSlider(pages = slides, onExit = { finish() }, onDone = { finish() })
+                IntroSlider(
+                    pages = slides,
+                    onExit = ::finish,
+                    onDone = ::finish,
+                    modifier = Modifier.fillMaxSize(),
+                    backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
+                )
             }
         }
     }

@@ -71,7 +71,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
             slides.add(
                 SimpleIntroPage(
                     title = { stringResource(R.string.intro_welcome) },
-                    description = stringResource(R.string.intro_welcome_desc),
+                    description = { stringResource(R.string.intro_welcome_desc) },
                     icon = { painterResource(id = R.drawable.ic_baseline_emoji_people_24) },
                     slideColor = { colorResource(id = R.color.slide_1) },
                 )
@@ -79,7 +79,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
 
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_terms) },
-                description = stringResource(id = R.string.intro_terms_desc),
+                description = { stringResource(id = R.string.intro_terms_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_format_list_numbered_24) },
                 slideColor = { colorResource(id = R.color.slide_2) },
                 scrollable = false,
@@ -119,7 +119,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
 
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_disclaimer) },
-                description = stringResource(id = R.string.intro_disclaimer_desc),
+                description = { stringResource(id = R.string.intro_disclaimer_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_priority_high_24) },
                 slideColor = { colorResource(id = R.color.slide_3) }
             ))
@@ -130,7 +130,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_grant_wss) },
-                description = stringResource(id = R.string.intro_grant_wss_desc),
+                description = { stringResource(id = R.string.intro_grant_wss_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_adb_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
                 canMoveForward = { hasWss },
@@ -151,7 +151,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_grant_extra) },
-                description = stringResource(id = R.string.intro_grant_extra_desc),
+                description = { stringResource(id = R.string.intro_grant_extra_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_adb_24) },
                 slideColor = { colorResource(id = R.color.slide_5) },
                 extraContent = {
@@ -174,7 +174,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
 
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_system_alert_window) },
-                description = stringResource(id = R.string.intro_system_alert_window_desc),
+                description = { stringResource(id = R.string.intro_system_alert_window_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_save_24) },
                 slideColor = { colorResource(id = R.color.slide_6) },
                 extraContent = {
@@ -201,7 +201,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_allow_notifications) },
-                description = stringResource(id = R.string.intro_allow_notifications_desc),
+                description = { stringResource(id = R.string.intro_allow_notifications_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_notifications_24) },
                 slideColor = { colorResource(id = R.color.slide_7) },
                 extraContent = {
@@ -232,7 +232,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
         ) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_crash_reports) },
-                description = stringResource(id = R.string.intro_crash_reports_desc),
+                description = { stringResource(id = R.string.intro_crash_reports_desc) },
                 icon = { painterResource(id = R.drawable.baseline_bug_report_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
                 extraContent = {
@@ -246,7 +246,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
         if (startReasons.contains(ComposeIntroActivity.Companion.StartReason.INTRO)) {
             slides.add(SimpleIntroPage(
                 title = { stringResource(id = R.string.intro_last) },
-                description = stringResource(id = R.string.intro_last_desc),
+                description = { stringResource(id = R.string.intro_last_desc) },
                 icon = { painterResource(id = R.drawable.foreground_unscaled) },
                 slideColor = { colorResource(id = R.color.slide_8) },
                 extraContent = {
