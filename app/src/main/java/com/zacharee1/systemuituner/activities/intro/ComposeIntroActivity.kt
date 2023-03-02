@@ -15,9 +15,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
-import com.zacharee1.systemuituner.compose.IntroSlider
 import com.zacharee1.systemuituner.compose.rememberIntroSlides
 import com.zacharee1.systemuituner.util.prefManager
+import dev.zwander.composeintroslider.IntroSlider
 
 class ComposeIntroActivity : ComponentActivity() {
     companion object {

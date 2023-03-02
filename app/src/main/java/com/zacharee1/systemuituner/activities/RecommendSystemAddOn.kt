@@ -12,9 +12,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.compose.IntroSlider
-import com.zacharee1.systemuituner.compose.SimpleIntroPage
 import com.zacharee1.systemuituner.util.launchUrl
+import dev.zwander.composeintroslider.IntroSlider
+import dev.zwander.composeintroslider.SimpleIntroPage
 
 class RecommendSystemAddOn : ComponentActivity() {
     companion object {

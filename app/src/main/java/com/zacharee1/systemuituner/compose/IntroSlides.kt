@@ -35,6 +35,8 @@ import com.zacharee1.systemuituner.compose.components.CrashReportsToggle
 import com.zacharee1.systemuituner.compose.components.IntroSpecialPermissionGrantGroup
 import com.zacharee1.systemuituner.util.launchUrl
 import com.zacharee1.systemuituner.util.prefManager
+import dev.zwander.composeintroslider.IntroPage
+import dev.zwander.composeintroslider.SimpleIntroPage
 import io.noties.markwon.Markwon
 
 @Composable

@@ -29,6 +29,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.zacharee1.systemuituner.R
+import dev.zwander.composeintroslider.IntroPage
+import dev.zwander.composeintroslider.SimpleIntroPage
+import dev.zwander.composeintroslider.SimpleStepsPage
 
 private sealed class SelectedOS(val nameRes: Int, val iconRes: Int) {
     object Windows : SelectedOS(R.string.adb_windows, R.drawable.microsoft_windows) {

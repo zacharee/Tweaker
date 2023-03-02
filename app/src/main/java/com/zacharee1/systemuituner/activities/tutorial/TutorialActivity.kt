@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
-import com.zacharee1.systemuituner.compose.IntroSlider
 import com.zacharee1.systemuituner.compose.rememberTutorialSlides
+import dev.zwander.composeintroslider.IntroSlider
 
 class TutorialActivity : ComponentActivity() {
     companion object {
