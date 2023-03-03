@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.activities
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -53,6 +54,7 @@ class RecommendSystemAddOn : ComponentActivity() {
                     onDone = ::finish,
                     modifier = Modifier.fillMaxSize(),
                     backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
+                    normalizeElements = Build.VERSION.SDK_INT < Build.VERSION_CODES.S,
                 )
             }
         }
