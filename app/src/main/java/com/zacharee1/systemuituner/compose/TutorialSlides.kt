@@ -346,6 +346,12 @@ fun rememberTutorialSlides(
             canMoveForward = { selectedOs != null },
             blockedReason = { stringResource(id = R.string.blocked_reason_choose_os) },
             extraContent = {
+                val items = remember {
+                    SelectedOS.values().filter {
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.R || it != SelectedOS.LocalADB
+                    }
+                }
+
                 LazyColumn(
                     modifier = Modifier
                         .weight(1f)
@@ -354,7 +360,7 @@ fun rememberTutorialSlides(
                         .padding(top = 16.dp),
                     verticalArrangement = Arrangement.Center
                 ) {
-                    items(SelectedOS.values(), { it.nameRes }) {
+                    items(items, { it.nameRes }) {
                         val interactionSource = remember {
                             MutableInteractionSource()
                         }
