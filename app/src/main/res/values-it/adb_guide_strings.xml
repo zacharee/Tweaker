@@ -20,7 +20,7 @@
     <string name="adb_install_android_10">Sui telefoni OPPO, Realme e OnePlus, dovrai anche trovare e abilitare l\'opzione denominata \"Disabilita monitoraggio permessi\".</string>
     <string name="adb_install_android_11">Ora, collega il telefono al computer. Se appare un popup di conferma di debug USB, consentilo.</string>
     <string name="adb_install_android_12">Una volta fatto, è il momento di continuare sul computer.</string>
-    <string name="adb_install_local_1"><![CDATA[Scarica e installa l'app Shizuku dal [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_1"><![CDATA[Scarica e installa l\'app Shizuku dal [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Apri l\'app Shizuku e segui le istruzioni sotto \"Avvia tramite debug wireless\".</string>
     <string name="adb_install_local_3">Chiudere questa schermata e toccare il pulsante \"GRANT\".</string>
     <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
