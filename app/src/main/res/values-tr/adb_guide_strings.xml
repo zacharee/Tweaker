@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">ADB kılavuzu</string>
+    <string name="adb_intro_desc">ADB\'yi nasıl kullanacağınızı bilmiyor musunuz? Sorun değil. Sadece bu kılavuzu takip etmeniz yeterli. (Bu işlem için bir bilgisayara ihtiyacınız olacağını unutmayın.)</string>
+    <string name="adb_intro_desc_no_computer">ADB\'yi nasıl kullanacağınızı bilmiyor musunuz? Sorun değil. Sadece bu kılavuzu takip etmeniz yeterli.</string>
+    <string name="adb_choose_computer_os">Kullandığınız işletim sistemini seçin.</string>
+    <string name="adb_choose_computer_os_desc">Bilgisayarınız hangi işletim sistemiyle çalışıyor?</string>
+    <string name="adb_android_guide">İlk Kurulum (Telefonunuzda)</string>
+    <string name="adb_final_title">Bitti</string>
+    <string name="adb_final_desc">Bu kadar! Her şey yolunda giderse, izin(ler) şimdi verilmelidir.</string>
+    <string name="adb_install_android_1">Ayarlar uygulamasını açın ve Telefon Hakkında\'ya tıklayın.</string>
+    <string name="adb_install_android_2">Cihazınıza bağlı olarak \"Yazılım Bilgileri\" adlı bir menü görebilirsiniz. Eğer öyleyse, ona tıklayın.</string>
+    <string name="adb_install_android_3">Şimdi, \"Derleme numarası\" etiketli seçeneği bulun. Bazı cihazlarda buna basitçe \"Sürüm\" adı verilebilir.</string>
+    <string name="adb_install_android_4">Geliştirici Modunu etkinleştirmek için bu seçeneğe 7 kez dokunun. Etkinleştirmek için şifrenizi girmeniz gerekebilir.</string>
+    <string name="adb_install_android_5">Şimdi ana Ayarlar sayfasına geri dönün.</string>
+    <string name="adb_install_android_6">Cihazınıza bağlı olarak \"Geliştirici Seçenekleri\" adlı yeni bir menü görebilirsiniz. Eğer öyleyse, ona dokunun ve bir sonraki adımı atlayın.</string>
+    <string name="adb_install_android_7">Geliştirici Seçenekleri menüsünü görmüyorsanız, \"Sistem\" veya \"Ek Ayarlar\" etiketli menüyü bulun. Bunun içinde Geliştirici Seçenekleri menüsünü görmelisiniz.</string>
+    <string name="adb_install_android_8">\"USB Hata Ayıklama\" etiketli anahtarı bulana kadar aşağı kaydırın ve etkinleştirin.</string>
+    <string name="adb_install_android_9">Xiaomi cihazlarında, \"USB Hata Ayıklama (Güvenlik Ayarları)\" etiketli seçeneği de bulmanız ve devre dışı bırakmanız gerekir.</string>
+    <string name="adb_install_android_10">OPPO, Realme ve OnePlus telefonlarında ayrıca \"İzin İzlemeyi Devre Dışı Bırak\" etiketli seçeneği bulmanız ve etkinleştirmeniz gerekir.</string>
+    <string name="adb_install_android_11">Şimdi telefonunuzu bilgisayarınıza takın. USB Hata Ayıklama hakkında bir onay penceresi görünürse, izin verin.</string>
+    <string name="adb_install_android_12">Bu yapıldıktan sonra, bilgisayarınızda devam etme zamanı.</string>
+    <string name="adb_install_local_1"><![CDATA[Shizuku uygulamasını [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)'den indirip yükleyin.]]></string>
+    <string name="adb_install_local_2">Shizuku uygulamasını açın ve \"Kablosuz Hata Ayıklama Yoluyla Başlat\" altındaki talimatları izleyin.</string>
+    <string name="adb_install_local_3">Bu ekranı kapatın ve \"İZİN VER\" düğmesine dokunun.</string>
+    <string name="adb_install_adb_windows_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">ZIP dosyasını \"C:\\adb\" gibi uygun bir konuma çıkarın.</string>
+    <string name="adb_install_adb_windows_3">Çıkarılan ZIP\'ye göz atmak için dosya gezginini kullanın. \"Adb\" adlı bir dosya da dahil olmak üzere bir grup dosya görmelisiniz.</string>
+    <string name="adb_install_adb_windows_4">Arama çubuğunun içine tıklayın ve orada olanı \"cmd\" (tırnak işaretleri olmadan) ile değiştirin. Ardından Enter\'a basın.</string>
+    <string name="adb_install_adb_mac_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
+    <string name="adb_install_adb_mac_3">Şimdi, Terminali açın. Spotlight Search\'ü açmak için aynı anda CMD+SPACE tuşlarına basarak, \"Terminal\"i arayabilirsin.</string>
+    <string name="adb_install_adb_mac_4">Adb_install_adb_mac_4.</string>
+    <string name="adb_install_adb_debian_1">CTRL+ALT+T ye basarak Terminali açın.</string>
+    <string name="adb_install_adb_debian_2">Şu komutla ADB yi kurun: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">Terminali açın.</string>
+    <string name="adb_install_adb_fedora_2">Şu komutla ADB yi kurun: `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">Terminali açın.</string>
+    <string name="adb_install_adb_rhel_2">Şu komutla ADB yi kurun: `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">ZIP dosyasını uygun bir yere çıkarın, Masaüstü gibi.</string>
+    <string name="adb_install_adb_linux_other_3">Terminali açın.</string>
+    <string name="adb_install_adb_linux_other_4">Şimdi, aşağıdaki komutu kullanarak ayıklanan dosyalara göz atın: `cd / path /to /files /\'. Örneğin, kullanıcı adınız Zachary ise ve zip\'i Ana dizininize çıkardıysanız, komut `cd / home /Zachary /platform-tools /` olacaktır; burada \"platform-tools\", içinde \"adb\" adlı dosyanın bulunduğu klasördür.</string>
+    <string name="adb_install_adb_general_end_1">Bir Komut İstemi veya Terminal penceresi açılmalıdır. İçine aşağıdaki komutları yazın ve her birinden sonra Enter / Return tuşuna basın. Telefonunuzda USB Hata Ayıklama hakkında bir açılır pencere belirirse, buna izin verdiğinizden emin olun.</string>
+    <string name="adb_install_adb_general_end_2">Her şey yolunda giderse, komutlardan çıktı alınmamalıdır. Varsa, hatayı görmek için komutu girdiğiniz yere kadar kaydırdığınızdan emin olun.</string>
+    <string name="adb_install_adb_general_end_3">İzinler şimdi verilmiştir!</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (Other)</string>
+    <string name="adb_local">Android (Bu Cihaz)</string>
+</resources>
