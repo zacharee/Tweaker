@@ -1,3 +1,13 @@
+# 351
+- Fix showing failure screen for writing to Settings.System.
+- Make sure UI states properly revert when settings are reverted.
+- Address an ANR when checking for root access.
+- Add some info to the UI Sounds option about needing to restart System UI to load the sounds
+- Fix intro slider color fade.
+- Hide Shizuku tutorial in intro slider below Android 11.
+- Add Turkish translation.
+- Update translations.
+
 # 350
 - Remove a lot of Google dependencies.
 - Migrate to Bugsnag from Crashlytics.
