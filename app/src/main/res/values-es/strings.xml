@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">Audio que se reproduce cuando el dispositivo está siendo cargado.</string>
     <string name="option_ui_sound_disable_charging">Desactivar sonido de carga</string>
     <string name="option_ui_sound_disable_charging_desc">Desactivar el sonido que se reproduce cuando el dispositivo inicia la carga.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Leer configuración personalizada</string>
     <string name="option_advanced_read_setting_desc">Si conoce la clave de una configuración en particular, puede utilizarla para ver su valor actual.</string>
     <string name="option_advanced_write_setting">Escribir configuración personalizada</string>
@@ -202,7 +204,7 @@
     <string name="reset">Restablecer</string>
     <string name="grant">Autorizar</string>
     <string name="help">Ayuda</string>
-    <string name="no_root_msg">No se ha detectado root o Shizuku. Si su dispositivo está rooteado, asegúrese de que System UI Tuner tiene acceso root. De lo contrario, pulse el botón HELP para las instrucciones de ADB y Shizuku.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS no está concedido.</string>
     <string name="mode">Modo</string>
     <string name="key">Clave</string>
@@ -211,6 +213,7 @@
     <string name="hide">Ocultar</string>
     <string name="show">Mostrar</string>
     <string name="enabled">Habilitado</string>
+    <string name="enable">Enable</string>
     <string name="global">Global</string>
     <string name="secure">Seguro</string>
     <string name="system">Sistema</string>
@@ -232,6 +235,12 @@
     <string name="intent">Intento</string>
     <string name="view_online">Ver en línea</string>
     <string name="tile_custom">Personalizado</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="previous">Previous</string>
+    <string name="exit">Exit</string>
+    <string name="done">Done</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Iconos de la barra de estado</string>
     <string name="network_states">Estados de la red</string>
     <string name="volume_visibility">Visibilidad del volumen</string>
@@ -280,7 +289,10 @@
     <string name="intro_allow_notifications">Permitir notificaciones</string>
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
-    <string name="intro_last_desc">Sígueme en Twitter para las últimas actualizaciones.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_crash_reports">Enable Crash Reports</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
     <string name="compatibility_message_both">Lo sentimos, esta característica solo funciona desde Android %1$s a Android %2$s</string>
     <string name="compatibility_message_higher">Lo sentimos, esta característica solo funciona a través de Android %s</string>
@@ -296,7 +308,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">¡Error al escribir en Settings.System!</string>
-    <string name="write_system_fail_desc">Desafortunadamente, Android añadió algunas restricciones en cuanto a lo que se puede escribir en Settings.System, y parece que has llegado a uno de esos ajustes restringidos. Por suerte, hay una manera de evitar esta restricción, a través del uso de una aplicación complementaria. Tendrá que descargarlo de XDA Labs, pero es gratuito y de código abierto.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Obtener Complemento</string>
     <string name="donate">Donar</string>
     <string name="donate_desc">Hago esta aplicación en mi tiempo libre. Si te gusta usarla, considera comprarme una taza de café (aunque no bebo café). Por supuesto, esto es una donación, y usted no tiene que hacer nada, no hay características de pago en SystemUI Tuner.</string>
@@ -308,6 +320,7 @@
     <string name="website">Sitio web</string>
     <string name="more_apps">Más Aplicaciones</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Si tienes un dispositivo Samsung con Android Pie o posterior que utiliza One UI, quizá hayas notado que algunas opciones que funcionaban en Android Oreo ya no funcionan, como por ejemplo mostrar los segundos en el reloj. He hecho una app por separado que hace uso de capas del sistema para volver a hacer disponibles algunas de estas opciones. No necesita ADB ni ser root.</string>
     <string name="check_it_out">Echale un vistazo</string>
@@ -355,4 +368,7 @@
     <string name="setting_applied_dialog_desc">¿Quieres mantener los cambios? Esta opción se revertirá después de %s segundos.</string>
     <string name="keep">Mantener</string>
     <string name="revert">Restaurar</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>

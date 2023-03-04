@@ -24,7 +24,7 @@
     <string name="adb_install_local_2">Otevřete aplikaci Shizuku a postupujte podle pokynů v části \"Spustit přes bezdrátové ladění\".</string>
     <string name="adb_install_local_3">Zavřete tuto obrazovku a klepněte na tlačítko \"UDĚLIT\".</string>
     <string name="adb_install_adb_windows_1">Stáhněte si ADB ZIP zde: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extrahujte ZIP na vhodné místo jako je `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_2">Extrahujte ZIP na vhodné místo jako je C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Použijte průzkumník souborů k procházení extrahovaných ZIP souborů. Měli byste vidět soubor souborů, včetně jednoho nazvaného \"adb\".</string>
     <string name="adb_install_adb_windows_4">Klikněte do vyhledávacího řádku a nahraďte jej slovem \"cmd\" (bez uvozovek). Pak stiskněte klávesu Enter.</string>
     <string name="adb_install_adb_mac_1">Stáhněte si ADB ZIP zde: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>

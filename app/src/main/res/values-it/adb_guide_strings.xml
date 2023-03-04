@@ -20,14 +20,14 @@
     <string name="adb_install_android_10">Sui telefoni OPPO, Realme e OnePlus, dovrai anche trovare e abilitare l\'opzione denominata \"Disabilita monitoraggio permessi\".</string>
     <string name="adb_install_android_11">Ora, collega il telefono al computer. Se appare un popup di conferma di debug USB, consentilo.</string>
     <string name="adb_install_android_12">Una volta fatto, è il momento di continuare sul computer.</string>
-    <string name="adb_install_local_1"><![CDATA[Scarica e installa l\'app Shizuku dal [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_1"><![CDATA[Scarica e installa l'app Shizuku dal [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Apri l\'app Shizuku e segui le istruzioni sotto \"Avvia tramite debug wireless\".</string>
     <string name="adb_install_local_3">Chiudere questa schermata e toccare il pulsante \"GRANT\".</string>
-    <string name="adb_install_adb_windows_1">Scarica il ZIP ADB da qui: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Estrai il ZIP in una posizione facile da ricordare come `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Usa il file explorer per navigare allo ZIP estratto. Dovresti vedere dei file, compreso uno chiamato \"adb\".</string>
     <string name="adb_install_adb_windows_4">Fai clic sulla barra di ricerca e sostituisci ciò che c\'è con \"cmd\" (senza virgolette). Poi premi Invio.</string>
-    <string name="adb_install_adb_mac_1">Scarica il ZIP ADB da qui: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Estrai lo ZIP in una posizione conveniente, come ad esempio il desktop.</string>
     <string name="adb_install_adb_mac_3">Ora apri il terminale. Puoi farlo premendo CMD+SPAZIO allo stesso tempo per aprire la ricerca, e cercando \"Terminale\".</string>
     <string name="adb_install_adb_mac_4">Ora, sfogliate i file estratti usando il seguente comando: `cd /path/to/files/`. Ad esempio, se il tuo nome utente è Zachary ed hai estratto il ZIP sul tuo desktop, il comando sarebbe `cd /Users/Zachary/Desktop/platform-tools/`, dove \"platform-tools\" è la cartella con il file chiamato \"adb\" all\'interno.</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Installa ADB con il seguente comando: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Apri un terminale.</string>
     <string name="adb_install_adb_rhel_2">Installa ADB con il seguente comando: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Scarica il ZIP ADB da qui: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Estrai lo ZIP in una posizione conveniente, come la tua directory Home.</string>
     <string name="adb_install_adb_linux_other_3">Apri un terminale.</string>
     <string name="adb_install_adb_linux_other_4">Ora, sfogliate i file estratti usando il seguente comando: `cd /path/to/files/`. Ad esempio, se il tuo nome utente è Zachary ed hai estratto il ZIP nella tua Home directory, il comando sarebbe `cd /home/Zachary/platform-tools/`, dove \"platform-tools\" è la cartella con il file chiamato \"adb\" all\'interno.</string>

@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">기기를 충전할 때 나는 소리입니다.</string>
     <string name="option_ui_sound_disable_charging">충전음 비활성화</string>
     <string name="option_ui_sound_disable_charging_desc">기기 충전을 시작할 때 소리를 낼 지 내지 않을 지 설정합니다.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">시스템 UI 권한</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">이 설정들을 변경하려면 시스템 UI를 재시작해야 합니다. 기기를 재부팅한 후라도 시스템 UI를 재시작해야 합니다. \"전화\" 권한을 회수하면 재부팅 없이 시스템 UI를 재시작할 수 있습니다. 여기를 눌러 권한을 관리하십시오.</string>
     <string name="option_advanced_read_setting">사용자 설정 읽기</string>
     <string name="option_advanced_read_setting_desc">특정 설정에 대한 키를 알고 있다면 이 기능을 통하여 설정값을 볼 수 있습니다.</string>
     <string name="option_advanced_write_setting">사용자 설정 쓰기</string>
@@ -202,7 +204,7 @@
     <string name="reset">초기화</string>
     <string name="grant">허용</string>
     <string name="help">도움말</string>
-    <string name="no_root_msg">루트 혹은 Shizuku를 감지할 수 없습니다. 기기가 루팅되었다면, SystemUI Tuner가 루트 권한을 갖도록 해주십시오. 아니라면 ADB 및 Shizuku 설치를 안내하는 도움말 버튼을 누르십시오.</string>
+    <string name="no_root_msg">루트 혹은 Shizuku를 감지할 수 없어 기기 내에서 권한을 부여할 수 없습니다. 기기가 루팅되었다면, SystemUI Tuner가 루트 권한을 갖도록 해주십시오. 아니라면 ADB 및 Shizuku 설치를 안내하는 도움말 버튼을 누르십시오.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS 권한이 부여되지 않았습니다.</string>
     <string name="mode">모드</string>
     <string name="key">키</string>
@@ -211,6 +213,7 @@
     <string name="hide">숨기기</string>
     <string name="show">표시</string>
     <string name="enabled">활성화됨</string>
+    <string name="enable">활성화</string>
     <string name="global">전체</string>
     <string name="secure">보안</string>
     <string name="system">시스템</string>
@@ -232,6 +235,12 @@
     <string name="intent">의도</string>
     <string name="view_online">온라인 보기</string>
     <string name="tile_custom">사용자 지정</string>
+    <string name="next">다음</string>
+    <string name="finish">마침</string>
+    <string name="previous">이전</string>
+    <string name="exit">종료</string>
+    <string name="done">완료</string>
+    <string name="error">오류</string>
     <string name="status_bar_icons">상태 표시줄 아이콘</string>
     <string name="network_states">네트워크 상태</string>
     <string name="volume_visibility">음량 표시</string>
@@ -280,7 +289,10 @@
     <string name="intro_allow_notifications">알림 승인</string>
     <string name="intro_allow_notifications_desc">Android 13부터는 앱에서 알림을 보내려면 사용자로부터 허가를 받아야 합니다. SystemUI Tuner에서는 백그라운드 작업을 실행할 때 알림을 표시할 수 있습니다. 이 알림을 보려면 SystemUI Tuner가 알림을 표시할 수 있도록 권한을 부여해주십시오.</string>
     <string name="intro_last">제 앱을 이용해주셔서 감사합니다!</string>
-    <string name="intro_last_desc">최근 업데이트를 보려면 트위터에서 저를 팔로우하십시오.</string>
+    <string name="intro_last_desc">최근 업데이트를 보려면 Mastodon이나 Twitter에서 저를 팔로우하십시오.</string>
+    <string name="intro_crash_reports">충돌 보고서 활성화</string>
+    <string name="intro_crash_reports_desc">익명으로 보내는 충돌 보고서를 활성화하여 앱이 보다 원활히 동작할 수 있게 도울 수 있습니다. 개인정보는 수집되지 않습니다. 한 번 켠 데이터 수집 설정을 끄려면, SystemUI Tuner를 강제 종료해야 합니다. 설정은 나중에 변경할 수 있습니다.</string>
+    <string name="crash_reports_desc">익명으로 보내는 충돌 보고서를 활성화하여 앱이 보다 원활히 동작할 수 있게 도울 수 있습니다. 개인정보는 수집되지 않습니다. 한 번 켠 데이터 수집 설정을 끄려면, SystemUI Tuner를 강제 종료해야 합니다.</string>
     <string name="compatibility_message_lower">죄송합니다, 안드로이드 %s 이후부터 제공되는 기능입니다.</string>
     <string name="compatibility_message_both">죄송합니다, 안드로이드 %1$s에서 %2$s 버전까지만 지원하는 기능입니다.</string>
     <string name="compatibility_message_higher">죄송합니다, 이 기능은 안드로이드 %s에서만 작동합니다.</string>
@@ -296,7 +308,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Settings.System에 쓰는 데 실패했습니다!</string>
-    <string name="write_system_fail_desc">안타깝게도 Android에서 Settings.System에 쓸 수 있는 내용에 몇 가지 제약을 걸었는데, 해당 제약에 걸려 버린 설정을 누르신 것 같습니다. 다행히 애드온 앱을 이용하면 이런 제약을 우회할 수 있습니다. 앱은 XDA Labs에서 내려받아야 하지만, 무료에다가 오픈 소스입니다.</string>
+    <string name="write_system_fail_desc">안타깝게도 Android에서 Settings.System에 쓸 수 있는 내용에 몇 가지 제약을 걸었는데, 해당 제약에 걸려 버린 설정을 누르신 것 같습니다. 다행히 애드온 앱을 이용하면 이런 제약을 우회할 수 있습니다. 앱은 제 웹사이트에서 내려받아야 하지만, 무료에다가 오픈 소스입니다.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
     <string name="donate">기부</string>
     <string name="donate_desc">저는 이 앱을 여가 시간에 만들었습니다. 재밌게 쓰고 계신다면 (제가 커피를 마시진 않지만) 제게 커피 한 잔 정도를 사 주시는 건 어떨까요? 물론 이건 후원의 개념이고, 반드시 하지 않으셔도 됩니다. SystemUI Tuner에 유료로 결제해야만 이용할 수 있는 기능은 없습니다.</string>
@@ -308,6 +320,7 @@
     <string name="website">웹사이트</string>
     <string name="more_apps">앱 더보기</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Android 파이 이후 One UI를 구동하는 삼성 기기를 사용하는 경우, 오레오에서 작동하던 몇몇 설정들이 더 이상 작동하지 않는다는 사실을 아실 겁니다. 시스템 오버레이를 이용하여 이런 설정들 중 일부를 다시 구현한 앱을 따로 만들었습니다. 루트나 ADB 설정이 필요하지 않습니다.</string>
     <string name="check_it_out">확인하기</string>
@@ -355,4 +368,7 @@
     <string name="setting_applied_dialog_desc">변경된 설정으로 유지하시겠습니까? %s초 후 이전 설정으로 되돌아갑니다.</string>
     <string name="keep">유지</string>
     <string name="revert">되돌리기</string>
+    <string name="blocked_reason_read_terms">계속하기 전에 약관을 확인해주십시오.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner는 보안 설정 쓰기 권한이 없으면 동작할 수 없습니다. 권한을 부여하는 데 문제가 발생했다면 \"도움말\" 버튼을 누르십시오.</string>
+    <string name="blocked_reason_choose_os">계속하기 전에 운영 체제를 선택해주십시오.</string>
 </resources>

@@ -24,7 +24,7 @@
     <string name="adb_install_local_2">Nyissa meg a Shizuku alkalmazást, és kövesse a \"Start via Wireless Debugging\" (Vezeték nélküli hibakeresésen keresztül történő indítás) alatti utasításokat.</string>
     <string name="adb_install_local_3">Zárja be ezt a képernyőt, és koppintson a \"GRANT\" gombra.</string>
     <string name="adb_install_adb_windows_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a C:\\\adb.</string>
+    <string name="adb_install_adb_windows_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a `C:\\\adb`.</string>
     <string name="adb_install_adb_windows_3">A fájlkezelővel keresse meg a kibontott ZIP-fájlt. Látnia kell egy csomó fájlt, köztük egy \'adb\' nevű fájlt.</string>
     <string name="adb_install_adb_windows_4">Kattintson a keresősávon belülre, és cserélje le az ott található szöveget a „cmd” kifejezésre (idézőjelek nélkül). Ezután nyomja meg az Entert.</string>
     <string name="adb_install_adb_mac_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>

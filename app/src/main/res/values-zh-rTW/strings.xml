@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">管理員 (關閉)</string>
-    <string name="tap_to_disable">按一下以關閉通知</string>
+    <string name="tap_to_disable">輕觸以停用通知</string>
     <string name="home">首頁</string>
     <string name="category_display">顯示</string>
     <string name="category_accessibility">無障礙</string>
@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">音訊會在裝置充電時播放</string>
     <string name="option_ui_sound_disable_charging">停用充電提示音</string>
     <string name="option_ui_sound_disable_charging_desc">是否停用裝置充電音效</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">系統 UI 權限</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">變更這些選項需要重新啟動系統 UI。在裝置重新開機後，您仍需重新啟動系統 UI。重新啟動系統 UI 但不重新開機最簡單的方法是撤銷「電話」權限，輕觸這裡以管理權限。</string>
     <string name="option_advanced_read_setting">讀取自訂設定</string>
     <string name="option_advanced_read_setting_desc">如果你知道某個設定的金鑰，你可以用此查看其目前值</string>
     <string name="option_advanced_write_setting">寫入自訂設定</string>
@@ -153,8 +155,8 @@
     <string name="option_qqs_tiles_desc">Android Nougat 引入了全新的快速設定特性，即標頭快速設定，讓您能在通知列的一行顯示多個快速設定按鈕，使用此選項可調整一行內的按鈕數量。此選項無法在 One UI 上正常運作。</string>
     <string name="option_oneui_clock_position">時鐘位置</string>
     <string name="option_oneui_clock_position_desc">在 Samsung 的 One UI (Android Pie 或更高版本)，可以變更狀態列的時鐘位置。Good Lock 的 QuickStar 可以完成這項工作，但有時會有裝置上的限制。您可以使用它將時鐘設定為左、中、或右。注意，您需要在 One UI 2.0 (Android 10) 安裝 QuickStar 才能產生效果。要使此選項持續存在，請啟用圖示黑名單。</string>
-    <string name="option_touchwiz_navbar_color">導覽列顏色</string>
-    <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列顏色。請使用此選項。</string>
+    <string name="option_touchwiz_navbar_color">導覽列色彩</string>
+    <string name="option_touchwiz_navbar_color_desc">在 Samsung Experience 和 One UI 上，您可以自訂導覽列色彩。請使用此選項。</string>
     <string name="option_custom_notification_snooze_times">自訂通知延後時間</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 引入了通知延後的選項。您可以使用此設定來自訂延後時間值。</string>
     <string name="option_night_mode">夜間模式</string>
@@ -202,7 +204,7 @@
     <string name="reset">重設</string>
     <string name="grant">授予</string>
     <string name="help">說明</string>
-    <string name="no_root_msg">未偵測到 Root 或 Shizuku。若您的裝置已 Root，請確保 SystemUI Tuner 有 Root 存取權。否則按「說明」按鈕來獲取 ADB 和 Shizuku 說明。</string>
+    <string name="no_root_msg">無法在裝置上授予權限，因為未偵測到 Root 或 Shizuku。若您的裝置已 Root，請確保 SystemUI Tuner 有 Root 存取權。否則按「說明」按鈕來取得 ADB 和 Shizuku 說明。</string>
     <string name="wss_required_msg">未授予 WRITE_SECURE_SETTTINGS 权限。</string>
     <string name="mode">模式</string>
     <string name="key">金鑰</string>
@@ -211,6 +213,7 @@
     <string name="hide">隱藏</string>
     <string name="show">顯示</string>
     <string name="enabled">已啟用</string>
+    <string name="enable">啟用</string>
     <string name="global">全域</string>
     <string name="secure">安全</string>
     <string name="system">系統</string>
@@ -232,6 +235,12 @@
     <string name="intent">調用請求</string>
     <string name="view_online">線上檢視</string>
     <string name="tile_custom">自訂</string>
+    <string name="next">下一個</string>
+    <string name="finish">完成</string>
+    <string name="previous">上一個</string>
+    <string name="exit">離開</string>
+    <string name="done">完成</string>
+    <string name="error">錯誤</string>
     <string name="status_bar_icons">狀態列圖示</string>
     <string name="network_states">網路狀態</string>
     <string name="volume_visibility">音量可見性</string>
@@ -270,7 +279,7 @@
     <string name="intro_terms">使用條款</string>
     <string name="intro_terms_desc">請閱讀這些條款，我保證它們是值得的。對你們中的大多數人來說，它們可以為你節省一封電子郵件。</string>
     <string name="intro_disclaimer">免責聲明</string>
-    <string name="intro_disclaimer_desc">SystemUI Tuner 可以變更隱藏的設定。不幸的是，由於它們是隱藏的，您的特定裝置可能對某些變更沒有反應。在深度客製化的 Android 版本上，如 EMUI、MIUI 和 ColorOS，會有很多功能無法使用。請記住，我對此無能為力。</string>
+    <string name="intro_disclaimer_desc">SystemUI Tuner 可以變更隱藏的設定。不幸的是，由於它們是隱藏的，您的特定裝置可能對某些變更沒有回應。在深度客製化的 Android 版本上，如 EMUI、MIUI 和 ColorOS，會有很多功能無法使用。請記住，我對此無能為力。</string>
     <string name="intro_grant_wss">授予寫入安全設定</string>
     <string name="intro_grant_wss_desc">SystemUI Tuner 在工作前需要一個特殊的權限。要授予它，你要麼需要使用 ADB，要麼需要 Root。按下面的「授予」按鈕將嘗試使用 Root 來授權。否則按下「說明」按鈕，我們將幫你設定 ADB。不過，不要擔心；使用 ADB 是完全安全的。絕對不會讓你的保固失效，不會讓 Samsung Knox 解除，不會讓你的手機 Root，也不會解鎖 Bootloader。</string>
     <string name="intro_grant_extra">授予額外權限</string>
@@ -280,7 +289,10 @@
     <string name="intro_allow_notifications">允許通知</string>
     <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景操作時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
     <string name="intro_last">感謝你的使用！</string>
-    <string name="intro_last_desc">在 Twitter 上跟隨我以取得最新更新。</string>
+    <string name="intro_last_desc">在 Mastodon 或 Twitter 上跟隨我以取得最新更新。</string>
+    <string name="intro_crash_reports">啟用當機報告</string>
+    <string name="intro_crash_reports_desc">您可以選擇啟用匿名當機報告來保持應用程式的順暢執行，您的個人資訊將不會被蒐集。若要在啟用後完全停用資料蒐集，您需要強制停止 SystemUI Turner，您可以稍後變更這項設定。</string>
+    <string name="crash_reports_desc">您可以選擇啟用匿名當機報告來保持應用程式的順暢執行，您的個人資訊將不會被蒐集。若要在啟用後完全停用資料蒐集，您需要強制停止 SystemUI Turner。</string>
     <string name="compatibility_message_lower">抱歉，此功能僅適用於 Android %s 及更高版本</string>
     <string name="compatibility_message_both">抱歉，此功能僅適用於 Android %1$s 到 Android %2$s 版本</string>
     <string name="compatibility_message_higher">抱歉，此功能僅適用於 Android %s</string>
@@ -296,8 +308,8 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">無法寫入 Settings.System！</string>
-    <string name="write_system_fail_desc">很不幸，Android 對可寫入 Setting.System 的內容新增了一些限制，而你似乎碰到了這些限制的設定之一。但幸運的是，透過使用一個附加的應用程式，有辦法繞過這個限制。你必須從 XDA Labs 下載它，而且它是免費且開放原始碼的。</string>
-    <string name="write_system_fail_get_add_on">獲取附加程式</string>
+    <string name="write_system_fail_desc">很不幸，Android 對可寫入 Setting.System 的內容新增了一些限制，而你似乎碰到了這些限制的設定之一。但幸運的是，透過使用一個附加的應用程式，有辦法繞過這個限制。你必須從我的網站中下載它，而且它是免費且開放原始碼的。</string>
+    <string name="write_system_fail_get_add_on">取得附加程式</string>
     <string name="donate">贊助</string>
     <string name="donate_desc">我在閒時製作了這個應用程式。如果你喜歡它，可以考慮給我買一杯咖啡 (儘管我不喝咖啡)。當然，這是一種捐贈，這可能沒什麼必要。SystemUI Tuner 中沒有任何付費功能。</string>
     <string name="paypal">PayPal</string>
@@ -308,6 +320,7 @@
     <string name="website">網站</string>
     <string name="more_apps">更多應用程式</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">如果你的 Samsung 裝置在 Samsung 的 One UI 上執行 Android Pie 或更高版本，你可能已經注意到，一些在 Oreo 工作的選項已經不再工作，例如時鐘秒數。我做了一個單獨的應用程式，利用系統覆蓋來恢復其中的一些選項。它不需要 Root 或 ADB。</string>
     <string name="check_it_out">看看這個</string>
@@ -355,4 +368,7 @@
     <string name="setting_applied_dialog_desc">要保持變更嗎？此選項將在 %s 秒內還原。</string>
     <string name="keep">保持</string>
     <string name="revert">還原</string>
+    <string name="blocked_reason_read_terms">請確保在繼續之前您已閱讀條款。</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner 功能的正常運作需要「寫入安全設定」權限。若您有任何相關問題，請輕觸「說明」按鈕。</string>
+    <string name="blocked_reason_choose_os">在繼續之前，請選擇您的作業系統。</string>
 </resources>

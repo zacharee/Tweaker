@@ -16,7 +16,7 @@
     <string name="category_oem">OEM jellemzők</string>
     <string name="category_system">Rendszer</string>
     <string name="category_ui">Felület</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Zárképernyő</string>
     <string name="category_quick_settings">Gyorsbeállítások</string>
     <string name="screen_persistent">Állandó opciók</string>
     <string name="category_interaction">Interakció</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">Tápellátás</string>
     <string name="add_to_blacklist">Ikon hozzáadása a feketelistához</string>
     <string name="remove_from_blacklist">Ikon eltávolítása a feketelistáról</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Vaku</string>
     <string name="sub_demo">Demó mód</string>
     <string name="sub_demo_desc">A Demó mód lehetővé teszi az eszköz állapotsorának különböző állapotokba kényszerítését. Használható adott ikonok megjelenítésére vagy elrejtésére, a jelerősség megadására és még néhány dologra.</string>
     <string name="special_sub_airplane_mode">Repülőgép mód hangolás</string>
@@ -69,7 +69,8 @@
     <string name="feature_custom_rotation">Zárolási képernyő tájolása egyéni értékre</string>
     <string name="feature_custom_rotation_desc">A legtöbb telefon csak azt teszi lehetővé, hogy a telefon képernyő tájolását Portré módba rögzítse. Ezzel a beállítással a képernyő tájolását bármilyen tájolásra zárolhatja. Először le kell tiltania az automatikus forgatást, mielőtt ez működni fog.</string>
     <string name="feature_immersive_mode">Magával ragadó mód</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc">A legtöbb más alkalmazás, amely lehetővé teszi az immerzív mód váltását, csak néhány lehetőséget kínál: a navigációs sáv elrejtése vagy az állapotsor elrejtése. Valójában ezt alkalmazásonként is be lehet állítani, akár fehérlista, akár feketelista módban.
+Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és lehet, hogy nem működik az eszközén.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up értesítés elhalasztásának hossza</string>
     <string name="feature_heads_up_snooze_length_desc">Milliszekundumok a heads up értesítés visszalökése után, mielőtt az alkalmazás újra megszakíthatja. (Alapértelmezett: 60 másodperc).</string>
     <string name="feature_camera_gestures">Kamera gesztusok</string>
@@ -84,8 +85,8 @@
     <string name="feature_shortcode_warning_desc">Bizonyos rövid kódokra küldött SMS-ek küldésekor a rendszer figyelmezteti Önt, hogy díjat számíthatnak fel. Ezt a figyelmeztetést itt kikapcsolhatja.</string>
     <string name="feature_sms_limit">Egyéni SMS Limit</string>
     <string name="feature_sms_limit_desc">Alapértelmezés szerint az Android 30 SMS küldésére korlátozza 30 percenként, mielőtt egy felugró értesítéssel zavarja Önt. E két érték segítségével testre szabhatja, hogy mennyi SMS-t küldhessen anélkül, hogy zavarják.</string>
-    <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
-    <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
+    <string name="feature_lockscreen_shortcuts">A záróképernyő parancsikonjai</string>
+    <string name="feature_lockscreen_shortcuts_desc">Az Android Oreo Developer Preview 3-tól kezdve a Google eltávolította a záróképernyő parancsikonok testreszabásának lehetőségét. A beállítási érték azonban továbbra is beállítható manuálisan.</string>
     <string name="feature_enable_adb">ADB engedélyezése</string>
     <string name="feature_enable_adb_desc">Bizonyos készülékek egy bizonyos ideig tartó inaktivitás után automatikusan letiltják az ADB-t. Engedélyezze ezt az opciót, és állítsa be állandó opcióként az ADB kényszerített bekapcsolásához.</string>
     <string name="feature_dark_mode">Globális sötét üzemmód engedélyezése</string>
@@ -145,14 +146,16 @@
     <string name="option_ui_sound_wireless_charging_desc">A készülék töltése közben lejátszott hang.</string>
     <string name="option_ui_sound_disable_charging">Töltési hang kikapcsolása</string>
     <string name="option_ui_sound_disable_charging_desc">A készülék töltésének megkezdésekor lejátszódó hang kikapcsolása.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Egyéni beállítások olvasása</string>
     <string name="option_advanced_read_setting_desc">Ha ismeri egy adott beállítás kulcsát, akkor ezzel megnézheti annak aktuális értékét.</string>
     <string name="option_advanced_write_setting">Egyéni beállítások írása</string>
     <string name="option_advanced_write_setting_desc">Ha van olyan beállítása, amelyet meg szeretne változtatni, és amely nem része a SystemUI Tunernek, akkor itt beállíthatja.</string>
     <string name="option_qqs_tiles">Gyorsbeállítások Fejlécek száma</string>
-    <string name="option_qqs_tiles_desc">Az Android Nougat bevezetett egy új gyorsbeállítási funkciót, a Gyorsbeállítások fejlécet, amely az első néhány gyorsbeállítási csempét egyetlen sorban jeleníti meg az értesítési területen. Ezzel az opcióval növelhető vagy csökkenthető az adott sorban megjelenő csempék száma. Ez nem fog működni One UI-n.</string>
+    <string name="option_qqs_tiles_desc">Az Android Nougat bevezetett egy új gyorsbeállítási funkciót, a Gyorsbeállítások fejlécet, amely az első néhány gyorsbeállítási csempét egyetlen sorban jeleníti meg az értesítési területen. Ezzel az opcióval növelhető vagy csökkenthető az adott sorban megjelenő csempék száma. Ez nem fog működni One UI-n, hacsak nem használja a OneUI Tunert.</string>
     <string name="option_oneui_clock_position">Az óra pozíciója</string>
-    <string name="option_oneui_clock_position_desc">A Samsung One felhasználói felületén (Android Pie vagy újabb) lehetőség van az állapotsor órapozíciójának megváltoztatására. A Good Lock QuickStar lehetővé teszi, hogy ezt megtegye, de a lehetőségek néha korlátozottak az eszköztől függően. Ezzel beállíthatja balra, középre vagy jobbra. Ne feledje, hogy a One UI 2.0 (Android 10) rendszeren telepítenie kell a QuickStar-t ahhoz, hogy ez a lehetőség érvénybe lépjen. Ha ezt a beállítást állandóvá szeretné tenni, engedélyezze az Ikonok feketelistáját az Állandó beállításokban.</string>
+    <string name="option_oneui_clock_position_desc">A Samsung One felhasználói felületén (Android Pie vagy újabb) lehetőség van az állapotsor órapozíciójának megváltoztatására. A Good Lock QuickStar lehetővé teszi, hogy ezt megtegye, de a lehetőségek néha korlátozottak az eszköztől függően. Ezzel beállíthatja balra, középre vagy jobbra. Ne feledje, hogy a One UI 2.0 (Android 10) rendszeren telepítenie kell a QuickStar-t ahhoz, hogy ez a lehetőség érvénybe lépjen. Alternatív megoldásként használhatja a OneUI Tunert is. Ha ezt a beállítást állandóvá szeretné tenni, engedélyezze az Ikonok feketelistáját az Állandó beállításokban.</string>
     <string name="option_touchwiz_navbar_color">Navigációs sáv színe</string>
     <string name="option_touchwiz_navbar_color_desc">A Samsung Experience és a One UI esetében lehetőség van a navigációs sáv színének saját, egyéni színre való beállítására. Ehhez használja ezt az opciót.</string>
     <string name="option_custom_notification_snooze_times">Egyéni értesítési szundi idők</string>
@@ -183,7 +186,7 @@
     <string name="option_hide_multi_sim_panel_desc">Samsung készülékeken ezzel a beállítással elrejtheti a kibővített gyorsbeállítások panelen megjelenő multi-SIM nézetet.</string>
     <string name="option_disable_combined_internet">Kombinált hálózati beállítások letiltása</string>
     <string name="option_disable_combined_internet_desc">Az Android 12-ben a Google a WiFi, a Bluetooth és a mobiltelefon beállításait egy menübe egyesítette. A WiFi és a mobiltelefonos gyorsbeállítások csempéit is egyetlen Internet csempévé egyesítették. A beállítás engedélyezése visszahozza a régi menüket a Beállításokban, és lehetővé teszi a különálló QS-csempék visszaállítását. Előfordulhat, hogy újra kell indítania a rendszert, hogy ez megfelelően érvényesüljön. Ha nem látja a WiFi és a mobiltelefonos csempéket, a SystemUI Tuner gyorsbeállítás-szerkesztő funkciójával hozzáadhatja őket.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
+    <string name="option_disable_lock_screen_ads">Képernyőzár reklám letiltása</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
     <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
@@ -202,7 +205,7 @@
     <string name="reset">Alaphelyzet</string>
     <string name="grant">Engedélyezés</string>
     <string name="help">Súgó</string>
-    <string name="no_root_msg">Root vagy Shizuku nem észlelhető. Ha a készülék rootolt, győződjön meg róla, hogy a SystemUI Tuner rendelkezik root hozzáféréssel. Ellenkező esetben nyomja meg a HELP gombot az ADB és Shizuku utasításokért.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">A WRITE_SECURE_SETTINGS nem engedélyezett.</string>
     <string name="mode">Mód</string>
     <string name="key">Kulcs</string>
@@ -211,6 +214,7 @@
     <string name="hide">Elrejt</string>
     <string name="show">Megjelenítés</string>
     <string name="enabled">Engedélyezve</string>
+    <string name="enable">Engedélyez</string>
     <string name="global">Globális</string>
     <string name="secure">Biztonságos</string>
     <string name="system">Rendszer</string>
@@ -232,6 +236,12 @@
     <string name="intent">Szándék</string>
     <string name="view_online">Online megtekintés</string>
     <string name="tile_custom">Egyéni</string>
+    <string name="next">Következő</string>
+    <string name="finish">Befejezés</string>
+    <string name="previous">Előző</string>
+    <string name="exit">Kilépés</string>
+    <string name="done">Kész</string>
+    <string name="error">Hiba</string>
     <string name="status_bar_icons">Állapotsor ikonjai</string>
     <string name="network_states">Hálózati állapotok</string>
     <string name="volume_visibility">Hangerő láthatóság</string>
@@ -278,10 +288,13 @@ Néma láthatóság</string>
     <string name="intro_grant_extra_desc">Bizonyos funkciókhoz a SystemUI Tuner-nek szüksége van néhány extra ADB-engedélyre a megfelelő működéshez. Ezeket most nem kell megadnia, és a rendszer kérni fogja, ha szükség van rájuk.</string>
     <string name="intro_system_alert_window">Rendszerfigyelmeztető ablak</string>
     <string name="intro_system_alert_window_desc">Az Android 12 és újabb verziók jelentősen korlátozták az alkalmazások azon képességét, hogy a háttérben és a készülék indításakor műveleteket hajtsanak végre. A SystemUI Tuner engedélyezése a más alkalmazások feletti megjelenítésre felmenti a rendszerfelületet e korlátozások alól, és javítja a Tartós beállítások megbízhatóságát. Ez az engedély teljesen opcionális.</string>
-    <string name="intro_allow_notifications">Allow Notifications</string>
-    <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
+    <string name="intro_allow_notifications">Értesítések engedélyezése</string>
+    <string name="intro_allow_notifications_desc">Az Android 13 új korlátozást vezet be azokra az alkalmazásokra, amelyek engedélyt kérnek a felhasználótól az értesítések megjelenítéséhez. A SystemUI Tuner értesítést jeleníthet meg a háttérben végzett műveletek futtatásakor. Ha szeretné látni ezt az értesítést, engedélyezze a SystemUI Tuner számára az értesítések megjelenítését.</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
-    <string name="intro_last_desc">Kövess a Twitteren, hogy értesülj a legújabb frissítésekről.</string>
+    <string name="intro_last_desc">Kövess Mastodon vagy Twitteren, hogy értesülj a legújabb frissítésekről.</string>
+    <string name="intro_crash_reports">Összeomlás riportok engedélyezése</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
     <string name="compatibility_message_both">Sajnáljuk, ez a funkció csak az Android %1$s és az Android %2$s között működik</string>
     <string name="compatibility_message_higher">Sajnáljuk, ez a funkció csak az Android %s rendszeren keresztül működik</string>
@@ -297,7 +310,7 @@ Néma láthatóság</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nem sikerült írni a Settings.System-be!</string>
-    <string name="write_system_fail_desc">Sajnos az Android bizonyos korlátozásokat adott a Settings.Systembe írható tartalmakra vonatkozóan, és úgy tűnik, hogy elérte a korlátozott beállítások egyikét. Szerencsére van mód ennek a korlátozásnak a megkerülésére egy kiegészítő alkalmazás használatával. Le kell töltenie az XDA Labs oldaláról, de ingyenes és nyílt forráskódú.</string>
+    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
     <string name="write_system_fail_get_add_on">Add-On beszerzése</string>
     <string name="donate">Támogatás</string>
     <string name="donate_desc">Ezt az alkalmazást a szabadidőmben készítem. Ha élvezed a használatát, vegyél nekem egy csésze kávét (annak ellenére, hogy nem iszom kávét). Természetesen ez egy adomány, és nem kell semmit sem tenned. A SystemUI Tunerben nincsenek fizetős funkciók.</string>
@@ -309,7 +322,8 @@ Néma láthatóság</string>
     <string name="website">Weboldal</string>
     <string name="more_apps">További alkalmazások</string>
     <string name="telegram">Telegram</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
+    <string name="mastodon">Mastodon</string>
+    <string name="oneui_tuner">OneUI hangoló</string>
     <string name="oneui_tuner_desc">Ha van olyan Samsung készüléked, amelyen Android Pie vagy újabb Android One UI fut, észrevehetted, hogy néhány olyan opció, amely az Oreo-n működött, már nem működik, például a Clock Seconds. Készítettem egy külön alkalmazást, amely a rendszerfelületeket használja, hogy visszahozzon néhányat ezekből az opciókból. Ehhez nem kell root vagy ADB.</string>
     <string name="check_it_out">Tekintse meg</string>
     <string name="add_custom_item">Egyéni elem hozzáadása</string>
@@ -356,4 +370,7 @@ Néma láthatóság</string>
     <string name="setting_applied_dialog_desc">Szeretnéd megtartani a módosításokat? Ez a beállítás vissza lesz állítva %s másodperc múlva.</string>
     <string name="keep">Megtartás</string>
     <string name="revert">Visszaállítás</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>

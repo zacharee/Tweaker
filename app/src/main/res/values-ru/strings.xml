@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">Звук, воспроизводимый при зарядке устройства.</string>
     <string name="option_ui_sound_disable_charging">Отключить звук зарядки</string>
     <string name="option_ui_sound_disable_charging_desc">Выключить звук, воспроизводимый при начале зарядке устройства.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Разрешения System UI</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Изменение этих параметров требует перезапуска System UI. Вам также нужно будет перезапустить System UI после перезагрузки устройства. Самый простой способ перезапустить System UI без перезагрузки - это отозвать разрешение «Телефон». Нажмите здесь для управления разрешениями.</string>
     <string name="option_advanced_read_setting">Прочесть пользовательскую настройку</string>
     <string name="option_advanced_read_setting_desc">Если вы знаете ключ определенной настройки, здесь вы можете просмотреть её текущее значение.</string>
     <string name="option_advanced_write_setting">Запись пользовательских настроек</string>
@@ -202,7 +204,7 @@
     <string name="reset">Сбросить</string>
     <string name="grant">Предоставить</string>
     <string name="help">Справка</string>
-    <string name="no_root_msg">Не был обнаружен root-доступ или Shizuku. Если ваше устройство футеровано, убедитесь, что у SystemUI Tuner есть root-доступ. В противном случае нажмите кнопку ПОМОЩЬ, чтобы прочесть инструкции по ADB и Shizuku.</string>
+    <string name="no_root_msg">Предоставить права доступа на устройстве не удалось, т.к. не был обнаружен ни рут ни Shizuku. Если ваше устройство рутировано, убедитесь, что у SystemUI Tuner есть root-доступ. В противном случае нажмите кнопку HELP для получения инструкций по ADB и Shizuku.</string>
     <string name="wss_required_msg">разрешение WRITE_SECURE_SETTINGS не предоставлено.</string>
     <string name="mode">Режим</string>
     <string name="key">Ключ</string>
@@ -211,6 +213,7 @@
     <string name="hide">Скрыть</string>
     <string name="show">Показать</string>
     <string name="enabled">Включено</string>
+    <string name="enable">Включить</string>
     <string name="global">Общее</string>
     <string name="secure">Безопасность</string>
     <string name="system">Система</string>
@@ -232,6 +235,12 @@
     <string name="intent">Намерения</string>
     <string name="view_online">Смотреть онлайн</string>
     <string name="tile_custom">Пользовательские настройки</string>
+    <string name="next">Следующий</string>
+    <string name="finish">Готово</string>
+    <string name="previous">Назад</string>
+    <string name="exit">Выход</string>
+    <string name="done">Готово</string>
+    <string name="error">Ошибка</string>
     <string name="status_bar_icons">Значки строки состояния</string>
     <string name="network_states">Состояния сети</string>
     <string name="volume_visibility">Видимость громкости</string>
@@ -280,7 +289,10 @@
     <string name="intro_allow_notifications">Разрешить уведомления</string>
     <string name="intro_allow_notifications_desc">Android 13 вводит новое ограничение - приложения должны запрашивать разрешение у пользователя на отображение уведомлений. SystemUI Tuner может показывать уведомление при выполнении фоновых операций. Если вы хотите видеть это уведомление, пожалуйста, разрешите SystemUI Tuner показывать уведомления.</string>
     <string name="intro_last">Спасибо за использование моего приложения!</string>
-    <string name="intro_last_desc">Подпишитесь на меня в Twitter для актуальной информации.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_crash_reports">Включить отчёты о сбоях</string>
+    <string name="intro_crash_reports_desc">Чтобы помочь работе приложения, Вы можете включить анонимные отчеты о сбоях. Личная информация не собирается. Чтобы полностью отключить сбор информации, вам нужно остановить SystemUI Tuner. Вы можете изменить эту настройку позже.</string>
+    <string name="crash_reports_desc">Чтобы помочь работе приложения, Вы можете включить анонимные отчеты о сбоях. Личная информация не собирается. Чтобы полностью отключить сбор информации, вам нужно остановить SystemUI Tuner. Вы можете изменить эту настройку позже.</string>
     <string name="compatibility_message_lower">Извините, эта функция работает только с Android %s и более поздними</string>
     <string name="compatibility_message_both">К сожалению, эта функция работает только с Android %1$s до Android %2$s</string>
     <string name="compatibility_message_higher">К сожалению, эта функция работает только через Android %s</string>
@@ -296,7 +308,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Не удалось записать в Settings.System!</string>
-    <string name="write_system_fail_desc">К сожалению, Android добавил некоторые ограничения на то, что можно написать в Settings.System и похоже, что вы достигли одной из этих настроек ограниченного доступа. К счастью, это ограничение может обойти через использование аддона. Вам придётся скачать его из XDA Labs, он так же бесплатен и с открытым исходным кодом.</string>
+    <string name="write_system_fail_desc">К сожалению, Android добавил некоторые ограничения на то, что можно написать в Настройки.Система и похоже, что вы достигли одной из этих настроек ограниченного доступа. К счастью, это ограничение может обойти через использование приложения дополнения. Вы должны скачать его с моего сайта, но это бесплатно и с открытым исходным кодом.</string>
     <string name="write_system_fail_get_add_on">Получить аддон</string>
     <string name="donate">Пожертвования</string>
     <string name="donate_desc">Я делаю это приложение в свободное время. Если вам нравится его использовать, подумайте о покупке чашки кофе (даже если я не пью кофе). Конечно, это пожертвование, и вам ничего не нужно делать. В SystemUI Tuner нет никаких платных функций.</string>
@@ -308,6 +320,7 @@
     <string name="website">Сайт</string>
     <string name="more_apps">Ещё приложения</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Если у вас есть устройство Samsung с Android Pie или более поздней версией на Samsung One UI, вы могли заметить, что некоторые параметры, которые работали на Oreo, больше не работают, например, «секунды часов». Я создал отдельное приложение, использущее системные оверлеи, чтобы вернуть некоторые из этих параметров. Это не требует root или ADB.</string>
     <string name="check_it_out">Попробуйте</string>
@@ -355,4 +368,7 @@
     <string name="setting_applied_dialog_desc">Хотите сохранить изменения? Эта настройка будет возвращена через %s сек.</string>
     <string name="keep">Оставить</string>
     <string name="revert">Вернуть</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>

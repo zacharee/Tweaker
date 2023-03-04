@@ -21,7 +21,7 @@
     <string name="screen_persistent">Opzioni persistenti</string>
     <string name="category_interaction">Interazione</string>
     <string name="more">Altro</string>
-    <string name="tweaks">Tweaks</string>
+    <string name="tweaks">Ottimizzazioni</string>
     <string name="failure">Operazione non riuscita</string>
     <string name="help_translate">Partecipa alla traduzione</string>
     <string name="sub_cellular">Cellulare</string>
@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">Audio che viene riprodotto quando il dispositivo è in carica.</string>
     <string name="option_ui_sound_disable_charging">Disattiva i suoni di carica</string>
     <string name="option_ui_sound_disable_charging_desc">Indica se disabilitare il suono quando il dispositivo inizia la ricarica.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Leggi Impostazioni Personalizzate</string>
     <string name="option_advanced_read_setting_desc">Se conosci la chiave di una particolare impostazione, puoi usarla per vederne il valore attuale.</string>
     <string name="option_advanced_write_setting">Scrivi Impostazioni Personalizzate</string>
@@ -203,7 +205,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="reset">Formatta</string>
     <string name="grant">Consenti</string>
     <string name="help">Aiuto</string>
-    <string name="no_root_msg">Root o Shizuku non sono stati rilevati. Se il dispositivo è rootato, assicurati che SystemUI Tuner abbia accesso al root. In caso contrario, premere il pulsante HELP per le istruzioni ADB e Shizuku.</string>
+    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS non è concesso.</string>
     <string name="mode">Modalità</string>
     <string name="key">Chiave</string>
@@ -212,6 +214,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="hide">Nascondi</string>
     <string name="show">Mostra</string>
     <string name="enabled">Abilitato</string>
+    <string name="enable">Attiva</string>
     <string name="global">Globale</string>
     <string name="secure">Sicuro</string>
     <string name="system">Sistema</string>
@@ -233,6 +236,12 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intent">Intent</string>
     <string name="view_online">Visualizza online</string>
     <string name="tile_custom">Personalizzato</string>
+    <string name="next">Successivo</string>
+    <string name="finish">Termina</string>
+    <string name="previous">Precedente</string>
+    <string name="exit">Esci</string>
+    <string name="done">Fatto</string>
+    <string name="error">Error</string>
     <string name="status_bar_icons">Icone barra di stato</string>
     <string name="network_states">Stato della rete</string>
     <string name="volume_visibility">Visibilità Volume</string>
@@ -281,7 +290,10 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intro_allow_notifications">Consenti notifiche</string>
     <string name="intro_allow_notifications_desc">Android 13 introduce una nuova restrizione sulle app che richiedono l\'autorizzazione dell\'utente per visualizzare le notifiche. SystemUI Tuner può mostrare una notifica quando si eseguono operazioni in background. Se si desidera visualizzare questa notifica, si prega di consentire SystemUI Tuner per mostrare le notifiche.</string>
     <string name="intro_last">Grazie per usare la mia app!</string>
-    <string name="intro_last_desc">Seguimi su Twitter per aggiornamenti sul progetto.</string>
+    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_crash_reports">Abilita report di crash</string>
+    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
+    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
     <string name="compatibility_message_lower">Siamo spiacenti, questa funzione funziona solo con Android %s e versioni successive</string>
     <string name="compatibility_message_both">Siamo spiacenti, questa funzione funziona solo da Android %1$s ad Android %2$s</string>
     <string name="compatibility_message_higher">Siamo spiacenti, questa funzione funziona solo tramite Android %s</string>
@@ -297,7 +309,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Impossibile scrivere su impostazioni di sistema!</string>
-    <string name="write_system_fail_desc">Purtroppo, Android ha aggiunto alcune restrizioni su ciò che può essere scritto sulle impostazioni di sistema, e sembra che tu abbia trovato una di quelle. Per fortuna, c\'è un modo per aggirare questa restrizione, attraverso l\'uso di un\'app aggiuntiva. Dovrai scaricarlo da XDA Labs, ma è gratuito e open source.</string>
+    <string name="write_system_fail_desc">Purtroppo, Android ha aggiunto alcune restrizioni su ciò che può essere scritto sulle impostazioni di sistema, e sembra che tu ne abbia incontrato una. Per fortuna, è possibile aggirare questa restrizione attraverso l\'uso di un\'app aggiuntiva. Dovrai scaricarla da XDA Labs, ma è gratuita e open source.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
     <string name="donate">Dona</string>
     <string name="donate_desc">Sviluppo questa app nel mio tempo libero. Se ti piace usarla, considera di comprarmi una tazza di caffè (anche se non bevo caffè). Naturalmente, questa è una donazione, e non devi fare nulla. Non ci sono funzioni a pagamento in SystemUl Tuner.</string>
@@ -309,6 +321,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="website">Sito web</string>
     <string name="more_apps">Altre app</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Se possiedi un dispositivo Samsung con Android Pie o più, su Samsung One UI potresti aver notato che alcune opzioni che funzionavano su Oreo non funzionano più, come Clock Seconds. Ho fatto un\'app separata che fa uso di overlay di sistema per riportare alcune di queste opzioni. Non ha bisogno di root o ADB.</string>
     <string name="check_it_out">Dai un\'occhiata</string>
@@ -356,4 +369,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="setting_applied_dialog_desc">Vuoi mantenere le modifiche? Questa opzione sarà ripristinata dopo %s secondi.</string>
     <string name="keep">Mantieni</string>
     <string name="revert">Ripristina</string>
+    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>

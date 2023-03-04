@@ -145,6 +145,8 @@
     <string name="option_ui_sound_wireless_charging_desc">Zvuk, který se přehraje při nabíjení zařízení.</string>
     <string name="option_ui_sound_disable_charging">Zakázat zvuk nabíjení</string>
     <string name="option_ui_sound_disable_charging_desc">Zakázat zvuk, který hraje při nabíjení zařízení.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Oprávnění System UI</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Změna těchto možností vyžaduje restart systémového rozhraní. Po restartu zařízení budete muset také restartovat systémové UI. Nejjednodušší způsob, jak restartovat uživatelské rozhraní systému bez restartování zařízení je zrušit oprávnění \"Telefon\". Klepnutím sem spravujte oprávnění.</string>
     <string name="option_advanced_read_setting">Povolit vlastní nastavení</string>
     <string name="option_advanced_read_setting_desc">Pokud znáte klíč k určitému nastavení, můžete jej použít k zobrazení jeho aktuální hodnoty.</string>
     <string name="option_advanced_write_setting">Zapsat vlastní nastavení</string>
@@ -205,7 +207,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="reset">Resetovat</string>
     <string name="grant">Udělit</string>
     <string name="help">Nápověda</string>
-    <string name="no_root_msg">Root ani Shizuku nebyl detekován. Pokud je vaše zařízení rootnuté, ujistěte se, že SystemUI Tuner má root přístup. V opačném případě stiskněte tlačítko NÁPOVĚDA pro pokyny ADB.</string>
+    <string name="no_root_msg">Nelze udělit oprávnění na zařízení, protože nebyl detekován root ani přístup Shizuku. Pokud je vaše zařízení rootnuté, ujistěte se, že SystemUI Tuner má root přístup. V opačném případě stiskněte tlačítko HELP pro instrukce ADB a Shizuku.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS povolení neuděleno.</string>
     <string name="mode">Režim</string>
     <string name="key">Klíč</string>
@@ -214,6 +216,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="hide">Skrýt</string>
     <string name="show">Zobrazit</string>
     <string name="enabled">Povoleno</string>
+    <string name="enable">Povolit</string>
     <string name="global">Globální</string>
     <string name="secure">Bezpečnost</string>
     <string name="system">Systém</string>
@@ -235,6 +238,12 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intent">Záměr</string>
     <string name="view_online">Zobrazit online</string>
     <string name="tile_custom">Vlastní</string>
+    <string name="next">Další</string>
+    <string name="finish">Dokončit</string>
+    <string name="previous">Předchozí</string>
+    <string name="exit">Odejít</string>
+    <string name="done">Hotovo</string>
+    <string name="error">Chyba</string>
     <string name="status_bar_icons">Ikony stavového řádku</string>
     <string name="network_states">Stavy sítě</string>
     <string name="volume_visibility">Zobrazení hlasitosti</string>
@@ -283,7 +292,10 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="intro_allow_notifications">Povolit notifikace</string>
     <string name="intro_allow_notifications_desc">Android 13 zavádí nové omezení aplikací vyžadujících oprávnění uživatele k zobrazování oznámení. SystemUI Tuner může zobrazit oznámení při spuštění operací na pozadí. Pokud chcete vidět toto oznámení, povolte SystemUI Tuner zobrazovat oznámení.</string>
     <string name="intro_last">Děkujeme za používání naší aplikace!</string>
-    <string name="intro_last_desc">Sledujte mě na Twitteru pro nejnovější aktualizace.</string>
+    <string name="intro_last_desc">Sledujte mě na Mastodonu nebo Twitteru pro nejnovější aktualizace.</string>
+    <string name="intro_crash_reports">Povolit hlášení o pádech</string>
+    <string name="intro_crash_reports_desc">Můžete povolit anonymní zprávy o pádech pro hladký chod aplikace. Nejsou shromažďovány žádné osobní údaje. Pro úplné sbírání dát budete muset vynutit zastavení SystemUI Tuner. Toto nastavení můžete později změnit.</string>
+    <string name="crash_reports_desc">Můžete povolit anonymní zprávy o pádech pro hladký chod aplikace. Nejsou shromažďovány žádné osobní údaje. Pro úplné sbírání dát budete muset vynutit zastavení SystemUI Tuner. Toto nastavení můžete později změnit.</string>
     <string name="compatibility_message_lower">Omlouváme se, tato funkce funguje pouze s Androidem %s a novějším</string>
     <string name="compatibility_message_both">Omlouváme se, tato funkce funguje pouze od Android %1$s do Android %2$s</string>
     <string name="compatibility_message_higher">Omlouváme se, tato funkce funguje pouze na Android %s</string>
@@ -299,7 +311,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Nepodařilo se zapsat do Settings.System!</string>
-    <string name="write_system_fail_desc">Systém Android bohužel přidal některá omezení, co lze do souboru Settings.System zapisovat, a zdá se, že jste narazili na jedno z těchto omezených nastavení. Naštěstí existuje způsob, jak toto omezení obejít, a to pomocí doplňkové aplikace. Musíte si ji stáhnout z XDA Labs, ale je zdarma a s otevřeným zdrojovým kódem.</string>
+    <string name="write_system_fail_desc">Systém Android bohužel přidal některá omezení, co lze do souboru Settings.System zapisovat, a zdá se, že jste narazili na jedno z těchto omezených nastavení. Naštěstí existuje způsob, jak toto omezení obejít, a to pomocí doplňkové aplikace. Musíte si ji stáhnout z Xda Labs, ale je zdarma a s otevřeným zdrojovým kódem.</string>
     <string name="write_system_fail_get_add_on">Získat doplňek</string>
     <string name="donate">Podpořit</string>
     <string name="donate_desc">Tuto aplikaci vytvářím ve svém volném čase. Pokud se vám bude líbit, zvažte, jestli mi koupíte šálek kávy (i když kávu nepiju). Samozřejmě se jedná o dar a nemusíte nic dělat. V aplikaci SystemUI Tuner nejsou žádné placené funkce.</string>
@@ -311,6 +323,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="website">Webová stránka</string>
     <string name="more_apps">Další aplikace</string>
     <string name="telegram">Telegram</string>
+    <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
     <string name="oneui_tuner_desc">Pokud máte zařízení Samsung se systémem Android Pie nebo novějším v uživatelském rozhraní One UI společnosti Samsung, možná jste si všimli, že některé možnosti, které fungovaly v systému Oreo, již nefungují, například sekundy hodin. Vytvořil jsem samostatnou aplikaci, která využívá systémové překryvy, aby některé z těchto možností vrátila zpět. Nepotřebuje root ani ADB.</string>
     <string name="check_it_out">Podívat se na to</string>
@@ -358,4 +371,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="setting_applied_dialog_desc">Chcete zachovat změny? Tato možnost bude vrácena po %s sekundách.</string>
     <string name="keep">Zachovat</string>
     <string name="revert">Vrátit zpět</string>
+    <string name="blocked_reason_read_terms">Než budete pokračovat, nezapomeňte si přečíst podmínky.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner nemůže fungovat bez oprávnění Write Secure Settings. Pokud máte potíže s udělením, klepněte na tlačítko \"Nápověda\".</string>
+    <string name="blocked_reason_choose_os">Před pokračováním vyberte operační systém.</string>
 </resources>

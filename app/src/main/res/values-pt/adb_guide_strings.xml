@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Baixe e instale o aplicativo Shizuku a partir da [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Abra o aplicativo Shizuku e siga as instruções em \"Começar pela Depuração via Wireless\".</string>
     <string name="adb_install_local_3">Feche esta tela e toque no botão \"CONCEDER\".</string>
-    <string name="adb_install_adb_windows_1">Baixe o arquivo compactado do ADB aqui: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extrair o arquivo compactado para um local da sua preferência, como C:\adb.</string>
+    <string name="adb_install_adb_windows_1">Baixe o ADB ZIP aqui: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Extrair o arquivo compactado para um local da sua preferência, como C:\adb\'.</string>
     <string name="adb_install_adb_windows_3">Use seu explorador de arquivos para navegar até o arquivo compactado extraído. Você deve ver um monte de arquivos, incluindo um chamado \"adb\".</string>
     <string name="adb_install_adb_windows_4">Clique dentro da barra de endereços e substitua o que existe com \"cmd\" (sem aspas). Em seguida, aperte Enter no teclado. Observe: o cmd não precisa ser executado como administrador.</string>
-    <string name="adb_install_adb_mac_1">Baixe o arquivo compactado do ADB aqui: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Baixe o ADB ZIP aqui: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Extrair o arquivo compactado para um local da sua preferência, como a Mesa, ou em Transferências.</string>
     <string name="adb_install_adb_mac_3">Agora, abra o terminal. Você pode fazê-lo pressionando CMD+SPACE para abrir o Spotlight e procurar por \"Terminal\". Ou entrando no Launchpad e abrindo a pasta \"Outros\".</string>
     <string name="adb_install_adb_mac_4">Agora, navegue para os arquivos extraídos usando o seguinte comando no terminal: \"cd /path/to/files/\" (sem aspas). Por exemplo, se seu nome de usuário é Eduardo e você extraiu o arquivo compactado na Mesa, o comando deve ser \"cd /Users/Eduardo/Desktop/platform-tools/\", onde \"platform-tools\" é a pasta com o arquivo chamado \"adb\".</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Instale o ADB com o seguinte comando: \"sudo dnf install adb\".</string>
     <string name="adb_install_adb_rhel_1">Abra um terminal.</string>
     <string name="adb_install_adb_rhel_2">Instale o ADB com o seguinte comando: \"yum install android-tools\".</string>
-    <string name="adb_install_adb_linux_other_1">Baixe o arquivo compactado do ADB aqui: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">Baixe o ADB ZIP aqui: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Extrair o arquivo compactado para um local da sua preferência, como a pasta Home, ou a pasta Documentos.</string>
     <string name="adb_install_adb_linux_other_3">Abra um terminal.</string>
     <string name="adb_install_adb_linux_other_4">Agora, navegue para os arquivos extraídos usando o seguinte comando no terminal: \"cd /path/to/files/\" (sem aspas). Por exemplo, se seu nome de usuário é Eduardo e você extraiu o arquivo compactado na pasta Home, o comando deve ser \"cd /home/eduardo/platform-tools/\", onde \"platform-tools\" é a pasta com o arquivo chamado \"adb\".</string>
