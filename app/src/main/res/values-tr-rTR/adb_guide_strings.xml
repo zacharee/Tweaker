@@ -20,7 +20,7 @@
     <string name="adb_install_android_10">OPPO, Realme ve OnePlus telefonlarında ayrıca \"İzin İzlemeyi Devre Dışı Bırak\" etiketli seçeneği bulmanız ve etkinleştirmeniz gerekir.</string>
     <string name="adb_install_android_11">Şimdi telefonunuzu bilgisayarınıza takın. USB Hata Ayıklama hakkında bir onay penceresi görünürse, izin verin.</string>
     <string name="adb_install_android_12">Bu yapıldıktan sonra, bilgisayarınızda devam etme zamanı.</string>
-    <string name="adb_install_local_1"><![CDATA[Shizuku uygulamasını [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)'den indirip yükleyin.]]></string>
+    <string name="adb_install_local_1"><![CDATA[Shizuku uygulamasını [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)\'den indirip yükleyin.]]></string>
     <string name="adb_install_local_2">Shizuku uygulamasını açın ve \"Kablosuz Hata Ayıklama Yoluyla Başlat\" altındaki talimatları izleyin.</string>
     <string name="adb_install_local_3">Bu ekranı kapatın ve \"İZİN VER\" düğmesine dokunun.</string>
     <string name="adb_install_adb_windows_1">ADB ZIP dosyasını buradan indirin: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
