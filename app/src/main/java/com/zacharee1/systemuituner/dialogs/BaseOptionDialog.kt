@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.lifecycle.setViewTreeLifecycleOwner
-import androidx.preference.PreferenceDialogFragmentCompat
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.fragments.CoroutinePreferenceDialogFragment
 import com.zacharee1.systemuituner.interfaces.IDialogPreference
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.interfaces.ISecurePreference
-import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.fragments.CoroutinePreferenceDialogFragment
-import kotlinx.coroutines.launch
 
 abstract class BaseOptionDialog : CoroutinePreferenceDialogFragment() {
     companion object {

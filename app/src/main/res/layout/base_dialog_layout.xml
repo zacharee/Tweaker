@@ -1,86 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zacharee1.systemuituner.views.ListenerLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/listener"
-    android:padding="8dp"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <com.zacharee1.systemuituner.views.PreferenceImageView
-            android:id="@+id/icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:maxWidth="24dp"
-            app:maxHeight="24dp"
-            tools:src="@mipmap/ic_launcher"
-            />
-
-        <TextView
-            android:id="@android:id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            tools:text="Hue"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
-            />
-
-        <TextView
-            android:id="@android:id/message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="16dp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            />
-
-        <FrameLayout
-            android:id="@+id/content_wrapper"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:gravity="end"
+    <com.zacharee1.systemuituner.views.ListenerLinearLayout
+        android:id="@+id/listener"
+        android:padding="8dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/negative_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@android:string/cancel"
-            android:visibility="gone"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/positive_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@android:string/ok"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            />
+            <com.zacharee1.systemuituner.views.PreferenceImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:maxWidth="24dp"
+                app:maxHeight="24dp"
+                tools:src="@mipmap/ic_launcher"
+                />
 
-    </LinearLayout>
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                tools:text="Hue"
+                style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+                />
 
-</com.zacharee1.systemuituner.views.ListenerLinearLayout>
+            <TextView
+                android:id="@android:id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="16dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                />
+
+            <FrameLayout
+                android:id="@+id/content_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/negative_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/cancel"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                />
+
+            <Button
+                android:id="@+id/positive_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@android:string/ok"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                />
+
+        </LinearLayout>
+
+    </com.zacharee1.systemuituner.views.ListenerLinearLayout>
+
+</androidx.core.widget.NestedScrollView>
