@@ -1,9 +1,5 @@
 <resources>
-    <style name="AppTheme" parent="Theme.Material3.DynamicColors.Dark">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorBackground">@color/colorBackground</item>
+    <style name="BaseTheme" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="buttonBarButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="android:buttonBarButtonStyle">@style/AppTheme.Alert.Button</item>
         <item name="materialAlertDialogTheme">@style/DialogTheme</item>
@@ -18,9 +14,18 @@
         <item name="android:actionBarStyle">@style/ActionBarStyle</item>
         <item name="android:toolbarStyle">@style/ActionBarStyle</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetTheme</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDarkTranslucent</item>
-
         <item name="windowActionModeOverlay">true</item>
+        <item name="spinnerStyle">@style/SpinnerStyle</item>
+        <item name="android:spinnerStyle">@style/SpinnerStyle</item>
+        <item name="android:dropDownSpinnerStyle">@style/SpinnerStyle</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDarkTranslucent</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -85,6 +90,10 @@
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
         <item name="android:windowNoDisplay">true</item>
+    </style>
+
+    <style name="SpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:popupBackground">@drawable/popup_background</item>
     </style>
 
 </resources>
