@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.os.Bundle
 import android.view.View
+import android.widget.CompoundButton
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.zacharee1.systemuituner.R
 import kotlinx.coroutines.launch
@@ -36,15 +37,21 @@ class SwitchOptionDialog : BaseOptionDialog() {
         view.findViewById<MaterialSwitch>(R.id.secure_switch).apply {
             text = preference.title
             isChecked = shouldBeChecked
-            setOnCheckedChangeListener { _, isChecked ->
-                val newValue = if (isChecked) enabled else disabled
 
-                launch {
-                    if (!notifyChanged(newValue)) {
-                        this@apply.isChecked = !isChecked
+            setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
+                override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                    val thisRef = this
+
+                    launch {
+                        val newValue = if (isChecked) enabled else disabled
+                        if (!notifyChanged(newValue)) {
+                            this@apply.setOnCheckedChangeListener(null)
+                            this@apply.isChecked = !isChecked
+                            this@apply.setOnCheckedChangeListener(thisRef)
+                        }
                     }
                 }
-            }
+            })
         }
     }
 }

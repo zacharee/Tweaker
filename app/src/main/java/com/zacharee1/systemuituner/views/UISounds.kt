@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
-import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IUISoundSelectionCallback
@@ -47,7 +46,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         updateChargingSoundToggle()
         binding.disableChargingSound.setOnCheckedChangeListener { _, isChecked ->
-            findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+            launch {
                 context.writeSettingsBulk(
                     SettingsInfo(SettingsType.GLOBAL, Settings.Global.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
                     SettingsInfo(SettingsType.SECURE, Settings.Secure.CHARGING_SOUNDS_ENABLED, if (isChecked) 0 else 1),
@@ -144,7 +143,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
 
         private val callback = object : IUISoundSelectionCallback.Stub() {
             override fun onSoundSelected(uri: String, key: String) {
-                findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                launch {
                     context.writeSetting(SettingsType.GLOBAL, key, uri,
                         revertable = true,
                         saveOption = true
@@ -187,7 +186,7 @@ class UISounds(context: Context, attrs: AttributeSet) : LinearLayout(context, at
                 binding.reset.setOnClickListener {
                     val item = items[holder.bindingAdapterPosition]
 
-                    findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                    launch {
                         context.writeSetting(SettingsType.GLOBAL, item.key, item.default,
                             revertable = true,
                             saveOption = true

@@ -53,11 +53,7 @@ abstract class BaseOptionDialog : CoroutinePreferenceDialogFragment() {
         if (layoutRes != 0) {
             View.inflate(view.context, layoutRes, view.findViewById(R.id.wrapper))
 
-            findCallbackView(view.findViewById(R.id.wrapper))?.callback = { data ->
-                launch {
-                    notifyChanged(data)
-                }
-            }
+            findCallbackView(view.findViewById(R.id.wrapper))?.callback = ::notifyChanged
         }
     }
 

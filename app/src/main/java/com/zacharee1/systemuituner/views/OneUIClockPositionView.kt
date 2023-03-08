@@ -8,9 +8,10 @@ import com.zacharee1.systemuituner.databinding.OneUiClockPositionBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 
 class OneUIClockPositionView(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
 
     companion object {
         const val POSITION_LEFT = "left_clock_position"
@@ -23,6 +24,10 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
     override fun onFinishInflate() {
         super.onFinishInflate()
 
+        init()
+    }
+
+    private fun init() {
         val blacklist = context.getSetting(SettingsType.SECURE, "icon_blacklist") ?: ""
         val currentPosition = when {
             blacklist.contains(POSITION_RIGHT) -> R.id.position_right
@@ -49,7 +54,11 @@ class OneUIClockPositionView(context: Context, attrs: AttributeSet) : Constraint
                 }
             }
 
-            callback?.invoke(blacklistSet.joinToString(","))
+            launch {
+                if (callback?.invoke(blacklistSet.joinToString(",")) == false) {
+                    init()
+                }
+            }
         }
     }
 }

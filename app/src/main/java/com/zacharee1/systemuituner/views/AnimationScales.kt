@@ -9,10 +9,11 @@ import com.zacharee1.systemuituner.databinding.AnimationDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 import tk.zwander.seekbarpreference.SeekBarView
 
 class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
     private val scaleData = AnimationScalesData()
 
     private val binding by lazy { AnimationDialogBinding.bind(this) }
@@ -20,9 +21,13 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        scaleData.animatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
-        scaleData.windowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
-        scaleData.transitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+        val initialAnimatorScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+        val initialWindowScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.WINDOW_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+        val initialTransitionScale = context.getSetting(SettingsType.GLOBAL, Settings.Global.TRANSITION_ANIMATION_SCALE, 1f)?.toFloatOrNull() ?: 1f
+
+        scaleData.animatorScale = initialAnimatorScale
+        scaleData.windowScale = initialWindowScale
+        scaleData.transitionScale = initialTransitionScale
 
         binding.animatorSb.apply {
             scaledProgress = scaleData.animatorScale
@@ -31,8 +36,17 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    scaleData.animatorScale = newScaledValue
-                    callback?.invoke(scaleData)
+                    val thisRef = this
+
+                    launch {
+                        scaleData.animatorScale = newScaledValue
+                        if (callback?.invoke(scaleData) == false) {
+                            scaleData.animatorScale = initialAnimatorScale
+                            listener = null
+                            scaledProgress = scaleData.animatorScale
+                            listener = thisRef
+                        }
+                    }
                 }
             }
         }
@@ -44,8 +58,17 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    scaleData.windowScale = newScaledValue
-                    callback?.invoke(scaleData)
+                    val thisRef = this
+
+                    launch {
+                        scaleData.windowScale = newScaledValue
+                        if (callback?.invoke(scaleData) == false) {
+                            scaleData.windowScale = initialWindowScale
+                            listener = null
+                            scaledProgress = scaleData.windowScale
+                            listener = thisRef
+                        }
+                    }
                 }
             }
         }
@@ -57,8 +80,17 @@ class AnimationScales(context: Context, attrs: AttributeSet) : ScrollView(contex
                 override fun onProgressReset() {}
                 override fun onProgressSubtracted() {}
                 override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                    scaleData.transitionScale = newScaledValue
-                    callback?.invoke(scaleData)
+                    val thisRef = this
+
+                    launch {
+                        scaleData.transitionScale = newScaledValue
+                        if (callback?.invoke(scaleData) == false) {
+                            scaleData.transitionScale = initialTransitionScale
+                            listener = null
+                            scaledProgress = scaleData.transitionScale
+                            listener = thisRef
+                        }
+                    }
                 }
             }
         }

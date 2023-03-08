@@ -16,7 +16,7 @@ import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.*
 
 class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), ColorPickerDialogListener, IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
 
     private val dialog: ColorPickerDialog = ColorPickerDialog.newBuilder()
         .setDialogType(ColorPickerDialog.TYPE_PRESETS)
@@ -41,6 +41,11 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Fr
                 .add(dialog, null)
                 .commitAllowingStateLoss()
         }
+
+        init()
+    }
+
+    private fun init() {
         binding.currentColor.color = context.getSetting(SettingsType.GLOBAL, "navigationbar_color")?.toIntOrNull() ?: Color.WHITE
     }
 
@@ -56,7 +61,12 @@ class TouchWizNavigationBarColorView(context: Context, attrs: AttributeSet) : Fr
 
     private fun persistColor(color: Int?) {
         binding.currentColor.color = color ?: Color.WHITE
-        callback?.invoke(color)
+
+        launch {
+            if (callback?.invoke(color) == false) {
+                init()
+            }
+        }
     }
 
     private fun getActivity(): FragmentActivity {

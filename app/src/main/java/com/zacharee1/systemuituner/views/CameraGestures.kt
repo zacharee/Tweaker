@@ -9,9 +9,10 @@ import com.zacharee1.systemuituner.databinding.CameraGesturesBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 
 class CameraGestures(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
     private val cameraData = CameraGesturesData()
 
     private val binding by lazy { CameraGesturesBinding.bind(this) }
@@ -26,24 +27,54 @@ class CameraGestures(context: Context, attrs: AttributeSet) : ScrollView(context
         binding.cameraGesture.apply {
             isChecked = cameraData.cameraGestureDisabled == 0
             setOnCheckedChangeListener { _, isChecked ->
-                cameraData.cameraGestureDisabled = if (isChecked) 0 else 1
-                callback?.invoke(cameraData)
+                val newValue = if (isChecked) 0 else 1
+
+                if (newValue != cameraData.cameraGestureDisabled) {
+                    cameraData.cameraGestureDisabled = if (isChecked) 0 else 1
+
+                    launch {
+                        if (callback?.invoke(cameraData) == false) {
+                            cameraData.cameraGestureDisabled = if (isChecked) 1 else 0
+                            this@apply.isChecked = !isChecked
+                        }
+                    }
+                }
             }
         }
 
         binding.cameraPowerButton.apply {
             isChecked = cameraData.doubleTapPowerDisabled == 0
             setOnCheckedChangeListener { _, isChecked ->
-                cameraData.doubleTapPowerDisabled = if (isChecked) 0 else 1
-                callback?.invoke(cameraData)
+                val newValue = if (isChecked) 0 else 1
+
+                if (newValue != cameraData.doubleTapPowerDisabled) {
+                    cameraData.doubleTapPowerDisabled = if (isChecked) 0 else 1
+
+                    launch {
+                        if (callback?.invoke(cameraData) == false) {
+                            cameraData.doubleTapPowerDisabled = if (isChecked) 1 else 0
+                            this@apply.isChecked = !isChecked
+                        }
+                    }
+                }
             }
         }
 
         binding.cameraTwist.apply {
             isChecked = cameraData.doubleTwistToFlipEnabled == 1
             setOnCheckedChangeListener { _, isChecked ->
-                cameraData.doubleTwistToFlipEnabled = if (isChecked) 1 else 0
-                callback?.invoke(cameraData)
+                val newValue = if (isChecked) 0 else 1
+
+                if (newValue != cameraData.doubleTwistToFlipEnabled) {
+                    cameraData.doubleTwistToFlipEnabled = if (isChecked) 0 else 1
+
+                    launch {
+                        if (callback?.invoke(cameraData) == false) {
+                            cameraData.doubleTwistToFlipEnabled = if (isChecked) 1 else 0
+                            this@apply.isChecked = !isChecked
+                        }
+                    }
+                }
             }
         }
     }

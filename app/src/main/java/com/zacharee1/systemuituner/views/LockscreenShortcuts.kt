@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.ILockscreenShortcutSelectedCallback
@@ -101,7 +100,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
                 binding.reset.setOnClickListener {
                     val newInfo = items[holder.bindingAdapterPosition]
 
-                    findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                    launch {
                         newInfo.setComponentName(
                             context,
                             if (context.isTouchWiz) {
@@ -121,7 +120,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
 
                     LockscreenShortcutSelector.start(context, newInfo.key, object : ILockscreenShortcutSelectedCallback.Stub() {
                         override fun onSelected(component: String?, key: String) {
-                            findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                            launch {
                                 newInfo.setComponentName(context, component)
 
                                 if (context.isTouchWiz) {

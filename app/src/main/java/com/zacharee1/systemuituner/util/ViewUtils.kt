@@ -10,9 +10,16 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.isVisible
 import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.zacharee1.systemuituner.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.math.roundToInt
 
 fun View.scaleAnimatedVisible(visible: Boolean, listener: Animation.AnimationListener? = null) {
@@ -104,4 +111,16 @@ fun View.visibilityChanged(owner: LifecycleOwner, action: (View) -> Unit) {
             viewTreeObserver.removeOnGlobalLayoutListener(listener)
         }
     })
+}
+
+fun View.launch(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit,
+): Job? {
+    return findViewTreeLifecycleOwner()?.lifecycleScope?.launch(
+        context = context,
+        start = start,
+        block = block,
+    )
 }

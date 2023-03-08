@@ -10,9 +10,10 @@ import com.zacharee1.systemuituner.databinding.KeepDevicePluggedDialogBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 
 class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
 
     private val binding by lazy { KeepDevicePluggedDialogBinding.bind(this) }
 
@@ -32,6 +33,8 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
         usb.isChecked = current and BatteryManager.BATTERY_PLUGGED_USB != 0
         wireless.isChecked = current and BatteryManager.BATTERY_PLUGGED_WIRELESS != 0
 
+        var latestState: Int = current
+
         val listener = CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
             val result = when (buttonView) {
                 ac -> (if (isChecked) BatteryManager.BATTERY_PLUGGED_AC else 0) or
@@ -46,7 +49,17 @@ class KeepOnPlugged(context: Context, attrs: AttributeSet) : ScrollView(context,
                 else -> current
             }
 
-            callback?.invoke(result)
+            if (latestState != result) {
+                launch {
+                    if (callback?.invoke(result) == false) {
+                        ac.isChecked = latestState and BatteryManager.BATTERY_PLUGGED_AC != 0
+                        usb.isChecked = latestState and BatteryManager.BATTERY_PLUGGED_USB != 0
+                        wireless.isChecked = latestState and BatteryManager.BATTERY_PLUGGED_WIRELESS != 0
+                    } else {
+                        latestState = result
+                    }
+                }
+            }
         }
 
         ac.setOnCheckedChangeListener(listener)

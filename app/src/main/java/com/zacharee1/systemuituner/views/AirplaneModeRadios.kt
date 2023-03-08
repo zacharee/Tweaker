@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
@@ -15,9 +16,11 @@ import com.zacharee1.systemuituner.databinding.AirplaneModeRadiosBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
+import kotlinx.coroutines.launch
 
 class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
 
     private val binding by lazy { AirplaneModeRadiosBinding.bind(this) }
 
@@ -35,43 +38,47 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
         var isExempt: Boolean,
         var isToggleable: Boolean
     )
-    
+
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val currentBlacklisted = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
-        val currentToggleable = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
+        initialize()
+    }
+
+    private fun initialize() {
+        val initialBlacklisted = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_RADIOS) ?: "").split(",")
+        val initialToggleable = (context.getSetting(SettingsType.GLOBAL, Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS) ?: "").split(",")
 
         val items = arrayListOf(
             RadioInfo(
                 R.string.option_airplane_mode_radio_cell,
                 CELL,
-                !currentBlacklisted.contains(CELL),
-                currentToggleable.contains(CELL)
+                !initialBlacklisted.contains(CELL),
+                initialToggleable.contains(CELL)
             ),
             RadioInfo(
                 R.string.option_airplane_mode_radio_bluetooth,
                 BT,
-                !currentBlacklisted.contains(BT),
-                currentToggleable.contains(BT)
+                !initialBlacklisted.contains(BT),
+                initialToggleable.contains(BT)
             ),
             RadioInfo(
                 R.string.option_airplane_mode_radio_wifi,
                 WIFI,
-                !currentBlacklisted.contains(WIFI),
-                currentToggleable.contains(WIFI)
+                !initialBlacklisted.contains(WIFI),
+                initialToggleable.contains(WIFI)
             ),
             RadioInfo(
                 R.string.option_airplane_mode_radio_nfc,
                 NFC,
-                !currentBlacklisted.contains(NFC),
-                currentToggleable.contains(NFC)
+                !initialBlacklisted.contains(NFC),
+                initialToggleable.contains(NFC)
             ),
             RadioInfo(
                 R.string.option_airplane_mode_radio_wimax,
                 WMX,
-                !currentBlacklisted.contains(WMX),
-                currentToggleable.contains(WMX)
+                !initialBlacklisted.contains(WMX),
+                initialToggleable.contains(WMX)
             )
         )
 
@@ -79,8 +86,8 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
         binding.radioRecycler.adapter = adapter
     }
 
-    class RadioAdapter(private val items: ArrayList<RadioInfo>, private val callback: ((data: Any?) -> Unit)?) : RecyclerView.Adapter<RadioAdapter.VH>() {
-        class VH(view: View) : RecyclerView.ViewHolder(view)
+    inner class RadioAdapter(private val items: ArrayList<RadioInfo>, private val callback: (suspend (data: Any?) -> Boolean)?) : RecyclerView.Adapter<RadioAdapter.VH>() {
+        inner class VH(view: View) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
             return VH(LayoutInflater.from(parent.context).inflate(R.layout.airplane_mode_radio, parent, false))
@@ -132,7 +139,11 @@ class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(c
                 toggleString
             )
 
-            callback?.invoke(data)
+            launch {
+                if (callback?.invoke(data) == false) {
+                    initialize()
+                }
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 import com.zacharee1.systemuituner.util.prefManager
 import tk.zwander.seekbarpreference.SeekBarView
 
@@ -33,7 +34,7 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         const val TWILIGHT_AUTO = 2
     }
 
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
     private val nightModeInfo = NightModeInfo()
 
     private val binding by lazy { NightModeBinding.bind(this) }
@@ -46,9 +47,11 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         binding.nightDisplayWrapper.isVisible = atLeastNMR1
         binding.twilightWrapper.isVisible = !atLeastNMR1
         binding.resetNightMode.setOnClickListener {
-            nightModeInfo.nullAll()
-            callback?.invoke(nightModeInfo)
-            updateStates()
+            launch {
+                nightModeInfo.nullAll()
+                callback?.invoke(nightModeInfo)
+                updateStates()
+            }
         }
 
         updateStates()
@@ -108,14 +111,34 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         if (atLeastNMR1) {
             binding.nightDisplayEnabled.isChecked = nightModeInfo.nightModeActivated == 1
             binding.nightDisplayEnabled.setOnCheckedChangeListener { _, isChecked ->
-                nightModeInfo.nightModeActivated = if (isChecked) 1 else 0
-                callback?.invoke(nightModeInfo)
+                val newValue = if (isChecked) 1 else 0
+
+                if (newValue != nightModeInfo.nightModeActivated) {
+                    nightModeInfo.nightModeActivated = newValue
+
+                    launch {
+                        if (callback?.invoke(nightModeInfo) == false) {
+                            nightModeInfo.nightModeActivated = if (isChecked) 0 else 1
+                            binding.nightDisplayEnabled.isChecked = !isChecked
+                        }
+                    }
+                }
             }
 
             binding.nightDisplayAuto.isChecked = nightModeInfo.nightModeAuto == 1
             binding.nightDisplayAuto.setOnCheckedChangeListener { _, isChecked ->
-                nightModeInfo.nightModeAuto = if (isChecked) 1 else 0
-                callback?.invoke(nightModeInfo)
+                val newValue = if (isChecked) 1 else 0
+
+                if (newValue != nightModeInfo.nightModeAuto) {
+                    nightModeInfo.nightModeAuto = newValue
+
+                    launch {
+                        if (callback?.invoke(nightModeInfo) == false) {
+                            nightModeInfo.nightModeAuto = if (isChecked) 0 else 1
+                            binding.nightDisplayAuto.isChecked = !isChecked
+                        }
+                    }
+                }
             }
 
             binding.nightDisplayTemp.onBind(
@@ -131,8 +154,17 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
                     override fun onProgressReset() {}
                     override fun onProgressSubtracted() {}
                     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
-                        nightModeInfo.nightModeTemp = newScaledValue.toInt()
-                        callback?.invoke(nightModeInfo)
+                        if (newScaledValue.toInt() != nightModeInfo.nightModeTemp) {
+                            launch {
+                                val oldValue = nightModeInfo.nightModeTemp
+
+                                nightModeInfo.nightModeTemp = newScaledValue.toInt()
+                                if (callback?.invoke(nightModeInfo) == false) {
+                                    nightModeInfo.nightModeTemp = oldValue
+                                    binding.nightDisplayTemp.scaledProgress = nightModeInfo.nightModeTemp?.toFloat() ?: 5000f
+                                }
+                            }
+                        }
                     }
                 },
                 prefs = null
@@ -147,8 +179,16 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
                     position: Int,
                     id: Long
                 ) {
-                    nightModeInfo.twilightMode = position
-                    callback?.invoke(nightModeInfo)
+                    if ((nightModeInfo.twilightMode ?: TWILIGHT_OFF) != position) {
+                        launch {
+                            val oldValue = nightModeInfo.twilightMode
+
+                            nightModeInfo.twilightMode = position
+                            if (callback?.invoke(nightModeInfo) == false) {
+                                nightModeInfo.twilightMode = oldValue
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -2,15 +2,12 @@ package com.zacharee1.systemuituner.views
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.core.view.isVisible
-import androidx.lifecycle.findViewTreeLifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.IImmersiveSelectionCallback
 import com.zacharee1.systemuituner.R
@@ -18,8 +15,8 @@ import com.zacharee1.systemuituner.activities.ImmersiveListSelector
 import com.zacharee1.systemuituner.databinding.ImmersiveModeBinding
 import com.zacharee1.systemuituner.databinding.ImmersiveModeItemBinding
 import com.zacharee1.systemuituner.util.ImmersiveManager
+import com.zacharee1.systemuituner.util.launch
 import com.zacharee1.systemuituner.util.prefManager
-import kotlinx.coroutines.launch
 
 class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     private val immersiveManager = ImmersiveManager(context)
@@ -40,7 +37,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
             setText(R.string.reset)
             setOnClickListener {
                 immersiveInfo.clear()
-                findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+                launch {
                     immersiveManager.setAdvancedImmersive(immersiveInfo)
                     list.adapter?.notifyItemRangeChanged(0, list.adapter?.itemCount ?: 0)
                 }
@@ -148,7 +145,7 @@ class ImmersiveMode(context: Context, attrs: AttributeSet) : LinearLayout(contex
         }
 
         fun update() {
-            findViewTreeLifecycleOwner()?.lifecycleScope?.launch {
+            launch {
                 manager.setAdvancedImmersive(immInfo)
             }
         }

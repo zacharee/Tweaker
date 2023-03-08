@@ -13,7 +13,6 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
         const val ARG_UNITS = "units"
         const val ARG_DEFAULT = "defaultValue"
         const val ARG_SCALE = "scale"
-        const val ARG_FOR_SECURE = "for_secure"
         const val ARG_INITIAL_VALUE = "initial_value"
 
         fun newInstance(key: String, min: Int = 0, max: Int = 100, default: Int = min, units: String? = null, scale: Float = 1.0f, initialValue: Int = 100): SeekBarOptionDialog {
@@ -40,19 +39,25 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     private val scale by lazy { arguments?.getFloat(ARG_SCALE, 1.0f) ?: 1.0f }
     private val initialValue by lazy { arguments?.getInt(ARG_INITIAL_VALUE, default) ?: default }
 
+    private val seekbarView: SeekBarView?
+        get() = view?.findViewById(R.id.seekbar_view)
+
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        view.findViewById<SeekBarView>(R.id.seekbar_view).onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
+        seekbarView?.onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
     }
-
 
     override fun onProgressAdded() {}
     override fun onProgressReset() {}
     override fun onProgressSubtracted() {}
     override fun onProgressChanged(newValue: Int, newScaledValue: Float) {
         launch {
-            notifyChanged(if (scale == 1f) newValue else newScaledValue)
+            if (!notifyChanged(if (scale == 1f) newValue else newScaledValue)) {
+                seekbarView?.listener = null
+                seekbarView?.setValue(initialValue.toFloat(), false)
+                seekbarView?.listener = this@SeekBarOptionDialog
+            }
         }
     }
 }

@@ -8,15 +8,20 @@ import com.zacharee1.systemuituner.databinding.NotificationSnoozeTimesBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.launch
 
 class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs), IOptionDialogCallback {
-    override var callback: ((data: Any?) -> Unit)? = null
+    override var callback: (suspend (data: Any?) -> Boolean)? = null
 
     private val binding by lazy { NotificationSnoozeTimesBinding.bind(this) }
 
     override fun onFinishInflate() {
         super.onFinishInflate()
 
+        init()
+    }
+
+    private fun init() {
         val setting = context.getSetting(SettingsType.GLOBAL, "notification_snooze_options")
 
         var defTime = "60"
@@ -52,21 +57,25 @@ class NotificationSnoozeTimesView(context: Context, attrs: AttributeSet) : Frame
         binding.snoozeD.setText(dTime)
 
         binding.apply.setOnClickListener {
-            callback?.invoke(
-                StringBuilder()
-                    .append("default=")
-                    .append(binding.snoozeDefault.textOrDefault(defTime))
-                    .append(",")
-                    .append("options_array=")
-                    .append(binding.snoozeA.textOrDefault(aTime))
-                    .append(":")
-                    .append(binding.snoozeB.textOrDefault(bTime))
-                    .append(":")
-                    .append(binding.snoozeC.textOrDefault(cTime))
-                    .append(":")
-                    .append(binding.snoozeD.textOrDefault(dTime))
-                    .toString()
-            )
+            launch {
+                if (callback?.invoke(
+                        StringBuilder()
+                            .append("default=")
+                            .append(binding.snoozeDefault.textOrDefault(defTime))
+                            .append(",")
+                            .append("options_array=")
+                            .append(binding.snoozeA.textOrDefault(aTime))
+                            .append(":")
+                            .append(binding.snoozeB.textOrDefault(bTime))
+                            .append(":")
+                            .append(binding.snoozeC.textOrDefault(cTime))
+                            .append(":")
+                            .append(binding.snoozeD.textOrDefault(dTime))
+                            .toString()
+                    ) == false) {
+                    init()
+                }
+            }
         }
     }
 

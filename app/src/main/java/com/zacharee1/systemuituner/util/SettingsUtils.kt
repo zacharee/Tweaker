@@ -32,66 +32,68 @@ data class SettingsInfo(
 )
 
 private suspend fun Context.revertDialog(
-    vararg data: SettingsInfo,
+    vararg data: Pair<SettingsInfo, String?>,
     saveOption: Boolean
 ) {
-    activityContext?.apply {
-        val originalValues = data.map { it to getSetting(it.type, it.key) }
+    withContext(Dispatchers.Main) {
+        activityContext?.apply {
+            val originalValues = data.map { it to it.second }
 
-        if (originalValues.all { o -> o.first.value.toString() == o.second.toString() }) {
-            // No changes, no confirmation
-            return
-        }
-
-        val timeoutMs = 10_000L
-
-        var remainder = timeoutMs
-
-        val dialog = RoundedBottomSheetDialog(this)
-            .apply {
-                setTitle(R.string.setting_applied_dialog)
-                setMessage(
-                    resources.getString(
-                        R.string.setting_applied_dialog_desc,
-                        (remainder / 1000).toString()
-                    )
-                )
-                setCancelable(false)
+            if (originalValues.all { o -> o.first.first.value.toString() == o.second.toString() }) {
+                // No changes, no confirmation
+                return@withContext
             }
 
-        val timer = object : CountDownTimer(timeoutMs, 1000L) {
-            override fun onFinish() {
-                suspend {
-                    originalValues.forEach { (info, setting) ->
-                        writeSetting(info.type, info.key, setting, false, saveOption)
-                    }
+            val timeoutMs = 10_000L
+
+            var remainder = timeoutMs
+
+            val dialog = RoundedBottomSheetDialog(this)
+                .apply {
+                    setTitle(R.string.setting_applied_dialog)
+                    setMessage(
+                        resources.getString(
+                            R.string.setting_applied_dialog_desc,
+                            (remainder / 1000).toString()
+                        )
+                    )
+                    setCancelable(false)
                 }
+
+            val timer = object : CountDownTimer(timeoutMs, 1000L) {
+                override fun onFinish() {
+                    suspend {
+                        originalValues.forEach { (info, setting) ->
+                            writeSetting(info.first.type, info.first.key, setting, false, saveOption)
+                        }
+                    }
+                    dialog.dismiss()
+                }
+
+                override fun onTick(millisUntilFinished: Long) {
+                    remainder = millisUntilFinished
+                    dialog.setMessage(
+                        resources.getString(
+                            R.string.setting_applied_dialog_desc,
+                            (remainder / 1000).toString()
+                        )
+                    )
+                }
+            }
+
+            dialog.setPositiveButton(R.string.keep) { _, _ ->
+                timer.cancel()
+                dialog.dismiss()
+            }
+            dialog.setNegativeButton(R.string.revert) { _, _ ->
+                timer.cancel()
+                timer.onFinish()
                 dialog.dismiss()
             }
 
-            override fun onTick(millisUntilFinished: Long) {
-                remainder = millisUntilFinished
-                dialog.setMessage(
-                    resources.getString(
-                        R.string.setting_applied_dialog_desc,
-                        (remainder / 1000).toString()
-                    )
-                )
-            }
+            dialog.show()
+            timer.start()
         }
-
-        dialog.setPositiveButton(R.string.keep) { _, _ ->
-            timer.cancel()
-            dialog.dismiss()
-        }
-        dialog.setNegativeButton(R.string.revert) { _, _ ->
-            timer.cancel()
-            timer.onFinish()
-            dialog.dismiss()
-        }
-
-        dialog.show()
-        timer.start()
     }
 }
 
@@ -100,13 +102,17 @@ suspend fun Context.writeSettingsBulk(
     revertable: Boolean = false,
     saveOption: Boolean = false
 ): Boolean {
-    if (revertable) {
-        revertDialog(*data, saveOption = saveOption)
-    }
+    val mapped = data.map { it to getSetting(it.type, it.key) }
 
-    return data.all { (type, key, value) ->
+    val success = data.all { (type, key, value) ->
         writeSetting(type, key, value, false, saveOption)
     }
+
+    if (success && revertable) {
+        revertDialog(*mapped.toTypedArray(), saveOption = saveOption)
+    }
+
+    return success
 }
 
 suspend fun Context.writeSetting(
@@ -116,26 +122,32 @@ suspend fun Context.writeSetting(
     revertable: Boolean = false,
     saveOption: Boolean = true,
 ): Boolean {
-    if (revertable) {
-        revertDialog(SettingsInfo(type, key, value), saveOption = saveOption)
-    }
-
-    if (saveOption && key != null) {
-        val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
-        if (handler != null) {
-            handler.savePreferenceValue(value?.toString())
-        } else {
-            prefManager.saveOption(type, key, value)
-        }
-    }
+    val revertInfo = SettingsInfo(type, key, value) to getSetting(type, key)
 
     return withContext(Dispatchers.IO) {
-        when (type) {
+        val success = when (type) {
             SettingsType.GLOBAL -> writeGlobal(key, value)
             SettingsType.SECURE -> writeSecure(key, value)
             SettingsType.SYSTEM -> writeSystem(key, value)
             SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
         }
+
+        if (success) {
+            if (saveOption && key != null) {
+                val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key }
+                if (handler != null) {
+                    handler.savePreferenceValue(value?.toString())
+                } else {
+                    prefManager.saveOption(type, key, value)
+                }
+            }
+
+            if (revertable) {
+                revertDialog(revertInfo, saveOption = saveOption)
+            }
+        }
+
+        success
     }
 }
 
