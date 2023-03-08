@@ -37,8 +37,8 @@ class BlacklistPersistenceHandler(context: Context) : BasePersistenceHandler<Has
 
     override suspend fun doInitialSet() {
         val prefValue = getPreferenceValue()
-        context.prefManager.saveOption(settingsType, settingsKey, null)
+        context.prefManager.blacklistedItems = HashSet()
         context.writeSetting(SettingsType.SECURE, settingsKey, null)
-        context.prefManager.saveOption(settingsType, settingsKey, prefValue)
+        context.prefManager.blacklistedItems = prefValue
     }
 }

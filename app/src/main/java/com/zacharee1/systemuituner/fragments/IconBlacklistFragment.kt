@@ -98,7 +98,7 @@ class IconBlacklistFragment : CoroutinePreferenceFragment(), SearchView.OnQueryT
                             requireContext().apply {
                                 prefManager.blacklistedItems = info.items
                                 prefManager.customBlacklistItems = info.customItems
-                                writeSetting(SettingsType.SECURE, "icon_blacklist", info.items.joinToString(","))
+                                writeSetting(SettingsType.SECURE, "icon_blacklist", (info.items + info.customItems.map { it.key }).joinToString(","))
                             }
                         } else {
                             requireContext().prefManager.blacklistedItems =
@@ -534,7 +534,7 @@ class IconBlacklistFragment : CoroutinePreferenceFragment(), SearchView.OnQueryT
                 setOnPreferenceChangeListener { _, newValue ->
                     val isChecked = newValue.toString().toBoolean()
 
-                    val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet<String>())
+                    val currentlyBlacklisted = HashSet(context.getSetting(SettingsType.SECURE, "icon_blacklist")?.split(",") ?: HashSet())
 
                     if (!isChecked) {
                         currentlyBlacklisted.addAll(allKeys)
@@ -544,7 +544,12 @@ class IconBlacklistFragment : CoroutinePreferenceFragment(), SearchView.OnQueryT
 
                     launch {
                         context.prefManager.blacklistedItems = currentlyBlacklisted
-                        context.writeSetting(SettingsType.SECURE, "icon_blacklist", currentlyBlacklisted.joinToString(","))
+                        context.writeSetting(
+                            SettingsType.SECURE,
+                            "icon_blacklist",
+                            currentlyBlacklisted.joinToString(","),
+                            saveOption = false,
+                        )
                     }
 
                     true
