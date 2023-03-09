@@ -1,3 +1,9 @@
+# 352
+- Fix some issues with revertable settings.
+- Fix dialog behavior for small displays.
+- Fix icon blacklist persistence.
+- Update dependencies.
+
 # 351
 - Fix showing failure screen for writing to Settings.System.
 - Make sure UI states properly revert when settings are reverted.
