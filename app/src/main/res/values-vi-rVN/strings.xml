@@ -75,7 +75,7 @@
     <string name="feature_camera_gestures">Cử chỉ camera</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
     <string name="feature_disable_safe_audio_warning">Vô hiệu hoá Cảnh báo Âm lượng An toàn</string>
-    <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
+    <string name="feature_disable_safe_audio_warning_desc">EU quy định các hãng điện thoại phải cảnh báo cho người dùng khi âm lượng đến một ngưỡng nhất định (85dB). Cảnh báo này có thể được hiển thị một lần sau mỗi lần khởi động lại hoặc sau 20 giờ phát nhạc liên tục. Sử dụng tính năng này để thay đổi cách cảnh báo này xuất hiện, hoặc tắt nó luôn. Hãy chắc chắn rằng bạn đã bật tính năng này trong Persistent Options để tính năng này hoạt động.</string>
     <string name="feature_custom_ui_sounds">Đặt Âm thanh UI Tùy chỉnh</string>
     <string name="feature_custom_ui_sounds_desc">Android has a lot of sounds for different parts of the UI. A lot of these can actually be changed to your own custom sounds. You just need to specify the file for Android to use.</string>
     <string name="feature_fix_tethering">Sửa Kết nối</string>
