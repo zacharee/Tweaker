@@ -139,7 +139,7 @@
     <string name="option_ui_sound_unlock_desc">音訊會在裝置被解鎖時播放</string>
     <string name="option_ui_sound_low_battery">低電量</string>
     <string name="option_ui_sound_low_battery_desc">音訊會在電量不足時播放</string>
-    <string name="option_ui_sound_trusted">受信任的</string>
+    <string name="option_ui_sound_trusted">受信</string>
     <string name="option_ui_sound_trusted_desc">裝置進入「信任」狀態而不解除鎖定時播放的音訊</string>
     <string name="option_ui_sound_wireless_charging">充電</string>
     <string name="option_ui_sound_wireless_charging_desc">音訊會在裝置充電時播放</string>
