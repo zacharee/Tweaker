@@ -14,6 +14,9 @@ import com.zacharee1.systemuituner.data.NightModeInfo
 import com.zacharee1.systemuituner.databinding.NightModeBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.data.defaultNightTemp
+import com.zacharee1.systemuituner.data.maxNightTemp
+import com.zacharee1.systemuituner.data.minNightTemp
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.launch
@@ -77,36 +80,10 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
         }
     }
 
-    @SuppressLint("DiscouragedApi")
     private fun updateStates() {
         val atLeastNMR1 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
 
-        val minValue = resources.run {
-            try {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureMin", "integer", "android"))
-            } catch (e: Resources.NotFoundException) {
-                0
-            }
-        }
-        val maxValue = resources.run {
-            try {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureMax", "integer", "android"))
-            } catch (e: Resources.NotFoundException) {
-                10000
-            }
-        }
-        val defaultValue = resources.run {
-            try {
-                getInteger(getIdentifier("config_nightDisplayColorTemperatureDefault", "integer", "android"))
-            } catch (e: Resources.NotFoundException) {
-                5000.coerceAtMost(maxValue).coerceAtLeast(minValue)
-            }
-        }
-
-        nightModeInfo.nightModeActivated = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_ACTIVATED)?.toIntOrNull()
-        nightModeInfo.nightModeAuto = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_AUTO_MODE)?.toIntOrNull()
-        nightModeInfo.nightModeTemp = context.getSetting(SettingsType.SECURE, NIGHT_DISPLAY_COLOR_TEMPERATURE, defaultValue)?.toIntOrNull()
-        nightModeInfo.twilightMode = context.getSetting(SettingsType.SECURE, TWILIGHT_MODE, TWILIGHT_OFF.toString())?.toIntOrNull()
+        nightModeInfo.populate(context)
 
         if (atLeastNMR1) {
             binding.nightDisplayEnabled.isChecked = nightModeInfo.nightModeActivated == 1
@@ -142,10 +119,10 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
             }
 
             binding.nightDisplayTemp.onBind(
-                minValue = minValue,
-                maxValue = maxValue,
+                minValue = context.minNightTemp,
+                maxValue = context.maxNightTemp,
                 progress = nightModeInfo.nightModeTemp ?: 5000,
-                defaultValue = defaultValue,
+                defaultValue = context.defaultNightTemp,
                 scale = 1f,
                 units = null,
                 key = "",

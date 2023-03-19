@@ -40,12 +40,16 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
 
     override suspend fun onValueChanged(newValue: Any?, key: String): Boolean {
         val info = newValue as? NightModeInfo
+        val currentInfo = NightModeInfo().apply { populate(context) }
+
+        val revertable = (currentInfo.nightModeActivated == 0 && info?.nightModeActivated == 1) ||
+                (currentInfo.twilightMode == NightModeView.TWILIGHT_OFF && info?.twilightMode != NightModeView.TWILIGHT_OFF)
 
         return context.run {
             if (info == null) {
                 writeSettingsBulk(
                     *keys.flatMap { it.value.map { v -> SettingsInfo(it.key, v, null) } }.toTypedArray(),
-                    revertable = true,
+                    revertable = revertable,
                     saveOption = true,
                 )
             } else {
@@ -54,7 +58,7 @@ class NightModePreference(context: Context, attrs: AttributeSet) : BaseDialogPre
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_ACTIVATED, info.nightModeActivated),
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_AUTO_MODE, info.nightModeAuto),
                     SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, info.nightModeTemp),
-                    revertable = true,
+                    revertable = revertable,
                     saveOption = true,
                 )
             }
