@@ -1,3 +1,9 @@
+# 353
+- Fix an issue with SeekBars not working.
+- Fix issues with light mode.
+- Improve UX in Night Mode option.
+- Crash fixes.
+
 # 352
 - Fix some issues with revertable settings.
 - Fix dialog behavior for small displays.
