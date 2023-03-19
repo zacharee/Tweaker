@@ -301,7 +301,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="intro_crash_reports_desc">Uygulamanın sorunsuz çalışmasını sağlamak için anonim kilitlenme raporlarını etkinleştirmeyi seçebilirsiniz. Hiçbir kişisel bilgi toplanmaz. Etkinleştirildikten sonra koleksiyonu tamamen devre dışı bırakmak için SystemUI Tuner\'ı durdurmaya zorlamanız gerekir. Bu ayarı daha sonra değiştirebilirsiniz.</string>
     <string name="crash_reports_desc">Uygulamanın sorunsuz çalışmasını sağlamak için anonim kilitlenme raporlarını etkinleştirmeyi seçebilirsiniz. Hiçbir kişisel bilgi toplanmaz. Etkinleştirildikten sonra koleksiyonu tamamen devre dışı bırakmak için SystemUI Tuner\'ı durdurmaya zorlamanız gerekir.</string>
     <string name="compatibility_message_lower">Sorry, this feature only works with Android %s and later</string>
-    <string name="compatibility_message_both">Maalesef bu özellik yalnızca Android% 1 $ s ile Android% 2 $ s arasında çalışır</string>
+    <string name="compatibility_message_both">Maalesef bu özellik yalnızca Android %1$s ile Android %2$s arasında çalışır</string>
     <string name="compatibility_message_higher">Üzgünüz, bu özellik yalnızca Android üzerinden çalışır %s</string>
     <string name="compatibility_message_storage">Bu işlevi kullanmak için bir SD kartı gerekir</string>
     <string name="reset_confirm">Bu, SystemUI Tuner tarafından yapılan çoğu değişikliği sıfırlayacaktır. Aşağıdaki seçeneklerin manuel olarak sıfırlanması gerekecektir. Sıfırladıktan sonra yeniden başlatmanızı tavsiye ederim. \n %s</string>
