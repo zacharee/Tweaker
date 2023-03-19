@@ -27,6 +27,8 @@
                 android:layout_gravity="center"
                 app:maxWidth="24dp"
                 app:maxHeight="24dp"
+                app:tint="?android:textColorPrimary"
+                android:tint="?android:textColorPrimary"
                 tools:src="@mipmap/ic_launcher"
                 />
 

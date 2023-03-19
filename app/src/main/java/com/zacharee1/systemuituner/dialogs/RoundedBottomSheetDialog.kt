@@ -2,8 +2,10 @@ package com.zacharee1.systemuituner.dialogs
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +20,8 @@ import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.BaseDialogLayoutBinding
 import com.zacharee1.systemuituner.util.activityContext
 
-open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context, R.style.BottomSheetTheme), View.OnClickListener {
+
+open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(context), View.OnClickListener {
     private var positiveListener: DialogInterface.OnClickListener? = null
     private var negativeListener: DialogInterface.OnClickListener? = null
 
@@ -102,7 +105,7 @@ open class RoundedBottomSheetDialog(context: Context) : BottomSheetDialog(contex
     }
 
     fun setIcon(icon: Drawable?) {
-        baseBinding.icon.setImageDrawable(icon)
+        baseBinding.icon.setImageDrawable(icon?.constantState?.newDrawable())
     }
 
     fun setPositiveButton(text: Int, listener: DialogInterface.OnClickListener?) {

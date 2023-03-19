@@ -76,6 +76,8 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
+                        android:tint="@color/icon_foreground_color"
+                        app:tint="@color/icon_foreground_color"
                         tools:src="@drawable/link" />
 
                 </FrameLayout>
