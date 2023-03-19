@@ -14,15 +14,6 @@
     <color name="pref_color_6">@color/pref_color_1</color>
     <color name="pref_color_7">@color/pref_color_1</color>
 
-    <color name="slide_1">@android:color/system_accent2_100</color>
-    <color name="slide_2">@color/slide_1</color>
-    <color name="slide_3">@color/slide_1</color>
-    <color name="slide_4">@color/slide_1</color>
-    <color name="slide_5">@color/slide_1</color>
-    <color name="slide_6">@color/slide_1</color>
-    <color name="slide_7">@color/slide_1</color>
-    <color name="slide_8">@color/slide_1</color>
-
     <color name="icon_background_color">@android:color/system_accent1_100</color>
     <color name="icon_foreground_color">@android:color/system_neutral1_800</color>
     <color name="icon_color">@android:color/system_neutral1_800</color>

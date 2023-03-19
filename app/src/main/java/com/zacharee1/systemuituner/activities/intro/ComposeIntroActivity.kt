@@ -11,12 +11,13 @@ import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.zacharee1.systemuituner.compose.rememberIntroSlides
 import com.zacharee1.systemuituner.util.prefManager
 import dev.zwander.composeintroslider.IntroSlider
@@ -77,7 +78,9 @@ fun MainContent(
         arrayOf(ComposeIntroActivity.Companion.StartReason.INTRO),
     onFinish: (success: Boolean) -> Unit = {},
 ) {
-    Mdc3Theme {
+    MaterialTheme(
+        colorScheme = darkColorScheme()
+    ) {
         val slides = rememberIntroSlides(startReasons = startReasons)
         val context = LocalContext.current
 
@@ -90,7 +93,7 @@ fun MainContent(
             },
             modifier = Modifier.fillMaxSize(),
             backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
-            normalizeElements = Build.VERSION.SDK_INT < Build.VERSION_CODES.S,
+            normalizeElements = false,
         )
     }
 }

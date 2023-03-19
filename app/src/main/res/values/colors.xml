@@ -17,6 +17,15 @@
     <color name="slide_7">#6947B5</color>
     <color name="slide_8">#3A1986</color>
 
+    <color name="slide_1_content">#ffffff</color>
+    <color name="slide_2_content">#ffffff</color>
+    <color name="slide_3_content">#ffffff</color>
+    <color name="slide_4_content">#ffffff</color>
+    <color name="slide_5_content">#ffffff</color>
+    <color name="slide_6_content">#ffffff</color>
+    <color name="slide_7_content">#ffffff</color>
+    <color name="slide_8_content">#ffffff</color>
+
     <color name="pref_color_1">#03a9f4</color>
     <color name="pref_color_2">#5e35b1</color>
     <color name="pref_color_3">#00796b</color>
