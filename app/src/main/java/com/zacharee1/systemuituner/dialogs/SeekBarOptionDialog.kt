@@ -40,12 +40,14 @@ class SeekBarOptionDialog : BaseOptionDialog(), SeekBarView.SeekBarListener {
     private val initialValue by lazy { arguments?.getInt(ARG_INITIAL_VALUE, default) ?: default }
 
     private val seekbarView: SeekBarView?
-        get() = view?.findViewById(R.id.seekbar_view)
+        get() = dialog?.findViewById(R.id.seekbar_view)
 
     override fun onBindDialogView(view: View) {
         super.onBindDialogView(view)
 
-        seekbarView?.onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
+        launch {
+            seekbarView?.onBind(min, max, initialValue, default, scale, units, "",this@SeekBarOptionDialog)
+        }
     }
 
     override fun onProgressAdded() {}

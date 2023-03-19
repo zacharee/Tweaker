@@ -30,7 +30,9 @@ abstract class BaseOptionDialog : CoroutinePreferenceDialogFragment() {
         val builder = ScrolledRoundedBottomSheetDialog(requireContext())
 
         builder.create()
-        builder.findViewById<View>(android.R.id.content)?.let { onBindDialogView(it) }
+        builder.findViewById<View>(android.R.id.content)?.let {
+            onBindDialogView(it)
+        }
         builder.setTitle(preference.dialogTitle)
         if (preference.icon != null) builder.setIcon(preference.icon)
         builder.setPositiveButton(android.R.string.ok, null)
