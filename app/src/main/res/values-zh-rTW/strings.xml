@@ -162,9 +162,9 @@
     <string name="option_night_mode">夜間模式</string>
     <string name="option_night_mode_desc">Android Nougat 引入了一個原生選項，在夜間顯示為黃色，稱為「夜間模式」。它在 Nougat 7.1 中得到進一步完善，並更名為「夜燈」。您可以在此處啟用它並調整為不同選項。警告：在某些 Android 裝置上，激活它將使螢幕變黑。</string>
     <string name="option_touchwiz_qs_row_count">快速設定列數</string>
-    <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定布局。用它來更改列數。請啟用此選項為持續選項。</string>
+    <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定版面配置網格。用它來變更列數。請啟用此選項為持續選項。</string>
     <string name="option_touchwiz_qs_column_count">快速設定行數</string>
-    <string name="option_touchwiz_qs_column_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定布局。用它來更改行數。請啟用此選項為持續選項。</string>
+    <string name="option_touchwiz_qs_column_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定版面配置網格。用它來變更行數。請啟用此選項為持續選項。</string>
     <string name="option_advanced_force_enable_all">啟用所有停用/隱藏選項</string>
     <string name="option_advanced_force_enable_all_desc">SystemUI Tuner 中的某些選項被隱藏或停用，這取決於您的裝置和 Android 版本。啟用此選項將強制顯示和啟用這些選項。警告：這些選項被停用或隱藏是有原因的。它們可能不工作，或者會破壞您的裝置。請謹慎行事！</string>
     <string name="option_advanced_manage_qs_tiles">管理快速設定圖塊</string>
