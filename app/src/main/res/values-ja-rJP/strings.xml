@@ -146,15 +146,21 @@
     <string name="option_ui_sound_disable_charging">充電終了音</string>
     <string name="option_ui_sound_disable_charging_desc">デバイスが充電を開始したときに再生される音声を無効にするかどうかを設定します。</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI の権限</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
-    <string name="option_advanced_read_setting">Read Custom Setting</string>
-    <string name="option_advanced_read_setting_desc">If you know the key to a particular setting, you can use this to see its current value.</string>
-    <string name="option_advanced_write_setting">Write Custom Setting</string>
-    <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
-    <string name="option_qqs_tiles">Quick Settings Header Count</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
-    <string name="option_oneui_clock_position">Clock Position</string>
-    <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">これらの設定変更にはSystemUIの再起動が必要です。
+また、端末の再起動後に再度SystemUIを起動する必要があります。
+本体を再起動せずにSystemUIを再起動するには\"電話\"の権限を取り消してください。
+権限を管理するにはここをタップ</string>
+    <string name="option_advanced_read_setting">設定値の参照</string>
+    <string name="option_advanced_read_setting_desc">特定の設定のキーを把握している場合、ここから現在の設定値を確認できます。</string>
+    <string name="option_advanced_write_setting">設定キーの上書き</string>
+    <string name="option_advanced_write_setting_desc">SystemUIに含まれていない設定を変更できます</string>
+    <string name="option_qqs_tiles">クイック設定パネルへの表示数</string>
+    <string name="option_qqs_tiles_desc">Android7.0 (Nougat) 以降よりクイック設定と呼ばれる、設定項目の最初のいくつかが通知バーに表示される機能を実装しました。
+ここでその表示個数を指定できます
+注: One UIでは動作しません</string>
+    <string name="option_oneui_clock_position">時計の位置</string>
+    <string name="option_oneui_clock_position_desc">SamsungのOneUI (Android9.0(Pie) 以降) では、ステータスバーの時計の位置を変更できます。GoodLockのQuickStarはこの設定を変更可能ですが、端末によっては制限されていることがあります。ここから表示位置を左、中央、右に変更できます。
+注: OneUI2.0(Android10) 上ではQuickStarがインストールされている必要があります。設定の永続化には永続オプションからアイコンブラックリストを有効にしてください</string>
     <string name="option_touchwiz_navbar_color">Navigation Bar Color</string>
     <string name="option_touchwiz_navbar_color_desc">On Samsung Experience and One UI it\'s possible to set the navigation bar color to your own custom color. Use this option to do that.</string>
     <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
