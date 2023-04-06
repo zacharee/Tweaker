@@ -201,7 +201,7 @@ private fun Context.writeGlobal(key: String?, value: Any?): Boolean {
         Settings.Global.putString(contentResolver, key, value?.toString())
         true
     } catch (e: SecurityException) {
-        Log.e("SystemUI Tuner", "Failed to write to Global", e)
+        Log.e("SystemUITuner", "Failed to write to Global", e)
         false
     }
 }
@@ -212,7 +212,7 @@ private fun Context.writeSecure(key: String?, value: Any?): Boolean {
         Settings.Secure.putString(contentResolver, key, value?.toString())
         true
     } catch (e: SecurityException) {
-        Log.e("SystemUI Tuner", "Failed to write to Secure", e)
+        Log.e("SystemUITuner", "Failed to write to Secure", e)
         false
     }
 }
@@ -244,12 +244,12 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                         null, null
                     ).waitFor() == 0
                 } catch (e: Throwable) {
-                    Log.e("SystemUI Tuner", "Failed to write to System", e)
+                    Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                     false
                 }
             }
             else -> {
-                Log.e("SystemUI Tuner", "Failed to write to System", e)
+                Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                 false
             }
         }
@@ -266,7 +266,7 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
         onFail(e)
     }.also {
         if (!it) {
-            RecommendSystemAddOn.start(this)
+            RecommendSystemAddOn.start(this, key, value)
         }
     }
 }

@@ -137,6 +137,10 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
     val gson: Gson = GsonBuilder()
         .create()
 
+    fun findOption(type: SettingsType, key: String): SavedOption? {
+        return savedOptions.find { it.key == key && it.type == type }
+    }
+
     fun saveOption(type: SettingsType, key: String, value: Any?) {
         val options = savedOptions
         val found = options.find { it.type == type && it.key == key }

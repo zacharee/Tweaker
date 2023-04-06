@@ -16,12 +16,15 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.data.SavedOption
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 //TODO: something weird is going on here where some settings are overridden incorrectly when first enabled as persistent.
 //TODO: Figure it out?
@@ -32,6 +35,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
 
     private val observer = Observer()
 
+    private val mutexMutex = Mutex()
+    private val mutexes = HashMap<Pair<SettingsType, String>, Mutex>()
+
     override fun onBind(intent: Intent?): IBinder {
         return ManagerImpl()
     }
@@ -39,8 +45,11 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
             PrefManager.PERSISTENT_OPTIONS -> {
-                doInitialCheck()
-                observer.register()
+                launch {
+                    observer.unregister()
+                    doInitialCheck()
+                    observer.register()
+                }
             }
         }
     }
@@ -49,10 +58,12 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         super.onCreate()
 
         prefManager.prefs.registerOnSharedPreferenceChangeListener(this)
-        try {
-            doInitialCheck()
-        } catch (_: IllegalStateException) {}
-        observer.register()
+        launch {
+            try {
+                doInitialCheck()
+            } catch (_: IllegalStateException) {}
+            observer.register()
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -90,7 +101,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         prefManager.prefs.unregisterOnSharedPreferenceChangeListener(this)
     }
 
-    private fun doInitialCheck() {
+    private suspend fun doInitialCheck() {
         prefManager.persistentOptions.forEach { opt ->
             if (opt.type != SettingsType.UNDEFINED) {
                 runComparison(opt.type, opt.key, true)
@@ -98,8 +109,14 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
         }
     }
 
-    private fun runComparison(type: SettingsType, key: String, isInitialSetup: Boolean = false) {
-        launch {
+    private suspend fun runComparison(type: SettingsType, key: String, isInitialSetup: Boolean = false) {
+        val mutex = mutexMutex.withLock {
+            mutexes[type to key] ?: Mutex().apply {
+                mutexes[type to key] = this
+            }
+        }
+
+        mutex.withLock {
             val handler = PersistenceHandlerRegistry.handlers.find { it.settingsKey == key && it.settingsType == type }
 
             if (handler != null) {
@@ -117,9 +134,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
                     getSetting(type, key)
                 } catch (e: IllegalStateException) {
                     Log.e("SystemUITuner", "A persistent option has an undefined settings type. Please clear app data.", e)
-                    return@launch
+                    return
                 }
-                val prefValue = prefManager.savedOptions.find { it.type == type && it.key == key }?.value
+                val prefValue = prefManager.findOption(type, key)?.value
 
                 if (isInitialSetup || value != prefValue) {
                     if (isInitialSetup) {
@@ -159,7 +176,9 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
             val type = SettingsType.fromString(uri.pathSegments.run { this[lastIndex - 1] })
             val key = uri.lastPathSegment
 
-            runComparison(type, key)
+            launch {
+                runComparison(type, key)
+            }
         }
     }
 }

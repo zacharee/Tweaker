@@ -7,8 +7,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.*
-import androidx.activity.ComponentActivity
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +20,7 @@ import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.util.*
 import com.zacharee1.systemuituner.views.GridAutofitLayoutManager
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.*
 import kotlin.math.max
 
@@ -44,9 +43,7 @@ class QSEditorActivity : CoroutineActivity() {
         override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
             super.onSelectedChanged(viewHolder, actionState)
 
-            viewHolder as QSEditorAdapter.QSVH?
-
-            viewHolder?.apply {
+            (viewHolder as? QSEditorAdapter.QSVH)?.apply {
                 showRemove = !showRemove
             }
         }
@@ -57,7 +54,7 @@ class QSEditorActivity : CoroutineActivity() {
 
         setContentView(binding.root)
 
-        actionBar?.apply {
+        supportActionBar?.apply {
             setDisplayShowHomeEnabled(true)
             setDisplayHomeAsUpEnabled(true)
         }
@@ -110,9 +107,9 @@ class QSEditorActivity : CoroutineActivity() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-
         adapter.saveTiles()
+
+        super.onDestroy()
     }
 
     inner class QSEditorAdapter(private val context: Context) : RecyclerView.Adapter<QSEditorAdapter.QSVH>() {
@@ -184,7 +181,11 @@ class QSEditorActivity : CoroutineActivity() {
         fun populateTiles() {
             currentTiles.clear()
 
-            val tiles = context.getSetting(SettingsType.SECURE, "sysui_qs_tiles")
+            val tiles = context.getSetting(
+                SettingsType.SECURE,
+                "sysui_qs_tiles",
+                context.prefManager.findOption(SettingsType.SECURE, "sysui_qs_tiles")?.value
+            )
 
             if (tiles.isNullOrBlank()) currentTiles.addAll(defaultTiles.map { QSTileInfo(it) })
             else {
@@ -238,7 +239,7 @@ class QSEditorActivity : CoroutineActivity() {
         fun saveTiles() {
             val tileString = currentTiles.joinToString(",") { it.key }
 
-            launch {
+            runBlocking {
                 context.writeSetting(SettingsType.SECURE, "sysui_qs_tiles", tileString, saveOption = true)
             }
         }
@@ -267,11 +268,6 @@ class QSEditorActivity : CoroutineActivity() {
             private val vhBinding = QsTileBinding.bind(itemView)
 
             init {
-//                vhBinding.clickTarget.setOnLongClickListener {
-//                    vhBinding.remove.apply { isVisible = !isVisible }
-//                    true
-//                }
-
                 vhBinding.remove.setOnClickListener {
                     val newPos = bindingAdapterPosition
 
@@ -300,7 +296,7 @@ class QSEditorActivity : CoroutineActivity() {
                     }
                 }
 
-                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context))
+                vhBinding.qsTileIcon.setImageDrawable(info.getIcon(itemView.context)?.mutate())
                 vhBinding.label.text = info.getLabel(itemView.context)
                 vhBinding.qsTileType.setText(
                     when (info.type) {

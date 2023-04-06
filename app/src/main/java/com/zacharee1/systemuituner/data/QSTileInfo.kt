@@ -2,7 +2,9 @@ package com.zacharee1.systemuituner.data
 
 import android.content.ComponentName
 import android.content.Context
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
+import android.util.Log
 import androidx.core.content.res.ResourcesCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.capitalized
@@ -81,13 +83,13 @@ class QSTileInfo(
         val p = Pattern.compile("\\((.*?)\\)")
         val m = p.matcher(key)
 
-        var name = ""
+        var name: String? = ""
 
         while (!m.hitEnd()) {
-            if (m.find()) name = m.group()
+            if (m.find()) name = m.group(0)
         }
 
-        name = name.replace("(", "").replace(")", "")
+        name = name?.replace("(", "")?.replace(")", "")
 
         return ComponentName.unflattenFromString(name)
     }
@@ -96,10 +98,18 @@ class QSTileInfo(
         val component = getNameAndComponentForCustom()
 
         return try {
-            packageManager.getServiceInfoCompat(component ?: throw NullPointerException("No component name found")).loadIcon(packageManager)
+            packageManager
+                .getServiceInfoCompat(component ?: throw NullPointerException("No component name found"))
+                .loadIcon(packageManager)
         } catch (e: Exception) {
             try {
-                packageManager.getApplicationInfoCompat(packageName).loadIcon(packageManager)
+                if (component?.packageName == packageName) {
+                    applicationInfo.loadIcon(packageManager)
+                } else {
+                    packageManager
+                        .getApplicationInfoCompat(component?.packageName ?: throw NullPointerException("No component name found"))
+                        .loadIcon(packageManager)
+                }
             } catch (e: Exception) {
                 getDefaultDrawable()
             }
@@ -143,10 +153,10 @@ class QSTileInfo(
                 else -> R.drawable.ic_baseline_android_24
             },
             theme
-        )
+        )?.mutate()
     }
 
     private fun Context.getDefaultDrawable(): Drawable? {
-        return ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_android_24, theme)
+        return ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_android_24, theme)?.mutate()
     }
 }
