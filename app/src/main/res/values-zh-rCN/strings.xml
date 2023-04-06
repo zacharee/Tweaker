@@ -328,7 +328,7 @@
     <string name="edit_custom_item">编辑自定义项</string>
     <string name="remove_item">删除此项目</string>
     <string name="remove_item_desc">您确定要删除这个项目吗？</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3%s</string>
+    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
     <string name="tile_battery">电量</string>
     <string name="tile_clock">时钟</string>
     <string name="tile_demo">演示模式</string>
