@@ -328,7 +328,7 @@
     <string name="edit_custom_item">تحرير العنصر المخصص</string>
     <string name="remove_item">حذف هذا العنصر</string>
     <string name="remove_item_desc">هل تريد إزالة هذا العنصر؟</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">نوع الإعدادات: %1$s، المفتاح: %2$s، القيمة: %3$s</string>
     <string name="tile_battery">البطارية</string>
     <string name="tile_clock">الساعة</string>
     <string name="tile_demo">الوضع التجريبي</string>
