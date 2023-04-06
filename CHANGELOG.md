@@ -1,3 +1,8 @@
+# 354
+- Fix the QS editor.
+- Fix persistent options handling.
+- Update translations.
+
 # 353
 - Fix an issue with SeekBars not working.
 - Fix issues with light mode.
