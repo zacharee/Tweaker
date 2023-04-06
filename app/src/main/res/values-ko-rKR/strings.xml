@@ -328,7 +328,7 @@
     <string name="edit_custom_item">사용자 지정 항목 수정</string>
     <string name="remove_item">사용자 지정 항목 제거</string>
     <string name="remove_item_desc">정말로 이 항목을 삭제하시겠습니까?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3%s</string>
+    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
     <string name="tile_battery">배터리</string>
     <string name="tile_clock">시계</string>
     <string name="tile_demo">데모 모드</string>
