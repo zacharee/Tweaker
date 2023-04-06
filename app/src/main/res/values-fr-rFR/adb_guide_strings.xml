@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">Guide d\'ADB</string>
+    <string name="adb_intro_desc">Vous ne savez pas comment utiliser ADB ? Pas de problème. Suivez simplement ce guide et vous devriez être prêt. (Notez que vous aurez besoin d\'un ordinateur pour ce processus.)</string>
+    <string name="adb_intro_desc_no_computer">Vous ne savez pas comment vous servir d\'ADB ? Aucun problème ! Suivez simplement ce guide pour être prêt à l\'utiliser.</string>
+    <string name="adb_choose_computer_os">Choisissez votre système d\'exploitation.</string>
+    <string name="adb_choose_computer_os_desc">Quel système d\'exploitation (OS) votre ordinateur utilise-t-il ?</string>
+    <string name="adb_android_guide">Configuration initiale (sur votre téléphone)</string>
+    <string name="adb_final_title">Terminé</string>
+    <string name="adb_final_desc">C\'est tout ! Si tout s\'est bien passé, la ou les autorisations devraient maintenant être accordées.</string>
+    <string name="adb_install_android_1">Ouvrez l\'application Paramètres et descendez jusqu\'à \"A propos du téléphone\". Appuyez dessus.</string>
+    <string name="adb_install_android_2">Selon votre appareil, vous pouvez voir un menu appelé \"Informations sur le logiciel\". Si c\'est le cas, appuyez dessus.</string>
+    <string name="adb_install_android_3">Maintenant, trouvez l\'option intitulée \"Numéro de build\". Sur certains appareils, cela peut être simplement appelé \"Version\".</string>
+    <string name="adb_install_android_4">Appuyez sur cette option 7 fois pour activer le mode Développeur. Vous devrez peut-être entrer votre code d\'accès pour l\'activer.</string>
+    <string name="adb_install_android_5">Maintenant, revenez à la page principale des paramètres.</string>
+    <string name="adb_install_android_6">Selon votre appareil, vous pouvez voir un nouveau menu appelé « Options pour les développeurs ». Si c\'est le cas, appuyez dessus et sautez l\'étape suivante.</string>
+    <string name="adb_install_android_7">Si vous ne voyez pas le menu Options pour les développeurs, trouvez le menu intitulé \"Système\" ou \"Paramètres supplémentaires\". Vous devriez voir le menu \"Options pour les développeurs\" à l\'intérieur.</string>
+    <string name="adb_install_android_8">Faites défiler jusqu\'à ce que vous trouviez le commutateur nommé \"Débogage USB\" et activez-le.</string>
+    <string name="adb_install_android_9">Sur les téléphones Xiaomi, vous devrez également trouver et désactiver l\'option intitulée \"Débogage USB (Paramètres de sécurité)\".</string>
+    <string name="adb_install_android_10">Sur les appareils de marque OPPO, Realme et OnePlus, vous aurez besoin de trouver et d\'activer l\'option intitulée \"Désactiver le suivi des permissions\".</string>
+    <string name="adb_install_android_11">Maintenant, branchez votre téléphone sur votre ordinateur. Si une fenêtre de confirmation à propos du débogage USB apparaît, autorisez-la.</string>
+    <string name="adb_install_android_12">Une fois cela fait, il est temps de continuer sur votre ordinateur.</string>
+    <string name="adb_install_local_1"><![CDATA[Téléchargez et installez l'application Shizuku depuis le [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">Ouvrez l\'application Shizuku et suivez les instructions sous \"Démarrer via le débogage sans fil\".</string>
+    <string name="adb_install_local_3">Fermez cet écran et appuyez sur le bouton \"GRANT\" ou \"AUTORISER\".</string>
+    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_3">Utilisez l\'explorateur de fichiers pour naviguer vers l\'extraction du zip. Vous devriez voir beaucoup de fichiers, dont un appelé \"adb\".</string>
+    <string name="adb_install_adb_windows_4">Cliquez dans la barre de recherche et remplacez ce qui y est par \"cmd\" (sans guillemets). Puis appuyez sur Entrée.</string>
+    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_2">Extraire le zip à un emplacement pratique, par exemple sur le Bureau.</string>
+    <string name="adb_install_adb_mac_3">Maintenant, ouvrez le terminal. Vous pouvez le faire en appuyant sur CMD+ESPACE en même temps pour ouvrir la recherche Spotlight et rechercher \"Terminal\".</string>
+    <string name="adb_install_adb_mac_4">Maintenant, naviguez vers les fichiers extraits en utilisant la commande suivante : `cd /path/to/files/`. Par exemple, si votre nom d\'utilisateur est Zachary et que vous avez extrait le zip sur votre bureau, la commande serait `cd /Users/Zachary/Desktop/platform-tools/`, où \"platform-tools\" est le dossier avec le fichier nommé \"adb\" à l\'intérieur.</string>
+    <string name="adb_install_adb_debian_1">Ouvrez un terminal en appuyant sur CTRL+ALT+T.</string>
+    <string name="adb_install_adb_debian_2">Installez ADB avec la commande suivante : `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">Ouvrez un terminal.</string>
+    <string name="adb_install_adb_fedora_2">Installez ADB avec la commande suivante : `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">Ouvrez un terminal.</string>
+    <string name="adb_install_adb_rhel_2">Installez ADB avec la commande suivante : `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">Extraire le zip à un emplacement pratique, par exemple dans le dossier Home.</string>
+    <string name="adb_install_adb_linux_other_3">Ouvrez un terminal.</string>
+    <string name="adb_install_adb_linux_other_4">Maintenant, naviguez vers les fichiers extraits en utilisant la commande suivante : `cd /path/to/files/`. Par exemple, si votre nom d\'utilisateur est Zachary et que vous avez extrait le zip sur votre bureau, la commande serait `cd /Users/Zachary/Desktop/platform-tools/`, où \"platform-tools\" est le dossier avec le fichier nommé \"adb\" à l\'intérieur.</string>
+    <string name="adb_install_adb_general_end_1">Un invité de commande ou un terminal devrait s\'ouvrir. Tapez la ou les commandes suivantes à l\'intérieur, et appuyez sur Entrer/Retourner après chaque commande. Si une popup apparaît sur votre téléphone à propos du débogage USB, assurez-vous de l\'autoriser.</string>
+    <string name="adb_install_adb_general_end_2">Si tout se passe bien, il ne devrait pas y avoir de sortie des commandes. S\'il y en a, assurez-vous de faire défiler jusqu\'à l\'endroit où vous avez entré la commande pour voir l\'erreur.</string>
+    <string name="adb_install_adb_general_end_3">Les autorisations devraient maintenant être accordées !</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (autre)</string>
+    <string name="adb_local">Android (cet appareil)</string>
+</resources>

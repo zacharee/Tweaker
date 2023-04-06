@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">ADB návod</string>
+    <string name="adb_intro_desc">Nevíte, jak používat ADB? Žádný problém. Stačí postupovat podle tohoto průvodce a vše je připraveno. (Upozorňujeme, že k tomuto postupu budete potřebovat počítač.)</string>
+    <string name="adb_intro_desc_no_computer">Nevíte jak používat ADB? Žádný problém. Jen postupujte podle tohoto návodu a vše by mělo být nastaveno.</string>
+    <string name="adb_choose_computer_os">Vyberte svůj operační systém.</string>
+    <string name="adb_choose_computer_os_desc">Jaký operační systém běží na vašem počítači?</string>
+    <string name="adb_android_guide">Počáteční nastavení (při telefonu)</string>
+    <string name="adb_final_title">Vše hotovo</string>
+    <string name="adb_final_desc">To je vše! Pokud vše proběhlo v pořádku, mělo by být povolení uděleno.</string>
+    <string name="adb_install_android_1">Otevřete Nastavení a posouvejte dolů na O telefonu. Klepněte na ni.</string>
+    <string name="adb_install_android_2">V závislosti na zařízení se může zobrazit nabídka s názvem \"Informace o softwaru\". Pokud ano, klepněte na ni.</string>
+    <string name="adb_install_android_3">Nyní najdete možnost označenou \"Číslo sestavení\". Na některých zařízeních to může být jednoduše nazýváno \"Verze\".</string>
+    <string name="adb_install_android_4">Klepnutím na tuto možnost 7krát povolíte vývojářský režim. Možná budete muset zadat své heslo, abyste ji povolili.</string>
+    <string name="adb_install_android_5">Nyní se vraťte na hlavní stránku nastavení.</string>
+    <string name="adb_install_android_6">V závislosti na vašem zařízení můžete vidět novou nabídku nazvanou \"Pro vývojaře\". Pokud ano, klepněte na ni a přeskočte další krok.</string>
+    <string name="adb_install_android_7">Pokud nevidíte nabídku Vývojářů, najděte nabídku označenou \"Systém\" nebo \"Další nastavení\". Měli byste vidět menu Pro vývojáře.</string>
+    <string name="adb_install_android_8">Posuňte dolů, dokud nenajdete přepínač \"Ladění USB\" a povolte jej.</string>
+    <string name="adb_install_android_9">Na telefonech Xiaomi musíte také najít a zakázat možnost s označením \"Ladění USB (Nastavení zabezpečení)\".</string>
+    <string name="adb_install_android_10">Na telefonech OPPO, Realme a OnePlus musíte také najít a povolit možnost označenou \"Zakázat monitorování oprávnění\".</string>
+    <string name="adb_install_android_11">Nyní připojte telefon k počítači. Pokud se objeví potvrzení o ladění USB, povolte jej.</string>
+    <string name="adb_install_android_12">Jakmile je toto hotovo, je čas pokračovat na vašem počítači.</string>
+    <string name="adb_install_local_1"><![CDATA[Stáhněte si a nainstalujte aplikaci Shizuku z [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">Otevřete aplikaci Shizuku a postupujte podle pokynů v části \"Spustit přes bezdrátové ladění\".</string>
+    <string name="adb_install_local_3">Zavřete tuto obrazovku a klepněte na tlačítko \"UDĚLIT\".</string>
+    <string name="adb_install_adb_windows_1">Stáhněte si ADB ZIP zde: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Extrahujte ZIP na vhodné místo jako je C:\\adb`.</string>
+    <string name="adb_install_adb_windows_3">Použijte průzkumník souborů k procházení extrahovaných ZIP souborů. Měli byste vidět soubor souborů, včetně jednoho nazvaného \"adb\".</string>
+    <string name="adb_install_adb_windows_4">Klikněte do vyhledávacího řádku a nahraďte jej slovem \"cmd\" (bez uvozovek). Pak stiskněte klávesu Enter.</string>
+    <string name="adb_install_adb_mac_1">Stáhněte si ADB ZIP zde: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_2">Extrahujte ZIP na vhodné místo jako je Plocha.</string>
+    <string name="adb_install_adb_mac_3">Nyní otevřete terminál. Můžete tak učinit stisknutím CMD+MEZERNÍK najednou, abyste otevřeli Vyhledávání, a vyhledejte \"Terminal\".</string>
+    <string name="adb_install_adb_mac_4">Nyní přejděte k extrahovaným souborům pomocí následujícího příkazu: `cd /cesta/do/souborů/`. Pokud je například vaše uživatelské jméno Zachary a rozbalíte ZIP na plochu, příkaz bude `cd /Users/Zachary/Desktop/platform-tools/`, kde \"platform-tools\" je složka se souborem s názvem \"adb\" uvnitř.</string>
+    <string name="adb_install_adb_debian_1">Otevřete terminál stisknutím CTRL+ALT+T.</string>
+    <string name="adb_install_adb_debian_2">Nainstalujte ADB s následujícím příkazem: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">Otevřete terminál.</string>
+    <string name="adb_install_adb_fedora_2">Nainstalujte ADB s následujícím příkazem: `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">Otevřete terminál.</string>
+    <string name="adb_install_adb_rhel_2">Nainstalujte ADB s následujícím příkazem: `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">Stáhněte si ADB ZIP zde: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">Extrahujte ZIP na vhodné místo jako je Domovský adresář.</string>
+    <string name="adb_install_adb_linux_other_3">Otevřete terminál.</string>
+    <string name="adb_install_adb_linux_other_4">Nyní přejděte k extrahovaným souborům pomocí následujícího příkazu: `cd /cestaksouborům/`. Pokud je například vaše uživatelské jméno Zachary a ZIP jste rozbalili do adresáře Home, příkaz bude `cd /home/Zachary/platform-tools/`, kde \"platform-tools\" je složka se souborem s názvem \"adb\" uvnitř.</string>
+    <string name="adb_install_adb_general_end_1">Mělo by se otevřít okno příkazového řádku nebo terminálu. Zadejte do něj následující příkazy a po každém z nich stiskněte Enter/Return. Pokud se v telefonu zobrazí vyskakovací okno o ladění USB, nezapomeňte jej povolit.</string>
+    <string name="adb_install_adb_general_end_2">Pokud vše proběhlo správně, neměly by se zobrazit žádné výstupy příkazů. Pokud ano, nezapomeňte se posunout až na místo, kde jste příkaz zadali, abyste viděli chybu.</string>
+    <string name="adb_install_adb_general_end_3">Oprávnění by nyní měla být udělena!</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (ostatní)</string>
+    <string name="adb_local">Android (Toto zařízení)</string>
+</resources>

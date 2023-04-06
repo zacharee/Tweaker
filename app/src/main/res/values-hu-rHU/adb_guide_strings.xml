@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">ADB útmutató</string>
+    <string name="adb_intro_desc">Nem tudja, hogyan kell használni az ADB-t? Nem probléma. Csak kövesse ezt az útmutatót, és máris kész. (Ne feledje, hogy ehhez a folyamathoz számítógépre lesz szüksége.)</string>
+    <string name="adb_intro_desc_no_computer">Nem tudja, hogyan kell használni az ADB-t? Nem probléma. Csak kövesse ezt az útmutatót, és máris kész.</string>
+    <string name="adb_choose_computer_os">Válassza ki az operációs rendszert.</string>
+    <string name="adb_choose_computer_os_desc">Milyen operációs rendszer fut a számítógépén?</string>
+    <string name="adb_android_guide">Kezdeti beállítás (a telefonon)</string>
+    <string name="adb_final_title">Minden kész</string>
+    <string name="adb_final_desc">Ez minden! Ha minden rendben ment, az engedély(ek) et most már meg kell adni.</string>
+    <string name="adb_install_android_1">Nyissa meg a Beállítások alkalmazást, és görgessen le a Telefonról elemhez. Érintse meg.</string>
+    <string name="adb_install_android_2">A készüléktől függően megjelenik a \"Szoftverinformációk\" nevű menü. Ha igen, koppintson rá.</string>
+    <string name="adb_install_android_3">Most keresse meg a \"Build Number\" feliratú opciót. Egyes eszközökön ez egyszerűen \"Verzió\" lehet.</string>
+    <string name="adb_install_android_4">Érintse meg ezt a lehetőséget hétszer a Fejlesztői mód engedélyezéséhez. Előfordulhat, hogy az engedélyezéséhez meg kell adnia a jelszót.</string>
+    <string name="adb_install_android_5">Most térjen vissza a fő Beállítások oldalra.</string>
+    <string name="adb_install_android_6">Eszközétől függően egy új „Fejlesztői beállítások” nevű menü jelenhet meg. Ha igen, érintse meg, és hagyja ki a következő lépést.</string>
+    <string name="adb_install_android_7">Ha nem látja a Fejlesztői beállítások menüt, keresse meg a \"Rendszer\" vagy a \"További beállítások\" feliratú menüt. Ezen belül meg kell látnia a Fejlesztői beállítások menüt.</string>
+    <string name="adb_install_android_8">Görgessen lefelé, amíg meg nem találja az \"USB Debugging\" feliratú kapcsolót, és kapcsolja be.</string>
+    <string name="adb_install_android_9">A Xiaomi telefonokon meg kell találnia és ki kell kapcsolnia az \"USB hibakeresés (Biztonsági beállítások)\" feliratú opciót.</string>
+    <string name="adb_install_android_10">Az OPPO, Realme és OnePlus telefonokon szintén meg kell találnia és engedélyeznie kell az \"Engedélyek figyelésének letiltása\" feliratú opciót.</string>
+    <string name="adb_install_android_11">Most csatlakoztassa a telefont a számítógéphez. Ha megjelenik egy megerősítő felugró ablak az USB hibakeresésről, engedélyezze.</string>
+    <string name="adb_install_android_12">Ha ez megtörtént, itt az ideje, hogy folytassa a számítógépen.</string>
+    <string name="adb_install_local_1"><![CDATA[Töltse le és telepítse a Shizuku alkalmazást a [Google Play Áruházból](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">Nyissa meg a Shizuku alkalmazást, és kövesse a \"Start via Wireless Debugging\" (Vezeték nélküli hibakeresésen keresztül történő indítás) alatti utasításokat.</string>
+    <string name="adb_install_local_3">Zárja be ezt a képernyőt, és koppintson a \"GRANT\" gombra.</string>
+    <string name="adb_install_adb_windows_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a `C:\\\adb`.</string>
+    <string name="adb_install_adb_windows_3">A fájlkezelővel keresse meg a kibontott ZIP-fájlt. Látnia kell egy csomó fájlt, köztük egy \'adb\' nevű fájlt.</string>
+    <string name="adb_install_adb_windows_4">Kattintson a keresősávon belülre, és cserélje le az ott található szöveget a „cmd” kifejezésre (idézőjelek nélkül). Ezután nyomja meg az Entert.</string>
+    <string name="adb_install_adb_mac_1">Töltse le az ADB ZIP fájlt innen: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például az Asztalra.</string>
+    <string name="adb_install_adb_mac_3">Most nyissa meg a terminált. Ezt úgy teheti meg, hogy egyszerre megnyomja a CMD+SZÓKÖZ billentyűkombinációt a Spotlight kereső megnyitásához, és keresse meg a „Terminal” kifejezést.</string>
+    <string name="adb_install_adb_mac_4">Most keresse meg a kicsomagolt fájlokat a következő paranccsal: `cd /elérési út/a/fájlokhoz/`. Például, ha a felhasználóneved Zachary, és a ZIP csomagot a asztalodra csomagoltad ki, a parancs a következő lesz: `cd /Users/Zachary/Desktop/platform-tools/`, ahol a \"platform-tools\" az a mappa, amelyben az \"adb\" nevű fájl található.</string>
+    <string name="adb_install_adb_debian_1">Nyisson meg egy terminált a CTRL+ALT+T billentyűkombinációval.</string>
+    <string name="adb_install_adb_debian_2">Telepítse az ADB-t a következő paranccsal: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">Terminál megnyitása.</string>
+    <string name="adb_install_adb_fedora_2">Az ADB-t a következő paranccsal telepíthetjük: `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">Terminál megnyitása.</string>
+    <string name="adb_install_adb_rhel_2">Az ADB-t a következő paranccsal telepíthetjük: `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">Töltse le az ADB ZIP-et innen: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">Csomagolja ki a ZIP fájlt egy megfelelő helyre, például a Home könyvtárba.</string>
+    <string name="adb_install_adb_linux_other_3">Terminál megnyitása.</string>
+    <string name="adb_install_adb_linux_other_4">Most keresse meg a kicsomagolt fájlokat a következő paranccsal: `cd /elérési út/a/fájlokhoz/`. Például, ha a felhasználóneved Zachary, és a ZIP csomagot a Home könyvtáradba csomagoltad, a parancs a következő lesz: `cd /home/Zachary/platform-tools/`, ahol a \"platform-tools\" az a mappa, amelyben az \"adb\" nevű fájl található.</string>
+    <string name="adb_install_adb_general_end_1">Meg kell nyílnia egy parancssor vagy terminál ablaknak. Írja be a következő parancs(ok) at, és mindegyik után nyomja le az Enter/Return billentyűt. Ha a telefonon megjelenik egy felugró ablak az USB hibakeresésről, engedélyezze.</string>
+    <string name="adb_install_adb_general_end_2">Ha minden rendben ment, akkor a parancsoknak nem szabad megjelenniük. Ha van, feltétlenül görgessen egészen addig, ahol beírta a parancsot a hiba megtekintéséhez.</string>
+    <string name="adb_install_adb_general_end_3">Az engedélyeket most meg kell adni!</string>
+    <string name="adb_windows">Windows</string>
+    <string name="adb_mac">macOS</string>
+    <string name="adb_linux_fedora">Fedora/SUSE</string>
+    <string name="adb_linux_debian">Debian/Ubuntu</string>
+    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_other">Linux (Other)</string>
+    <string name="adb_local">Android (Ez az Eszköz)</string>
+</resources>

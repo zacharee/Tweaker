@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adb_intro_title">دليل ADB</string>
+    <string name="adb_intro_desc">لا تعرف كيفية استخدام ADB؟ لا توجد مشكلة. فقط اتبع هذا الدليل سيتم توجيهك. (لاحظ أنك ستحتاج إلى جهاز كمبيوتر لهذه العملية.)</string>
+    <string name="adb_intro_desc_no_computer">لا تعرف كيفية استخدام ADB؟ لا توجد مشكلة. فقط اتبع هذا الدليل وسيتم توجيهك.</string>
+    <string name="adb_choose_computer_os">اختر نظام التشغيل الخاص بك.</string>
+    <string name="adb_choose_computer_os_desc">ما هو نظام التشغيل الذي يعمل به الكمبيوتر؟</string>
+    <string name="adb_android_guide">الإعداد الأولي (على هاتفك)</string>
+    <string name="adb_final_title">تم للكل</string>
+    <string name="adb_final_desc">هذا كل شيء! إذا سار كل شيء بشكل جيد، يجب منح الإذن (الأذونات) الآن.</string>
+    <string name="adb_install_android_1">افتح تطبيق الإعدادات و اسحب للأسفل إلى خِيار حول الهاتف. انقر عليه.</string>
+    <string name="adb_install_android_2">اعتمادًا على جهازك، قد ترى قائمة تسمى \"معلومات البرنامج\". إذا كان الأمر كذلك، انقر عليها.</string>
+    <string name="adb_install_android_3">الآن، اعثر على الخِيار المسمى \"رَقْم البناء\". على بعض الأجهزة، قد يطلق على هذا ببساطة \"الإصدار\".</string>
+    <string name="adb_install_android_4">اضغط على الخِيار 7 مرات لتمكين وضع المطور. قد تحتاج إلى إدخال رمز المرور الخاص بك لتمكينه.</string>
+    <string name="adb_install_android_5">الآن، العودة إلى صفحة الإعدادات الرئيسية.</string>
+    <string name="adb_install_android_6">اعتمادا على جهازك، قد ترى قائمة جديدة تسمى \"خيارات المطور\". إذا كان الأمر كذلك، انقر عليها وتخطي الخطوة التالية.</string>
+    <string name="adb_install_android_7">إذا كنت لا ترى قائمة خيارات المطور، فابحث عن القائمة المسماة إما \"النظام\" أو \"الإعدادات الإضافية\". يجب أن ترى قائمة خيارات المطور داخل ذلك.</string>
+    <string name="adb_install_android_8">مرر للأسفل حتى تجد الخِيار المسمى \"تصحيح أخطاء USB\" وتمكينه.</string>
+    <string name="adb_install_android_9">على هواتف Xiaomi ، ستحتاج أيضًا إلى العثور على الخِيار المسمى \"تصحيح أخطاء USB (إعدادات الأمان)\" وتعطيله.</string>
+    <string name="adb_install_android_10">على هواتف OPPO, Realme و OnePlus ، ستحتاج أيضًا إلى العثور على الخِيار المسمى \"تعطيل رصد الأذونات\".</string>
+    <string name="adb_install_android_11">الآن، قم بتوصيل هاتفك إلى جهاز الكمبيوتر الخاص بك. إذا ظهر تأكيد حول تصحيح أخطاء USB ، اسمح بذلك.</string>
+    <string name="adb_install_android_12">بمجرد الانتهاء من ذلك، حان الوقت للاستمرار على جهاز الكمبيوتر الخاص بك.</string>
+    <string name="adb_install_local_1"><![CDATA[قم بتنزيل وتثبيت تطبيق Shizuku من [متجر Google Play](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_local_2">افتح تطبيق Shizuku واتبع الإرشادات تحت \"ابدأ عبر التصحيح اللاسلكي\".</string>
+    <string name="adb_install_local_3">أغلق هذه الشاشة وانقر على زر \"السماح\".</string>
+    <string name="adb_install_adb_windows_1">تحميل ADB ZIP من هنا: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">استخراج ZIP إلى مكان مناسب، مثل `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_3">استخدم مستكشف الملفات للتصفح إلى ملف ZIP. يجب أن ترى مجموعة من الملفات، بما في ذلك ملف يسمى \"adb\".</string>
+    <string name="adb_install_adb_windows_4">انقر داخل شريط البحث واستبدل ما يوجد بـ \"cmd\" (بدون اقتباس). ثم اضغط على Enter.</string>
+    <string name="adb_install_adb_mac_1">تحميل ADB ZIP من هنا: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_2">استخراج ZIP إلى موقع مناسب، مثل سطح المكتب.</string>
+    <string name="adb_install_adb_mac_3">الآن، افتح الطرفية أو سطر الأوامر. يمكنك فعل ذلك بالضغط على CMD+SPACE في نفس الوقت للفتح. والبحث عن \" الطرفية\".</string>
+    <string name="adb_install_adb_mac_4">الآن، تصفح إلى الملفات المستخرجة باستخدام الأمر التالي: `cd /path/to/files/`. على سبيل المثال، إذا كان اسم المستخدم الخاص بك هو زاكاري واستخرجت ZIP إلى سطح المكتب الخاص بك، سيكون الأمر `cd /Users/Zachary/Desktop/platform-tools/`، حيث \"platform-tools\" هو المجلد مع المِلَفّ المسمى \"adb\" داخله.</string>
+    <string name="adb_install_adb_debian_1">افتح الطرفية بالضغط على CTRL+ALT+T.</string>
+    <string name="adb_install_adb_debian_2">تثبيت ADB مع الأمر التالي: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
+    <string name="adb_install_adb_fedora_1">فتح الطرفية.</string>
+    <string name="adb_install_adb_fedora_2">تثبيت ADB مع الأمر التالي: `sudo dnf install adb`.</string>
+    <string name="adb_install_adb_rhel_1">فتح الطرفية.</string>
+    <string name="adb_install_adb_rhel_2">تثبيت ADB مع الأمر التالي: `yum install android-tools`.</string>
+    <string name="adb_install_adb_linux_other_1">تحميل ADB ZIP من هنا: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">استخراج ZIP إلى مكان مناسب، مثل مسار المنزل.</string>
+    <string name="adb_install_adb_linux_other_3">فتح الطرفية.</string>
+    <string name="adb_install_adb_linux_other_4">الآن، تصفح إلى الملفات المستخرجة باستخدام الأمر التالي: `cd /path/to/files/`. على سبيل المثال، إذا كان اسم المستخدم الخاص بك هو زاكاري واستخرجت ZIP إلى دليل الصفحة الرئيسية الخاص بك، سيكون الأمر `cd /home/Zachary/platform-tools/`، حيث \"platform-tools\" هو المجلد مع الملف المسمى \"adb\" داخله.</string>
+    <string name="adb_install_adb_general_end_1">يجب فتح نافذة الأوامر أو النافذة الطرفية. اكتب الأوامر التالية داخلها، واضغط على الشركة/العودة بعد كل واحدة. إذا ظهر نافذة منبثقة على هاتفك حول تصحيح أخطاء USB، تأكد من السماح بذلك.</string>
+    <string name="adb_install_adb_general_end_2">إذا سار كل شيء على ما يرام، فلا ينبغي أن يكون هناك إخراج من الأوامر. إذا كان هناك، تأكد من التمرير على طول الطريق إلى حيث قمت بإدخال الأمر لمشاهدة الخطأ.</string>
+    <string name="adb_install_adb_general_end_3">يجب الآن منح الأذونات!</string>
+    <string name="adb_windows">ويندوز</string>
+    <string name="adb_mac">نظام macOS</string>
+    <string name="adb_linux_fedora">فيدورا/سوزا</string>
+    <string name="adb_linux_debian">دبيان/أوبونتو</string>
+    <string name="adb_linux_rhel">ريدهات/سينت</string>
+    <string name="adb_linux_other">لينكس (أخرى)</string>
+    <string name="adb_local">أندرويد (هذا الجهاز)</string>
+</resources>
