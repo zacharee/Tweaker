@@ -336,7 +336,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="edit_custom_item">Özel Öğe Düzenle</string>
     <string name="remove_item">Bu ürünü sil</string>
     <string name="remove_item_desc">Bu öğeyi kaldırmak istediğinizden emin misiniz?</string>
-    <string name="custom_persistent_option_summary_template">Ayarlar Türü: %s, Anahtar: %s, Değer: %s</string>
+    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3%s</string>
     <string name="tile_battery">Batarya</string>
     <string name="tile_clock">Saat</string>
     <string name="tile_demo">Demo Modu</string>
