@@ -328,7 +328,7 @@
     <string name="edit_custom_item">Edytuj własny element</string>
     <string name="remove_item">Usuń ten element</string>
     <string name="remove_item_desc">Czy na pewno chcesz usunąć ten element?</string>
-    <string name="custom_persistent_option_summary_template">Typ ustawień: %s, Klucz: %s, Wartość: %s</string>
+    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3%s</string>
     <string name="tile_battery">Bateria</string>
     <string name="tile_clock">Zegar</string>
     <string name="tile_demo">Tryb demonstracyjny</string>
