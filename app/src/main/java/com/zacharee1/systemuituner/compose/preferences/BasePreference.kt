@@ -25,6 +25,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -92,6 +93,17 @@ fun TestPref() {
                         testing = true,
                     )
                 )
+
+                BaseSettingsPreference(
+                    SwitchPreferenceItem(
+                        title = "Switch Test",
+                        summary = "Testing a switch setting",
+                        key = "switch_test",
+                        writeKeys = arrayOf(SettingsType.GLOBAL to "testing_switch"),
+                        icon = painterResource(id = R.drawable.arrow_up),
+                        iconColor = colorResource(id = R.color.pref_color_2),
+                    )
+                )
             }
         }
     }
@@ -109,7 +121,7 @@ fun BaseSettingsPreference(
     var showingDialog by remember(info.key) {
         mutableStateOf(false)
     }
-    
+
     BasePreference(
         modifier = modifier,
         info = PreferenceItem(
@@ -131,7 +143,8 @@ fun BaseSettingsPreference(
             onDismissRequest = { showingDialog = false },
         ) {
             Column(
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .padding(8.dp)
                     .fillMaxWidth()
             ) {
                 Row(
@@ -190,8 +203,18 @@ fun BasePreference(
     )
 
     // TODO: Add API range messaging.
-    val withinApiRange = Build.VERSION.SDK_INT >= info.minApi && Build.VERSION.SDK_INT <= info.maxApi
+    val withinApiRange =
+        Build.VERSION.SDK_INT >= info.minApi && Build.VERSION.SDK_INT <= info.maxApi
     val actuallyEnabled = forceEnableAll || (withinApiRange && info.enabled())
+
+    val iconBackgroundColor = if (actuallyEnabled) info.iconColor ?: Color.Transparent else {
+        (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            colorResource(id = R.color.icon_color)
+        } else {
+            LocalContentColor.current
+        }).copy(alpha = 0.25f)
+    }
+    val iconForegroundColor = contentColorFor(backgroundColor = iconBackgroundColor)
 
     OutlinedCard(
         onClick = { info.onClick?.invoke() },
@@ -209,24 +232,16 @@ fun BasePreference(
                 modifier = Modifier
                     .clip(CircleShape)
                     .size(48.dp)
-                    .background(
-                        if (actuallyEnabled) info.iconColor ?: Color.Transparent else (
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                                    colorResource(id = R.color.icon_color)
-                                } else {
-                                    LocalContentColor.current
-                                }
-                                ).copy(alpha = 0.25f)
-                    ),
+                    .background(iconBackgroundColor),
                 contentAlignment = Alignment.Center,
             ) {
                 info.icon?.let { icon ->
                     Box(
                         modifier = Modifier
-                            .size(24.dp)
+                            .size(32.dp)
                             .background(
                                 Brush.radialGradient(
-                                    0f to Color.Black.copy(alpha = 0.7f),
+                                    0f to Color.Black.copy(alpha = 0.25f),
                                     1f to Color.Transparent
                                 )
                             )
@@ -237,11 +252,7 @@ fun BasePreference(
                         contentDescription = info.title,
                         modifier = Modifier
                             .size(24.dp),
-                        tint = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                            colorResource(id = R.color.icon_color)
-                        } else {
-                            LocalContentColor.current
-                        }
+                        tint = iconForegroundColor
                     )
                 }
             }
@@ -266,7 +277,9 @@ fun BasePreference(
                             text = summary,
                             maxLines = 3,
                             overflow = if (summaryExpanded) TextOverflow.Clip else TextOverflow.Ellipsis,
-                            onTextLayout = { result -> showSummaryExpander = result.hasVisualOverflow }
+                            onTextLayout = { result ->
+                                showSummaryExpander = result.hasVisualOverflow
+                            }
                         )
 
                         androidx.compose.animation.AnimatedVisibility(

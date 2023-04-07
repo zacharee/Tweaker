@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.SettingsInfo
 import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.writeSetting
 import com.zacharee1.systemuituner.util.writeSettingsBulk
 
 @Composable
@@ -25,10 +24,8 @@ fun Context.rememberIntSettingsState(
     return rememberSettingsState(
         key = key,
         value = { getSetting(key.first, key.second)?.toIntOrNull() ?: def },
-        onChanged = {
-            writeSetting(key.first, key.second, it,
-                revertable = revertable, saveOption = saveOption)
-        }
+        saveOption = saveOption,
+        revertable = revertable,
     )
 }
 
@@ -42,10 +39,8 @@ fun Context.rememberFloatSettingsState(
     return rememberSettingsState(
         key = key,
         value = { getSetting(key.first, key.second)?.toFloatOrNull() ?: def },
-        onChanged = {
-            writeSetting(key.first, key.second, it,
-                revertable = revertable, saveOption = saveOption)
-        }
+        saveOption = saveOption,
+        revertable = revertable,
     )
 }
 
@@ -57,35 +52,44 @@ fun Context.rememberBooleanSettingsState(
     saveOption: Boolean = true,
     revertable: Boolean = false,
 ): MutableState<Boolean> {
-    return rememberSettingsState(
+    val internalState = rememberSettingsState(
         keys = keys,
         value = {
-            keys.all { (type, key) ->
-                getSetting(type, key) == enabledValue?.toString()
-            }
+            if (keys.all { (type, key) ->
+                    getSetting(type, key) == enabledValue?.toString()
+                }) enabledValue else disabledValue
         },
-        onChanged = {
-            writeSettingsBulk(
-                *keys.map { (type, key) ->
-                    SettingsInfo(type, key, if (it) enabledValue else disabledValue)
-                }.toTypedArray(),
-                revertable = revertable,
-                saveOption = saveOption,
-            )
-        }
+        saveOption = saveOption,
+        revertable = revertable,
     )
+
+    val pullUpState = remember(keys) {
+        mutableStateOf(internalState.value == enabledValue)
+    }
+
+    LaunchedEffect(key1 = internalState.value) {
+        pullUpState.value = internalState.value == enabledValue
+    }
+
+    LaunchedEffect(key1 = pullUpState.value) {
+        internalState.value = if (pullUpState.value) enabledValue else disabledValue
+    }
+
+    return pullUpState
 }
 
 @Composable
 fun <T : Any?> Context.rememberSettingsState(
     key: Pair<SettingsType, String>,
     value: () -> T,
-    onChanged: suspend (T) -> Unit
+    revertable: Boolean = false,
+    saveOption: Boolean = true,
 ): MutableState<T> {
     return rememberSettingsState(
         keys = arrayOf(key),
         value = value,
-        onChanged = onChanged,
+        revertable = revertable,
+        saveOption = saveOption,
     )
 }
 
@@ -93,14 +97,26 @@ fun <T : Any?> Context.rememberSettingsState(
 fun <T : Any?> Context.rememberSettingsState(
     keys: Array<Pair<SettingsType, String>>,
     value: () -> T,
-    onChanged: suspend (T) -> Unit,
-) : MutableState<T> {
+    revertable: Boolean = false,
+    saveOption: Boolean = true,
+): MutableState<T> {
     val state = remember(keys) {
         mutableStateOf(value())
     }
 
     LaunchedEffect(key1 = state.value) {
-        onChanged(state.value)
+//        onChanged(state.value)
+
+        if (!writeSettingsBulk(
+                *keys.map { (type, key) ->
+                    SettingsInfo(type, key, state.value)
+                }.toTypedArray(),
+                revertable = revertable,
+                saveOption = saveOption,
+            )
+        ) {
+            state.value = value()
+        }
     }
 
     DisposableEffect(key1 = keys) {
