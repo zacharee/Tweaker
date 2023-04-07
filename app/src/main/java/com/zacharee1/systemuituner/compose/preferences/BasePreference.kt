@@ -1,8 +1,6 @@
 package com.zacharee1.systemuituner.compose.preferences
 
-import android.content.Context
 import android.os.Build
-import android.view.WindowManager
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
@@ -27,7 +25,6 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -42,13 +39,11 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.view.allViews
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.compose.rememberMonitorPreferenceState
@@ -133,46 +128,41 @@ fun BaseSettingsPreference(
 
     if (showingDialog) {
         ModalBottomSheet(
-            onDismissRequest = { showingDialog = false }
+            onDismissRequest = { showingDialog = false },
         ) {
-            val view = LocalView.current.rootView.allViews
-                .filter { it.javaClass.name == "androidx.compose.ui.window.PopupLayout" }
-                .toList()
-                .first()
-            (view.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
-                .updateViewLayout(view,
-                    (view.layoutParams as WindowManager.LayoutParams).apply {
-                        flags = flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
-                    })
-
-            Row(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            Column(
+                modifier = Modifier.padding(8.dp)
+                    .fillMaxWidth()
             ) {
-                info.icon?.let { icon ->
-                    Icon(painter = icon, contentDescription = info.title)
-                }
-
-                Text(
-                    text = info.title,
-                    style = MaterialTheme.typography.titleMedium
-                )
-            }
-
-            Spacer(modifier = Modifier.size(8.dp))
-
-            info.dialogContents(this, remember(info.key) {
-                {
-                    scope.launch {
-                        context.writeSettingsBulk(
-                            *it,
-                            revertable = info.revertable,
-                            saveOption = info.saveOption
-                        )
+                Row(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    info.icon?.let { icon ->
+                        Icon(painter = icon, contentDescription = info.title)
                     }
+
+                    Text(
+                        text = info.title,
+                        style = MaterialTheme.typography.titleMedium
+                    )
                 }
-            })
+
+                Spacer(modifier = Modifier.size(8.dp))
+
+                info.dialogContents(this, remember(info.key) {
+                    {
+                        scope.launch {
+                            context.writeSettingsBulk(
+                                *it,
+                                revertable = info.revertable,
+                                saveOption = info.saveOption
+                            )
+                        }
+                    }
+                })
+            }
         }
     }
 }
