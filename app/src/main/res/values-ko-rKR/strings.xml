@@ -368,6 +368,8 @@
     <string name="setting_applied_dialog_desc">변경된 설정으로 유지하시겠습니까? %s초 후 이전 설정으로 되돌아갑니다.</string>
     <string name="keep">유지</string>
     <string name="revert">되돌리기</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">계속하기 전에 약관을 확인해주십시오.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner는 보안 설정 쓰기 권한이 없으면 동작할 수 없습니다. 권한을 부여하는 데 문제가 발생했다면 \"도움말\" 버튼을 누르십시오.</string>
     <string name="blocked_reason_choose_os">계속하기 전에 운영 체제를 선택해주십시오.</string>
