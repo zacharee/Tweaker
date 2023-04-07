@@ -371,8 +371,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="setting_applied_dialog_desc">Chcete zachovat změny? Tato možnost bude vrácena po %s sekundách.</string>
     <string name="keep">Zachovat</string>
     <string name="revert">Vrátit zpět</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">Zvýšit</string>
+    <string name="decrease" desc="This is in verb form.">Snížit</string>
     <string name="blocked_reason_read_terms">Než budete pokračovat, nezapomeňte si přečíst podmínky.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner nemůže fungovat bez oprávnění Write Secure Settings. Pokud máte potíže s udělením, klepněte na tlačítko \"Nápověda\".</string>
     <string name="blocked_reason_choose_os">Před pokračováním vyberte operační systém.</string>
