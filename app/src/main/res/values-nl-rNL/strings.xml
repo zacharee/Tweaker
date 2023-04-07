@@ -368,6 +368,8 @@
     <string name="setting_applied_dialog_desc">Wil je de wijzigingen behouden? Anders wordt deze optie over %s seconden teruggedraaid.</string>
     <string name="keep">Behouden</string>
     <string name="revert">Terugdraaien</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Lees de voorwaarden voordat je doorgaat.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI-tuner kan niet functioneren zonder het Write Secure Settings-recht. Druk op ‘Hulp’ als je problemen ondervindt met het toekennen ervan.</string>
     <string name="blocked_reason_choose_os">Kies een besturingssysteem voordat je doorgaat.</string>
