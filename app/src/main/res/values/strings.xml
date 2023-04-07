@@ -476,6 +476,8 @@
 
     <string name="keep">Keep</string>
     <string name="revert">Revert</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
 
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>

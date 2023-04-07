@@ -21,7 +21,7 @@ fun Context.rememberIntSettingsState(
     saveOption: Boolean = true,
     revertable: Boolean = false,
     def: Int = 0
-): MutableState<Int> {
+): MutableState<Number> {
     return rememberSettingsState(
         key = key,
         value = { getSetting(key.first, key.second)?.toIntOrNull() ?: def },
@@ -38,7 +38,7 @@ fun Context.rememberFloatSettingsState(
     saveOption: Boolean = true,
     revertable: Boolean = false,
     def: Float = 0f
-): MutableState<Float> {
+): MutableState<Number> {
     return rememberSettingsState(
         key = key,
         value = { getSetting(key.first, key.second)?.toFloatOrNull() ?: def },

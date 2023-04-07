@@ -1,7 +1,8 @@
 package com.zacharee1.systemuituner.compose.preferences
 
+import android.content.Context
 import android.os.Build
-import android.util.Log
+import android.view.WindowManager
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
@@ -11,7 +12,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,6 +27,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -37,22 +38,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.view.allViews
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.compose.rememberMonitorPreferenceState
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.PrefManager
-import com.zacharee1.systemuituner.util.SettingsInfo
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSettingsBulk
 import kotlinx.coroutines.launch
@@ -79,6 +80,21 @@ fun TestPref() {
                         title = "Shorter Summary",
                         key = "short_summary",
                         summary = "Some short summary that shouldn't go past 3 lines."
+                    )
+                )
+
+                BaseSettingsPreference(
+                    SeekBarPreferenceItem(
+                        title = "Seekbar Test",
+                        summary = "Testing a Slider preference",
+                        key = "seekbar_test",
+                        writeKey = SettingsType.GLOBAL to "testing",
+                        minValue = 1,
+                        maxValue = 100,
+                        scale = 0.1,
+                        unit = "",
+                        defaultValue = 50,
+                        testing = true,
                     )
                 )
             }
@@ -116,7 +132,19 @@ fun BaseSettingsPreference(
     )
 
     if (showingDialog) {
-        ModalBottomSheet(onDismissRequest = { showingDialog = false }) {
+        ModalBottomSheet(
+            onDismissRequest = { showingDialog = false }
+        ) {
+            val view = LocalView.current.rootView.allViews
+                .filter { it.javaClass.name == "androidx.compose.ui.window.PopupLayout" }
+                .toList()
+                .first()
+            (view.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+                .updateViewLayout(view,
+                    (view.layoutParams as WindowManager.LayoutParams).apply {
+                        flags = flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
+                    })
+
             Row(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 verticalAlignment = Alignment.CenterVertically,
