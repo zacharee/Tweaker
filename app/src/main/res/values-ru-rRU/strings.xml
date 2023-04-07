@@ -368,6 +368,8 @@
     <string name="setting_applied_dialog_desc">Хотите сохранить изменения? Эта настройка будет возвращена через %s сек.</string>
     <string name="keep">Оставить</string>
     <string name="revert">Вернуть</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Пожалуйста прочитайте условия, прежде чем продолжить.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner не может работать без разрешения Write Secure Settings. Нажмите кнопку «Помощь», если у вас возникли проблемы с ее предоставлением.</string>
     <string name="blocked_reason_choose_os">Прежде чем продолжить, выберите операционную систему.</string>
