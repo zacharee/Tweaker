@@ -368,8 +368,8 @@
     <string name="setting_applied_dialog_desc">Você quer manter as alterações? Esta opção será revertida após %s segundos.</string>
     <string name="keep">Manter</string>
     <string name="revert">Desfazer</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">Aumentar</string>
+    <string name="decrease" desc="This is in verb form.">Diminuir</string>
     <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
     <string name="blocked_reason_write_secure_settings">O SystemUI Tuner não pode funcionar sem a permissão de Gravar Configurações Seguras. Toque no botão \"Ajuda\" se você estiver com problemas para concedê-lo.</string>
     <string name="blocked_reason_choose_os">Por favor, escolha um sistema operacional antes de continuar.</string>
