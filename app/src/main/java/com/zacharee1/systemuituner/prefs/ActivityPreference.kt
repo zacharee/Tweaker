@@ -1,14 +1,17 @@
 package com.zacharee1.systemuituner.prefs
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.util.AttributeSet
+import android.util.Log
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
+import com.bugsnag.android.Bugsnag
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
 
-open class InlineActivityPreference(context: Context, intent: Intent) : Preference(context),
+class InlineActivityPreference(context: Context, intent: Intent) : Preference(context),
     IColorPreference by ColorPreference(context, null), ISecurePreference by SecurePreference(context, null) {
     init {
         layoutResource = R.layout.custom_preference
@@ -22,6 +25,16 @@ open class InlineActivityPreference(context: Context, intent: Intent) : Preferen
         super.onBindViewHolder(holder)
 
         bindVH(holder)
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun performClick() {
+        try {
+            super.performClick()
+        } catch (e: Exception) {
+            Log.e("SystemUITuner", "Error onClick", e)
+            Bugsnag.notify(e)
+        }
     }
 }
 

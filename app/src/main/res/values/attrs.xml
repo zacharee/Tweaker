@@ -7,6 +7,8 @@
         <enum name="system" value="2" />
     </attr>
 
+    <attr name="iconColor" format="color|reference" />
+
     <attr name="differing_key" format="string|reference" />
     <attr name="dialog_layout" format="integer|reference" />
     <attr name="dangerous" format="boolean|reference" />
