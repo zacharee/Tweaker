@@ -368,6 +368,8 @@
     <string name="setting_applied_dialog_desc">Möchten Sie die Änderungen beibehalten? Diese Option wird nach %s Sekunden zurückgesetzt.</string>
     <string name="keep">Beibehalten</string>
     <string name="revert">Zurücksetzen</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Bitte lesen Sie unbedingt die Bedingungen, bevor Sie fortfahren.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner kann ohne die Berechtigung „Schreibrechte für Sicherheitseinstellungen” nicht funktionieren. Tippen Sie auf die Schaltfläche „Hilfe”, wenn Sie Probleme bei der Erteilung der Berechtigung haben.</string>
     <string name="blocked_reason_choose_os">Bitte wählen Sie ein Betriebssystem, bevor Sie fortfahren.</string>
