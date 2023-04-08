@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">Âm thanh được phát khi thiết bị ở mức pin yếu.</string>
     <string name="option_ui_sound_trusted">Tin cậy</string>
     <string name="option_ui_sound_trusted_desc">Âm thanh được phát khi thiết bị chuyển sang trạng thái “đáng tin cậy” mà không cần mở khóa.</string>
-    <string name="option_ui_sound_wireless_charging">Đang sạc</string>
-    <string name="option_ui_sound_wireless_charging_desc">Âm thanh được phát khi thiết bị đang được sạc.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
