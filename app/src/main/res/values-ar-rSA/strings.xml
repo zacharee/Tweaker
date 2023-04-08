@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">الصوت الذي يتم تشغيله عندما تكون بطارية الجهاز منخفضة.</string>
     <string name="option_ui_sound_trusted">موثوق به</string>
     <string name="option_ui_sound_trusted_desc">الصوت الذي يتم تشغيله عندما يدخل الجهاز حالة \"الموثوقة\" دون فتح القفل.</string>
-    <string name="option_ui_sound_wireless_charging">يشحن</string>
-    <string name="option_ui_sound_wireless_charging_desc">الصوت الذي يتم تشغيله عند شحن الجهاز.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">تعطيل صوت الشحن</string>
     <string name="option_ui_sound_disable_charging_desc">ما إذا كان سيتم تعطيل الصوت الذي يشغل عند بدء شحن الجهاز.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">أذونات واجهة مستخدم النظام</string>
