@@ -368,8 +368,8 @@
     <string name="setting_applied_dialog_desc">要保持變更嗎？此選項將在 %s 秒內還原。</string>
     <string name="keep">保持</string>
     <string name="revert">還原</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">增加</string>
+    <string name="decrease" desc="This is in verb form.">減少</string>
     <string name="blocked_reason_read_terms">請確保在繼續之前您已閱讀條款。</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner 功能的正常運作需要「寫入安全設定」權限。若您有任何相關問題，請輕觸「說明」按鈕。</string>
     <string name="blocked_reason_choose_os">在繼續之前，請選擇您的作業系統。</string>
