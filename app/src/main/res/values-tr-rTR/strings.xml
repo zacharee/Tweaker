@@ -145,8 +145,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_ui_sound_low_battery_desc">Düşük batarya durumundayken bildirimleri göster.</string>
     <string name="option_ui_sound_trusted">Güvenilir</string>
     <string name="option_ui_sound_trusted_desc">Tr</string>
-    <string name="option_ui_sound_wireless_charging">Şarj oluyor</string>
-    <string name="option_ui_sound_wireless_charging_desc">Cihaz şarjdayken bildirimleri göster.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Şarj oluyor sesini devre dışı bırak</string>
     <string name="option_ui_sound_disable_charging_desc">Cihaz şarj olmaya başladığında çalan sesin devre dışı bırakılıp bırakılmayacağı.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
