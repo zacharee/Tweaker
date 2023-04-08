@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">设备电池电量低时播放的音频。</string>
     <string name="option_ui_sound_trusted">信任的</string>
     <string name="option_ui_sound_trusted_desc">设备进入“信任”状态而不解锁时播放的音频。</string>
-    <string name="option_ui_sound_wireless_charging">充电中</string>
-    <string name="option_ui_sound_wireless_charging_desc">设备充电时播放的音频。</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">禁用充电声音</string>
     <string name="option_ui_sound_disable_charging_desc">是否禁用设备开始充电时播放的声音。</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
