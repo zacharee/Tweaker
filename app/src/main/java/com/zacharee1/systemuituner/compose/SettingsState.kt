@@ -101,13 +101,11 @@ fun <T : Any?> Context.rememberSettingsState(
     revertable: Boolean = false,
     saveOption: Boolean = true,
 ): MutableState<T> {
-    val state = remember(keys) {
+    val state = remember(keys.contentDeepHashCode()) {
         mutableStateOf(value())
     }
 
-    LaunchedEffect(key1 = state.value) {
-//        onChanged(state.value)
-
+    LaunchedEffect(key1 = state.value.hashCode()) {
         if (!writeSettingsBulk(
                 *keys.map { (type, key) ->
                     SettingsInfo(type, key, state.value)
