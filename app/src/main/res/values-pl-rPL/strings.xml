@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">Dźwięk, który jest odtwarzany, gdy urządzenie znajduje się na niskim poziomie baterii.</string>
     <string name="option_ui_sound_trusted">Zaufany</string>
     <string name="option_ui_sound_trusted_desc">Dźwięk, który jest odtwarzany, gdy urządzenie wprowadza stan „zaufany” bez odblokowania.</string>
-    <string name="option_ui_sound_wireless_charging">Ładowanie</string>
-    <string name="option_ui_sound_wireless_charging_desc">Dźwięk odtwarzany podczas ładowania urządzenia.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Wyłącz dźwięk ładowania</string>
     <string name="option_ui_sound_disable_charging_desc">Czy wyłączyć dźwięk odtwarzany kiedy urządzenie zaczyna się ładować.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Uprawnienia interfejsu systemowego</string>
