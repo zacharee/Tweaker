@@ -18,15 +18,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalMinimumInteractiveComponentEnforcement
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -36,7 +33,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,19 +48,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.compose.preferences.layouts.BottomSheetDialogLayout
 import com.zacharee1.systemuituner.compose.rememberMonitorPreferenceState
-import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
-import com.zacharee1.systemuituner.util.writeSettingsBulk
-import kotlinx.coroutines.launch
 
 @Composable
 @Preview
 fun TestPref() {
     val context = LocalContext.current
+    val forceEnableAll by context.rememberMonitorPreferenceState(
+        key = PrefManager.FORCE_ENABLE_ALL,
+        value = { context.prefManager.forceEnableAll }
+    )
     val items = context.allScreens.filter {
-        context.prefManager.forceEnableAll || it.visible()
+        forceEnableAll || it.visible()
     }
 
     Mdc3Theme {
@@ -92,15 +90,11 @@ fun TestPref() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BaseSettingsPreference(
     info: SettingsPreferenceItem,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-
     var showingDialog by remember(info.key) {
         mutableStateOf(false)
     }
@@ -125,44 +119,12 @@ fun BaseSettingsPreference(
     )
 
     if (showingDialog) {
-        ModalBottomSheet(
+        BottomSheetDialogLayout(
+            title = info.title,
             onDismissRequest = { showingDialog = false },
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(8.dp)
-                    .fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    info.icon?.let { icon ->
-                        Icon(painter = painterResource(id = icon), contentDescription = info.title)
-                    }
-
-                    Text(
-                        text = info.title,
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                }
-
-                Spacer(modifier = Modifier.size(8.dp))
-
-                info.dialogContents(this, remember(info.key) {
-                    {
-                        scope.launch {
-                            context.writeSettingsBulk(
-                                *it,
-                                revertable = info.revertable,
-                                saveOption = info.saveOption
-                            )
-                        }
-                    }
-                })
-            }
-        }
+            icon = info.icon,
+            contents = info.dialogContents
+        )
     }
 }
 

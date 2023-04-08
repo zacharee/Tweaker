@@ -42,12 +42,18 @@ import com.zacharee1.systemuituner.activities.DemoModeActivity
 import com.zacharee1.systemuituner.activities.IconBlacklistActivity
 import com.zacharee1.systemuituner.activities.ManageQSActivity
 import com.zacharee1.systemuituner.activities.QSEditorActivity
+import com.zacharee1.systemuituner.compose.components.CardSwitch
+import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberBooleanSettingsState
+import com.zacharee1.systemuituner.compose.rememberPreferenceState
 import com.zacharee1.systemuituner.compose.rememberSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.getStringByName
 import com.zacharee1.systemuituner.util.isTouchWiz
+import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
 import com.zacharee1.systemuituner.util.verifiers.ShowForFireOS
 import com.zacharee1.systemuituner.views.UISounds
@@ -154,219 +160,7 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
             icon = R.drawable.ic_baseline_phonelink_ring_24,
             iconColor = R.color.pref_color_6,
             dialogContents = {
-                val context = LocalContext.current
-                val settingsProviderResources = remember {
-                    context.packageManager.getResourcesForApplication(
-                        UISounds.PROVIDER_PKG
-                    )
-                }
-
-                val items = remember {
-                    arrayOf(
-                        UISoundItem(
-                            name = R.string.option_ui_sound_car_dock,
-                            desc = R.string.option_ui_sound_car_dock_desc,
-                            key = Settings.Global.CAR_DOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_car_dock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_car_undock,
-                            desc = R.string.option_ui_sound_car_undock_desc,
-                            key = Settings.Global.CAR_UNDOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_car_undock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_desk_dock,
-                            desc = R.string.option_ui_sound_desk_dock_desc,
-                            key = Settings.Global.DESK_DOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_desk_dock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_desk_undock,
-                            desc = R.string.option_ui_sound_desk_undock_desc,
-                            key = Settings.Global.DESK_UNDOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_desk_undock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_lock,
-                            desc = R.string.option_ui_sound_lock_desc,
-                            key = Settings.Global.LOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_lock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_unlock,
-                            desc = R.string.option_ui_sound_unlock_desc,
-                            key = Settings.Global.UNLOCK_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_unlock_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_low_battery,
-                            desc = R.string.option_ui_sound_low_battery_desc,
-                            key = Settings.Global.LOW_BATTERY_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_low_battery_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_trusted,
-                            desc = R.string.option_ui_sound_trusted_desc,
-                            key = Settings.Global.TRUSTED_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_trusted_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_wireless_charging,
-                            desc = R.string.option_ui_sound_wireless_charging_desc,
-                            key = Settings.Global.WIRELESS_CHARGING_STARTED_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_wireless_charging_started_sound", UISounds.PROVIDER_PKG)
-                        ),
-                        UISoundItem(
-                            name = R.string.option_ui_sound_charging,
-                            desc = R.string.option_ui_sound_charging_desc,
-                            key = Settings.Global.CHARGING_STARTED_SOUND,
-                            settingsType = SettingsType.GLOBAL,
-                            default = settingsProviderResources.getStringByName("def_charging_started_sound", UISounds.PROVIDER_PKG)
-                        ),
-                    )
-                }
-
-                val itemStates = items.map { item ->
-                    val state = context.rememberSettingsState(
-                        key = item.settingsType to item.key,
-                        value = { context.getSetting(item.settingsType, item.key, item.default) },
-                        revertable = true,
-                        saveOption = true,
-                    )
-
-                    Triple(
-                        item,
-                        state,
-                        rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { result ->
-                            result?.let { uri ->
-                                val ext = contentResolver.getType(uri)?.split("/")?.getOrElse(1) { "ogg" } ?: "ogg"
-                                val filesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
-                                val folder = File(filesDir, "sounds")
-
-                                folder.mkdirs()
-                                folder.setReadable(true, false)
-                                folder.setExecutable(true, false)
-
-                                val dest = File(folder, "ui_sound_${item.key}.$ext")
-                                if (dest.exists()) dest.delete()
-
-                                try {
-                                    dest.createNewFile()
-
-                                    dest.outputStream().use { output ->
-                                        contentResolver.openInputStream(uri).use { input ->
-                                            input?.copyTo(output)
-                                        }
-                                    }
-
-                                    dest.setReadable(true, false)
-                                    dest.setExecutable(true, false)
-
-                                    state.value = dest.absolutePath
-                                } catch (e: IOException) {
-                                    Log.e("SystemUITunerSystemSettings", "Error", e)
-                                    Toast.makeText(context, resources.getString(R.string.error_creating_file_template, e.message), Toast.LENGTH_SHORT).show()
-                                }
-                            }
-                        }
-                    )
-                }
-
-                var chargingSoundEnabled by context.rememberBooleanSettingsState(
-                    keys = arrayOf(
-                        SettingsType.GLOBAL to Settings.Global.CHARGING_SOUNDS_ENABLED,
-                        SettingsType.SECURE to Settings.Secure.CHARGING_SOUNDS_ENABLED,
-                    ),
-                    enabledValue = 1,
-                    disabledValue = 0,
-                    revertable = true,
-                    saveOption = true,
-                )
-
-                LazyColumn(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    item("charging_sound_enabled") {
-                        OutlinedCard(onClick = { chargingSoundEnabled = !chargingSoundEnabled }) {
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .heightIn(min = 56.dp)
-                                    .padding(8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                Column(
-                                    modifier = Modifier.weight(1f),
-                                ) {
-                                    Text(
-                                        text = stringResource(id = R.string.option_ui_sound_disable_charging),
-                                        style = MaterialTheme.typography.titleMedium,
-                                    )
-
-                                    Text(
-                                        text = stringResource(id = R.string.option_ui_sound_disable_charging_desc)
-                                    )
-                                }
-
-                                Switch(
-                                    checked = !chargingSoundEnabled,
-                                    onCheckedChange = { chargingSoundEnabled = !it }
-                                )
-                            }
-                        }
-                    }
-
-                    items(items = itemStates, { it.first.hashCode() }) { (item, state, launcher) ->
-                        OutlinedCard(onClick = { launcher.launch(arrayOf("audio/*")) }) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth().padding(8.dp),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                            ) {
-                                IconButton(onClick = { state.value = item.default }) {
-                                    Icon(
-                                        painter = painterResource(id = R.drawable.ic_undo_black_24dp),
-                                        contentDescription = stringResource(id = R.string.reset),
-                                    )
-                                }
-
-                                Column(
-                                    modifier = Modifier.weight(1f)
-                                ) {
-                                    Text(
-                                        text = stringResource(id = item.name),
-                                        style = MaterialTheme.typography.titleMedium
-                                    )
-
-                                    Text(
-                                        text = stringResource(id = item.desc)
-                                    )
-
-                                    state.value?.let { value ->
-                                        Spacer(modifier = Modifier.size(4.dp))
-
-                                        Text(
-                                            text = value,
-                                            fontFamily = FontFamily.Monospace,
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                UISoundsLayout()
             },
             saveOption = true,
             revertable = true,
@@ -761,7 +555,15 @@ val Context.uiScreen by com.zacharee1.systemuituner.util.lazy {
             writeKey = SettingsType.SECURE to Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT,
             minApi = Build.VERSION_CODES.R,
         ),
-        // KEEP ON WHEN PLUGGED
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_keep_screen_on),
+            summary = resources.getString(R.string.feature_keep_screen_on_desc),
+            icon = R.drawable.ic_baseline_visibility_24,
+            iconColor = R.color.pref_color_2,
+            dialogContents = { KeepOnPluggedLayout() },
+            writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.STAY_ON_WHILE_PLUGGED_IN),
+            key = Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
+        )
         // ANIMATION SCALES
         // CAMERA GESTURES
         // IMMERSIVE MODE
@@ -773,7 +575,30 @@ val Context.advancedScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
         // READ SETTING
         // WRITE SETTING
-        // FORCE ENABLE ALL
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.option_advanced_force_enable_all),
+            summary = resources.getString(R.string.option_advanced_force_enable_all_desc),
+            key = "force_enable_all",
+            persistable = false,
+            writeKeys = arrayOf(),
+            icon = R.drawable.ic_baseline_toggle_on_24,
+            iconColor = R.color.pref_color_4,
+            dialogContents = {
+                val context = LocalContext.current
+                var state by context.rememberPreferenceState(
+                    key = PrefManager.FORCE_ENABLE_ALL,
+                    value = { context.prefManager.forceEnableAll },
+                    onChanged = { context.prefManager.forceEnableAll = it }
+                )
+
+                CardSwitch(
+                    title = resources.getString(R.string.option_advanced_force_enable_all),
+                    checked = state,
+                    onCheckedChange = { state = it },
+                )
+            },
+            dangerous = true,
+        ),
         PreferenceItem(
             title = resources.getString(R.string.option_advanced_manage_qs_tiles),
             summary = resources.getString(R.string.option_advanced_manage_qs_tiles_desc),
