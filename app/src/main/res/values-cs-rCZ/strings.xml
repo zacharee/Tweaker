@@ -141,10 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">Zvuk, který se přehraje, když má telefon málo baterie.</string>
     <string name="option_ui_sound_trusted">Důvěryhodný</string>
     <string name="option_ui_sound_trusted_desc">Zvuk, který se přehrává, když zařízení vstoupí do stavu „důvěryhodné“ bez odemknutí.</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">Bezdrátové nabíjení</string>
+    <string name="option_ui_sound_wireless_charging_desc">Zvuk, který se přehraje při bezdrátovém nabíjení zařízení.</string>
+    <string name="option_ui_sound_charging">Nabíjení</string>
+    <string name="option_ui_sound_charging_desc">Zvuk, který se přehraje při nabíjení zařízení.</string>
     <string name="option_ui_sound_disable_charging">Zakázat zvuk nabíjení</string>
     <string name="option_ui_sound_disable_charging_desc">Zakázat zvuk, který hraje při nabíjení zařízení.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Oprávnění System UI</string>
