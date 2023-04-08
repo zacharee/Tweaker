@@ -42,12 +42,17 @@ import com.zacharee1.systemuituner.compose.rememberSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.getStringByName
+import com.zacharee1.systemuituner.util.isTouchWiz
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
 import com.zacharee1.systemuituner.views.UISounds
 import java.io.File
 import java.io.IOException
 
-val Context.appsScreen by com.zacharee1.systemuituner.util.lazy() {
+val Context.allScreens by com.zacharee1.systemuituner.util.lazy {
+    appsScreen.prefs + audioScreen.prefs + developerScreen.prefs + displayScreen.prefs
+}
+
+val Context.appsScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
         SwitchPreferenceItem(
             title = resources.getString(R.string.feature_freeform),
@@ -340,6 +345,127 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
             saveOption = true,
             revertable = true,
         )
+    ))
+}
+
+val Context.developerScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_enable_adb),
+            summary = resources.getString(R.string.feature_enable_adb_desc),
+            icon = R.drawable.ic_baseline_adb_24,
+            iconColor = R.color.pref_color_3,
+            writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.ADB_ENABLED),
+            key = Settings.Global.ADB_ENABLED,
+        )
+    ))
+}
+
+val Context.displayScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.feature_lock_timeout),
+            summary = resources.getString(R.string.feature_lock_timeout_desc),
+            key = Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT,
+            defaultValue = 5000,
+            iconColor = R.color.pref_color_6,
+            icon = R.drawable.progress_clock,
+            writeKey = SettingsType.SECURE to Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT,
+            minValue = 0,
+            maxValue = Int.MAX_VALUE,
+            unit = "ms",
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.feature_battery_saver_trigger),
+            summary = resources.getString(R.string.feature_battery_saver_trigger_desc),
+            key = Settings.Global.LOW_POWER_MODE_TRIGGER_LEVEL,
+            defaultValue = 5,
+            icon = R.drawable.ic_baseline_battery_alert_24,
+            iconColor = R.color.pref_color_3,
+            unit = "%",
+            minValue = 0,
+            maxValue = 100,
+            writeKey = SettingsType.GLOBAL to Settings.Global.LOW_POWER_MODE_TRIGGER_LEVEL
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.feature_font_scale),
+            summary = resources.getString(R.string.feature_font_scale_desc),
+            key = Settings.System.FONT_SCALE,
+            defaultValue = 1.0,
+            icon = R.drawable.ic_baseline_format_size_24,
+            iconColor = R.color.pref_color_7,
+            minValue = 0.2,
+            maxValue = 3.0,
+            scale = 0.01,
+            writeKey = SettingsType.SYSTEM to Settings.System.FONT_SCALE,
+        ),
+        ListPreferenceItem(
+            title = resources.getString(R.string.feature_custom_rotation),
+            summary = resources.getString(R.string.feature_custom_rotation_desc),
+            key = Settings.System.USER_ROTATION,
+            defaultOption = "0",
+            icon = R.drawable.ic_baseline_screen_lock_rotation_24,
+            iconColor = R.color.pref_color_6,
+            writeKey = Settings.System.USER_ROTATION,
+            options = arrayOf(
+                ListPreferenceItem.Option(
+                    label = resources.getString(R.string.option_user_rotation_0),
+                    value = "0",
+                ),
+                ListPreferenceItem.Option(
+                    label = resources.getString(R.string.option_user_rotation_90),
+                    value = "1",
+                ),
+                ListPreferenceItem.Option(
+                    label = resources.getString(R.string.option_user_rotation_180),
+                    value = "2",
+                ),
+                ListPreferenceItem.Option(
+                    label = resources.getString(R.string.option_user_rotation_270),
+                    value = "3",
+                ),
+            ),
+            settingsType = SettingsType.SYSTEM,
+        ),
+        // COLOR PICKER PREF
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_touchwiz_disable_high_brightness_warning),
+            summary = resources.getString(R.string.option_touchwiz_disable_high_brightness_warning_desc),
+            key = "shown_max_brightness_warning",
+            writeKeys = arrayOf(SettingsType.SYSTEM to "shown_max_brightness_warning"),
+            icon = R.drawable.ic_baseline_brightness_7_24,
+            iconColor = R.color.pref_color_1,
+            visible = { isTouchWiz }
+        ),
+        // NIGHT MODE PREF
+    ))
+}
+
+val Context.netCellularScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_shortcode_warning),
+            summary = resources.getString(R.string.feature_shortcode_warning_desc),
+            key = Settings.Global.SMS_SHORT_CODE_CONFIRMATION,
+            icon = R.drawable.ic_baseline_sms_failed_24,
+            iconColor = R.color.pref_color_5,
+            enabledValue = "false",
+            disabledValue = "true",
+            writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.SMS_SHORT_CODE_CONFIRMATION)
+        ),
+        // SMS LIMITS PREF
+    ))
+}
+
+val Context.netWifiScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        // TETHERING PREF
+    ))
+}
+
+val Context.netMiscScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        // AIRPLANE MODE PREF
     ))
 }
 

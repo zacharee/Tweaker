@@ -127,7 +127,7 @@ fun TestPref() {
                     )
                 )
 
-                (context.appsScreen.prefs + context.audioScreen.prefs).forEach { item ->
+                (context.allScreens).forEach { item ->
                     when (item) {
                         is SettingsPreferenceItem -> {
                             BaseSettingsPreference(info = item)

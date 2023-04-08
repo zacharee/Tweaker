@@ -54,11 +54,16 @@ fun SeekBar(
     scale: Double,
     value: Number,
     onValueChanged: (Number) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    unit: String? = null,
 ) {
-    val df = DecimalFormat(
-        "0.${Array(ceil(log10(1 / scale)).toInt()) { "0" }.joinToString("")}"
-    )
+    val df = remember {
+        val sequence = "0".repeat(ceil(log10(1 / scale)).toInt())
+
+        DecimalFormat(
+            "0${if (sequence.isNotEmpty()) ".${sequence}" else ""}"
+        )
+    }
 
     var seekFromUser = remember {
         false
@@ -133,7 +138,7 @@ fun SeekBar(
             }
 
             Text(
-                text = df.format(value),
+                text = "${df.format(value)}${if (unit != null) " $unit" else ""}",
                 modifier = Modifier.clickable(
                     interactionSource = remember {
                         MutableInteractionSource()

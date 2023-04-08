@@ -52,6 +52,8 @@ open class ListPreferenceItem(
     @DrawableRes override val icon: Int? = null,
     override val saveOption: Boolean = true,
     override val revertable: Boolean = false,
+    override val persistable: Boolean = true,
+    override val visible: @Composable () -> Boolean = { true },
     val options: Array<Option>,
     val defaultOption: Any?,
     val settingsType: SettingsType,
@@ -63,7 +65,8 @@ open class ListPreferenceItem(
     enabled = enabled, iconColor = iconColor,
     dangerous = dangerous, summary = summary,
     icon = icon, saveOption = saveOption,
-    revertable = revertable,
+    revertable = revertable, persistable = persistable,
+    visible = visible,
     dialogContents = {
         val context = LocalContext.current
         var state by if (testing) {
@@ -133,11 +136,13 @@ open class SeekBarPreferenceItem(
     @DrawableRes override val icon: Int? = null,
     override val saveOption: Boolean = true,
     override val revertable: Boolean = false,
+    override val persistable: Boolean = true,
+    override val visible: @Composable () -> Boolean = { true },
     val writeKey: Pair<SettingsType, String>,
     val minValue: Number,
     val maxValue: Number,
     val defaultValue: Number,
-    val unit: String,
+    val unit: String? = null,
     val scale: Double = 1.0,
     val testing: Boolean = false,
 ) : SettingsPreferenceItem(
@@ -146,7 +151,8 @@ open class SeekBarPreferenceItem(
     enabled = enabled, iconColor = iconColor,
     dangerous = dangerous, summary = summary,
     icon = icon, saveOption = saveOption,
-    revertable = revertable,
+    revertable = revertable, persistable = persistable,
+    visible = visible,
     dialogContents = {
         val context = LocalContext.current
         var state by if (testing) {
@@ -183,7 +189,8 @@ open class SeekBarPreferenceItem(
                 onValueChanged = { state = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
+                    .padding(8.dp),
+                unit = unit,
             )
         }
     }
@@ -202,13 +209,17 @@ open class SwitchPreferenceItem(
     @DrawableRes override val icon: Int? = null,
     override val saveOption: Boolean = true,
     override val revertable: Boolean = false,
+    override val persistable: Boolean = true,
+    override val visible: @Composable () -> Boolean = { true },
     val writeKeys: Array<Pair<SettingsType, String>>,
     val enabledValue: Any? = 1,
     val disabledValue: Any? = 0,
 ): SettingsPreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
-    dangerous, summary, icon, saveOption = saveOption,
-    revertable = revertable, dialogContents = {
+    dangerous, summary, icon, persistable = persistable,
+    saveOption = saveOption, revertable = revertable,
+    visible = visible,
+    dialogContents = {
         val context = LocalContext.current
         var state by context.rememberBooleanSettingsState(
             keys = writeKeys,
@@ -256,9 +267,11 @@ open class SettingsPreferenceItem(
     open val dialogContents: @Composable ColumnScope.(saveCallback: (Array<SettingsInfo>) -> Unit) -> Unit,
     open val saveOption: Boolean = true,
     open val revertable: Boolean = false,
+    override val persistable: Boolean = true,
+    override val visible: @Composable () -> Boolean = { true },
 ) : BasePreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
-    dangerous, summary, icon
+    dangerous, summary, icon, persistable, visible,
 )
 
 open class PreferenceItem(
@@ -272,9 +285,11 @@ open class PreferenceItem(
     override val summary: String? = null,
     @DrawableRes override val icon: Int? = null,
     open val onClick: (() -> Unit)? = null,
+    override val persistable: Boolean = true,
+    override val visible: @Composable () -> Boolean = { true },
 ) : BasePreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
-    dangerous, summary, icon
+    dangerous, summary, icon, persistable, visible,
 )
 
 open class BasePreferenceItem(
@@ -287,4 +302,6 @@ open class BasePreferenceItem(
     open val dangerous: Boolean = false,
     open val summary: String? = null,
     @DrawableRes open val icon: Int? = null,
+    open val persistable: Boolean = true,
+    open val visible: @Composable () -> Boolean = { true },
 )
