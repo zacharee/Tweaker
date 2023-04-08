@@ -66,7 +66,7 @@ open class ListPreferenceItem(
     dangerous = dangerous, summary = summary,
     icon = icon, saveOption = saveOption,
     revertable = revertable, persistable = persistable,
-    visible = visible,
+    visible = visible, writeKeys = arrayOf(settingsType to writeKey),
     dialogContents = {
         val context = LocalContext.current
         var state by if (testing) {
@@ -152,7 +152,7 @@ open class SeekBarPreferenceItem(
     dangerous = dangerous, summary = summary,
     icon = icon, saveOption = saveOption,
     revertable = revertable, persistable = persistable,
-    visible = visible,
+    visible = visible, writeKeys = arrayOf(writeKey),
     dialogContents = {
         val context = LocalContext.current
         var state by if (testing) {
@@ -211,14 +211,15 @@ open class SwitchPreferenceItem(
     override val revertable: Boolean = false,
     override val persistable: Boolean = true,
     override val visible: @Composable () -> Boolean = { true },
-    val writeKeys: Array<Pair<SettingsType, String>>,
+    override val writeKeys: Array<Pair<SettingsType, String>>,
+    val defaultValue: Any? = 0,
     val enabledValue: Any? = 1,
     val disabledValue: Any? = 0,
 ): SettingsPreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
     dangerous, summary, icon, persistable = persistable,
     saveOption = saveOption, revertable = revertable,
-    visible = visible,
+    visible = visible, writeKeys = writeKeys,
     dialogContents = {
         val context = LocalContext.current
         var state by context.rememberBooleanSettingsState(
@@ -227,6 +228,7 @@ open class SwitchPreferenceItem(
             disabledValue = disabledValue,
             saveOption = saveOption,
             revertable = revertable,
+            defaultValue = defaultValue,
         )
 
         OutlinedCard(
@@ -268,10 +270,11 @@ open class SettingsPreferenceItem(
     open val saveOption: Boolean = true,
     open val revertable: Boolean = false,
     override val persistable: Boolean = true,
+    override val writeKeys: Array<Pair<SettingsType, String>>,
     override val visible: @Composable () -> Boolean = { true },
 ) : BasePreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
-    dangerous, summary, icon, persistable, visible,
+    dangerous, summary, icon, visible, persistable, writeKeys,
 )
 
 open class PreferenceItem(
@@ -285,11 +288,12 @@ open class PreferenceItem(
     override val summary: String? = null,
     @DrawableRes override val icon: Int? = null,
     open val onClick: (() -> Unit)? = null,
-    override val persistable: Boolean = true,
     override val visible: @Composable () -> Boolean = { true },
+    override val persistable: Boolean = false,
+    override val writeKeys: Array<Pair<SettingsType, String>> = arrayOf(),
 ) : BasePreferenceItem(
     title, key, minApi, maxApi, enabled, iconColor,
-    dangerous, summary, icon, persistable, visible,
+    dangerous, summary, icon, visible, persistable, writeKeys,
 )
 
 open class BasePreferenceItem(
@@ -302,6 +306,7 @@ open class BasePreferenceItem(
     open val dangerous: Boolean = false,
     open val summary: String? = null,
     @DrawableRes open val icon: Int? = null,
-    open val persistable: Boolean = true,
     open val visible: @Composable () -> Boolean = { true },
+    open val persistable: Boolean = false,
+    open val writeKeys: Array<Pair<SettingsType, String>>,
 )

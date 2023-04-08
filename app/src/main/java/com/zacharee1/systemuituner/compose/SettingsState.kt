@@ -49,6 +49,7 @@ fun Context.rememberBooleanSettingsState(
     keys: Array<Pair<SettingsType, String>>,
     enabledValue: Any? = 1,
     disabledValue: Any? = 0,
+    defaultValue: Any? = 0,
     saveOption: Boolean = true,
     revertable: Boolean = false,
 ): MutableState<Boolean> {
@@ -56,7 +57,7 @@ fun Context.rememberBooleanSettingsState(
         keys = keys,
         value = {
             if (keys.all { (type, key) ->
-                    getSetting(type, key) == enabledValue?.toString()
+                    getSetting(type, key, defaultValue) == enabledValue?.toString()
                 }) enabledValue else disabledValue
         },
         saveOption = saveOption,

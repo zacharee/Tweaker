@@ -10,11 +10,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -60,80 +63,27 @@ import kotlinx.coroutines.launch
 @Preview
 fun TestPref() {
     val context = LocalContext.current
+    val items = context.allScreens.filter {
+        context.prefManager.forceEnableAll || it.visible()
+    }
 
     Mdc3Theme {
         Surface {
-            Column(
-                modifier = Modifier.verticalScroll(rememberScrollState())
+            LazyColumn(
+                modifier = Modifier,
+                contentPadding = PaddingValues(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                BasePreference(
-                    PreferenceItem(
-                        title = "Test Title",
-                        summary = "Let's make a very long summary to try to get it to truncate and see how the animation and such works hopefully it's good but we may have to do some work to make it look right in the end. Anyway, let's see how long we can make this. It needs to be longer to get a good idea of how it works so let's keep going shall we?",
-                        key = "test_pref",
-                        icon = R.drawable.penguin,
-                        iconColor = R.color.pref_color_1,
-                        dangerous = true,
-                    )
-                )
-
-                BasePreference(
-                    PreferenceItem(
-                        title = "Shorter Summary",
-                        key = "short_summary",
-                        summary = "Some short summary that shouldn't go past 3 lines."
-                    )
-                )
-
-                BaseSettingsPreference(
-                    SeekBarPreferenceItem(
-                        title = "Seekbar Test",
-                        summary = "Testing a Slider preference",
-                        key = "seekbar_test",
-                        writeKey = SettingsType.GLOBAL to "testing",
-                        minValue = 1,
-                        maxValue = 100,
-                        scale = 0.1,
-                        unit = "",
-                        defaultValue = 50,
-                        testing = true,
-                    )
-                )
-
-                BaseSettingsPreference(
-                    SwitchPreferenceItem(
-                        title = "Switch Test",
-                        summary = "Testing a switch setting",
-                        key = "switch_test",
-                        writeKeys = arrayOf(SettingsType.GLOBAL to "testing_switch"),
-                        icon = R.drawable.arrow_up,
-                        iconColor = R.color.pref_color_2,
-                    )
-                )
-
-                BaseSettingsPreference(
-                    ListPreferenceItem(
-                        title = "List Test",
-                        summary = "A test of a list of values",
-                        key = "list_test",
-                        writeKey = "list_test",
-                        defaultOption = "Default",
-                        options = arrayOf(
-                            ListPreferenceItem.Option("Default", "Default"),
-                            ListPreferenceItem.Option("Other", "Other"),
-                        ),
-                        settingsType = SettingsType.GLOBAL,
-                        testing = true,
-                    )
-                )
-
-                (context.allScreens).forEach { item ->
-                    when (item) {
+                items(
+                    items,
+                    key = { it.key }
+                ) { pref ->
+                    when (pref) {
                         is SettingsPreferenceItem -> {
-                            BaseSettingsPreference(info = item)
+                            BaseSettingsPreference(info = pref)
                         }
                         is PreferenceItem -> {
-                            BasePreference(info = item)
+                            BasePreference(info = pref)
                         }
                     }
                 }
@@ -167,7 +117,10 @@ fun BaseSettingsPreference(
             dangerous = info.dangerous,
             summary = info.summary,
             icon = info.icon,
-            onClick = { showingDialog = true }
+            onClick = { showingDialog = true },
+            visible = info.visible,
+            writeKeys = info.writeKeys,
+            persistable = info.persistable,
         )
     )
 

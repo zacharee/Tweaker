@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.compose.preferences
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Environment
 import android.provider.Settings
@@ -37,6 +38,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.activities.DemoModeActivity
+import com.zacharee1.systemuituner.activities.IconBlacklistActivity
+import com.zacharee1.systemuituner.activities.ManageQSActivity
+import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.compose.rememberBooleanSettingsState
 import com.zacharee1.systemuituner.compose.rememberSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
@@ -44,12 +49,26 @@ import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.getStringByName
 import com.zacharee1.systemuituner.util.isTouchWiz
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
+import com.zacharee1.systemuituner.util.verifiers.ShowForFireOS
 import com.zacharee1.systemuituner.views.UISounds
 import java.io.File
 import java.io.IOException
 
 val Context.allScreens by com.zacharee1.systemuituner.util.lazy {
-    appsScreen.prefs + audioScreen.prefs + developerScreen.prefs + displayScreen.prefs
+    appsScreen.prefs +
+            audioScreen.prefs +
+            developerScreen.prefs +
+            displayScreen.prefs +
+            netCellularScreen.prefs +
+            netWifiScreen.prefs +
+            netMiscScreen.prefs +
+            notificationsScreen.prefs +
+            statusBarScreen.prefs +
+            quickSettingsScreen.prefs +
+            storageScreen.prefs +
+            lockScreenScreen.prefs +
+            uiScreen.prefs +
+            advancedScreen.prefs
 }
 
 val Context.appsScreen by com.zacharee1.systemuituner.util.lazy {
@@ -97,6 +116,7 @@ val Context.appsScreen by com.zacharee1.systemuituner.util.lazy {
 
 @OptIn(ExperimentalMaterial3Api::class)
 val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
+    @Suppress("DEPRECATION")
     Screen(listOf(
         ListPreferenceItem(
             title = resources.getString(R.string.feature_disable_safe_audio_warning),
@@ -140,7 +160,7 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
                         UISounds.PROVIDER_PKG
                     )
                 }
-                
+
                 val items = remember {
                     arrayOf(
                         UISoundItem(
@@ -205,7 +225,14 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
                             key = Settings.Global.WIRELESS_CHARGING_STARTED_SOUND,
                             settingsType = SettingsType.GLOBAL,
                             default = settingsProviderResources.getStringByName("def_wireless_charging_started_sound", UISounds.PROVIDER_PKG)
-                        )
+                        ),
+                        UISoundItem(
+                            name = R.string.option_ui_sound_charging,
+                            desc = R.string.option_ui_sound_charging_desc,
+                            key = Settings.Global.CHARGING_STARTED_SOUND,
+                            settingsType = SettingsType.GLOBAL,
+                            default = settingsProviderResources.getStringByName("def_charging_started_sound", UISounds.PROVIDER_PKG)
+                        ),
                     )
                 }
 
@@ -254,8 +281,7 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
                         }
                     )
                 }
-                
-                @Suppress("DEPRECATION") 
+
                 var chargingSoundEnabled by context.rememberBooleanSettingsState(
                     keys = arrayOf(
                         SettingsType.GLOBAL to Settings.Global.CHARGING_SOUNDS_ENABLED,
@@ -344,7 +370,21 @@ val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
             },
             saveOption = true,
             revertable = true,
-        )
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.CAR_DOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.CAR_UNDOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.DESK_DOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.DESK_UNDOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.LOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.UNLOCK_SOUND,
+                SettingsType.GLOBAL to Settings.Global.LOW_BATTERY_SOUND,
+                SettingsType.GLOBAL to Settings.Global.TRUSTED_SOUND,
+                SettingsType.GLOBAL to Settings.Global.WIRELESS_CHARGING_STARTED_SOUND,
+                SettingsType.GLOBAL to Settings.Global.CHARGING_STARTED_SOUND,
+                SettingsType.GLOBAL to Settings.Global.CHARGING_SOUNDS_ENABLED,
+                SettingsType.SECURE to Settings.Secure.CHARGING_SOUNDS_ENABLED,
+            ),
+        ),
     ))
 }
 
@@ -466,6 +506,285 @@ val Context.netWifiScreen by com.zacharee1.systemuituner.util.lazy {
 val Context.netMiscScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
         // AIRPLANE MODE PREF
+    ))
+}
+
+val Context.notificationsScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_heads_up_notifications),
+            summary = resources.getString(R.string.feature_heads_up_notifications_desc),
+            key = Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
+            icon = R.drawable.ic_baseline_notifications_active_24,
+            iconColor = R.color.pref_color_7,
+            writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED)
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.feature_heads_up_snooze_length),
+            summary = resources.getString(R.string.feature_heads_up_snooze_length_desc),
+            key = "heads_up_snooze_length_ms",
+            defaultValue = 60000,
+            icon = R.drawable.ic_baseline_notifications_paused_24,
+            iconColor = R.color.pref_color_2,
+            unit = "ms",
+            writeKey = SettingsType.GLOBAL to "heads_up_snooze_length_ms",
+            minValue = 0,
+            maxValue = 600000,
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_dnd_in_volume),
+            summary = resources.getString(R.string.feature_dnd_in_volume_desc),
+            key = "sysui_show_full_zen",
+            icon = R.drawable.do_not_disturb,
+            iconColor = R.color.pref_color_1,
+            writeKeys = arrayOf(SettingsType.SECURE to "sysui_show_full_zen"),
+        ),
+        // NOTIF SNOOZE TIMES PREF
+    ))
+}
+
+val Context.statusBarScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        PreferenceItem(
+            title = resources.getString(R.string.special_sub_icon_blacklist),
+            summary = resources.getString(R.string.special_sub_icon_blacklist_desc),
+            key = "icon_blacklist",
+            icon = R.drawable.ic_baseline_visibility_off_24,
+            iconColor = R.color.pref_color_1,
+            onClick = {
+                startActivity(Intent(this, IconBlacklistActivity::class.java))
+            },
+            persistable = true,
+            writeKeys = arrayOf(SettingsType.SECURE to "icon_blacklist"),
+        ),
+        PreferenceItem(
+            title = resources.getString(R.string.sub_demo),
+            summary = resources.getString(R.string.sub_demo_desc),
+            key = "sub_demo",
+            icon = R.drawable.ic_baseline_tv_24,
+            iconColor = R.color.pref_color_5,
+            onClick = {
+                startActivity(Intent(this, DemoModeActivity::class.java))
+            },
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_clock_seconds),
+            summary = resources.getString(R.string.feature_clock_seconds_desc),
+            key = "clock_seconds",
+            icon = R.drawable.ic_seconds,
+            iconColor = R.color.pref_color_4,
+            writeKeys = arrayOf(SettingsType.SECURE to "clock_seconds"),
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_battery_percent),
+            summary = resources.getString(R.string.feature_battery_percent_desc),
+            key = Settings.System.SHOW_BATTERY_PERCENT,
+            icon = R.drawable.ic_percent,
+            iconColor = R.color.pref_color_6,
+            writeKeys = arrayOf(SettingsType.SYSTEM to Settings.System.SHOW_BATTERY_PERCENT),
+        ),
+        // CLOCK POSITION PREF
+    ))
+}
+
+val Context.quickSettingsScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.option_qqs_tiles),
+            summary = resources.getString(R.string.option_qqs_tiles_desc),
+            key = "sysui_qqs_count",
+            icon = R.drawable.ic_baseline_more_horiz_24,
+            iconColor = R.color.pref_color_3,
+            defaultValue = 5,
+            writeKey = SettingsType.SECURE to "sysui_qqs_count",
+            minValue = 1,
+            maxValue = 12,
+            minApi = Build.VERSION_CODES.N,
+            maxApi = Build.VERSION_CODES.S,
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_qs_fancy_anim),
+            summary = resources.getString(R.string.option_qs_fancy_anim_desc),
+            key = "sysui_qs_fancy_anim",
+            icon = R.drawable.animation,
+            iconColor = R.color.pref_color_5,
+            defaultValue = 1,
+            writeKeys = arrayOf(SettingsType.SECURE to "sysui_qs_fancy_anim"),
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_qs_move_full_rows),
+            summary = resources.getString(R.string.option_qs_move_full_rows_desc),
+            key = "sysui_qs_move_whole_rows",
+            icon = R.drawable.animation,
+            iconColor = R.color.pref_color_7,
+            defaultValue = 1,
+            writeKeys = arrayOf(SettingsType.SECURE to "sysui_qs_move_whole_rows"),
+        ),
+        PreferenceItem(
+            title = resources.getString(R.string.option_qs_editor),
+            summary = resources.getString(R.string.option_qs_editor_desc),
+            key = Settings.Secure.QS_TILES,
+            icon = R.drawable.ic_baseline_view_grid_plus_24,
+            iconColor = R.color.pref_color_2,
+            writeKeys = arrayOf(SettingsType.SECURE to Settings.Secure.QS_TILES),
+            persistable = true,
+            onClick = {
+                startActivity(Intent(this, QSEditorActivity::class.java))
+            },
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_hide_multi_sim_panel),
+            summary = resources.getString(R.string.option_hide_multi_sim_panel_desc),
+            key = "multi_sim_bar_show_on_qspanel",
+            icon = R.drawable.sim_off,
+            iconColor = R.color.pref_color_6,
+            writeKeys = arrayOf(SettingsType.SECURE to "multi_sim_bar_show_on_qspanel"),
+            minApi = Build.VERSION_CODES.P,
+            enabledValue = 0,
+            disabledValue = 1,
+            visible = { isTouchWiz },
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.option_touchwiz_qs_row_count),
+            summary = resources.getString(R.string.option_touchwiz_qs_row_count_desc),
+            key = "qs_tile_row",
+            icon = R.drawable.ic_baseline_more_vert_24,
+            iconColor = R.color.pref_color_1,
+            writeKey = SettingsType.SECURE to "qs_tile_row",
+            maxApi = Build.VERSION_CODES.O_MR1,
+            defaultValue = 1,
+            minValue = 1,
+            maxValue = 10,
+            visible = { isTouchWiz },
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.option_touchwiz_qs_column_count),
+            summary = resources.getString(R.string.option_touchwiz_qs_column_count_desc),
+            key = "qs_tile_column",
+            icon = R.drawable.ic_baseline_more_horiz_24,
+            iconColor = R.color.pref_color_4,
+            writeKey = SettingsType.SECURE to "qs_tile_column",
+            maxApi = Build.VERSION_CODES.O_MR1,
+            defaultValue = 1,
+            minValue = 1,
+            maxValue = 10,
+            visible = { isTouchWiz },
+        ),
+    ))
+}
+
+val Context.storageScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        // STORAGE THRESHOLD PREF
+    ))
+}
+
+val Context.lockScreenScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        // LOCK SCREEN SHORTCUTS PREF
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_allow_custom_left_lock_shortcut),
+            summary = resources.getString(R.string.option_allow_custom_left_lock_shortcut_desc),
+            key = "SG_EN",
+            defaultValue = 1,
+            icon = R.drawable.lock_open,
+            iconColor = R.color.pref_color_2,
+            enabledValue = 0,
+            disabledValue = 1,
+            writeKeys = arrayOf(SettingsType.GLOBAL to "SG_EN"),
+            visible = { ShowForFireOS(this).shouldShow },
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_disable_lock_screen_ads),
+            summary = resources.getString(R.string.option_disable_lock_screen_ads_desc),
+            key = "LOCKSCREEN_AD_ENABLED",
+            defaultValue = 1,
+            icon = R.drawable.no_ads,
+            iconColor = R.color.pref_color_4,
+            enabledValue = 0,
+            disabledValue = 1,
+            writeKeys = arrayOf(SettingsType.GLOBAL to "LOCKSCREEN_AD_ENABLED"),
+            visible = { ShowForFireOS(this).shouldShow },
+        ),
+    ))
+}
+
+val Context.uiScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.feature_long_press_delay),
+            summary = resources.getString(R.string.feature_long_press_delay_desc),
+            key = Settings.Secure.LONG_PRESS_TIMEOUT,
+            defaultValue = 400,
+            icon = R.drawable.tap_hold,
+            iconColor = R.color.pref_color_3,
+            unit = "ms",
+            minValue = 100,
+            maxValue = 5000,
+            writeKey = SettingsType.SECURE to Settings.Secure.LONG_PRESS_TIMEOUT,
+        ),
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.option_disable_combined_internet),
+            summary = resources.getString(R.string.option_disable_combined_internet_desc),
+            key = "settings_provider_model",
+            icon = R.drawable.ic_network,
+            writeKeys = arrayOf(SettingsType.GLOBAL to "settings_provider_model"),
+            enabledValue = 0,
+            disabledValue = 1,
+            iconColor = R.color.pref_color_1,
+            minApi = Build.VERSION_CODES.S,
+            maxApi = Build.VERSION_CODES.S_V2,
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.option_back_gesture_inset_scale_left),
+            summary = resources.getString(R.string.option_back_gesture_inset_scale_left_desc),
+            key = Settings.Secure.BACK_GESTURE_INSET_SCALE_LEFT,
+            defaultValue = 1,
+            icon = R.drawable.border_left_variant,
+            iconColor = R.color.pref_color_5,
+            scale = 0.01,
+            minValue = 0,
+            maxValue = 5,
+            writeKey = SettingsType.SECURE to Settings.Secure.BACK_GESTURE_INSET_SCALE_LEFT,
+            minApi = Build.VERSION_CODES.R,
+        ),
+        SeekBarPreferenceItem(
+            title = resources.getString(R.string.option_back_gesture_inset_scale_right),
+            summary = resources.getString(R.string.option_back_gesture_inset_scale_right_desc),
+            key = Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT,
+            defaultValue = 1,
+            icon = R.drawable.border_right_variant,
+            iconColor = R.color.pref_color_6,
+            scale = 0.01,
+            minValue = 0,
+            maxValue = 5,
+            writeKey = SettingsType.SECURE to Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT,
+            minApi = Build.VERSION_CODES.R,
+        ),
+        // KEEP ON WHEN PLUGGED
+        // ANIMATION SCALES
+        // CAMERA GESTURES
+        // IMMERSIVE MODE
+        // DARK MODE
+    ))
+}
+
+val Context.advancedScreen by com.zacharee1.systemuituner.util.lazy {
+    Screen(listOf(
+        // READ SETTING
+        // WRITE SETTING
+        // FORCE ENABLE ALL
+        PreferenceItem(
+            title = resources.getString(R.string.option_advanced_manage_qs_tiles),
+            summary = resources.getString(R.string.option_advanced_manage_qs_tiles_desc),
+            icon = R.drawable.ic_baseline_toggle_on_24,
+            iconColor = R.color.pref_color_6,
+            minApi = Build.VERSION_CODES.N,
+            onClick = {
+                startActivity(Intent(this, ManageQSActivity::class.java))
+            },
+            key = "tile_settings",
+        ),
     ))
 }
 
