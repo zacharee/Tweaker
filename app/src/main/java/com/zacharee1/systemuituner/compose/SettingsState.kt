@@ -64,11 +64,11 @@ fun Context.rememberBooleanSettingsState(
     )
 
     val pullUpState = remember(keys) {
-        mutableStateOf(internalState.value == enabledValue)
+        mutableStateOf(internalState.value?.toString() == enabledValue?.toString())
     }
 
     LaunchedEffect(key1 = internalState.value) {
-        pullUpState.value = internalState.value == enabledValue
+        pullUpState.value = internalState.value?.toString() == enabledValue?.toString()
     }
 
     LaunchedEffect(key1 = pullUpState.value) {

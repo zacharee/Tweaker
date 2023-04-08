@@ -45,6 +45,7 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+        freeCompilerArgs = ["-Xcontext-receivers"]
     }
     namespace 'com.zacharee1.systemuituner'
 }

@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
@@ -57,16 +59,20 @@ import kotlinx.coroutines.launch
 @Composable
 @Preview
 fun TestPref() {
+    val context = LocalContext.current
+
     Mdc3Theme {
         Surface {
-            Column {
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState())
+            ) {
                 BasePreference(
                     PreferenceItem(
                         title = "Test Title",
                         summary = "Let's make a very long summary to try to get it to truncate and see how the animation and such works hopefully it's good but we may have to do some work to make it look right in the end. Anyway, let's see how long we can make this. It needs to be longer to get a good idea of how it works so let's keep going shall we?",
                         key = "test_pref",
-                        icon = painterResource(id = R.drawable.penguin),
-                        iconColor = colorResource(id = R.color.pref_color_1),
+                        icon = R.drawable.penguin,
+                        iconColor = R.color.pref_color_1,
                         dangerous = true,
                     )
                 )
@@ -100,10 +106,37 @@ fun TestPref() {
                         summary = "Testing a switch setting",
                         key = "switch_test",
                         writeKeys = arrayOf(SettingsType.GLOBAL to "testing_switch"),
-                        icon = painterResource(id = R.drawable.arrow_up),
-                        iconColor = colorResource(id = R.color.pref_color_2),
+                        icon = R.drawable.arrow_up,
+                        iconColor = R.color.pref_color_2,
                     )
                 )
+
+                BaseSettingsPreference(
+                    ListPreferenceItem(
+                        title = "List Test",
+                        summary = "A test of a list of values",
+                        key = "list_test",
+                        writeKey = "list_test",
+                        defaultOption = "Default",
+                        options = arrayOf(
+                            ListPreferenceItem.Option("Default", "Default"),
+                            ListPreferenceItem.Option("Other", "Other"),
+                        ),
+                        settingsType = SettingsType.GLOBAL,
+                        testing = true,
+                    )
+                )
+
+                (context.appsScreen.prefs + context.audioScreen.prefs).forEach { item ->
+                    when (item) {
+                        is SettingsPreferenceItem -> {
+                            BaseSettingsPreference(info = item)
+                        }
+                        is PreferenceItem -> {
+                            BasePreference(info = item)
+                        }
+                    }
+                }
             }
         }
     }
@@ -153,7 +186,7 @@ fun BaseSettingsPreference(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     info.icon?.let { icon ->
-                        Icon(painter = icon, contentDescription = info.title)
+                        Icon(painter = painterResource(id = icon), contentDescription = info.title)
                     }
 
                     Text(
@@ -207,7 +240,9 @@ fun BasePreference(
         Build.VERSION.SDK_INT >= info.minApi && Build.VERSION.SDK_INT <= info.maxApi
     val actuallyEnabled = forceEnableAll || (withinApiRange && info.enabled())
 
-    val iconBackgroundColor = if (actuallyEnabled) info.iconColor ?: Color.Transparent else {
+    val iconBackgroundColor = if (actuallyEnabled) {
+        info.iconColor?.let { colorResource(id = it) } ?: Color.Transparent
+    } else {
         (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             colorResource(id = R.color.icon_color)
         } else {
@@ -248,7 +283,7 @@ fun BasePreference(
                     )
 
                     Icon(
-                        painter = icon,
+                        painter = painterResource(id = icon),
                         contentDescription = info.title,
                         modifier = Modifier
                             .size(24.dp),
