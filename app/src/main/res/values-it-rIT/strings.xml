@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">Audio che viene riprodotto quando il dispositivo ha batteria quasi scarica.</string>
     <string name="option_ui_sound_trusted">Affidabile</string>
     <string name="option_ui_sound_trusted_desc">Audio che viene riprodotto quando il dispositivo entra nello stato “fidato” senza sbloccare.</string>
-    <string name="option_ui_sound_wireless_charging">In carica</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio che viene riprodotto quando il dispositivo è in carica.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Disattiva i suoni di carica</string>
     <string name="option_ui_sound_disable_charging_desc">Indica se disabilitare il suono quando il dispositivo inizia la ricarica.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
