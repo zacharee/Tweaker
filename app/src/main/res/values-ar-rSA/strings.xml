@@ -368,8 +368,8 @@
     <string name="setting_applied_dialog_desc">هل تريد الإبقاء على التغييرات؟ سيتم الرجوع عن هذا الخيار بعد %s ثانية.</string>
     <string name="keep">إبقاء</string>
     <string name="revert">تراجع</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">زيادة</string>
+    <string name="decrease" desc="This is in verb form.">إنقاص</string>
     <string name="blocked_reason_read_terms">الرجاء التأكد من قراءة المصطلحات قبل المتابعة.</string>
     <string name="blocked_reason_write_secure_settings">لا يمكن لموفق واجهة النظام العمل بدون إذن كتابة إعدادات آمنة. اضغط على زر \"المساعدة\" إذا كنت تواجه مشكلة في منحه.</string>
     <string name="blocked_reason_choose_os">الرجاء اختيار نظام تشغيل قبل المتابعة.</string>
