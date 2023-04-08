@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">기기의 배터리 잔량이 적을 때 나는 소리입니다.</string>
     <string name="option_ui_sound_trusted">신뢰</string>
     <string name="option_ui_sound_trusted_desc">기기가 잠금 해제 없이 \"trusted\" 상태로 들어갈 때 나는 소리입니다.</string>
-    <string name="option_ui_sound_wireless_charging">충전 중</string>
-    <string name="option_ui_sound_wireless_charging_desc">기기를 충전할 때 나는 소리입니다.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">충전음 비활성화</string>
     <string name="option_ui_sound_disable_charging_desc">기기 충전을 시작할 때 소리를 낼 지 내지 않을 지 설정합니다.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">시스템 UI 권한</string>
