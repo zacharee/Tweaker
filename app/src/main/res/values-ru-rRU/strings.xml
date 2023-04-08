@@ -141,8 +141,10 @@
     <string name="option_ui_sound_low_battery_desc">Звук, воспроизводимый при низком заряде батареи.</string>
     <string name="option_ui_sound_trusted">Доверенное состояние</string>
     <string name="option_ui_sound_trusted_desc">Звук, воспроизводимый когда телефон переходит в режим «доверенное состояние» без разблокировки.</string>
-    <string name="option_ui_sound_wireless_charging">Зарядка</string>
-    <string name="option_ui_sound_wireless_charging_desc">Звук, воспроизводимый при зарядке устройства.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Отключить звук зарядки</string>
     <string name="option_ui_sound_disable_charging_desc">Выключить звук, воспроизводимый при начале зарядке устройства.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Разрешения System UI</string>
