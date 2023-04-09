@@ -9,6 +9,8 @@ import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.DemoModeActivity
@@ -16,14 +18,17 @@ import com.zacharee1.systemuituner.activities.IconBlacklistActivity
 import com.zacharee1.systemuituner.activities.ManageQSActivity
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.compose.components.CardSwitch
+import com.zacharee1.systemuituner.compose.components.ColorPickerWithText
 import com.zacharee1.systemuituner.compose.preferences.layouts.AnimationScalesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
+import com.zacharee1.systemuituner.compose.rememberSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.PrefManager
+import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.isTouchWiz
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
@@ -229,7 +234,44 @@ val Context.displayScreen by com.zacharee1.systemuituner.util.lazy {
             ),
             settingsType = SettingsType.SYSTEM,
         ),
-        // COLOR PICKER PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.option_touchwiz_navbar_color),
+            summary = resources.getString(R.string.option_touchwiz_navbar_color_desc),
+            icon = R.drawable.ic_baseline_color_lens_24,
+            iconColor = R.color.pref_color_5,
+            visible = { isTouchWiz },
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to "navigationbar_current_color",
+                SettingsType.GLOBAL to "navigationbar_color",
+            ),
+            key = "navigation_bar_color",
+            dialogContents = {
+                val context = LocalContext.current
+                var state by context.rememberSettingsState(
+                    keys = arrayOf(
+                        SettingsType.GLOBAL to "navigationbar_current_color",
+                        SettingsType.GLOBAL to "navigationbar_color",
+                    ),
+                    value = {
+                        getSetting(
+                            SettingsType.GLOBAL,
+                            "navigationbar_current_color",
+                            getSetting(
+                                SettingsType.GLOBAL,
+                                "navigationbar_color",
+                                Color.White.toArgb(),
+                            )
+                        )?.toIntOrNull() ?: Color.White.toArgb()
+                    }
+                )
+
+                ColorPickerWithText(
+                    color = Color(state),
+                    defaultColor = Color.White,
+                    onColorChanged = { state = it.toArgb() }
+                )
+            }
+        ),
         SwitchPreferenceItem(
             title = resources.getString(R.string.option_touchwiz_disable_high_brightness_warning),
             summary = resources.getString(R.string.option_touchwiz_disable_high_brightness_warning_desc),
