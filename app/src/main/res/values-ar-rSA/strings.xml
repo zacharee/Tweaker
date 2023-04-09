@@ -124,8 +124,8 @@
     <string name="option_user_rotation_270">أفقي CCW</string>
     <string name="option_sms_limit_count">الحد الأقصى لعدد الإرسال</string>
     <string name="option_sms_limit_interval">الفاصل الزمني</string>
-    <string name="option_lockscreen_shortcut_left">اختصار لليسار</string>
-    <string name="option_lockscreen_shortcut_right">الاختصار الأيمن</string>
+    <string name="option_lockscreen_shortcut_left">زر الاختصار الأيسر</string>
+    <string name="option_lockscreen_shortcut_right">زر الاختصار الأيمن</string>
     <string name="option_ui_sound_car_dock">منصة السيارة</string>
     <string name="option_ui_sound_car_dock_desc">الصوت الذي يتم تشغيله عندما يربط الهاتف في منصة السيارة.</string>
     <string name="option_ui_sound_car_undock">إلغاء وضع السيارة</string>
@@ -170,8 +170,8 @@
     <string name="option_touchwiz_qs_column_count_desc">في سامسونج توتش ويز نوجات وأوريو، من الممكن تخصيص شبكة تخطيط الإعدادات السريعة مع الإعدادات المخفية. استخدم هذا لتغيير عدد الأعمدة. الرجاء تمكين هذا كخيار دائم.</string>
     <string name="option_advanced_force_enable_all">تمكين جميع الخيارات المعطلة/المخفية</string>
     <string name="option_advanced_force_enable_all_desc">بعض الخيارات في واجهة النظام تونر مخفية أو معطلة تبعاً لجهازك ولأي إصدار من Android يتم تشغيله. تمكين هذا سيجبر تلك الخيارات على أن تكون مرئية ومفعلة. تحذير: هناك عادة سبب وجيه لأن هذه الخيارات معطلة أو مخفية. قد لا يعملون ببساطة، أو قد يكسروا جهازك. استمر بحذر!</string>
-    <string name="option_advanced_manage_qs_tiles">إدارة أعمدة كبو. آس</string>
-    <string name="option_advanced_manage_qs_tiles_desc">تفعيل أو تعطيل أعمدة كبو آس فرديا ي أنظمة ي آي فرادى.</string>
+    <string name="option_advanced_manage_qs_tiles">إدارة أعمدة البلاط السريعة</string>
+    <string name="option_advanced_manage_qs_tiles_desc">تمكين أو تعطيل بلاط ضبط الإعدادات السريعة لواجهة النظام بشكل فردي.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">تعطيل تحذير السطوع العالي</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">في بعض المناطق، ستعرض أجهزة سامسونج تحذيرا عندما تحاول الذهاب إلى أعلى مستوى معين من سطوع الشاشة. يتم عادة إعادة تعيين هذا الإعداد عند إعادة التشغيل. قم بتمكين هذا الخيار وتعيينه كخيار ثابت لتعطيل هذا التحذير بشكل دائم.</string>
     <string name="option_qs_editor">محرر الإعدادات السريعة</string>
@@ -232,10 +232,10 @@
     <string name="auto">تلقائي</string>
     <string name="tile_full_immersive">ملئ كامل الشاشة</string>
     <string name="tile_nav_immersive">ملئ التنقل</string>
-    <string name="tile_status_immersive">الحالة غامرة</string>
+    <string name="tile_status_immersive">حالة الملء</string>
     <string name="add">إضافة</string>
     <string name="add_qs_tile">إضافة لوحة الإعدادات السريعة</string>
-    <string name="intent">Intent</string>
+    <string name="intent">نية</string>
     <string name="view_online">عرض على الانترنت</string>
     <string name="tile_custom">تخصيص</string>
     <string name="next">التالي</string>
@@ -256,7 +256,7 @@
     <string name="secure_visibility">الرؤية الآمنة</string>
     <string name="mute_visibility">رؤية الكتم</string>
     <string name="speakerphone_visibility">رؤية مكبر الصوت</string>
-    <string name="airplane_visibility">رؤية الطائرة</string>
+    <string name="airplane_visibility">رؤية وضع الطيران</string>
     <string name="wifi_visibility">رؤية WiFi</string>
     <string name="mobile_visibility">رؤية الجوال</string>
     <string name="wifi_level">مستوى الواي فاي</string>
@@ -324,8 +324,8 @@
     <string name="more_apps">المزيد من التطبيقات</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">ماستدون</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">إذا كان لديك جهاز سامسونج يعمل بفطيرة أندرويد أو في وقت لاحق على واجهة واحدة لسامسونج، ربما كنت قد لاحظت أن بعض الخيارات التي كانت تعمل في أوريو لم تعد تعمل، مثل ساعة العمل الثانية. لقد قمت بإنشاء تطبيق منفصل يستخدم طبقات النظام لاستعادة بعض هذه الخيارات. لا يحتاج إلى الجذر أو ADB.</string>
+    <string name="oneui_tuner">أداة ضبط واجهة ون من سامسونج لمستخدم النظام</string>
+    <string name="oneui_tuner_desc">إذا كان لديك جهاز سامسونج يعمل بأصدار الفطيرة أندرويد أو ما يليه على واجهة ون الخاصة بسامسونج، ربما كنت قد لاحظت أن بعض الخيارات التي كانت تعمل في أوريو لم تعد تعمل، مثل ساعة العمل الثانية. لقد قمت بإنشاء تطبيق منفصل يستخدم طبقات النظام لاستعادة بعض هذه الخيارات. لا يحتاج إلى الجذر أو ADB.</string>
     <string name="check_it_out">تحقق من ذلك</string>
     <string name="add_custom_item">إضافة عنصر مخصص</string>
     <string name="edit_custom_item">تحرير العنصر المخصص</string>
