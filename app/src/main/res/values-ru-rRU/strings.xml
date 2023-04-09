@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">От сети</string>
     <string name="option_keep_awake_on_usb">Питание от USB</string>
     <string name="option_keep_awake_on_wireless">На беспроводной зарядке</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Длительность анимации</string>
     <string name="option_window_animation_scale">Длительность анимации окон</string>
     <string name="option_transition_animation_scale">Длительность анимации переходов</string>
