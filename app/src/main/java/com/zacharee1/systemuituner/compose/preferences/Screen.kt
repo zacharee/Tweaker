@@ -1,64 +1,33 @@
 package com.zacharee1.systemuituner.compose.preferences
 
+import android.app.UiModeManager
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.os.Environment
 import android.provider.Settings
-import android.util.Log
-import android.widget.Toast
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Switch
-import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.dp
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.DemoModeActivity
 import com.zacharee1.systemuituner.activities.IconBlacklistActivity
 import com.zacharee1.systemuituner.activities.ManageQSActivity
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.compose.components.CardSwitch
+import com.zacharee1.systemuituner.compose.preferences.layouts.AnimationScalesLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
-import com.zacharee1.systemuituner.compose.rememberBooleanSettingsState
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
-import com.zacharee1.systemuituner.compose.rememberSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.PrefManager
-import com.zacharee1.systemuituner.util.getSetting
-import com.zacharee1.systemuituner.util.getStringByName
 import com.zacharee1.systemuituner.util.isTouchWiz
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
 import com.zacharee1.systemuituner.util.verifiers.ShowForFireOS
-import com.zacharee1.systemuituner.views.UISounds
-import java.io.File
-import java.io.IOException
 
 val Context.allScreens by com.zacharee1.systemuituner.util.lazy {
     appsScreen.prefs +
@@ -120,7 +89,6 @@ val Context.appsScreen by com.zacharee1.systemuituner.util.lazy {
     ))
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 val Context.audioScreen by com.zacharee1.systemuituner.util.lazy {
     @Suppress("DEPRECATION")
     Screen(listOf(
@@ -469,7 +437,18 @@ val Context.quickSettingsScreen by com.zacharee1.systemuituner.util.lazy {
 
 val Context.storageScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
-        // STORAGE THRESHOLD PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_insufficient_storage_warning),
+            summary = resources.getString(R.string.feature_insufficient_storage_warning_desc),
+            key = "storage_threshold",
+            icon = R.drawable.ic_baseline_disc_full_24,
+            iconColor = R.color.pref_color_4,
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.SYS_STORAGE_THRESHOLD_PERCENTAGE,
+                SettingsType.GLOBAL to Settings.Global.SYS_STORAGE_THRESHOLD_MAX_BYTES,
+            ),
+            dialogContents = { StorageThresholdLayout() },
+        )
     ))
 }
 
@@ -563,11 +542,47 @@ val Context.uiScreen by com.zacharee1.systemuituner.util.lazy {
             dialogContents = { KeepOnPluggedLayout() },
             writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.STAY_ON_WHILE_PLUGGED_IN),
             key = Settings.Global.STAY_ON_WHILE_PLUGGED_IN,
-        )
-        // ANIMATION SCALES
-        // CAMERA GESTURES
+        ),
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_custom_animation_scales),
+            summary = resources.getString(R.string.feature_custom_animation_scales_desc),
+            icon = R.drawable.animation,
+            iconColor = R.color.pref_color_7,
+            key = "animation_scales",
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.ANIMATOR_DURATION_SCALE,
+                SettingsType.GLOBAL to Settings.Global.TRANSITION_ANIMATION_SCALE,
+                SettingsType.GLOBAL to Settings.Global.WINDOW_ANIMATION_SCALE,
+            ),
+            dialogContents = { AnimationScalesLayout() }
+        ),
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_camera_gestures),
+            summary = resources.getString(R.string.feature_camera_gestures_desc),
+            icon = R.drawable.ic_baseline_camera_24,
+            iconColor = R.color.pref_color_6,
+            key = "camera_gestures",
+            writeKeys = arrayOf(
+                SettingsType.SECURE to Settings.Secure.CAMERA_GESTURE_DISABLED,
+                SettingsType.SECURE to Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
+                SettingsType.SECURE to Settings.Secure.CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED,
+            ),
+            dialogContents = { CameraGesturesLayout() }
+        ),
         // IMMERSIVE MODE
-        // DARK MODE
+        SwitchPreferenceItem(
+            title = resources.getString(R.string.feature_dark_mode),
+            summary = resources.getString(R.string.feature_dark_mode_desc),
+            icon = R.drawable.light_dark,
+            iconColor = R.color.pref_color_5,
+            key = Settings.Secure.UI_NIGHT_MODE,
+            writeKeys = arrayOf(
+                SettingsType.SECURE to Settings.Secure.UI_NIGHT_MODE,
+            ),
+            enabledValue = UiModeManager.MODE_NIGHT_YES,
+            disabledValue = UiModeManager.MODE_NIGHT_NO,
+            defaultValue = UiModeManager.MODE_NIGHT_NO,
+        ),
     ))
 }
 

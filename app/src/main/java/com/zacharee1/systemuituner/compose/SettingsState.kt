@@ -23,7 +23,9 @@ fun Context.rememberIntSettingsState(
 ): MutableState<Number> {
     return rememberSettingsState(
         key = key,
-        value = { getSetting(key.first, key.second)?.toIntOrNull() ?: def },
+        value = {
+            getSetting(key.first, key.second, def)?.toIntOrNull() ?: def
+        },
         saveOption = saveOption,
         revertable = revertable,
     )
@@ -38,7 +40,43 @@ fun Context.rememberFloatSettingsState(
 ): MutableState<Number> {
     return rememberSettingsState(
         key = key,
-        value = { getSetting(key.first, key.second)?.toFloatOrNull() ?: def },
+        value = {
+            getSetting(key.first, key.second, def)?.toFloatOrNull() ?: def
+        },
+        saveOption = saveOption,
+        revertable = revertable,
+    )
+}
+
+@Composable
+fun Context.rememberDoubleSettingsState(
+    key: Pair<SettingsType, String>,
+    saveOption: Boolean = true,
+    revertable: Boolean = false,
+    def: Double = 0.0,
+): MutableState<Number> {
+    return rememberSettingsState(
+        key = key,
+        value = {
+            getSetting(key.first, key.second, def)?.toDoubleOrNull() ?: def
+        },
+        saveOption = saveOption,
+        revertable = revertable,
+    )
+}
+
+@Composable
+fun Context.rememberNumberSettingsState(
+    key: Pair<SettingsType, String>,
+    saveOption: Boolean = true,
+    revertable: Boolean = false,
+    def: Number = 0,
+): MutableState<Number> {
+    return rememberSettingsState(
+        key = key,
+        value = {
+            getSetting(key.first, key.second, def)?.toDoubleOrNull() ?: def
+        },
         saveOption = saveOption,
         revertable = revertable,
     )
@@ -64,7 +102,7 @@ fun Context.rememberBooleanSettingsState(
         revertable = revertable,
     )
 
-    val pullUpState = remember(keys) {
+    val pullUpState = remember(keys.contentDeepHashCode()) {
         mutableStateOf(internalState.value?.toString() == enabledValue?.toString())
     }
 
