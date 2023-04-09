@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">AC 전원 연결 시</string>
     <string name="option_keep_awake_on_usb">USB 전원 연결 시</string>
     <string name="option_keep_awake_on_wireless">무선 전력 연결 시</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animator 길이 배율</string>
     <string name="option_window_animation_scale">창 애니메이션 배율</string>
     <string name="option_transition_animation_scale">전환 애니메이션 배율</string>
