@@ -138,21 +138,28 @@ fun <T : Any?> Context.rememberSettingsState(
     value: () -> T,
     revertable: Boolean = false,
     saveOption: Boolean = true,
+    writer: (suspend (value: T) -> Boolean)? = null,
 ): MutableState<T> {
     val state = remember(keys.contentDeepHashCode()) {
         mutableStateOf(value())
     }
 
     LaunchedEffect(key1 = state.value.hashCode()) {
-        if (!writeSettingsBulk(
-                *keys.map { (type, key) ->
-                    SettingsInfo(type, key, state.value)
-                }.toTypedArray(),
-                revertable = revertable,
-                saveOption = saveOption,
-            )
-        ) {
-            state.value = value()
+        if (writer != null) {
+            if (!writer(state.value)) {
+                state.value = value()
+            }
+        } else {
+            if (!writeSettingsBulk(
+                    *keys.map { (type, key) ->
+                        SettingsInfo(type, key, state.value)
+                    }.toTypedArray(),
+                    revertable = revertable,
+                    saveOption = saveOption,
+                )
+            ) {
+                state.value = value()
+            }
         }
     }
 

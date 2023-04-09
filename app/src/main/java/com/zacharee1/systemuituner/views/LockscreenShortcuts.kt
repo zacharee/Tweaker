@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -139,7 +140,7 @@ class LockscreenShortcuts(context: Context, attrs: AttributeSet) : RecyclerView(
     }
 
     data class ShortcutInfo(
-        val label: Int,
+        @StringRes val label: Int,
         val key: String,
         val side: Side
     ) {

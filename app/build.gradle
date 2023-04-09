@@ -97,6 +97,8 @@ dependencies {
     implementation "com.bugsnag:bugsnag-android:5.29.0"
 
     implementation 'com.google.accompanist:accompanist-themeadapter-material3:0.30.0'
+    implementation 'com.google.accompanist:accompanist-drawablepainter:0.31.0-alpha'
+
     implementation 'androidx.compose.material3:material3:1.1.0-beta02'
     implementation 'androidx.compose.foundation:foundation:1.5.0-alpha02'
     implementation 'androidx.compose.foundation:foundation-layout:1.5.0-alpha02'

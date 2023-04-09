@@ -22,6 +22,7 @@ import com.zacharee1.systemuituner.compose.components.ColorPickerWithText
 import com.zacharee1.systemuituner.compose.preferences.layouts.AnimationScalesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.LockScreenShortcutsLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
@@ -496,7 +497,20 @@ val Context.storageScreen by com.zacharee1.systemuituner.util.lazy {
 
 val Context.lockScreenScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
-        // LOCK SCREEN SHORTCUTS PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_lockscreen_shortcuts),
+            summary = resources.getString(R.string.feature_lockscreen_shortcuts_desc),
+            key = "lock_screen_shortcuts",
+            writeKeys = arrayOf(
+                SettingsType.SECURE to "sysui_keyguard_left",
+                SettingsType.SECURE to "sysui_keyguard_right",
+                SettingsType.SYSTEM to "lock_application_shortcut",
+            ),
+            icon = R.drawable.lock_open,
+            iconColor = R.color.pref_color_3,
+            minApi = Build.VERSION_CODES.O,
+            dialogContents = { LockScreenShortcutsLayout() },
+        ),
         SwitchPreferenceItem(
             title = resources.getString(R.string.option_allow_custom_left_lock_shortcut),
             summary = resources.getString(R.string.option_allow_custom_left_lock_shortcut_desc),
