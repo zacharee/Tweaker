@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">على قوة AC</string>
     <string name="option_keep_awake_on_usb">على قوة USB</string>
     <string name="option_keep_awake_on_wireless">على الطاقة اللاسلكية</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">مقياس مدة الرسوم المتحركة</string>
     <string name="option_window_animation_scale">حجم إطار الرسوم المتحركة</string>
     <string name="option_transition_animation_scale">مقياس الحركة الانتقالية</string>
