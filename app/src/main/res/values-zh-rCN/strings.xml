@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">交流供电</string>
     <string name="option_keep_awake_on_usb">USB供电</string>
     <string name="option_keep_awake_on_wireless">无线供电</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">动画持续时间</string>
     <string name="option_window_animation_scale">窗口动画缩放</string>
     <string name="option_transition_animation_scale">过渡动画缩放</string>
