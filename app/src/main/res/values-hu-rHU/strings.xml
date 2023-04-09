@@ -102,6 +102,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_keep_awake_on_ac">AC tápellátáson</string>
     <string name="option_keep_awake_on_usb">USB tápellátáson</string>
     <string name="option_keep_awake_on_wireless">Vezeték nélküli tápellátás</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animáció tempója</string>
     <string name="option_window_animation_scale">Ablakanimáció tempója</string>
     <string name="option_transition_animation_scale">Áttűnési animáció tempója</string>
