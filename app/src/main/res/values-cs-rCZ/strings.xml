@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Na nabíječce</string>
     <string name="option_keep_awake_on_usb">Napájení z USB</string>
     <string name="option_keep_awake_on_wireless">Bezdrátové napájení</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Měřítko délky animace</string>
     <string name="option_window_animation_scale">Měřítko animace okna</string>
     <string name="option_transition_animation_scale">Měřítko animace přeměny</string>
