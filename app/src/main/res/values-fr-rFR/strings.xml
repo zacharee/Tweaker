@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Branché sur secteur</string>
     <string name="option_keep_awake_on_usb">Branché en USB</string>
     <string name="option_keep_awake_on_wireless">En charge sans fil</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Échelle de durée d\'animation</string>
     <string name="option_window_animation_scale">Vitesse d\'animation des fenêtres</string>
     <string name="option_transition_animation_scale">Vitesse d\'animation des transitions</string>
