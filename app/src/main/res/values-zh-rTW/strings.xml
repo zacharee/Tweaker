@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">接交流電力</string>
     <string name="option_keep_awake_on_usb">接 USB 電力</string>
     <string name="option_keep_awake_on_wireless">接無線電力</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">動畫影片長度比例</string>
     <string name="option_window_animation_scale">視窗動畫比例</string>
     <string name="option_transition_animation_scale">轉場動畫比例</string>
