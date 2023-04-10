@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.compose
 import android.content.Context
 import android.database.ContentObserver
 import android.provider.Settings
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -168,6 +169,7 @@ fun <T : Any?> Context.rememberSettingsState(
     DisposableEffect(key1 = keys) {
         val observer = object : ContentObserver(null) {
             override fun onChange(selfChange: Boolean) {
+                Log.e("SystemUITuner", "Changed ${state.value} ${value()}")
                 state.value = value()
             }
         }

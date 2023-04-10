@@ -3,7 +3,9 @@ package com.zacharee1.systemuituner.data
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
+import com.zacharee1.systemuituner.util.SettingsInfo
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.writeSettingsBulk
 import com.zacharee1.systemuituner.views.NightModeView
 
 val Context.minNightTemp: Int
@@ -60,5 +62,16 @@ data class NightModeInfo(
             NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, context.defaultNightTemp)?.toIntOrNull()
         twilightMode = context.getSetting(SettingsType.SECURE,
             NightModeView.TWILIGHT_MODE, NightModeView.TWILIGHT_OFF.toString())?.toIntOrNull()
+    }
+
+    suspend fun write(context: Context): Boolean {
+        return context.writeSettingsBulk(
+            SettingsInfo(SettingsType.SECURE, NightModeView.TWILIGHT_MODE, twilightMode),
+            SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_ACTIVATED, nightModeActivated),
+            SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_AUTO_MODE, nightModeAuto),
+            SettingsInfo(SettingsType.SECURE, NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE, nightModeTemp),
+            revertable = true,
+            saveOption = true,
+        )
     }
 }

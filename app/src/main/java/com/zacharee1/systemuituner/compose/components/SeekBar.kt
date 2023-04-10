@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.compose.components
 import android.content.Context
 import android.util.Log
 import android.view.WindowManager
-import androidx.compose.foundation.Indication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -56,6 +55,7 @@ fun SeekBar(
     onValueChanged: (Number) -> Unit,
     modifier: Modifier = Modifier,
     unit: String? = null,
+    title: String? = null,
 ) {
     val df = remember {
         val sequence = "0".repeat(ceil(log10(1 / scale)).toInt())
@@ -75,11 +75,18 @@ fun SeekBar(
         mutableStateOf(df.format(value))
     }
 
-    Box(
-        contentAlignment = Alignment.Center,
+    Column(
+        modifier = modifier,
     ) {
+        title?.let {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleSmall,
+            )
+        }
+
         Row(
-            modifier = modifier,
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             IconButton(
@@ -118,7 +125,7 @@ fun SeekBar(
                         }
                     },
                     modifier = Modifier
-                        .heightIn(min = 128.dp)
+                        .heightIn(min = 64.dp)
                         .fillMaxWidth(),
                 ) { seekBarView ->
                     if (!seekBarView.isDragging) {
@@ -169,71 +176,71 @@ fun SeekBar(
                 }
             }
         }
+    }
 
-        if (showingValueInput) {
-            ModalBottomSheet(onDismissRequest = { showingValueInput = false }) {
-                val view = LocalView.current
+    if (showingValueInput) {
+        ModalBottomSheet(onDismissRequest = { showingValueInput = false }) {
+            val view = LocalView.current
 
-                LaunchedEffect(key1 = showingValueInput) {
-                    val views = view.rootView.allViews
-                        .filter { it.javaClass.name == "androidx.compose.ui.window.PopupLayout" }
-                        .toList()
-                    views.forEach { view ->
-                        (view.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
-                            .updateViewLayout(view,
-                                (view.layoutParams as WindowManager.LayoutParams).apply {
-                                    Log.e("SystemUITuner", "Not focusable ${flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE}")
-                                    flags =
-                                        flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
-                                })
-                    }
+            LaunchedEffect(key1 = showingValueInput) {
+                val views = view.rootView.allViews
+                    .filter { it.javaClass.name == "androidx.compose.ui.window.PopupLayout" }
+                    .toList()
+                views.forEach { view ->
+                    (view.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
+                        .updateViewLayout(view,
+                            (view.layoutParams as WindowManager.LayoutParams).apply {
+                                Log.e("SystemUITuner", "Not focusable ${flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE}")
+                                flags =
+                                    flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
+                            })
                 }
+            }
 
-                OutlinedTextField(
-                    value = valueInputValue,
-                    onValueChange = { valueInputValue = it },
-                    keyboardOptions = KeyboardOptions.Default.copy(
-                        keyboardType = if (scale == 1.0) KeyboardType.Number else KeyboardType.Decimal,
-                        imeAction = ImeAction.Done,
-                    ),
-                    trailingIcon = {
-                        IconButton(
-                            onClick = {
-                                val decimalValue = valueInputValue.toDoubleOrNull()
+            OutlinedTextField(
+                value = valueInputValue,
+                onValueChange = { valueInputValue = it },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = if (scale == 1.0) KeyboardType.Number else KeyboardType.Decimal,
+                    imeAction = ImeAction.Done,
+                ),
+                trailingIcon = {
+                    IconButton(
+                        onClick = {
+                            val decimalValue = valueInputValue.toDoubleOrNull()
 
-                                if (decimalValue != null) {
-                                    val coerced =
-                                        decimalValue.coerceIn(minValue.toDouble()..maxValue.toDouble())
+                            if (decimalValue != null) {
+                                val coerced =
+                                    decimalValue.coerceIn(minValue.toDouble()..maxValue.toDouble())
 
-                                    onValueChanged(coerced)
-                                    showingValueInput = false
-                                }
-                            }
-                        ) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_baseline_check_24),
-                                contentDescription = stringResource(id = R.string.apply),
-                            )
-                        }
-                    },
-                    leadingIcon = {
-                        IconButton(
-                            onClick = {
+                                onValueChanged(coerced)
                                 showingValueInput = false
                             }
-                        ) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_baseline_add_24),
-                                contentDescription = stringResource(id = android.R.string.cancel),
-                                modifier = Modifier.rotate(45f)
-                            )
                         }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(MaterialTheme.colorScheme.surface)
-                )
-            }
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_baseline_check_24),
+                            contentDescription = stringResource(id = R.string.apply),
+                        )
+                    }
+                },
+                leadingIcon = {
+                    IconButton(
+                        onClick = {
+                            showingValueInput = false
+                        }
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_baseline_add_24),
+                            contentDescription = stringResource(id = android.R.string.cancel),
+                            modifier = Modifier.rotate(45f)
+                        )
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.surface)
+            )
         }
     }
 }

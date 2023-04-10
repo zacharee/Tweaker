@@ -24,6 +24,7 @@ import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLay
 import com.zacharee1.systemuituner.compose.preferences.layouts.ImmersiveModeLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.LockScreenShortcutsLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.NightModeLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
@@ -35,6 +36,7 @@ import com.zacharee1.systemuituner.util.isTouchWiz
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.verifiers.EnableStorage
 import com.zacharee1.systemuituner.util.verifiers.ShowForFireOS
+import com.zacharee1.systemuituner.views.NightModeView
 
 val Context.allScreens by com.zacharee1.systemuituner.util.lazy {
     appsScreen.prefs +
@@ -283,7 +285,21 @@ val Context.displayScreen by com.zacharee1.systemuituner.util.lazy {
             iconColor = R.color.pref_color_1,
             visible = { isTouchWiz }
         ),
-        // NIGHT MODE PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.option_night_mode),
+            summary = resources.getString(R.string.option_night_mode_desc),
+            icon = R.drawable.ic_baseline_nights_stay_24,
+            iconColor = R.color.pref_color_4,
+            key = "night_mode",
+            writeKeys = arrayOf(
+                SettingsType.SECURE to NightModeView.NIGHT_DISPLAY_ACTIVATED,
+                SettingsType.SECURE to NightModeView.NIGHT_DISPLAY_AUTO_MODE,
+                SettingsType.SECURE to NightModeView.NIGHT_DISPLAY_COLOR_TEMPERATURE,
+                SettingsType.SECURE to NightModeView.TWILIGHT_MODE,
+            ),
+            minApi = Build.VERSION_CODES.N,
+            dialogContents = { NightModeLayout() },
+        ),
     ))
 }
 

@@ -1,9 +1,7 @@
 package com.zacharee1.systemuituner.views
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Resources
 import android.os.Build
 import android.util.AttributeSet
 import android.view.View
@@ -11,14 +9,12 @@ import android.widget.AdapterView
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.zacharee1.systemuituner.data.NightModeInfo
-import com.zacharee1.systemuituner.databinding.NightModeBinding
-import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.data.defaultNightTemp
 import com.zacharee1.systemuituner.data.maxNightTemp
 import com.zacharee1.systemuituner.data.minNightTemp
+import com.zacharee1.systemuituner.databinding.NightModeBinding
+import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
 import com.zacharee1.systemuituner.util.PrefManager
-import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.launch
 import com.zacharee1.systemuituner.util.prefManager
 import tk.zwander.seekbarpreference.SeekBarView
@@ -47,8 +43,8 @@ class NightModeView(context: Context, attrs: AttributeSet) : FrameLayout(context
 
         val atLeastNMR1 = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1
 
-        binding.nightDisplayWrapper.isVisible = atLeastNMR1
-        binding.twilightWrapper.isVisible = !atLeastNMR1
+        binding.nightDisplayWrapper.isVisible = isInEditMode || atLeastNMR1
+        binding.twilightWrapper.isVisible = isInEditMode || !atLeastNMR1
         binding.resetNightMode.setOnClickListener {
             launch {
                 nightModeInfo.nullAll()
