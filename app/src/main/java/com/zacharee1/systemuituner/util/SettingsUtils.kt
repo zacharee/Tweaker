@@ -19,11 +19,9 @@ import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
 import com.zacharee1.systemuituner.views.LockscreenShortcuts
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import rikka.shizuku.Shizuku
-import java.util.HashSet
-import kotlin.concurrent.timer
 
 data class SettingsInfo(
     val type: SettingsType,
@@ -62,7 +60,7 @@ private suspend fun Context.revertDialog(
 
             val timer = object : CountDownTimer(timeoutMs, 1000L) {
                 override fun onFinish() {
-                    suspend {
+                    runBlocking {
                         originalValues.forEach { (info, setting) ->
                             writeSetting(info.first.type, info.first.key, setting, false, saveOption)
                         }
