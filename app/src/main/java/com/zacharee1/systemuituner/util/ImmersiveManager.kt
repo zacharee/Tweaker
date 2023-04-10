@@ -37,7 +37,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
         }
     }
 
-    suspend fun setAdvancedImmersive(info: ImmersiveInfo) {
+    suspend fun setAdvancedImmersive(info: ImmersiveInfo): Boolean {
         val modes = ArrayList<String?>()
 
         val fullMode = buildModeString(ImmersiveMode.FULL.type, info.allFull, info.fullApps, info.fullBl)
@@ -50,7 +50,7 @@ class ImmersiveManager(context: Context) : ContextWrapper(context) {
 
         val string = if (modes.isEmpty()) ImmersiveMode.NONE.type else modes.joinToString(separator = ":")
 
-        writeSetting(SettingsType.GLOBAL, Settings.Global.POLICY_CONTROL, string, saveOption = true)
+        return writeSetting(SettingsType.GLOBAL, Settings.Global.POLICY_CONTROL, string, saveOption = true)
     }
 
     fun parseAdvancedImmersive(value: String? = getSetting(SettingsType.GLOBAL, Settings.Global.POLICY_CONTROL)): ImmersiveInfo {

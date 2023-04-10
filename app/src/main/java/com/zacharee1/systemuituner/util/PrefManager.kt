@@ -160,7 +160,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         }
     }
 
-    fun putImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode, blacklist: ArrayList<String>) {
+    fun putImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode, blacklist: List<String>) {
         putString(
             when (type) {
                 ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_BLACKLIST
@@ -172,7 +172,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         )
     }
 
-    fun getImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode): ArrayList<String> {
+    fun getImmersiveBlacklist(type: ImmersiveManager.ImmersiveMode): List<String> {
         return gson.fromJson(
             getString(when (type) {
                 ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_BLACKLIST
@@ -184,7 +184,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         ) ?: ArrayList()
     }
 
-    fun putImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode, whitelist: ArrayList<String>) {
+    fun putImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode, whitelist: List<String>) {
         putString(
             when (type) {
                 ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_WHITELIST
@@ -196,7 +196,7 @@ class PrefManager private constructor(context: Context) : ContextWrapper(context
         )
     }
 
-    fun getImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode): ArrayList<String> {
+    fun getImmersiveWhitelist(type: ImmersiveManager.ImmersiveMode): List<String> {
         return gson.fromJson(
             getString(when (type) {
                 ImmersiveManager.ImmersiveMode.FULL -> SAVED_FULL_IMMERSIVE_WHITELIST

@@ -123,12 +123,14 @@ fun <T : Any?> Context.rememberSettingsState(
     value: () -> T,
     revertable: Boolean = false,
     saveOption: Boolean = true,
+    writer: (suspend (value: T) -> Boolean)? = null,
 ): MutableState<T> {
     return rememberSettingsState(
         keys = arrayOf(key),
         value = value,
         revertable = revertable,
         saveOption = saveOption,
+        writer = writer,
     )
 }
 

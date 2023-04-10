@@ -36,11 +36,11 @@ class ImmersiveListSelector : AppCompatActivity(), CoroutineScope by MainScope()
 
         fun start(
             context: Context,
-            checked: ArrayList<String>?,
+            checked: List<String>?,
             onResultListener: IImmersiveSelectionCallback
         ) {
             val activity = Intent(context, ImmersiveListSelector::class.java)
-            activity.putExtra(EXTRA_CHECKED, checked)
+            activity.putExtra(EXTRA_CHECKED, checked?.let { ArrayList(it) })
             activity.putExtra(
                 EXTRA_CALLBACK,
                 Bundle().apply { putBinder(EXTRA_CALLBACK, onResultListener.asBinder()) })

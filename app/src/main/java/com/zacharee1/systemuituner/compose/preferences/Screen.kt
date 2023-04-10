@@ -21,6 +21,7 @@ import com.zacharee1.systemuituner.compose.components.CardSwitch
 import com.zacharee1.systemuituner.compose.components.ColorPickerWithText
 import com.zacharee1.systemuituner.compose.preferences.layouts.AnimationScalesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.ImmersiveModeLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.LockScreenShortcutsLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
@@ -625,7 +626,15 @@ val Context.uiScreen by com.zacharee1.systemuituner.util.lazy {
             ),
             dialogContents = { CameraGesturesLayout() }
         ),
-        // IMMERSIVE MODE
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_immersive_mode),
+            summary = resources.getString(R.string.feature_immersive_mode_desc),
+            key = "immersive_mode",
+            writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.POLICY_CONTROL),
+            icon = R.drawable.ic_baseline_fullscreen_24,
+            iconColor = R.color.pref_color_4,
+            dialogContents = { ImmersiveModeLayout() }
+        ),
         SwitchPreferenceItem(
             title = resources.getString(R.string.feature_dark_mode),
             summary = resources.getString(R.string.feature_dark_mode_desc),
