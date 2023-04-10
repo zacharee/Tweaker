@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">AC 전원 연결 시</string>
     <string name="option_keep_awake_on_usb">USB 전원 연결 시</string>
     <string name="option_keep_awake_on_wireless">무선 전력 연결 시</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">독에 거치했을 시</string>
     <string name="option_animator_duration_scale">Animator 길이 배율</string>
     <string name="option_window_animation_scale">창 애니메이션 배율</string>
     <string name="option_transition_animation_scale">전환 애니메이션 배율</string>
@@ -142,10 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">기기의 배터리 잔량이 적을 때 나는 소리입니다.</string>
     <string name="option_ui_sound_trusted">신뢰</string>
     <string name="option_ui_sound_trusted_desc">기기가 잠금 해제 없이 \"trusted\" 상태로 들어갈 때 나는 소리입니다.</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">무선 충전</string>
+    <string name="option_ui_sound_wireless_charging_desc">기기를 무선 충전할 때 나는 소리입니다.</string>
+    <string name="option_ui_sound_charging">충전 중</string>
+    <string name="option_ui_sound_charging_desc">기기를 충전할 때 나는 소리입니다.</string>
     <string name="option_ui_sound_disable_charging">충전음 비활성화</string>
     <string name="option_ui_sound_disable_charging_desc">기기 충전을 시작할 때 소리를 낼 지 내지 않을 지 설정합니다.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">시스템 UI 권한</string>
@@ -331,7 +331,7 @@
     <string name="edit_custom_item">사용자 지정 항목 수정</string>
     <string name="remove_item">사용자 지정 항목 제거</string>
     <string name="remove_item_desc">정말로 이 항목을 삭제하시겠습니까?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">설정 유형: %1$s, 키: %2$s, 값: %3$s</string>
     <string name="tile_battery">배터리</string>
     <string name="tile_clock">시계</string>
     <string name="tile_demo">데모 모드</string>
@@ -371,8 +371,8 @@
     <string name="setting_applied_dialog_desc">변경된 설정으로 유지하시겠습니까? %s초 후 이전 설정으로 되돌아갑니다.</string>
     <string name="keep">유지</string>
     <string name="revert">되돌리기</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">증가</string>
+    <string name="decrease" desc="This is in verb form.">감소</string>
     <string name="blocked_reason_read_terms">계속하기 전에 약관을 확인해주십시오.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner는 보안 설정 쓰기 권한이 없으면 동작할 수 없습니다. 권한을 부여하는 데 문제가 발생했다면 \"도움말\" 버튼을 누르십시오.</string>
     <string name="blocked_reason_choose_os">계속하기 전에 운영 체제를 선택해주십시오.</string>
