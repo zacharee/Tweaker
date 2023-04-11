@@ -164,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 a introduit une option pour mettre en veille les notifications. Vous pouvez utiliser ce paramètre pour définir des valeurs personnalisées pour les heures de mise en veille.</string>
     <string name="option_night_mode">Mode Nuit (sombre)</string>
     <string name="option_night_mode_desc">Android Nougat a introduit une option native pour teindre l\'affichage jaune la nuit, bien appelé Mode Nuit. Il a été plus raffiné dans Nougat 7. , et renommé en affichage de nuit. Vous pouvez l\'activer ici et ajuster différentes options. AVERTISSEMENT : Sur certains appareils, l\'activation de cette option rendra l\'écran noir!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Nombre de lignes des paramètres rapides</string>
     <string name="option_touchwiz_qs_row_count_desc">Sur Samsung TouchWiz Nougat et Oreo, il est possible de personnaliser la grille de mise en page QS avec des paramètres cachés. Utilisez ceci pour changer le nombre de lignes. Veuillez l\'activer en tant qu\'option persistante.</string>
     <string name="option_touchwiz_qs_column_count">Nombre de colonnes dans les paramètres rapides</string>
