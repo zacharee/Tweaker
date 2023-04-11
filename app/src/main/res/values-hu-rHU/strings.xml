@@ -165,6 +165,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_custom_notification_snooze_times_desc">Az Android Oreo 8.1 bevezette az értesítések szundi beállítását. Ezzel a beállítással egyéni értékeket állíthat be a szundi időkre.</string>
     <string name="option_night_mode">Éjszakai mód</string>
     <string name="option_night_mode_desc">Az Android Nougat bevezetett egy natív opciót a kijelző éjszakai sárgára színezésére, amelyet találóan Night Mode-nak hívnak. A Nougat 7.1-ben tovább finomították, és átnevezték Night Display-re. Itt engedélyezheti, és különböző beállításokat állíthat be. FIGYELMEZTETÉS: Egyes eszközökön, ha ezt aktiválja, a képernyő elsötétül!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Gyorsbeállítások sorainak száma</string>
     <string name="option_touchwiz_qs_row_count_desc">A Samsung TouchWiz Nougat és Oreo készülékeken lehetőség van a QS elrendezési rács testreszabására rejtett beállításokkal.. Ezzel megváltoztathatja a sorok számát. Kérjük, engedélyezze ezt tartós opcióként.</string>
     <string name="option_touchwiz_qs_column_count">Gyorsbeállítások oszlopok száma</string>
