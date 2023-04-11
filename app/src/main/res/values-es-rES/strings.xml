@@ -164,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introdujo una opción para silenciar las notificaciones. Puede utilizar esta opción para establecer valores personalizados para los tiempos de aplazamiento.</string>
     <string name="option_night_mode">Modo Noche</string>
     <string name="option_night_mode_desc">Android Nougat introdujo una opción nativa para teñir la pantalla color amarillo en la noche, acertadamente llamado Modo Noche. Se refinó aún más en Nougat 7, y fue renombrado como pantalla nocturna. Puedes activarlo aquí y ajustar diferentes opciones. ADVERTENCIA: ¡En algunos dispositivos, activar esto hará que la pantalla se vuelva negra!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Conteo de filas de ajustes rápidos</string>
     <string name="option_touchwiz_qs_row_count_desc">En Samsung TouchWiz Nougat y Oreo, es posible personalizar la cuadrícula de diseño QS con ajustes ocultos. Utilice esto para cambiar el recuento de filas. Por favor, habilite esto como una opción persistente.</string>
     <string name="option_touchwiz_qs_column_count">Número de columnas de ajustes rápidos</string>
