@@ -170,6 +170,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
  İçerik TAalep</string>
     <string name="option_night_mode">Gece Modu</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Hızlı Ayarlar Satır Sayısı</string>
     <string name="option_touchwiz_qs_row_count_desc">Samsung TouchWiz Nougat ve Oreo\'da, QS düzen ızgarasını gizli ayarlarla özelleştirmek mümkündür. Satır sayısını değiştirmek için bunu kullanın. Lütfen bunu Kalıcı Seçenek olarak etkinleştirin.</string>
     <string name="option_touchwiz_qs_column_count">Hızlı ayarlar sütun kareleri</string>
