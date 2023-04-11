@@ -164,7 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 引入了通知延後的選項。您可以使用此設定來自訂延後時間值。</string>
     <string name="option_night_mode">夜間模式</string>
     <string name="option_night_mode_desc">Android Nougat 引入了一個原生選項，在夜間顯示為黃色，稱為「夜間模式」。它在 Nougat 7.1 中得到進一步完善，並更名為「夜燈」。您可以在此處啟用它並調整為不同選項。警告：在某些 Android 裝置上，激活它將使螢幕變黑。</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">夜間顯示溫度</string>
     <string name="option_touchwiz_qs_row_count">快速設定列數</string>
     <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定版面配置網格。用它來變更列數。請啟用此選項為持續選項。</string>
     <string name="option_touchwiz_qs_column_count">快速設定行數</string>
