@@ -164,7 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">أندرويد أوريو 8.1 قدم خيار غفوة الإشعارات. يمكنك استخدام هذا الإعداد لتعيين قيم مخصصة لأوقات الغفوة.</string>
     <string name="option_night_mode">الوضع الليلي</string>
     <string name="option_night_mode_desc">قدم أندرويد نوجات خيارًا أصليًا لتلوين العرض الأصفر في الليل، يسمى على نحو مناسب الوضع الليلي. تم تنقيحه أكثر في Nougat 7. ، وأعيد تسميته إلى العرض الليلي. يمكنك تمكينه هنا وتعديل خيارات مختلفة. تحذير: على بعض الأجهزة، سيؤدي تنشيط هذا إلى أن تصبح الشاشة سوداء!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">درجة حرارة الوضع الليلي</string>
     <string name="option_touchwiz_qs_row_count">عدد صفوف الإعدادات السريعة</string>
     <string name="option_touchwiz_qs_row_count_desc">في سامسونج توتش ويز نوجات وأوريو، من الممكن تخصيص شبكة تخطيط الإعدادات السريعة مع الإعدادات المخفية. استخدم هذا لتغيير عدد الصفوف. الرجاء تمكين هذا كخيار دائم.</string>
     <string name="option_touchwiz_qs_column_count">عدد أعمدة الإعدادات السريعة</string>
