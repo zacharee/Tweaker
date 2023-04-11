@@ -164,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 zavedl možnost pro odložení oznámení. Toto nastavení můžete použít pro nastavení vlastních hodnot pro dobu odložení.</string>
     <string name="option_night_mode">Noční režim</string>
     <string name="option_night_mode_desc">Android Nougat zavedl původní možnost, která v noci zvýrazní displej žlutou barvou, vhodně nazývaný jako noční režim. Byl dále upraven v Nougat 7. , a přejmenován na Noční displej. Zde jej můžete povolit a upravit různé možnosti. VAROVÁNÍ: Aktivace na některých zařízeních způsobí, že obrazovka je černá!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Počet řádků v panelu rychlého nastavení</string>
     <string name="option_touchwiz_qs_row_count_desc">Na Samsung TouchWiz Nougat a Oreo je možné přizpůsobit mřížku rozložení QS se skrytými nastaveními. Použijte pro změnu počtu řádků. </string>
     <string name="option_touchwiz_qs_column_count">Počet sloupců v panelu rychlého nastavení</string>
