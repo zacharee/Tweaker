@@ -165,6 +165,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 ha introdotto un\'opzione per posticipare le notifiche. È possibile utilizzare questa impostazione per impostare valori personalizzati per i tempi di posticipo.</string>
     <string name="option_night_mode">Modalità notturna</string>
     <string name="option_night_mode_desc">Android Nougat ha introdotto un\'opzione nativa per colorare il display di giallo di notte, chiamato Modalità Notte, rinominato in Night Display. Puoi abilitarlo qui e regolare diverse opzioni. ATTENZIONE: su alcuni dispositivi, l\'attivazione di questo farà sì che lo schermo diventi nero!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Numero di Righe in QS</string>
     <string name="option_touchwiz_qs_row_count_desc">Su Samsung TouchWiz Nougat e Oreo, è possibile personalizzare la griglia di layout con impostazioni nascoste. Usa questo per cambiare il numero delle righe. Abilita questa opzione come opzione persistente.</string>
     <string name="option_touchwiz_qs_column_count">Conteggio Colonna Impostazioni Rapide</string>
