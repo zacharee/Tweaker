@@ -164,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 ввёл опцию отсрочки уведомлений. Этот параметр можно использовать для установки пользовательских значений для время отсрочки.</string>
     <string name="option_night_mode">Ночной режим</string>
     <string name="option_night_mode_desc">Android Nougat представил родной вариант изменения оттенка экрана на жёлтый по ночам, названный «Ночной режим». Он был доработан в Nougat 7.1 и переименован в «Ночной экран». Вы можете включить его здесь и настроить различные параметры. ВНИМАНИЕ: на некоторых устройствах Android активация этого сделает экран чёрным!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Количество строк быстрых настроек</string>
     <string name="option_touchwiz_qs_row_count_desc">На Samsung TouchWiz Nougat и Oreo можно настроить сетку QS скрытыми настройками. Используйте это для изменения количества строк. Пожалуйста, включите это в постоянных настройках.</string>
     <string name="option_touchwiz_qs_column_count">Количество столбцов быстрых настроек</string>
