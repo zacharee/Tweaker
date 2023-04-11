@@ -164,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">안드로이드 오레오 8.1에서 알림을 재표시할 수 있는 설정이 추가되었습니다. 이 설정을 통하여 알림 재표시 시간을 사용자 지정할 수 있습니다.</string>
     <string name="option_night_mode">야간 모드</string>
     <string name="option_night_mode_desc">Android 누가에서 밤에 디스플레이를 누렇게 하는 기본 설정인 야간 모드를 도입했습니다. 누가 7.1에서 야간 디스플레이로 이름이 바뀌며 더욱 개선되었습니다. 해당 기능을 여기에서 활성화하고 다른 설정사항을 조정할 수 있습니다. 경고: 일부 기기에서 이 기능을 활성화하면 블랙스크린을 유발할 수 있습니다!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">빠른 설정 행 개수</string>
     <string name="option_touchwiz_qs_row_count_desc">삼성 TouchWiz 누가 및 오레오에서, 숨겨진 설정을 통하여 빠른 설정 창의 레이아웃을 변경할 수 있습니다. 이 설정을 통해 행 개수를 조절할 수 있습니다. 이 설정을 영구 설정으로 활성화해주십시오.</string>
     <string name="option_touchwiz_qs_column_count">빠른 설정 열 개수</string>
