@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.SettingsInfo
 import com.zacharee1.systemuituner.util.getSetting
+import com.zacharee1.systemuituner.util.writeSetting
 import com.zacharee1.systemuituner.util.writeSettingsBulk
 
 @Composable
@@ -29,6 +30,15 @@ fun Context.rememberIntSettingsState(
         },
         saveOption = saveOption,
         revertable = revertable,
+        writer = {
+            writeSetting(
+                type = key.first,
+                key = key.second,
+                value = it.toInt(),
+                saveOption = saveOption,
+                revertable = revertable,
+            )
+        }
     )
 }
 
@@ -143,7 +153,7 @@ fun <T : Any?> Context.rememberSettingsState(
     saveOption: Boolean = true,
     writer: (suspend (value: T) -> Boolean)? = null,
 ): MutableState<T> {
-    val state = remember(keys.contentDeepHashCode()) {
+    val state = remember(keys.toList()) {
         mutableStateOf(value())
     }
 

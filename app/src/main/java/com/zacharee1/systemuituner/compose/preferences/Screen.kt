@@ -25,6 +25,7 @@ import com.zacharee1.systemuituner.compose.preferences.layouts.ImmersiveModeLayo
 import com.zacharee1.systemuituner.compose.preferences.layouts.KeepOnPluggedLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.LockScreenShortcutsLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.NightModeLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.SMSLimitsLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
@@ -315,7 +316,18 @@ val Context.netCellularScreen by com.zacharee1.systemuituner.util.lazy {
             disabledValue = "true",
             writeKeys = arrayOf(SettingsType.GLOBAL to Settings.Global.SMS_SHORT_CODE_CONFIRMATION)
         ),
-        // SMS LIMITS PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_sms_limit),
+            summary = resources.getString(R.string.feature_sms_limit_desc),
+            key = "sms_limit",
+            icon = R.drawable.message_text_lock,
+            iconColor = R.color.pref_color_6,
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
+                SettingsType.GLOBAL to Settings.Global.SMS_OUTGOING_CHECK_INTERVAL_MS,
+            ),
+            dialogContents = { SMSLimitsLayout() },
+        ),
     ))
 }
 
