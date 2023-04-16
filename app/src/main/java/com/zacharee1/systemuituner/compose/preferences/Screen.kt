@@ -27,6 +27,7 @@ import com.zacharee1.systemuituner.compose.preferences.layouts.LockScreenShortcu
 import com.zacharee1.systemuituner.compose.preferences.layouts.NightModeLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.SMSLimitsLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.StorageThresholdLayout
+import com.zacharee1.systemuituner.compose.preferences.layouts.TetheringFixLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.UISoundsLayout
 import com.zacharee1.systemuituner.compose.rememberPreferenceState
 import com.zacharee1.systemuituner.compose.rememberSettingsState
@@ -333,7 +334,18 @@ val Context.netCellularScreen by com.zacharee1.systemuituner.util.lazy {
 
 val Context.netWifiScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
-        // TETHERING PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.feature_fix_tethering),
+            summary = resources.getString(R.string.feature_fix_tethering_desc),
+            key = "tethering_fix",
+            icon = R.drawable.link,
+            iconColor = R.color.pref_color_1,
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.TETHER_DUN_REQUIRED,
+                SettingsType.GLOBAL to Settings.Global.TETHER_SUPPORTED,
+            ),
+            dialogContents = { TetheringFixLayout() }
+        ),
     ))
 }
 

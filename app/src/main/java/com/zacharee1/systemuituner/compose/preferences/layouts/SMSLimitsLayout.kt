@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.compose.components.SeekBar
 import com.zacharee1.systemuituner.compose.rememberIntSettingsState
 import com.zacharee1.systemuituner.data.SettingsType
@@ -33,7 +35,8 @@ fun SMSLimitsLayout() {
         defaultValue = COUNT_DEF,
         scale = 1.0,
         value = smsLimitCount,
-        onValueChanged = { smsLimitCount = it }
+        onValueChanged = { smsLimitCount = it },
+        title = stringResource(id = R.string.option_sms_limit_count),
     )
 
     SeekBar(
@@ -42,6 +45,8 @@ fun SMSLimitsLayout() {
         defaultValue = INTERVAL_DEF,
         scale = 1.0,
         value = smsCheckInterval,
-        onValueChanged = { smsCheckInterval = it }
+        onValueChanged = { smsCheckInterval = it },
+        title = stringResource(id = R.string.option_sms_limit_interval),
+        unit = "ms",
     )
 }
