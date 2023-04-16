@@ -17,11 +17,36 @@ import com.zacharee1.systemuituner.util.writeSetting
 import com.zacharee1.systemuituner.util.writeSettingsBulk
 
 @Composable
+fun Context.rememberListSettingsState(
+    key: Pair<SettingsType, String>,
+    saveOption: Boolean = true,
+    revertable: Boolean = false,
+    def: List<String> = listOf(),
+    separator: String = ",",
+): MutableState<List<String>> {
+    return rememberSettingsState(
+        keys = arrayOf(key),
+        value = {
+            getSetting(key.first, key.second, def.joinToString(separator))
+                ?.split(separator)?.toList() ?: def
+        },
+        writer = {
+            writeSetting(
+                key.first, key.second, it.joinToString(separator),
+                revertable = revertable, saveOption = saveOption,
+            )
+        },
+        saveOption = saveOption,
+        revertable = revertable,
+    )
+}
+
+@Composable
 fun Context.rememberIntSettingsState(
     key: Pair<SettingsType, String>,
     saveOption: Boolean = true,
     revertable: Boolean = false,
-    def: Int = 0
+    def: Int = 0,
 ): MutableState<Number> {
     return rememberSettingsState(
         key = key,

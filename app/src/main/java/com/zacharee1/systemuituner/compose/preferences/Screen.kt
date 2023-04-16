@@ -19,6 +19,7 @@ import com.zacharee1.systemuituner.activities.ManageQSActivity
 import com.zacharee1.systemuituner.activities.QSEditorActivity
 import com.zacharee1.systemuituner.compose.components.CardSwitch
 import com.zacharee1.systemuituner.compose.components.ColorPickerWithText
+import com.zacharee1.systemuituner.compose.preferences.layouts.AirplaneModeRadiosLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.AnimationScalesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.CameraGesturesLayout
 import com.zacharee1.systemuituner.compose.preferences.layouts.ImmersiveModeLayout
@@ -351,7 +352,18 @@ val Context.netWifiScreen by com.zacharee1.systemuituner.util.lazy {
 
 val Context.netMiscScreen by com.zacharee1.systemuituner.util.lazy {
     Screen(listOf(
-        // AIRPLANE MODE PREF
+        SettingsPreferenceItem(
+            title = resources.getString(R.string.special_sub_airplane_mode),
+            summary = resources.getString(R.string.special_sub_airplane_mode_desc),
+            key = "airplane_mode_radios",
+            icon = R.drawable.ic_baseline_airplanemode_active_24,
+            iconColor = R.color.pref_color_4,
+            writeKeys = arrayOf(
+                SettingsType.GLOBAL to Settings.Global.AIRPLANE_MODE_RADIOS,
+                SettingsType.GLOBAL to Settings.Global.AIRPLANE_MODE_TOGGLEABLE_RADIOS,
+            ),
+            dialogContents = { AirplaneModeRadiosLayout() },
+        ),
     ))
 }
 

@@ -7,17 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.AirplaneModeRadiosData
+import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadioBinding
 import com.zacharee1.systemuituner.databinding.AirplaneModeRadiosBinding
 import com.zacharee1.systemuituner.interfaces.IOptionDialogCallback
-import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.getSetting
 import com.zacharee1.systemuituner.util.launch
-import kotlinx.coroutines.launch
 
 class AirplaneModeRadios(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs), IOptionDialogCallback {
     override var callback: (suspend (data: Any?) -> Boolean)? = null
