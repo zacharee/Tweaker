@@ -1,8 +1,5 @@
 package com.zacharee1.systemuituner.compose.components
 
-import android.content.Context
-import android.util.Log
-import android.view.WindowManager
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -21,7 +18,6 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,14 +25,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.view.allViews
 import com.zacharee1.systemuituner.R
 import tk.zwander.seekbarpreference.slider.Slider
 import java.text.DecimalFormat
@@ -180,23 +174,6 @@ fun SeekBar(
 
     if (showingValueInput) {
         ModalBottomSheet(onDismissRequest = { showingValueInput = false }) {
-            val view = LocalView.current
-
-            LaunchedEffect(key1 = showingValueInput) {
-                val views = view.rootView.allViews
-                    .filter { it.javaClass.name == "androidx.compose.ui.window.PopupLayout" }
-                    .toList()
-                views.forEach { view ->
-                    (view.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager)
-                        .updateViewLayout(view,
-                            (view.layoutParams as WindowManager.LayoutParams).apply {
-                                Log.e("SystemUITuner", "Not focusable ${flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE}")
-                                flags =
-                                    flags and WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE.inv()
-                            })
-                }
-            }
-
             OutlinedTextField(
                 value = valueInputValue,
                 onValueChange = { valueInputValue = it },
