@@ -291,7 +291,7 @@
     <string name="intro_system_alert_window">系統警示視窗</string>
     <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景啟動時或裝置啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
     <string name="intro_allow_notifications">允許通知</string>
-    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景操作時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
+    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景作業時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Mastodon 或 Twitter 上跟隨我以取得最新更新。</string>
     <string name="intro_crash_reports">啟用當機報告</string>
