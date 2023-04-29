@@ -39,7 +39,7 @@
     <string name="sub_power">電源</string>
     <string name="add_to_blacklist">アイコンをブラックリストに追加</string>
     <string name="remove_from_blacklist">アイコンをブラックリストから削除</string>
-    <string name="flashlight">懐中電灯</string>
+    <string name="flashlight">ライト</string>
     <string name="sub_demo">デモモード</string>
     <string name="sub_demo_desc">デモモードでは、デバイスのステータスバーを強制的に異なる状態にすることができます。特定のアイコンを表示/非表示、電波強度を指定したり、さまざまな使い方ができます。</string>
     <string name="special_sub_airplane_mode">機内モードの調整</string>
@@ -208,7 +208,7 @@
     <string name="immersive_blacklist">Blacklist</string>
     <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Advanced</string>
-    <string name="all_apps">All Apps</string>
+    <string name="all_apps">全てのアプリ</string>
     <string name="select_apps">Select Apps</string>
     <string name="radio">Radio</string>
     <string name="reset">Reset</string>
@@ -248,9 +248,9 @@
     <string name="next">Next</string>
     <string name="finish">Finish</string>
     <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
-    <string name="error">Error</string>
+    <string name="exit">終了</string>
+    <string name="done">完了</string>
+    <string name="error">エラー</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
@@ -299,7 +299,7 @@
     <string name="intro_allow_notifications">Allow Notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Thanks for using my app!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">TwitterかMastodonでフォローして最新情報を入手する</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
