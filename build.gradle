@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.8.20'
-    ext.compose_version = "1.5.0-alpha03"
+    ext.kotlin_version = '1.8.21'
+    ext.compose_version = "1.5.0-alpha04"
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0-beta01'
+        classpath 'com.android.tools.build:gradle:8.2.0-alpha03'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.4.0'
     }
@@ -17,10 +17,9 @@ allprojects {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven { url 'https://androidx.dev/snapshots/builds/9991820/artifacts/repository' }
     }
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }

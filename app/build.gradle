@@ -40,7 +40,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.5"
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
 
     kotlinOptions {
@@ -54,8 +54,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.0'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.core:core-ktx:1.10.0'
@@ -66,11 +66,11 @@ dependencies {
     implementation ('androidx.slidingpanelayout:slidingpanelayout:1.2.0')
     implementation "androidx.work:work-runtime-ktx:2.8.1"
 
-    implementation 'com.google.android.material:material:1.9.0-alpha02'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'com.google.code.gson:gson:2.10.1'
 
-    implementation 'com.android.billingclient:billing:5.2.0'
-    implementation 'com.android.billingclient:billing-ktx:5.2.0'
+    implementation 'com.android.billingclient:billing:6.0.0'
+    implementation 'com.android.billingclient:billing-ktx:6.0.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
@@ -82,31 +82,31 @@ dependencies {
     implementation 'io.noties.markwon:core:4.6.2'
     implementation 'io.noties.markwon:html:4.6.2'
     implementation 'com.joaomgcd:taskerpluginlibrary:0.4.7'
-    implementation 'dev.rikka.shizuku:api:13.1.0'
-    implementation 'dev.rikka.shizuku:provider:13.1.0'
+    implementation 'dev.rikka.shizuku:api:13.1.1'
+    implementation 'dev.rikka.shizuku:provider:13.1.1'
     implementation 'me.grantland:autofittextview:0.2.1'
 
     implementation 'com.github.zacharee:material:7b22984aee'
-    implementation 'com.github.zacharee:PatreonSupportersRetrieval:4ce71eb5bf'
+    implementation 'com.github.zacharee:PatreonSupportersRetrieval:8436bbdbdc'
     implementation 'com.github.zacharee:colorpicker:c300c66e93'
     implementation 'com.github.zacharee:SeekBarPreference:1b37341e49'
     implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
     implementation 'com.github.zacharee:ComposeIntroSlider:cdd18d55b0'
 
-    implementation "com.bugsnag:bugsnag-android:5.29.0"
+    implementation 'com.bugsnag:bugsnag-android:5.30.0'
 
     implementation 'com.google.accompanist:accompanist-themeadapter-material3:0.30.0'
-    implementation 'com.google.accompanist:accompanist-drawablepainter:0.31.0-alpha'
+    implementation 'com.google.accompanist:accompanist-drawablepainter:0.31.2-alpha'
 
-    implementation 'androidx.compose.material3:material3:1.2.0-SNAPSHOT'
+    implementation 'androidx.compose.material3:material3:1.2.0-alpha01'
     implementation "androidx.compose.foundation:foundation:${compose_version}"
     implementation "androidx.compose.animation:animation:${compose_version}"
     implementation "androidx.compose.foundation:foundation-layout:${compose_version}"
     implementation "androidx.compose.runtime:runtime:${compose_version}"
     implementation "androidx.compose.ui:ui:${compose_version}"
     implementation "androidx.compose.ui:ui-tooling-preview:${compose_version}"
-    implementation 'androidx.activity:activity-compose:1.7.0-rc01'
+    implementation 'androidx.activity:activity-compose:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
 
     debugImplementation "androidx.compose.ui:ui-tooling:${compose_version}"

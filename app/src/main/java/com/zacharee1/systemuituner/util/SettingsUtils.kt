@@ -159,14 +159,15 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
         }.orEmpty().ifBlank { def?.toString() }
     } catch (e: SecurityException) {
         if (Shizuku.pingBinder() && hasShizukuPermission) {
-            @Suppress("DEPRECATION")
-            Shizuku.newProcess(
-                arrayOf("settings", "get", type.toString(), key),
-                null,
-                null
-            ).run {
-                inputStream.bufferedReader().use { it.readLine() }
-            }
+            shizukuServiceManager.waitForService()
+                .run {
+                    when (type) {
+                        SettingsType.GLOBAL -> this.readGlobal(key)
+                        SettingsType.SECURE -> this.readSecure(key)
+                        SettingsType.SYSTEM -> this.readSystem(key)
+                        else -> null
+                    }
+                }
         } else {
             prefManager.savedOptions.find { it.key == key && it.type == type }?.value
         }
@@ -230,17 +231,8 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
             }
             Shizuku.pingBinder() && hasShizukuPermission -> {
                 try {
-                    @Suppress("DEPRECATION")
-                    Shizuku.newProcess(
-                        arrayOf(
-                            "content", "insert",
-                            "--uri content://settings/system",
-                            "--bind name:s:$key",
-                            "--bind value:s:$value",
-                            "--bind package:s:$packageName"
-                        ),
-                        null, null
-                    ).waitFor() == 0
+                    shizukuServiceManager.waitForService()
+                        .writeSystem(key, value.toString(), packageName)
                 } catch (e: Throwable) {
                     Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                     false

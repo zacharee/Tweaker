@@ -15,6 +15,7 @@ import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
+import com.zacharee1.systemuituner.util.shizukuServiceManager
 import org.lsposed.hiddenapibypass.HiddenApiBypass
 import kotlin.system.exitProcess
 
@@ -63,6 +64,8 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             HiddenApiBypass.setHiddenApiExemptions("L")
         }
+
+        shizukuServiceManager.onCreate()
 
         PersistenceHandlerRegistry.register(this)
 
