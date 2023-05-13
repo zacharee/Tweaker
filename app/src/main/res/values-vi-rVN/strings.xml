@@ -311,9 +311,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Không thể ghi vào Settings.System!</string>
-    <string name="write_system_fail_desc">Thật không may, Android đã thêm một số hạn chế về nội dung có thể được ghi vào Settings.System và có vẻ như bạn đã chạm vào một trong những cài đặt hạn chế đó. May mắn thay, có một cách khắc phục hạn chế này, thông qua việc sử dụng ứng dụng bổ sung. Bạn sẽ phải tải xuống từ trang web của tôi, nhưng nó là nguồn mở và miễn phí.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Nhận tiện ích bổ trợ</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">Quyên góp</string>
     <string name="donate_desc">Tôi làm ứng dụng này trong thời gian rảnh của tôi. Nếu bạn thích sử dụng nó, hãy cân nhắc mua cho tôi một tách cà phê (mặc dù tôi không uống cà phê). Tất nhiên, đây là một khoản đóng góp và bạn không phải làm gì cả. Không có tính năng trả phí trong SystemUI Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">Loại bỏ mục này</string>
     <string name="remove_item_desc">Bạn có chắc rằng bạn muốn xóa mục này không?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Pin</string>
     <string name="tile_clock">Đồng hồ</string>
     <string name="tile_demo">Chế độ demo</string>
