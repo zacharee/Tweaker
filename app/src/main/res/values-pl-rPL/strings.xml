@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Podłączony do zasilacza</string>
     <string name="option_keep_awake_on_usb">Podłączony do zasilacza</string>
     <string name="option_keep_awake_on_wireless">Przy zasilaniu bezprzewodowym</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Skala czasu trwania animacji</string>
     <string name="option_window_animation_scale">Skala animacji okna</string>
     <string name="option_transition_animation_scale">Skala animacji przejścia</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Dźwięk, który jest odtwarzany, gdy urządzenie znajduje się na niskim poziomie baterii.</string>
     <string name="option_ui_sound_trusted">Zaufany</string>
     <string name="option_ui_sound_trusted_desc">Dźwięk, który jest odtwarzany, gdy urządzenie wprowadza stan „zaufany” bez odblokowania.</string>
-    <string name="option_ui_sound_wireless_charging">Ładowanie</string>
-    <string name="option_ui_sound_wireless_charging_desc">Dźwięk odtwarzany podczas ładowania urządzenia.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Wyłącz dźwięk ładowania</string>
     <string name="option_ui_sound_disable_charging_desc">Czy wyłączyć dźwięk odtwarzany kiedy urządzenie zaczyna się ładować.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Uprawnienia interfejsu systemowego</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 wprowadził opcję drzemki powiadomień. Możesz użyć tego ustawienia, aby ustawić niestandardowe wartości dla czasu drzemki.</string>
     <string name="option_night_mode">Tryb nocny</string>
     <string name="option_night_mode_desc">Android Nougat wprowadził natywną opcję przyciemniania wyświetlacza żółtego w nocy, zwaną tryb nocny. Został on dalej udoskonalony w Nougat 7.1 i zmieniono nazwę na nocny wyświetlacz. Możesz włączyć ją tutaj i dostosować różne opcje. UWAGA: Na niektórych urządzeniach aktywacja tego spowoduje czarny ekran!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Liczba nagłówków szybkich ustawień</string>
     <string name="option_touchwiz_qs_row_count_desc">W Samsung TouchWiz Nougat i Oreo jest możliwe dostosowanie siatki układów QS z ukrytymi ustawieniami. Użyj tego, aby zmienić liczbę wierszy. Proszę włączyć to jako trwałą opcję.</string>
     <string name="option_touchwiz_qs_column_count">Liczba nagłówków szybkich ustawień</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Czy chcesz zachować zmiany? Ta opcja zostanie cofnięta po %s sekundach.</string>
     <string name="keep">Zachowaj</string>
     <string name="revert">Cofnij</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

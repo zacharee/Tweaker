@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Conectado à tomada</string>
     <string name="option_keep_awake_on_usb">Conectado ao USB</string>
     <string name="option_keep_awake_on_wireless">Conectado ao Wireless Charger</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Escala de duração da Animação</string>
     <string name="option_window_animation_scale">Escala de animação da janela</string>
     <string name="option_transition_animation_scale">Escala de animação de transição</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Áudio que é reproduzido quando o dispositivo está com bateria fraca.</string>
     <string name="option_ui_sound_trusted">Confiável</string>
     <string name="option_ui_sound_trusted_desc">Áudio que é reproduzido quando o dispositivo entra no estado \"confiável\" sem desbloqueio.</string>
-    <string name="option_ui_sound_wireless_charging">Carregando</string>
-    <string name="option_ui_sound_wireless_charging_desc">Áudio que é reproduzido quando o dispositivo está sendo carregado.</string>
+    <string name="option_ui_sound_wireless_charging">Carregamento sem fio</string>
+    <string name="option_ui_sound_wireless_charging_desc">Áudio que é reproduzido quando o dispositivo está sendo carregado sem fio.</string>
+    <string name="option_ui_sound_charging">Carregando</string>
+    <string name="option_ui_sound_charging_desc">Áudio que é reproduzido quando o dispositivo está sendo carregado.</string>
     <string name="option_ui_sound_disable_charging">Desativar sons de carregamento</string>
     <string name="option_ui_sound_disable_charging_desc">Desativar o som que é reproduzido quando o dispositivo inicia o carregamento.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">O Android Oreo 8.1 introduziu uma opção para adiar notificações. Você pode usar essa configuração para definir valores personalizados para os tempos de soneca.</string>
     <string name="option_night_mode">Modo noturno</string>
     <string name="option_night_mode_desc">O Android Nougat 7.0 introduziu uma opção nativa para colorir a exibição de amarelo à noite. Foi refinado em Nougat 7.1, e renomeado para Modo Noturno. Você pode habilitá-lo aqui e ajustar opções diferentes. ATENÇÃO: em alguns dispositivos Android, ativar isso fará com que a tela fique preta!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Contagem de linhas de configurações rápidas</string>
     <string name="option_touchwiz_qs_row_count_desc">No Samsung TouchWiz Nougat e Oreo, é possível personalizar a grade de layout das configurações rápidas com configurações ocultas. Use isto para mudar a contagem de registros. Por favor habilite isto como uma Opção Persistente.</string>
     <string name="option_touchwiz_qs_column_count">Contagem de colunas de configurações rápidas</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Você quer manter as alterações? Esta opção será revertida após %s segundos.</string>
     <string name="keep">Manter</string>
     <string name="revert">Desfazer</string>
+    <string name="increase" desc="This is in verb form.">Aumentar</string>
+    <string name="decrease" desc="This is in verb form.">Diminuir</string>
     <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
     <string name="blocked_reason_write_secure_settings">O SystemUI Tuner não pode funcionar sem a permissão de Gravar Configurações Seguras. Toque no botão \"Ajuda\" se você estiver com problemas para concedê-lo.</string>
     <string name="blocked_reason_choose_os">Por favor, escolha um sistema operacional antes de continuar.</string>

@@ -105,6 +105,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_keep_awake_on_ac">AC güç</string>
     <string name="option_keep_awake_on_usb">USB Güçte</string>
     <string name="option_keep_awake_on_wireless">Kablosuz Güçte</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animatör Süresi Ölçeği</string>
     <string name="option_window_animation_scale">Pencere animasyonu ölçeği</string>
     <string name="option_transition_animation_scale">Geçiş Animasyon Ölçeği</string>
@@ -145,8 +146,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_ui_sound_low_battery_desc">Düşük batarya durumundayken bildirimleri göster.</string>
     <string name="option_ui_sound_trusted">Güvenilir</string>
     <string name="option_ui_sound_trusted_desc">Tr</string>
-    <string name="option_ui_sound_wireless_charging">Şarj oluyor</string>
-    <string name="option_ui_sound_wireless_charging_desc">Cihaz şarjdayken bildirimleri göster.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Şarj oluyor sesini devre dışı bırak</string>
     <string name="option_ui_sound_disable_charging_desc">Cihaz şarj olmaya başladığında çalan sesin devre dışı bırakılıp bırakılmayacağı.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -167,6 +170,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
  İçerik TAalep</string>
     <string name="option_night_mode">Gece Modu</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Hızlı Ayarlar Satır Sayısı</string>
     <string name="option_touchwiz_qs_row_count_desc">Samsung TouchWiz Nougat ve Oreo\'da, QS düzen ızgarasını gizli ayarlarla özelleştirmek mümkündür. Satır sayısını değiştirmek için bunu kullanın. Lütfen bunu Kalıcı Seçenek olarak etkinleştirin.</string>
     <string name="option_touchwiz_qs_column_count">Hızlı ayarlar sütun kareleri</string>
@@ -377,6 +381,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
     <string name="keep">Keep</string>
     <string name="revert">Revert</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

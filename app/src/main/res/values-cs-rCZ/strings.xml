@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Na nabíječce</string>
     <string name="option_keep_awake_on_usb">Napájení z USB</string>
     <string name="option_keep_awake_on_wireless">Bezdrátové napájení</string>
+    <string name="option_keep_awake_on_dock">Na doku</string>
     <string name="option_animator_duration_scale">Měřítko délky animace</string>
     <string name="option_window_animation_scale">Měřítko animace okna</string>
     <string name="option_transition_animation_scale">Měřítko animace přeměny</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Zvuk, který se přehraje, když má telefon málo baterie.</string>
     <string name="option_ui_sound_trusted">Důvěryhodný</string>
     <string name="option_ui_sound_trusted_desc">Zvuk, který se přehrává, když zařízení vstoupí do stavu „důvěryhodné“ bez odemknutí.</string>
-    <string name="option_ui_sound_wireless_charging">Nabíjení</string>
-    <string name="option_ui_sound_wireless_charging_desc">Zvuk, který se přehraje při nabíjení zařízení.</string>
+    <string name="option_ui_sound_wireless_charging">Bezdrátové nabíjení</string>
+    <string name="option_ui_sound_wireless_charging_desc">Zvuk, který se přehraje při bezdrátovém nabíjení zařízení.</string>
+    <string name="option_ui_sound_charging">Nabíjení</string>
+    <string name="option_ui_sound_charging_desc">Zvuk, který se přehraje při nabíjení zařízení.</string>
     <string name="option_ui_sound_disable_charging">Zakázat zvuk nabíjení</string>
     <string name="option_ui_sound_disable_charging_desc">Zakázat zvuk, který hraje při nabíjení zařízení.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Oprávnění System UI</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 zavedl možnost pro odložení oznámení. Toto nastavení můžete použít pro nastavení vlastních hodnot pro dobu odložení.</string>
     <string name="option_night_mode">Noční režim</string>
     <string name="option_night_mode_desc">Android Nougat zavedl původní možnost, která v noci zvýrazní displej žlutou barvou, vhodně nazývaný jako noční režim. Byl dále upraven v Nougat 7. , a přejmenován na Noční displej. Zde jej můžete povolit a upravit různé možnosti. VAROVÁNÍ: Aktivace na některých zařízeních způsobí, že obrazovka je černá!</string>
+    <string name="night_display_temp">Teplota nočního displeje</string>
     <string name="option_touchwiz_qs_row_count">Počet řádků v panelu rychlého nastavení</string>
     <string name="option_touchwiz_qs_row_count_desc">Na Samsung TouchWiz Nougat a Oreo je možné přizpůsobit mřížku rozložení QS se skrytými nastaveními. Použijte pro změnu počtu řádků. </string>
     <string name="option_touchwiz_qs_column_count">Počet sloupců v panelu rychlého nastavení</string>
@@ -331,7 +335,7 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="edit_custom_item">Upravit vlastní pole</string>
     <string name="remove_item">Odstranit tuto položku</string>
     <string name="remove_item_desc">Skutečně chcete tuto položku odstranit?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Typ nastavení: %1$s, Klíč: %2$s, Hodnota: %3$s</string>
     <string name="tile_battery">Baterie</string>
     <string name="tile_clock">Hodiny</string>
     <string name="tile_demo">Demo režim</string>
@@ -371,6 +375,8 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="setting_applied_dialog_desc">Chcete zachovat změny? Tato možnost bude vrácena po %s sekundách.</string>
     <string name="keep">Zachovat</string>
     <string name="revert">Vrátit zpět</string>
+    <string name="increase" desc="This is in verb form.">Zvýšit</string>
+    <string name="decrease" desc="This is in verb form.">Snížit</string>
     <string name="blocked_reason_read_terms">Než budete pokračovat, nezapomeňte si přečíst podmínky.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner nemůže fungovat bez oprávnění Write Secure Settings. Pokud máte potíže s udělením, klepněte na tlačítko \"Nápověda\".</string>
     <string name="blocked_reason_choose_os">Před pokračováním vyberte operační systém.</string>

@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Ở Nguồn điện AC</string>
     <string name="option_keep_awake_on_usb">Ở Nguồn điện USB</string>
     <string name="option_keep_awake_on_wireless">Ở Nguồn điện Không dây</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Tỷ lệ thời lượng ảnh động</string>
     <string name="option_window_animation_scale">Tỷ lệ ảnh động của cửa sổ</string>
     <string name="option_transition_animation_scale">Tỷ lệ hình động chuyển tiếp</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Âm thanh được phát khi thiết bị ở mức pin yếu.</string>
     <string name="option_ui_sound_trusted">Tin cậy</string>
     <string name="option_ui_sound_trusted_desc">Âm thanh được phát khi thiết bị chuyển sang trạng thái “đáng tin cậy” mà không cần mở khóa.</string>
-    <string name="option_ui_sound_wireless_charging">Đang sạc</string>
-    <string name="option_ui_sound_wireless_charging_desc">Âm thanh được phát khi thiết bị đang được sạc.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
     <string name="option_night_mode">Chế độ ban đêm</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
     <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
     <string name="option_touchwiz_qs_column_count">Quick Settings Column Count</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
     <string name="keep">Keep</string>
     <string name="revert">Revert</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

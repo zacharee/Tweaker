@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">接交流電力</string>
     <string name="option_keep_awake_on_usb">接 USB 電力</string>
     <string name="option_keep_awake_on_wireless">接無線電力</string>
+    <string name="option_keep_awake_on_dock">接底座</string>
     <string name="option_animator_duration_scale">動畫影片長度比例</string>
     <string name="option_window_animation_scale">視窗動畫比例</string>
     <string name="option_transition_animation_scale">轉場動畫比例</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">音訊會在電量不足時播放</string>
     <string name="option_ui_sound_trusted">受信</string>
     <string name="option_ui_sound_trusted_desc">裝置進入「信任」狀態而不解除鎖定時播放的音訊</string>
-    <string name="option_ui_sound_wireless_charging">充電</string>
-    <string name="option_ui_sound_wireless_charging_desc">音訊會在裝置充電時播放</string>
+    <string name="option_ui_sound_wireless_charging">無線充電</string>
+    <string name="option_ui_sound_wireless_charging_desc">音訊會在裝置無線充電時播放</string>
+    <string name="option_ui_sound_charging">充電</string>
+    <string name="option_ui_sound_charging_desc">音訊會在裝置充電時播放</string>
     <string name="option_ui_sound_disable_charging">停用充電提示音</string>
     <string name="option_ui_sound_disable_charging_desc">是否停用裝置充電音效</string>
     <string name="option_ui_sound_revoke_system_ui_permission">系統 UI 權限</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 引入了通知延後的選項。您可以使用此設定來自訂延後時間值。</string>
     <string name="option_night_mode">夜間模式</string>
     <string name="option_night_mode_desc">Android Nougat 引入了一個原生選項，在夜間顯示為黃色，稱為「夜間模式」。它在 Nougat 7.1 中得到進一步完善，並更名為「夜燈」。您可以在此處啟用它並調整為不同選項。警告：在某些 Android 裝置上，激活它將使螢幕變黑。</string>
+    <string name="night_display_temp">夜間顯示溫度</string>
     <string name="option_touchwiz_qs_row_count">快速設定列數</string>
     <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以使用隱藏的設定自訂快速設定版面配置網格。用它來變更列數。請啟用此選項為持續選項。</string>
     <string name="option_touchwiz_qs_column_count">快速設定行數</string>
@@ -287,7 +291,7 @@
     <string name="intro_system_alert_window">系統警示視窗</string>
     <string name="intro_system_alert_window_desc">Android 12 和更高版本已經大幅限制了應用程式在背景啟動時或裝置啟動時執行作業的能力。授予 SystemUI Tuner 顯示在其他應用程式上層的權限，將使其免受這些限制，並提高持續選項的可靠性。這個權限是完全可選的。</string>
     <string name="intro_allow_notifications">允許通知</string>
-    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景操作時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
+    <string name="intro_allow_notifications_desc">Android 13 對需要使用者授權才能顯示通知的應用程式引入了新限制。SystemUI Tuner 可能會在執行背景作業時顯示通知。如果您想檢視此通知，請允許 SystemUI Tuner 顯示通知。</string>
     <string name="intro_last">感謝你的使用！</string>
     <string name="intro_last_desc">在 Mastodon 或 Twitter 上跟隨我以取得最新更新。</string>
     <string name="intro_crash_reports">啟用當機報告</string>
@@ -328,7 +332,7 @@
     <string name="edit_custom_item">編輯自訂項</string>
     <string name="remove_item">移除此項目</string>
     <string name="remove_item_desc">您是否確定要移除此項？</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">設定類型：%1$s，金鑰：%2$s，值：%3$s</string>
     <string name="tile_battery">電量</string>
     <string name="tile_clock">時鐘</string>
     <string name="tile_demo">示範模式</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">要保持變更嗎？此選項將在 %s 秒內還原。</string>
     <string name="keep">保持</string>
     <string name="revert">還原</string>
+    <string name="increase" desc="This is in verb form.">增加</string>
+    <string name="decrease" desc="This is in verb form.">減少</string>
     <string name="blocked_reason_read_terms">請確保在繼續之前您已閱讀條款。</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner 功能的正常運作需要「寫入安全設定」權限。若您有任何相關問題，請輕觸「說明」按鈕。</string>
     <string name="blocked_reason_choose_os">在繼續之前，請選擇您的作業系統。</string>

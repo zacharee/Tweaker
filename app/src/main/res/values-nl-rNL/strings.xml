@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">On USB Power</string>
     <string name="option_keep_awake_on_wireless">On Wireless Power</string>
+    <string name="option_keep_awake_on_dock">Op dock</string>
     <string name="option_animator_duration_scale">Animator Duration Scale</string>
     <string name="option_window_animation_scale">Window Animation Scale</string>
     <string name="option_transition_animation_scale">Transition Animation Scale</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Audio that is played when the device is at low battery.</string>
     <string name="option_ui_sound_trusted">Trusted</string>
     <string name="option_ui_sound_trusted_desc">Audio that is played when the device enters the “trusted” state without unlocking.</string>
-    <string name="option_ui_sound_wireless_charging">Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Disable Charging Sound</string>
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Systeem-UI-rechten</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
     <string name="option_night_mode">Night Mode</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="night_display_temp">Schermtemperatuur in nachtmodus</string>
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
     <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
     <string name="option_touchwiz_qs_column_count">Quick Settings Column Count</string>
@@ -328,7 +332,7 @@
     <string name="edit_custom_item">Edit Custom Item</string>
     <string name="remove_item">Remove This Item</string>
     <string name="remove_item_desc">Are you sure you want to remove this item?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Instellingstype: %1$s - Sleutel: %2$s - Waarde: %3$s</string>
     <string name="tile_battery">Battery</string>
     <string name="tile_clock">Clock</string>
     <string name="tile_demo">Demo Mode</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Wil je de wijzigingen behouden? Anders wordt deze optie over %s seconden teruggedraaid.</string>
     <string name="keep">Behouden</string>
     <string name="revert">Terugdraaien</string>
+    <string name="increase" desc="This is in verb form.">Verhogen</string>
+    <string name="decrease" desc="This is in verb form.">Verlagen</string>
     <string name="blocked_reason_read_terms">Lees de voorwaarden voordat je doorgaat.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI-tuner kan niet functioneren zonder het Write Secure Settings-recht. Druk op ‘Hulp’ als je problemen ondervindt met het toekennen ervan.</string>
     <string name="blocked_reason_choose_os">Kies een besturingssysteem voordat je doorgaat.</string>

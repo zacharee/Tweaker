@@ -102,6 +102,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_keep_awake_on_ac">AC tápellátáson</string>
     <string name="option_keep_awake_on_usb">USB tápellátáson</string>
     <string name="option_keep_awake_on_wireless">Vezeték nélküli tápellátás</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animáció tempója</string>
     <string name="option_window_animation_scale">Ablakanimáció tempója</string>
     <string name="option_transition_animation_scale">Áttűnési animáció tempója</string>
@@ -142,8 +143,10 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_ui_sound_low_battery_desc">Hang, amely akkor szólal meg, amikor a készülék akkumulátora lemerül.</string>
     <string name="option_ui_sound_trusted">Megbízható</string>
     <string name="option_ui_sound_trusted_desc">A hang, amely akkor szólal meg, amikor a készülék feloldás nélkül \"megbízható\" állapotba kerül.</string>
-    <string name="option_ui_sound_wireless_charging">Töltés</string>
-    <string name="option_ui_sound_wireless_charging_desc">A készülék töltése közben lejátszott hang.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Töltési hang kikapcsolása</string>
     <string name="option_ui_sound_disable_charging_desc">A készülék töltésének megkezdésekor lejátszódó hang kikapcsolása.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -162,6 +165,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_custom_notification_snooze_times_desc">Az Android Oreo 8.1 bevezette az értesítések szundi beállítását. Ezzel a beállítással egyéni értékeket állíthat be a szundi időkre.</string>
     <string name="option_night_mode">Éjszakai mód</string>
     <string name="option_night_mode_desc">Az Android Nougat bevezetett egy natív opciót a kijelző éjszakai sárgára színezésére, amelyet találóan Night Mode-nak hívnak. A Nougat 7.1-ben tovább finomították, és átnevezték Night Display-re. Itt engedélyezheti, és különböző beállításokat állíthat be. FIGYELMEZTETÉS: Egyes eszközökön, ha ezt aktiválja, a képernyő elsötétül!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Gyorsbeállítások sorainak száma</string>
     <string name="option_touchwiz_qs_row_count_desc">A Samsung TouchWiz Nougat és Oreo készülékeken lehetőség van a QS elrendezési rács testreszabására rejtett beállításokkal.. Ezzel megváltoztathatja a sorok számát. Kérjük, engedélyezze ezt tartós opcióként.</string>
     <string name="option_touchwiz_qs_column_count">Gyorsbeállítások oszlopok száma</string>
@@ -370,6 +374,8 @@ Néma láthatóság</string>
     <string name="setting_applied_dialog_desc">Szeretnéd megtartani a módosításokat? Ez a beállítás vissza lesz állítva %s másodperc múlva.</string>
     <string name="keep">Megtartás</string>
     <string name="revert">Visszaállítás</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

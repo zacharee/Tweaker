@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Ton, der wiedergegeben werden soll, wenn der Akkustand des Geräts niedrig ist.</string>
     <string name="option_ui_sound_trusted">Vertrauenswürdig</string>
     <string name="option_ui_sound_trusted_desc">Ton, der wiedergegeben wird, wenn das Gerät als „vertrauenswürdig” eingestuft wird, ohne entsperrt zu werden.</string>
-    <string name="option_ui_sound_wireless_charging">Wird aufgeladen</string>
-    <string name="option_ui_sound_wireless_charging_desc">Ton, der wiedergegeben werden soll, wenn das Gerät geladen wird.</string>
+    <string name="option_ui_sound_wireless_charging">Kabelloses Laden</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Aufladeton deaktivieren</string>
     <string name="option_ui_sound_disable_charging_desc">Legt fest, ob der Ton, der beim Beginn des Ladevorgangs wiedergegeben wird, deaktiviert werden soll.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Mit Android Oreo 8.1 wurde eine Option zum Zurückstellen von Benachrichtigungen eingeführt. Sie können diese Einstellung verwenden, um benutzerdefinierte Werte für die Zurückstellenzeiten festzulegen.</string>
     <string name="option_night_mode">Nachtmodus</string>
     <string name="option_night_mode_desc">Mit Android Nougat wurde eine native Option eingeführt, mit der das Display nachts gelb eingefärbt werden kann, treffend Nachtmodus genannt. Sie wurde in Nougat 7.1 weiter verfeinert und in Night Display umbenannt. Sie können sie hier aktivieren und verschiedene Optionen einstellen. Warnhinweis: Bei einigen Geräten führt die Aktivierung dieser Funktion dazu, dass der Bildschirm schwarz wird!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Anzahl Zeilen der Schnelleinstellungskacheln</string>
     <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
     <string name="option_touchwiz_qs_column_count">Anzahl Spalten der Schnelleinstellungskacheln</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Möchten Sie die Änderungen beibehalten? Diese Option wird nach %s Sekunden zurückgesetzt.</string>
     <string name="keep">Beibehalten</string>
     <string name="revert">Zurücksetzen</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Bitte lesen Sie unbedingt die Bedingungen, bevor Sie fortfahren.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner kann ohne die Berechtigung „Schreibrechte für Sicherheitseinstellungen” nicht funktionieren. Tippen Sie auf die Schaltfläche „Hilfe”, wenn Sie Probleme bei der Erteilung der Berechtigung haben.</string>
     <string name="blocked_reason_choose_os">Bitte wählen Sie ein Betriebssystem, bevor Sie fortfahren.</string>

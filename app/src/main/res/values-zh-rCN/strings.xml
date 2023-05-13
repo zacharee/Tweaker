@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">交流供电</string>
     <string name="option_keep_awake_on_usb">USB供电</string>
     <string name="option_keep_awake_on_wireless">无线供电</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">动画持续时间</string>
     <string name="option_window_animation_scale">窗口动画缩放</string>
     <string name="option_transition_animation_scale">过渡动画缩放</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">设备电池电量低时播放的音频。</string>
     <string name="option_ui_sound_trusted">信任的</string>
     <string name="option_ui_sound_trusted_desc">设备进入“信任”状态而不解锁时播放的音频。</string>
-    <string name="option_ui_sound_wireless_charging">充电中</string>
-    <string name="option_ui_sound_wireless_charging_desc">设备充电时播放的音频。</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">禁用充电声音</string>
     <string name="option_ui_sound_disable_charging_desc">是否禁用设备开始充电时播放的声音。</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1引入了暂停通知的选项。您可以使用此设置设置来设置暂停时间的自定义值。</string>
     <string name="option_night_mode">夜间模式</string>
     <string name="option_night_mode_desc">Android Nougat引入了一个本机选项，在夜间显示黄色，称之为夜间模式。 它在Nougat 7.1中得到进一步完善，并更名为夜间显示。 您可以在此处启用它并调整不同的选项。警告: 在某些Android设备上，激活它将导致屏幕变黑！</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">快速设置行数</string>
     <string name="option_touchwiz_qs_row_count_desc">在 Samsung TouchWiz Nougat 和 Oreo 上，可以用隐藏的设置自定义快速设置布局。 用它来更改行数。请启用此选项为持久选项。</string>
     <string name="option_touchwiz_qs_column_count">快速设置列计数</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">您想要保留更改吗？此选项将在%s秒后恢复。</string>
     <string name="keep">保持</string>
     <string name="revert">还原</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

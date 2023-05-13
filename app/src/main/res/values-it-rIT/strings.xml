@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">Alimentazione da rete</string>
     <string name="option_keep_awake_on_usb">Alimentazione da USB</string>
     <string name="option_keep_awake_on_wireless">Alimentazione wireless</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Durata dell\'animazione</string>
     <string name="option_window_animation_scale">Durata dell\'animazione della finestra</string>
     <string name="option_transition_animation_scale">Durata della transizione</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Audio che viene riprodotto quando il dispositivo ha batteria quasi scarica.</string>
     <string name="option_ui_sound_trusted">Affidabile</string>
     <string name="option_ui_sound_trusted_desc">Audio che viene riprodotto quando il dispositivo entra nello stato “fidato” senza sbloccare.</string>
-    <string name="option_ui_sound_wireless_charging">In carica</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio che viene riprodotto quando il dispositivo è in carica.</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Disattiva i suoni di carica</string>
     <string name="option_ui_sound_disable_charging_desc">Indica se disabilitare il suono quando il dispositivo inizia la ricarica.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -162,6 +165,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 ha introdotto un\'opzione per posticipare le notifiche. È possibile utilizzare questa impostazione per impostare valori personalizzati per i tempi di posticipo.</string>
     <string name="option_night_mode">Modalità notturna</string>
     <string name="option_night_mode_desc">Android Nougat ha introdotto un\'opzione nativa per colorare il display di giallo di notte, chiamato Modalità Notte, rinominato in Night Display. Puoi abilitarlo qui e regolare diverse opzioni. ATTENZIONE: su alcuni dispositivi, l\'attivazione di questo farà sì che lo schermo diventi nero!</string>
+    <string name="night_display_temp">Visualizzazione notturna temperatura</string>
     <string name="option_touchwiz_qs_row_count">Numero di Righe in QS</string>
     <string name="option_touchwiz_qs_row_count_desc">Su Samsung TouchWiz Nougat e Oreo, è possibile personalizzare la griglia di layout con impostazioni nascoste. Usa questo per cambiare il numero delle righe. Abilita questa opzione come opzione persistente.</string>
     <string name="option_touchwiz_qs_column_count">Conteggio Colonna Impostazioni Rapide</string>
@@ -329,7 +333,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="edit_custom_item">Modifica l\'elemento personalizzato</string>
     <string name="remove_item">Rimuovi oggetto</string>
     <string name="remove_item_desc">Sei sicuro di voler rimuovere questo elemento?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Tipo d\'impostazioni: %1$s, Chiave: %2$s, Valore: %3$s</string>
     <string name="tile_battery">Batteria</string>
     <string name="tile_clock">Orologio</string>
     <string name="tile_demo">Modalità demo</string>
@@ -369,6 +373,8 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="setting_applied_dialog_desc">Vuoi mantenere le modifiche? Questa opzione sarà ripristinata dopo %s secondi.</string>
     <string name="keep">Mantieni</string>
     <string name="revert">Ripristina</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>

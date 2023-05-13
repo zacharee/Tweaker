@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">От сети</string>
     <string name="option_keep_awake_on_usb">Питание от USB</string>
     <string name="option_keep_awake_on_wireless">На беспроводной зарядке</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Длительность анимации</string>
     <string name="option_window_animation_scale">Длительность анимации окон</string>
     <string name="option_transition_animation_scale">Длительность анимации переходов</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">Звук, воспроизводимый при низком заряде батареи.</string>
     <string name="option_ui_sound_trusted">Доверенное состояние</string>
     <string name="option_ui_sound_trusted_desc">Звук, воспроизводимый когда телефон переходит в режим «доверенное состояние» без разблокировки.</string>
-    <string name="option_ui_sound_wireless_charging">Зарядка</string>
-    <string name="option_ui_sound_wireless_charging_desc">Звук, воспроизводимый при зарядке устройства.</string>
+    <string name="option_ui_sound_wireless_charging">Беспроводная зарядка</string>
+    <string name="option_ui_sound_wireless_charging_desc">Звук, воспроизводимый при беспроводной зарядке.</string>
+    <string name="option_ui_sound_charging">Зарядка</string>
+    <string name="option_ui_sound_charging_desc">Звук, воспроизводимый при зарядке устройства.</string>
     <string name="option_ui_sound_disable_charging">Отключить звук зарядки</string>
     <string name="option_ui_sound_disable_charging_desc">Выключить звук, воспроизводимый при начале зарядке устройства.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Разрешения System UI</string>
@@ -161,6 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 ввёл опцию отсрочки уведомлений. Этот параметр можно использовать для установки пользовательских значений для время отсрочки.</string>
     <string name="option_night_mode">Ночной режим</string>
     <string name="option_night_mode_desc">Android Nougat представил родной вариант изменения оттенка экрана на жёлтый по ночам, названный «Ночной режим». Он был доработан в Nougat 7.1 и переименован в «Ночной экран». Вы можете включить его здесь и настроить различные параметры. ВНИМАНИЕ: на некоторых устройствах Android активация этого сделает экран чёрным!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Количество строк быстрых настроек</string>
     <string name="option_touchwiz_qs_row_count_desc">На Samsung TouchWiz Nougat и Oreo можно настроить сетку QS скрытыми настройками. Используйте это для изменения количества строк. Пожалуйста, включите это в постоянных настройках.</string>
     <string name="option_touchwiz_qs_column_count">Количество столбцов быстрых настроек</string>
@@ -328,7 +332,7 @@
     <string name="edit_custom_item">Редактирование пользовательское поле</string>
     <string name="remove_item">Удалить этот элемент</string>
     <string name="remove_item_desc">Вы уверены, что хотите удалить этот элемент?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Тип настроек: %1$s, Ключ: %2$s, Значение: %3$s</string>
     <string name="tile_battery">Батарея</string>
     <string name="tile_clock">Часы</string>
     <string name="tile_demo">Демо-режим</string>
@@ -368,6 +372,8 @@
     <string name="setting_applied_dialog_desc">Хотите сохранить изменения? Эта настройка будет возвращена через %s сек.</string>
     <string name="keep">Оставить</string>
     <string name="revert">Вернуть</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Пожалуйста прочитайте условия, прежде чем продолжить.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner не может работать без разрешения Write Secure Settings. Нажмите кнопку «Помощь», если у вас возникли проблемы с ее предоставлением.</string>
     <string name="blocked_reason_choose_os">Прежде чем продолжить, выберите операционную систему.</string>

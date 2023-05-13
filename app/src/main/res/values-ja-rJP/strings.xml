@@ -39,7 +39,7 @@
     <string name="sub_power">電源</string>
     <string name="add_to_blacklist">アイコンをブラックリストに追加</string>
     <string name="remove_from_blacklist">アイコンをブラックリストから削除</string>
-    <string name="flashlight">懐中電灯</string>
+    <string name="flashlight">ライト</string>
     <string name="sub_demo">デモモード</string>
     <string name="sub_demo_desc">デモモードでは、デバイスのステータスバーを強制的に異なる状態にすることができます。特定のアイコンを表示/非表示、電波強度を指定したり、さまざまな使い方ができます。</string>
     <string name="special_sub_airplane_mode">機内モードの調整</string>
@@ -101,6 +101,7 @@
     <string name="option_keep_awake_on_ac">AC電源で</string>
     <string name="option_keep_awake_on_usb">AC電源で</string>
     <string name="option_keep_awake_on_wireless">ワイヤレス充電時</string>
+    <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animator再生時間スケール</string>
     <string name="option_window_animation_scale">ウィンドウアニメーションスケール</string>
     <string name="option_transition_animation_scale">トランジションアニメスケール</string>
@@ -141,8 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">端末の電池残量が少ない時に再生される音声</string>
     <string name="option_ui_sound_trusted">信頼性あり</string>
     <string name="option_ui_sound_trusted_desc">端末が信頼可能な状態になった時に再生される音声</string>
-    <string name="option_ui_sound_wireless_charging">充電</string>
-    <string name="option_ui_sound_wireless_charging_desc">端末の充電が開始された時に再生される音声</string>
+    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">充電終了音</string>
     <string name="option_ui_sound_disable_charging_desc">デバイスが充電を開始したときに再生される音声を無効にするかどうかを設定します。</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI の権限</string>
@@ -167,6 +170,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
     <string name="option_night_mode">Night Mode</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
+    <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
     <string name="option_touchwiz_qs_row_count_desc">On Samsung TouchWiz Nougat and Oreo, it\'s possible to customize the QS layout grid with hidden settings. Use this to change the row count. Please enable this as a Persistent Option.</string>
     <string name="option_touchwiz_qs_column_count">Quick Settings Column Count</string>
@@ -204,7 +208,7 @@
     <string name="immersive_blacklist">Blacklist</string>
     <string name="immersive_whitelist">Whitelist</string>
     <string name="advanced">Advanced</string>
-    <string name="all_apps">All Apps</string>
+    <string name="all_apps">全てのアプリ</string>
     <string name="select_apps">Select Apps</string>
     <string name="radio">Radio</string>
     <string name="reset">Reset</string>
@@ -244,9 +248,9 @@
     <string name="next">Next</string>
     <string name="finish">Finish</string>
     <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
-    <string name="error">Error</string>
+    <string name="exit">終了</string>
+    <string name="done">完了</string>
+    <string name="error">エラー</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
@@ -295,7 +299,7 @@
     <string name="intro_allow_notifications">Allow Notifications</string>
     <string name="intro_allow_notifications_desc">Android 13 introduces a new restriction on apps requiring permission from the user to display notifications. SystemUI Tuner may show a notification when running background operations. If you would like to see this notification, please allow SystemUI Tuner to show notifications.</string>
     <string name="intro_last">Thanks for using my app!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">TwitterかMastodonでフォローして最新情報を入手する</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
@@ -374,6 +378,8 @@
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
     <string name="keep">Keep</string>
     <string name="revert">Revert</string>
+    <string name="increase" desc="This is in verb form.">Increase</string>
+    <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
