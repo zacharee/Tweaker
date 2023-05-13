@@ -312,9 +312,13 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Impossibile scrivere su impostazioni di sistema!</string>
-    <string name="write_system_fail_desc">Purtroppo, Android ha aggiunto alcune restrizioni su ciò che può essere scritto sulle impostazioni di sistema, e sembra che tu ne abbia incontrato una. Per fortuna, è possibile aggirare questa restrizione attraverso l\'uso di un\'app aggiuntiva. Dovrai scaricarla da XDA Labs, ma è gratuita e open source.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">Dona</string>
     <string name="donate_desc">Sviluppo questa app nel mio tempo libero. Se ti piace usarla, considera di comprarmi una tazza di caffè (anche se non bevo caffè). Naturalmente, questa è una donazione, e non devi fare nulla. Non ci sono funzioni a pagamento in SystemUl Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -334,6 +338,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="remove_item">Rimuovi oggetto</string>
     <string name="remove_item_desc">Sei sicuro di voler rimuovere questo elemento?</string>
     <string name="custom_persistent_option_summary_template">Tipo d\'impostazioni: %1$s, Chiave: %2$s, Valore: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Batteria</string>
     <string name="tile_clock">Orologio</string>
     <string name="tile_demo">Modalità demo</string>
