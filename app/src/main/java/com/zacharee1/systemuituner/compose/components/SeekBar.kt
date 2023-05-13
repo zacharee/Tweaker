@@ -148,8 +148,7 @@ fun SeekBar(
                     onClick = {
                         showingValueInput = true
                     },
-                    // TODO: Remove once https://issuetracker.google.com/issues/272483584 is fixed.
-                    enabled = false,
+                    enabled = true,
                 )
             )
 

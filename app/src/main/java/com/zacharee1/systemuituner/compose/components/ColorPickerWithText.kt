@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -27,6 +28,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -60,7 +64,7 @@ fun ColorPickerWithText(
     modifier: Modifier = Modifier,
 ) {
     var hexCode by remember(color) {
-        mutableStateOf(color.toHex(true))
+        mutableStateOf(color.toHex(true).uppercase())
     }
     var error by remember(color, hexCode) {
         mutableStateOf(hexCode.hexToColorIntOrNull() == null)
@@ -111,7 +115,13 @@ fun ColorPickerWithText(
 
             OutlinedTextField(
                 value = hexCode,
-                onValueChange = { hexCode = it.ifBlank { "#" }.trim() },
+                onValueChange = {
+                    val noHex = it.replace("#", "")
+                    val removeDisallowedCharacters = noHex.replace(Regex("[^a-fA-F0-9]"), "")
+                    val prependHex = "#$removeDisallowedCharacters"
+
+                    hexCode = prependHex.trim()
+                },
                 trailingIcon = if (hexCode != color.toHex(true)) {
                     {
                         if (error) {
@@ -142,6 +152,12 @@ fun ColorPickerWithText(
                 } else null,
                 isError = error,
                 modifier = Modifier.weight(1f),
+                keyboardOptions = KeyboardOptions(
+                    capitalization = KeyboardCapitalization.Characters,
+                    autoCorrect = false,
+                    imeAction = ImeAction.Done,
+                    keyboardType = KeyboardType.Ascii,
+                )
             )
 
             OutlinedButton(onClick = { onColorChanged(defaultColor) }) {
