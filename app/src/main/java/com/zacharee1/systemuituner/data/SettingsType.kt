@@ -6,6 +6,15 @@ enum class SettingsType(val value: Int) {
     SECURE(1),
     SYSTEM(2);
 
+    fun toLibraryType(): com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType {
+        return when (this) {
+            UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")
+            GLOBAL -> com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.GLOBAL
+            SECURE -> com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SECURE
+            SYSTEM -> com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SYSTEM
+        }
+    }
+
     companion object {
         const val UNDEFINED_LITERAL = "undefined"
         const val GLOBAL_LITERAL = "global"

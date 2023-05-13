@@ -12,6 +12,9 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import com.bugsnag.android.Bugsnag
 import com.zacharee1.systemuituner.services.Manager
+import com.zacharee1.systemuituner.systemsettingsaddon.library.ISettingsService
+import com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsAddon
+import com.zacharee1.systemuituner.systemsettingsaddon.library.settingsAddon
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
@@ -19,7 +22,7 @@ import com.zacharee1.systemuituner.util.shizukuServiceManager
 import org.lsposed.hiddenapibypass.HiddenApiBypass
 import kotlin.system.exitProcess
 
-class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
+class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, SettingsAddon.BinderListener {
     companion object {
         private val connection = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName?, service: IBinder?) {}
@@ -67,6 +70,9 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
 
         shizukuServiceManager.onCreate()
 
+        settingsAddon.addBinderListener(this)
+        settingsAddon.bindOnceAvailable()
+
         PersistenceHandlerRegistry.register(this)
 
         updateServiceState(this)
@@ -80,6 +86,9 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
             }
         }
     }
+
+    override fun onBinderAvailable(binder: ISettingsService) {}
+    override fun onBinderUnavailable() {}
 
     private fun initExceptionHandler() {
         val previousHandler = Thread.getDefaultUncaughtExceptionHandler()
@@ -136,6 +145,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener {
             }
         }
 
+        @Suppress("RecursivePropertyAccessor")
         private val Throwable?.hasDeadObjectCause: Boolean
             get() = this != null && (this is DeadObjectException || this.cause.hasDeadObjectCause)
     }

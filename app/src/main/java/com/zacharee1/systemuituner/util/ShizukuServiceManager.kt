@@ -5,11 +5,13 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.ServiceConnection
+import android.content.pm.PackageManager
 import android.os.IBinder
 import com.zacharee1.systemuituner.BuildConfig
 import com.zacharee1.systemuituner.IShizukuOperationsService
 import com.zacharee1.systemuituner.services.ShizukuOperationsService
 import rikka.shizuku.Shizuku
+import rikka.shizuku.ShizukuProvider
 import java.util.concurrent.ConcurrentLinkedQueue
 
 val Context.shizukuServiceManager: ShizukuServiceManager
@@ -42,6 +44,14 @@ class ShizukuServiceManager private constructor(context: Context) : ContextWrapp
             this@ShizukuServiceManager.service = null
         }
     }
+
+    val isShizukuInstalled: Boolean
+        get() = try {
+            packageManager.getApplicationInfoCompat("moe.shizuku.privileged.api")
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
+        }
 
     private val shizukuServiceArgs = Shizuku.UserServiceArgs(
         ComponentName(

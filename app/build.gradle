@@ -93,6 +93,7 @@ dependencies {
     implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
     implementation 'com.github.zacharee:ComposeIntroSlider:67013b1426'
+    implementation 'com.github.zacharee:SystemUITunerSystemSettings:b5d86f98ee'
 
     implementation 'com.bugsnag:bugsnag-android:5.30.0'
 

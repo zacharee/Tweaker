@@ -111,8 +111,30 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.RecommendSystemAddOn"
+        <activity android:name=".activities.WriteSettingFailActivity"
             android:exported="false"
+            android:launchMode="singleInstancePerTask"
+            android:configChanges="orientation
+            |keyboard
+            |screenSize
+            |smallestScreenSize
+            |keyboardHidden
+            |screenLayout
+            |colorMode
+            |density
+            |fontScale
+            |fontWeightAdjustment
+            |layoutDirection
+            |locale
+            |mcc
+            |mnc
+            |navigation
+            |touchscreen
+            |uiMode"
+            />
+        <activity android:name=".activities.ReadSettingFailActivity"
+            android:exported="false"
+            android:launchMode="singleInstancePerTask"
             android:configChanges="orientation
             |keyboard
             |screenSize

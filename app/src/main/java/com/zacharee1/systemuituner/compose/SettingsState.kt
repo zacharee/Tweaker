@@ -3,7 +3,6 @@ package com.zacharee1.systemuituner.compose
 import android.content.Context
 import android.database.ContentObserver
 import android.provider.Settings
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -183,20 +182,24 @@ fun <T : Any?> Context.rememberSettingsState(
     }
 
     LaunchedEffect(key1 = state.value.hashCode()) {
-        if (writer != null) {
-            if (!writer(state.value)) {
-                state.value = value()
-            }
-        } else {
-            if (!writeSettingsBulk(
-                    *keys.map { (type, key) ->
-                        SettingsInfo(type, key, state.value)
-                    }.toTypedArray(),
-                    revertable = revertable,
-                    saveOption = saveOption,
-                )
-            ) {
-                state.value = value()
+        val currentValues = keys.map { (type, key) -> getSetting(type, key) }.toSet()
+
+        if (currentValues.size > 1 || currentValues.firstOrNull() != state.value?.toString()) {
+            if (writer != null) {
+                if (!writer(state.value)) {
+                    state.value = value()
+                }
+            } else {
+                if (!writeSettingsBulk(
+                        *keys.map { (type, key) ->
+                            SettingsInfo(type, key, state.value)
+                        }.toTypedArray(),
+                        revertable = revertable,
+                        saveOption = saveOption,
+                    )
+                ) {
+                    state.value = value()
+                }
             }
         }
     }
@@ -204,7 +207,6 @@ fun <T : Any?> Context.rememberSettingsState(
     DisposableEffect(key1 = keys) {
         val observer = object : ContentObserver(null) {
             override fun onChange(selfChange: Boolean) {
-                Log.e("SystemUITuner", "Changed ${state.value} ${value()}")
                 state.value = value()
             }
         }

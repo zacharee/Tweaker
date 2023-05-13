@@ -1,22 +1,19 @@
 package com.zacharee1.systemuituner.util
 
-import android.app.Activity
-import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.os.CountDownTimer
 import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.activities.RecommendSystemAddOn
+import com.zacharee1.systemuituner.activities.ReadSettingFailActivity
+import com.zacharee1.systemuituner.activities.WriteSettingFailActivity
 import com.zacharee1.systemuituner.data.SettingsType
-import com.zacharee1.systemuituner.data.WriteSystemAddOnValues
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
+import com.zacharee1.systemuituner.systemsettingsaddon.library.settingsAddon
 import com.zacharee1.systemuituner.views.LockscreenShortcuts
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -158,18 +155,28 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
             SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
         }.orEmpty().ifBlank { def?.toString() }
     } catch (e: SecurityException) {
-        if (Shizuku.pingBinder() && hasShizukuPermission) {
-            shizukuServiceManager.waitForService()
-                .run {
-                    when (type) {
-                        SettingsType.GLOBAL -> this.readGlobal(key)
-                        SettingsType.SECURE -> this.readSecure(key)
-                        SettingsType.SYSTEM -> this.readSystem(key)
-                        else -> null
+        when {
+            Shizuku.pingBinder() && hasShizukuPermission -> {
+                shizukuServiceManager.waitForService()
+                    .run {
+                        when (type) {
+                            SettingsType.GLOBAL -> this.readGlobal(key)
+                            SettingsType.SECURE -> this.readSecure(key)
+                            SettingsType.SYSTEM -> this.readSystem(key)
+                            else -> null
+                        }
                     }
-                }
-        } else {
-            prefManager.savedOptions.find { it.key == key && it.type == type }?.value
+            }
+            settingsAddon.hasService -> {
+                settingsAddon.binder?.readSetting(
+                    type.toLibraryType(),
+                    key
+                )
+            }
+            else -> {
+                ReadSettingFailActivity.start(this, type, key)
+                null
+            }
         }
     }
 }
@@ -201,6 +208,7 @@ private fun Context.writeGlobal(key: String?, value: Any?): Boolean {
         true
     } catch (e: SecurityException) {
         Log.e("SystemUITuner", "Failed to write to Global", e)
+        WriteSettingFailActivity.start(this, SettingsType.GLOBAL, key, value)
         false
     }
 }
@@ -212,30 +220,40 @@ private fun Context.writeSecure(key: String?, value: Any?): Boolean {
         true
     } catch (e: SecurityException) {
         Log.e("SystemUITuner", "Failed to write to Secure", e)
+        WriteSettingFailActivity.start(this, SettingsType.SECURE, key, value)
         false
     }
 }
 
 private fun Context.writeSystem(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
-    fun onFail(e: Exception): Boolean {
+    fun onFail(e: Exception): Boolean? {
         return when {
             Shell.rootAccess() -> {
                 Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
                     .exec()
                 true
             }
-            isWriteSystemAddOnInstalled() -> {
-                writeSystemSettingsWithAddOnNoResult(key, value)
-                true
-            }
             Shizuku.pingBinder() && hasShizukuPermission -> {
                 try {
                     shizukuServiceManager.waitForService()
-                        .writeSystem(key, value.toString(), packageName)
+                        .writeSystem(key, value?.toString(), packageName)
                 } catch (e: Throwable) {
                     Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                     false
+                }
+            }
+            settingsAddon.hasService -> {
+                val result = settingsAddon.binder?.writeSetting(
+                    com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SYSTEM,
+                    key,
+                    value?.toString()
+                )
+
+                if (result == true) {
+                    true
+                } else {
+                    null
                 }
             }
             else -> {
@@ -254,10 +272,12 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
         onFail(e)
     } catch (e: NullPointerException) {
         onFail(e)
-    }.also {
-        if (!it) {
-            RecommendSystemAddOn.start(this, key, value)
+    }.let {
+        if (it == false) {
+            WriteSettingFailActivity.start(this, SettingsType.SYSTEM, key, value)
         }
+
+        it ?: false
     }
 }
 
@@ -321,53 +341,6 @@ fun Context.buildNonResettablePreferences(): Set<String> {
         }: ${it.key}"
     })
     return names
-}
-
-fun Context.writeSystemSettingsWithAddOnNoResult(key: String?, value: Any?) {
-    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName(
-        "tk.zwander.systemuituner.systemsettings",
-        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
-    )
-
-    try {
-        startActivity(intent)
-    } catch (e: ActivityNotFoundException) {
-        Log.e("SystemUITuner", "Add-on error", e)
-    }
-}
-
-fun Activity.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
-    val intent = Intent(WriteSystemAddOnValues.ACTION_WRITE_SYSTEM)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_KEY, key)
-    intent.putExtra(WriteSystemAddOnValues.EXTRA_VALUE, value?.toString())
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    intent.setClassName(
-        "tk.zwander.systemuituner.systemsettings",
-        "tk.zwander.systemuituner.systemsettings.WriteSystemActivity"
-    )
-
-    try {
-        startActivityForResult(intent, WriteSystemAddOnValues.WRITE_SYSTEM_REQUEST_CODE)
-    } catch (e: ActivityNotFoundException) {
-        Log.e("SystemUITuner", "Add-on error", e)
-    }
-}
-
-fun Fragment.writeSystemSettingsWithAddOnResult(key: String?, value: Any?) {
-    requireActivity().writeSystemSettingsWithAddOnResult(key, value)
-}
-
-fun Context.isWriteSystemAddOnInstalled(): Boolean {
-    return try {
-        packageManager.getPackageInfoCompat("tk.zwander.systemuituner.systemsettings")
-        true
-    } catch (e: Exception) {
-        false
-    }
 }
 
 fun Context.buildDefaultSamsungLockScreenShortcuts(): String {

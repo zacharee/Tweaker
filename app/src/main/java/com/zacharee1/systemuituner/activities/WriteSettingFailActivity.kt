@@ -21,23 +21,27 @@ import androidx.compose.ui.unit.dp
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.launchUrl
+import com.zacharee1.systemuituner.util.shizukuServiceManager
 import dev.zwander.composeintroslider.IntroSlider
 import dev.zwander.composeintroslider.SimpleIntroPage
 
-class RecommendSystemAddOn : ComponentActivity() {
+class WriteSettingFailActivity : ComponentActivity() {
     companion object {
+        private const val EXTRA_TYPE = "settings_type"
         private const val EXTRA_KEY = "settings_key"
         private const val EXTRA_VALUE = "settings_value"
 
-        fun start(context: Context, key: String, value: Any?) {
-            val intent = Intent(context, RecommendSystemAddOn::class.java)
+        fun start(context: Context, type: SettingsType, key: String, value: Any?) {
+            val intent = Intent(context, WriteSettingFailActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra(EXTRA_TYPE, type)
             intent.putExtra(EXTRA_KEY, key)
             intent.putExtra(EXTRA_VALUE, value?.toString())
             context.startActivity(intent)
         }
     }
 
+    private val settingsType: SettingsType? by lazy { intent.getSerializableExtra(EXTRA_TYPE) as? SettingsType? }
     private val settingsKey: String? by lazy { intent.getStringExtra(EXTRA_KEY) }
     private val settingsValue: String? by lazy { intent.getStringExtra(EXTRA_VALUE) }
 
@@ -56,7 +60,7 @@ class RecommendSystemAddOn : ComponentActivity() {
                         Text(
                             text = stringResource(
                                 id = R.string.custom_persistent_option_summary_template,
-                                SettingsType.SYSTEM.name, settingsKey.toString(), settingsValue.toString()
+                                settingsType?.name.toString(), settingsKey.toString(), settingsValue.toString()
                             )
                         )
 
@@ -66,6 +70,23 @@ class RecommendSystemAddOn : ComponentActivity() {
                             launchUrl("https://zwander.dev/dialog-systemuitunersystemsettingsadd-on")
                         }) {
                             Text(text = stringResource(id = R.string.write_system_fail_get_add_on))
+                        }
+
+                        if (shizukuServiceManager.isShizukuInstalled) {
+                            OutlinedButton(onClick = {
+                                startActivity(Intent(Intent.ACTION_MAIN).apply {
+                                    addCategory(Intent.CATEGORY_LAUNCHER)
+                                    `package` = "moe.shizuku.privileged.api"
+                                })
+                            }) {
+                                Text(text = stringResource(id = R.string.open_shizuku))
+                            }
+                        } else {
+                            OutlinedButton(onClick = {
+                                launchUrl("https://shizuku.rikka.app")
+                            }) {
+                                Text(text = stringResource(id = R.string.download_shizuku))
+                            }
                         }
                     }
                 ))
