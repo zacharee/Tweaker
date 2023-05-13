@@ -311,9 +311,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write to Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Get Add-On</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">Doneză</string>
     <string name="donate_desc">I make this app in my free time. If you enjoy using it, consider buying me a cup of coffee (even though I don\'t drink coffee). Of course, this is a donation, and you don\'t have to do anything. There are no pay-walled features in SystemUI Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">Remove This Item</string>
     <string name="remove_item_desc">Are you sure you want to remove this item?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Battery</string>
     <string name="tile_clock">Clock</string>
     <string name="tile_demo">Demo Mode</string>
