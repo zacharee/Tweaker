@@ -92,7 +92,7 @@ dependencies {
     implementation 'com.github.zacharee:SeekBarPreference:1b37341e49'
     implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
-    implementation 'com.github.zacharee:ComposeIntroSlider:cdd18d55b0'
+    implementation 'com.github.zacharee:ComposeIntroSlider:67013b1426'
 
     implementation 'com.bugsnag:bugsnag-android:5.30.0'
 
@@ -106,7 +106,7 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:${compose_version}"
     implementation "androidx.compose.ui:ui:${compose_version}"
     implementation "androidx.compose.ui:ui-tooling-preview:${compose_version}"
-    implementation 'androidx.activity:activity-compose:1.7.0'
+    implementation 'androidx.activity:activity-compose:1.7.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
 
     debugImplementation "androidx.compose.ui:ui-tooling:${compose_version}"
