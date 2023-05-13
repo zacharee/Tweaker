@@ -311,9 +311,13 @@
     <string name="android_pie">饼（Pie）9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">无法写入 Settings.System!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">获取附加组件</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">捐赠</string>
     <string name="donate_desc">我在空闲时间制作了这个应用程序。 如果您喜欢使用它，请考虑给我买杯咖啡（即使我不喝咖啡）。 当然，这是捐赠，你也可以什么都不做。在  SystemUI Tuner 中没有任何付费功能。</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">删除此项目</string>
     <string name="remove_item_desc">您确定要删除这个项目吗？</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">电量</string>
     <string name="tile_clock">时钟</string>
     <string name="tile_demo">演示模式</string>
