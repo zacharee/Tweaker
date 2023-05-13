@@ -311,9 +311,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Nie udało się zapisać do Settings.System!</string>
-    <string name="write_system_fail_desc">Niestety, Android dodał pewne ograniczenia jak na przykład które ustawienia w Settings.System mogą być modyfikowane. Wygląda na to, że natrafiłeś na jedno z tych ograniczonych ustawień. Na szczęście istnieje pewien sposób na ominięcie tego ograniczenia poprzez zastosowanie dodatkowej aplikacji. Będziesz ją musiał pobrać z mojej strony internetowej. Jest ona darmowa i otwartoźródłowa.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Pobierz dodatek</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">Wesprzyj mnie</string>
     <string name="donate_desc">Tworzę tę aplikację w czasie wolnym. Jeśli lubisz jej używać, rozważ zakup filiżanki kawy dla mnie (nawet jeśli nie piję kawy). Oczywiście jest to darowizna i nie jest obowiązkowa. W Tunerze SystemUI nie ma żadnych płatnych funkcji.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">Usuń ten element</string>
     <string name="remove_item_desc">Czy na pewno chcesz usunąć ten element?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Bateria</string>
     <string name="tile_clock">Zegar</string>
     <string name="tile_demo">Tryb demonstracyjny</string>
