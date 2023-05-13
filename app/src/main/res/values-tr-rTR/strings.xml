@@ -319,9 +319,13 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Sürücüye yazılamadı!</string>
-    <string name="write_system_fail_desc">Ne yazık ki, Android Ayarlara ne yazılabileceğine dair bazı kısıtlamalar ekledi.Sistem ve bu kısıtlı ayarlardan birine çarpmışsınız gibi görünüyor. Neyse ki, bir eklenti uygulaması kullanarak bu kısıtlamayı aşmanın bir yolu var. Web sitemden indirmeniz gerekecek, ancak ücretsiz ve açık kaynak.</string>
+    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Eklenti edinin</string>
+    <string name="download_shizuku">Get Shizuku</string>
+    <string name="open_shizuku">Open Shizuku</string>
+    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">Bağış</string>
     <string name="donate_desc">Bu uygulamayı boş zamanlarımda yapıyorum. Kullanmaktan hoşlanıyorsan, bana bir fincan kahve ısmarlamayı düşün (kahve içmesem bile). Tabii ki bu bir bağış ve hiçbir şey yapmanıza gerek yok. SystemUI Tuner\'da ödeme duvarlı özellik yoktur.</string>
     <string name="paypal">PayPal</string>
@@ -341,6 +345,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="remove_item">Bu ürünü sil</string>
     <string name="remove_item_desc">Bu öğeyi kaldırmak istediğinizden emin misiniz?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Batarya</string>
     <string name="tile_clock">Saat</string>
     <string name="tile_demo">Demo Modu</string>
