@@ -312,12 +312,12 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Не удалось записать настройку!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail_desc">К сожалению, Android запретил изменять эту настройку. Чтобы обойти это, вам понадобится мой аддон или Shizuku. Если у вас уже установлен аддон, вам потребуется обновить его. Если у вас уже установлен Shizuku, убедитесь, что он запущен, и SystemUI Tuner был разрешен доступ.</string>
     <string name="write_system_fail_get_add_on">Получить аддон</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">Скачать Shizuku</string>
+    <string name="open_shizuku">Открыть Shizuku</string>
+    <string name="read_setting_fail">Не удалось прочесть настройку!</string>
+    <string name="read_setting_fail_desc">К сожалению, Android запретил изменять эту настройку. Чтобы обойти это, вам понадобится мой аддон или Shizuku. Если у вас уже установлен аддон, вам потребуется обновить его. Если у вас уже установлен Shizuku, убедитесь, что он запущен, и SystemUI Tuner был разрешен доступ.</string>
     <string name="donate">Пожертвования</string>
     <string name="donate_desc">Я делаю это приложение в свободное время. Если вам нравится его использовать, подумайте о покупке чашки кофе (даже если я не пью кофе). Конечно, это пожертвование, и вам ничего не нужно делать. В SystemUI Tuner нет никаких платных функций.</string>
     <string name="paypal">PayPal</string>
@@ -337,7 +337,7 @@
     <string name="remove_item">Удалить этот элемент</string>
     <string name="remove_item_desc">Вы уверены, что хотите удалить этот элемент?</string>
     <string name="custom_persistent_option_summary_template">Тип настроек: %1$s, Ключ: %2$s, Значение: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="settings_read_template">Тип настроек: %1$s, ключ: %2$s</string>
     <string name="tile_battery">Батарея</string>
     <string name="tile_clock">Часы</string>
     <string name="tile_demo">Демо-режим</string>
