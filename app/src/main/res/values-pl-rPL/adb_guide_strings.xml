@@ -23,11 +23,11 @@
     <string name="adb_install_local_1"><![CDATA[Pobierz i zainstaluj aplikację Shizuku ze Sklepu Google Play (https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Otwórz aplikację Shizuku i postępuj zgodnie z instrukcjami zawartymi w sekcji \"Uruchom przez Wireless Debuging\".</string>
     <string name="adb_install_local_3">Zamknij ten ekran i dotknij przycisku \"PRZYZNAJ\".</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_1">Pobierz ZIP zawierający ADB z adresu: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">Rozpakuj ZIP do wygodnej lokalizacji, takiej jak \'C:\adb\'.</string>
     <string name="adb_install_adb_windows_3">Użyj eksploratora plików, aby przeglądać wyodrębnione pliki ZIP. Powinieneś zobaczyć kilka plików, w tym \"adb\".</string>
     <string name="adb_install_adb_windows_4">Kliknij na pasek wyszukiwania w win i zamień to, co tam jest na \"cmd\" (bez cudzysłowów). Następnie wciśnij Enter.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Pobierz ZIP zawierający ADB z adresu: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Rozpakuj ZIP do wygodnej lokalizacji, takiej jak C:\\adb.</string>
     <string name="adb_install_adb_mac_3">Teraz otwórz terminal. Możesz to zrobić naciskając CMD+SPACE w tym samym czasie, aby otworzyć wyszukiwanie Spotlight i wyszukać \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Teraz przejdź do wyodrębnionych plików używając następującej komendy: `cd /ścieżka/do/plików/`. Na przykład, jeśli Twoja nazwa użytkownika to Zachary i wyodrębniłeś ZIP na swój pulpit, polecenie będzie miało postać `cd /Users/Zachary/Desktop/platform-tools/`, gdzie \"platform-tools\" jest folderem zawierającym plik \"adb\".</string>
@@ -37,7 +37,7 @@
     <string name="adb_install_adb_fedora_2">Zainstaluj ADB używając polecenia: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Otwórz Terminal.</string>
     <string name="adb_install_adb_rhel_2">Zainstaluj ADB używając polecenia: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_1">Pobierz ZIP zawierający ADB z adresu: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Rozpakuj ZIP do wybranej lokalizacji, takiej jak Twój katalog domowy.</string>
     <string name="adb_install_adb_linux_other_3">Otwórz Terminal.</string>
     <string name="adb_install_adb_linux_other_4">Teraz przejdź do wyodrębnionych plików używając następującej komendy: `cd /ścieżka/do/plików/`. Na przykład, jeśli Twoja nazwa użytkownika to Zachary i wyodrębniłeś ZIP na swój pulpit, polecenie będzie miało postać `cd /Users/Zachary/Desktop/platform-tools/`, gdzie \"platform-tools\" jest folderem zawierającym plik \"adb\".</string>
@@ -49,6 +49,6 @@
     <string name="adb_linux_fedora">Fedora/SUSE</string>
     <string name="adb_linux_debian">Debian/Ubuntu</string>
     <string name="adb_linux_rhel">RHEL/CentOS</string>
-    <string name="adb_linux_other">Linux (Other)</string>
-    <string name="adb_local">Android (This Device)</string>
+    <string name="adb_linux_other">Inny Linux</string>
+    <string name="adb_local">Android (to urządzenie)</string>
 </resources>
