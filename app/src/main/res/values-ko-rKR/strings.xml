@@ -311,12 +311,12 @@
     <string name="android_pie">파이 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail">설정을 쓰는 데 실패했습니다!</string>
     <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
     <string name="download_shizuku">Shizuku 받기</string>
     <string name="open_shizuku">Shizuku 설치</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
+    <string name="read_setting_fail">설정을 읽는 데 실패했습니다!</string>
     <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">기부</string>
     <string name="donate_desc">저는 이 앱을 여가 시간에 만들었습니다. 재밌게 쓰고 계신다면 (제가 커피를 마시진 않지만) 제게 커피 한 잔 정도를 사 주시는 건 어떨까요? 물론 이건 후원의 개념이고, 반드시 하지 않으셔도 됩니다. SystemUI Tuner에 유료로 결제해야만 이용할 수 있는 기능은 없습니다.</string>
