@@ -314,8 +314,8 @@
     <string name="write_system_fail">Failed to write setting!</string>
     <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
+    <string name="download_shizuku">Shizuku 받기</string>
+    <string name="open_shizuku">Shizuku 설치</string>
     <string name="read_setting_fail">Failed to read setting!</string>
     <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="donate">기부</string>
@@ -337,7 +337,7 @@
     <string name="remove_item">사용자 지정 항목 제거</string>
     <string name="remove_item_desc">정말로 이 항목을 삭제하시겠습니까?</string>
     <string name="custom_persistent_option_summary_template">설정 유형: %1$s, 키: %2$s, 값: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="settings_read_template">설정 유형: %1$s, 키: %2$s</string>
     <string name="tile_battery">배터리</string>
     <string name="tile_clock">시계</string>
     <string name="tile_demo">데모 모드</string>
