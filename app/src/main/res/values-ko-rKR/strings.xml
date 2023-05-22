@@ -317,7 +317,7 @@
     <string name="download_shizuku">Shizuku 받기</string>
     <string name="open_shizuku">Shizuku 설치</string>
     <string name="read_setting_fail">설정을 읽는 데 실패했습니다!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="read_setting_fail_desc">Android에서 이 설정을 읽지 못하도록 차단했습니다. 문제를 해결하려면 애드온 앱이나 Shizuku가 필요합니다. 애드온을 이미 설치했다면, 업데이트를 진행해야 할 수도 있습니다. 이미 Shizuku가 설치되어 있다면, Shizuku를 실행해주시고 SystemUI Tuner에게 접근 권한을 허용해주세요.</string>
     <string name="donate">기부</string>
     <string name="donate_desc">저는 이 앱을 여가 시간에 만들었습니다. 재밌게 쓰고 계신다면 (제가 커피를 마시진 않지만) 제게 커피 한 잔 정도를 사 주시는 건 어떨까요? 물론 이건 후원의 개념이고, 반드시 하지 않으셔도 됩니다. SystemUI Tuner에 유료로 결제해야만 이용할 수 있는 기능은 없습니다.</string>
     <string name="paypal">PayPal</string>
