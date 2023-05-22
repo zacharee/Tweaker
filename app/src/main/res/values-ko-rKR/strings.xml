@@ -312,7 +312,7 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">설정을 쓰는 데 실패했습니다!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail_desc">안타깝게도, Android에서 이 설정을 변경하지 못하도록 차단했습니다. 문제를 해결하려면 애드온 앱이나 Shizuku가 필요합니다. 애드온을 이미 설치했다면, 업데이트를 진행해야 할 수도 있습니다. 이미 Shizuku가 설치되어 있다면, Shizuku를 실행해주시고 SystemUI Tuner에게 접근 권한을 허용해주세요.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
     <string name="download_shizuku">Shizuku 받기</string>
     <string name="open_shizuku">Shizuku 설치</string>
