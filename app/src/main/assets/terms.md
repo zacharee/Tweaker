@@ -8,6 +8,30 @@ With SystemUI Tuner you can, among other things:
  - Enable and customize Demo Mode
  - Change system-wide animation speeds
  - Enter and read your own custom settings values
+
+# Privacy
+SystemUI Tuner collects no personal information, either directly or through third party services.
+
+## Crash Reports
+Anonymous data is collected when the app crashes in the form of a crash log and basic device information. Personal information such as your name and address are not included in these reports.
+
+Depending on the version of SystemUI Tuner you are using, one of two different services is used to track crashes.
+
+- Version 349 and earlier: Firebase Crashlytics.
+  - For more information on data collected by Firebase Crashlytics, see the "Firebase Crashlytics" section on [this page](https://firebase.google.com/support/privacy#examples-end-user-data-processed-by-firebase).
+- Version 350 and later: Bugsnag.
+  - For more information on data collected by Bugsnag, see [this page](https://docs.bugsnag.com/platforms/android/automatically-captured-data/).
+
+For either service, an anonymous UUID is generated to be associated with crash reports for a particular device. This UUID cannot be used to identify you, however.
+
+Firebase Crashlytics retains uploaded UUIDs for 90 days before removing them, while Bugsnag has no official deletion policy. To disassociate your device from these UUIDs, you can clear the app data, which will generate a new UUID on the next startup.
+
+Neither Firebase Crashlytics nor Bugsnag has a way to associate crash report data to a specific user through information such as email, name, or address, as this information is not collected.
+
+## In-App Purchases
+SystemUI Tuner makes use of Google's in-app purchase framework as well as links to PayPal. Both methods are for donations only and transactions are between the user and Google or PayPal.
+
+SystemUI Tuner itself collects no personal information from these transactions.
  
 # User Support
 I make no guarantee with this app that:
