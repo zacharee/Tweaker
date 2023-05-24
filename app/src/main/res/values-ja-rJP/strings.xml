@@ -142,10 +142,10 @@
     <string name="option_ui_sound_low_battery_desc">端末の電池残量が少ない時に再生される音声</string>
     <string name="option_ui_sound_trusted">信頼性あり</string>
     <string name="option_ui_sound_trusted_desc">端末が信頼可能な状態になった時に再生される音声</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">ワイヤレス充電</string>
+    <string name="option_ui_sound_wireless_charging_desc">デバイスがワイヤレス充電されているときに再生される音声。</string>
+    <string name="option_ui_sound_charging">充電中</string>
+    <string name="option_ui_sound_charging_desc">デバイスの充電中に再生される音声。</string>
     <string name="option_ui_sound_disable_charging">充電終了音</string>
     <string name="option_ui_sound_disable_charging_desc">デバイスが充電を開始したときに再生される音声を無効にするかどうかを設定します。</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI の権限</string>
@@ -164,11 +164,11 @@
     <string name="option_oneui_clock_position">時計の位置</string>
     <string name="option_oneui_clock_position_desc">SamsungのOneUI (Android9.0(Pie) 以降) では、ステータスバーの時計の位置を変更できます。GoodLockのQuickStarはこの設定を変更可能ですが、端末によっては制限されていることがあります。ここから表示位置を左、中央、右に変更できます。
 注: OneUI2.0(Android10) 上ではQuickStarがインストールされている必要があります。設定の永続化には永続オプションからアイコンブラックリストを有効にしてください</string>
-    <string name="option_touchwiz_navbar_color">Navigation Bar Color</string>
-    <string name="option_touchwiz_navbar_color_desc">On Samsung Experience and One UI it\'s possible to set the navigation bar color to your own custom color. Use this option to do that.</string>
-    <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
+    <string name="option_touchwiz_navbar_color">ナビゲーションバーの色</string>
+    <string name="option_touchwiz_navbar_color_desc">Samsung Experience と One UI では、ナビゲーションバーの色を独自のカスタム色に設定することができます。このオプションを使用してそれを行います。</string>
+    <string name="option_custom_notification_snooze_times">カスタム通知のスヌーズ回数</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
-    <string name="option_night_mode">Night Mode</string>
+    <string name="option_night_mode">夜間モード</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
     <string name="night_display_temp">Night Display Temperature</string>
     <string name="option_touchwiz_qs_row_count">Quick Settings Row Count</string>
