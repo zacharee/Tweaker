@@ -33,9 +33,9 @@
     <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_debian_1">Open a terminal by pressing CTRL+ALT+T.</string>
     <string name="adb_install_adb_debian_2">Install ADB with the following command: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
-    <string name="adb_install_adb_fedora_1">Open a terminal.</string>
-    <string name="adb_install_adb_fedora_2">Install ADB with the following command: `sudo dnf install adb`.</string>
-    <string name="adb_install_adb_rhel_1">Open a terminal.</string>
+    <string name="adb_install_adb_fedora_1">「端末」を開きます。</string>
+    <string name="adb_install_adb_fedora_2">以下のコマンドで ADB をインストールできます:`sudo dnf install adb`</string>
+    <string name="adb_install_adb_rhel_1">Terminalを開く。</string>
     <string name="adb_install_adb_rhel_2">Install ADB with the following command: `yum install android-tools`.</string>
     <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
