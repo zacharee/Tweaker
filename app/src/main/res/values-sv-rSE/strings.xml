@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Inställningar för systemgränssnitt</string>
+    <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Hanterare (stäng av)</string>
     <string name="tap_to_disable">Tryck för att inaktivera denna avisering</string>
     <string name="home">Startsida</string>
