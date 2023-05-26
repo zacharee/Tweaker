@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_icon_blacklist_general">General</string>
+    <string name="category_icon_blacklist_general">Allmänt</string>
     <string name="category_icon_blacklist_samsung">Samsung</string>
     <string name="category_icon_blacklist_huawei">Huawei</string>
     <string name="category_icon_blacklist_xiaomi">Xiaomi</string>
@@ -8,19 +8,19 @@
     <string name="category_icon_blacklist_sony">Sony</string>
     <string name="category_icon_blacklist_lg">LG</string>
     <string name="category_icon_blacklist_auto">Auto</string>
-    <string name="category_icon_blacklist_custom">Custom</string>
-    <string name="category_icon_blacklist_auto_desc">Tap to expand/load</string>
-    <string name="icon_blacklist_add_custom">Add Custom Item</string>
-    <string name="icon_blacklist_add_custom_desc">If you can\'t find the icon you want to hide, and you know its key, you can add it here.</string>
-    <string name="icon_blacklist_remove_custom">Remove This Item</string>
-    <string name="icon_blacklist_remove_custom_desc">Are you sure you want to remove this custom blacklist item?</string>
-    <string name="icon_blacklist_rotate">Rotation Lock</string>
-    <string name="icon_blacklist_airplane">Airplane Mode</string>
+    <string name="category_icon_blacklist_custom">Anpassad</string>
+    <string name="category_icon_blacklist_auto_desc">Tryck för att expandera/ladda</string>
+    <string name="icon_blacklist_add_custom">Lägg till Anpassad Objekt</string>
+    <string name="icon_blacklist_add_custom_desc">Om du inte kan hitta ikonen du vill dölja, och du vet dess nyckel, kan du lägga till den här.</string>
+    <string name="icon_blacklist_remove_custom">Ta Bort Objektet</string>
+    <string name="icon_blacklist_remove_custom_desc">Är du säker på att du vill ta bort det här svartlistaobjektet?</string>
+    <string name="icon_blacklist_rotate">Rotationslås</string>
+    <string name="icon_blacklist_airplane">Flygplansläge</string>
     <string name="icon_blacklist_wifi">WiFi</string>
     <string name="icon_blacklist_volte">VoLTE</string>
     <string name="icon_blacklist_vowifi">VoWiFi</string>
     <string name="icon_blacklist_dmb">DMB</string>
-    <string name="icon_blacklist_wifi_calling">WiFi Calling</string>
+    <string name="icon_blacklist_wifi_calling">WiFi-Samtal</string>
     <string name="icon_blacklist_cdma_eri">CDMA ERI</string>
     <string name="icon_blacklist_data_connection">Data Connection</string>
     <string name="icon_blacklist_phone_evdo_signal">Phone EvDO Signal</string>
@@ -74,9 +74,9 @@
     <string name="icon_blacklist_keyguard_wakeup">Keyguard Wakeup</string>
     <string name="icon_blacklist_safezone">SafeZone</string>
     <string name="icon_blacklist_wimax">WiMax</string>
-    <string name="icon_blacklist_smart_bonding">Smart Bonding</string>
-    <string name="icon_blacklist_private_mode">Private Mode</string>
-    <string name="icon_blacklist_powersavingmode">Power Saving Mode</string>
+    <string name="icon_blacklist_smart_bonding">Smart bindning</string>
+    <string name="icon_blacklist_private_mode">Privatläget</string>
+    <string name="icon_blacklist_powersavingmode">Energisparläget</string>
     <string name="icon_blacklist_earphone">Earphone</string>
     <string name="icon_blacklist_unicom_call">Unicom Call</string>
     <string name="icon_blacklist_volte_call">VoLTE Call</string>
