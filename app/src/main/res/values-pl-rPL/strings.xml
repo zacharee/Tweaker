@@ -311,7 +311,7 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Nie udało się zapisać ustawienia!</string>
+    <string name="write_system_fail">Nie udało się zapisać ustawień!</string>
     <string name="write_system_fail_desc">Niestety, Android ograniczył możliwość zmiany tego ustawienia. Aby to zrobić, potrzebujesz dodatku lub Shizuku. Jeśli masz już zainstalowany dodatek, być może będziesz musiał go zaktualizować. Jeśli masz już zainstalowany Shizuku, upewnij się, że jest on uruchomiony i SystemUI Tuner uzyskał dostęp.</string>
     <string name="write_system_fail_get_add_on">Pobierz dodatek</string>
     <string name="download_shizuku">Pobierz Shizuku</string>
