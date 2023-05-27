@@ -23,7 +23,7 @@
     <string name="adb_install_local_1"><![CDATA[Unduh dan pasang aplikasi Shizuku dari [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Buka aplikasi Shizuku dan ikuti petunjuk di bawah \"Mulai melalui Debugging Nirkabel\".</string>
     <string name="adb_install_local_3">Tutup layar ini dan ketuk tombol \"GRANT\".</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_1">Unduh ZIP ADB dari sini: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
     <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Gunakan file explorer untuk menelusuri ZIP yang telah diekstrak. Anda seharusnya melihat banyak file, termasuk satu yang bernama \"adb\".</string>
     <string name="adb_install_adb_windows_4">Klik di dalam bilah pencarian dan ganti yang ada dengan \"cmd\" (tanpa tanda kutip). Kemudian tekan Enter.</string>
