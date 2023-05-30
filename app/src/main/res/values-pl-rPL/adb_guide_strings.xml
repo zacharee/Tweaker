@@ -14,7 +14,7 @@
     <string name="adb_install_android_4">Dotknij tej opcji 7 razy, aby włączyć tryb programisty. Może być konieczne wprowadzenie kodu dostępu, aby go włączyć.</string>
     <string name="adb_install_android_5">Teraz wróć do strony ustawień głównych.</string>
     <string name="adb_install_android_6">W zależności od urządzenia, możesz zobaczyć nowe menu o nazwie \"Opcje programisty\". Jeśli tak, naciśnij je i pomiń następny krok.</string>
-    <string name="adb_install_android_7">Jeśli nie widzisz menu Opcje programisty, znajdź menu oznaczone jako \"System\" lub \"Dodatkowe ustawienia\". Powinieneś tam zobaczyć menu Tryb programisty .</string>
+    <string name="adb_install_android_7">Jeśli nie widzisz menu Opcje programisty, znajdź menu oznaczone jako \"System\" lub \"Dodatkowe ustawienia\". Powinieneś tam zobaczyć menu Tryb programisty.</string>
     <string name="adb_install_android_8">Przewiń w dół, aż znajdziesz przełącznik oznaczony jako \"Debugowanie USB\" i włącz go.</string>
     <string name="adb_install_android_9">Na telefonach Xiaomi musisz również znaleźć i wyłączyć opcję oznaczoną jako \"Debugowanie USB (Ustawienia zabezpieczeń)\".</string>
     <string name="adb_install_android_10">Na telefonach OPPO, Realme i OnePlus, musisz również znaleźć i włączyć opcję oznaczoną jako \"Wyłącz monitorowanie uprawnień\".</string>
