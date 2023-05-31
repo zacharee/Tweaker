@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">От сети</string>
     <string name="option_keep_awake_on_usb">Питание от USB</string>
     <string name="option_keep_awake_on_wireless">На беспроводной зарядке</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">На док-станции</string>
     <string name="option_animator_duration_scale">Длительность анимации</string>
     <string name="option_window_animation_scale">Длительность анимации окон</string>
     <string name="option_transition_animation_scale">Длительность анимации переходов</string>
@@ -164,7 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 ввёл опцию отсрочки уведомлений. Этот параметр можно использовать для установки пользовательских значений для время отсрочки.</string>
     <string name="option_night_mode">Ночной режим</string>
     <string name="option_night_mode_desc">Android Nougat представил родной вариант изменения оттенка экрана на жёлтый по ночам, названный «Ночной режим». Он был доработан в Nougat 7.1 и переименован в «Ночной экран». Вы можете включить его здесь и настроить различные параметры. ВНИМАНИЕ: на некоторых устройствах Android активация этого сделает экран чёрным!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Цветовая температура режима Night Display</string>
     <string name="option_touchwiz_qs_row_count">Количество строк быстрых настроек</string>
     <string name="option_touchwiz_qs_row_count_desc">На Samsung TouchWiz Nougat и Oreo можно настроить сетку QS скрытыми настройками. Используйте это для изменения количества строк. Пожалуйста, включите это в постоянных настройках.</string>
     <string name="option_touchwiz_qs_column_count">Количество столбцов быстрых настроек</string>
@@ -377,8 +377,8 @@
     <string name="setting_applied_dialog_desc">Хотите сохранить изменения? Эта настройка будет возвращена через %s сек.</string>
     <string name="keep">Оставить</string>
     <string name="revert">Вернуть</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
+    <string name="increase" desc="This is in verb form.">Увеличить</string>
+    <string name="decrease" desc="This is in verb form.">Уменьшить</string>
     <string name="blocked_reason_read_terms">Пожалуйста прочитайте условия, прежде чем продолжить.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner не может работать без разрешения Write Secure Settings. Нажмите кнопку «Помощь», если у вас возникли проблемы с ее предоставлением.</string>
     <string name="blocked_reason_choose_os">Прежде чем продолжить, выберите операционную систему.</string>
