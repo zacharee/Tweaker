@@ -269,7 +269,7 @@
     <string name="mobile_activity_type">Typ aktywności mobilnej</string>
     <string name="wifi_activity_type">Typ aktywności WiFi</string>
     <string name="mobile_carrier_network_change">Zmiana sieci operatora</string>
-    <string name="mobile_inflate_signal">Mobile Inflate Signal</string>
+    <string name="mobile_inflate_signal">Komórkowy sygnał Inflate</string>
     <string name="battery_level">Poziom naładowania baterii</string>
     <string name="battery_charging">Ładowanie baterii</string>
     <string name="clock_time">Czas zegara</string>
