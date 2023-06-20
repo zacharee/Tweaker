@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
+    <string name="adb_intro_desc">Weet je niet hoe je ADB moet gebruiken? Geen probleem, volg deze handleiding. (Let op: je hebt een computer nodig.)</string>
     <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
+    <string name="adb_choose_computer_os">Kies je besturingssysteem.</string>
+    <string name="adb_choose_computer_os_desc">Welk besturingssysteem gebruikt je computer?</string>
     <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
-    <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
-    <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
+    <string name="adb_final_title">Helemaal klaar</string>
+    <string name="adb_final_desc">Dat is alles! Als het goed is is de toestemming(en) nu verleent.</string>
+    <string name="adb_install_android_1">Open de Instellingen en scroll naar beneden naar Info Telefoon. Klik er op.</string>
     <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
-    <string name="adb_install_android_3">Now, find the option labeled \"Build Number\". On some devices, this may simply be called \"Version\".</string>
-    <string name="adb_install_android_4">Tap that option 7 times to enable Developer Mode. You may need to enter your passcode to enable it.</string>
+    <string name="adb_install_android_3">Vind nu de optie genaamd \"Buildnummer\". Op sommige apparaten heet dit misschien \"Versie\".</string>
+    <string name="adb_install_android_4">Tik 7 keer op deze optie om de Ontwikkelaarsmodus in te schakelen. Misschien moet je je pincode of wachtwoord invoeren.</string>
     <string name="adb_install_android_5">Now, go back to the main Settings page.</string>
     <string name="adb_install_android_6">Depending on your device, you may see a new menu called \"Developer Options\". If so, tap it and skip the next step.</string>
     <string name="adb_install_android_7">If you don\'t see the Developer Options menu, find the menu labeled either \"System\" or \"Additional Settings\". You should see the Developer Options menu inside that.</string>
