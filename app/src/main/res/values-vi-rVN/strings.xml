@@ -153,9 +153,9 @@
     <string name="option_advanced_read_setting">Đọc tùy chọn cài đặt</string>
     <string name="option_advanced_read_setting_desc">Nếu bạn biết khóa của một cài đặt cụ thể, bạn có thể sử dụng khóa này để xem giá trị hiện tại của nó.</string>
     <string name="option_advanced_write_setting">Viết tùy chọn cài đặt</string>
-    <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
-    <string name="option_qqs_tiles">Quick Settings Header Count</string>
-    <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
+    <string name="option_advanced_write_setting_desc">Nếu bạn muốn thay đổi một cài đặt cụ thể không phải là một phần của SystemUI Tuner, bạn có thể đặt cài đặt đó tại đây.</string>
+    <string name="option_qqs_tiles">Cài đặt nhanh Số lượng tiêu đề</string>
+    <string name="option_qqs_tiles_desc">Android Nougat đã giới thiệu một tính năng cài đặt nhanh mới, được gọi là Tiêu đề cài đặt nhanh, hiển thị một số ô cài đặt nhanh đầu tiên trong một hàng trong thanh thông báo. Sử dụng tùy chọn này, có thể tăng hoặc giảm số lượng ô được hiển thị trong hàng đó. Điều này sẽ không hoạt động trên One UI.</string>
     <string name="option_oneui_clock_position">Vị trí đồng hồ</string>
     <string name="option_oneui_clock_position_desc">On Samsung\'s One UI (Android Pie or later), it\'s possible to change the status bar clock position. Good Lock\'s QuickStar will let you do it, but the options are sometimes limited depending on the device. You can use this to set it to left, middle, or right. Be aware that on One UI 2.0 (Android 10), you need QuickStar to be installed for this option to have an effect. To make this option persistent, enable Icon Blacklist in Persistent Options.</string>
     <string name="option_touchwiz_navbar_color">Navigation Bar Color</string>
