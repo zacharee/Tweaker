@@ -129,7 +129,7 @@
     <string name="option_ui_sound_car_dock">Dock Mobil</string>
     <string name="option_ui_sound_car_dock_desc">Indonesia</string>
     <string name="option_ui_sound_car_undock">Car Undock</string>
-    <string name="option_ui_sound_car_undock_desc">Audio that is played when the phone is removed from a car dock.</string>
+    <string name="option_ui_sound_car_undock_desc">Indonesia</string>
     <string name="option_ui_sound_desk_dock">Desk Dock</string>
     <string name="option_ui_sound_desk_dock_desc">Audio that is played when the phone is docked in a desk dock.</string>
     <string name="option_ui_sound_desk_undock">Desk Undock</string>
