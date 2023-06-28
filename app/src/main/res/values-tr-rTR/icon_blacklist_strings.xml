@@ -77,17 +77,17 @@ category_icon_blacklist_lg</string>
     <string name="icon_blacklist_wimax">WiMax</string>
     <string name="icon_blacklist_smart_bonding">Smart Bonding</string>
     <string name="icon_blacklist_private_mode">Private Mode</string>
-    <string name="icon_blacklist_powersavingmode">Power Saving Mode</string>
+    <string name="icon_blacklist_powersavingmode">Güç Tasarruf Modu</string>
     <string name="icon_blacklist_earphone">Earphone</string>
     <string name="icon_blacklist_unicom_call">Unicom Call</string>
-    <string name="icon_blacklist_volte_call">VoLTE Call</string>
+    <string name="icon_blacklist_volte_call">VoLTE Araması</string>
     <string name="icon_blacklist_eyes_protect">Eye-Protect</string>
     <string name="icon_blacklist_mikey">MiKey</string>
-    <string name="icon_blacklist_call_record">Call Record</string>
-    <string name="icon_blacklist_privacy_mode">Privacy Mode</string>
-    <string name="icon_blacklist_ble_unlock_mode">BLE Unlock Mode</string>
-    <string name="icon_blacklist_quiet">Quiet</string>
-    <string name="icon_blacklist_missed_call">Missed Call</string>
+    <string name="icon_blacklist_call_record">Çağrı Kaydı</string>
+    <string name="icon_blacklist_privacy_mode">Gizlilik Modu</string>
+    <string name="icon_blacklist_ble_unlock_mode">BLE Kilit Açma Modu</string>
+    <string name="icon_blacklist_quiet">Sessiz</string>
+    <string name="icon_blacklist_missed_call">Cevapsız Arama</string>
     <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth Handsfree Battery</string>
     <string name="icon_blacklist_rtt">RTT</string>
 </resources>
