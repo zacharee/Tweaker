@@ -384,11 +384,11 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="persistent_options_not_sticking_desc">Herhangi bir pil optimizasyonundan SystemUI Tuner\'ı beyaz listeye almanız gerekebilir. Nasıl olduğunu öğrenmek için buraya tıklayın.</string>
     <string name="setting_applied_dialog">Option Applied!</string>
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="keep">Tut</string>
+    <string name="revert">Geri al</string>
+    <string name="increase" desc="This is in verb form.">Arttır</string>
+    <string name="decrease" desc="This is in verb form.">Azalt</string>
+    <string name="blocked_reason_read_terms">Devam etmeden önce lütfen kullanım şartlarını okuyun.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner, Güvenli Ayarlara Yazma iznine sahip olmadan çalışamaz. Eğer bu izni vermekte sorun yaşıyor iseniz \"Yardım\" tuşuna tıklayın.</string>
+    <string name="blocked_reason_choose_os">Devam etmeden önce lütfen bir işletim sistemi seçin.</string>
 </resources>
