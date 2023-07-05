@@ -7,7 +7,7 @@
     <string name="category_display">תצוגה</string>
     <string name="category_accessibility">נגישות</string>
     <string name="category_apps">ישומים</string>
-    <string name="category_audio">Audio &amp; Sound</string>
+    <string name="category_audio">שמע&amp; שמע</string>
     <string name="category_developer">מפתח</string>
     <string name="category_easter_eggs">ביצי הפתעה</string>
     <string name="category_network">רשת</string>
@@ -16,7 +16,7 @@
     <string name="category_oem">מאפייני יצרן</string>
     <string name="category_system">מערכת</string>
     <string name="category_ui">ממשק</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">מסך נעילה</string>
     <string name="category_quick_settings">הגדרות מהירות</string>
     <string name="screen_persistent">אפשרויות עקביות</string>
     <string name="category_interaction">התממשקות</string>
@@ -39,7 +39,7 @@
     <string name="sub_power">כוח</string>
     <string name="add_to_blacklist">הוסף לרשימה השחורה</string>
     <string name="remove_from_blacklist">הסר מהרשימה השחורה</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">פנס</string>
     <string name="sub_demo">מצב הדגמה</string>
     <string name="sub_demo_desc">מצב הדגמה מאפשר לכם לכפות את שורת המצב למצבים שונים/ באפשרותכם להשתמש בו כדי להציג או להסתיר אייקונים שונים, לציין עוצמת אות ועוד כמה דברים.</string>
     <string name="special_sub_airplane_mode">שפצורי מצב טיסה</string>
