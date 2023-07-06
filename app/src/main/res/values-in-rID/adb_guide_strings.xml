@@ -24,10 +24,10 @@
     <string name="adb_install_local_2">Buka aplikasi Shizuku dan ikuti petunjuk di bawah \"Mulai melalui Debugging Nirkabel\".</string>
     <string name="adb_install_local_3">Tutup layar ini dan ketuk tombol \"GRANT\".</string>
     <string name="adb_install_adb_windows_1">Unduh ZIP ADB dari sini: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
+    <string name="adb_install_adb_windows_2">Ekstrak file zip ke lokasi yang mudah detemukan, seperti `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Gunakan file explorer untuk menelusuri ZIP yang telah diekstrak. Anda seharusnya melihat banyak file, termasuk satu yang bernama \"adb\".</string>
     <string name="adb_install_adb_windows_4">Klik di dalam bilah pencarian dan ganti yang ada dengan \"cmd\" (tanpa tanda kutip). Kemudian tekan Enter.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Unduh ADB ZIP dari sini: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Ekstrak ZIP ke lokasi yang nyaman, seperti Desktop.</string>
     <string name="adb_install_adb_mac_3">Sekarang, buka terminal. Anda dapat melakukannya dengan menekan CMD+SPASI secara bersamaan untuk membuka Pencarian Spotlight, dan mencari \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Sekarang, telusuri file yang diekstrak menggunakan perintah berikut: `cd /jalur/ke/file/`. Misalnya, jika nama pengguna Anda adalah Zachary dan Anda mengekstrak ZIP ke desktop Anda, perintahnya adalah `cd /Users/Zachary/Desktop/platform-tools/`, di mana \"platform-tools\" adalah folder dengan file bernama \" adb\" di dalamnya.</string>
@@ -37,10 +37,10 @@
     <string name="adb_install_adb_fedora_2">Instal ADB dengan perintah berikut: `sudo dnf install adb`.</string>
     <string name="adb_install_adb_rhel_1">Buka terminal.</string>
     <string name="adb_install_adb_rhel_2">Instal ADB dengan perintah berikut: `yum install android-tools`.</string>
-    <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
-    <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
+    <string name="adb_install_adb_linux_other_1">Unduh ADB ZIP dari sini: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
+    <string name="adb_install_adb_linux_other_2">Ekstrak file zip ke lokasi yang mudah detemukan, seperti direktori Home Anda.</string>
     <string name="adb_install_adb_linux_other_3">Buka terminal.</string>
-    <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
+    <string name="adb_install_adb_linux_other_4">Sekarang, telusuri file yang diekstrak menggunakan perintah berikut: `cd /jalur/ke/file/`. Misalnya, jika nama pengguna Anda adalah Zachary dan Anda mengekstrak ZIP ke desktop Anda, perintahnya adalah `cd /Users/Zachary/Desktop/platform-tools/`, di mana \"platform-tools\" adalah folder dengan file bernama \" adb\" di dalamnya.</string>
     <string name="adb_install_adb_general_end_1">Jendela Command Prompt atau Terminal seharusnya terbuka. Ketik perintah berikut di dalamnya, dan tekan Enter/Return setelah masing-masing perintah dijalankan. Jika popup muncul di ponsel Anda tentang USB Debugging, pastikan untuk mengizinkannya.</string>
     <string name="adb_install_adb_general_end_2">Jika semuanya berjalan dengan baik, seharusnya tidak ada output dari Command Prompt atau Terminal. Jika ada, pastikan untuk menggulir keatas sampai ke tempat dimana Anda memasukkan perintah untuk melihat kesalahannya.</string>
     <string name="adb_install_adb_general_end_3">Sekarang, Seharusnya izin sudah diberikan!</string>
