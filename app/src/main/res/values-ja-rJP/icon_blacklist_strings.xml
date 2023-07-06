@@ -9,7 +9,7 @@
     <string name="category_icon_blacklist_lg">LG</string>
     <string name="category_icon_blacklist_auto">自動</string>
     <string name="category_icon_blacklist_custom">カスタム</string>
-    <string name="category_icon_blacklist_auto_desc">Tap to expand/load</string>
+    <string name="category_icon_blacklist_auto_desc">タップして拡張/読み込み</string>
     <string name="icon_blacklist_add_custom">カスタムアイテムを追加</string>
     <string name="icon_blacklist_add_custom_desc">非表示にしたいアイコンが見つからず、そのキーがわかっている場合は、ここに追加できます。</string>
     <string name="icon_blacklist_remove_custom">このアイテムを削除</string>
