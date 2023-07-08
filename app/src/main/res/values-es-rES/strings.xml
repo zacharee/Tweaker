@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">En corriente alterna</string>
     <string name="option_keep_awake_on_usb">En corriente USB</string>
     <string name="option_keep_awake_on_wireless">En corriente inalámbrica</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">En Dock</string>
     <string name="option_animator_duration_scale">Escala de duración del animador</string>
     <string name="option_window_animation_scale">Escala de animación de ventana</string>
     <string name="option_transition_animation_scale">Escala de animación de transición</string>
