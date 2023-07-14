@@ -243,7 +243,7 @@
     <string name="finish">Finish</string>
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="done">完成</string>
     <string name="error">Error</string>
     <string name="status_bar_icons">状态栏图标</string>
     <string name="network_states">网络状态</string>
@@ -293,7 +293,7 @@
     <string name="intro_allow_notifications">允许通知</string>
     <string name="intro_allow_notifications_desc">Android 13对需要用户许可才能显示通知的应用程序引入了新的限制。SystemUI Tuner可能会在运行后台操作时显示通知。如果您希望看到这个通知，请允许SystemUI Tuner显示通知。</string>
     <string name="intro_last">感谢您使用我的应用！</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
