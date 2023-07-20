@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">Alimentazione da rete</string>
     <string name="option_keep_awake_on_usb">Alimentazione da USB</string>
     <string name="option_keep_awake_on_wireless">Alimentazione wireless</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Su Dock</string>
     <string name="option_animator_duration_scale">Durata dell\'animazione</string>
     <string name="option_window_animation_scale">Durata dell\'animazione della finestra</string>
     <string name="option_transition_animation_scale">Durata della transizione</string>
@@ -142,13 +142,13 @@
     <string name="option_ui_sound_low_battery_desc">Audio che viene riprodotto quando il dispositivo ha batteria quasi scarica.</string>
     <string name="option_ui_sound_trusted">Affidabile</string>
     <string name="option_ui_sound_trusted_desc">Audio che viene riprodotto quando il dispositivo entra nello stato “fidato” senza sbloccare.</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">Ricarica Wireless</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio in riproduzione mentre il dispositivo è in carica tramite wireless.</string>
+    <string name="option_ui_sound_charging">In Carica</string>
+    <string name="option_ui_sound_charging_desc">Audio in riproduzione mentre il dispositivo è in carica.</string>
     <string name="option_ui_sound_disable_charging">Disattiva i suoni di carica</string>
     <string name="option_ui_sound_disable_charging_desc">Indica se disabilitare il suono quando il dispositivo inizia la ricarica.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Permessi di System UI</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Leggi Impostazioni Personalizzate</string>
     <string name="option_advanced_read_setting_desc">Se conosci la chiave di una particolare impostazione, puoi usarla per vederne il valore attuale.</string>
