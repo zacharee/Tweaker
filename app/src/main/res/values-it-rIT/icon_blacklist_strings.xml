@@ -13,7 +13,7 @@
     <string name="icon_blacklist_add_custom">Aggiungi un elemento personalizzato</string>
     <string name="icon_blacklist_add_custom_desc">Se non riesci a trovare l\'icona che vuoi nascondere e conosci la chiave, puoi aggiungerla qui.</string>
     <string name="icon_blacklist_remove_custom">Rimuovi oggetto</string>
-    <string name="icon_blacklist_remove_custom_desc">Sicuro di voler rimuovere questo oggetto personalizzato nella blacklist?</string>
+    <string name="icon_blacklist_remove_custom_desc">Sicuro di voler rimuovere questo oggetto personalizzato nella lista nera?</string>
     <string name="icon_blacklist_rotate">Blocco rotazione</string>
     <string name="icon_blacklist_airplane">Modalità Aereo</string>
     <string name="icon_blacklist_wifi">WiFi</string>
@@ -27,14 +27,14 @@
     <string name="icon_blacklist_phone_signal">Segnale</string>
     <string name="icon_blacklist_volume">Volume</string>
     <string name="icon_blacklist_headset">Cuffie</string>
-    <string name="icon_blacklist_speakerphone">Vivavoce</string>
+    <string name="icon_blacklist_speakerphone">Altoparlante</string>
     <string name="icon_blacklist_remote_call">Chiamata Remota</string>
     <string name="icon_blacklist_tty">TTY</string>
     <string name="icon_blacklist_clock">Orologio</string>
     <string name="icon_blacklist_alarm">Sveglia</string>
     <string name="icon_blacklist_zen">Zen</string>
     <string name="icon_blacklist_do_not_disturb">Non Disturbare</string>
-    <string name="icon_blacklist_managed_profile">Profilo di Lavoro</string>
+    <string name="icon_blacklist_managed_profile">Profilo Gestito</string>
     <string name="icon_blacklist_battery">Batteria</string>
     <string name="icon_blacklist_cast">Cast</string>
     <string name="icon_blacklist_nfc">NFC</string>
@@ -42,8 +42,8 @@
     <string name="icon_blacklist_su">SU</string>
     <string name="icon_blacklist_otg_mouse">Mouse OTG</string>
     <string name="icon_blacklist_otg_keyboard">Tastiera OTG</string>
-    <string name="icon_blacklist_felica_lock">Felica Lock</string>
-    <string name="icon_blacklist_answering_memo">Icona Risposta Memo</string>
+    <string name="icon_blacklist_felica_lock">Blocco Felicia</string>
+    <string name="icon_blacklist_answering_memo">Risposta Memo</string>
     <string name="icon_blacklist_ime">IME</string>
     <string name="icon_blacklist_sync_failing">Sincronizzazione Fallita</string>
     <string name="icon_blacklist_sync_active">Sincronizzazione Attiva</string>
@@ -74,7 +74,7 @@
     <string name="icon_blacklist_keyguard_wakeup">Fotocamera da schermata blocco</string>
     <string name="icon_blacklist_safezone">SafeZone</string>
     <string name="icon_blacklist_wimax">WiMax</string>
-    <string name="icon_blacklist_smart_bonding">Smart Bonding</string>
+    <string name="icon_blacklist_smart_bonding">Collegamento Smart</string>
     <string name="icon_blacklist_private_mode">Modalità Privata</string>
     <string name="icon_blacklist_powersavingmode">Risparmio Energetico</string>
     <string name="icon_blacklist_earphone">Auricolari</string>
