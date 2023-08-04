@@ -143,13 +143,13 @@
     <string name="option_ui_sound_trusted">Confiado</string>
     <string name="option_ui_sound_trusted_desc">Audio que se reproduce cuando el dispositivo entra en el estado “de confianza” sin desbloquear.</string>
     <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging_desc">Audio que se reproduce cuando el dispositivo se está cargando de forma inalámbrica.</string>
+    <string name="option_ui_sound_charging">Cargando</string>
+    <string name="option_ui_sound_charging_desc">Audio que se reproduce cuando el dispositivo se está cargando.</string>
     <string name="option_ui_sound_disable_charging">Desactivar sonido de carga</string>
     <string name="option_ui_sound_disable_charging_desc">Desactivar el sonido que se reproduce cuando el dispositivo inicia la carga.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Permisos de sistema UI (interfaz del usuario)</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Cambiar estas opciones requiere reiniciar System UI. También habrá que reiniciar System UI después de reiniciar el dispositivo. La forma más fácil de reiniciar System UI sin reiniciar el dispositivo es revocar el permiso \"Teléfono\". Pulse aquí para gestionar los permisos.</string>
     <string name="option_advanced_read_setting">Leer configuración personalizada</string>
     <string name="option_advanced_read_setting_desc">Si conoce la clave de una configuración en particular, puede utilizarla para ver su valor actual.</string>
     <string name="option_advanced_write_setting">Escribir configuración personalizada</string>
@@ -164,7 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introdujo una opción para silenciar las notificaciones. Puede utilizar esta opción para establecer valores personalizados para los tiempos de aplazamiento.</string>
     <string name="option_night_mode">Modo Noche</string>
     <string name="option_night_mode_desc">Android Nougat introdujo una opción nativa para teñir la pantalla color amarillo en la noche, acertadamente llamado Modo Noche. Se refinó aún más en Nougat 7, y fue renombrado como pantalla nocturna. Puedes activarlo aquí y ajustar diferentes opciones. ADVERTENCIA: ¡En algunos dispositivos, activar esto hará que la pantalla se vuelva negra!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Temperatura de pantalla nocturna</string>
     <string name="option_touchwiz_qs_row_count">Conteo de filas de ajustes rápidos</string>
     <string name="option_touchwiz_qs_row_count_desc">En Samsung TouchWiz Nougat y Oreo, es posible personalizar la cuadrícula de diseño QS con ajustes ocultos. Utilice esto para cambiar el recuento de filas. Por favor, habilite esto como una opción persistente.</string>
     <string name="option_touchwiz_qs_column_count">Número de columnas de ajustes rápidos</string>
@@ -239,7 +239,7 @@
     <string name="intent">Intento</string>
     <string name="view_online">Ver en línea</string>
     <string name="tile_custom">Personalizado</string>
-    <string name="next">Next</string>
+    <string name="next">Siguiente</string>
     <string name="finish">Finish</string>
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
@@ -293,7 +293,7 @@
     <string name="intro_allow_notifications">Permitir notificaciones</string>
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
-    <string name="intro_last_desc">Follow me on Mastodon or Twitter for the latest updates.</string>
+    <string name="intro_last_desc">Sígueme en Mastodon o en Twitter para las últimas actualizaciones.</string>
     <string name="intro_crash_reports">Enable Crash Reports</string>
     <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
     <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
