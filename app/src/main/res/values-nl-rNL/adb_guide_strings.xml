@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
+    <string name="adb_intro_title">ADB gids</string>
     <string name="adb_intro_desc">Weet je niet hoe je ADB moet gebruiken? Geen probleem, volg deze handleiding. (Let op: je hebt een computer nodig.)</string>
     <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
     <string name="adb_choose_computer_os">Kies je besturingssysteem.</string>
