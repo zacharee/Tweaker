@@ -80,7 +80,7 @@
     <string name="feature_custom_ui_sounds_desc">Android has a lot of sounds for different parts of the UI. A lot of these can actually be changed to your own custom sounds. You just need to specify the file for Android to use.</string>
     <string name="feature_fix_tethering">Fix Tethering</string>
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
-    <string name="feature_shortcode_warning">Https://crowdin. com/translate/systemui-tuner/7/en-id#1288</string>
+    <string name="feature_shortcode_warning">Nonaktifkan Konfirmasi Kode SMS Pendek</string>
     <string name="feature_shortcode_warning_desc">When sending SMS to certain short codes, the system warns you that you may be charged a fee. You can disable that warning here.</string>
     <string name="feature_sms_limit">Custom SMS Limit</string>
     <string name="feature_sms_limit_desc">Secara default, Android membatasi Anda untuk mengirim 30 SMS setiap 30 menit sebelum mengganggu Anda dengan notifikasi pop-up. Dengan menggunakan dua nilai ini, Anda dapat menyesuaikan berapa pun jumlah SMS yang ingin Anda kirim tanpa merasa terganggu.</string>
