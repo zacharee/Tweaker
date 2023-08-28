@@ -3,7 +3,7 @@
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Správce (vypnout)</string>
     <string name="tap_to_disable">Klepnutím zakažte toto oznámení</string>
-    <string name="home">Přehled</string>
+    <string name="home">Domů</string>
     <string name="category_display">Obrazovka</string>
     <string name="category_accessibility">Přístupnost</string>
     <string name="category_apps">Aplikace</string>
