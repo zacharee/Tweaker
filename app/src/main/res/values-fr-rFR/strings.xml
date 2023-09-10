@@ -142,9 +142,9 @@
     <string name="option_ui_sound_low_battery_desc">Audio qui est lu lorsque l\'appareil à la batterie faible.</string>
     <string name="option_ui_sound_trusted">De confiance</string>
     <string name="option_ui_sound_trusted_desc">Audio qui est joué lorsque le périphérique entre dans \"l\'état de confiance\" sans déverrouiller.</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging">Chargement sans fil</string>
     <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
+    <string name="option_ui_sound_charging">Recharge en cours</string>
     <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
     <string name="option_ui_sound_disable_charging">Désactiver le son de charge</string>
     <string name="option_ui_sound_disable_charging_desc">Indique s\'il faut désactiver le son qui joue lorsque l\'appareil commence à se charger.</string>
@@ -164,7 +164,7 @@
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 a introduit une option pour mettre en veille les notifications. Vous pouvez utiliser ce paramètre pour définir des valeurs personnalisées pour les heures de mise en veille.</string>
     <string name="option_night_mode">Mode Nuit (sombre)</string>
     <string name="option_night_mode_desc">Android Nougat a introduit une option native pour teindre l\'affichage jaune la nuit, bien appelé Mode Nuit. Il a été plus raffiné dans Nougat 7. , et renommé en affichage de nuit. Vous pouvez l\'activer ici et ajuster différentes options. AVERTISSEMENT : Sur certains appareils, l\'activation de cette option rendra l\'écran noir!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Température de l\'affichage nocturne</string>
     <string name="option_touchwiz_qs_row_count">Nombre de lignes des paramètres rapides</string>
     <string name="option_touchwiz_qs_row_count_desc">Sur Samsung TouchWiz Nougat et Oreo, il est possible de personnaliser la grille de mise en page QS avec des paramètres cachés. Utilisez ceci pour changer le nombre de lignes. Veuillez l\'activer en tant qu\'option persistante.</string>
     <string name="option_touchwiz_qs_column_count">Nombre de colonnes dans les paramètres rapides</string>
@@ -177,7 +177,7 @@
     <string name="option_touchwiz_disable_high_brightness_warning_desc">Dans certaines régions, les appareils Samsung afficheront un avertissement lorsque vous tenterez de dépasser un certain niveau de luminosité de l\'écran. Ce paramètre est généralement réinitialisé au redémarrage. Activez ceci et définissez-le comme une option persistante pour désactiver définitivement cet avertissement.</string>
     <string name="option_qs_editor">Éditeur Réglages rapides</string>
     <string name="option_qs_editor_desc">While custom QS tiles are only available on Android Nougat (7.0) and later, Marshmallow (6.0) still has limited QS editing available. You can reorder, remove, and add default QS tiles, as well as basic Intents.</string>
-    <string name="option_qs_fancy_anim">QS Fancy Animation</string>
+    <string name="option_qs_fancy_anim">Animation de raffinement des réglages rapides</string>
     <string name="option_qs_fancy_anim_desc">On supported devices, you can use this to disable the fancy QS tile movement and fading when fully expanding the notification center. If this doesn\'t seem to have an effect on your device, keep it turned on to avoid other issues.</string>
     <string name="option_qs_move_full_rows">QS Move Full Rows</string>
     <string name="option_qs_move_full_rows_desc">What this actually does isn\'t explained very well, but it does something and you could try it if you want. It has something to do with pulling down the notification center.</string>
