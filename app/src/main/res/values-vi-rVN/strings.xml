@@ -337,7 +337,7 @@
     <string name="remove_item">Loại bỏ mục này</string>
     <string name="remove_item_desc">Bạn có chắc rằng bạn muốn xóa mục này không?</string>
     <string name="custom_persistent_option_summary_template">Loại cài đặt: %1$s, Khóa: %2$s, Giá trị: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="settings_read_template"></string>
     <string name="tile_battery">Pin</string>
     <string name="tile_clock">Đồng hồ</string>
     <string name="tile_demo">Chế độ demo</string>
