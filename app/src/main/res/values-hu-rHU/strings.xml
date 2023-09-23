@@ -102,7 +102,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_keep_awake_on_ac">AC tápellátáson</string>
     <string name="option_keep_awake_on_usb">USB tápellátáson</string>
     <string name="option_keep_awake_on_wireless">Vezeték nélküli tápellátás</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Dokkolón</string>
     <string name="option_animator_duration_scale">Animáció tempója</string>
     <string name="option_window_animation_scale">Ablakanimáció tempója</string>
     <string name="option_transition_animation_scale">Áttűnési animáció tempója</string>
@@ -144,12 +144,12 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_ui_sound_trusted">Megbízható</string>
     <string name="option_ui_sound_trusted_desc">A hang, amely akkor szólal meg, amikor a készülék feloldás nélkül \"megbízható\" állapotba kerül.</string>
     <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging_desc">Hang, amit a készülék vezeték nélküli töltésekor ad.</string>
+    <string name="option_ui_sound_charging">Töltés</string>
+    <string name="option_ui_sound_charging_desc">Töltés végét jelző hang.</string>
     <string name="option_ui_sound_disable_charging">Töltési hang kikapcsolása</string>
     <string name="option_ui_sound_disable_charging_desc">A készülék töltésének megkezdésekor lejátszódó hang kikapcsolása.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Rendszer Kezelőfelületének engedélyei</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Egyéni beállítások olvasása</string>
     <string name="option_advanced_read_setting_desc">Ha ismeri egy adott beállítás kulcsát, akkor ezzel megnézheti annak aktuális értékét.</string>
