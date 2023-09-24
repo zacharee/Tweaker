@@ -290,7 +290,7 @@
     <string name="intro_terms_desc">Please read these terms. I promise they\'re worthwhile. For most of you, they\'ll save you an email.</string>
     <string name="intro_disclaimer">Disclaimer</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner can change hidden settings. Unfortunately, since they\'re hidden, there\'s a chance that your particular device won\'t respond to certain changes. On heavily customized versions of Android, such as EMUI, MIUI, and ColorOS, there will be a lot of features that simply don\'t work. Please keep in mind that there\'s simply nothing I can do about this.</string>
-    <string name="intro_grant_wss">Grant Write Secure Settings</string>
+    <string name="intro_grant_wss">保護された設定の書き込みを許可</string>
     <string name="intro_grant_wss_desc">SystemUI Tuner needs a special permission to work. To grant it, you either need to use ADB or be rooted. Pressing GRANT below will attempt to use root to grant the permission. Otherwise, hit the HELP button, and we\'ll help you get ADB set up. Don\'t worry, though; ADB is perfectly safe to use. You won\'t void your warranty, trip Samsung Knox, root your phone, or unlock the bootloader.</string>
     <string name="intro_grant_extra">Grant Extra Permissions</string>
     <string name="intro_grant_extra_desc">For certain features, SystemUI Tuner needs some extra ADB permissions to work properly. You don\'t have to grant these now, and you\'ll be prompted if they\'re needed.</string>
@@ -386,6 +386,6 @@
     <string name="increase" desc="This is in verb form.">Increase</string>
     <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
+    <string name="blocked_reason_write_secure_settings">保護された設定の書き込みを許可しない場合、SystemUI Tunerは機能することができません。権限の付与に問題がある場合はヘルプを参照してください。</string>
     <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
 </resources>
