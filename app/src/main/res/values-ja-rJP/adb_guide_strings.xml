@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">ADB ガイド</string>
-    <string name="adb_intro_desc">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定してください。 (このプロセスにはコンピュータが必要です)</string>
+    <string name="adb_intro_desc">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定してください。 (このプロセスにはPCが必要です。)</string>
     <string name="adb_intro_desc_no_computer">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定してください。</string>
     <string name="adb_choose_computer_os">OSを選ぶ:</string>
     <string name="adb_choose_computer_os_desc">どのOSを使用していますか？</string>
