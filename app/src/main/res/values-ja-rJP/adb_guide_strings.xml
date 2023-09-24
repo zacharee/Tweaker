@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">ADB ガイド</string>
-    <string name="adb_intro_desc">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定してください。 (このプロセスにはPCが必要です。)</string>
+    <string name="adb_intro_desc">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定するだけです！(この設定には原則PCが必要です。)</string>
     <string name="adb_intro_desc_no_computer">ADBの使い方がわかりませんか？問題ありません。このガイドに従って設定してください。</string>
-    <string name="adb_choose_computer_os">OSを選ぶ:</string>
-    <string name="adb_choose_computer_os_desc">どのOSを使用していますか？</string>
-    <string name="adb_android_guide">初期設定(このデバイス)</string>
-    <string name="adb_final_title">すべて完了です!</string>
+    <string name="adb_choose_computer_os">OSを選択してください</string>
+    <string name="adb_choose_computer_os_desc">あなたのPCで実行しているOSは何ですか？</string>
+    <string name="adb_android_guide">このデバイスで必要な設定</string>
+    <string name="adb_final_title">これで完了です!</string>
     <string name="adb_final_desc">完了！すべてが正常に処理されていれば権限が与えられます。</string>
-    <string name="adb_install_android_1">設定を開き、「デバイス情報」を探して開きます。</string>
-    <string name="adb_install_android_2">「ソフトウェア情報」が表示されている場合は開きます。</string>
-    <string name="adb_install_android_3">「ビルド番号」を探します。デバイスによっては「バージョン」と表記されていることがあります。</string>
-    <string name="adb_install_android_4">開発者モードを有効にするために7回タップします。有効にするために画面ロックを使用する場合があります。</string>
-    <string name="adb_install_android_5">設定アプリのメイン画面に戻ります。</string>
-    <string name="adb_install_android_6">「開発者向けオプション」が表示されている場合は開き、次のステップをスキップします。</string>
-    <string name="adb_install_android_7">「開発者向けオプション」が設定アプリのメイン画面に表示されていない場合は「システム」または「追加設定」などの項目の中から「開発者向けオプション」を探します。</string>
-    <string name="adb_install_android_8">「USBデバッグ」という項目まで下にスクロールし、有効にします。</string>
-    <string name="adb_install_android_9">Xiaomi製デバイスをご使用の場合は「USBデバッグ(セキュリティ設定)」を無効にする必要があります。</string>
-    <string name="adb_install_android_10">OPPO, Realme, OnePlus製デバイスをご使用の場合は「認可の監視を無効にする」というオプションを有効にする必要があります。</string>
-    <string name="adb_install_android_11">お使いのコンピュータにこのデバイスを接続してください。USBデバッグに関する確認ポップアップが表示された場合は、許可してください。</string>
-    <string name="adb_install_android_12">完了後、コンピューターに接続します。</string>
-    <string name="adb_install_local_1"><![CDATA[Download and install the Shizuku app from the [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
+    <string name="adb_install_android_1">設定アプリを開き、「端末情報」を探して開いてください。</string>
+    <string name="adb_install_android_2">お使いのデバイスによっては、「ソフトウェア情報」という項目が表示されることがあります。その場合は項目を開いてください。</string>
+    <string name="adb_install_android_3">「ビルド番号」という項目を探します。お使いのデバイスによっては、「バージョン」と表記されている場合もあります。</string>
+    <string name="adb_install_android_4">上記の項目を7回連続でタップして、開発者モードを有効化します。有効化するために画面ロックを解除する必要がある場合があります。</string>
+    <string name="adb_install_android_5">次に、設定アプリのメインページに戻ってください。</string>
+    <string name="adb_install_android_6">お使いのデバイスによっては、「開発者向けオプション」という項目が追加されていることがあります。その場合は項目を開いて次のステップをスキップしてください。</string>
+    <string name="adb_install_android_7">「開発者向けオプション」が設定アプリのメインページに表示されていない場合は、「システム」及び「追加の設定」の項目の中に表示されています。</string>
+    <string name="adb_install_android_8">「USBデバッグ」という項目を探して、有効にしてください。</string>
+    <string name="adb_install_android_9">Xiaomi製デバイスをお使いの場合は、「USBデバッグ(セキュリティ設定)」という項目を無効化する必要があります。</string>
+    <string name="adb_install_android_10">oppo、Realme、OnePlus製デバイスをお使いの場合は、「監視権限を無効化」という項目を有効化してください。</string>
+    <string name="adb_install_android_11">次に、お使いのPCにこのデバイスを接続してください。USBデバッグに関する確認ポップアップが表示された場合は、許可してください。</string>
+    <string name="adb_install_android_12">上記の作業が完了したら、PCで作業を続行します。</string>
+    <string name="adb_install_local_1"><![CDATA[ShizukuアプリをGoogle Playストアからインストールしてください(https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)]]></string>
     <string name="adb_install_local_2">Shizukuアプリを開いたら、「ワイヤレスデバッグで開始」の指示に従って設定します。</string>
     <string name="adb_install_local_3">この画面を閉じて「GRANT」ボタンをタップします。</string>
-    <string name="adb_install_adb_windows_1">ADB ZIP をここからダウンロードできます: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
-    <string name="adb_install_adb_windows_2">`C:\\adb`などの便利な場所にファイルを解凍します。</string>
-    <string name="adb_install_adb_windows_3">解凍したファイルを参照するには、ファイルエクスプローラを使用します。\"adb\"を含むファイルが表示されます。</string>
+    <string name="adb_install_adb_windows_1">ADBのZipファイルをここからダウンロードしてください: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_2">C:\adbなどの便利な場所にZipファイルを解凍してください。</string>
+    <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
     <string name="adb_install_adb_windows_4">検索バーの中をクリックし、そこにあるものを \"cmd\" (引用符なし) に置き換えてから、Enter キーを押します。</string>
-    <string name="adb_install_adb_mac_1">ADB ZIP をここからダウンロードできます: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">ADBのZipファイルをここからダウンロードしてください: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
     <string name="adb_install_adb_mac_2">デスクトップなどの便利な場所にファイルを解凍します。</string>
     <string name="adb_install_adb_mac_3">Now, open the terminal. You can do so by pressing CMD+SPACE at the same time to open Spotlight Search, and searching for \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
@@ -50,5 +50,5 @@
     <string name="adb_linux_debian">Debian / Ubuntu</string>
     <string name="adb_linux_rhel">RHEL/CentOS</string>
     <string name="adb_linux_other">Linux (その他)</string>
-    <string name="adb_local">Android (このデバイス)</string>
+    <string name="adb_local">Android(このデバイスで設定する)</string>
 </resources>
