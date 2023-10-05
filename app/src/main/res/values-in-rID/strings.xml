@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Pengelola (Matikan)</string>
-    <string name="tap_to_disable">Ketuk sini untuk mematikan notifikasi</string>
-    <string name="home">Home</string>
+    <string name="manager_channel">Pengelola (Nonaktifkan)</string>
+    <string name="tap_to_disable">Ketuk untuk mematikan notifikasi</string>
+    <string name="home">Beranda</string>
     <string name="category_display">Layar</string>
     <string name="category_accessibility">Aksesibilitas</string>
     <string name="category_apps">Aplikasi</string>
-    <string name="category_audio">Audio &amp; Sound</string>
+    <string name="category_audio">Audio &amp; Suara</string>
     <string name="category_developer">Developer</string>
     <string name="category_easter_eggs">Easter Eggs</string>
-    <string name="category_network">Network</string>
-    <string name="category_notifications">Pemberitahuan</string>
-    <string name="category_status_bar">Status&amp;bar</string>
+    <string name="category_network">Jaringan</string>
+    <string name="category_notifications">Notifikasi</string>
+    <string name="category_status_bar">Bilah Status</string>
     <string name="category_oem">Fitur OEM</string>
     <string name="category_system">Sistem</string>
     <string name="category_ui">UI</string>
@@ -20,8 +20,8 @@
     <string name="category_quick_settings">Pengaturan Cepat</string>
     <string name="screen_persistent">Opsi Gigih</string>
     <string name="category_interaction">Interaksi</string>
-    <string name="more">Selebihnya</string>
-    <string name="tweaks">Koprek</string>
+    <string name="more">Lainnya</string>
+    <string name="tweaks">Setelan</string>
     <string name="failure">Kegagalan</string>
     <string name="help_translate">Bantu Terjemahkan</string>
     <string name="sub_cellular">Seluler</string>
@@ -39,10 +39,10 @@
     <string name="sub_power">Daya</string>
     <string name="add_to_blacklist">Tambah ke Daftar Hitam Ikon</string>
     <string name="remove_from_blacklist">Hapus dari Daftar Hitam Ikon</string>
-    <string name="flashlight">Flashlight</string>
+    <string name="flashlight">Senter</string>
     <string name="sub_demo">Mode Demo</string>
     <string name="sub_demo_desc">Mode Demo mengizinkan Anda memaksa bilah status perangkat menjadi status berbeda. Dapat dipakai untuk memunculkan atau menyembunyikan ikon tertentu, menentukan kekuatan sinyal, dan sejumlah hal lain.</string>
-    <string name="special_sub_airplane_mode">Koprek Mode Pesawat</string>
+    <string name="special_sub_airplane_mode">Setelan Mode Pesawat</string>
     <string name="special_sub_airplane_mode_desc">Mode pesawat akan otomatis melumpuhkan sinyal radio pada perangkat jika dicetik. Anda dapat menentukan radio mana yang dilumpuhkan (seperti Wi-Fi tetap nyala saat menyalakan mode pesawat). Dan juga, Anda dapat mengubah radio mana yang dapat dicetik manual saat perangkat dalam mode pesawat.</string>
     <string name="special_sub_icon_blacklist">Daftar Hitam Ikon</string>
     <string name="special_sub_icon_blacklist_desc">Pilih ikon mana yang disembunyikan dari bilah status. Mohon diingat bahwa fitur ini tidak dapat bekerja pada semua perangkat atau ikon. Ikon pemberitahuan tidak dapat disembunyikan oleh fitur ini.</string>
