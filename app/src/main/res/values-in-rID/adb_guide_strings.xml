@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="adb_intro_title">Panduan ADB</string>
-    <string name="adb_intro_desc">Tidak tahu cara menggunakan ADB? Tidak masalah. Cukup ikuti panduan ini dan anda seharusnya sudah siap. (Catatan, bahwa untuk proses ini membutuhkan komputer)</string>
-    <string name="adb_intro_desc_no_computer">Tidak tahu cara menggunakan ADB? Tidak masalah. Cukup ikuti panduan ini dan anda seharusnya sudah siap.</string>
+    <string name="adb_intro_desc">Tidak tahu cara menggunakan ADB? Tidak masalah. Cukup ikuti panduan ini dan Anda seharusnya sudah siap. (Catatan bahwa untuk proses ini membutuhkan komputer.)</string>
+    <string name="adb_intro_desc_no_computer">Tidak tahu cara menggunakan ADB? Tidak masalah. Cukup ikuti panduan ini dan Anda seharusnya sudah siap.</string>
     <string name="adb_choose_computer_os">Pilih Sistem Operasi Anda.</string>
-    <string name="adb_choose_computer_os_desc">Apa sistem operasi yang dijalankan oleh komputer anda?</string>
-    <string name="adb_android_guide">Pengaturan Awal (Di Ponsel Anda)</string>
+    <string name="adb_choose_computer_os_desc">Apa sistem operasi yang dijalankan oleh komputer Anda?</string>
+    <string name="adb_android_guide">Setelan Awal (Di Ponsel Anda)</string>
     <string name="adb_final_title">Semua Selesai</string>
     <string name="adb_final_desc">Itu saja! Jika semua berjalan dengan baik, seharusnya izin-izin sudah diberikan.</string>
-    <string name="adb_install_android_1">Buka aplikasi Pengaturan dan geser ke bawah ke Tentang Telepon. Ketuk pilihan itu.</string>
-    <string name="adb_install_android_2">Tergantung pada perangkat anda, Anda mungkin melihat menu bernama \"Informasi Perangkat Lunak\". Jika benar, ketuk opsi tersebut.</string>
+    <string name="adb_install_android_1">Buka aplikasi Setelan dan geser ke bawah ke Tentang Telepon. Ketuk pilihan itu.</string>
+    <string name="adb_install_android_2">Tergantung pada perangkat Anda, Anda mungkin melihat opsi bernama \"Informasi Perangkat Lunak\". Jika benar, ketuk opsi tersebut.</string>
     <string name="adb_install_android_3">Sekarang, cari opsi dengan label \"Nomor Versi\". Di beberapa perangkat lainnya, ini mungkin disebut juga sebagai \"Versi\".</string>
-    <string name="adb_install_android_4">Ketuk opsi tersebut 7 kali untuk menyalakan Mode Pengembang. Mungkin dibutukan untuk memasukan kata sandi untuk menyalakannya.</string>
+    <string name="adb_install_android_4">Ketuk opsi tersebut 7 kali untuk mengaktifkan Opsi Pengembang. Mungkin kata sandi diperlukan untuk mengaktifkannya.</string>
     <string name="adb_install_android_5">Sekarang, kembali ke halaman Setelan utama.</string>
     <string name="adb_install_android_6">Tergantung pada perangkat Anda, Anda mungkin melihat menu baru yang disebut \"Opsi Pengembang\". Jika demikian, ketuk dan lewati langkah berikutnya.</string>
     <string name="adb_install_android_7">Jika Anda tidak melihat menu Opsi Pengembang, cari menu berlabel \"Sistem\" atau \"Pengaturan Tambahan\". Anda seharusnya akan melihat menu Opsi Pengembang di dalamnya.</string>
     <string name="adb_install_android_8">Geser ke bawah hingga anda menemukan opsi berlabel \"USB Debugging\" dan aktifkan.</string>
     <string name="adb_install_android_9">Di ponsel Xiaomi, Anda juga harus menemukan dan menonaktifkan opsi berlabel \"USB Debugging (Pengaturan Keamanan)\".</string>
     <string name="adb_install_android_10">Di ponsel OPPO, Realme, dan OnePlus, Anda juga harus menemukan dan mengaktifkan opsi berlabel \"Nonaktifkan Pemantauan Izin\".</string>
-    <string name="adb_install_android_11">Sekarang, colokkan ponsel anda ke komputer Anda. Jika pop-up konfirmasi tentang Debugging USB muncul, berikan izinnya.</string>
+    <string name="adb_install_android_11">Sekarang, colokkan ponsel Anda ke komputer Anda. Jika pop-up konfirmasi tentang Debugging USB muncul, berikan izinnya.</string>
     <string name="adb_install_android_12">Setelah itu selesai, saatnya untuk melanjutkan di komputer anda.</string>
     <string name="adb_install_local_1"><![CDATA[Unduh dan pasang aplikasi Shizuku dari [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Buka aplikasi Shizuku dan ikuti petunjuk di bawah \"Mulai melalui Debugging Nirkabel\".</string>
-    <string name="adb_install_local_3">Tutup layar ini dan ketuk tombol \"GRANT\".</string>
+    <string name="adb_install_local_3">Tutup layar ini dan ketuk tombol \"IZINKAN\".</string>
     <string name="adb_install_adb_windows_1">Unduh ZIP ADB dari sini: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
     <string name="adb_install_adb_windows_2">Ekstrak file zip ke lokasi yang mudah detemukan, seperti `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Gunakan file explorer untuk menelusuri ZIP yang telah diekstrak. Anda seharusnya melihat banyak file, termasuk satu yang bernama \"adb\".</string>
