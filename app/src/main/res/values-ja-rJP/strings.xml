@@ -317,7 +317,7 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail">設定の書き込みに失敗しました!</string>
     <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Get Add-On</string>
     <string name="download_shizuku">Get Shizuku</string>
@@ -367,7 +367,7 @@
     <string name="demo_mode_status_bar_translucent">Translucent</string>
     <string name="demo_mode_data_type_roaming">Roaming</string>
     <string name="demo_mode_data_type_none">None</string>
-    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_disabled">無効</string>
     <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
     <string name="demo_mode_activity_type_none">None</string>
     <string name="demo_mode_activity_type_in">In</string>
