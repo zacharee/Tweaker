@@ -372,14 +372,14 @@
     <string name="safe_audio_state_inactive">Không kích hoạt</string>
     <string name="safe_audio_state_active">Kích hoạt</string>
     <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="persistent_options_not_sticking_desc">Bạn có thể cần phải cho phép SystemUI Tuner không bị tối ưu hóa pin. Nhấp vào đây để tìm hiểu cách thực hiện.</string>
+    <string name="setting_applied_dialog">Đã áp dụng quyền chọn!</string>
+    <string name="setting_applied_dialog_desc">Bạn có muốn giữ những thay đổi không? Tùy chọn này sẽ được khôi phục sau %s giây.</string>
+    <string name="keep">Giữ</string>
+    <string name="revert">Đặt lại mặc định</string>
+    <string name="increase" desc="This is in verb form.">Tăng lên</string>
+    <string name="decrease" desc="This is in verb form.">Giảm xuống</string>
+    <string name="blocked_reason_read_terms">Vui lòng đảm bảo rằng bạn đã đọc các điều khoản trước khi tiếp tục.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner không thể hoạt động nếu không có quyền Viết cài đặt bảo mật. Nhấn vào nút \"Trợ giúp\" nếu bạn gặp khó khăn trong việc cấp quyền này.</string>
+    <string name="blocked_reason_choose_os">Vui lòng chọn hệ điều hành trước khi tiếp tục.</string>
 </resources>
