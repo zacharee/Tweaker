@@ -53,7 +53,7 @@
     <string name="feature_long_press_delay">Stel aangepaste Lang indrukken vertraging in</string>
     <string name="feature_long_press_delay_desc">In de Toegankelijkheidsinstellingen is een functie genaamd \"tik &amp; houd ingedrukt vertraging\" wat je laat instellen hoe lang je het scherm ingedrukt moet houden voordat Android doorheeft dat je het scherm lang indrukt. Daar kun je alleen kiezen uit de standaard opties \"kort\", \"gemiddeld\" en \"lang\". Hier kun je zelf de tijd instellen.</string>
     <string name="feature_font_scale">Aangepaste lettergrootte instellen</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
+    <string name="feature_font_scale_desc">Android laat je de tekstgrootte op je apparaat instellen voor het hele systeem. Hier kan je kiezen tussen \"klein\", \"gemiddeld\", \"groot\", \"heel groot\" en \"extra groot\". Met deze functie kun je de grootte zelf instellen.</string>
     <string name="feature_freeform">Enable Freeform Multiwindow</string>
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
     <string name="feature_app_install_location">Set Default App Install Location</string>
