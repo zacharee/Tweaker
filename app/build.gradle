@@ -37,6 +37,7 @@ android {
         viewBinding true
         aidl true
         compose true
+        buildConfig true
     }
 
     composeOptions {
