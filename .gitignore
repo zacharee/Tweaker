@@ -7,6 +7,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/gradle.xml
 .DS_Store
 /build
 /captures
@@ -14,5 +15,5 @@
 .cxx
 
 # Project exclude paths
-/app/build/
-/app/build/intermediates/javac/debug/classes/
+/app/build/*
+/app/release/*
