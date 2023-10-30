@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.services.tiles
 
 import android.annotation.TargetApi
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -12,6 +13,8 @@ import android.provider.AlarmClock
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.text.format.DateFormat
+import androidx.core.service.quicksettings.PendingIntentActivityWrapper
+import androidx.core.service.quicksettings.TileServiceCompat
 import com.zacharee1.systemuituner.util.safeUpdateTile
 import java.text.SimpleDateFormat
 import java.util.*
@@ -72,8 +75,13 @@ class ClockTile : TileService() {
         val intentClock = Intent(AlarmClock.ACTION_SHOW_ALARMS)
         intentClock.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
+        val pendingIntent = PendingIntentActivityWrapper(
+            this, 100, intentClock,
+            PendingIntent.FLAG_UPDATE_CURRENT, false,
+        )
+
         try {
-            startActivityAndCollapse(intentClock)
+            TileServiceCompat.startActivityAndCollapse(this, pendingIntent)
         } catch (_: Exception) {}
     }
 

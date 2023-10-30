@@ -39,13 +39,13 @@ abstract class BaseProvider : ContentProvider() {
         uri: Uri, projection: Array<String>?, selection: String?,
         selectionArgs: Array<String?>?, sortOrder: String?
     ): Cursor {
-        var projection = projection
-        if (projection == null) {
-            projection = OPENABLE_PROJECTION
+        var mutableProjection = projection
+        if (mutableProjection == null) {
+            mutableProjection = OPENABLE_PROJECTION
         }
-        val cursor = MatrixCursor(projection, 1)
+        val cursor = MatrixCursor(mutableProjection, 1)
         val b = cursor.newRow()
-        for (col in projection) {
+        for (col in mutableProjection) {
             if (OpenableColumns.DISPLAY_NAME == col) {
                 b.add(getFileName(uri))
             } else if (OpenableColumns.SIZE == col) {

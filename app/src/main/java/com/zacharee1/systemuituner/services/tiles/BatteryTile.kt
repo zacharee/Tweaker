@@ -1,6 +1,7 @@
 package com.zacharee1.systemuituner.services.tiles
 
 import android.annotation.TargetApi
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,8 @@ import android.os.BatteryManager
 import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import androidx.core.service.quicksettings.PendingIntentActivityWrapper
+import androidx.core.service.quicksettings.TileServiceCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.util.safeUpdateTile
 
@@ -44,8 +47,13 @@ class BatteryTile : TileService() {
         val intentBatteryUsage = Intent(Intent.ACTION_POWER_USAGE_SUMMARY)
         intentBatteryUsage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
+        val pendingIntent = PendingIntentActivityWrapper(
+            this, 101, intentBatteryUsage,
+            PendingIntent.FLAG_UPDATE_CURRENT, false,
+        )
+
         try {
-            startActivityAndCollapse(intentBatteryUsage)
+            TileServiceCompat.startActivityAndCollapse(this, pendingIntent)
         } catch (_: Exception) {}
 
         super.onClick()
