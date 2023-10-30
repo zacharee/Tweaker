@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         namespace "com.zacharee1.systemuituner"
         applicationId "com.zacharee1.systemuituner"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 354
         versionName versionCode.toString()
     }
