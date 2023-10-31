@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -94,6 +95,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 extraContent = {
                     OutlinedButton(onClick = {
                         context.launchUrl("https://github.com/zacharee/Tweaker/blob/master/app/src/main/assets/terms.md")
+                        hasHitBottomOfTerms = true
                     }) {
                         Text(text = stringResource(id = R.string.view_online))
                     }
@@ -249,9 +251,15 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 slideColor = { colorResource(id = R.color.slide_4) },
                 contentColor = { colorResource(id = R.color.slide_4_content )},
                 extraContent = {
-                    CrashReportsToggle(
-                        modifier = Modifier.fillMaxWidth()
-                    )
+                    MaterialTheme(
+                        colorScheme = MaterialTheme.colorScheme.copy(
+                            outline = colorResource(id = R.color.slide_4),
+                        ),
+                    ) {
+                        CrashReportsToggle(
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
                 }
             ))
         }

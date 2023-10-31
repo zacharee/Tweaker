@@ -93,13 +93,14 @@ dependencies {
     implementation 'com.github.zacharee:SeekBarPreference:1b37341e49'
     implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
-    implementation 'com.github.zacharee:ComposeIntroSlider:67013b1426'
+    implementation 'com.github.zacharee:ComposeIntroSlider:13d5cfd28f'
     implementation 'com.github.zacharee:SystemUITunerSystemSettings:b5d86f98ee'
 
     implementation 'com.bugsnag:bugsnag-android:5.31.2'
 
-    implementation 'com.google.accompanist:accompanist-themeadapter-material3:0.30.1'
-    implementation 'com.google.accompanist:accompanist-drawablepainter:0.31.2-alpha'
+    String accompanistVersion = '0.33.2-alpha'
+    implementation "com.google.accompanist:accompanist-themeadapter-material3:${accompanistVersion}"
+    implementation "com.google.accompanist:accompanist-drawablepainter:${accompanistVersion}"
 
     implementation 'androidx.compose.material3:material3:1.2.0-alpha10'
     implementation "androidx.compose.foundation:foundation:${compose_version}"
@@ -109,7 +110,7 @@ dependencies {
     implementation "androidx.compose.ui:ui:${compose_version}"
     implementation "androidx.compose.ui:ui-tooling-preview:${compose_version}"
     implementation 'androidx.activity:activity-compose:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0-alpha03'
 
     debugImplementation "androidx.compose.ui:ui-tooling:${compose_version}"
 }

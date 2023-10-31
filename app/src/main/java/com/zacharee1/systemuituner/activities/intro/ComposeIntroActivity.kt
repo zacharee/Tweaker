@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -93,7 +92,7 @@ fun MainContent(
             },
             modifier = Modifier.fillMaxSize(),
             backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
-            normalizeElements = false,
+            normalizeElements = true,
         )
     }
 }

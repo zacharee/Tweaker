@@ -1,13 +1,9 @@
 package com.zacharee1.systemuituner.util
 
 import android.content.Context
-import android.content.pm.IPackageManager
 import android.content.pm.PackageManager
-import android.os.UserHandle
 import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuBinderWrapper
 import rikka.shizuku.ShizukuProvider
-import rikka.shizuku.SystemServiceHelper
 
 val Context.hasWss: Boolean
     get() = checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SECURE_SETTINGS) == PackageManager.PERMISSION_GRANTED
@@ -24,4 +20,3 @@ val Context.hasShizukuPermission: Boolean
     } else {
         Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
     }
-
