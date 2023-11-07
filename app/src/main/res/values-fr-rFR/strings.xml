@@ -31,7 +31,7 @@
     <string name="sub_huawei">Huawei/Honor</string>
     <string name="sub_lg">LG</string>
     <string name="sub_oneplus">OnePlus</string>
-    <string name="sub_samsung">Samsun</string>
+    <string name="sub_samsung">Samsung</string>
     <string name="sub_sony">Sony</string>
     <string name="sub_xiaomi">Xiaomi</string>
     <string name="sub_security">Sécurité</string>
@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">Branché sur secteur</string>
     <string name="option_keep_awake_on_usb">Branché en USB</string>
     <string name="option_keep_awake_on_wireless">En charge sans fil</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Sur station</string>
     <string name="option_animator_duration_scale">Échelle de durée d\'animation</string>
     <string name="option_window_animation_scale">Vitesse d\'animation des fenêtres</string>
     <string name="option_transition_animation_scale">Vitesse d\'animation des transitions</string>
@@ -314,8 +314,8 @@
     <string name="write_system_fail">Impossible d\'écrire le paramètre !</string>
     <string name="write_system_fail_desc">Malheureusement, Android a restreint la possibilité de modifier ce paramètre. Pour contourner ce paramètre, vous aurez besoin de mon application complémentaire ou de Shizuku. Si vous avez déjà installé le module, vous devrez peut-être le mettre à jour. Si Shizuku est déjà installé, assurez-vous qu\'il est en cours d\'exécution et que SystemUI Tuner a été autorisé à y accéder.</string>
     <string name="write_system_fail_get_add_on">Obtenir des Add-On</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
+    <string name="download_shizuku">Télécharger Shizuku</string>
+    <string name="open_shizuku">Ouvrir Shizuku</string>
     <string name="read_setting_fail">Échec de la lecture des paramètres !</string>
     <string name="read_setting_fail_desc">Malheureusement, Android a restreint la possibilité de modifier ce paramètre. Pour contourner ce paramètre, vous aurez besoin de mon application complémentaire ou de Shizuku. Si vous avez déjà installé le module, vous devrez peut-être le mettre à jour. Si Shizuku est déjà installé, assurez-vous qu\'il est en cours d\'exécution et que SystemUI Tuner a été autorisé à y accéder.</string>
     <string name="donate">Faire un don</string>
