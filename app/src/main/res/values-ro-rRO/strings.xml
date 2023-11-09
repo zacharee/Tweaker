@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI Tuner</string>
+    <string name="app_name">SistemUI Tuner</string>
     <string name="manager_channel">Manager (oprire)</string>
     <string name="tap_to_disable">Atingeți pentru a dezactiva această notificare</string>
     <string name="home">Acasă</string>
@@ -83,7 +83,7 @@
     <string name="feature_shortcode_warning">Dezactivează confirmarea codului scurt SMS</string>
     <string name="feature_shortcode_warning_desc">Atunci când se trimite SMS la anumite coduri scurte, sistemul vă avertizează că este posibil să fiți taxat o taxă. Puteți dezactiva acest avertisment aici.</string>
     <string name="feature_sms_limit">Custom SMS Limit</string>
-    <string name="feature_sms_limit_desc">By default, Android limits you to sending 30 SMS every 30 minutes before bothering you with a pop-up notification. Using these two values, you can customize however many SMS you want to be able to send without being bothered.</string>
+    <string name="feature_sms_limit_desc">În mod implicit, Android vă limitează la trimiterea a 30 de SMS-uri la fiecare 30 de minute înainte de a vă deranja cu o notificare pop-up. Folosind aceste două valori, poți personaliza oricât de multe SMS vrei să poți trimite fără să te deranjezi.</string>
     <string name="feature_lockscreen_shortcuts">Lock Screen Shortcuts</string>
     <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">Enable ADB</string>
