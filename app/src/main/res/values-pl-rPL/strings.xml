@@ -41,7 +41,7 @@
     <string name="remove_from_blacklist">Usuń z czarnej listy ikon</string>
     <string name="flashlight">Latarka</string>
     <string name="sub_demo">Tryb demonstracyjny</string>
-    <string name="sub_demo_desc">Tryb demonstracyjny pozwala wymusić stany ikon na pasku stanu urządzenia. Może zostać użyty do pokazania ub ukrycia określonych ikon, wyświetlenia określenilych poziomów sygnałów i kilku innych rzeczy.</string>
+    <string name="sub_demo_desc">Tryb demonstracyjny pozwala wymusić stany ikon na pasku stanu urządzenia. Może zostać użyty do pokazania lub ukrycia określonych ikon, określenia sił sygnałów, jak i kilku innych rzeczy.</string>
     <string name="special_sub_airplane_mode">Ulepszenia trybu samolotowego</string>
     <string name="special_sub_airplane_mode_desc">Po włączeniu trybu samolotowego wszystkie połączenia radiowe zostają automatycznie wyłączone. Ta sekcja pozwala określić, które z połączeń urządzenia mają pozostać włączone (jak np. aktywna transmisja danych przez Wi-Fi) po uruchomieniu trybu samolotowego. Można również określić, dla których połączeń pozostawiona zostanie możliwość ręcznego przełączania stanu, gdy urządzenie będzie pracować w trybie samolotowym.</string>
     <string name="special_sub_icon_blacklist">Czarna lista ikon</string>
@@ -372,7 +372,7 @@
     <string name="safe_audio_state_inactive">Nieaktywne</string>
     <string name="safe_audio_state_active">Aktywne</string>
     <string name="persistent_options_not_sticking_title">Opcje nie resetują przy starcie urządzenia?</string>
-    <string name="persistent_options_not_sticking_desc">Być może musisz dodać SystemUI Tuner do wyjątkmów optymalizacji baterii. Kliknij tutaj, aby dowiedzieć się, jak to zrobić.</string>
+    <string name="persistent_options_not_sticking_desc">Być może musisz dodać SystemUI Tuner do wyjątków optymalizacji baterii. Kliknij tutaj, aby dowiedzieć się, jak to zrobić.</string>
     <string name="setting_applied_dialog">Opcja zastosowana!</string>
     <string name="setting_applied_dialog_desc">Czy chcesz zachować zmiany? Ta opcja zostanie cofnięta po %s sekundach.</string>
     <string name="keep">Zachowaj</string>
