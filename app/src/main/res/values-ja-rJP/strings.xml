@@ -323,9 +323,9 @@
     <string name="download_shizuku">Shizuku を入手</string>
     <string name="open_shizuku">Shizukuを開く</string>
     <string name="read_setting_fail">設定の読み込みに失敗しました!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="read_setting_fail_desc">Androidではこの設定の読み込みが制限されています。これを回避するためには、私のアドオンアプリかShizukuのどちらかが必要です。すでにアドオンをインストールしている場合、アドオンのアップデートをする必要があるかもしれません。既にShizukuをインストールしている場合、SystemUI Tunerにアクセス許可が必要です。</string>
     <string name="donate">寄付</string>
-    <string name="donate_desc">I make this app in my free time. If you enjoy using it, consider buying me a cup of coffee (even though I don\'t drink coffee). Of course, this is a donation, and you don\'t have to do anything. There are no pay-walled features in SystemUI Tuner.</string>
+    <string name="donate_desc">私はこのアプリを自分の自由な時間で作っています。 もしあなたがそれを使うのを楽しむなら、コーヒーを買うことを検討してください(私はコーヒーを飲まないにもかかわらず)。 もちろん、これは寄付です。あなたは何もする必要はありません。SystemUI Tunerには有料ウォール機能はありません。</string>
     <string name="paypal">PayPal</string>
     <string name="google_play">Google Play</string>
     <string name="social">ソーシャル</string>
@@ -336,12 +336,12 @@
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
     <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
-    <string name="check_it_out">Check it Out</string>
+    <string name="oneui_tuner_desc">SamsungのAndroid Pie及び最新のOne UIを実行しているデバイスをお使いの場合、Oreoで動作しなくなった設定 (時計の秒数表示など) があることに気づいたかもしれません。いくつかのオプションを再び動作させるためにシステムオーバーレイを使用する別のアプリを作成しました。rootやADBは必要ありません。</string>
+    <string name="check_it_out">今すぐ確認</string>
     <string name="add_custom_item">カスタムアイテムを追加</string>
     <string name="edit_custom_item">カスタムアイテムを編集</string>
     <string name="remove_item">このアイテムを削除</string>
-    <string name="remove_item_desc">Are you sure you want to remove this item?</string>
+    <string name="remove_item_desc">このアイテムを削除してもよろしいですか？</string>
     <string name="custom_persistent_option_summary_template">設定タイプ: %1$s キー: %2$s 値: %3$s</string>
     <string name="settings_read_template">設定タイプ: %1$s キー: %2$s</string>
     <string name="tile_battery">バッテリー</string>
@@ -350,21 +350,21 @@
     <string name="tile_heads_up">ヘッドアップ通知</string>
     <string name="tile_night_mode">ナイトモード</string>
     <string name="icon_blacklist_rotation_lock">画面回転をロック</string>
-    <string name="icon_blacklist_rotation_lock_desc">Modifying the icon blacklist may cause the icon shown here to show up in your status bar. This is the Rotation Lock icon. You can blacklist it below.</string>
-    <string name="hide_battery_android_bug_msg">Hiding the battery icon is no longer possible using the icon blacklist on Android 10. This is a bug in Android. It should be fixed in Android 11.</string>
+    <string name="icon_blacklist_rotation_lock_desc">アイコンのブラックリストを変更すると、このアイコンがステータスバーに表示される可能性があります。これは回転ロックアイコンです。ブラックリストに載せることができます。</string>
+    <string name="hide_battery_android_bug_msg">Android 10ではブラックリストを使用してバッテリーアイコンを非表示にすることができません。これはAndroidのバグです。Android 11で修正される必要があります。</string>
     <string name="hide_battery_android_bug_btn_view_issue">Issue を表示</string>
     <string name="error_creating_file_template">ファイルの作成に失敗: %s</string>
     <string name="error_restoring_icon_blacklist">復元に失敗: %s</string>
     <string name="permission_grant_success">権限が正常に付与されました</string>
-    <string name="permission_grant_failure">Failed to grant permissions. If you have a Xiaomi or OPPO/Realme/OnePlus device, please make sure you enable \"USB Debugging (Security Settings)\" or enable \"Disable Permission Monitor\".</string>
-    <string name="permission_grant_failure_short">Failed to grant permissions.\n%s</string>
+    <string name="permission_grant_failure">権限の付与に失敗しました。 Xiaomi または OPPO/Realme/OnePlus デバイスをお持ちの場合は、「USB デバッグ(セキュリティ設定)」を有効にするか、「権限監視を無効にする」を有効にしてください。</string>
+    <string name="permission_grant_failure_short">権限の付与に失敗しました。\n%s</string>
     <string name="patreon">Patreon</string>
-    <string name="patreon_desc">For $1 every month, you get access to all my paid apps, and more.</string>
+    <string name="patreon_desc">毎月$ 1の場合、すべての有料アプリなどにアクセスできます。</string>
     <string name="supporters">支援者</string>
-    <string name="supporters_desc">These people help keep this app (and me) going.</string>
-    <string name="demo_mode_status_bar_opaque">Opaque</string>
-    <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
-    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="supporters_desc">これらの人々は、このアプリ(そして私) を維持するのに役立ちます。</string>
+    <string name="demo_mode_status_bar_opaque">不透明</string>
+    <string name="demo_mode_status_bar_semi_transparent">半透明</string>
+    <string name="demo_mode_status_bar_translucent">透明</string>
     <string name="demo_mode_data_type_roaming">ローミング</string>
     <string name="demo_mode_data_type_none">なし</string>
     <string name="demo_mode_data_type_disabled">無効</string>
@@ -375,17 +375,17 @@
     <string name="demo_mode_activity_type_inout">In/Out</string>
     <string name="safe_audio_state_not_configured">未設定</string>
     <string name="safe_audio_state_disabled">無効</string>
-    <string name="safe_audio_state_inactive">Inactive</string>
-    <string name="safe_audio_state_active">Active</string>
+    <string name="safe_audio_state_inactive">無効</string>
+    <string name="safe_audio_state_active">有効</string>
     <string name="persistent_options_not_sticking_title">起動時にオプションがリセットされませんか?</string>
-    <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
+    <string name="persistent_options_not_sticking_desc">バッテリーの最適化からSystemUI Tunerをホワイトリストに登録する必要があります。方法はこちらをクリックしてください。</string>
     <string name="setting_applied_dialog">オプションを適用しました!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
+    <string name="setting_applied_dialog_desc">変更を保持しますか？このオプションは %s 秒後に元に戻ります。</string>
     <string name="keep">保持</string>
     <string name="revert">元に戻す</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
+    <string name="increase" desc="This is in verb form.">増やす</string>
+    <string name="decrease" desc="This is in verb form.">減らす</string>
+    <string name="blocked_reason_read_terms">続行する前に必ず利用規約をお読みください。</string>
     <string name="blocked_reason_write_secure_settings">保護された設定の書き込みを許可しない場合、SystemUI Tunerは機能することができません。権限の付与に問題がある場合はヘルプを参照してください。</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="blocked_reason_choose_os">続行する前にオペレーティングシステムを選択してください。</string>
 </resources>
