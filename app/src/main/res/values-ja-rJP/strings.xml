@@ -285,9 +285,9 @@
     <string name="restore">復元</string>
     <string name="set_color">色を設定</string>
     <string name="intro_welcome">ようこそ!</string>
-    <string name="intro_welcome_desc">あなたの Android デバイスには、変更すべき設定がたくさんあると思いますが、実は隠されている設定が存在している事をご存じですか?このアプリは、そんな隠された設定を変更するのに役立ちます! root アクセスは必要ではありませんが、このアプリをセットアップするにはいくつかのステップに従う必要があります。</string>
+    <string name="intro_welcome_desc">あなたのAndroidデバイスには変更すべき設定がたくさんあると思いますが、実は隠された設定が存在していることを知っていましたか？このアプリでは、そのような隠された設定を変更するのに役立ちます！rootアクセスは必要ありませんが、このアプリのセットアップのためにいくつかの手順に従う必要があります。</string>
     <string name="intro_terms">利用規約</string>
-    <string name="intro_terms_desc">これらの利用規約をお読みください。必ず読む事で、E メールを送る手間が省けるかもしれません。</string>
+    <string name="intro_terms_desc">これらの利用規約を必ずお読みください。そうすることで、後からEメールを送る手間を省けるかもしれません。</string>
     <string name="intro_disclaimer">免責事項</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner は隠れた設定を変更する事ができます。残念な事に隠れた設定なので、特定のデバイスでの設定の変更ができない可能性があります。EMUI、MIUI、ColorOS のような Android を大幅にカスタマイズした物では、動作しない機能がたくさん存在します。これについては私にはどうする事もできません。覚えておいてください。</string>
     <string name="intro_grant_wss">保護された設定の書き込みを許可</string>
