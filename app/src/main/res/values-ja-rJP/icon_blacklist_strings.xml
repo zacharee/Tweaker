@@ -13,7 +13,7 @@
     <string name="icon_blacklist_add_custom">カスタムアイテムを追加</string>
     <string name="icon_blacklist_add_custom_desc">非表示にしたいアイコンが見つからず、そのキーがわかっている場合は、ここに追加できます。</string>
     <string name="icon_blacklist_remove_custom">このアイテムを削除</string>
-    <string name="icon_blacklist_remove_custom_desc">Are you sure you want to remove this custom blacklist item?</string>
+    <string name="icon_blacklist_remove_custom_desc">このカスタムブラックリストのアイテムを削除してもよろしいですか？</string>
     <string name="icon_blacklist_rotate">画面の向きをロック</string>
     <string name="icon_blacklist_airplane">機内モード</string>
     <string name="icon_blacklist_wifi">Wi-Fi</string>
@@ -42,7 +42,7 @@
     <string name="icon_blacklist_su">SU</string>
     <string name="icon_blacklist_otg_mouse">OTGマウス</string>
     <string name="icon_blacklist_otg_keyboard">OTGキーボード</string>
-    <string name="icon_blacklist_felica_lock">Felicaロック</string>
+    <string name="icon_blacklist_felica_lock">FeliCaロック</string>
     <string name="icon_blacklist_answering_memo">Answering Memo</string>
     <string name="icon_blacklist_ime">IME</string>
     <string name="icon_blacklist_sync_failing">同期に失敗</string>
@@ -74,7 +74,7 @@
     <string name="icon_blacklist_keyguard_wakeup">Keyguard Wakeup</string>
     <string name="icon_blacklist_safezone">セーフゾーン</string>
     <string name="icon_blacklist_wimax">WiMAX</string>
-    <string name="icon_blacklist_smart_bonding">Smart Bonding</string>
+    <string name="icon_blacklist_smart_bonding">スマートボンディング</string>
     <string name="icon_blacklist_private_mode">プライベートモード</string>
     <string name="icon_blacklist_powersavingmode">パワーセーバーモード</string>
     <string name="icon_blacklist_earphone">イヤホン</string>
