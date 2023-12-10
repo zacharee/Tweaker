@@ -142,7 +142,7 @@
     <string name="option_ui_sound_low_battery_desc">Audio que se reproduce cuando el dispositivo está con batería baja.</string>
     <string name="option_ui_sound_trusted">Confiado</string>
     <string name="option_ui_sound_trusted_desc">Audio que se reproduce cuando el dispositivo entra en el estado “de confianza” sin desbloquear.</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
+    <string name="option_ui_sound_wireless_charging"></string>
     <string name="option_ui_sound_wireless_charging_desc">Audio que se reproduce cuando el dispositivo se está cargando de forma inalámbrica.</string>
     <string name="option_ui_sound_charging">Cargando</string>
     <string name="option_ui_sound_charging_desc">Audio que se reproduce cuando el dispositivo se está cargando.</string>
