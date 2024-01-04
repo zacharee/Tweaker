@@ -16,7 +16,7 @@
     <string name="category_oem">Các tính năng OEM</string>
     <string name="category_system">Hệ thống</string>
     <string name="category_ui">UI</string>
-    <string name="category_lock_screen">Lock Screen</string>
+    <string name="category_lock_screen">Khoá màn hình</string>
     <string name="category_quick_settings">Cài đặt Nhanh</string>
     <string name="screen_persistent">Tùy chọn Liên tục</string>
     <string name="category_interaction">Tương tác</string>
@@ -65,7 +65,7 @@
     <string name="feature_keep_screen_on">Giữ thiết bị bật khi được cắm vào</string>
     <string name="feature_keep_screen_on_desc">Trong Cài đặt dành cho nhà phát triển của Android, bạn có thể chọn tùy chọn để màn hình luôn sáng khi được cắm vào nguồn điện. Theo mặc định, điều này sẽ bật tính năng này cho tất cả các nguồn điện. Bạn có thể chỉ định nguồn điện nào bạn muốn để màn hình điện thoại luôn bật.</string>
     <string name="feature_custom_animation_scales">Đặt tỷ lệ hoạt ảnh tùy chỉnh</string>
-    <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
+    <string name="feature_custom_animation_scales_desc">Trong Cài đặt dành cho nhà phát triển của Android, bạn có thể đặt tỷ lệ hoạt ảnh để kiểm soát thời lượng của hoạt ảnh. Nếu các tùy chọn có sẵn quá nhanh hoặc quá chậm đối với bạn, bạn có thể đặt giá trị tùy chỉnh tại đây.</string>
     <string name="feature_custom_rotation">Định hướng màn hình khóa thành giá trị tùy chỉnh</string>
     <string name="feature_custom_rotation_desc">Hầu hết các điện thoại chỉ cho phép bạn khóa hướng màn hình của điện thoại sang chế độ Chân dung. Với cài đặt này, bạn có thể khóa hướng màn hình theo bất kỳ hướng nào. Trước tiên, bạn sẽ phải tắt tính năng tự động xoay trước khi tính năng này hoạt động.</string>
     <string name="feature_immersive_mode">Chế độ Nhập vai</string>
