@@ -208,7 +208,7 @@
     <string name="reset">Restablecer</string>
     <string name="grant">Autorizar</string>
     <string name="help">Ayuda</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg"></string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS no está concedido.</string>
     <string name="mode">Modo</string>
     <string name="key">Clave</string>
