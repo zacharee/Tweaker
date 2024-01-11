@@ -217,7 +217,7 @@
     <string name="hide">Ocultar</string>
     <string name="show">Mostrar</string>
     <string name="enabled">Habilitado</string>
-    <string name="enable">Enable</string>
+    <string name="enable">Habilitar</string>
     <string name="global">Global</string>
     <string name="secure">Seguro</string>
     <string name="system">Sistema</string>
@@ -240,7 +240,7 @@
     <string name="view_online">Ver en línea</string>
     <string name="tile_custom">Personalizado</string>
     <string name="next">Siguiente</string>
-    <string name="finish">Finish</string>
+    <string name="finish">Terminar</string>
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
     <string name="done">Done</string>
