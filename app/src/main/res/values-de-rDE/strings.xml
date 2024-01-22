@@ -143,9 +143,9 @@
     <string name="option_ui_sound_trusted">Vertrauenswürdig</string>
     <string name="option_ui_sound_trusted_desc">Ton, der wiedergegeben wird, wenn das Gerät als „vertrauenswürdig” eingestuft wird, ohne entsperrt zu werden.</string>
     <string name="option_ui_sound_wireless_charging">Kabelloses Laden</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
+    <string name="option_ui_sound_wireless_charging_desc">Ton, der wiedergegeben werden soll, wenn das Gerät drahtlos aufgeladen wird.</string>
     <string name="option_ui_sound_charging">Wird aufgeladen</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_charging_desc">Ton, der wiedergegeben werden soll, wenn das Gerät geladen wird.</string>
     <string name="option_ui_sound_disable_charging">Aufladeton deaktivieren</string>
     <string name="option_ui_sound_disable_charging_desc">Legt fest, ob der Ton, der beim Beginn des Ladevorgangs wiedergegeben wird, deaktiviert werden soll.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">SystemUI-Berechtigungen</string>
