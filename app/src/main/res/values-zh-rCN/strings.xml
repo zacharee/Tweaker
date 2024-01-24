@@ -239,12 +239,12 @@
     <string name="intent">意图</string>
     <string name="view_online">在线查看</string>
     <string name="tile_custom">自定义</string>
-    <string name="next">Next</string>
-    <string name="finish">Finish</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
+    <string name="next">下一个</string>
+    <string name="finish">完成</string>
+    <string name="previous">上一个</string>
+    <string name="exit">退出</string>
     <string name="done">完成</string>
-    <string name="error">Error</string>
+    <string name="error">错误</string>
     <string name="status_bar_icons">状态栏图标</string>
     <string name="network_states">网络状态</string>
     <string name="volume_visibility">音量可见性</string>
@@ -294,9 +294,9 @@
     <string name="intro_allow_notifications_desc">Android 13对需要用户许可才能显示通知的应用程序引入了新的限制。SystemUI Tuner可能会在运行后台操作时显示通知。如果您希望看到这个通知，请允许SystemUI Tuner显示通知。</string>
     <string name="intro_last">感谢您使用我的应用！</string>
     <string name="intro_last_desc">在Twitter上关注我以获取最新更新。</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports">开启崩溃报告</string>
+    <string name="intro_crash_reports_desc">您可以选择启用匿名崩溃报告，以帮助保持应用程序平稳运行。不会收集个人信息。一旦启用，要完全禁用收集，您需要强制停止SystemUI Tuner。您可以随后更改此设置。</string>
+    <string name="crash_reports_desc">您可以选择启用匿名崩溃报告，以帮助保持应用程序平稳运行。不会收集个人信息。一旦启用，要完全禁用收集，您需要强制停止SystemUI Tuner。</string>
     <string name="compatibility_message_lower">抱歉，此功能仅适用于 Android %s 及更高版本</string>
     <string name="compatibility_message_both">对不起，此功能只能从 Android %1$s 到 Android %2$s 正常工作</string>
     <string name="compatibility_message_higher">抱歉，此功能只能通过 Android %s 工作</string>
@@ -311,13 +311,13 @@
     <string name="android_pie">饼（Pie）9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail">写入设置失败！</string>
+    <string name="write_system_fail_desc">不幸的是，Android已经限制了更改此设置的能力。为了绕过这个问题，您需要使用我的附加应用程序或Shizuku。如果您已经安装了附加应用程序，可能需要更新它。如果您已经安装了Shizuku，请确保它正在运行，并且已允许SystemUI Tuner访问。</string>
     <string name="write_system_fail_get_add_on">获取附加组件</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">获取 Shizuku</string>
+    <string name="open_shizuku">打开 Shizuku</string>
+    <string name="read_setting_fail">读取设置失败！</string>
+    <string name="read_setting_fail_desc">Android已限制了读取此设置的能力。为了绕过这个问题，您将需要使用我的附加应用程序或Shizuku。如果您已经安装了附加应用程序，可能需要更新它。如果您已经安装了Shizuku，请确保它正在运行，并且已允许SystemUI Tuner访问。</string>
     <string name="donate">捐赠</string>
     <string name="donate_desc">我在空闲时间制作了这个应用程序。 如果您喜欢使用它，请考虑给我买杯咖啡（即使我不喝咖啡）。 当然，这是捐赠，你也可以什么都不做。在  SystemUI Tuner 中没有任何付费功能。</string>
     <string name="paypal">PayPal</string>
@@ -336,8 +336,8 @@
     <string name="edit_custom_item">编辑自定义项</string>
     <string name="remove_item">删除此项目</string>
     <string name="remove_item_desc">您确定要删除这个项目吗？</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="custom_persistent_option_summary_template">设置类型：%1$s，键：%2$s，值：%3$s</string>
+    <string name="settings_read_template">设置类型：%1$s，键：%2$s</string>
     <string name="tile_battery">电量</string>
     <string name="tile_clock">时钟</string>
     <string name="tile_demo">演示模式</string>
@@ -377,9 +377,9 @@
     <string name="setting_applied_dialog_desc">您想要保留更改吗？此选项将在%s秒后恢复。</string>
     <string name="keep">保持</string>
     <string name="revert">还原</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="increase" desc="This is in verb form.">增加</string>
+    <string name="decrease" desc="This is in verb form.">减少</string>
+    <string name="blocked_reason_read_terms">请确保在继续之前阅读这些条款。</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner无法正常运行，需要写入安全设置的权限。如果您在授予权限方面遇到问题，请点击“帮助”按钮。</string>
+    <string name="blocked_reason_choose_os">请在继续之前选择一个操作系统。</string>
 </resources>
