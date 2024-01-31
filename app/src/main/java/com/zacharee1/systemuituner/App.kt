@@ -11,6 +11,7 @@ import android.util.AndroidRuntimeException
 import android.util.Log
 import androidx.core.content.ContextCompat
 import com.bugsnag.android.Bugsnag
+import com.getkeepsafe.relinker.ReLinker
 import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.systemsettingsaddon.library.ISettingsService
 import com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsAddon
@@ -57,6 +58,9 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
 
     override fun onCreate() {
         super.onCreate()
+
+        ReLinker.loadLibrary(this, "bugsnag-ndk")
+        ReLinker.loadLibrary(this, "bugsnag-plugin-android-anr")
 
         if (prefManager.enableCrashReports == true) {
             Bugsnag.start(this)

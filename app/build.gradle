@@ -97,6 +97,7 @@ dependencies {
     implementation 'com.github.zacharee:SystemUITunerSystemSettings:b5d86f98ee'
 
     implementation 'com.bugsnag:bugsnag-android:6.1.0'
+    implementation 'com.getkeepsafe.relinker:relinker:1.4.5'
 
     String accompanistVersion = '0.34.0'
     implementation "com.google.accompanist:accompanist-themeadapter-material3:${accompanistVersion}"
