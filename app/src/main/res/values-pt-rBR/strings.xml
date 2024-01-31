@@ -101,7 +101,7 @@
     <string name="option_keep_awake_on_ac">Conectado à tomada</string>
     <string name="option_keep_awake_on_usb">Conectado ao USB</string>
     <string name="option_keep_awake_on_wireless">Conectado ao Wireless Charger</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Ao acoplar</string>
     <string name="option_animator_duration_scale">Escala de duração da Animação</string>
     <string name="option_window_animation_scale">Escala de animação da janela</string>
     <string name="option_transition_animation_scale">Escala de animação de transição</string>
@@ -148,7 +148,7 @@
     <string name="option_ui_sound_charging_desc">Áudio que é reproduzido quando o dispositivo está sendo carregado.</string>
     <string name="option_ui_sound_disable_charging">Desativar sons de carregamento</string>
     <string name="option_ui_sound_disable_charging_desc">Desativar o som que é reproduzido quando o dispositivo inicia o carregamento.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Permissões da Interface de Sistema</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
     <string name="option_advanced_read_setting">Ler configuração personalizada</string>
     <string name="option_advanced_read_setting_desc">Se você sabe a chave para uma determinada configuração, pode usá-la para ver o seu valor atual.</string>
@@ -311,9 +311,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">Q 10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Falha ao gravar em Settings.System!</string>
-    <string name="write_system_fail_desc">Infelizmente, o Android adicionou algumas restrições ao que pode ser escrito em Settings.System, e parece que você atingiu uma dessas configurações restritas. Felizmente, existe uma maneira de contornar essa restrição, através do uso de um aplicativo de complementos. Você terá que baixá-lo pelo meu site, fique tranquilo, é gratuito e de código aberto.</string>
+    <string name="write_system_fail">Falha ao gravar a configuração!</string>
+    <string name="write_system_fail_desc">Infelizmente, o Android restringiu a capacidade de alterar essa configuração. Para contornar isso, você precisará do meu app complementar ou Shizuku. Se você já tem o complemento instalado, talvez seja necessário atualizá-lo. Se você já tem o Shizuku instalado, verifique se ele está sendo executado e se o SystemUI Tuner tem permissão de acesso.</string>
     <string name="write_system_fail_get_add_on">Baixar complemento</string>
+    <string name="download_shizuku">Ir para o Shizuko</string>
+    <string name="open_shizuku">Abrir Shizuko</string>
+    <string name="read_setting_fail">Falha ao ler a configuração!</string>
+    <string name="read_setting_fail_desc">Infelizmente, o Android restringiu a capacidade de alterar essa configuração. Para contornar isso, você precisará do meu app complementar ou Shizuku. Se você já tem o complemento instalado, talvez seja necessário atualizá-lo. Se você já tem o Shizuku instalado, verifique se ele está sendo executado e se o SystemUI Tuner tem permissão de acesso.</string>
     <string name="donate">Doar</string>
     <string name="donate_desc">Eu faço esse aplicativo no meu tempo livre. Se você gosta de usá-lo, considere comprar uma xícara de café para mim (mesmo que eu não tome café). Claro, isto é uma doação, e você não tem que fazer nada. Não há recursos pagos no SystemUI Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">Remover este item</string>
     <string name="remove_item_desc">Tem certeza que deseja remover este item?</string>
     <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="settings_read_template">Tipo de Configurações: %1$s, Chave: %2$s</string>
     <string name="tile_battery">Bateria</string>
     <string name="tile_clock">Relógio</string>
     <string name="tile_demo">Modo de Demonstração</string>

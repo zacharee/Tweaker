@@ -42,7 +42,7 @@
     <string name="icon_blacklist_su">SuperUser</string>
     <string name="icon_blacklist_otg_mouse">Mysz USB OTG</string>
     <string name="icon_blacklist_otg_keyboard">Klawiatura USB OTG</string>
-    <string name="icon_blacklist_felica_lock">Felica Lock</string>
+    <string name="icon_blacklist_felica_lock">Blokada Felica</string>
     <string name="icon_blacklist_answering_memo">Odpowiedź na notatkę</string>
     <string name="icon_blacklist_ime">IME</string>
     <string name="icon_blacklist_sync_failing">Błąd synchronizacji</string>
@@ -69,7 +69,7 @@
     <string name="icon_blacklist_wifi_p2p">WiFi P2P</string>
     <string name="icon_blacklist_wifi_ap">Punkt dostępu WiFi</string>
     <string name="icon_blacklist_wifi_oxygen">Oxygen Wi-Fi</string>
-    <string name="icon_blacklist_phone_signal_second_stub">Phone Signal Second Stub</string>
+    <string name="icon_blacklist_phone_signal_second_stub">Druga końców sygnału telefonu</string>
     <string name="icon_blacklist_toddler">Maluch</string>
     <string name="icon_blacklist_keyguard_wakeup">Ikona KeyGuard Wakeup</string>
     <string name="icon_blacklist_safezone">Strefa bezpieczeństwa</string>
@@ -84,9 +84,9 @@
     <string name="icon_blacklist_mikey">MiKey</string>
     <string name="icon_blacklist_call_record">Nagrania Rozmów</string>
     <string name="icon_blacklist_privacy_mode">Tryb prywatności</string>
-    <string name="icon_blacklist_ble_unlock_mode">BLE Unlock Mode</string>
-    <string name="icon_blacklist_quiet">Quiet</string>
-    <string name="icon_blacklist_missed_call">Missed Call</string>
-    <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth Handsfree Battery</string>
+    <string name="icon_blacklist_ble_unlock_mode">Tryb odblokowania BLE</string>
+    <string name="icon_blacklist_quiet">Tryb cichy</string>
+    <string name="icon_blacklist_missed_call">Nieodebrane połączenie</string>
+    <string name="icon_blacklist_bluetooth_handsfree_battery">Bateria Bluetootha głośnomówiącego</string>
     <string name="icon_blacklist_rtt">RTT</string>
 </resources>

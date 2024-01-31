@@ -102,7 +102,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_keep_awake_on_ac">AC tápellátáson</string>
     <string name="option_keep_awake_on_usb">USB tápellátáson</string>
     <string name="option_keep_awake_on_wireless">Vezeték nélküli tápellátás</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Dokkolón</string>
     <string name="option_animator_duration_scale">Animáció tempója</string>
     <string name="option_window_animation_scale">Ablakanimáció tempója</string>
     <string name="option_transition_animation_scale">Áttűnési animáció tempója</string>
@@ -144,13 +144,16 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_ui_sound_trusted">Megbízható</string>
     <string name="option_ui_sound_trusted_desc">A hang, amely akkor szólal meg, amikor a készülék feloldás nélkül \"megbízható\" állapotba kerül.</string>
     <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging_desc">Hang, amit a készülék vezeték nélküli töltésekor ad.</string>
+    <string name="option_ui_sound_charging">Töltés</string>
+    <string name="option_ui_sound_charging_desc">Töltés végét jelző hang.</string>
     <string name="option_ui_sound_disable_charging">Töltési hang kikapcsolása</string>
     <string name="option_ui_sound_disable_charging_desc">A készülék töltésének megkezdésekor lejátszódó hang kikapcsolása.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">Rendszer Kezelőfelületének engedélyei</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Ezen beállítások mósosításai a rendszer teljes újraindítását igénylik.
+A készülék újraindítása mellett külön a kezelőfelületet is újra kell indítani.
+Csak a kezelőfelület újraindítását a \"Telefon\" engedélyének megtagadásával érjük el a legkönnyebben.
+Kattints ide, az engedély módosításához.</string>
     <string name="option_advanced_read_setting">Egyéni beállítások olvasása</string>
     <string name="option_advanced_read_setting_desc">Ha ismeri egy adott beállítás kulcsát, akkor ezzel megnézheti annak aktuális értékét.</string>
     <string name="option_advanced_write_setting">Egyéni beállítások írása</string>
@@ -165,7 +168,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_custom_notification_snooze_times_desc">Az Android Oreo 8.1 bevezette az értesítések szundi beállítását. Ezzel a beállítással egyéni értékeket állíthat be a szundi időkre.</string>
     <string name="option_night_mode">Éjszakai mód</string>
     <string name="option_night_mode_desc">Az Android Nougat bevezetett egy natív opciót a kijelző éjszakai sárgára színezésére, amelyet találóan Night Mode-nak hívnak. A Nougat 7.1-ben tovább finomították, és átnevezték Night Display-re. Itt engedélyezheti, és különböző beállításokat állíthat be. FIGYELMEZTETÉS: Egyes eszközökön, ha ezt aktiválja, a képernyő elsötétül!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Éjszakai hőmérséklet kijelzése</string>
     <string name="option_touchwiz_qs_row_count">Gyorsbeállítások sorainak száma</string>
     <string name="option_touchwiz_qs_row_count_desc">A Samsung TouchWiz Nougat és Oreo készülékeken lehetőség van a QS elrendezési rács testreszabására rejtett beállításokkal.. Ezzel megváltoztathatja a sorok számát. Kérjük, engedélyezze ezt tartós opcióként.</string>
     <string name="option_touchwiz_qs_column_count">Gyorsbeállítások oszlopok száma</string>
@@ -191,9 +194,10 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="option_disable_combined_internet">Kombinált hálózati beállítások letiltása</string>
     <string name="option_disable_combined_internet_desc">Az Android 12-ben a Google a WiFi, a Bluetooth és a mobiltelefon beállításait egy menübe egyesítette. A WiFi és a mobiltelefonos gyorsbeállítások csempéit is egyetlen Internet csempévé egyesítették. A beállítás engedélyezése visszahozza a régi menüket a Beállításokban, és lehetővé teszi a különálló QS-csempék visszaállítását. Előfordulhat, hogy újra kell indítania a rendszert, hogy ez megfelelően érvényesüljön. Ha nem látja a WiFi és a mobiltelefonos csempéket, a SystemUI Tuner gyorsbeállítás-szerkesztő funkciójával hozzáadhatja őket.</string>
     <string name="option_disable_lock_screen_ads">Képernyőzár reklám letiltása</string>
-    <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
-    <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
-    <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
+    <string name="option_disable_lock_screen_ads_desc">Ha a Kindle olyan hirdetéseket tartalmaz, amelyek a lezárási képernyőn jelennek meg, ezzel a lehetőséggel letilthatja őket. 
+Annak érdekében, hogy ez állandó legyen, engedélyeznie kell ezt az opciót az Állandó beállítások képernyőn is.</string>
+    <string name="option_allow_custom_left_lock_shortcut">Egyéni bal oldali zárolási képernyőparancs engedélyezése</string>
+    <string name="option_allow_custom_left_lock_shortcut_desc">A FireOS általában fenntartja a bal oldali zárolási képernyő parancsikonját az okoseszköz irányítópultjának, még akkor is, ha módosítja a parancsikont. Engedélyezze ezt itt és a Állandó opciók menüpontban, hogy egyéni parancsikont tudjon használni.</string>
     <string name="home_welcome_title">Üdvözöljük!</string>
     <string name="search">Keresés</string>
     <string name="immersive_none">Nincs</string>
@@ -209,7 +213,7 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="reset">Alaphelyzet</string>
     <string name="grant">Engedélyezés</string>
     <string name="help">Súgó</string>
-    <string name="no_root_msg">Unable to grant permissions on-device as neither root nor Shizuku access was detected. If your device is rooted, make sure SystemUI Tuner has root access. Otherwise, press the HELP button for ADB and Shizuku instructions.</string>
+    <string name="no_root_msg">Nem lehet engedélyt adni az eszközön, mivel sem root, sem Shizuku hozzáférés nem észlelhető. Ha eszköze rootolt, győződjön meg arról, hogy a SystemUI Tuner rendelkezik root hozzáféréssel. Ellenkező esetben nyomja meg a Súgó gombot az ADB és a Shizuku utasításaiért.</string>
     <string name="wss_required_msg">A WRITE_SECURE_SETTINGS nem engedélyezett.</string>
     <string name="mode">Mód</string>
     <string name="key">Kulcs</string>
@@ -297,8 +301,8 @@ Néma láthatóság</string>
     <string name="intro_last">Köszönöm hogy használod az appot!</string>
     <string name="intro_last_desc">Kövess Mastodon vagy Twitteren, hogy értesülj a legújabb frissítésekről.</string>
     <string name="intro_crash_reports">Összeomlás riportok engedélyezése</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports_desc">Az alkalmazás zökkenőmentes működése érdekében engedélyezheti a névtelen hibajelentéseket. Nem gyűjtenek személyes adatokat. Az adatgyűjtés teljes letiltásához az engedélyezést követően le kell állítania a SystemUI Tunert. Ezt a beállítást később módosíthatja.</string>
+    <string name="crash_reports_desc">Az alkalmazás zökkenőmentes működése érdekében engedélyezheti a névtelen hibajelentéseket. Nem gyűjtenek személyes adatokat. Az adatgyűjtés teljes letiltásához az engedélyezést követően le kell állítania a SystemUI Tunert. Ezt a beállítást később módosíthatja.</string>
     <string name="compatibility_message_lower">Sajnáljuk, ez a funkció csak az Android %s és újabb operációs rendszerekkel működik</string>
     <string name="compatibility_message_both">Sajnáljuk, ez a funkció csak az Android %1$s és az Android %2$s között működik</string>
     <string name="compatibility_message_higher">Sajnáljuk, ez a funkció csak az Android %s rendszeren keresztül működik</string>
@@ -313,9 +317,13 @@ Néma láthatóság</string>
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Nem sikerült írni a Settings.System-be!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android added some restrictions as to what can be written to Settings.System, and it seems like you\'ve hit one of those restricted settings. Luckily, there is a way around this restriction, through the use of an add-on app. You\'ll have to download it from my website, but it is free and open source.</string>
+    <string name="write_system_fail">Hiba a beállítások írása közben!</string>
+    <string name="write_system_fail_desc">Sajnos az Android korlátozta a beállítás módosításának lehetőségét. Ennek megkerüléséhez vagy az én kiegészítő alkalmazásomra vagy a Shizukura lesz szüksége. Ha már telepítette a bővítményt, előfordulhat, hogy frissítenie kell. Ha már telepítve van a Shizuku, győződjön meg arról, hogy fut, és a SystemUI Tuner hozzáférést kapott.</string>
     <string name="write_system_fail_get_add_on">Add-On beszerzése</string>
+    <string name="download_shizuku">Shizuku letöltése</string>
+    <string name="open_shizuku">Shizuku indítása</string>
+    <string name="read_setting_fail">Hiba a beállítások olvasása közben!</string>
+    <string name="read_setting_fail_desc">Az Android korlátozta a beállítás olvasását. Ennek megkerüléséhez vagy az én kiegészítő alkalmazásomra vagy a Shizukura lesz szüksége. Ha már telepítette a bővítményt, előfordulhat, hogy frissítenie kell. Ha már telepítve van a Shizuku, győződjön meg arról, hogy fut, és a SystemUI Tuner hozzáférést kapott.</string>
     <string name="donate">Támogatás</string>
     <string name="donate_desc">Ezt az alkalmazást a szabadidőmben készítem. Ha élvezed a használatát, vegyél nekem egy csésze kávét (annak ellenére, hogy nem iszom kávét). Természetesen ez egy adomány, és nem kell semmit sem tenned. A SystemUI Tunerben nincsenek fizetős funkciók.</string>
     <string name="paypal">PayPal</string>
@@ -334,7 +342,8 @@ Néma láthatóság</string>
     <string name="edit_custom_item">Egyéni elem szerkesztése</string>
     <string name="remove_item">Elem eltávolítása</string>
     <string name="remove_item_desc">Biztos benne, hogy eltávolítja ezt az elemet?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Beállítások típusa: %1$s, Kulcs: %2$s, Érték: %3$s</string>
+    <string name="settings_read_template">Beállítások típusa: %1$s, Kulcs: %2$s</string>
     <string name="tile_battery">Akkumulátor</string>
     <string name="tile_clock">Óra</string>
     <string name="tile_demo">Demó mód</string>
@@ -374,9 +383,9 @@ Néma láthatóság</string>
     <string name="setting_applied_dialog_desc">Szeretnéd megtartani a módosításokat? Ez a beállítás vissza lesz állítva %s másodperc múlva.</string>
     <string name="keep">Megtartás</string>
     <string name="revert">Visszaállítás</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="increase" desc="This is in verb form.">Növelés</string>
+    <string name="decrease" desc="This is in verb form.">Csökkentés</string>
+    <string name="blocked_reason_read_terms">Kérjük, a folytatás előtt feltétlenül olvassa el a feltételeket.</string>
+    <string name="blocked_reason_write_secure_settings">A SystemUI Tuner nem tud működni a Biztonsági Beállítások Írása engedélye nélkül. Koppintson a „Súgó” gombra, ha gondjai vannak az engedélyezéssel.</string>
+    <string name="blocked_reason_choose_os">Kérem válasszon operációs rendszert a folytatás előtt.</string>
 </resources>

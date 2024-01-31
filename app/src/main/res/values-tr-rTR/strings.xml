@@ -146,10 +146,10 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="option_ui_sound_low_battery_desc">Düşük batarya durumundayken bildirimleri göster.</string>
     <string name="option_ui_sound_trusted">Güvenilir</string>
     <string name="option_ui_sound_trusted_desc">Tr</string>
-    <string name="option_ui_sound_wireless_charging">Wireless Charging</string>
-    <string name="option_ui_sound_wireless_charging_desc">Audio that is played when the device is being wirelessly charged.</string>
-    <string name="option_ui_sound_charging">Charging</string>
-    <string name="option_ui_sound_charging_desc">Audio that is played when the device is being charged.</string>
+    <string name="option_ui_sound_wireless_charging">Kablosuz Şarj Halinde</string>
+    <string name="option_ui_sound_wireless_charging_desc">Cihaz kablosuz olarak şarj oluyor iken oynatılacak olan ses.</string>
+    <string name="option_ui_sound_charging">Şarj Halinde</string>
+    <string name="option_ui_sound_charging_desc">Cihaz şarj oluyor iken oynatılacak olan ses.</string>
     <string name="option_ui_sound_disable_charging">Şarj oluyor sesini devre dışı bırak</string>
     <string name="option_ui_sound_disable_charging_desc">Cihaz şarj olmaya başladığında çalan sesin devre dışı bırakılıp bırakılmayacağı.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">System UI Permissions</string>
@@ -170,7 +170,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
  İçerik TAalep</string>
     <string name="option_night_mode">Gece Modu</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Gece Işığı Sıcaklığı</string>
     <string name="option_touchwiz_qs_row_count">Hızlı Ayarlar Satır Sayısı</string>
     <string name="option_touchwiz_qs_row_count_desc">Samsung TouchWiz Nougat ve Oreo\'da, QS düzen ızgarasını gizli ayarlarla özelleştirmek mümkündür. Satır sayısını değiştirmek için bunu kullanın. Lütfen bunu Kalıcı Seçenek olarak etkinleştirin.</string>
     <string name="option_touchwiz_qs_column_count">Hızlı ayarlar sütun kareleri</string>
@@ -214,7 +214,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="reset">Sıfırla</string>
     <string name="grant">İzin ver</string>
     <string name="help">Yardım</string>
-    <string name="no_root_msg">Ne kök ne de Shizuku erişimi algılanmadığından cihazda izinler verilemedi. Cihazınız rootluysa, SystemUI Tuner\'ın root erişimine sahip olduğundan emin olun. Aksi takdirde, ADB ve Shizuku talimatları için YARDIM düğmesine basın.</string>
+    <string name="no_root_msg">Ne root ne de Shizuku erişimi tespit edilmediği için cihaz üzerinde izinler verilemiyor. Cihazınız root\'luysa, SystemUI Tuner\'ın root erişimine sahip olduğundan emin olun. Aksi takdirde, ADB ve Shizuku talimatları için YARDIM düğmesine basın.</string>
     <string name="wss_required_msg">GÜVENLİ AYARLARI YAZ VERİLEMEMİŞTİR.</string>
     <string name="mode">Mod</string>
     <string name="key">Anahtar</string>
@@ -319,9 +319,13 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Sürücüye yazılamadı!</string>
-    <string name="write_system_fail_desc">Ne yazık ki, Android Ayarlara ne yazılabileceğine dair bazı kısıtlamalar ekledi.Sistem ve bu kısıtlı ayarlardan birine çarpmışsınız gibi görünüyor. Neyse ki, bir eklenti uygulaması kullanarak bu kısıtlamayı aşmanın bir yolu var. Web sitemden indirmeniz gerekecek, ancak ücretsiz ve açık kaynak.</string>
+    <string name="write_system_fail">Ayarı yazma başarısız oldu!</string>
+    <string name="write_system_fail_desc">Ne yazık ki, Android bu ayarı değiştirmeyi kısıtladı. Kısıtlamayı aşmak için, eklenti uygulamasına veya Shizuku\'ya ihtiyacınız var. Eğer eklenti zaten mevcut ise, güncellemeniz gerekebilir. Eğer zaten Shizuku yüklü ise, çalıştığından ve SystemUI Tuner\'e izin verdiğinizden emin olun.</string>
     <string name="write_system_fail_get_add_on">Eklenti edinin</string>
+    <string name="download_shizuku">Shizuku\'yu Edin</string>
+    <string name="open_shizuku">Shizuku\'yu Aç</string>
+    <string name="read_setting_fail">Ayarı okuma başarısız oldu!</string>
+    <string name="read_setting_fail_desc">Android bu ayarı okumayı kısıtladı. Kısıtlamayı aşmak için, eklenti uygulamasına veya Shizuku\'ya ihtiyacınız var. Eğer eklenti zaten mevcut ise, güncellemeniz gerekebilir. Eğer zaten Shizuku yüklü ise, çalıştığından ve SystemUI Tuner\'e izin verdiğinizden emin olun.</string>
     <string name="donate">Bağış</string>
     <string name="donate_desc">Bu uygulamayı boş zamanlarımda yapıyorum. Kullanmaktan hoşlanıyorsan, bana bir fincan kahve ısmarlamayı düşün (kahve içmesem bile). Tabii ki bu bir bağış ve hiçbir şey yapmanıza gerek yok. SystemUI Tuner\'da ödeme duvarlı özellik yoktur.</string>
     <string name="paypal">PayPal</string>
@@ -340,7 +344,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="edit_custom_item">Özel Öğe Düzenle</string>
     <string name="remove_item">Bu ürünü sil</string>
     <string name="remove_item_desc">Bu öğeyi kaldırmak istediğinizden emin misiniz?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Ayarlar Türü: %1$s, Anahtar: %2$s, Değer: %3$s</string>
+    <string name="settings_read_template">Ayarlar Türü: %1$s, Anahtar: %2$s</string>
     <string name="tile_battery">Batarya</string>
     <string name="tile_clock">Saat</string>
     <string name="tile_demo">Demo Modu</string>
@@ -362,28 +367,28 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="supporters_desc">Bu insanlar bu uygulamayı (ve beni) devam ettirmeye yardımcı oluyor.</string>
     <string name="demo_mode_status_bar_opaque">Opak</string>
     <string name="demo_mode_status_bar_semi_transparent">Yarı Şeffaf</string>
-    <string name="demo_mode_status_bar_translucent">Translucent</string>
-    <string name="demo_mode_data_type_roaming">Roaming</string>
+    <string name="demo_mode_status_bar_translucent">Yarı saydam</string>
+    <string name="demo_mode_data_type_roaming">Dolaşım</string>
     <string name="demo_mode_data_type_none">None</string>
-    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_disabled">Devre dışı</string>
     <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
-    <string name="demo_mode_activity_type_none">None</string>
-    <string name="demo_mode_activity_type_in">In</string>
-    <string name="demo_mode_activity_type_out">Out</string>
-    <string name="demo_mode_activity_type_inout">In/Out</string>
+    <string name="demo_mode_activity_type_none">Hiçbiri</string>
+    <string name="demo_mode_activity_type_in">Giriş</string>
+    <string name="demo_mode_activity_type_out">Çıkış</string>
+    <string name="demo_mode_activity_type_inout">Giriş/Çıkış</string>
     <string name="safe_audio_state_not_configured">Ayarlanmamış</string>
     <string name="safe_audio_state_disabled">Devre dışı</string>
     <string name="safe_audio_state_inactive">Etkin değil</string>
     <string name="safe_audio_state_active">Aktif</string>
     <string name="persistent_options_not_sticking_title">Seçenekler Önyüklemede Sıfırlanmıyor mu?</string>
     <string name="persistent_options_not_sticking_desc">Herhangi bir pil optimizasyonundan SystemUI Tuner\'ı beyaz listeye almanız gerekebilir. Nasıl olduğunu öğrenmek için buraya tıklayın.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
-    <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
+    <string name="setting_applied_dialog">Seçenek Uygulandı!</string>
+    <string name="setting_applied_dialog_desc">Değişiklikleri saklamak istiyor musunuz? Bu seçenek %s saniye sonra geri alınacaktır.</string>
+    <string name="keep">Tut</string>
+    <string name="revert">Geri al</string>
+    <string name="increase" desc="This is in verb form.">Arttır</string>
+    <string name="decrease" desc="This is in verb form.">Azalt</string>
+    <string name="blocked_reason_read_terms">Devam etmeden önce lütfen kullanım şartlarını okuyun.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner, Güvenli Ayarlara Yazma iznine sahip olmadan çalışamaz. Eğer bu izni vermekte sorun yaşıyor iseniz \"Yardım\" tuşuna tıklayın.</string>
+    <string name="blocked_reason_choose_os">Devam etmeden önce lütfen bir işletim sistemi seçin.</string>
 </resources>

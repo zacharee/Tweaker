@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI Tuner</string>
+    <string name="app_name">أداة ضبط واجهة مستخدم النظام</string>
     <string name="manager_channel">المدير (إيقاف التشغيل)</string>
     <string name="tap_to_disable">انقر لتعطيل هذا الإشعار</string>
     <string name="home">الصفحة الرئيسية</string>
@@ -311,9 +311,13 @@
     <string name="android_pie">الفطيرة 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">فشل في الكتابة إلى الإعدادات. النظام!</string>
-    <string name="write_system_fail_desc">لسوء الحظ، أضاف أندرويد بعض القيود حول ما يمكن كتابته إلى الإعدادات. النظام، ويبدو أنك ضربت أحد هذه الإعدادات المقيدة. لحسن الحظ، هناك طريقة حول هذا التقييد، من خلال استخدام تطبيق إضافي. يجب عليك تنزيله من موقع الويب الخاص بي، ولكنه مجاني ومفتوح المصدر.</string>
+    <string name="write_system_fail">فشل في كتابة الإعداد!</string>
+    <string name="write_system_fail_desc">للأسف، أندرويد قيّد القدرة على تغيير هذا الإعداد. للعمل حوله، ستحتاج إما إلى تطبيق الإضافات الخاص بي أو Shizuku. إذا كان لديك بالفعل الإضافة مثبتة، قد تحتاج إلى تحديثها. إذا كان لديك بالفعل إضافة Shizuku مثبته، تأكد من تشغيلها والسماح لـ SystemUI Tuner بالوصول.</string>
     <string name="write_system_fail_get_add_on">الحصول على إضافات</string>
+    <string name="download_shizuku">الحصول على Shizuku</string>
+    <string name="open_shizuku">فتح Shizuku</string>
+    <string name="read_setting_fail">فشل في قراءة الإعداد!</string>
+    <string name="read_setting_fail_desc">أندرويد قيّد القدرة على قراءة هذا الإعداد. للعمل حوله، ستحتاج إما إلى تطبيق الإضافات الخاص بي أو Shizuku. إذا كان لديك بالفعل الإضافة مثبتة، قد تحتاج إلى تحديثها. إذا كان لديك بالفعل موقع Shizuku مثبت، تأكد من تشغيله والسماح لـ SystemUI Tuner بالدخول.</string>
     <string name="donate">تبرع</string>
     <string name="donate_desc">أنا اطور هذا التطبيق في وقت فراغي. إذا كنت تستمتع باستخدامه، فأدعمني بفنجان من القهوة (رغم أنني لا أشرب القهوة). بالطبع، هذا تبرع، وليس عليك القيام بأي شيء. لا توجد ميزات مدفوعة الأجر في واجهة النظام تونر.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">حذف هذا العنصر</string>
     <string name="remove_item_desc">هل تريد إزالة هذا العنصر؟</string>
     <string name="custom_persistent_option_summary_template">نوع الإعدادات: %1$s، المفتاح: %2$s، القيمة: %3$s</string>
+    <string name="settings_read_template">نوع الإعدادات: %1$sالمفتاح: %2$s</string>
     <string name="tile_battery">البطارية</string>
     <string name="tile_clock">الساعة</string>
     <string name="tile_demo">الوضع التجريبي</string>

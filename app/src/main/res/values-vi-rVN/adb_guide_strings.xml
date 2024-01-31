@@ -24,7 +24,7 @@
 (https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Mở ứng dụng Shizuku và làm theo hướng dẫn trong \"Bắt đầu qua gỡ lỗi không dây\".</string>
     <string name="adb_install_local_3">Đóng màn hình này và nhấn vào nút \"GRANT\".</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_1"></string>
     <string name="adb_install_adb_windows_2">Extract the ZIP to a convenient location, such as `C:\\adb`.</string>
     <string name="adb_install_adb_windows_3">Sử dụng trình quản lí tệp để duyệt đến tệp ZIP được giải nén. Bạn sẽ thấy một loạt các tệp, bao gồm một tệp được gọi là \"adb\".</string>
     <string name="adb_install_adb_windows_4">Nhấp vào bên trong thanh tìm kiếm và thay thế những gì ở đó bằng \"cmd\" (không có dấu ngoặc kép). Sau đó nhấn Enter.</string>

@@ -311,9 +311,13 @@
     <string name="android_pie">파이 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Settings.System에 쓰는 데 실패했습니다!</string>
-    <string name="write_system_fail_desc">안타깝게도 Android에서 Settings.System에 쓸 수 있는 내용에 몇 가지 제약을 걸었는데, 해당 제약에 걸려 버린 설정을 누르신 것 같습니다. 다행히 애드온 앱을 이용하면 이런 제약을 우회할 수 있습니다. 앱은 제 웹사이트에서 내려받아야 하지만, 무료에다가 오픈 소스입니다.</string>
+    <string name="write_system_fail">설정을 쓰는 데 실패했습니다!</string>
+    <string name="write_system_fail_desc">안타깝게도, Android에서 이 설정을 변경하지 못하도록 차단했습니다. 문제를 해결하려면 애드온 앱이나 Shizuku가 필요합니다. 애드온을 이미 설치했다면, 업데이트를 진행해야 할 수도 있습니다. 이미 Shizuku가 설치되어 있다면, Shizuku를 실행해주시고 SystemUI Tuner에게 접근 권한을 허용해주세요.</string>
     <string name="write_system_fail_get_add_on">애드온 얻기</string>
+    <string name="download_shizuku">Shizuku 받기</string>
+    <string name="open_shizuku">Shizuku 설치</string>
+    <string name="read_setting_fail">설정을 읽는 데 실패했습니다!</string>
+    <string name="read_setting_fail_desc">Android에서 이 설정을 읽지 못하도록 차단했습니다. 문제를 해결하려면 애드온 앱이나 Shizuku가 필요합니다. 애드온을 이미 설치했다면, 업데이트를 진행해야 할 수도 있습니다. 이미 Shizuku가 설치되어 있다면, Shizuku를 실행해주시고 SystemUI Tuner에게 접근 권한을 허용해주세요.</string>
     <string name="donate">기부</string>
     <string name="donate_desc">저는 이 앱을 여가 시간에 만들었습니다. 재밌게 쓰고 계신다면 (제가 커피를 마시진 않지만) 제게 커피 한 잔 정도를 사 주시는 건 어떨까요? 물론 이건 후원의 개념이고, 반드시 하지 않으셔도 됩니다. SystemUI Tuner에 유료로 결제해야만 이용할 수 있는 기능은 없습니다.</string>
     <string name="paypal">PayPal</string>
@@ -333,6 +337,7 @@
     <string name="remove_item">사용자 지정 항목 제거</string>
     <string name="remove_item_desc">정말로 이 항목을 삭제하시겠습니까?</string>
     <string name="custom_persistent_option_summary_template">설정 유형: %1$s, 키: %2$s, 값: %3$s</string>
+    <string name="settings_read_template">설정 유형: %1$s, 키: %2$s</string>
     <string name="tile_battery">배터리</string>
     <string name="tile_clock">시계</string>
     <string name="tile_demo">데모 모드</string>
