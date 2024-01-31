@@ -16,7 +16,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
-import com.zacharee1.systemuituner.data.SavedOption
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.*
 import kotlinx.coroutines.CoroutineScope
@@ -84,7 +83,7 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
                         this, 100, getNotificationSettingsForChannel(
                             NOTIFICATION_CHANNEL_ID
                         ),
-                        PendingIntent.FLAG_MUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
+                        PendingIntent.FLAG_IMMUTABLE,
                     )
                 )
                 .build()
