@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.preference.*
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
@@ -40,7 +41,7 @@ class SearchIndex private constructor(context: Context) : ContextWrapper(context
 
         fun getInstance(context: Context): SearchIndex {
             return instance ?: run {
-                SearchIndex(context.applicationContext).apply { instance = this }
+                SearchIndex(ContextThemeWrapper(context.applicationContext, R.style.AppTheme_NoActionBar)).apply { instance = this }
             }
         }
     }

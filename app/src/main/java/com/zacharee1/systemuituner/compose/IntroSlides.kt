@@ -16,7 +16,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -40,6 +39,7 @@ import com.zacharee1.systemuituner.util.launchUrl
 import com.zacharee1.systemuituner.util.prefManager
 import dev.zwander.composeintroslider.IntroPage
 import dev.zwander.composeintroslider.SimpleIntroPage
+import dev.zwander.composeintroslider.contentColorFor
 import io.noties.markwon.Markwon
 
 @Composable
@@ -107,7 +107,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                         }
                     }
 
-                    val textColor = contentColorFor(backgroundColor = colorResource(id = R.color.slide_2))
+                    val textColor = contentColorFor(color = colorResource(id = R.color.slide_2))
 
                     Column(
                         modifier = Modifier

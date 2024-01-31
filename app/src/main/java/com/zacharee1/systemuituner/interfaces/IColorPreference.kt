@@ -1,13 +1,16 @@
 package com.zacharee1.systemuituner.interfaces
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.PorterDuff
+import android.content.res.ColorStateList
 import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.graphics.toArgb
 import androidx.recyclerview.widget.RecyclerView
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.databinding.CustomPreferenceBinding
-import com.zacharee1.systemuituner.util.setColorFilterCompat
 
 interface IColorPreference {
     var iconColor: Int
@@ -27,6 +30,7 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
         }
     }
 
+    @SuppressLint("NewApi")
     override fun bindVH(holder: RecyclerView.ViewHolder) {
         val binding = CustomPreferenceBinding.bind(holder.itemView)
 
@@ -41,6 +45,20 @@ class ColorPreference(context: Context, attrs: AttributeSet?) :
                     drawable?.setTintList(null)
 //                    drawable?.clearColorFilter()
                 }
+            }
+        }
+
+        binding.icon.apply {
+            if (iconColor != Int.MIN_VALUE) {
+                val l = Color(iconColor).luminance()
+
+                imageTintList = ColorStateList.valueOf(
+                    if (l > 0.5) {
+                        Color.Black
+                    } else {
+                        Color.White
+                    }.toArgb()
+                )
             }
         }
     }
