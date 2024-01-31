@@ -13,10 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -77,7 +77,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                     description = { stringResource(R.string.intro_welcome_desc) },
                     icon = { painterResource(id = R.drawable.ic_baseline_emoji_people_24) },
                     slideColor = { colorResource(id = R.color.slide_1) },
-                    contentColor = { colorResource(id = R.color.slide_1_content )},
+//                    contentColor = { colorResource(id = R.color.slide_1_content )},
                 )
             )
 
@@ -86,7 +86,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_terms_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_format_list_numbered_24) },
                 slideColor = { colorResource(id = R.color.slide_2) },
-                contentColor = { colorResource(id = R.color.slide_2_content )},
+//                contentColor = { colorResource(id = R.color.slide_2_content )},
                 scrollable = false,
                 canMoveForward = { hasHitBottomOfTerms },
                 blockedReason = { stringResource(id = R.string.blocked_reason_read_terms) },
@@ -107,7 +107,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                         }
                     }
 
-                    val textColor = LocalContentColor.current
+                    val textColor = contentColorFor(backgroundColor = colorResource(id = R.color.slide_2))
 
                     Column(
                         modifier = Modifier
@@ -124,6 +124,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             it.text = Markwon.create(context).toMarkdown(rawTermsText ?: "")
+                            it.setTextColor(textColor.toArgb())
                         }
                     }
                 }
@@ -134,7 +135,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_disclaimer_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_priority_high_24) },
                 slideColor = { colorResource(id = R.color.slide_3) },
-                contentColor = { colorResource(id = R.color.slide_3_content )},
+//                contentColor = { colorResource(id = R.color.slide_3_content )},
             ))
         }
 
@@ -146,7 +147,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_grant_wss_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_adb_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
-                contentColor = { colorResource(id = R.color.slide_4_content )},
+//                contentColor = { colorResource(id = R.color.slide_4_content )},
                 canMoveForward = { hasWss() },
                 blockedReason = { stringResource(id = R.string.blocked_reason_write_secure_settings) },
                 extraContent = {
@@ -165,7 +166,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_grant_extra_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_adb_24) },
                 slideColor = { colorResource(id = R.color.slide_5) },
-                contentColor = { colorResource(id = R.color.slide_5_content )},
+//                contentColor = { colorResource(id = R.color.slide_5_content )},
                 extraContent = {
                     IntroSpecialPermissionGrantGroup(
                         permissions = arrayOf(
@@ -189,7 +190,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_system_alert_window_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_save_24) },
                 slideColor = { colorResource(id = R.color.slide_6) },
-                contentColor = { colorResource(id = R.color.slide_6_content )},
+//                contentColor = { colorResource(id = R.color.slide_6_content )},
                 extraContent = {
                     OutlinedButton(
                         onClick = {
@@ -217,7 +218,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_allow_notifications_desc) },
                 icon = { painterResource(id = R.drawable.ic_baseline_notifications_24) },
                 slideColor = { colorResource(id = R.color.slide_7) },
-                contentColor = { colorResource(id = R.color.slide_7_content )},
+//                contentColor = { colorResource(id = R.color.slide_7_content )},
                 extraContent = {
                     var isGranted by remember {
                         mutableStateOf(
@@ -249,7 +250,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_crash_reports_desc) },
                 icon = { painterResource(id = R.drawable.baseline_bug_report_24) },
                 slideColor = { colorResource(id = R.color.slide_4) },
-                contentColor = { colorResource(id = R.color.slide_4_content )},
+//                contentColor = { colorResource(id = R.color.slide_4_content )},
                 extraContent = {
                     MaterialTheme(
                         colorScheme = MaterialTheme.colorScheme.copy(
@@ -270,7 +271,7 @@ fun rememberIntroSlides(startReasons: Array<ComposeIntroActivity.Companion.Start
                 description = { stringResource(id = R.string.intro_last_desc) },
                 icon = { painterResource(id = R.drawable.foreground_unscaled) },
                 slideColor = { colorResource(id = R.color.slide_8) },
-                contentColor = { colorResource(id = R.color.slide_8_content )},
+//                contentColor = { colorResource(id = R.color.slide_8_content )},
                 extraContent = {
                     OutlinedButton(onClick = { context.launchUrl("https://androiddev.social/@wander1236") }) {
                         Text(text = stringResource(id = R.string.mastodon))

@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.activities
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -18,14 +19,13 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.launchUrl
 import com.zacharee1.systemuituner.util.shizukuServiceManager
 import dev.zwander.composeintroslider.IntroSlider
 import dev.zwander.composeintroslider.SimpleIntroPage
-import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuProvider
 
 class ReadSettingFailActivity : ComponentActivity() {
     companion object {
@@ -47,6 +47,10 @@ class ReadSettingFailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
+
         setContent {
             MaterialTheme(colorScheme = darkColorScheme()) {
                 val slides = listOf(SimpleIntroPage(
@@ -54,7 +58,7 @@ class ReadSettingFailActivity : ComponentActivity() {
                     description = { stringResource(id = R.string.read_setting_fail_desc) },
                     icon = { painterResource(id = R.drawable.sad_face) },
                     slideColor = { colorResource(id = R.color.slide_1) },
-                    contentColor = { colorResource(id = R.color.slide_1_content )},
+//                    contentColor = { colorResource(id = R.color.slide_1_content )},
                     extraContent = {
                         Text(
                             text = stringResource(
@@ -96,7 +100,7 @@ class ReadSettingFailActivity : ComponentActivity() {
                     onDone = ::finish,
                     modifier = Modifier.fillMaxSize(),
                     backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
-                    normalizeElements = false,
+                    normalizeElements = true,
                 )
             }
         }

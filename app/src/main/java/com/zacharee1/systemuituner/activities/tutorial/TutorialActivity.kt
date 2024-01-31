@@ -2,6 +2,7 @@ package com.zacharee1.systemuituner.activities.tutorial
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
@@ -32,6 +33,8 @@ class TutorialActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
 
         setContent {
             MaterialTheme(colorScheme = darkColorScheme()) {
@@ -43,7 +46,7 @@ class TutorialActivity : ComponentActivity() {
                     onDone = ::finish,
                     modifier = Modifier.fillMaxSize(),
                     backPressedDispatcher = LocalOnBackPressedDispatcherOwner.current?.onBackPressedDispatcher,
-                    normalizeElements = false,
+                    normalizeElements = true,
                 )
             }
         }

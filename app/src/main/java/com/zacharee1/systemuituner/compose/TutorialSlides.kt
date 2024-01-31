@@ -288,14 +288,14 @@ fun rememberTutorialSlides(
                 })
             },
             slideColor = { colorResource(id = R.color.slide_1) },
-            contentColor = { colorResource(id = R.color.slide_1_content )},
+//            contentColor = { colorResource(id = R.color.slide_1_content )},
             icon = { painterResource(id = R.drawable.ic_baseline_adb_24) }
         ))
 
         slides.add(SimpleStepsPage(
             title = { stringResource(id = R.string.adb_android_guide) },
             slideColor = { colorResource(id = R.color.slide_2) },
-            contentColor = { colorResource(id = R.color.slide_2_content )},
+//            contentColor = { colorResource(id = R.color.slide_2_content )},
             icon = { painterResource(id = R.drawable.ic_baseline_smartphone_24) },
             steps = {
                 arrayOf(
@@ -343,7 +343,7 @@ fun rememberTutorialSlides(
             title = { stringResource(id = R.string.adb_choose_computer_os) },
             description = { stringResource(id = R.string.adb_choose_computer_os_desc) },
             slideColor = { colorResource(id = R.color.slide_3) },
-            contentColor = { colorResource(id = R.color.slide_3_content )},
+//            contentColor = { colorResource(id = R.color.slide_3_content )},
             icon = { painterResource(id = R.drawable.baseline_computer_24) },
             fullWeightDescription = false,
             canMoveForward = { selectedOs != null },
@@ -405,14 +405,14 @@ fun rememberTutorialSlides(
             steps = { selectedOs?.run { context.makeSteps(permissions) } ?: arrayOf() },
             icon = { selectedOs?.iconRes?.let { painterResource(id = it) } },
             slideColor = { colorResource(id = R.color.slide_4) },
-            contentColor = { colorResource(id = R.color.slide_4_content )},
+//            contentColor = { colorResource(id = R.color.slide_4_content )},
         ))
 
         slides.add(SimpleIntroPage(
             title = { stringResource(id = R.string.adb_final_title) },
             description = { stringResource(id = R.string.adb_final_desc) },
             slideColor = { colorResource(id = R.color.slide_5) },
-            contentColor = { colorResource(id = R.color.slide_5_content )},
+//            contentColor = { colorResource(id = R.color.slide_5_content )},
             icon = { painterResource(id = R.drawable.ic_baseline_check_24) }
         ))
     }
