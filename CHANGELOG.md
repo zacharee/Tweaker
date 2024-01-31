@@ -1,3 +1,14 @@
+# 355
+- Fix missing text in intro slider.
+- Fix text colors.
+- Fix icon colors.
+- Fix some settings writes.
+- Fix settings revert dialog.
+- Better System Settings add-on integration.
+- Update translations.
+- UI tweaks.
+- Update compile and target SDKs.
+
 # 354
 - Fix the QS editor.
 - Fix persistent options handling.
