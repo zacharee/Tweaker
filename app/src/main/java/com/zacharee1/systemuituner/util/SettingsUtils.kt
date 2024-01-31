@@ -62,7 +62,9 @@ private suspend fun Context.revertDialog(
                             writeSetting(info.first.type, info.first.key, setting, false, saveOption)
                         }
                     }
-                    dialog.dismiss()
+                    try {
+                        dialog.dismiss()
+                    } catch (_: IllegalArgumentException) {}
                 }
 
                 override fun onTick(millisUntilFinished: Long) {
