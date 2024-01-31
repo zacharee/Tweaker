@@ -348,6 +348,7 @@ fun rememberTutorialSlides(
             fullWeightDescription = false,
             canMoveForward = { selectedOs != null },
             blockedReason = { stringResource(id = R.string.blocked_reason_choose_os) },
+            scrollable = false,
             extraContent = {
                 val items = remember {
                     SelectedOS.values().filter {
