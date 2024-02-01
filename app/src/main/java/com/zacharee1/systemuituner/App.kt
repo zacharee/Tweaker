@@ -31,29 +31,38 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
         }
 
         fun updateServiceState(context: Context) {
-            with (context) {
-                if (prefManager.persistentOptions.isEmpty()) {
-                    try {
-                        unbindService(connection)
-                    } catch (_: IllegalArgumentException) {}
-                    stopService(Intent(this, Manager::class.java))
-                } else {
-                    try {
-                        bindService(Intent(this, Manager::class.java), connection, Context.BIND_AUTO_CREATE)
-                    } catch (e: Exception) {
-                        Log.e("SystemUITuner", "Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                        Bugsnag.getClient().notify(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
-
-                        try {
-                            ContextCompat.startForegroundService(context, Intent(this, Manager::class.java))
-                        } catch (e: Exception) {
-                            Log.e("SystemUITuner", "Unable to start service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                            Bugsnag.getClient().notify(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
-                        }
-                    }
+            if (context.prefManager.persistentOptions.isEmpty()) {
+                try {
+                    context.unbindService(connection)
+                } catch (_: IllegalArgumentException) {}
+                context.stopService(Intent(context, Manager::class.java))
+            } else {
+                if (this::class.java.name == "ReceiverRestrictedContext" || !tryBindService(context)) {
+                    tryStartService(context)
                 }
             }
         }
+
+        private fun tryBindService(context: Context): Boolean {
+            return try {
+                context.bindService(Intent(context, Manager::class.java), connection, Context.BIND_AUTO_CREATE)
+                true
+            } catch (e: Exception) {
+                Log.e("SystemUITuner", "Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}.", e)
+                Bugsnag.notify(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                false
+            }
+        }
+
+        private fun tryStartService(context: Context) {
+            try {
+                ContextCompat.startForegroundService(context, Intent(context, Manager::class.java))
+            } catch (e: Exception) {
+                Log.e("SystemUITuner", "Unable to start service. Build SDK ${Build.VERSION.SDK_INT}.", e)
+                Bugsnag.notify(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
+            }
+        }
+
     }
 
     override fun onCreate() {
