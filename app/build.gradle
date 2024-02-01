@@ -49,6 +49,10 @@ android {
         freeCompilerArgs = ["-Xcontext-receivers"]
     }
     namespace 'com.zacharee1.systemuituner'
+
+    androidResources {
+        generateLocaleConfig = true
+    }
 }
 
 dependencies {
