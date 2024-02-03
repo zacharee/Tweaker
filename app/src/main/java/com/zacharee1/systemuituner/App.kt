@@ -32,12 +32,15 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
         }
 
         fun updateServiceState(context: Context) {
+            BugsnagUtils.leaveBreadcrumb("Updating Manager service state.")
             if (context.prefManager.persistentOptions.isEmpty()) {
+                BugsnagUtils.leaveBreadcrumb("No persistent options selected, stopping service.")
                 try {
                     context.unbindService(connection)
                 } catch (_: IllegalArgumentException) {}
                 context.stopService(Intent(context, Manager::class.java))
             } else {
+                BugsnagUtils.leaveBreadcrumb("Persistent options are selected, attempting to start service with Context ${this::class.java.name}")
                 if (this::class.java.name == "ReceiverRestrictedContext" || !tryBindService(context)) {
                     tryStartService(context)
                 }
@@ -46,6 +49,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
 
         private fun tryBindService(context: Context): Boolean {
             return try {
+                BugsnagUtils.leaveBreadcrumb("Attempting to bind Manager service.")
                 context.bindService(Intent(context, Manager::class.java), connection, Context.BIND_AUTO_CREATE)
                 true
             } catch (e: Exception) {
@@ -56,6 +60,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
         }
 
         private fun tryStartService(context: Context) {
+            BugsnagUtils.leaveBreadcrumb("Attempting to start Manager service.")
             try {
                 ContextCompat.startForegroundService(context, Intent(context, Manager::class.java))
             } catch (e: Exception) {
@@ -140,9 +145,6 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
                             ActivityThread.currentActivityThread().stopProfiling()
                         }
 
-                        // Bring up crash dialog, wait for it to be dismissed
-
-                        // Bring up crash dialog, wait for it to be dismissed
                         @Suppress("INACCESSIBLE_TYPE")
                         ActivityManager.getService().handleApplicationCrash(
                             (ActivityThread.currentActivityThread()?.applicationThread as? IApplicationThread)?.asBinder(), ParcelableCrashInfo(e)

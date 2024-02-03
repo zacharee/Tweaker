@@ -7,6 +7,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.ServiceInfo
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Build
@@ -14,6 +15,7 @@ import android.os.IBinder
 import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.app.ServiceCompat
 import com.zacharee1.systemuituner.IManager
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
@@ -88,7 +90,15 @@ class Manager : Service(), SharedPreferences.OnSharedPreferenceChangeListener, C
                 )
                 .build()
 
-            startForeground(1000, notification)
+            try {
+                ServiceCompat.startForeground(this, 1000, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            } catch (e: RuntimeException) {
+                BugsnagUtils.notify(IllegalStateException(
+                    "Manager service failed to start in foreground. Stopping. (Can draw overlays: ${Settings.canDrawOverlays(this)})",
+                    e,
+                ))
+                stopSelf()
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.zacharee1.systemuituner.App
+import com.zacharee1.systemuituner.util.BugsnagUtils
 
 class StartManagerWorker(context: Context, params: WorkerParameters) : CoroutineWorker(context, params) {
     companion object {
@@ -16,6 +17,7 @@ class StartManagerWorker(context: Context, params: WorkerParameters) : Coroutine
     }
 
     override suspend fun doWork(): Result {
+        BugsnagUtils.leaveBreadcrumb("Attempting to start Manager service through StartManagerWorker.")
         App.updateServiceState(applicationContext)
         return Result.success()
     }
