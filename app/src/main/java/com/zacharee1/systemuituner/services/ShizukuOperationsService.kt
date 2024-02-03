@@ -10,8 +10,8 @@ import android.net.Uri
 import android.os.Binder
 import android.os.Build
 import android.os.Bundle
-import android.os.UserHandle
 import android.provider.Settings
+import androidx.core.os.UserHandleCompat
 import com.zacharee1.systemuituner.BuildConfig
 import com.zacharee1.systemuituner.IShizukuOperationsService
 import rikka.shizuku.Shizuku
@@ -27,11 +27,7 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
         this.context = context.createPackageContextAsUser(
             BuildConfig.APPLICATION_ID,
             Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY,
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                UserHandle.of(Shizuku.getUid())
-            } else {
-                UserHandle(Shizuku.getUid())
-            }
+            UserHandleCompat.getUserHandleForUid(safeUid()),
         )
     }
 
@@ -71,7 +67,7 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     insert(
                         AttributionSource(
-                            Shizuku.getUid(),
+                            safeUid(),
                             resolveCallingPackage(),
                             null,
                         ),
@@ -109,7 +105,7 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
     }
 
     private fun resolveCallingPackage(): String? {
-        return when (Shizuku.getUid()) {
+        return when (safeUid()) {
             android.os.Process.ROOT_UID -> {
                 "root"
             }
@@ -133,9 +129,9 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
         try {
             val holder = activityManager.getContentProviderExternal(
                 authority,
-                Shizuku.getUid(),
+                safeUid(),
                 token,
-                "*cmd*"
+                "*cmd*",
             ) ?: throw IllegalStateException("Could not find provider for ${authority}!")
 
             provider = holder.provider
@@ -150,9 +146,17 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
                 activityManager.removeContentProviderExternalAsUser(
                     authority,
                     token,
-                    Shizuku.getUid()
+                    safeUid(),
                 )
             }
+        }
+    }
+
+    private fun safeUid(): Int {
+        return try {
+            Shizuku.getUid()
+        } catch (e: IllegalStateException) {
+            2000
         }
     }
 }

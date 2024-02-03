@@ -164,11 +164,16 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
             Shizuku.pingBinder() && hasShizukuPermission -> {
                 shizukuServiceManager.waitForService()
                     .run {
-                        when (type) {
-                            SettingsType.GLOBAL -> this.readGlobal(key)
-                            SettingsType.SECURE -> this.readSecure(key)
-                            SettingsType.SYSTEM -> this.readSystem(key)
-                            else -> null
+                        try {
+                            when (type) {
+                                SettingsType.GLOBAL -> this.readGlobal(key)
+                                SettingsType.SECURE -> this.readSecure(key)
+                                SettingsType.SYSTEM -> this.readSystem(key)
+                                else -> null
+                            }
+                        } catch (e: IllegalStateException) {
+                            BugsnagUtils.notify(IllegalStateException("Failed to read setting through Shizuku.", e))
+                            null
                         }
                     }
             }
