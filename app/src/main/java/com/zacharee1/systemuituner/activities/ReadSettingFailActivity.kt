@@ -23,6 +23,8 @@ import androidx.core.view.WindowCompat
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.util.launchUrl
+import com.zacharee1.systemuituner.util.openShizuku
+import com.zacharee1.systemuituner.util.openShizukuWebsite
 import com.zacharee1.systemuituner.util.shizukuServiceManager
 import dev.zwander.composeintroslider.IntroSlider
 import dev.zwander.composeintroslider.SimpleIntroPage
@@ -77,16 +79,13 @@ class ReadSettingFailActivity : ComponentActivity() {
 
                         if (shizukuServiceManager.isShizukuInstalled) {
                             OutlinedButton(onClick = {
-                                startActivity(Intent(Intent.ACTION_MAIN).apply {
-                                    addCategory(Intent.CATEGORY_LAUNCHER)
-                                    `package` = "moe.shizuku.privileged.api"
-                                })
+                                openShizuku()
                             }) {
                                 Text(text = stringResource(id = R.string.open_shizuku))
                             }
                         } else {
                             OutlinedButton(onClick = {
-                                launchUrl("https://shizuku.rikka.app")
+                                openShizukuWebsite()
                             }) {
                                 Text(text = stringResource(id = R.string.download_shizuku))
                             }
