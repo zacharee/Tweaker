@@ -11,6 +11,7 @@ import android.os.BatteryManager
 import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
+import androidx.core.content.ContextCompat
 import androidx.core.service.quicksettings.PendingIntentActivityWrapper
 import androidx.core.service.quicksettings.TileServiceCompat
 import com.zacharee1.systemuituner.R
@@ -20,14 +21,21 @@ import com.zacharee1.systemuituner.util.safeUpdateTile
 class BatteryTile : TileService() {
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            setLevel(intent)
+            if (intent.action == Intent.ACTION_BATTERY_CHANGED) {
+                setLevel(intent)
+            }
         }
     }
 
     override fun onStartListening() {
         super.onStartListening()
 
-        registerReceiver(receiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        ContextCompat.registerReceiver(
+            this,
+            receiver,
+            IntentFilter(Intent.ACTION_BATTERY_CHANGED),
+            ContextCompat.RECEIVER_EXPORTED,
+        )
 
         qsTile?.state = Tile.STATE_ACTIVE
         qsTile?.safeUpdateTile()

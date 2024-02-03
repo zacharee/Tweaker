@@ -2,8 +2,8 @@ package com.zacharee1.systemuituner.util
 
 import android.annotation.SuppressLint
 import android.content.*
-import android.os.Build
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.zacharee1.systemuituner.data.SettingsType
 
 class DemoController private constructor(context: Context) : ContextWrapper(context) {
@@ -81,7 +81,12 @@ class DemoController private constructor(context: Context) : ContextWrapper(cont
     }
 
     init {
-        registerReceiver(stateReceiver, IntentFilter(ACTION_DEMO))
+        ContextCompat.registerReceiver(
+            this,
+            stateReceiver,
+            IntentFilter(ACTION_DEMO),
+            ContextCompat.RECEIVER_EXPORTED,
+        )
     }
 
     suspend fun ensureDemoAllowed() {

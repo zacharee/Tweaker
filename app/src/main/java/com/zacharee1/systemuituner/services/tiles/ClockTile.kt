@@ -13,6 +13,7 @@ import android.provider.AlarmClock
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.text.format.DateFormat
+import androidx.core.content.ContextCompat
 import androidx.core.service.quicksettings.PendingIntentActivityWrapper
 import androidx.core.service.quicksettings.TileServiceCompat
 import com.zacharee1.systemuituner.util.safeUpdateTile
@@ -28,7 +29,9 @@ class ClockTile : TileService() {
 
     private val receiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            updateTime()
+            if (intent.action == Intent.ACTION_TIME_TICK) {
+                updateTime()
+            }
         }
     }
     private val handler = Handler(Looper.getMainLooper())
@@ -38,7 +41,12 @@ class ClockTile : TileService() {
     override fun onStartListening() {
         shouldRun = true
 
-        registerReceiver(receiver, IntentFilter(Intent.ACTION_TIME_TICK))
+        ContextCompat.registerReceiver(
+            this,
+            receiver,
+            IntentFilter(Intent.ACTION_TIME_TICK),
+            ContextCompat.RECEIVER_EXPORTED,
+        )
         updateTime()
 
         qsTile?.state = Tile.STATE_ACTIVE
