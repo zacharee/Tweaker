@@ -1,3 +1,6 @@
+# 358
+- Fix crashes when Bugsnag isn't enabled.
+
 # 357
 - Add ability to use Android 13's per-app language selector.
 - Fix crash in Demo Mode screen and other places where dynamic broadcast receivers are used on Android 14.
