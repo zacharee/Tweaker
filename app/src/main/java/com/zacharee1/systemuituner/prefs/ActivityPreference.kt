@@ -7,9 +7,9 @@ import android.util.AttributeSet
 import android.util.Log
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
-import com.bugsnag.android.Bugsnag
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.interfaces.*
+import com.zacharee1.systemuituner.util.BugsnagUtils
 
 class InlineActivityPreference(context: Context, intent: Intent) : Preference(context),
     IColorPreference by ColorPreference(context, null), ISecurePreference by SecurePreference(context, null) {
@@ -33,7 +33,7 @@ class InlineActivityPreference(context: Context, intent: Intent) : Preference(co
             super.performClick()
         } catch (e: Exception) {
             Log.e("SystemUITuner", "Error onClick", e)
-            Bugsnag.notify(e)
+            BugsnagUtils.notify(e)
         }
     }
 }

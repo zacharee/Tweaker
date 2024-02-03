@@ -16,6 +16,7 @@ import com.zacharee1.systemuituner.services.Manager
 import com.zacharee1.systemuituner.systemsettingsaddon.library.ISettingsService
 import com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsAddon
 import com.zacharee1.systemuituner.systemsettingsaddon.library.settingsAddon
+import com.zacharee1.systemuituner.util.BugsnagUtils
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
 import com.zacharee1.systemuituner.util.PrefManager
 import com.zacharee1.systemuituner.util.prefManager
@@ -49,7 +50,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
                 true
             } catch (e: Exception) {
                 Log.e("SystemUITuner", "Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                Bugsnag.notify(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                BugsnagUtils.notify(Exception("Unable to bind service. Build SDK ${Build.VERSION.SDK_INT}", e))
                 false
             }
         }
@@ -59,7 +60,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
                 ContextCompat.startForegroundService(context, Intent(context, Manager::class.java))
             } catch (e: Exception) {
                 Log.e("SystemUITuner", "Unable to start service. Build SDK ${Build.VERSION.SDK_INT}.", e)
-                Bugsnag.notify(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
+                BugsnagUtils.notify(Exception("Unable to start service. Build SDK ${Build.VERSION.SDK_INT}", e))
             }
         }
 
@@ -116,7 +117,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
             when {
                 e is AndroidRuntimeException -> {
                     Log.e("SystemUITuner", "Caught a runtime Exception!", e)
-                    Bugsnag.getClient().notify(e)
+                    BugsnagUtils.notify(e)
                     Looper.loop()
                 }
                 e is SecurityException &&
@@ -125,7 +126,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
                             true
                         ) == true -> {
                     Log.e("SystemUITuner", "Google Play Services error!", e)
-                    Bugsnag.getClient().notify(e)
+                    BugsnagUtils.notify(e)
                     Looper.loop()
                 }
                 e.hasDeadObjectCause -> {

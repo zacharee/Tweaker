@@ -7,7 +7,6 @@ import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
 import com.bugsnag.android.BreadcrumbType
-import com.bugsnag.android.Bugsnag
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ReadSettingFailActivity
@@ -122,7 +121,7 @@ suspend fun Context.writeSetting(
 ): Boolean {
     val revertInfo = SettingsInfo(type, key, value) to getSetting(type, key)
 
-    Bugsnag.leaveBreadcrumb("Attempting to write setting ${type}, ${key}, ${value}. Revertable $revertable, save $saveOption.")
+    BugsnagUtils.leaveBreadcrumb("Attempting to write setting ${type}, ${key}, ${value}. Revertable $revertable, save $saveOption.")
 
     return withContext(Dispatchers.IO) {
         val success = when (type) {
@@ -160,7 +159,7 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
             SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
         }.orEmpty().ifBlank { def?.toString() }
     } catch (e: SecurityException) {
-        Bugsnag.notify(IllegalStateException("Unable to read setting ${type}, ${key}, ${def}.", e))
+        BugsnagUtils.notify(IllegalStateException("Unable to read setting ${type}, ${key}, ${def}.", e))
         when {
             Shizuku.pingBinder() && hasShizukuPermission -> {
                 shizukuServiceManager.waitForService()
@@ -193,13 +192,13 @@ fun Context.resetAll() {
     try {
         Settings.Global.resetToDefaults(contentResolver, null)
     } catch (e: Throwable) {
-        Bugsnag.notify(e)
+        BugsnagUtils.notify(e)
     }
 
     try {
         Settings.Secure.resetToDefaults(contentResolver, null)
     } catch (e: Throwable) {
-        Bugsnag.notify(e)
+        BugsnagUtils.notify(e)
     }
 
     //There doesn't seem to be a reset option for Settings.System
@@ -212,7 +211,7 @@ private fun Context.writeGlobal(key: String?, value: Any?): Boolean {
         true
     } catch (e: SecurityException) {
         Log.e("SystemUITuner", "Failed to write to Global", e)
-        Bugsnag.notify(e)
+        BugsnagUtils.notify(e)
         WriteSettingFailActivity.start(this, SettingsType.GLOBAL, key, value)
         false
     }
@@ -224,7 +223,7 @@ private fun Context.writeSecure(key: String?, value: Any?): Boolean {
         Settings.Secure.putString(contentResolver, key, value?.toString())
         true
     } catch (e: SecurityException) {
-        Bugsnag.notify(e)
+        BugsnagUtils.notify(e)
         Log.e("SystemUITuner", "Failed to write to Secure", e)
         WriteSettingFailActivity.start(this, SettingsType.SECURE, key, value)
         false
@@ -234,7 +233,8 @@ private fun Context.writeSecure(key: String?, value: Any?): Boolean {
 private fun Context.writeSystem(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     fun onFail(e: Exception): Boolean? {
-        Bugsnag.leaveBreadcrumb("Failed to write to Settings.System with Exception", mapOf("stacktrace" to e.stackTraceToString()), BreadcrumbType.ERROR)
+        BugsnagUtils.leaveBreadcrumb("Failed to write to Settings.System with Exception", mapOf("stacktrace" to e.stackTraceToString()), BreadcrumbType.ERROR)
+
         return when {
             Shell.rootAccess() -> {
                 Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
@@ -246,7 +246,7 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     shizukuServiceManager.waitForService()
                         .writeSystem(key, value?.toString(), packageName)
                 } catch (e: Throwable) {
-                    Bugsnag.notify(IllegalStateException("Unable to write to Settings.System using Shizuku.", e))
+                    BugsnagUtils.notify(IllegalStateException("Unable to write to Settings.System using Shizuku.", e))
                     Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                     false
                 }
@@ -265,7 +265,7 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                 }
             }
             else -> {
-                Bugsnag.notify(e)
+                BugsnagUtils.notify(e)
                 Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                 false
             }

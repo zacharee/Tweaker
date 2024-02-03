@@ -17,3 +17,4 @@
 # Project exclude paths
 /app/build/*
 /app/release/*
+/.idea/deploymentTargetSelector.xml
