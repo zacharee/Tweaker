@@ -1,4 +1,10 @@
-# 355
+# 357
+- Add ability to use Android 13's per-app language selector.
+- Fix crash in Demo Mode screen and other places where dynamic broadcast receivers are used on Android 14.
+- Hopefully improve Persistent Options service reliability on boot.
+- Improve error reporting.
+
+# 355/356
 - Fix missing text in intro slider.
 - Fix text colors.
 - Fix icon colors.
