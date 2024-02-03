@@ -15,6 +15,8 @@ android {
         targetSdkVersion 34
         versionCode 358
         versionName versionCode.toString()
+
+        base.archivesName.set("SystemUITuner_${versionCode}")
     }
 
     buildTypes {
