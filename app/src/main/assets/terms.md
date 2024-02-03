@@ -54,6 +54,7 @@ SystemUI Tuner asks for the following permissions:
  - android.permission.QUERY_ALL_PACKAGES
  - android.permission.FOREGROUND_SERVICE
  - android.permission.RECEIVE_BOOT_COMPLETED
+ - android.permission.SYSTEM_ALERT_WINDOW
  - android.permission.INTERNET
  - com.android.vending.BILLING
  - com.zacharee1.systemuituner.permission.WRITE_SETTINGS
@@ -85,6 +86,9 @@ FOREGROUND_SERVICE
 
 RECEIVE_BOOT_COMPLETED
  - This permission is needed to restore Persistent Options on boot.
+
+SYSTEM_ALERT_WINDOW
+ - This is an optional permission only requested on Android 12 and later, which can help with more reliably restoring Persistent Options on boot.
 
 INTERNET
  - This permission is needed for the in-app donation option.
