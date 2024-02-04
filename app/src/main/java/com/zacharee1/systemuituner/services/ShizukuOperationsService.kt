@@ -14,10 +14,16 @@ import android.provider.Settings
 import androidx.core.os.UserHandleCompat
 import com.zacharee1.systemuituner.BuildConfig
 import com.zacharee1.systemuituner.IShizukuOperationsService
+import com.zacharee1.systemuituner.data.SettingsType
 import rikka.shizuku.Shizuku
 
 @Suppress("unused")
 class ShizukuOperationsService : IShizukuOperationsService.Stub {
+    private val contentResolver by lazy {
+        @Suppress("INACCESSIBLE_TYPE")
+        (ActivityThread.currentActivityThread().systemContext as Context).contentResolver
+    }
+
     private val context: Context
 
     constructor() {
@@ -48,15 +54,33 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
     }
 
     override fun readGlobal(key: String?): String? {
-        return read(Settings.Global.CONTENT_URI, key)
+        val token = Binder.clearCallingIdentity()
+
+        try {
+            return Settings.Global.getString(contentResolver, key)
+        } finally {
+            Binder.restoreCallingIdentity(token)
+        }
     }
 
     override fun readSecure(key: String?): String? {
-        return read(Settings.Secure.CONTENT_URI, key)
+        val token = Binder.clearCallingIdentity()
+
+        try {
+            return Settings.Secure.getString(contentResolver, key)
+        } finally {
+            Binder.restoreCallingIdentity(token)
+        }
     }
 
     override fun readSystem(key: String?): String? {
-        return read(Settings.System.CONTENT_URI, key)
+        val token = Binder.clearCallingIdentity()
+
+        try {
+            return Settings.System.getString(contentResolver, key)
+        } finally {
+            Binder.restoreCallingIdentity(token)
+        }
     }
 
     override fun destroy() {}
@@ -100,8 +124,19 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
         }
     }
 
-    private fun read(uri: Uri, key: String?): String? {
-        return uri.useProvider { read(uri, key) }
+    private fun read(which: SettingsType, key: String?): String? {
+        val token = Binder.clearCallingIdentity()
+
+        return try {
+            when (which) {
+                SettingsType.UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")
+                SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
+                SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
+                SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
+            }
+        } finally {
+            Binder.restoreCallingIdentity(token)
+        }
     }
 
     private fun resolveCallingPackage(): String? {

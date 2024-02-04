@@ -1,10 +1,21 @@
 package com.zacharee1.systemuituner.data
 
+import android.net.Uri
+import android.provider.Settings
+
 enum class SettingsType(val value: Int) {
     UNDEFINED(-1),
     GLOBAL(0),
     SECURE(1),
     SYSTEM(2);
+
+    val contentUri: Uri
+        get() = when (this) {
+            UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")
+            GLOBAL -> Settings.Global.CONTENT_URI
+            SECURE -> Settings.Secure.CONTENT_URI
+            SYSTEM -> Settings.System.CONTENT_URI
+        }
 
     fun toLibraryType(): com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType {
         return when (this) {
