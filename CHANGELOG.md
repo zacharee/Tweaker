@@ -1,3 +1,8 @@
+# 359
+- Remove dependency info metadata from APK.
+- Work on improving error reporting.
+- Crash fixes.
+
 # 358
 - Fix crashes when Bugsnag isn't enabled.
 

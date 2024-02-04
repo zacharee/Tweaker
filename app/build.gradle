@@ -13,7 +13,7 @@ android {
         applicationId "com.zacharee1.systemuituner"
         minSdkVersion 23
         targetSdkVersion 34
-        versionCode 358
+        versionCode 359
         versionName versionCode.toString()
 
         base.archivesName.set("SystemUITuner_${versionCode}")
@@ -50,10 +50,14 @@ android {
         jvmTarget = "11"
         freeCompilerArgs = ["-Xcontext-receivers"]
     }
-    namespace 'com.zacharee1.systemuituner'
 
     androidResources {
         generateLocaleConfig = true
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
 }
 
