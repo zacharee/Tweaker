@@ -72,7 +72,7 @@ class ReadSettingFailActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.size(8.dp))
 
                         OutlinedButton(onClick = {
-                            launchUrl("https://zwander.dev/dialog-systemuitunersystemsettingsadd-on")
+                            launchUrl("https://github.com/zacharee/SystemUITunerSystemSettings")
                         }) {
                             Text(text = stringResource(id = R.string.write_system_fail_get_add_on))
                         }
