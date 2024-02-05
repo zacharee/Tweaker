@@ -184,10 +184,17 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
                 }
             }
             settingsAddon.hasService -> {
-                settingsAddon.binder?.readSetting(
-                    type.toLibraryType(),
-                    key
-                )
+                if (settingsAddon.binderAvailable) {
+                    settingsAddon.binder?.readSetting(
+                        type.toLibraryType(),
+                        key
+                    )
+                } else {
+                    Log.e("SystemUITuner", "Add-on exists but isn't bound.")
+                    BugsnagUtils.leaveBreadcrumb("Add-on exists but isn't bound for reading.")
+                    ReadSettingFailActivity.start(this, type, key)
+                    null
+                }
             }
             else -> {
                 ReadSettingFailActivity.start(this, type, key)
@@ -268,17 +275,23 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     null
                 }
             }
-            settingsAddon.hasService && settingsAddon.binderAvailable -> {
-                val result = settingsAddon.binder?.writeSetting(
-                    com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SYSTEM,
-                    key,
-                    value?.toString()
-                )
+            settingsAddon.hasService -> {
+                if (settingsAddon.binderAvailable) {
+                    val result = settingsAddon.binder?.writeSetting(
+                        com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SYSTEM,
+                        key,
+                        value?.toString()
+                    )
 
-                if (result == true) {
-                    true
+                    if (result == true) {
+                        true
+                    } else {
+                        null
+                    }
                 } else {
-                    null
+                    Log.e("SystemUITuner", "Add-on not bound")
+                    BugsnagUtils.leaveBreadcrumb("Add-on exists but isn't bound for writing.")
+                    false
                 }
             }
             else -> {
