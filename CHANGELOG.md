@@ -1,3 +1,8 @@
+# 360
+- Fix Shizuku integration for reading and writing settings.
+- Fix Add-on integration for reading and writing settings.
+- Update link for add-on app.
+
 # 359
 - Remove dependency info metadata from APK.
 - Work on improving error reporting.
