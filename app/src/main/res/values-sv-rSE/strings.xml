@@ -329,8 +329,6 @@
     <string name="more_apps">Fler appar</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Om du har en Samsung-enhet som kör Android Pie eller senare på Samsungs One UI, du kanske har märkt att vissa alternativ som fungerade på Oreo inte längre fungerar, såsom Sekunder på Klockan. Jag har gjort en separat app som använder systemöverlägg för att få tillbaka några av dessa alternativ. Den behöver inte root eller ADB.</string>
     <string name="check_it_out">Prova det</string>
     <string name="add_custom_item">Lägg till Anpassad Objekt</string>
     <string name="edit_custom_item">Redigera Anpassad Objekt</string>

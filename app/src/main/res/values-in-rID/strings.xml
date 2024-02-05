@@ -329,8 +329,6 @@
     <string name="more_apps">Aplikasi Lainnya</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Jika Kamu memiliki perangkat Samsung yang menjalankan Android Pie atau terbaru di Samsung One UI, kamu mungkin memperhatikan bahwa beberapa opsi yang berfungsi di Oreo tidak lagi berfungsi, seperti Detik Jam. Saya telah membuat aplikasi terpisah yang menggunakan overlay sistem untuk mengembalikan beberapa opsi ini. Tidak perlu root atau ADB.</string>
     <string name="check_it_out">Coba lihat</string>
     <string name="add_custom_item">Tambah item kustom</string>
     <string name="edit_custom_item">Edit item kustom</string>

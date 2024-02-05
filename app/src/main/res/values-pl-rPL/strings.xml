@@ -329,8 +329,6 @@
     <string name="more_apps">Więcej aplikacji</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Jeśli masz urządzenie Samsung z Androidem Pie lub później, na Samsung One UI, Być może zauważyłeś, że niektóre opcje, które działały na Oreo, przestały działać, takie jak zegary sekund. Stworzyłem oddzielną aplikację, która korzysta z nakładek systemowych, aby przywrócić niektóre z tych opcji. Nie potrzebuje ona roota ani ADB.</string>
     <string name="check_it_out">Sprawdź to</string>
     <string name="add_custom_item">Dodaj własny element</string>
     <string name="edit_custom_item">Edytuj własny element</string>

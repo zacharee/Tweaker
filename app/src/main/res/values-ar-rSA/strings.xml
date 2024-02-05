@@ -329,8 +329,6 @@
     <string name="more_apps">المزيد من التطبيقات</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">ماستدون</string>
-    <string name="oneui_tuner">أداة ضبط واجهة ون من سامسونج لمستخدم النظام</string>
-    <string name="oneui_tuner_desc">إذا كان لديك جهاز سامسونج يعمل بأصدار الفطيرة أندرويد أو ما يليه على واجهة ون الخاصة بسامسونج، ربما كنت قد لاحظت أن بعض الخيارات التي كانت تعمل في أوريو لم تعد تعمل، مثل ساعة العمل الثانية. لقد قمت بإنشاء تطبيق منفصل يستخدم طبقات النظام لاستعادة بعض هذه الخيارات. لا يحتاج إلى الجذر أو ADB.</string>
     <string name="check_it_out">تحقق من ذلك</string>
     <string name="add_custom_item">إضافة عنصر مخصص</string>
     <string name="edit_custom_item">تحرير العنصر المخصص</string>

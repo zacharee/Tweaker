@@ -329,8 +329,6 @@
     <string name="more_apps">앱 더보기</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Android 파이 이후 One UI를 구동하는 삼성 기기를 사용하는 경우, 오레오에서 작동하던 몇몇 설정들이 더 이상 작동하지 않는다는 사실을 아실 겁니다. 시스템 오버레이를 이용하여 이런 설정들 중 일부를 다시 구현한 앱을 따로 만들었습니다. 루트나 ADB 설정이 필요하지 않습니다.</string>
     <string name="check_it_out">확인하기</string>
     <string name="add_custom_item">사용자 지정 항목 추가</string>
     <string name="edit_custom_item">사용자 지정 항목 수정</string>

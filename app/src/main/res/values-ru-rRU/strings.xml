@@ -329,8 +329,6 @@
     <string name="more_apps">Ещё приложения</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Если у вас есть устройство Samsung с Android Pie или более поздней версией на Samsung One UI, вы могли заметить, что некоторые параметры, которые работали на Oreo, больше не работают, например, «секунды часов». Я создал отдельное приложение, использущее системные оверлеи, чтобы вернуть некоторые из этих параметров. Это не требует root или ADB.</string>
     <string name="check_it_out">Попробуйте</string>
     <string name="add_custom_item">Добавить пользовательский элемент</string>
     <string name="edit_custom_item">Редактирование пользовательское поле</string>

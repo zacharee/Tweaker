@@ -71,12 +71,6 @@ class HomeFragment : BasePrefFragment(), NavController.OnDestinationChangedListe
                 isVisible = false
             }
         }
-
-        findPreference<Preference>("oneui_tuner_option")?.apply {
-            if (!requireContext().isTouchWiz || Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                isVisible = false
-            }
-        }
     }
 
     override fun onDestroy() {

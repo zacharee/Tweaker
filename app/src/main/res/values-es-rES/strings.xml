@@ -329,8 +329,6 @@
     <string name="more_apps">Más Aplicaciones</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Si tienes un dispositivo Samsung con Android Pie o posterior que utiliza One UI, quizá hayas notado que algunas opciones que funcionaban en Android Oreo ya no funcionan, como por ejemplo mostrar los segundos en el reloj. He hecho una app por separado que hace uso de capas del sistema para volver a hacer disponibles algunas de estas opciones. No necesita ADB ni ser root.</string>
     <string name="check_it_out">Echale un vistazo</string>
     <string name="add_custom_item">Añadir elemento personalizado</string>
     <string name="edit_custom_item">Editar elemento personalizado</string>

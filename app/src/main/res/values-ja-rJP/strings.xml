@@ -335,8 +335,6 @@
     <string name="more_apps">その他のアプリ</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">SamsungのAndroid Pie及び最新のOne UIを実行しているデバイスをお使いの場合、Oreoで動作しなくなった設定 (時計の秒数表示など) があることに気づいたかもしれません。いくつかのオプションを再び動作させるためにシステムオーバーレイを使用する別のアプリを作成しました。rootやADBは必要ありません。</string>
     <string name="check_it_out">今すぐ確認</string>
     <string name="add_custom_item">カスタムアイテムを追加</string>
     <string name="edit_custom_item">カスタムアイテムを編集</string>

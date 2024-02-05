@@ -1,6 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.zacharee1.systemuituner.services
 
-import android.app.ActivityManager
+import android.app.ActivityManagerNative
 import android.app.ActivityThread
 import android.content.AttributionSource
 import android.content.ContentValues
@@ -10,35 +12,19 @@ import android.net.Uri
 import android.os.Binder
 import android.os.Build
 import android.os.Bundle
+import android.os.UserHandle
 import android.provider.Settings
-import androidx.core.os.UserHandleCompat
-import com.zacharee1.systemuituner.BuildConfig
+import android.system.Os
+import android.util.Log
 import com.zacharee1.systemuituner.IShizukuOperationsService
 import com.zacharee1.systemuituner.data.SettingsType
-import rikka.shizuku.Shizuku
+import kotlin.system.exitProcess
 
 @Suppress("unused")
-class ShizukuOperationsService : IShizukuOperationsService.Stub {
+class ShizukuOperationsService(private val context: Context) : IShizukuOperationsService.Stub() {
     private val contentResolver by lazy {
         @Suppress("INACCESSIBLE_TYPE")
         (ActivityThread.currentActivityThread().systemContext as Context).contentResolver
-    }
-
-    private val context: Context
-
-    constructor() {
-        @Suppress("INACCESSIBLE_TYPE")
-        val context = (ActivityThread.systemMain().systemContext as Context)
-
-        this.context = context.createPackageContextAsUser(
-            BuildConfig.APPLICATION_ID,
-            Context.CONTEXT_INCLUDE_CODE or Context.CONTEXT_IGNORE_SECURITY,
-            UserHandleCompat.getUserHandleForUid(safeUid()),
-        )
-    }
-
-    constructor(context: Context) {
-        this.context = context
     }
 
     override fun writeGlobal(key: String?, value: String?, pkg: String?): Boolean {
@@ -83,11 +69,13 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
         }
     }
 
-    override fun destroy() {}
+    override fun destroy() {
+        exitProcess(0)
+    }
 
     private fun write(uri: Uri, key: String?, value: String?, pkg: String?): Boolean {
-        return try {
-            uri.useProvider {
+        return uri.useProvider {
+            try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     insert(
                         AttributionSource(
@@ -114,13 +102,11 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
                             put("package", pkg)
                         },
                     )
-                }
+                } != null
+            } catch (e: Throwable) {
+                Log.e("SystemUITuner", "Error", e)
+                throw e
             }
-            true
-        } catch (e: Exception) {
-            false
-        } finally {
-
         }
     }
 
@@ -140,56 +126,40 @@ class ShizukuOperationsService : IShizukuOperationsService.Stub {
     }
 
     private fun resolveCallingPackage(): String? {
-        return when (safeUid()) {
-            android.os.Process.ROOT_UID -> {
-                "root"
-            }
-
-            android.os.Process.SHELL_UID -> {
-                "com.android.shell"
-            }
-
-            else -> {
-                null
-            }
-        }
+        return context.packageManager.getPackagesForUid(safeUid())?.getOrNull(0)
     }
 
-    private fun <T> Uri.useProvider(block: IContentProvider.() -> T?): T? {
-        val activityManager = ActivityManager.getService()
+    private fun <T> Uri.useProvider(block: IContentProvider.() -> T): T {
+        val caller = Binder.clearCallingIdentity()
+        val activityService = ActivityManagerNative.getDefault()
+        var provider: IContentProvider? = null
         val token = Binder()
 
-        var provider: IContentProvider? = null
-
         try {
-            val holder = activityManager.getContentProviderExternal(
-                authority,
-                safeUid(),
+            provider = activityService.getContentProviderExternal(
+                this.authority,
+                UserHandle.USER_SYSTEM,
                 token,
                 "*cmd*",
-            ) ?: throw IllegalStateException("Could not find provider for ${authority}!")
+            )?.provider
 
-            provider = holder.provider
-
-            if (provider == null) {
-                throw java.lang.IllegalStateException("Provider for $authority is null!")
-            }
-
-            return provider.block()
+            return provider?.block() ?: throw IllegalStateException("Unable to acquire Content Provider ${authority}!")
+        } catch (e: Throwable) {
+            Log.e("SystemUITuner", "Error", e)
+            throw e
         } finally {
             provider?.also {
-                activityManager.removeContentProviderExternalAsUser(
-                    authority,
-                    token,
-                    safeUid(),
+                activityService.removeContentProviderExternal(
+                    this.authority, token,
                 )
             }
+            Binder.restoreCallingIdentity(caller)
         }
     }
 
     private fun safeUid(): Int {
         return try {
-            Shizuku.getUid()
+            Os.getuid()
         } catch (e: IllegalStateException) {
             2000
         }

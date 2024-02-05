@@ -337,8 +337,6 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="more_apps">Daha Fazla Uygulama</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Samsung\'un One UI\'sinde Android Pie veya sonraki bir sürümünü çalıştıran bir Samsung cihazınız varsa, Clock Seconds gibi Oreo\'da çalışan bazı seçeneklerin artık çalışmadığını fark etmiş olabilirsiniz. Bu seçeneklerden bazılarını geri getirmek için sistem kaplamalarını kullanan ayrı bir uygulama yaptım. Kök veya ADB\'ye ihtiyaç duymaz.</string>
     <string name="check_it_out">Göz at</string>
     <string name="add_custom_item">Özel Öğe Ekle</string>
     <string name="edit_custom_item">Özel Öğe Düzenle</string>

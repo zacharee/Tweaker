@@ -329,8 +329,6 @@
     <string name="more_apps">More Apps</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">If you have a Samsung device running Android Pie or later on Samsung\'s One UI, you may have noticed that some options that worked on Oreo no longer work, such as Clock Seconds. I\'ve made a separate app that makes use of system overlays to bring back some of these options. It doesn\'t need root or ADB.</string>
     <string name="check_it_out">Check it Out</string>
     <string name="add_custom_item">Add Custom Item</string>
     <string name="edit_custom_item">Edit Custom Item</string>

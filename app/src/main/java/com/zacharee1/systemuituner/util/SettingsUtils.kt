@@ -161,21 +161,27 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
     } catch (e: SecurityException) {
         BugsnagUtils.notify(IllegalStateException("Unable to read setting ${type}, ${key}, ${def}.", e))
         when {
-            Shizuku.pingBinder() && hasShizukuPermission -> {
-                shizukuServiceManager.waitForService()
-                    .run {
-                        try {
-                            when (type) {
-                                SettingsType.GLOBAL -> this.readGlobal(key)
-                                SettingsType.SECURE -> this.readSecure(key)
-                                SettingsType.SYSTEM -> this.readSystem(key)
-                                else -> null
+            Shizuku.pingBinder() -> {
+                if (hasShizukuPermission) {
+                    shizukuServiceManager.waitForService()
+                        .run {
+                            try {
+                                when (type) {
+                                    SettingsType.GLOBAL -> this.readGlobal(key)
+                                    SettingsType.SECURE -> this.readSecure(key)
+                                    SettingsType.SYSTEM -> this.readSystem(key)
+                                    else -> null
+                                }
+                            } catch (e: Throwable) {
+                                BugsnagUtils.notify(IllegalStateException("Failed to read setting through Shizuku.", e))
+                                null
                             }
-                        } catch (e: Throwable) {
-                            BugsnagUtils.notify(IllegalStateException("Failed to read setting through Shizuku.", e))
-                            null
                         }
-                    }
+                } else {
+                    BugsnagUtils.leaveBreadcrumb("No Shizuku permission but it is installed. Requesting permission.")
+                    Shizuku.requestPermission(100)
+                    null
+                }
             }
             settingsAddon.hasService -> {
                 settingsAddon.binder?.readSetting(
@@ -246,17 +252,23 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     .exec()
                 true
             }
-            Shizuku.pingBinder() && hasShizukuPermission -> {
-                try {
-                    shizukuServiceManager.waitForService()
-                        .writeSystem(key, value?.toString(), packageName)
-                } catch (e: Throwable) {
-                    BugsnagUtils.notify(IllegalStateException("Unable to write to Settings.System using Shizuku.", e))
-                    Log.e("SystemUITuner", "Failed to write to System $key $value", e)
-                    false
+            Shizuku.pingBinder() -> {
+                if (hasShizukuPermission) {
+                    try {
+                        shizukuServiceManager.waitForService()
+                            .writeSystem(key, value?.toString(), packageName)
+                    } catch (e: Throwable) {
+                        BugsnagUtils.notify(IllegalStateException("Unable to write to Settings.System using Shizuku.", e))
+                        Log.e("SystemUITuner", "Failed to write to System $key $value", e)
+                        false
+                    }
+                } else {
+                    BugsnagUtils.leaveBreadcrumb("No Shizuku permission but it is installed. Requesting permission.")
+                    Shizuku.requestPermission(100)
+                    null
                 }
             }
-            settingsAddon.hasService -> {
+            settingsAddon.hasService && settingsAddon.binderAvailable -> {
                 val result = settingsAddon.binder?.writeSetting(
                     com.zacharee1.systemuituner.systemsettingsaddon.library.SettingsType.SYSTEM,
                     key,

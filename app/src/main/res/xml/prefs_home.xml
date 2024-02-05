@@ -173,13 +173,6 @@
         app:dialog_class="com.zacharee1.systemuituner.dialogs.ResetDialog"
         />
 
-    <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
-        android:title="@string/oneui_tuner"
-        android:key="oneui_tuner_option"
-        android:icon="@drawable/ic_baseline_android_24"
-        app:dialog_class="com.zacharee1.systemuituner.dialogs.OneUITunerDialog"
-        />
-
     <com.zacharee1.systemuituner.prefs.nav.LinkPreference
         android:title="@string/help_translate"
         android:key="help_translate_link"

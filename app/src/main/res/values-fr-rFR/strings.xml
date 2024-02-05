@@ -329,8 +329,6 @@
     <string name="more_apps">Plus d’Apps</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Si vous avez un appareil Samsung qui exécute Android Pie ou plus tard sur une interface utilisateur de Samsung, vous avez peut-être remarqué que certaines options qui fonctionnaient sur Oreo ne fonctionnent plus, comme les secondes de l\'horloge. J\'ai fait une application séparée qui utilise les superpositions système pour ramener certaines de ces options. Elle n\'a pas besoin de root ou ADB.</string>
     <string name="check_it_out">Aller la voir</string>
     <string name="add_custom_item">Ajouter un élément personnalisé</string>
     <string name="edit_custom_item">Éditer un item personnalisé</string>

@@ -11,7 +11,6 @@ import com.zacharee1.systemuituner.BuildConfig
 import com.zacharee1.systemuituner.IShizukuOperationsService
 import com.zacharee1.systemuituner.services.ShizukuOperationsService
 import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuProvider
 import java.util.concurrent.ConcurrentLinkedQueue
 
 val Context.shizukuServiceManager: ShizukuServiceManager
@@ -60,8 +59,8 @@ class ShizukuServiceManager private constructor(context: Context) : ContextWrapp
         )
     )
         .daemon(false)
-        .processNameSuffix("service")
-        .debuggable(BuildConfig.DEBUG)
+        .processNameSuffix(":service")
+        .debuggable(true)
         .version(BuildConfig.VERSION_CODE)
 
     fun onCreate() {

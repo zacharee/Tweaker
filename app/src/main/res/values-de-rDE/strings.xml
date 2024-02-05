@@ -329,8 +329,6 @@
     <string name="more_apps">Weitere Apps</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Wenn Sie ein Samsung-Gerät besitzen, auf dem Android Pie oder eine neuere Version von Samsungs One UI läuft, haben Sie vielleicht bemerkt, dass einige Optionen, die unter Oreo noch funktionierten, nicht mehr verfügbar sind, wie z. B. Sekunden der Uhrzeit. Ich habe eine separate Anwendung entwickelt, die Systemüberlagerungen nutzt, um einige dieser Optionen wiederherzustellen. Es wird weder ein Root-Zugang noch ADB (Android-Debug-Bridge) benötigt.</string>
     <string name="check_it_out">Probieren Sie es aus</string>
     <string name="add_custom_item">Benutzerdefiniertes Element hinzufügen</string>
     <string name="edit_custom_item">Benutzerdefiniertes Element bearbeiten</string>

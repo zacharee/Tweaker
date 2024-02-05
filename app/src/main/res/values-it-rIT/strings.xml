@@ -330,8 +330,6 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="more_apps">Altre app</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Se possiedi un dispositivo Samsung con Android Pie o più, su Samsung One UI potresti aver notato che alcune opzioni che funzionavano su Oreo non funzionano più, come Clock Seconds. Ho fatto un\'app separata che fa uso di overlay di sistema per riportare alcune di queste opzioni. Non ha bisogno di root o ADB.</string>
     <string name="check_it_out">Dai un\'occhiata</string>
     <string name="add_custom_item">Aggiungi un elemento personalizzato</string>
     <string name="edit_custom_item">Modifica l\'elemento personalizzato</string>

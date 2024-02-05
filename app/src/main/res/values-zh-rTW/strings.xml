@@ -329,8 +329,6 @@
     <string name="more_apps">更多應用程式</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">如果你的 Samsung 裝置在 Samsung 的 One UI 上執行 Android Pie 或更高版本，你可能已經注意到，一些在 Oreo 工作的選項已經不再工作，例如時鐘秒數。我做了一個單獨的應用程式，利用系統覆蓋來恢復其中的一些選項。它不需要 Root 或 ADB。</string>
     <string name="check_it_out">看看這個</string>
     <string name="add_custom_item">新增自訂項</string>
     <string name="edit_custom_item">編輯自訂項</string>

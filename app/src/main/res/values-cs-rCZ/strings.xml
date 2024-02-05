@@ -332,8 +332,6 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="more_apps">Další aplikace</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">Pokud máte zařízení Samsung se systémem Android Pie nebo novějším v uživatelském rozhraní One UI společnosti Samsung, možná jste si všimli, že některé možnosti, které fungovaly v systému Oreo, již nefungují, například sekundy hodin. Vytvořil jsem samostatnou aplikaci, která využívá systémové překryvy, aby některé z těchto možností vrátila zpět. Nepotřebuje root ani ADB.</string>
     <string name="check_it_out">Podívat se na to</string>
     <string name="add_custom_item">Přidat vlastní položku</string>
     <string name="edit_custom_item">Upravit vlastní pole</string>

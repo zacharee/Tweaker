@@ -329,8 +329,6 @@
     <string name="more_apps">Ứng dụng khác</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Dịch vụ Mastodon</string>
-    <string name="oneui_tuner">Bộ điều chỉnh OneUI</string>
-    <string name="oneui_tuner_desc">Nếu bạn có thiết bị Samsung chạy Android Pie trở lên trên One UI của Samsung, bạn có thể nhận thấy rằng một số tùy chọn hoạt động trên Oreo không còn hoạt động, chẳng hạn như Giây đồng hồ. Tôi đã tạo một ứng dụng riêng sử dụng lớp phủ hệ thống để mang lại một số tùy chọn này. Nó không cần root hay ADB.</string>
     <string name="check_it_out">Hãy khám phá</string>
     <string name="add_custom_item">Thêm Mục Tùy chỉnh</string>
     <string name="edit_custom_item">Chỉnh sửa mục tùy chỉnh</string>

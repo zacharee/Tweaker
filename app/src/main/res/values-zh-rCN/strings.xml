@@ -329,8 +329,6 @@
     <string name="more_apps">更多应用</string>
     <string name="telegram">Telegram</string>
     <string name="mastodon">Mastodon</string>
-    <string name="oneui_tuner">OneUI Tuner</string>
-    <string name="oneui_tuner_desc">如果您的三星设备运行着 Android Pie 或更高版本的One UI，您可能已经注意到某些在 Oreo 上有效的选项不再有效，例如时钟秒数显示。 我制作了一个单独的应用程序，它利用系统覆盖来恢复其中一些选项。 它不需要 root 或 ADB。</string>
     <string name="check_it_out">立即查看</string>
     <string name="add_custom_item">添加自定义项</string>
     <string name="edit_custom_item">编辑自定义项</string>

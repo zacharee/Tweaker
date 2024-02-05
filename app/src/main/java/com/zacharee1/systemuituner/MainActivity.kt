@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.*
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
@@ -24,6 +25,7 @@ import com.zacharee1.systemuituner.databinding.ActivityMainBinding
 import com.zacharee1.systemuituner.fragments.BasePrefFragment
 import com.zacharee1.systemuituner.fragments.HomeFragment
 import com.zacharee1.systemuituner.fragments.SearchFragment
+import com.zacharee1.systemuituner.systemsettingsaddon.library.settingsAddon
 import com.zacharee1.systemuituner.util.*
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
@@ -101,6 +103,10 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
         setContentView(mainBinding.root)
         setSupportActionBar(mainBinding.toolbar)
+
+        if (settingsAddon.hasService && !settingsAddon.binderAvailable) {
+            settingsAddon.bindAddonService()
+        }
 
         with(supportActionBar) {
             this ?: return@with
