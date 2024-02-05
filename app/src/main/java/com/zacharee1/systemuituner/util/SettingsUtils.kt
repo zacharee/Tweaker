@@ -254,7 +254,8 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
         BugsnagUtils.leaveBreadcrumb("Failed to write to Settings.System with Exception", mapOf("stacktrace" to e.stackTraceToString()), BreadcrumbType.ERROR)
 
         return when {
-            Shell.rootAccess() -> {
+            hasRoot -> {
+                @Suppress("DEPRECATION")
                 Shell.su("content insert --uri content://settings/system --bind name:s:$key --bind value:s:$value --bind package:s:$packageName")
                     .exec()
                 true

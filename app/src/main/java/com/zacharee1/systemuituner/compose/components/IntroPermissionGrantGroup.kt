@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.tutorial.TutorialActivity
+import com.zacharee1.systemuituner.util.hasRoot
 import com.zacharee1.systemuituner.util.hasShizukuPermission
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -69,6 +70,7 @@ private fun Context.grantPermissionsThroughShizuku(permissions: Array<String>): 
 
 private suspend fun Context.performRootPermissionsGrant(permissions: Array<String>) = coroutineScope {
     val result = withContext(Dispatchers.IO) {
+        @Suppress("DEPRECATION")
         Shell.su(*permissions.map { "pm grant $packageName $it" }.toTypedArray()).exec()
     }
 
@@ -137,7 +139,7 @@ fun IntroSpecialPermissionGrantGroup(
         OutlinedButton(
             onClick = {
                 scope.launch(Dispatchers.IO) {
-                    val hasRoot = async { Shell.rootAccess() }
+                    val hasRoot = async { hasRoot }
                     val hasShizuku = async { Shizuku.pingBinder() }
 
                     if (hasRoot.await()) {

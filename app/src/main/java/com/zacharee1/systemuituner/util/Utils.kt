@@ -214,10 +214,12 @@ fun parseAutoIconBlacklistSlots(alternate: Boolean = false): ArrayList<String> {
     val error = ArrayList<String>()
 
     val job = if (!alternate) {
+        @Suppress("DEPRECATION")
         Shell.sh(
             "dumpsys activity service com.android.systemui/.SystemUIService Dependency | grep -E '^.*([0-9])+:.*\\(.*\\).*\$'\n"
         )
     } else {
+        @Suppress("DEPRECATION")
         Shell.sh(
             "dumpsys activity service com.android.systemui/.SystemUIService | grep -E '^.*([0-9])+:\\(.*\\).*\$'\n"
         )
