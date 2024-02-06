@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Počínaje verzí Android Oreo Developer Preview 3, společnost Google odstranila možnost přizpůsobení zkratek na zamykací obrazovce. Hodnotu předvoleb však lze stále nastavit ručně.</string>
     <string name="feature_enable_adb">Povolit ADB</string>
     <string name="feature_enable_adb_desc">Některá zařízení po určité době nečinnosti automaticky vypnou ADB. Povolte tuto možnost a nastavte ji jako trvalou volbu, abyste vynutili zapnutí ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Povolit bezdrátové ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Bezdrátová ADB, představená uživatelům v Androidu 11, umožňuje spárovat počítače a jiná zařízení s vaším zařízením a používat ADB bez kabelu nebo speciálních ovladačů.</string>
     <string name="feature_dark_mode">Povolit globální tmavý režim</string>
     <string name="feature_dark_mode_desc">Android 9 a 10 představil globální tmavý režim, ale tato možnost je součástí systému Android již delší dobu. Tato možnost může zapnout tmavý režim v aplikacích, které tuto funkci podporují (například Instagram). Aby se změny projevily, může být nutný restart.</string>
     <string name="feature_clock_seconds">Zobrazit sekundy</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Zobrazí aktuální procento baterie v ikoně baterie na stavovém řádku. K aktivaci může být vyžadován root.</string>
     <string name="feature_header_airplane_mode_radios">Výjimky</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Přepnutelné</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Zobrazit dotyky</string>
+    <string name="feature_show_touches_desc">Pokud je povoleno, indikátor se zobrazí na chvíli, kdy klepnete na obrazovku.</string>
     <string name="option_keep_awake_on_ac">Na nabíječce</string>
     <string name="option_keep_awake_on_usb">Napájení z USB</string>
     <string name="option_keep_awake_on_wireless">Bezdrátové napájení</string>
