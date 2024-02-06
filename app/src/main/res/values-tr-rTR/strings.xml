@@ -91,6 +91,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_enable_adb">Etkin ADB</string>
     <string name="feature_enable_adb_desc">Bazı cihazlar, bir süre işlem yapılmadığında ADB\'yi otomatik olarak devre dışı bırakır.  Bu seçeneği etkinleştirin ve ADB\'yi zorla etkinleştirmek için Kalıcı Seçenek olarak ayarlayın.
  İÇERİK TALEP</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Karanlık modu etkinleştir</string>
     <string name="feature_dark_mode_desc">Android Pie ve 10, küresel bir karanlık mod seçeneği sundu, ancak bu seçenek bir süredir Android\'in bir parçası.  Bu seçenek, bu özelliği destekleyen uygulamalarda (Instagram gibi) karanlık modu etkinleştirebilir.  Değişikliklerin geçerli olması için yeniden başlatma gerekebilir.</string>
     <string name="feature_clock_seconds">Saat saniyelerini göster</string>
@@ -102,6 +104,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_battery_percent_desc">Durum çubuğundaki pil simgesinde mevcut pil yüzdesini gösterir. Etkinleştirmek için kök gerektirebilir.</string>
     <string name="feature_header_airplane_mode_radios">Muaf</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Değiştirilebilir</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">AC güç</string>
     <string name="option_keep_awake_on_usb">USB Güçte</string>
     <string name="option_keep_awake_on_wireless">Kablosuz Güçte</string>
