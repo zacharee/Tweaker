@@ -173,7 +173,7 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
                                     else -> null
                                 }
                             } catch (e: Throwable) {
-                                BugsnagUtils.notify(IllegalStateException("Failed to read setting through Shizuku.", e))
+                                BugsnagUtils.notify(IllegalStateException("Failed to read setting (${type}, ${key}, ${def}) through Shizuku.", e))
                                 null
                             }
                         }

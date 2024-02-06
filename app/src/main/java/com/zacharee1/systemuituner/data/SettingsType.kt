@@ -9,6 +9,14 @@ enum class SettingsType(val value: Int) {
     SECURE(1),
     SYSTEM(2);
 
+    val callMethod: String
+        get() = when (this) {
+            UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")
+            GLOBAL -> Settings.CALL_METHOD_GET_GLOBAL
+            SECURE -> Settings.CALL_METHOD_GET_SECURE
+            SYSTEM -> Settings.CALL_METHOD_GET_SYSTEM
+        }
+
     val contentUri: Uri
         get() = when (this) {
             UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")

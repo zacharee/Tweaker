@@ -42,8 +42,14 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
     override fun readGlobal(key: String?): String? {
         val token = Binder.clearCallingIdentity()
 
-        try {
-            return Settings.Global.getString(contentResolver, key)
+        return try {
+            Settings.Global.getString(contentResolver, key)
+        } catch (e: Throwable) {
+            try {
+                read(SettingsType.GLOBAL, key)
+            } catch (e: Throwable) {
+                throw e
+            }
         } finally {
             Binder.restoreCallingIdentity(token)
         }
@@ -52,8 +58,14 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
     override fun readSecure(key: String?): String? {
         val token = Binder.clearCallingIdentity()
 
-        try {
-            return Settings.Secure.getString(contentResolver, key)
+        return try {
+            Settings.Secure.getString(contentResolver, key)
+        } catch (e: Throwable) {
+            try {
+                read(SettingsType.SECURE, key)
+            } catch (e: Throwable) {
+                throw e
+            }
         } finally {
             Binder.restoreCallingIdentity(token)
         }
@@ -62,8 +74,14 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
     override fun readSystem(key: String?): String? {
         val token = Binder.clearCallingIdentity()
 
-        try {
-            return Settings.System.getString(contentResolver, key)
+        return try {
+            Settings.System.getString(contentResolver, key)
+        } catch (e: Throwable) {
+            try {
+                read(SettingsType.SYSTEM, key)
+            } catch (e: Throwable) {
+                throw e
+            }
         } finally {
             Binder.restoreCallingIdentity(token)
         }
@@ -111,17 +129,40 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
     }
 
     private fun read(which: SettingsType, key: String?): String? {
-        val token = Binder.clearCallingIdentity()
-
-        return try {
-            when (which) {
-                SettingsType.UNDEFINED -> throw IllegalArgumentException("Invalid settings type!")
-                SettingsType.GLOBAL -> Settings.Global.getString(contentResolver, key)
-                SettingsType.SECURE -> Settings.Secure.getString(contentResolver, key)
-                SettingsType.SYSTEM -> Settings.System.getString(contentResolver, key)
+        return which.contentUri.useProvider {
+            val method = which.callMethod
+            val args = Bundle().apply {
+                putInt(Settings.CALL_METHOD_USER_KEY, safeUid())
             }
-        } finally {
-            Binder.restoreCallingIdentity(token)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                call(
+                    AttributionSource(
+                        safeUid(),
+                        resolveCallingPackage(),
+                        null,
+                    ),
+                    Settings.AUTHORITY,
+                    method,
+                    key,
+                    args,
+                )
+            } else {
+                this::class.java.getMethod(
+                    "call",
+                    String::class.java,
+                    String::class.java,
+                    String::class.java,
+                    Bundle::class.java,
+                ).invoke(
+                    this,
+                    resolveCallingPackage(),
+                    Settings.AUTHORITY,
+                    method,
+                    key,
+                    args,
+                ) as? Bundle?
+            }?.pairValue
         }
     }
 
@@ -143,7 +184,8 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
                 "*cmd*",
             )?.provider
 
-            return provider?.block() ?: throw IllegalStateException("Unable to acquire Content Provider ${authority}!")
+            return provider?.block()
+                ?: throw IllegalStateException("Unable to acquire Content Provider ${authority}!")
         } catch (e: Throwable) {
             Log.e("SystemUITuner", "Error", e)
             throw e
