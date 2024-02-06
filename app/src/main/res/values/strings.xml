@@ -133,6 +133,9 @@
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
 
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">On USB Power</string>
     <string name="option_keep_awake_on_wireless">On Wireless Power</string>

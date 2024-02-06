@@ -67,4 +67,13 @@
     <com.zacharee1.systemuituner.prefs.NightModePreference
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/feature_show_touches"
+        android:summary="@string/feature_show_touches_desc"
+        android:key="show_touches"
+        android:icon="@drawable/ic_baseline_touch_app_24"
+        app:settings_type="system"
+        app:icon_color="@color/pref_color_1"
+        />
+
 </PreferenceScreen>
