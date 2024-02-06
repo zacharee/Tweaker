@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">بدءاً من معاينة مطور أندرويد أوريو 3، أزال جوجل القدرة على تخصيص اختصارات شاشة القفل. غير أنه لا يزال من الممكن تحديد قيمة الأفضليات يدوياً.</string>
     <string name="feature_enable_adb">تمكين ADB</string>
     <string name="feature_enable_adb_desc">بعض الأجهزة تعطل ADB تلقائياً بعد فترة من عدم النشاط. قم بتمكين هذا الخيار وتعيينه كخيار دائم لتفعيل ADB.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">تمكين الوضع الظلام العالمي</string>
     <string name="feature_dark_mode_desc">قدم نظام أندرويد و10 خيارات الوضع المظلم العالمي، ولكن هذا الخيار كان جزءا من نظام أندرويد لفترة من الوقت. يمكن لهذا الخيار تمكين الوضع المظلم في التطبيقات التي تدعم هذه الميزة (مثل إنستاجرام). قد تكون هناك حاجة إلى إعادة تشغيل لتفعيل التغييرات.</string>
     <string name="feature_clock_seconds">إظهار ثواني الساعة</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">يعرض النسبة المئوية الحالية للبطارية في أيقونة البطارية على شريط الحالة. قد يتطلب الروت لتنشيطه.</string>
     <string name="feature_header_airplane_mode_radios">مستثنى</string>
     <string name="feature_header_airplane_mode_toggleable_radios">قابل للتبديل</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">على قوة AC</string>
     <string name="option_keep_awake_on_usb">على قوة USB</string>
     <string name="option_keep_awake_on_wireless">على الطاقة اللاسلكية</string>
