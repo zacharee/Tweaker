@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Android Oreo Developer Preview 3 以降、Google はロック画面のショートカットをカスタマイズする機能を削除しました。 ただし、プリファレンス値は引き続き手動で設定できます。</string>
     <string name="feature_enable_adb">ADBを有効化</string>
     <string name="feature_enable_adb_desc">一部のデバイスでは、非アクティブ状態が一定時間続くと、ADB が自動的に無効になります。  ADB を強制的に有効にするには、このオプションを有効にして永続オプションとして設定します。</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">ダークモードを有効化する</string>
     <string name="feature_dark_mode_desc">Android Pie と 10 ではダークモードオプションが導入されましたが、このオプションはしばらくの間 Android の一部でした。 このオプションは、この機能をサポートするアプリ (Instagram など) でダーク モードを有効にできます。 変更を有効にするには、再起動が必要になる場合があります。</string>
     <string name="feature_clock_seconds">時刻表示に秒数を追加</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">ステータスバーのバッテリーアイコンに現在のバッテリーのパーセンテージが表示されます。 アクティブ化するには root が必要な場合があります。</string>
     <string name="feature_header_airplane_mode_radios">免除する</string>
     <string name="feature_header_airplane_mode_toggleable_radios">切り替え可能</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">AC電源で</string>
     <string name="option_keep_awake_on_usb">AC電源で</string>
     <string name="option_keep_awake_on_wireless">ワイヤレス充電時</string>
