@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Sinds Android Oreo Developer Preview 3 heeft Google de mogelijkheid ontnomen om de vergrendelschermsnelkoppelingen aan te passen. De voorkeurswaarde kan echter nog steeds handmatig worden ingesteld.</string>
     <string name="feature_enable_adb">Enable ADB</string>
     <string name="feature_enable_adb_desc">Certain devices disable ADB automatically after a period of inactivity. Enable this option and set it as a Persistent Option to force-enable ADB.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Enable Global Dark Mode</string>
     <string name="feature_dark_mode_desc">Android Pie and 10 introduced a global dark mode option, but this option has been part of Android for a while now. This option can enable dark mode in apps that support this feature (such as Instagram). A reboot may be required for changes to take effect.</string>
     <string name="feature_clock_seconds">Show Clock Seconds</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Shows the current battery percentage in the battery icon on the status bar. May require root to activate.</string>
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Toggleable</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">On AC Power</string>
     <string name="option_keep_awake_on_usb">On USB Power</string>
     <string name="option_keep_awake_on_wireless">On Wireless Power</string>
