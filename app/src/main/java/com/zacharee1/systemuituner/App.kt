@@ -40,7 +40,7 @@ class App : Application(), SharedPreferences.OnSharedPreferenceChangeListener, S
                 } catch (_: IllegalArgumentException) {}
                 context.stopService(Intent(context, Manager::class.java))
             } else {
-                BugsnagUtils.leaveBreadcrumb("Persistent options are selected, attempting to start service with Context ${this::class.java.name}")
+                BugsnagUtils.leaveBreadcrumb("Persistent options are selected, attempting to start service with Context ${context::class.java.name}")
                 if (this::class.java.name == "ReceiverRestrictedContext" || !tryBindService(context)) {
                     tryStartService(context)
                 }
