@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">À partir d\'Android Ordo Développer Premier 3, Google a supprimé la possibilité de personnaliser les raccourcis de l\'écran de verrouillage. Cependant, la valeur de préférence peut toujours être définie manuellement.</string>
     <string name="feature_enable_adb">Activer ADB</string>
     <string name="feature_enable_adb_desc">Certains appareils désactivent ADB automatiquement après une période d\'inactivité. Activez cette option et définissez-la comme Option Permanente pour forcer l\'activation d\'ADB.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Activer le Mode Sombre Universel</string>
     <string name="feature_dark_mode_desc">Android Pie et 10 ont introduit une option de thème sombre universel, mais cette option fait partie d\'Android depuis un moment maintenant. Ce paramètre peut activer le mode sombre dans les apps qui supportent cette fonctionnalité (comme Instagram par exemple). Un redémarrage peut être requis pour que les changements prennent effet.</string>
     <string name="feature_clock_seconds">Afficher les secondes sur l\'horloge</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Affiche le pourcentage actuel de la batterie dans l\'icône de la barre d\'état. Peut nécessiter les droits root pour être actif.</string>
     <string name="feature_header_airplane_mode_radios">Exempté</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Activable</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">Branché sur secteur</string>
     <string name="option_keep_awake_on_usb">Branché en USB</string>
     <string name="option_keep_awake_on_wireless">En charge sans fil</string>
