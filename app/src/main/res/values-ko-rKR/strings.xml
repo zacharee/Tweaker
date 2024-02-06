@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Android 오레오 개발자 프리뷰 3부터, Google은 잠금화면 바로가기를 사용자 지정하는 것을 막았습니다. 그렇지만 설정값은 여전히 수동으로 조작할 수 있습니다.</string>
     <string name="feature_enable_adb">ADB 활성화</string>
     <string name="feature_enable_adb_desc">어떤 기기는 일정 기간동안 사용하지 않으면 알아서 ADB를 끕니다. 이 기능을 활성화하고 영구 설정으로 설정하면 ADB를 활성화 상태로 강제할 수 있습니다.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">전역 다크 모드 활성화</string>
     <string name="feature_dark_mode_desc">Android 파이 및 10에서는 전역 다크 모드 설정이 추가되었지만, 지금으로서는 매우 최근에 추가된 것이라 할 수 있습니다. 이 설정을 통해 해당 기능을 지원하는 (인스타그램 등의) 앱에서 다크 모드를 활성화할 수 있습니다. 기기를 재시작해야 제대로 작동합니다.</string>
     <string name="feature_clock_seconds">시계 초 단위 표시</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">상태 표시줄의 배터리 아이콘 내에 현재 배터리 잔량 퍼센트를 표시합니다. 활성화할 때 루팅이 필요할 수 있습니다.</string>
     <string name="feature_header_airplane_mode_radios">제외</string>
     <string name="feature_header_airplane_mode_toggleable_radios">설정 가능</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">AC 전원 연결 시</string>
     <string name="option_keep_awake_on_usb">USB 전원 연결 시</string>
     <string name="option_keep_awake_on_wireless">무선 전력 연결 시</string>
