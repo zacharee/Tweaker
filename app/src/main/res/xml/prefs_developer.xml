@@ -11,4 +11,14 @@
         app:settings_type="global"
         />
 
+    <com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
+        android:title="@string/feature_enable_wireless_adb"
+        android:summary="@string/feature_enable_wireless_adb_desc"
+        android:key="adb_wifi_enabled"
+        android:icon="@drawable/ic_baseline_signal_wifi_4_bar_24"
+        app:icon_color="@color/pref_color_5"
+        app:settings_type="global"
+        app:low_api="31"
+        />
+
 </PreferenceScreen>
