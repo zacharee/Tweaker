@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Mulai dari versi Android Oreo Developer Preview 3, Google menghapus kemampuan untuk mengatur pintasan layar kunci. Tetapi, nilai preferensi tetap dapat diubah secara manual.</string>
     <string name="feature_enable_adb">Aktifkan ADB</string>
     <string name="feature_enable_adb_desc">Beberapa perangkat tertentu akan menonaktifkan ADB secara otomatis setelah beberapa saat jika tidak aktif. Aktifkan pilihan ini dan tetapkan sebagai Opsi Persisten untuk mengaktifkan ADB secara paksa.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Aktifkan Mode Gelap Global</string>
     <string name="feature_dark_mode_desc">Android Pie dan 10 memperkenalkan opsi mode gelap global, tetapi opsi ini telah menjadi bagian dari Android untuk sementara waktu. Opsi ini dapat mengaktifkan mode gelap di aplikasi yang mendukung fitur ini (seperti Instagram). Reboot mungkin diperlukan agar perubahan dapat diterapkan.</string>
     <string name="feature_clock_seconds">Tampilkan Detik Jam</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Menampilkan persentase baterai saat ini di ikon baterai pada bilah status. Mungkin memerlukan akses root untuk mengaktifkannya.</string>
     <string name="feature_header_airplane_mode_radios">Pengecualian</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Dapat Dialihkan</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">Pada Daya AC</string>
     <string name="option_keep_awake_on_usb">Pada Daya USB</string>
     <string name="option_keep_awake_on_wireless">Pada Daya Nirkabel</string>
