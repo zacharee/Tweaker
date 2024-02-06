@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">A partir do Android Oreo Developer Preview 3, o Google removeu a capacidade de personalizar os atalhos da tela de bloqueio. No entanto, o valor de preferência ainda pode ser definido manualmente.</string>
     <string name="feature_enable_adb">Ativar ADB</string>
     <string name="feature_enable_adb_desc">Existem certos dispositivos que, depois de um tempo, desativam a Depuração ADB automaticamente. Ative está opção para forçar a ativação da Depuração ADB permanentemente.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Ativar o Modo Escuro global</string>
     <string name="feature_dark_mode_desc">O Android Pie e o 10 introduziram uma opção global de modo escuro, mas essa opção faz parte do Android há algum tempo. Essa opção pode ativar o modo escuro em aplicativos que suportam esse recurso (como o Instagram). Uma reinicialização pode ser necessária para que as alterações tenham efeito.</string>
     <string name="feature_clock_seconds">Mostrar segundos no relógio</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Mostra a porcentagem atual da bateria no ícone da bateria na barra de status. Pode exigir root para ativar.</string>
     <string name="feature_header_airplane_mode_radios">Manter</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Desativar</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">Conectado à tomada</string>
     <string name="option_keep_awake_on_usb">Conectado ao USB</string>
     <string name="option_keep_awake_on_wireless">Conectado ao Wireless Charger</string>
