@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">A partir de Android Oreo Developer Preview 3, Google eliminó la capacidad de personalizar los atajos de la pantalla de bloqueo. Sin embargo, el valor de preferencia puede ser establecido manualmente.</string>
     <string name="feature_enable_adb">Activar ADB</string>
     <string name="feature_enable_adb_desc">Ciertos dispositivos desactivan ADB automáticamente después de un período de inactividad. Activa esta opción y establecerla como una opción persistente para activar ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Habilitar ADB inalámbrico</string>
+    <string name="feature_enable_wireless_adb_desc">ADB inalámbrico, introducido a los usuarios en Android 11, le permite emparejar computadores y otros dispositivos con su dispositivo y usar ADB sin cable o drivers especiales.</string>
     <string name="feature_dark_mode">Activar el Modo Oscuro Global</string>
     <string name="feature_dark_mode_desc">Android Pie y 10 introdujeron una opción global de modo oscuro, pero esta opción ha sido parte de Android desde hace un tiempo. Esta opción puede activar el modo oscuro en aplicaciones que soporten esta característica (como Instagram). Puede ser necesario reiniciar para que los cambios surtan efecto.</string>
     <string name="feature_clock_seconds">Mostrar los segundos en el reloj</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Muestra el porcentaje de batería actual en el icono de la batería en la barra de estado. Puede requerir root para activar.</string>
     <string name="feature_header_airplane_mode_radios">Exento</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Cambiable</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Mostrar pulsaciones</string>
+    <string name="feature_show_touches_desc">Cuando está activado, un indicador se mostrará por un momento dondequiera que toque en la pantalla.</string>
     <string name="option_keep_awake_on_ac">En corriente alterna</string>
     <string name="option_keep_awake_on_usb">En corriente USB</string>
     <string name="option_keep_awake_on_wireless">En corriente inalámbrica</string>
