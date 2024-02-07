@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Pengelola (Nonaktifkan)</string>
+    <string name="manager_channel">Pengelola (Nonaktif)</string>
     <string name="tap_to_disable">Ketuk untuk mematikan notifikasi</string>
     <string name="home">Beranda</string>
     <string name="category_display">Layar</string>
@@ -10,7 +10,7 @@
     <string name="category_audio">Audio &amp; Suara</string>
     <string name="category_developer">Opsi Pengembang</string>
     <string name="category_easter_eggs">Easter Eggs</string>
-    <string name="category_network">Jaringan</string>
+    <string name="category_network">Jejaring</string>
     <string name="category_notifications">Notifikasi</string>
     <string name="category_status_bar">Bilah Status</string>
     <string name="category_oem">Fitur OEM</string>
@@ -56,7 +56,7 @@
     <string name="feature_font_scale_desc">Android memungkinkan Anda mengatur ukuran teks yang ditampilkan di perangkat Anda dengan menentukan skala font sistem. Nilai ini biasanya direpresentasikan sebagai \"kecil\", \"normal\", \"sedang\", \"besar\", dan \"ekstra besar\". Namun, Anda dapat mengatur nilai kustom Anda sendiri.</string>
     <string name="feature_freeform">Aktifkan Jendela Bentuk Bebas</string>
     <string name="feature_freeform_desc">Apakah akan mengaktifkan dukungan multijendela bentuk bebas. Reboot diperlukan. Hanya berfungsi pada perangkat Android 7.0 ke atas.</string>
-    <string name="feature_app_install_location">Setel Lokasi Default Pemasangan Aplikasi</string>
+    <string name="feature_app_install_location">Atur Lokasi Bawaan Pasang Aplikasi</string>
     <string name="feature_app_install_location_desc">Lokasi pemasangan aplikasi default. Pilih aplikasi penyimpanan mana yang akan diinstal secara default. Biasanya, aplikasi sendiri memutuskan dengan menentukan nilainya di AndroidManifest, tetapi Anda dapat memilih untuk menginstalnya ke media penyimpanan yang dapat diadopsi jika Anda mau.</string>
     <string name="feature_heads_up_notifications">Atur Notifikasi Mengambang</string>
     <string name="feature_heads_up_notifications_desc">Aktifkan atau nonaktifkan notifikasi mengambang secara global. Notifikasi mengambang adalah notifikasi yang muncul di bagian atas layar.</string>
@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Mulai dari versi Android Oreo Developer Preview 3, Google menghapus kemampuan untuk mengatur pintasan layar kunci. Tetapi, nilai preferensi tetap dapat diubah secara manual.</string>
     <string name="feature_enable_adb">Aktifkan ADB</string>
     <string name="feature_enable_adb_desc">Beberapa perangkat tertentu akan menonaktifkan ADB secara otomatis setelah beberapa saat jika tidak aktif. Aktifkan pilihan ini dan tetapkan sebagai Opsi Persisten untuk mengaktifkan ADB secara paksa.</string>
+    <string name="feature_enable_wireless_adb">Aktifkan ADB Nirkabel</string>
+    <string name="feature_enable_wireless_adb_desc">ADB Nirkabel, diperkenalkan sejak Android 11, dapat menghubung komputer dan perangkat lain ke perangkat Anda dan operasi ADB tanpa kabel atau kandar khusus.</string>
     <string name="feature_dark_mode">Aktifkan Mode Gelap Global</string>
     <string name="feature_dark_mode_desc">Android Pie dan 10 memperkenalkan opsi mode gelap global, tetapi opsi ini telah menjadi bagian dari Android untuk sementara waktu. Opsi ini dapat mengaktifkan mode gelap di aplikasi yang mendukung fitur ini (seperti Instagram). Reboot mungkin diperlukan agar perubahan dapat diterapkan.</string>
     <string name="feature_clock_seconds">Tampilkan Detik Jam</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Menampilkan persentase baterai saat ini di ikon baterai pada bilah status. Mungkin memerlukan akses root untuk mengaktifkannya.</string>
     <string name="feature_header_airplane_mode_radios">Pengecualian</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Dapat Dialihkan</string>
+    <string name="feature_show_touches">Tampilkan Sentuhan</string>
+    <string name="feature_show_touches_desc">Jika diaktifkan, akan ada indikator sesaat setiap kali menyentuh layar.</string>
     <string name="option_keep_awake_on_ac">Pada Daya AC</string>
     <string name="option_keep_awake_on_usb">Pada Daya USB</string>
     <string name="option_keep_awake_on_wireless">Pada Daya Nirkabel</string>
@@ -201,7 +205,7 @@
     <string name="immersive_nav">Navigasi</string>
     <string name="immersive_blacklist">Daftar Hitam</string>
     <string name="immersive_whitelist">Daftar Putih</string>
-    <string name="advanced">Setelan Lanjutan</string>
+    <string name="advanced">Opsi Lanjutan</string>
     <string name="all_apps">Semua Aplikasi</string>
     <string name="select_apps">Pilih Aplikasi</string>
     <string name="radio">Radio</string>

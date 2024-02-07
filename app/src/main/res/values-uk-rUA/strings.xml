@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Починаючи з Android Oreo Developer Preview 3, Google прибрала можливість налаштовувати ярлики екрана блокування. Однак, значення параметрів все ще можна встановити вручну.</string>
     <string name="feature_enable_adb">Увімкнути ADB</string>
     <string name="feature_enable_adb_desc">Деякі пристрої відключають ADB автоматично після періоду бездіяльності. Увімкніть цей параметр та встановіть його як постійний варіант для примусового включення ADB.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Увімкнути Глобальний темний режим</string>
     <string name="feature_dark_mode_desc">В Android Pie та 10 представили опцію глобального темного режиму, але ця опція є частиною Android вже деякий час. Ця опція може ввімкнути темний режим у програмах, які підтримують цю функцію (наприклад, Instagram). Щоб зміни набули чинності, може знадобитися перезавантаження.</string>
     <string name="feature_clock_seconds">Показувати секунди на годиннику</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Показує поточний рівень заряду акумулятора у відсотках на піктограмі акумулятора у рядку стану. Для активації може знадобитися root.</string>
     <string name="feature_header_airplane_mode_radios">Винятки</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Перемикається</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">Живлення від мережі</string>
     <string name="option_keep_awake_on_usb">Живлення USB</string>
     <string name="option_keep_awake_on_wireless">Бездротове живлення</string>

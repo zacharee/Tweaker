@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Począwszy od Android Oreo Developer Preview 3, Google usunął możliwość dostosowania skrótów ekranu blokady. Wartość preferencji może być ustawiona ręcznie.</string>
     <string name="feature_enable_adb">Włącz ADB</string>
     <string name="feature_enable_adb_desc">Niektóre urządzenia wyłączają ADB automatycznie po okresie bezczynności. Włącz tę opcję i ustaw ją jako trwałą opcję wymuszającą włączenie ADB.</string>
+    <string name="feature_enable_wireless_adb">Włącz bezprzewodowe ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Bezprzewodowe ADB, wprowadzone w Android 11, pozwala sparować komputery i inne urządzenia z Twoim urządzeniem i używać ADB bez kabla czy specjalnych urządzeń.</string>
     <string name="feature_dark_mode">Włącz globalny tryb ciemny</string>
     <string name="feature_dark_mode_desc">Android Pie i 10 wprowadziły globalny tryb ciemny, lecz opcja ta jest częścią Androida już od jakiegoś czasu. Wybór tej opcji może włączyć tryb ciemny w aplikacjach, które obsługują tę funkcję (takich jak Instagram). Może być wymagane ponowne uruchomienie, aby zmiany odniosły skutek.</string>
     <string name="feature_clock_seconds">Pokaż sekundy na zegarze</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Pokazuje aktualny procent baterii w ikonie baterii na pasku stanu. Może wymagać uprawnień root, aby aktywować.</string>
     <string name="feature_header_airplane_mode_radios">Zwolnione</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Przełączalne</string>
+    <string name="feature_show_touches">Pokaż dotknięcia</string>
+    <string name="feature_show_touches_desc">Gdy włączone, wskaźnik wyświetli każdorazowe Twoje dotknięcie ekranu.</string>
     <string name="option_keep_awake_on_ac">Podłączony do zasilacza</string>
     <string name="option_keep_awake_on_usb">Podłączony do zasilacza</string>
     <string name="option_keep_awake_on_wireless">Przy zasilaniu bezprzewodowym</string>

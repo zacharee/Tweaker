@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Beginnend mit Android Oreo Developer Preview 3 hat Google die Möglichkeit entfernt, die Sperrbildschirm-Verknüpfungen anzupassen. Der Einstellungswert kann jedoch weiterhin manuell festgelegt werden.</string>
     <string name="feature_enable_adb">ADB (Android-Debug-Bridge) deaktivieren</string>
     <string name="feature_enable_adb_desc">Bestimmte Geräte deaktivieren die ADB-Funktion (Android-Debug-Bridge) nach einer gewissen Zeit der Inaktivität automatisch. Aktivieren Sie diese Option und legen Sie diese als dauerhafte Option fest, um ADB zwangsweise zu aktivieren.</string>
+    <string name="feature_enable_wireless_adb">Aktiviere drahtlose ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Drahtloses Adb (eingeführt für Benutzer in Android 11) ermöglicht Ihnen Computer und andere Geräte mit Ihrem Gerät zu koppeln und ADB ohne Kabel oder spezielle Treiber zu verwenden.</string>
     <string name="feature_dark_mode">Dunkel-Modus systemweit aktivieren</string>
     <string name="feature_dark_mode_desc">Android Pie und 10 haben eine übergreifende Option für den dunklen Modus eingeführt, aber diese Option ist schon seit einer Weile Teil von Android. Diese Option kann den dunklen Modus in Apps aktivieren, die diese Funktion unterstützen (z. B. Instagram). Ein Neustart kann erforderlich sein, damit die Änderungen wirksam werden.</string>
     <string name="feature_clock_seconds">Sekunden anzeigen</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">Zeigt den aktuellen Batteriestand (in %%) im Batteriesymbol in der Statusleiste an. Erfordert möglicherweise zur Aktivierung ein gerootetes System.</string>
     <string name="feature_header_airplane_mode_radios">Ausnahmen</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Umschaltbar</string>
+    <string name="feature_show_touches">Berührungen anzeigen</string>
+    <string name="feature_show_touches_desc">Falls aktiviert, wird ein Indikator für einen Moment angezeigt, sobald Sie auf den Bildschirm tippen.</string>
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>

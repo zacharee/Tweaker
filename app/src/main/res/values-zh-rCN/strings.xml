@@ -88,6 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">从 Android Oreo 开发者预览3 开始，谷歌删除了自定义锁屏快捷方式的功能。然而，您依然可以手动设置其偏好值。</string>
     <string name="feature_enable_adb">启用 ADB</string>
     <string name="feature_enable_adb_desc">某些设备在一段时间内不活动后自动禁用 ADB。启用此选项并将其设置为持久选项以强制启用 ADB。</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">启用全局暗色模式</string>
     <string name="feature_dark_mode_desc">Android Pie 和 10 引入了全局黑暗模式选项，但此选项已经成为安卓系统的一部分了一段时间。 此选项可以在支持此功能的应用程序中启用暗色模式(如Instagram)。更改生效可能需要重启。</string>
     <string name="feature_clock_seconds">显示时钟秒数</string>
@@ -98,6 +100,8 @@
     <string name="feature_battery_percent_desc">在状态栏上显示当前电池图标中的电池百分比。可能需要root才能激活。</string>
     <string name="feature_header_airplane_mode_radios">信任</string>
     <string name="feature_header_airplane_mode_toggleable_radios">可切换的</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">交流供电</string>
     <string name="option_keep_awake_on_usb">USB供电</string>
     <string name="option_keep_awake_on_wireless">无线供电</string>

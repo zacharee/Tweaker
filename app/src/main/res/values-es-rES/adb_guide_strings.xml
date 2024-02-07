@@ -23,7 +23,7 @@
     <string name="adb_install_local_1"><![CDATA[Descargar e instalar la aplicación Shizuku desde la [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Abre la aplicación Shizuku y sigue las instrucciones de \"Iniciar a través de la depuración inalámbrica\".</string>
     <string name="adb_install_local_3">Cierre esta pantalla y pulse el botón \"GRANT\".</string>
-    <string name="adb_install_adb_windows_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
+    <string name="adb_install_adb_windows_1">Descarga aquí el ZIP de ADB: https://dl.google.com/android/repository/platform-tools-latest-windows.zip</string>
     <string name="adb_install_adb_windows_2">Save</string>
     <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
     <string name="adb_install_adb_windows_4">Haga clic dentro de la barra de búsqueda y reemplace lo que hay con \"cmd\" (sin comillas). Y luego pulse Enter.</string>

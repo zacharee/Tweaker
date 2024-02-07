@@ -89,6 +89,8 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="feature_lockscreen_shortcuts_desc">Az Android Oreo Developer Preview 3-tól kezdve a Google eltávolította a záróképernyő parancsikonok testreszabásának lehetőségét. A beállítási érték azonban továbbra is beállítható manuálisan.</string>
     <string name="feature_enable_adb">ADB engedélyezése</string>
     <string name="feature_enable_adb_desc">Bizonyos készülékek egy bizonyos ideig tartó inaktivitás után automatikusan letiltják az ADB-t. Engedélyezze ezt az opciót, és állítsa be állandó opcióként az ADB kényszerített bekapcsolásához.</string>
+    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Globális sötét üzemmód engedélyezése</string>
     <string name="feature_dark_mode_desc">Az Android Pie és a 10 bevezette a globális sötét mód opciót, de ez az opció már egy ideje része az Androidnak. Ezzel az opcióval engedélyezheti a sötét módot azokban az alkalmazásokban, amelyek támogatják ezt a funkciót (például az Instagramban). A változtatások életbe lépéséhez újraindításra lehet szükség.</string>
     <string name="feature_clock_seconds">Másodpercek megjelenítése az órán</string>
@@ -99,6 +101,8 @@ Megjegyzés: Android 11 és felette ez a beállítás hibás az AOSP-ban és leh
     <string name="feature_battery_percent_desc">Megjeleníti az akkumulátor aktuális százalékos értékét az állapotsoron lévő akkumulátor ikonban. Az aktiváláshoz root szükséges lehet.</string>
     <string name="feature_header_airplane_mode_radios">Kivétel</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Átkapcsolható</string>
+    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">AC tápellátáson</string>
     <string name="option_keep_awake_on_usb">USB tápellátáson</string>
     <string name="option_keep_awake_on_wireless">Vezeték nélküli tápellátás</string>
