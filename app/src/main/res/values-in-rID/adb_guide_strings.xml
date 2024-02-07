@@ -19,7 +19,7 @@
     <string name="adb_install_android_9">Di ponsel Xiaomi, Anda juga harus menemukan dan menonaktifkan opsi berlabel \"USB Debugging (Pengaturan Keamanan)\".</string>
     <string name="adb_install_android_10">Di ponsel OPPO, Realme, dan OnePlus, Anda juga harus menemukan dan mengaktifkan opsi berlabel \"Nonaktifkan Pemantauan Izin\".</string>
     <string name="adb_install_android_11">Sekarang, colokkan ponsel Anda ke komputer Anda. Jika pop-up konfirmasi tentang Debugging USB muncul, berikan izinnya.</string>
-    <string name="adb_install_android_12">Setelah itu selesai, saatnya untuk melanjutkan di komputer anda.</string>
+    <string name="adb_install_android_12">Setelah selesai, sekarang lanjutkan di komputer Anda.</string>
     <string name="adb_install_local_1"><![CDATA[Unduh dan pasang aplikasi Shizuku dari [Google Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api).]]></string>
     <string name="adb_install_local_2">Buka aplikasi Shizuku dan ikuti petunjuk di bawah \"Mulai melalui Debugging Nirkabel\".</string>
     <string name="adb_install_local_3">Tutup layar ini dan ketuk tombol \"IZINKAN\".</string>
