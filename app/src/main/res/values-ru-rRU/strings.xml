@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Начиная с Android Oreo Developer Preview 3, Google удалил возможность настройки ярлыков экрана блокировки, однако вы по-прежнему можете сделать это вручную.</string>
     <string name="feature_enable_adb">Включить отладку по ADB</string>
     <string name="feature_enable_adb_desc">Некоторые устройства автоматически отключают ADB после периода бездействия. Включите эту опцию и установите её в качестве постоянной настройки для принудительного включения ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Включить беспроводной ADB</string>
+    <string name="feature_enable_wireless_adb_desc">Беспроводной ADB, представленный пользователям в Android 11, позволяет соединить компьютеры и другие устройства с вашим устройством и использовать ADB без кабеля или специальных драйверов.</string>
     <string name="feature_dark_mode">Включить Глобальный тёмный режим</string>
     <string name="feature_dark_mode_desc">В Android версий Pie и 10 присутствует функция глобального тёмного режима, но она уже была частью Android до этого. Эта опция может включить тёмный режим в приложениях, поддерживающих эту функцию (например, Instagram). Может потребоваться перезагрузка для вступления изменений.</string>
     <string name="feature_clock_seconds">Показывать секунды на часах</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Показывает процент заряда батареи в значке батареи в строке состояния. Для активации могут потребоваться Root-права.</string>
     <string name="feature_header_airplane_mode_radios">Исключения</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Переключаемый</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Показывать прикосновения</string>
+    <string name="feature_show_touches_desc">Если включено, то будут отображаться прикосновения к экрану.</string>
     <string name="option_keep_awake_on_ac">От сети</string>
     <string name="option_keep_awake_on_usb">Питание от USB</string>
     <string name="option_keep_awake_on_wireless">На беспроводной зарядке</string>
