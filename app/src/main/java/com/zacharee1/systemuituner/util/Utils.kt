@@ -15,20 +15,21 @@ import android.graphics.BlendModeColorFilter
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.os.*
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES
+import android.os.Handler
+import android.os.IInterface
+import android.os.Looper
 import android.provider.Settings
 import android.service.quicksettings.Tile
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.SortedList
 import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
-import java.util.*
+import java.util.Locale
 import java.util.regex.Pattern
 
 val mainHandler = Handler(Looper.getMainLooper())
