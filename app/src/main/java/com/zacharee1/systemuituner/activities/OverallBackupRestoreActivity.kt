@@ -84,8 +84,6 @@ class OverallBackupRestoreActivity : AppCompatActivity() {
                                 failedOptions.add(option)
                             }
                         }
-
-                        Log.e("SystemUITuner", "Failed options ${failedOptions}")
                     }
                 } catch (e: Throwable) {
                     Log.e("SystemUITuner", "Error restoring", e)
