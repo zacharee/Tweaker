@@ -1,14 +1,17 @@
 package com.zacharee1.systemuituner.data
 
+import android.os.Parcelable
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class SavedOption(
     val type: SettingsType,
     val key: String,
     var value: String?
-) {
+) : Parcelable {
     companion object {
         val gson: Gson = GsonBuilder().create()
 

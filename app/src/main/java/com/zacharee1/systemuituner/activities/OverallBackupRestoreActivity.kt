@@ -39,6 +39,7 @@ import com.zacharee1.systemuituner.compose.preferences.SettingsPreferenceItem
 import com.zacharee1.systemuituner.data.SavedOption
 import com.zacharee1.systemuituner.util.BugsnagUtils
 import com.zacharee1.systemuituner.util.PersistenceHandlerRegistry
+import com.zacharee1.systemuituner.util.listSettings
 import com.zacharee1.systemuituner.util.prefManager
 import com.zacharee1.systemuituner.util.writeSetting
 import kotlinx.coroutines.launch
@@ -93,12 +94,16 @@ class OverallBackupRestoreActivity : AppCompatActivity() {
 
             val items: List<BasePreferenceItem> = remember {
                 listOf(
-//                    PreferenceItem(
-//                        title = resources.getString(R.string.back_up_all_settings),
-//                        summary = resources.getString(R.string.back_up_all_settings_desc),
-//                        key = "back_up_all_settings",
-//                        onClick = {},
-//                    ),
+                    PreferenceItem(
+                        title = resources.getString(R.string.back_up_all_settings),
+                        summary = resources.getString(R.string.back_up_all_settings_desc),
+                        key = "back_up_all_settings",
+                        onClick = {
+                            backupData = listSettings()?.let {
+                                HashSet(it.toList())
+                            }
+                        },
+                    ),
                     PreferenceItem(
                         title = resources.getString(R.string.back_up_changed_settings),
                         summary = resources.getString(R.string.back_up_changed_settings_desc),

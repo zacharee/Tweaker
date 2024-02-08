@@ -3,6 +3,7 @@ package com.zacharee1.systemuituner.util
 import android.content.Context
 import android.net.Uri
 import android.os.CountDownTimer
+import android.os.Process
 import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
@@ -11,8 +12,11 @@ import com.topjohnwu.superuser.Shell
 import com.zacharee1.systemuituner.R
 import com.zacharee1.systemuituner.activities.ReadSettingFailActivity
 import com.zacharee1.systemuituner.activities.WriteSettingFailActivity
+import com.zacharee1.systemuituner.data.SavedOption
 import com.zacharee1.systemuituner.data.SettingsType
 import com.zacharee1.systemuituner.dialogs.RoundedBottomSheetDialog
+import com.zacharee1.systemuituner.systemsettingsaddon.library.listInternal
+import com.zacharee1.systemuituner.systemsettingsaddon.library.mapToSavedOptions
 import com.zacharee1.systemuituner.systemsettingsaddon.library.settingsAddon
 import com.zacharee1.systemuituner.views.LockscreenShortcuts
 import kotlinx.coroutines.Dispatchers
@@ -59,12 +63,19 @@ private suspend fun Context.revertDialog(
                 override fun onFinish() {
                     runBlocking {
                         originalValues.forEach { (info, setting) ->
-                            writeSetting(info.first.type, info.first.key, setting, false, saveOption)
+                            writeSetting(
+                                info.first.type,
+                                info.first.key,
+                                setting,
+                                false,
+                                saveOption
+                            )
                         }
                     }
                     try {
                         dialog.dismiss()
-                    } catch (_: IllegalArgumentException) {}
+                    } catch (_: IllegalArgumentException) {
+                    }
                 }
 
                 override fun onTick(millisUntilFinished: Long) {
@@ -159,7 +170,12 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
             SettingsType.UNDEFINED -> throw IllegalStateException("SettingsType should not be undefined")
         }.orEmpty().ifBlank { def?.toString() }
     } catch (e: SecurityException) {
-        BugsnagUtils.notify(IllegalStateException("Unable to read setting ${type}, ${key}, ${def}.", e))
+        BugsnagUtils.notify(
+            IllegalStateException(
+                "Unable to read setting ${type}, ${key}, ${def}.",
+                e
+            )
+        )
         when {
             Shizuku.pingBinder() -> {
                 if (hasShizukuPermission) {
@@ -173,7 +189,12 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
                                     else -> null
                                 }
                             } catch (e: Throwable) {
-                                BugsnagUtils.notify(IllegalStateException("Failed to read setting (${type}, ${key}, ${def}) through Shizuku.", e))
+                                BugsnagUtils.notify(
+                                    IllegalStateException(
+                                        "Failed to read setting (${type}, ${key}, ${def}) through Shizuku.",
+                                        e
+                                    )
+                                )
                                 null
                             }
                         }
@@ -183,10 +204,11 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
                     null
                 }
             }
+
             settingsAddon.hasService -> {
                 if (settingsAddon.binderAvailable) {
                     settingsAddon.binder?.readSetting(
-                        type.toLibraryType(),
+                        type,
                         key
                     )
                 } else {
@@ -196,6 +218,7 @@ fun Context.getSetting(type: SettingsType, key: String?, def: Any? = null): Stri
                     null
                 }
             }
+
             else -> {
                 ReadSettingFailActivity.start(this, type, key)
                 null
@@ -251,7 +274,11 @@ private fun Context.writeSecure(key: String?, value: Any?): Boolean {
 private fun Context.writeSystem(key: String?, value: Any?): Boolean {
     if (key.isNullOrBlank()) return false
     fun onFail(e: Exception): Boolean? {
-        BugsnagUtils.leaveBreadcrumb("Failed to write to Settings.System with Exception", mapOf("stacktrace" to e.stackTraceToString()), BreadcrumbType.ERROR)
+        BugsnagUtils.leaveBreadcrumb(
+            "Failed to write to Settings.System with Exception",
+            mapOf("stacktrace" to e.stackTraceToString()),
+            BreadcrumbType.ERROR
+        )
 
         return when {
             hasRoot -> {
@@ -260,13 +287,19 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     .exec()
                 true
             }
+
             Shizuku.pingBinder() -> {
                 if (hasShizukuPermission) {
                     try {
                         shizukuServiceManager.waitForService()
                             .writeSystem(key, value?.toString(), packageName)
                     } catch (e: Throwable) {
-                        BugsnagUtils.notify(IllegalStateException("Unable to write to Settings.System using Shizuku.", e))
+                        BugsnagUtils.notify(
+                            IllegalStateException(
+                                "Unable to write to Settings.System using Shizuku.",
+                                e
+                            )
+                        )
                         Log.e("SystemUITuner", "Failed to write to System $key $value", e)
                         false
                     }
@@ -276,6 +309,7 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     null
                 }
             }
+
             settingsAddon.hasService -> {
                 if (settingsAddon.binderAvailable) {
                     val result = settingsAddon.binder?.writeSetting(
@@ -295,6 +329,7 @@ private fun Context.writeSystem(key: String?, value: Any?): Boolean {
                     false
                 }
             }
+
             else -> {
                 BugsnagUtils.notify(e)
                 Log.e("SystemUITuner", "Failed to write to System $key $value", e)
@@ -419,9 +454,11 @@ fun Context.buildDefaultSamsungLockScreenShortcuts(): String {
                     hasSPen && isNotesInstalled -> {
                         "com.samsung.android.app.notes/com.samsung.android.app.notes.memolist.MemoListActivity"
                     }
+
                     isSBrowserInstalled -> {
                         "com.sec.android.app.sbrowser/com.sec.android.app.sbrowser.SBrowserMainActivity"
                     }
+
                     else -> {
                         "com.android.chrome/com.google.android.apps.chrome.Main"
                     }
@@ -447,4 +484,90 @@ fun Context.buildDefaultSamsungLockScreenShortcuts(): String {
     }
 
     return final
+}
+
+fun Context.listSettings(): Array<SavedOption>? {
+    BugsnagUtils.leaveBreadcrumb("Attempting to list settings.")
+
+    fun onFail(e: Exception): Array<SavedOption>? {
+        BugsnagUtils.leaveBreadcrumb(
+            "Failed to list settings with Exception",
+            mapOf("stacktrace" to e.stackTraceToString()),
+            BreadcrumbType.ERROR
+        )
+
+        return when {
+            hasRoot -> {
+                @Suppress("DEPRECATION")
+                val global = Shell.su("settings list global").exec().out
+                    .mapToSavedOptions(SettingsType.GLOBAL)
+
+                @Suppress("DEPRECATION")
+                val secure = Shell.su("settings list secure").exec().out
+                    .mapToSavedOptions(SettingsType.SECURE)
+
+                @Suppress("DEPRECATION")
+                val system = Shell.su("settings list system").exec().out
+                    .mapToSavedOptions(SettingsType.SYSTEM)
+
+                (global + secure + system)
+                    .map { SavedOption(it.type, it.key, it.value) }
+                    .toTypedArray()
+            }
+
+            Shizuku.pingBinder() -> {
+                if (hasShizukuPermission) {
+                    try {
+                        shizukuServiceManager.waitForService().listSettings()
+                    } catch (e: Throwable) {
+                        BugsnagUtils.notify(e)
+                        null
+                    }
+                } else {
+                    BugsnagUtils.leaveBreadcrumb("No Shizuku permission but it is installed. Requesting permission.")
+                    Shizuku.requestPermission(100)
+                    null
+                }
+            }
+
+            settingsAddon.hasService -> {
+                if (settingsAddon.binderAvailable &&
+                    (settingsAddon.binder?.addonVersion() ?: 0) > 4) {
+                    settingsAddon.binder?.listSettings()
+                        ?.map {
+                            SavedOption(it.type, it.key, it.value)
+                        }
+                        ?.toTypedArray()
+                } else {
+                    BugsnagUtils.leaveBreadcrumb("Add-on exists but isn't available for listing. Version ${settingsAddon.binder?.addonVersion()}")
+                    null
+                }
+            }
+
+            else -> {
+                BugsnagUtils.notify(e)
+                null
+            }
+        }
+    }
+
+    return try {
+        val settingsProvider = contentResolver.acquireProvider(Settings.AUTHORITY)
+        val global =
+            listInternal(SettingsType.GLOBAL, packageName, Process.myUid(), settingsProvider)
+        val secure =
+            listInternal(SettingsType.SECURE, packageName, Process.myUid(), settingsProvider)
+        val system =
+            listInternal(SettingsType.SYSTEM, packageName, Process.myUid(), settingsProvider)
+
+        (global + secure + system)
+            .map { SavedOption(it.type, it.key, it.value) }
+            .toTypedArray()
+    } catch (e: SecurityException) {
+        onFail(e)
+    } catch (e: IllegalArgumentException) {
+        onFail(e)
+    } catch (e: NullPointerException) {
+        onFail(e)
+    }
 }

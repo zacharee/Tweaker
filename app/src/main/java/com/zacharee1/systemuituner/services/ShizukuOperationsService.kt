@@ -17,7 +17,9 @@ import android.provider.Settings
 import android.system.Os
 import android.util.Log
 import com.zacharee1.systemuituner.IShizukuOperationsService
+import com.zacharee1.systemuituner.data.SavedOption
 import com.zacharee1.systemuituner.data.SettingsType
+import com.zacharee1.systemuituner.systemsettingsaddon.library.listInternal
 import kotlin.system.exitProcess
 
 @Suppress("unused")
@@ -49,6 +51,10 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
 
     override fun readSystem(key: String?): String? {
         return read(SettingsType.SYSTEM, key)
+    }
+
+    override fun listSettings(): Array<SavedOption> {
+        return list(SettingsType.GLOBAL) + list(SettingsType.SECURE) + list(SettingsType.SYSTEM)
     }
 
     override fun destroy() {
@@ -105,7 +111,7 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
         } catch (e: Throwable) {
             try {
                 which.contentUri.useProvider {
-                    val method = which.callMethod
+                    val method = which.callGetMethod
                     val args = Bundle().apply {
                         putInt(Settings.CALL_METHOD_USER_KEY, safeUid())
                     }
@@ -142,9 +148,16 @@ class ShizukuOperationsService(private val context: Context) : IShizukuOperation
             } catch (e: Throwable) {
                 throw e
             }
-        }
-        finally {
+        } finally {
             Binder.restoreCallingIdentity(token)
+        }
+    }
+
+    private fun list(which: SettingsType): Array<SavedOption> {
+        return which.contentUri.useProvider {
+            listInternal(which, resolveCallingPackage(), safeUid(), this)
+                .map { SavedOption(it.type, it.key, it.value) }
+                .toTypedArray()
         }
     }
 
