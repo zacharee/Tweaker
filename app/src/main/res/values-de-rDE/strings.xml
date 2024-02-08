@@ -384,11 +384,11 @@
     <string name="blocked_reason_read_terms">Bitte lesen Sie unbedingt die Bedingungen, bevor Sie fortfahren.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner kann ohne die Berechtigung „Schreibrechte für Sicherheitseinstellungen” nicht funktionieren. Tippen Sie auf die Schaltfläche „Hilfe”, wenn Sie Probleme bei der Erteilung der Berechtigung haben.</string>
     <string name="blocked_reason_choose_os">Bitte wählen Sie ein Betriebssystem, bevor Sie fortfahren.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="back_up_all_settings">Alle Einstellungen sichern</string>
+    <string name="back_up_all_settings_desc">Versuchen Sie, den aktuellen Wert jeder gesicherten Einstellung zu lesen und in eine Datei zu sichern.</string>
+    <string name="back_up_changed_settings">Geänderte Einstellungen sichern</string>
+    <string name="back_up_changed_settings_desc">Sichern Sie alle von SystemUI Tuner geänderten Einstellungen in einer Datei.</string>
+    <string name="restore_settings">Einstellungen wiederherstellen</string>
+    <string name="restore_settings_desc">Laden Sie ein Backup und versuchen Sie, die Werte in der Datei in die gesicherten Einstellungen zu schreiben.</string>
+    <string name="go_back">Zurück</string>
 </resources>
