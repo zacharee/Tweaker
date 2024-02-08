@@ -384,4 +384,11 @@
     <string name="blocked_reason_read_terms">請確保在繼續之前您已閱讀條款。</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner 功能的正常運作需要「寫入安全設定」權限。若您有任何相關問題，請輕觸「說明」按鈕。</string>
     <string name="blocked_reason_choose_os">在繼續之前，請選擇您的作業系統。</string>
+    <string name="back_up_all_settings">Back Up All Settings</string>
+    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
+    <string name="back_up_changed_settings">Back Up Changed Settings</string>
+    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
+    <string name="restore_settings">Restore Settings</string>
+    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
+    <string name="go_back">Go Back</string>
 </resources>
