@@ -384,11 +384,11 @@
     <string name="blocked_reason_read_terms">Harap pastikan untuk membaca persyaratan sebelum melanjutkan.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner tidak dapat berfungsi tanpa izin \"Write Secure Settings\". Ketuk tombol \"Bantuan\" jika Anda kesulitan memberikannya.</string>
     <string name="blocked_reason_choose_os">Harap pilih sistem operasi sebelum melanjutkan.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="back_up_all_settings">Cadangkan Semua Pgtrn</string>
+    <string name="back_up_all_settings_desc">Akan membaca nilai saat ini dari setiap pengaturan aman dan dicadangkan ke berkas.</string>
+    <string name="back_up_changed_settings">Cadangkan Pgtrn Terubah</string>
+    <string name="back_up_changed_settings_desc">Mencadang berkas semua pengaturan yang diubah SystemUI Tuner.</string>
+    <string name="restore_settings">Pulihkan Pengaturan</string>
+    <string name="restore_settings_desc">Membaca berkas cadangan dan akan menulis nilainya dari berkas ke pengaturan aman.</string>
+    <string name="go_back">Kembali</string>
 </resources>
