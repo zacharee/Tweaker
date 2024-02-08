@@ -192,6 +192,28 @@
             |touchscreen
             |uiMode"
             />
+        <activity android:name=".activities.OverallBackupRestoreActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            android:configChanges="orientation
+            |keyboard
+            |screenSize
+            |smallestScreenSize
+            |keyboardHidden
+            |screenLayout
+            |colorMode
+            |density
+            |fontScale
+            |fontWeightAdjustment
+            |layoutDirection
+            |locale
+            |mcc
+            |mnc
+            |navigation
+            |touchscreen
+            |uiMode"
+            />
         <activity android:name=".activities.ComposeTest"
             android:windowSoftInputMode="adjustResize"
             android:exported="true" />

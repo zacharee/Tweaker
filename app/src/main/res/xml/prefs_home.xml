@@ -166,6 +166,13 @@
         app:navigation_action="@id/persistentActivity"
         />
 
+    <com.zacharee1.systemuituner.prefs.nav.NavigationPreference
+        android:title="@string/backup_restore"
+        android:key="go_to_backup_restore"
+        android:icon="@drawable/ic_baseline_restore_24"
+        app:navigation_action="@id/backupRestoreActivity"
+        />
+
     <com.zacharee1.systemuituner.prefs.nav.ShowDialogPreference
         android:title="@string/reset"
         android:key="reset_options"

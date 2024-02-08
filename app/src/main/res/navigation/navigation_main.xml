@@ -73,4 +73,8 @@
         android:id="@+id/persistentActivity"
         android:name="com.zacharee1.systemuituner.activities.PersistentActivity"
         android:label="PersistentActivity" />
+    <activity
+        android:id="@+id/backupRestoreActivity"
+        android:name="com.zacharee1.systemuituner.activities.OverallBackupRestoreActivity"
+        android:label="BackupRestoreActivity" />
 </navigation>
