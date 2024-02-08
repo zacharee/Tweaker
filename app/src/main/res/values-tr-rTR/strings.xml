@@ -393,4 +393,11 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="blocked_reason_read_terms">Devam etmeden önce lütfen kullanım şartlarını okuyun.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner, Güvenli Ayarlara Yazma iznine sahip olmadan çalışamaz. Eğer bu izni vermekte sorun yaşıyor iseniz \"Yardım\" tuşuna tıklayın.</string>
     <string name="blocked_reason_choose_os">Devam etmeden önce lütfen bir işletim sistemi seçin.</string>
+    <string name="back_up_all_settings">Back Up All Settings</string>
+    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
+    <string name="back_up_changed_settings">Back Up Changed Settings</string>
+    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
+    <string name="restore_settings">Restore Settings</string>
+    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
+    <string name="go_back">Go Back</string>
 </resources>
