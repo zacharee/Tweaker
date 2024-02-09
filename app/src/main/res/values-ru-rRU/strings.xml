@@ -384,4 +384,11 @@
     <string name="blocked_reason_read_terms">Пожалуйста прочитайте условия, прежде чем продолжить.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner не может работать без разрешения Write Secure Settings. Нажмите кнопку «Помощь», если у вас возникли проблемы с ее предоставлением.</string>
     <string name="blocked_reason_choose_os">Прежде чем продолжить, выберите операционную систему.</string>
+    <string name="back_up_all_settings">Бэкап всех настроек</string>
+    <string name="back_up_all_settings_desc">Попробуем получить значения всех настроек безопасности и сохранить их в файл.</string>
+    <string name="back_up_changed_settings">Бэкап изменённых настроек</string>
+    <string name="back_up_changed_settings_desc">Бэкап в файл всех изменённых программой настроек.</string>
+    <string name="restore_settings">Восстановить настройки</string>
+    <string name="restore_settings_desc">Восстановление из файла бэкапа настроек безопасности.</string>
+    <string name="go_back">Назад</string>
 </resources>

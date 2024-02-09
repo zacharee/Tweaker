@@ -387,4 +387,11 @@ Translated with www. DeepL. com/Translator (free version).</string>
     <string name="blocked_reason_read_terms">Než budete pokračovat, nezapomeňte si přečíst podmínky.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner nemůže fungovat bez oprávnění Write Secure Settings. Pokud máte potíže s udělením, klepněte na tlačítko \"Nápověda\".</string>
     <string name="blocked_reason_choose_os">Před pokračováním vyberte operační systém.</string>
+    <string name="back_up_all_settings">Zálohovat všechna nastavení</string>
+    <string name="back_up_all_settings_desc">Přečte aktuální hodnotu každého zabezpeečného nastavení a zazálohuje ji do souboru.</string>
+    <string name="back_up_changed_settings">Zálohovat změněná nastavení</string>
+    <string name="back_up_changed_settings_desc">Zálohovat všechna nastavení změněná SystemUI Tunerem do souboru.</string>
+    <string name="restore_settings">Obnovit nastavení</string>
+    <string name="restore_settings_desc">Přečte si ze záložního souboru a pokusí se o zápis hodnot do zabezpečeného nastavení.</string>
+    <string name="go_back">Zpět</string>
 </resources>

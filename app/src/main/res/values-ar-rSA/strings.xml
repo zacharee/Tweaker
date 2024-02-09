@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">بدءاً من معاينة مطور أندرويد أوريو 3، أزال جوجل القدرة على تخصيص اختصارات شاشة القفل. غير أنه لا يزال من الممكن تحديد قيمة الأفضليات يدوياً.</string>
     <string name="feature_enable_adb">تمكين ADB</string>
     <string name="feature_enable_adb_desc">بعض الأجهزة تعطل ADB تلقائياً بعد فترة من عدم النشاط. قم بتمكين هذا الخيار وتعيينه كخيار دائم لتفعيل ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">تمكين ADB اللاسلكي</string>
+    <string name="feature_enable_wireless_adb_desc">ADB اللاسلكي، مقدمة للمستخدمين في أندرويد 11، يسمح لك باقران أجهزة الكمبيوتر والأجهزة الأخرى بجهازك واستخدام ADB بدون كابل أو مشغل خاص.</string>
     <string name="feature_dark_mode">تمكين الوضع الظلام العالمي</string>
     <string name="feature_dark_mode_desc">قدم نظام أندرويد و10 خيارات الوضع المظلم العالمي، ولكن هذا الخيار كان جزءا من نظام أندرويد لفترة من الوقت. يمكن لهذا الخيار تمكين الوضع المظلم في التطبيقات التي تدعم هذه الميزة (مثل إنستاجرام). قد تكون هناك حاجة إلى إعادة تشغيل لتفعيل التغييرات.</string>
     <string name="feature_clock_seconds">إظهار ثواني الساعة</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">يعرض النسبة المئوية الحالية للبطارية في أيقونة البطارية على شريط الحالة. قد يتطلب الروت لتنشيطه.</string>
     <string name="feature_header_airplane_mode_radios">مستثنى</string>
     <string name="feature_header_airplane_mode_toggleable_radios">قابل للتبديل</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">عرض اللمسات</string>
+    <string name="feature_show_touches_desc">عند التمكين، سيظهر المؤشر للحظة أينما كنت تنقر على الشاشة.</string>
     <string name="option_keep_awake_on_ac">على قوة AC</string>
     <string name="option_keep_awake_on_usb">على قوة USB</string>
     <string name="option_keep_awake_on_wireless">على الطاقة اللاسلكية</string>
@@ -384,4 +384,11 @@
     <string name="blocked_reason_read_terms">الرجاء التأكد من قراءة المصطلحات قبل المتابعة.</string>
     <string name="blocked_reason_write_secure_settings">لا يمكن لموفق واجهة النظام العمل بدون إذن كتابة إعدادات آمنة. اضغط على زر \"المساعدة\" إذا كنت تواجه مشكلة في منحه.</string>
     <string name="blocked_reason_choose_os">الرجاء اختيار نظام تشغيل قبل المتابعة.</string>
+    <string name="back_up_all_settings">نسخ لكل الإعدادات</string>
+    <string name="back_up_all_settings_desc">حاول قراءة القيمة الحالية لكل إعداد آمن وإرجاعها إلى ملف.</string>
+    <string name="back_up_changed_settings">نسخ الإعدادات المغيرة</string>
+    <string name="back_up_changed_settings_desc">النسخ الاحتياطي لجميع الإعدادات المغيرة بواسطة معدل واجهة النظام إلى ملف.</string>
+    <string name="restore_settings">إستعادة الإعدادات</string>
+    <string name="restore_settings_desc">القراءة من ملف النسخ الاحتياطي ومحاولة كتابة القيم في الملف إلى الإعدادات الآمنة.</string>
+    <string name="go_back">الرجوع</string>
 </resources>
