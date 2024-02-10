@@ -1,3 +1,10 @@
+# 361
+- Add ability to back up and restore changed or all settings.
+- Add toggle for Wireless ADB on Android 11+.
+- Add Show Touches toggle.
+- Fix missing icons in quick settings tiles.
+- Improve settings read/write behavior with Shizuku.
+
 # 360
 - Fix Shizuku integration for reading and writing settings.
 - Fix Add-on integration for reading and writing settings.
