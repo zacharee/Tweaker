@@ -28,6 +28,7 @@ import com.zacharee1.systemuituner.util.openShizukuWebsite
 import com.zacharee1.systemuituner.util.shizukuServiceManager
 import dev.zwander.composeintroslider.IntroSlider
 import dev.zwander.composeintroslider.SimpleIntroPage
+import java.io.Serializable
 
 class ReadSettingFailActivity : ComponentActivity() {
     companion object {
@@ -37,7 +38,7 @@ class ReadSettingFailActivity : ComponentActivity() {
         fun start(context: Context, type: SettingsType, key: String?) {
             val intent = Intent(context, ReadSettingFailActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra(EXTRA_TYPE, type)
+            intent.putExtra(EXTRA_TYPE, type as Serializable)
             intent.putExtra(EXTRA_KEY, key)
             context.startActivity(intent)
         }

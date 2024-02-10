@@ -28,6 +28,7 @@ import com.zacharee1.systemuituner.util.openShizukuWebsite
 import com.zacharee1.systemuituner.util.shizukuServiceManager
 import dev.zwander.composeintroslider.IntroSlider
 import dev.zwander.composeintroslider.SimpleIntroPage
+import java.io.Serializable
 
 class WriteSettingFailActivity : ComponentActivity() {
     companion object {
@@ -38,7 +39,7 @@ class WriteSettingFailActivity : ComponentActivity() {
         fun start(context: Context, type: SettingsType, key: String, value: Any?) {
             val intent = Intent(context, WriteSettingFailActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            intent.putExtra(EXTRA_TYPE, type)
+            intent.putExtra(EXTRA_TYPE, type as Serializable)
             intent.putExtra(EXTRA_KEY, key)
             intent.putExtra(EXTRA_VALUE, value?.toString())
             context.startActivity(intent)
