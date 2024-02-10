@@ -49,6 +49,7 @@ class ComposeIntroActivity : ComponentActivity() {
         }
     }
 
+    @Suppress("UNCHECKED_CAST")
     private val startReasons by lazy { intent?.getSerializableExtra(EXTRA_START_REASON) as? Array<StartReason> }
 
     override fun onCreate(savedInstanceState: Bundle?) {
