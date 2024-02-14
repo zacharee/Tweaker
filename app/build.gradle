@@ -104,7 +104,7 @@ dependencies {
     implementation 'com.github.zacharee:CollapsiblePreferenceCategory:75d1f8b5c5'
     implementation 'com.github.zacharee:Android-ExpandableTextView:74f653343d'
     implementation 'com.github.zacharee:ComposeIntroSlider:d273cf5734'
-    implementation 'com.github.zacharee:SystemUITunerSystemSettings:ba8f5c7492'
+    implementation 'com.github.zacharee:SystemUITunerSystemSettings:5fb952ba89'
 
     implementation 'com.bugsnag:bugsnag-android:6.2.0'
     implementation 'com.getkeepsafe.relinker:relinker:1.4.5'
