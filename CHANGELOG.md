@@ -1,3 +1,7 @@
+# 362
+- Crash fixes.
+- Update translations.
+
 # 361
 - Add ability to back up and restore changed or all settings.
 - Add toggle for Wireless ADB on Android 11+.

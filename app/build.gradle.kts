@@ -13,7 +13,7 @@ android {
         applicationId = "com.zacharee1.systemuituner"
         minSdk= 23
         targetSdk = 34
-        versionCode = 361
+        versionCode = 362
         versionName = versionCode.toString()
 
         base.archivesName.set("SystemUITuner_${versionCode}")
