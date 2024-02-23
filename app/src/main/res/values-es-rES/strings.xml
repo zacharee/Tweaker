@@ -38,7 +38,7 @@
     <string name="sub_storage">Almacenamiento</string>
     <string name="sub_power">Potencia</string>
     <string name="add_to_blacklist">Añadir a lista negra de iconos</string>
-    <string name="remove_from_blacklist">Eliminar de lista negra de iconos</string>
+    <string name="remove_from_blacklist">Eliminar de la lista negra de iconos</string>
     <string name="flashlight">Linterna</string>
     <string name="sub_demo">Modo de demostración</string>
     <string name="sub_demo_desc">El modo de demostración te permite forzar la barra de estado de tu dispositivo a diferentes estados. Puede usarlo para mostrar u ocultar iconos específicos, especificar puntos fuertes de señal y algunas cosas más.</string>
@@ -245,9 +245,9 @@
     <string name="tile_custom">Personalizado</string>
     <string name="next">Siguiente</string>
     <string name="finish">Terminar</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="previous">Anterior</string>
+    <string name="exit">Salir</string>
+    <string name="done">Hecho</string>
     <string name="error">Error</string>
     <string name="status_bar_icons">Iconos de la barra de estado</string>
     <string name="network_states">Estados de la red</string>
@@ -298,9 +298,9 @@
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Mastodon o en Twitter para las últimas actualizaciones.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports">Activar Reportes de errores</string>
+    <string name="intro_crash_reports_desc">Puedes elegir activar reportes de errores anónimos para ayudar a mantener la aplicación funcionando sin problemas. No se recopilan datos personales. Para desactivar completamente la recolección una vez activada, necesitarás detener Configurador de IU del sistema. Puedes cambiar esta configuración más tarde.</string>
+    <string name="crash_reports_desc">Puedes elegir activar reportes de errores anónimos para ayudar a mantener la aplicación funcionando sin problemas. No se recopila información personal. Para desactivar por completo la recolección una vez activada, necesitarás forzar la detención de Configurador de IU del sistema.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
     <string name="compatibility_message_both">Lo sentimos, esta característica solo funciona desde Android %1$s a Android %2$s</string>
     <string name="compatibility_message_higher">Lo sentimos, esta característica solo funciona a través de Android %s</string>
@@ -315,13 +315,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail">¡Error al escribir la configuración!</string>
+    <string name="write_system_fail_desc">Desafortunadamente, Android ha restringido la capacidad de cambiar esta configuración. Para solucionar esto, necesitarás mi aplicación de add-on o Shizuku. Si ya tienes el add-on instalado, puede que tengas que actualizarlo. Si ya tienes instalado Shizuku, asegúrate de que se esté ejecutando y que Configurador de IU del sistema tenga el acceso permitido.</string>
     <string name="write_system_fail_get_add_on">Obtener Complemento</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">Obtener Shizuku</string>
+    <string name="open_shizuku">Abrir Shizuku</string>
+    <string name="read_setting_fail">¡Error al leer la configuración!</string>
+    <string name="read_setting_fail_desc">Android ha restringido la capacidad de leer esta configuración. Para solucionar esto, necesitarás mi aplicación de add-on o Shizuku. Si ya tienes el add-on instalado, puede que tengas que actualizarlo. Si ya tienes instalado Shizuku, asegúrate de que se esté ejecutando y que Configurador de IU del sistema tenga el acceso permitido.</string>
     <string name="donate">Donar</string>
     <string name="donate_desc">Hago esta aplicación en mi tiempo libre. Si te gusta usarla, considera comprarme una taza de café (aunque no bebo café). Por supuesto, esto es una donación, y usted no tiene que hacer nada, no hay características de pago en SystemUI Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -338,8 +338,8 @@
     <string name="edit_custom_item">Editar elemento personalizado</string>
     <string name="remove_item">Eliminar este elemento</string>
     <string name="remove_item_desc">¿Estás seguro de que quieres eliminar este elemento?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="custom_persistent_option_summary_template">Tipo de configuración: %1$s, Clave: %2$s, Valor: %3$s</string>
+    <string name="settings_read_template">Tipo de configuración: %1$s, Clave: %2$s</string>
     <string name="tile_battery">Batería</string>
     <string name="tile_clock">Reloj</string>
     <string name="tile_demo">Modo de demostración</string>
@@ -379,16 +379,16 @@
     <string name="setting_applied_dialog_desc">¿Quieres mantener los cambios? Esta opción se revertirá después de %s segundos.</string>
     <string name="keep">Mantener</string>
     <string name="revert">Restaurar</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="increase" desc="This is in verb form.">Aumentar</string>
+    <string name="decrease" desc="This is in verb form.">Reducir</string>
+    <string name="blocked_reason_read_terms">Por favor asegúrate de leer los términos antes de continuar.</string>
+    <string name="blocked_reason_write_secure_settings">Configurador de IU del sistema no puede funcionar sin el permiso de Escribir ajustes seguros. Pulsa el botón \"Ayuda\" si tienes problemas para permitirlo.</string>
+    <string name="blocked_reason_choose_os">Por favor elige un sistema operativo antes de continuar.</string>
+    <string name="back_up_all_settings">Copiar todos los ajustes</string>
+    <string name="back_up_all_settings_desc">Intentar leer el valor actual de cada ajuste seguro y copiarlo a un archivo.</string>
+    <string name="back_up_changed_settings">Copiar todos los ajustes cambiado</string>
+    <string name="back_up_changed_settings_desc">Copia todos los ajustes cambiados por SystemUI Tuner a un archivo.</string>
+    <string name="restore_settings">Restaurar ajustes</string>
+    <string name="restore_settings_desc">Lee desde un archivo de copia de seguridad e intenta escribir los valores en el archivo en la configuración segura.</string>
+    <string name="go_back">Volver</string>
 </resources>
