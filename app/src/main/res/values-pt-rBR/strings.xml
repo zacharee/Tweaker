@@ -19,12 +19,12 @@
     <string name="category_lock_screen">Tela de bloqueio</string>
     <string name="category_quick_settings">Configurações rápidas</string>
     <string name="screen_persistent">Opções Persistentes</string>
-    <string name="category_interaction">Interações</string>
+    <string name="category_interaction">Interação</string>
     <string name="more">Mais</string>
     <string name="tweaks">Modificações</string>
     <string name="failure">Falha</string>
     <string name="help_translate">Ajude a traduzir</string>
-    <string name="sub_cellular">Celular</string>
+    <string name="sub_cellular">Rede Móvel</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Variedades</string>
     <string name="sub_htc">HTC</string>
@@ -384,11 +384,11 @@
     <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
     <string name="blocked_reason_write_secure_settings">O SystemUI Tuner não pode funcionar sem a permissão de Gravar Configurações Seguras. Toque no botão \"Ajuda\" se você estiver com problemas para concedê-lo.</string>
     <string name="blocked_reason_choose_os">Por favor, escolha um sistema operacional antes de continuar.</string>
-    <string name="back_up_all_settings">Fazer backup de todas as configurações</string>
+    <string name="back_up_all_settings">Fazer Backup de Todas as Configurações</string>
     <string name="back_up_all_settings_desc">Tentar ler o valor atual de cada configuração segura e fazer backup em um arquivo.</string>
     <string name="back_up_changed_settings">Fazer Backup das Configurações Alteradas</string>
     <string name="back_up_changed_settings_desc">Fazer backup de todas as configurações alteradas pelo SystemUI Tuner para um arquivo.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="restore_settings">Restaurar Configurações</string>
+    <string name="restore_settings_desc">Ler um arquivo de backup e tentar escrever os valores no arquivo para as configurações seguras.</string>
+    <string name="go_back">Voltar</string>
 </resources>
