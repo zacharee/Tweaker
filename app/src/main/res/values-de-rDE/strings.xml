@@ -338,7 +338,7 @@
     <string name="edit_custom_item">Benutzerdefiniertes Element bearbeiten</string>
     <string name="remove_item">Diesen Element entfernen</string>
     <string name="remove_item_desc">Möchtest du dieses Element wirklich entfernen?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Einstellungsart: %1$s, Schlüssel: %2$s, Wert: %3$s</string>
     <string name="settings_read_template">Einstellungen Typ: %1$s, Schlüssel: %2$s</string>
     <string name="tile_battery">Akku</string>
     <string name="tile_clock">Uhr</string>
