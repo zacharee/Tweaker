@@ -27,7 +27,7 @@
     <string name="adb_install_adb_windows_2">Save</string>
     <string name="adb_install_adb_windows_3">Use the file explorer to browse to the extracted ZIP. You should see a bunch of files, including one called \"adb\".</string>
     <string name="adb_install_adb_windows_4">Haga clic dentro de la barra de búsqueda y reemplace lo que hay con \"cmd\" (sin comillas). Y luego pulse Enter.</string>
-    <string name="adb_install_adb_mac_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
+    <string name="adb_install_adb_mac_1">Descarga aquí el ZIP de ADB: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip</string>
     <string name="adb_install_adb_mac_2">Extract the ZIP to a convenient location, such as the Desktop.</string>
     <string name="adb_install_adb_mac_3">Ahora, abre la terminal. Puedes hacerlo pulsando CMD+SPACE al mismo tiempo para abrir Spotlight Search, y buscar \"Terminal\".</string>
     <string name="adb_install_adb_mac_4">Ahora, navegue a los archivos extraídos usando el siguiente comando: `cd /path/to/files/`. Por ejemplo, si su nombre de usuario es Zachary y ha extraído el ZIP a su escritorio, el comando sería `cd /Users/Zachary/Desktop/platform-tools/`, donde \"platform-tools\" es la carpeta con el archivo llamado \"adb\" dentro.</string>
