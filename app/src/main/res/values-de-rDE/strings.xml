@@ -105,7 +105,7 @@
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock"></string>
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
