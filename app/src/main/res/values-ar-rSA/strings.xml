@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">أداة ضبط واجهة مستخدم النظام</string>
-    <string name="manager_channel">المدير (إيقاف التشغيل)</string>
+    <string name="manager_channel">Manager (Turn Off)</string>
     <string name="tap_to_disable">انقر لتعطيل هذا الإشعار</string>
     <string name="home">الصفحة الرئيسية</string>
     <string name="category_display">الشاشة</string>
