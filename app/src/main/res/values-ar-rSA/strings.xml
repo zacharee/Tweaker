@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">أداة ضبط واجهة مستخدم النظام</string>
-    <string name="manager_channel">Manager (Turn Off)</string>
+    <string name="manager_channel">المدير (إيقاف التشغيل)</string>
     <string name="tap_to_disable">انقر لتعطيل هذا الإشعار</string>
     <string name="home">الصفحة الرئيسية</string>
     <string name="category_display">الشاشة</string>
@@ -49,7 +49,7 @@
     <string name="feature_lock_timeout">تعيين مهلة قفل الجهاز المخصصة</string>
     <string name="feature_lock_timeout_desc">في (إعدادات قفل الحماية), يمكنك ضبط مؤقت(القفل التلقائي). هذا المؤقت يحدد المدة الزمنية لقفل الجهاز بعد دخوله وضع السبات. من خلال هذا الخيار, يمكنك ضبط التوقيت كيفما تريد. اذا قمت بوضع مدة زمنية طويلة جدا حينها لن يظهر قفل الشاشة نهائيا.</string>
     <string name="feature_battery_saver_trigger">ضبط نسبة بطارية مخصصة لوضع توفير الطاقة</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">يمكن تشغيل خاصية توفير البطارية في جوجل تلقائياً عندما يكون مستوى البطارية عند 5\% أو 15\٪. مع هذا، يمكنك تعيين مشغل خاص بك بالمئة.</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
     <string name="feature_long_press_delay">تعيين معدل تأخير الضغط المطول</string>
     <string name="feature_long_press_delay_desc">في إعدادات إمكانية الوصول، هناك ميزة تسمى \"اللمس &amp; الاستمرار بالتأخير\" والتي تسمح لك بتحديد المدة التي يجب عليك خلالها الاستمرار في الضغط على الشاشة للأندرويد للتعرف على حدث الضغط المطول. ومع ذلك، فإن الخيارات الوحيدة بشكل افتراضي هي \"قصير\" و\"متوسط\" و\"طويلة\". يمكنك تحديد تأخيرك الخاص.</string>
     <string name="feature_font_scale">تعيين مقياس خط مخصص</string>
