@@ -317,12 +317,12 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">Impossibile modificare l\'Impostazione!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail_desc">Sfortunatamente, Android ha limitato la possibilità di modificare questa impostazione. Per funzionare, avrai bisogno della mia app add-on o Shizuku. Se hai già installato l\'add-on potrebbe essere necessario aggiornarlo. Se hai già installato Shizuku, assicurati che sia in esecuzione e che SystemUI Tuner sia stato autorizzato.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">Scarica Shizuku</string>
+    <string name="open_shizuku">Apri Shizuku</string>
+    <string name="read_setting_fail">Impossibile leggere l\'impostazione!</string>
+    <string name="read_setting_fail_desc">Sfortunatamente, Android ha limitato la possibilità di leggere questa impostazione. Per funzionare, avrai bisogno della mia app add-on o Shizuku. Se hai già installato l\'add-on potrebbe essere necessario aggiornarlo. Se hai già installato Shizuku, assicurati che sia in esecuzione e che SystemUI Tuner sia stato autorizzato.</string>
     <string name="donate">Dona</string>
     <string name="donate_desc">Sviluppo questa app nel mio tempo libero. Se ti piace usarla, considera di comprarmi una tazza di caffè (anche se non bevo caffè). Naturalmente, questa è una donazione, e non devi fare nulla. Non ci sono funzioni a pagamento in SystemUl Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -340,7 +340,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="remove_item">Rimuovi oggetto</string>
     <string name="remove_item_desc">Sei sicuro di voler rimuovere questo elemento?</string>
     <string name="custom_persistent_option_summary_template">Tipo d\'impostazioni: %1$s, Chiave: %2$s, Valore: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="settings_read_template">Tipo Impostazioni: %1$s, Chiave: %2$s</string>
     <string name="tile_battery">Batteria</string>
     <string name="tile_clock">Orologio</string>
     <string name="tile_demo">Modalità demo</string>
@@ -380,16 +380,16 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="setting_applied_dialog_desc">Vuoi mantenere le modifiche? Questa opzione sarà ripristinata dopo %s secondi.</string>
     <string name="keep">Mantieni</string>
     <string name="revert">Ripristina</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="increase" desc="This is in verb form.">Aumenta</string>
+    <string name="decrease" desc="This is in verb form.">Riduci</string>
+    <string name="blocked_reason_read_terms">Per favore leggi i termini prima di continuare.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner non può funzionare senza l\'autorizzazione write_secure_permission. Tocca il pulsante \"Aiuto\" se hai problemi ha concederlo.</string>
+    <string name="blocked_reason_choose_os">Per favore scegliere un sistema operativo prima di continuare.</string>
+    <string name="back_up_all_settings">Backup di tutte le impostazioni</string>
+    <string name="back_up_all_settings_desc">Tentativo di salvare il valore corrente di ogni impostazione sicura in un file di Backup.</string>
+    <string name="back_up_changed_settings">Modifiche delle salvate</string>
+    <string name="back_up_changed_settings_desc">Esegue il backup di tutte le impostazioni modificate da SystemUI Tuner in un file.</string>
+    <string name="restore_settings">Ripristino impostazioni</string>
+    <string name="restore_settings_desc">Tentativo di leggere i valori da un file e scriverli nelle impostazioni sicure.</string>
+    <string name="go_back">Indietro</string>
 </resources>
