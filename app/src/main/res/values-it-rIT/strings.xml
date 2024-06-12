@@ -88,7 +88,7 @@
     <string name="feature_lockscreen_shortcuts_desc">A partire da Android Oreo Developer Preview 3, Google ha rimosso la possibilità di personalizzare le scorciatoie della schermata di blocco. Tuttavia, il valore delle preferenze può ancora essere impostato manualmente.</string>
     <string name="feature_enable_adb">Abilita ADB</string>
     <string name="feature_enable_adb_desc">Alcuni dispositivi disabilitano ADB automaticamente dopo un periodo di inattività. Abilita questa opzione e impostala come opzione persistente per forzare ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
+    <string name="feature_enable_wireless_adb">Abilita il Debug Wireless</string>
     <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
     <string name="feature_dark_mode">Abilita il tema scuro universale</string>
     <string name="feature_dark_mode_desc">Android Pie e 10 hanno introdotto un\'opzione globale di modalità scura, ma questa opzione è stata parte di Android per un po \'. Questa opzione può abilitare la modalità scura nelle applicazioni che supportano questa funzionalità (come Instagram). Potrebbe essere necessario un riavvio affinché le modifiche abbiano effetto.</string>
