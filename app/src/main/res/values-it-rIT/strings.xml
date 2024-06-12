@@ -89,7 +89,7 @@
     <string name="feature_enable_adb">Abilita ADB</string>
     <string name="feature_enable_adb_desc">Alcuni dispositivi disabilitano ADB automaticamente dopo un periodo di inattività. Abilita questa opzione e impostala come opzione persistente per forzare ADB.</string>
     <string name="feature_enable_wireless_adb">Abilita il Debug Wireless</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb_desc">Debug wireless, introdotto agli utenti con Android 11, consente di associare computer e altri dispositivi con il dispositivo e utilizzare ADB senza cavo o driver speciali.</string>
     <string name="feature_dark_mode">Abilita il tema scuro universale</string>
     <string name="feature_dark_mode_desc">Android Pie e 10 hanno introdotto un\'opzione globale di modalità scura, ma questa opzione è stata parte di Android per un po \'. Questa opzione può abilitare la modalità scura nelle applicazioni che supportano questa funzionalità (come Instagram). Potrebbe essere necessario un riavvio affinché le modifiche abbiano effetto.</string>
     <string name="feature_clock_seconds">Mostra secondi nell\'orologio</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Mostra la percentuale della batteria nell\'icona della batteria sulla barra di stato. Potrebbe essere necessario attivare il root.</string>
     <string name="feature_header_airplane_mode_radios">Esente</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Attivabile</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Mostra tocchi</string>
+    <string name="feature_show_touches_desc">Mostra un feedback visivo per i tocchi sullo schermo.</string>
     <string name="option_keep_awake_on_ac">Alimentazione da rete</string>
     <string name="option_keep_awake_on_usb">Alimentazione da USB</string>
     <string name="option_keep_awake_on_wireless">Alimentazione wireless</string>
@@ -301,7 +301,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intro_last_desc">Seguimi su Mastodon o Twitter per gli ultimi aggiornamenti.</string>
     <string name="intro_crash_reports">Abilita report di crash</string>
     <string name="intro_crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare a mantenere l\'app in esecuzione senza intoppi. Non vengono raccolte informazioni personali. Per disabilitare completamente la collezione una volta abilitata, dovrai forzare l\'arresto a System UI Tuner. Puoi modificare questa impostazione più tardi.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare a mantenere l\'app in esecuzione senza problemi. Non vengono raccolte informazioni personali. Per disabilitare completamente la raccolta una volta abilitata, dovrai forzare l\'arresto a System Ui Tuner. Puoi modificare questa impostazione più tardi.</string>
     <string name="compatibility_message_lower">Siamo spiacenti, questa funzione funziona solo con Android %s e versioni successive</string>
     <string name="compatibility_message_both">Siamo spiacenti, questa funzione funziona solo da Android %1$s ad Android %2$s</string>
     <string name="compatibility_message_higher">Siamo spiacenti, questa funzione funziona solo tramite Android %s</string>
@@ -316,7 +316,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
+    <string name="write_system_fail">Impossibile modificare l\'Impostazione!</string>
     <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
     <string name="download_shizuku">Get Shizuku</string>
