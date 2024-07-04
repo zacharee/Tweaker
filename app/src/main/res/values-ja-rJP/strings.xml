@@ -19,7 +19,7 @@
     <string name="category_lock_screen">ロック画面</string>
     <string name="category_quick_settings">クイック設定</string>
     <string name="screen_persistent">永続的なオプション</string>
-    <string name="category_interaction">相互作用</string>
+    <string name="category_interaction">インタラクション</string>
     <string name="more">詳細</string>
     <string name="tweaks">Tweaks</string>
     <string name="failure">失敗</string>
@@ -52,7 +52,7 @@
     <string name="feature_battery_saver_trigger_desc" formatted="false">Googleのバッテリーセーバー機能は、バッテリー残量が5\%または15\%の場合に自動的にトリガーされます。これで、独自のトリガーパーセントを設定できます。</string>
     <string name="feature_long_press_delay">長押しの遅延を設定</string>
     <string name="feature_long_press_delay_desc">アクセシビリティ設定には、Android が長押しを認識するために画面を押し続けなければならない時間を指定できる「タッチ アンド ホールド ディレイ」という機能があります。 ただし、デフォルトのオプションは「短」、「中」、「長」のみです。独自の長さを設定できます。</string>
-    <string name="feature_font_scale">フォントの大きさを設定する</string>
+    <string name="feature_font_scale">独自のフォントサイズを設定</string>
     <string name="feature_font_scale_desc">Android では、システム全体のフォントサイズを指定することで、デバイスに表示されるテキストのサイズを設定できます。 この値は通常、「小さい」、「通常」、「大きい」、「大きい」、および「非常に大きい」で表されます。 こちらでは独自のカスタム値を設定できます。</string>
     <string name="feature_freeform">フリーフォームウィンドウを有効化する</string>
     <string name="feature_freeform_desc">フリーフォームウィンドウ サポートを有効にするかどうか。 再起動が必要となります。  Android 7.0 以降のデバイスでのみ動作します。</string>
@@ -89,9 +89,9 @@
     <string name="feature_enable_adb">ADBを有効化</string>
     <string name="feature_enable_adb_desc">一部のデバイスでは、非アクティブ状態が一定時間続くと、ADB が自動的に無効になります。  ADB を強制的に有効にするには、このオプションを有効にして永続オプションとして設定します。</string>
     <string name="feature_enable_wireless_adb">ワイヤレスADBを有効化する</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb_desc">Android 11でユーザーに導入されたワイヤレスADBを使用すると、コンピューターやその他のデバイスをデバイスとペアリングすることにより、ケーブルや特別なドライバーなしでADBを使用できます。</string>
     <string name="feature_dark_mode">ダークモードを有効化する</string>
-    <string name="feature_dark_mode_desc">Android Pie と 10 ではダークモードオプションが導入されましたが、このオプションはしばらくの間 Android の一部でした。 このオプションは、この機能をサポートするアプリ (Instagram など) でダーク モードを有効にできます。 変更を有効にするには、再起動が必要になる場合があります。</string>
+    <string name="feature_dark_mode_desc">Android Pie および 10 では、グローバルダークモードオプションが導入されましたが、このオプションは以前から Android の一部となっていました。このオプションを使用すると、この機能をサポートするアプリ (Instagramなど) でダークモードを有効にすることができます。変更を有効にするには、再起動が必要になる場合があります。</string>
     <string name="feature_clock_seconds">時刻表示に秒数を追加</string>
     <string name="feature_clock_seconds_desc">ステータスバーの時計(左端)で秒数表示を有効にします。 これは、MIUI や One UI を含むすべてのデバイスと構成で機能するわけではありません。</string>
     <string name="feature_dnd_in_volume">音量インジケータの切り替えを邪魔するな</string>
@@ -101,7 +101,7 @@
     <string name="feature_header_airplane_mode_radios">免除する</string>
     <string name="feature_header_airplane_mode_toggleable_radios">切り替え可能</string>
     <string name="feature_show_touches">タッチを表示</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches_desc">有効にすると、画面をタップしたときにインジケーターを表示します。</string>
     <string name="option_keep_awake_on_ac">AC電源で</string>
     <string name="option_keep_awake_on_usb">AC電源で</string>
     <string name="option_keep_awake_on_wireless">ワイヤレス充電時</string>
@@ -162,9 +162,7 @@
     <string name="option_advanced_write_setting">設定キーの上書き</string>
     <string name="option_advanced_write_setting_desc">SystemUIに含まれていない設定を変更できます</string>
     <string name="option_qqs_tiles">クイック設定パネルへの表示数</string>
-    <string name="option_qqs_tiles_desc">Android7.0 (Nougat) 以降よりクイック設定と呼ばれる、設定項目の最初のいくつかが通知バーに表示される機能を実装しました。
-ここでその表示個数を指定できます
-注: One UIでは動作しません</string>
+    <string name="option_qqs_tiles_desc">Android Nougatでは、クイック設定ヘッダーと呼ばれる新しいクイック設定機能が導入されました。これにより、通知シェードの 1 行に最初のいくつかのクイック設定タイルを表示することができます。このオプションを使用すると、その行に表示されるタイルの数を増減できます。これはOne UI では機能しません。</string>
     <string name="option_oneui_clock_position">時計の位置</string>
     <string name="option_oneui_clock_position_desc">SamsungのOneUI (Android9.0(Pie) 以降) では、ステータスバーの時計の位置を変更できます。GoodLockのQuickStarはこの設定を変更可能ですが、端末によっては制限されていることがあります。ここから表示位置を左、中央、右に変更できます。
 注: OneUI2.0(Android10) 上ではQuickStarがインストールされている必要があります。設定の永続化には永続オプションからアイコンブラックリストを有効にしてください</string>
@@ -173,7 +171,7 @@
     <string name="option_custom_notification_snooze_times">カスタム通知のスヌーズ回数</string>
     <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1では、通知をスヌーズするオプションが導入されました。この設定を使用して、スヌーズ時間のカスタム値を設定できます。</string>
     <string name="option_night_mode">夜間モード</string>
-    <string name="option_night_mode_desc">Android Nougat では、夜間にディスプレイを黄色に着色するネイティブ オプション (夜間モード) が導入されました。 Nougat 7.1 ではさらに改良され、夜間ディスプレイ に名称が変更されました。 ここで有効にして、さまざまなオプションを調整できます。 警告: 一部のデバイスでは、これをアクティブにすると画面が黒くなります。</string>
+    <string name="option_night_mode_desc">Android Nougatでは、夜間にディスプレイを黄色くするネイティブ オプションである、ナイトモードが導入されました。Nougat 7.1 でさらに改良され、ナイト ディスプレイに名称が変更されました。ここで有効にしたり、さまざまなオプションを調整することができます。警告: 一部のデバイスでは、このオプションを変更した際にディスプレイ表示に不具合が発生することがあります。</string>
     <string name="night_display_temp">黄味の強さ</string>
     <string name="option_touchwiz_qs_row_count">クイック設定パネルの行数</string>
     <string name="option_touchwiz_qs_row_count_desc">Samsung TouchWiz NougatとOreoでは、非表示の設定でQSレイアウトグリッドをカスタマイズすることができます。 これを使用して行数を変更します。永続オプションとして有効にしてください。</string>
@@ -218,7 +216,7 @@
     <string name="reset">リセット</string>
     <string name="grant">許可</string>
     <string name="help">ヘルプ</string>
-    <string name="no_root_msg">root アクセスも Shizuku アクセスも検出されなかったため、デバイス上のアクセス許可ができません。 デバイスが root 化されている場合は、SystemUI Tuner にルートアクセス権があることを確認してください。それ以外の場合は、ADB と Shizuku 命令についての HELP ボタンを押してください。</string>
+    <string name="no_root_msg">必要なrootアクセス及びShizukuアクセスを検出できなかったため、デバイス上で権限を許可できませんでした。 デバイスをroot化している場合は、SystemUI Tunerへのrootアクセス権を確認してください。それ以外の場合、[ヘルプ]ボタンを押して、ADB及びShizukuを使用する手順を確認してください。</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGSは許可されていません。</string>
     <string name="mode">モード</string>
     <string name="key">キー</string>
@@ -322,12 +320,12 @@
     <string name="android_10">10</string>
     <string name="android_11">11</string>
     <string name="write_system_fail">設定の書き込みに失敗しました!</string>
-    <string name="write_system_fail_desc">残念ですが、Android はこの設定を変更をする機能を制限しています。これを回避するには、私が開発をしたアドオンアプリか、Shizuku が必要です、すでにアドオンをインストールしている場合は、アップデートをする必要があるかもしれません。すでに Shizuku がインストールされている場合は、実行中しているか確認と SystemUI Tuner のアクセスが許可されている事を確認してください。</string>
+    <string name="write_system_fail_desc">残念ながら、Android ではこの設定を変更する機能が制限されています。これを回避するためには、私のアドオンアプリかShizukuのどちらかが必要です。アドオンをインストール済みの場合は、アドオンのアップデートが必要な可能性があります。Shizukuをインストール済みの場合は、Shizukuが実行されていること、SystemUI Tunerにアクセス許可があることを確認してください。</string>
     <string name="write_system_fail_get_add_on">アドオンを入手</string>
     <string name="download_shizuku">Shizuku を入手</string>
     <string name="open_shizuku">Shizukuを開く</string>
     <string name="read_setting_fail">設定の読み込みに失敗しました!</string>
-    <string name="read_setting_fail_desc">Androidではこの設定の読み込みが制限されています。これを回避するためには、私のアドオンアプリかShizukuのどちらかが必要です。すでにアドオンをインストールしている場合、アドオンのアップデートをする必要があるかもしれません。既にShizukuをインストールしている場合、SystemUI Tunerにアクセス許可が必要です。</string>
+    <string name="read_setting_fail_desc">Androidではこの設定の読み込みが制限されています。これを回避するためには、私のアドオンアプリかShizukuのどちらかが必要です。アドオンをインストール済みの場合は、アドオンのアップデートが必要な可能性があります。Shizukuをインストール済みの場合は、Shizukuが実行されていること、SystemUI Tunerにアクセス許可があることを確認してください。</string>
     <string name="donate">寄付</string>
     <string name="donate_desc">私はこのアプリを自分の自由な時間で作っています。 もしあなたがそれを使うのを楽しむなら、コーヒーを買うことを検討してください(私はコーヒーを飲まないにもかかわらず)。 もちろん、これは寄付です。あなたは何もする必要はありません。SystemUI Tunerには有料ウォール機能はありません。</string>
     <string name="paypal">PayPal</string>
@@ -391,10 +389,10 @@
     <string name="blocked_reason_write_secure_settings">保護された設定の書き込みを許可しない場合、SystemUI Tunerは機能することができません。権限の付与に問題がある場合はヘルプを参照してください。</string>
     <string name="blocked_reason_choose_os">続行する前にオペレーティングシステムを選択してください。</string>
     <string name="back_up_all_settings">すべての設定をバックアップ</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
+    <string name="back_up_all_settings_desc">すべてのセキュリティで保護された設定の現在の値を読み取り、ファイルにバックアップすることを試みます。</string>
     <string name="back_up_changed_settings">変更した設定をバックアップ</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
+    <string name="back_up_changed_settings_desc">SystemUI Tunerによって変更された、全ての設定をファイルにバックアップします。</string>
     <string name="restore_settings">設定を復元</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
+    <string name="restore_settings_desc">バックアップ ファイルを読み込んで、ファイル内の値をセキュリティで保護された設定に書き込むことを試みます。</string>
     <string name="go_back">戻る</string>
 </resources>
