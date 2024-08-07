@@ -101,7 +101,7 @@
     <string name="feature_header_airplane_mode_radios">信任</string>
     <string name="feature_header_airplane_mode_toggleable_radios">可切换的</string>
     <string name="feature_show_touches">显示触摸操作</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches_desc">如果启用，一个指示器将会显示在屏幕上的位置.</string>
     <string name="option_keep_awake_on_ac">交流供电</string>
     <string name="option_keep_awake_on_usb">USB供电</string>
     <string name="option_keep_awake_on_wireless">无线供电</string>
