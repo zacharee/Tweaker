@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SistemUI Tuner</string>
+    <string name="app_name">Tuner SistemUI</string>
     <string name="manager_channel">Manager (oprire)</string>
     <string name="tap_to_disable">Atingeți pentru a dezactiva această notificare</string>
     <string name="home">Acasă</string>
@@ -41,17 +41,17 @@
     <string name="remove_from_blacklist">Eliminare de la lista de pictograme blocate</string>
     <string name="flashlight">Lanternă</string>
     <string name="sub_demo">Mod Demonstrativ</string>
-    <string name="sub_demo_desc">Modul demonstrativ vă permite să forțați bara de stare a dispozitivului dvs. în diverse stări. Îl puteți utiliza pt. a afișa sau a ascunde anumite pictograme, a specifica semnalul și câteva alte lucruri.</string>
-    <string name="special_sub_airplane_mode">Ajustări mod avion</string>
+    <string name="sub_demo_desc">Modul demonstrativ vă permite să forțați bara de stare a dispozitivului dvs. în diverse stări. Îl puteți utiliza pentru a afișa sau a ascunde anumite pictograme, a seta calitatea semnalului și câteva alte lucruri.</string>
+    <string name="special_sub_airplane_mode">Ajustări pentru Modul Avion</string>
     <string name="special_sub_airplane_mode_desc">Modul Avion dezactivează automat toate conexiunile de pe dispozitivul dvs. când este activat. Puteți specifica ce conexiuni vor fi dezactivate (spre exemplu, pt. a păstra Wi-Fi activat când se activează Modul Avion). Mai puteți și schimba ce conexiuni pot fi reactivate când dispozitivul intră în Modul Avion.</string>
     <string name="special_sub_icon_blacklist">Pictograme blocate</string>
-    <string name="special_sub_icon_blacklist_desc">Alege anumite pictograme de ascuns din mară de stare. Rețineți că această caracteristică nu va funcționa pe toate dispozitivele sau cu toate pictogramele. Pictogramele de notificare nu pot fi dezactivate cu această funcție.</string>
+    <string name="special_sub_icon_blacklist_desc">Alegeți anumite pictograme din bara de stare pentru a le ascunde. Rețineți că această caracteristică nu va funcționa pe toate dispozitivele sau cu toate pictogramele. Pictogramele de notificare nu pot fi dezactivate cu această funcție.</string>
     <string name="feature_lock_timeout">Personalizează timp de blocare dispozitiv</string>
     <string name="feature_lock_timeout_desc">Sub \"Setări securizate de blocare\", puteți seta un cronometru \"blocare automată\". Acest cronometru determină cât timp după ce dispozitivul intră în modul de suspendare ecranul de blocare trebuie să fie afișat. Prin intermediul acestei opțiuni, poți seta orice valoare (în milisecunde) pe care o dorești. Dacă aţi setat o valoare suficient de ridicată, atunci în esență, ecranul de blocare nu se va afișa niciodată (dacă ați dezactivat funcția \"butonul de pornire instantaneu blochează dispozitivul\").</string>
     <string name="feature_battery_saver_trigger">Setează procentajul personalizat al economizatorului de baterie</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">Opțiunea Google Battery Saver poate fi activată automat atunci când nivelul bateriei este la 5\% sau 15\%. Cu aceasta, puteți seta propriul procent de declanșare.</string>
-    <string name="feature_long_press_delay">Setare personalizată întârziere la apăsare indelungată</string>
-    <string name="feature_long_press_delay_desc">În setările de accesibilitate, există o caracteristică numită \"atingere si menținere întârziere\" care vă permite să specificați cât timp trebuie să mențineți apăsat pe ecran pentru a recunoaște un eveniment cu apăsare lungă. Cu toate acestea, singurele opțiuni în mod implicit sunt \"scurt\", \"mediu\" și \"long\". Puteți seta propria întârziere.</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">Funcția de economisire baterie făcută de Google poate fi activată automat atunci când nivelul bateriei este la 5\% sau 15\%. Cu aceasta, puteți seta propriul procent de declanșare.</string>
+    <string name="feature_long_press_delay">Setare personalizată întârziere la apăsare îndelungată</string>
+    <string name="feature_long_press_delay_desc">În setările de accesibilitate, există o caracteristică numită \"atingere &amp; întârziere\" care vă permite să specificați cât timp trebuie să mențineți apăsat pe ecran pentru a recunoaște un eveniment cu apăsare lungă. Cu toate acestea, singurele opțiuni în mod implicit sunt \"scurt\", \"mediu\" și \"lung\". Puteți seta propria întârziere.</string>
     <string name="feature_font_scale">Setare dimensiune font personalizată</string>
     <string name="feature_font_scale_desc">Android vă permite să setați dimensiunea textului afișat pe dispozitiv prin specificarea unei scale de font la nivelul întregului sistem. Această valoare este reprezentată în mod normal ca \"mic\", \"normal\", \"mare\", \"imens\" şi \"extra imense\". Cu toate acestea, puteţi seta propria valoare personalizată.</string>
     <string name="feature_freeform">Activați ferestrele cu formă liberă</string>
