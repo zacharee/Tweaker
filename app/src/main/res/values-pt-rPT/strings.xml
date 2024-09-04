@@ -3,9 +3,9 @@
     <string name="app_name">System Ui tuner</string>
     <string name="manager_channel"></string>
     <string name="tap_to_disable"></string>
-    <string name="home">Home</string>
-    <string name="category_display">Display</string>
-    <string name="category_accessibility">Accessibility</string>
+    <string name="home"></string>
+    <string name="category_display">Ecrã</string>
+    <string name="category_accessibility">Acessibilidade</string>
     <string name="category_apps">Apps</string>
     <string name="category_audio">Audio &amp; Sound</string>
     <string name="category_developer">Developer</string>
