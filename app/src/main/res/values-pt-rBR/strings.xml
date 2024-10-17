@@ -3,8 +3,8 @@
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Gerenciador (Desativar)</string>
     <string name="tap_to_disable">Toque para desativar esta notificação</string>
-    <string name="home">Página Inicial</string>
-    <string name="category_display">Tela</string>
+    <string name="home">Início</string>
+    <string name="category_display">Exibição</string>
     <string name="category_accessibility">Acessibilidade</string>
     <string name="category_apps">Aplicativos</string>
     <string name="category_audio">Áudio e Som</string>
@@ -19,12 +19,12 @@
     <string name="category_lock_screen">Tela de bloqueio</string>
     <string name="category_quick_settings">Configurações rápidas</string>
     <string name="screen_persistent">Opções Persistentes</string>
-    <string name="category_interaction">Interações</string>
+    <string name="category_interaction">Interação</string>
     <string name="more">Mais</string>
     <string name="tweaks">Modificações</string>
     <string name="failure">Falha</string>
     <string name="help_translate">Ajude a traduzir</string>
-    <string name="sub_cellular">Celular</string>
+    <string name="sub_cellular">Rede Móvel</string>
     <string name="sub_wifi">Wi-Fi</string>
     <string name="sub_miscellaneous">Variedades</string>
     <string name="sub_htc">HTC</string>
@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">A partir do Android Oreo Developer Preview 3, o Google removeu a capacidade de personalizar os atalhos da tela de bloqueio. No entanto, o valor de preferência ainda pode ser definido manualmente.</string>
     <string name="feature_enable_adb">Ativar ADB</string>
     <string name="feature_enable_adb_desc">Existem certos dispositivos que, depois de um tempo, desativam a Depuração ADB automaticamente. Ative está opção para forçar a ativação da Depuração ADB permanentemente.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Ativar Depuração ADB por Wi-Fi</string>
+    <string name="feature_enable_wireless_adb_desc">A Depuração ADB por Wi-Fi, introduzida aos usuários no Android 11, permite emparelhar computadores e outros dispositivos com seu dispositivo e usar o ADB sem um cabo ou drivers especiais.</string>
     <string name="feature_dark_mode">Ativar o Modo Escuro global</string>
     <string name="feature_dark_mode_desc">O Android Pie e o 10 introduziram uma opção global de modo escuro, mas essa opção faz parte do Android há algum tempo. Essa opção pode ativar o modo escuro em aplicativos que suportam esse recurso (como o Instagram). Uma reinicialização pode ser necessária para que as alterações tenham efeito.</string>
     <string name="feature_clock_seconds">Mostrar segundos no relógio</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Mostra a porcentagem atual da bateria no ícone da bateria na barra de status. Pode exigir root para ativar.</string>
     <string name="feature_header_airplane_mode_radios">Manter</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Desativar</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Mostrar Toques</string>
+    <string name="feature_show_touches_desc">Quando ativada, um indicador será exibido por um momento onde quer que você toque na tela.</string>
     <string name="option_keep_awake_on_ac">Conectado à tomada</string>
     <string name="option_keep_awake_on_usb">Conectado ao USB</string>
     <string name="option_keep_awake_on_wireless">Conectado ao Wireless Charger</string>
@@ -153,7 +153,7 @@
     <string name="option_ui_sound_disable_charging">Desativar sons de carregamento</string>
     <string name="option_ui_sound_disable_charging_desc">Desativar o som que é reproduzido quando o dispositivo inicia o carregamento.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Permissões da Interface de Sistema</string>
-    <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
+    <string name="option_ui_sound_revoke_system_ui_permission_desc">Alterar essas opções requer uma reinicialização da interface do sistema. Você também precisará reiniciar a interface do sistema após a reinicialização do dispositivo. A maneira mais fácil de reiniciar a interface do sistema sem reiniciar é revogar a permissão \"Telefone\". Toque aqui para gerenciar as permissões.</string>
     <string name="option_advanced_read_setting">Ler configuração personalizada</string>
     <string name="option_advanced_read_setting_desc">Se você sabe a chave para uma determinada configuração, pode usá-la para ver o seu valor atual.</string>
     <string name="option_advanced_write_setting">Alterar configuração personalizada</string>
@@ -168,7 +168,7 @@
     <string name="option_custom_notification_snooze_times_desc">O Android Oreo 8.1 introduziu uma opção para adiar notificações. Você pode usar essa configuração para definir valores personalizados para os tempos de soneca.</string>
     <string name="option_night_mode">Modo noturno</string>
     <string name="option_night_mode_desc">O Android Nougat 7.0 introduziu uma opção nativa para colorir a exibição de amarelo à noite. Foi refinado em Nougat 7.1, e renomeado para Modo Noturno. Você pode habilitá-lo aqui e ajustar opções diferentes. ATENÇÃO: em alguns dispositivos Android, ativar isso fará com que a tela fique preta!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Exibição de Temperatura Noturna</string>
     <string name="option_touchwiz_qs_row_count">Contagem de linhas de configurações rápidas</string>
     <string name="option_touchwiz_qs_row_count_desc">No Samsung TouchWiz Nougat e Oreo, é possível personalizar a grade de layout das configurações rápidas com configurações ocultas. Use isto para mudar a contagem de registros. Por favor habilite isto como uma Opção Persistente.</string>
     <string name="option_touchwiz_qs_column_count">Contagem de colunas de configurações rápidas</string>
@@ -338,7 +338,7 @@
     <string name="edit_custom_item">Editar item personalizado</string>
     <string name="remove_item">Remover este item</string>
     <string name="remove_item_desc">Tem certeza que deseja remover este item?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Tipo de Configurações: %1$s, Chave: %2$s, Valor: %3$s</string>
     <string name="settings_read_template">Tipo de Configurações: %1$s, Chave: %2$s</string>
     <string name="tile_battery">Bateria</string>
     <string name="tile_clock">Relógio</string>
@@ -384,11 +384,11 @@
     <string name="blocked_reason_read_terms">Certifique-se de ler os termos antes de continuar.</string>
     <string name="blocked_reason_write_secure_settings">O SystemUI Tuner não pode funcionar sem a permissão de Gravar Configurações Seguras. Toque no botão \"Ajuda\" se você estiver com problemas para concedê-lo.</string>
     <string name="blocked_reason_choose_os">Por favor, escolha um sistema operacional antes de continuar.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="back_up_all_settings">Fazer Backup de Todas as Configurações</string>
+    <string name="back_up_all_settings_desc">Tentar ler o valor atual de cada configuração segura e fazer backup em um arquivo.</string>
+    <string name="back_up_changed_settings">Fazer Backup das Configurações Alteradas</string>
+    <string name="back_up_changed_settings_desc">Fazer backup de todas as configurações alteradas pelo SystemUI Tuner para um arquivo.</string>
+    <string name="restore_settings">Restaurar Configurações</string>
+    <string name="restore_settings_desc">Ler um arquivo de backup e tentar escrever os valores no arquivo para as configurações seguras.</string>
+    <string name="go_back">Voltar</string>
 </resources>

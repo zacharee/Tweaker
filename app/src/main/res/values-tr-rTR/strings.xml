@@ -91,8 +91,8 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_enable_adb">Etkin ADB</string>
     <string name="feature_enable_adb_desc">Bazı cihazlar, bir süre işlem yapılmadığında ADB\'yi otomatik olarak devre dışı bırakır.  Bu seçeneği etkinleştirin ve ADB\'yi zorla etkinleştirmek için Kalıcı Seçenek olarak ayarlayın.
  İÇERİK TALEP</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Kablosuz ADB etkinleştir</string>
+    <string name="feature_enable_wireless_adb_desc">Android 11\'de tanıtılan Kablosuz ADB, bilgisayarı ve diğer cihazları cihaz adınızle ve kablo veya özel sürücüler olmadan eşlemenize olanak sağlar.</string>
     <string name="feature_dark_mode">Karanlık modu etkinleştir</string>
     <string name="feature_dark_mode_desc">Android Pie ve 10, küresel bir karanlık mod seçeneği sundu, ancak bu seçenek bir süredir Android\'in bir parçası.  Bu seçenek, bu özelliği destekleyen uygulamalarda (Instagram gibi) karanlık modu etkinleştirebilir.  Değişikliklerin geçerli olması için yeniden başlatma gerekebilir.</string>
     <string name="feature_clock_seconds">Saat saniyelerini göster</string>
@@ -104,7 +104,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_battery_percent_desc">Durum çubuğundaki pil simgesinde mevcut pil yüzdesini gösterir. Etkinleştirmek için kök gerektirebilir.</string>
     <string name="feature_header_airplane_mode_radios">Muaf</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Değiştirilebilir</string>
-    <string name="feature_show_touches">Show Touches</string>
+    <string name="feature_show_touches">Dokunmaları Göster</string>
     <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">AC güç</string>
     <string name="option_keep_awake_on_usb">USB Güçte</string>
@@ -371,9 +371,9 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="demo_mode_status_bar_semi_transparent">Yarı Şeffaf</string>
     <string name="demo_mode_status_bar_translucent">Yarı saydam</string>
     <string name="demo_mode_data_type_roaming">Dolaşım</string>
-    <string name="demo_mode_data_type_none">None</string>
+    <string name="demo_mode_data_type_none">Yok</string>
     <string name="demo_mode_data_type_disabled">Devre dışı</string>
-    <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
+    <string name="demo_mode_data_type_not_default_data">Varsayılan Veri Değil</string>
     <string name="demo_mode_activity_type_none">Hiçbiri</string>
     <string name="demo_mode_activity_type_in">Giriş</string>
     <string name="demo_mode_activity_type_out">Çıkış</string>
@@ -393,11 +393,11 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="blocked_reason_read_terms">Devam etmeden önce lütfen kullanım şartlarını okuyun.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner, Güvenli Ayarlara Yazma iznine sahip olmadan çalışamaz. Eğer bu izni vermekte sorun yaşıyor iseniz \"Yardım\" tuşuna tıklayın.</string>
     <string name="blocked_reason_choose_os">Devam etmeden önce lütfen bir işletim sistemi seçin.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="back_up_all_settings">Tüm Ayarları Yedekle</string>
+    <string name="back_up_all_settings_desc">Her güvenli ayarın mevcut değerini oku ve bir dosyaya kaydetmeye çalış.</string>
+    <string name="back_up_changed_settings">Değişmiş Ayarları Yedekle</string>
+    <string name="back_up_changed_settings_desc">SystemUI tarafından değişmiş tüm ayarları bir dosyaya yedekle.</string>
+    <string name="restore_settings">Ayarları Geri Yükle</string>
+    <string name="restore_settings_desc">Ayarları korumak için yedek dosyasından oku ve değerleri yazmaya çalış.</string>
+    <string name="go_back">Geri git</string>
 </resources>

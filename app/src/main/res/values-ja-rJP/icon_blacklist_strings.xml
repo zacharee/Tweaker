@@ -43,7 +43,7 @@
     <string name="icon_blacklist_otg_mouse">OTGマウス</string>
     <string name="icon_blacklist_otg_keyboard">OTGキーボード</string>
     <string name="icon_blacklist_felica_lock">FeliCaロック</string>
-    <string name="icon_blacklist_answering_memo">Answering Memo</string>
+    <string name="icon_blacklist_answering_memo">伝言メモ</string>
     <string name="icon_blacklist_ime">IME</string>
     <string name="icon_blacklist_sync_failing">同期に失敗</string>
     <string name="icon_blacklist_sync_active">同期有効</string>
@@ -64,14 +64,14 @@
     <string name="icon_blacklist_gps">位置情報</string>
     <string name="icon_blacklist_lbs">LBS</string>
     <string name="icon_blacklist_wearable_gear">ウェアラブル</string>
-    <string name="icon_blacklist_femtoicon">Femtocell</string>
+    <string name="icon_blacklist_femtoicon">フェムトセル</string>
     <string name="icon_blacklist_comsamsungrcs">Samsung RCS</string>
     <string name="icon_blacklist_wifi_p2p">Wi-Fi P2P</string>
     <string name="icon_blacklist_wifi_ap">Wi-Fi AP</string>
     <string name="icon_blacklist_wifi_oxygen">Wi-Fi Oxygen</string>
-    <string name="icon_blacklist_phone_signal_second_stub">Phone Signal Second Stub</string>
-    <string name="icon_blacklist_toddler">Toddler</string>
-    <string name="icon_blacklist_keyguard_wakeup">Keyguard Wakeup</string>
+    <string name="icon_blacklist_phone_signal_second_stub">電波のセカンドスタブ</string>
+    <string name="icon_blacklist_toddler">幼児</string>
+    <string name="icon_blacklist_keyguard_wakeup">キーガードウェイクアップ</string>
     <string name="icon_blacklist_safezone">セーフゾーン</string>
     <string name="icon_blacklist_wimax">WiMAX</string>
     <string name="icon_blacklist_smart_bonding">スマートボンディング</string>
