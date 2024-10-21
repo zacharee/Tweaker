@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">Bắt đầu với Android Oreo Developer Preview 3, Google đã loại bỏ khả năng tùy chỉnh các phím tắt trên màn hình khóa. Tuy nhiên, giá trị tùy chọn vẫn có thể được đặt theo cách thủ công.</string>
     <string name="feature_enable_adb">Kích hoạt ADB</string>
     <string name="feature_enable_adb_desc">Một số thiết bị tự động tắt ADB sau một thời gian không hoạt động. Kích hoạt tùy chọn này và đặt nó làm Tùy chọn liên tục để buộc kích hoạt ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Cho phép ADB không dây</string>
+    <string name="feature_enable_wireless_adb_desc">Adb không giây được giới thiệu tới người dùng Android 11, cho phép bạn ghép máy tính và các thiết bị khác với thiết bị của bạn và sử dụng ADB mà không cần dây hoặc phương tiện đặc biệt nào.</string>
     <string name="feature_dark_mode">Bật Chế độ tối</string>
     <string name="feature_dark_mode_desc">Android Pie và 10 đã giới thiệu tùy chọn chế độ tối, nhưng tùy chọn này đã là một phần của Android được một thời gian rồi. Tùy chọn này có thể bật chế độ tối trong các ứng dụng hỗ trợ tính năng này (chẳng hạn như Instagram). Có thể cần phải khởi động lại để các thay đổi có hiệu lực.</string>
     <string name="feature_clock_seconds">Hiển thị Giây Đồng hồ</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Hiển thị phần trăm pin hiện tại trong biểu tượng pin trên thanh trạng thái. Có thể yêu cầu root để kích hoạt.</string>
     <string name="feature_header_airplane_mode_radios">Miễn</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Bật/tắt</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Cho phép xem số lần nhấn</string>
+    <string name="feature_show_touches_desc">Khi được bật, một thanh toạ độ sẽ hiện lên trong một lúc tại bất kỳ điểm nào bạn chạm trên màn hình.</string>
     <string name="option_keep_awake_on_ac">Ở Nguồn điện AC</string>
     <string name="option_keep_awake_on_usb">Ở Nguồn điện USB</string>
     <string name="option_keep_awake_on_wireless">Ở Nguồn điện Không dây</string>
@@ -384,11 +384,11 @@
     <string name="blocked_reason_read_terms">Vui lòng đảm bảo rằng bạn đã đọc các điều khoản trước khi tiếp tục.</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner không thể hoạt động nếu không có quyền Viết cài đặt bảo mật. Nhấn vào nút \"Trợ giúp\" nếu bạn gặp khó khăn trong việc cấp quyền này.</string>
     <string name="blocked_reason_choose_os">Vui lòng chọn hệ điều hành trước khi tiếp tục.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
+    <string name="back_up_all_settings">Sao lưu toàn bộ cài đặt</string>
+    <string name="back_up_all_settings_desc">Cố gắng đọc giá trị hiện tại của mọi cài đặt bảo mật và sao lưu nó vào một tệp.</string>
+    <string name="back_up_changed_settings">Sao lưu cài đặt đã thay đổi</string>
+    <string name="back_up_changed_settings_desc">Sao lưu toàn bộ thay đổi bởi SystemUi Tuner vào một file.</string>
+    <string name="restore_settings">Khôi phục cài đặt</string>
     <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
     <string name="go_back">Go Back</string>
 </resources>
