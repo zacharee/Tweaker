@@ -48,7 +48,7 @@
     <string name="special_sub_icon_blacklist_desc">Choisissez des icônes spécifiques à cacher dans la barre d\'état. Notez que cette fonctionnalité ne fonctionnera pas sur tous les appareils ou avec toutes les icônes. Les icônes de notification ne peuvent pas être masquées en utilisant cette fonctionnalité.</string>
     <string name="feature_lock_timeout">Définir un délai personnalisé pour le verrouillage de l\'écran</string>
     <string name="feature_lock_timeout_desc">Sous la rubrique « Paramètres de verrouillage sécurisé », vous pouvez définir un minuteur « Verrouillage automatique ». Ce minuteur détermine combien de temps l\'écran de verrouillage doit être affiché après la mise en veille de l\'appareil. Vous pouvez définir n\'importe quelle valeur (en millisecondes) pour cette option. Si vous définissez une valeur suffisamment élevée, votre écran de verrouillage ne s\'affichera pratiquement jamais (à condition que vous ayez désactivé la fonction \"Verrouillage instantané de l\'appareil\").</string>
-    <string name="feature_battery_saver_trigger">Définir le pourcentage de déclenchement de l\'économiseur de batterie personnalisé</string>
+    <string name="feature_battery_saver_trigger">Définir le pourcentage de déclenchement de l\'économiseur de batterie</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">La fonction d’économiseur de batterie de Google peut se déclencher automatiquement lorsque le niveau de la batterie est de 5\% ou 15\%. Avec cette option, vous pouvez définir un autre pourcentage de déclenchement.</string>
     <string name="feature_long_press_delay">Définir un délai d\'appui long personnalisé</string>
     <string name="feature_long_press_delay_desc">Dans les paramètres d\'accessibilité, il y a une fonctionnalité appelée \"Délai d\'appui long\" qui vous permet de spécifier pendant combien de temps vous devez appuyer sur l\'écran pour qu\'Android reconnaisse un appui long. Cependant, les seules options par défaut sont \"court\", \"moyen\" et \"long\". Vous pouvez régler le délai de votre choix.</string>
@@ -69,7 +69,7 @@
     <string name="feature_custom_rotation">Changer l\'orientation de l\'écran de verrouillage par défaut</string>
     <string name="feature_custom_rotation_desc">La plupart des téléphones vous permettent uniquement d\'avoir l\'écran de verrouillage en mode Portrait. Avec ce paramètre, vous pouvez verrouiller l\'orientation de l\'écran sur n\'importe quelle mode. Vous devrez cependant désactiver la rotation automatique pour que paramètre puisse fonctionner.</string>
     <string name="feature_immersive_mode">Mode immersif</string>
-    <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
+    <string name="feature_immersive_mode_desc"></string>
     <string name="feature_heads_up_snooze_length">Leads-Une Notification Snooker Lent</string>
     <string name="feature_heads_up_snooze_length_desc">Durée en millisecondes après qu\'une notification flottante soit masquée avant que l\'application ne puisse interrompre à nouveau. (Par défaut : 60 secondes).</string>
     <string name="feature_camera_gestures">Caméra gestuelle</string>
@@ -387,8 +387,8 @@
     <string name="back_up_all_settings">Sauvegarder tous les paramètres</string>
     <string name="back_up_all_settings_desc">Tente de lire la valeur actuelle de tous les paramètres de sécurité et les enregistre dans un fichier.</string>
     <string name="back_up_changed_settings">Sauvegarder les paramètres modifiés</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="back_up_changed_settings_desc">Sauvegarde dans un fichier tous les paramètres modifiés par SystemUI Tuner.</string>
+    <string name="restore_settings">Restaurer les paramètres</string>
+    <string name="restore_settings_desc">Ouvre un fichier de sauvegarde et tente d\'appliquer les valeurs du fichier aux paramètres de sécurité.</string>
+    <string name="go_back">Retour</string>
 </resources>
