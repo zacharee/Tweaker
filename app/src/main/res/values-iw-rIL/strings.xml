@@ -72,11 +72,11 @@
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
     <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
-    <string name="feature_camera_gestures">Camera Gestures</string>
+    <string name="feature_camera_gestures">מחוות מצלמה</string>
     <string name="feature_camera_gestures_desc">Enabling this may allow your phone to quickly launch the camera by double tapping the power button or flipping the phone between back and front.</string>
-    <string name="feature_disable_safe_audio_warning">Disable Safe Audio Warning</string>
+    <string name="feature_disable_safe_audio_warning">השבת את אזהרת שמע בטוח</string>
     <string name="feature_disable_safe_audio_warning_desc">EU regulations require smartphones to warn when going above certain volume levels (85dB). This warning must be shown once after every reboot or after 20 hours of continuous music playback. Use this setting to change how that warning behaves, or disable it entirely. Make sure to enable this setting in Persistent Options for it to stick.</string>
-    <string name="feature_custom_ui_sounds">Set Custom UI Sounds</string>
+    <string name="feature_custom_ui_sounds">הגדר צלילי ממשק משתמש מותאמים אישית</string>
     <string name="feature_custom_ui_sounds_desc">Android has a lot of sounds for different parts of the UI. A lot of these can actually be changed to your own custom sounds. You just need to specify the file for Android to use.</string>
     <string name="feature_fix_tethering">Fix Tethering</string>
     <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
@@ -88,9 +88,9 @@
     <string name="feature_lockscreen_shortcuts_desc">Starting with Android Oreo Developer Preview 3, Google removed the ability to customize the lock screen shortcuts. However, the preference value can still be set manually.</string>
     <string name="feature_enable_adb">אפשר ADB</string>
     <string name="feature_enable_adb_desc">Certain devices disable ADB automatically after a period of inactivity. Enable this option and set it as a Persistent Option to force-enable ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
-    <string name="feature_dark_mode">Enable Global Dark Mode</string>
+    <string name="feature_enable_wireless_adb">אפשר ADB אלחוטי</string>
+    <string name="feature_enable_wireless_adb_desc">ADB אלחוטי, שהוצג למשתמשים באנדרואיד 11, מאפשר לך להתאים מחשבים והתקנים אחרים למכשיר שלך ולהשתמש ב-ADB ללא כבל או מנהלי התקנים מיוחדים.</string>
+    <string name="feature_dark_mode">הפעל מצב חשוך גלובלי</string>
     <string name="feature_dark_mode_desc">Android Pie and 10 introduced a global dark mode option, but this option has been part of Android for a while now. This option can enable dark mode in apps that support this feature (such as Instagram). A reboot may be required for changes to take effect.</string>
     <string name="feature_clock_seconds">הצג שניות בשעון</string>
     <string name="feature_clock_seconds_desc">אפשר שניות בשעון שורת המצב, זה לא יעבוד בכל המכשירים והקונפיגורציות, כולל MIUI ו One UI.</string>
