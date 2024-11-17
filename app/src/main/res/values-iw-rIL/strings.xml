@@ -50,13 +50,13 @@
     <string name="feature_lock_timeout_desc">מתחת ל- \"הגדרות נעילה מאובטחת\", את/ה יכול/ה להגדיר טיימר \"נעילה אוטומטית\". טיימר זה קובע כמה זמן לאחר שהמכשיר נכנס למצב שינה יש להציג את מסך הנעילה. באמצעות אפשרות זו, באפשרותך להגדיר איזה ערך (באלפיות השנייה) שאת/ה רוצה. אם תגדיר ערך גבוה מספיק, אז בעצם מסך הנעילה שלך לעולם לא יופיע (בתנאי שהשבתת את \"לחצן ההפעלה נועל באופן מיידי את תכונת המכשיר).</string>
     <string name="feature_battery_saver_trigger">הגדר/י אחוז הפעלה מותאם אישית של חיסכון בצריכת הסוללה</string>
     <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
-    <string name="feature_long_press_delay">Set Custom Long Press Delay</string>
+    <string name="feature_long_press_delay">הגדר השהיית לחיצה ארוכה בהתאמה אישית</string>
     <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
     <string name="feature_font_scale">הגדר גודל גופן מותאם אישית</string>
     <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
     <string name="feature_freeform">Enable Freeform Multiwindow</string>
     <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
-    <string name="feature_app_install_location">Set Default App Install Location</string>
+    <string name="feature_app_install_location">הגדר מיקום ברירת מחדל להתקנת אפליקציה</string>
     <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
     <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
@@ -68,7 +68,7 @@
     <string name="feature_custom_animation_scales_desc">In Android\'s Developer Settings, you can set animation scales to control the duration of animations. If the available options are too fast or slow for you, you can set custom values here.</string>
     <string name="feature_custom_rotation">Lock Screen Orientation to Custom Value</string>
     <string name="feature_custom_rotation_desc">Most phones only allow you to lock your phone\'s screen orientation to Portrait mode. With this setting, you can lock screen orientation to any orientation. You will first have to disable auto-rotate before this will work.</string>
-    <string name="feature_immersive_mode">Immersive Mode</string>
+    <string name="feature_immersive_mode">מסך מלא</string>
     <string name="feature_immersive_mode_desc">Most other applications that allow you to toggle immersive mode only have a few options: hide the navigation bar or hide the status bar. It\'s actually possible to set this on a per-app basis, in either whitelist or blacklist mode. Note that on Android 11 and above, this option is broken in AOSP and may no longer work on your device.</string>
     <string name="feature_heads_up_snooze_length">Heads-Up Notification Snooze Length</string>
     <string name="feature_heads_up_snooze_length_desc">Milliseconds after a heads up notification is pushed back before the app can interrupt again. (Default: 60 seconds).</string>
