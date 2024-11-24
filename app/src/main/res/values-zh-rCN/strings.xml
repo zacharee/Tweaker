@@ -384,7 +384,7 @@
     <string name="blocked_reason_read_terms">请确保在继续之前阅读这些条款。</string>
     <string name="blocked_reason_write_secure_settings">SystemUI Tuner无法正常运行，需要写入安全设置的权限。如果您在授予权限方面遇到问题，请点击“帮助”按钮。</string>
     <string name="blocked_reason_choose_os">请在继续之前选择一个操作系统。</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
+    <string name="back_up_all_settings">恢复所有设置</string>
     <string name="back_up_all_settings_desc"></string>
     <string name="back_up_changed_settings">Back Up Changed Settings</string>
     <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
