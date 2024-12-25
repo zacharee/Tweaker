@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
+    <string name="adb_intro_title">ADB Guia</string>
+    <string name="adb_intro_desc">Não sabe como usar ADB? Sem problemas. Siga este guia e você deve ser definido. (Note que você precisará de um computador para este processo.)</string>
     <string name="adb_intro_desc_no_computer">Não sabe como usar o ADB? Sem problemas. Apenas siga esse guia e você deverá conseguir.</string>
     <string name="adb_choose_computer_os">Escolha seu Sistema Operacional.</string>
     <string name="adb_choose_computer_os_desc">Qual sistema operacional está rodando no seu computador?</string>

@@ -105,7 +105,7 @@
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock"></string>
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
@@ -168,7 +168,7 @@
     <string name="option_custom_notification_snooze_times_desc">Mit Android Oreo 8.1 wurde eine Option zum Zurückstellen von Benachrichtigungen eingeführt. Sie können diese Einstellung verwenden, um benutzerdefinierte Werte für die Zurückstellenzeiten festzulegen.</string>
     <string name="option_night_mode">Nachtmodus</string>
     <string name="option_night_mode_desc">Mit Android Nougat wurde eine native Option eingeführt, mit der das Display nachts gelb eingefärbt werden kann, treffend Nachtmodus genannt. Sie wurde in Nougat 7.1 weiter verfeinert und in Night Display umbenannt. Sie können sie hier aktivieren und verschiedene Optionen einstellen. Warnhinweis: Bei einigen Geräten führt die Aktivierung dieser Funktion dazu, dass der Bildschirm schwarz wird!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Nachtmodus Farbtemperatur</string>
     <string name="option_touchwiz_qs_row_count">Anzahl Zeilen der Schnelleinstellungskacheln</string>
     <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
     <string name="option_touchwiz_qs_column_count">Anzahl Spalten der Schnelleinstellungskacheln</string>
@@ -338,7 +338,7 @@
     <string name="edit_custom_item">Benutzerdefiniertes Element bearbeiten</string>
     <string name="remove_item">Diesen Element entfernen</string>
     <string name="remove_item_desc">Möchtest du dieses Element wirklich entfernen?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Einstellungsart: %1$s, Schlüssel: %2$s, Wert: %3$s</string>
     <string name="settings_read_template">Einstellungen Typ: %1$s, Schlüssel: %2$s</string>
     <string name="tile_battery">Akku</string>
     <string name="tile_clock">Uhr</string>

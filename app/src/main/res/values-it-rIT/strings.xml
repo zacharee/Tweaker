@@ -88,8 +88,8 @@
     <string name="feature_lockscreen_shortcuts_desc">A partire da Android Oreo Developer Preview 3, Google ha rimosso la possibilità di personalizzare le scorciatoie della schermata di blocco. Tuttavia, il valore delle preferenze può ancora essere impostato manualmente.</string>
     <string name="feature_enable_adb">Abilita ADB</string>
     <string name="feature_enable_adb_desc">Alcuni dispositivi disabilitano ADB automaticamente dopo un periodo di inattività. Abilita questa opzione e impostala come opzione persistente per forzare ADB.</string>
-    <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb">Abilita il Debug Wireless</string>
+    <string name="feature_enable_wireless_adb_desc">Debug wireless, introdotto agli utenti con Android 11, consente di associare computer e altri dispositivi con il dispositivo e utilizzare ADB senza cavo o driver speciali.</string>
     <string name="feature_dark_mode">Abilita il tema scuro universale</string>
     <string name="feature_dark_mode_desc">Android Pie e 10 hanno introdotto un\'opzione globale di modalità scura, ma questa opzione è stata parte di Android per un po \'. Questa opzione può abilitare la modalità scura nelle applicazioni che supportano questa funzionalità (come Instagram). Potrebbe essere necessario un riavvio affinché le modifiche abbiano effetto.</string>
     <string name="feature_clock_seconds">Mostra secondi nell\'orologio</string>
@@ -100,8 +100,8 @@
     <string name="feature_battery_percent_desc">Mostra la percentuale della batteria nell\'icona della batteria sulla barra di stato. Potrebbe essere necessario attivare il root.</string>
     <string name="feature_header_airplane_mode_radios">Esente</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Attivabile</string>
-    <string name="feature_show_touches">Show Touches</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches">Mostra tocchi</string>
+    <string name="feature_show_touches_desc">Mostra un feedback visivo per i tocchi sullo schermo.</string>
     <string name="option_keep_awake_on_ac">Alimentazione da rete</string>
     <string name="option_keep_awake_on_usb">Alimentazione da USB</string>
     <string name="option_keep_awake_on_wireless">Alimentazione wireless</string>
@@ -301,7 +301,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="intro_last_desc">Seguimi su Mastodon o Twitter per gli ultimi aggiornamenti.</string>
     <string name="intro_crash_reports">Abilita report di crash</string>
     <string name="intro_crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare a mantenere l\'app in esecuzione senza intoppi. Non vengono raccolte informazioni personali. Per disabilitare completamente la collezione una volta abilitata, dovrai forzare l\'arresto a System UI Tuner. Puoi modificare questa impostazione più tardi.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="crash_reports_desc">Puoi scegliere di abilitare i report anonimi dei crash per aiutare a mantenere l\'app in esecuzione senza problemi. Non vengono raccolte informazioni personali. Per disabilitare completamente la raccolta una volta abilitata, dovrai forzare l\'arresto a System Ui Tuner. Puoi modificare questa impostazione più tardi.</string>
     <string name="compatibility_message_lower">Siamo spiacenti, questa funzione funziona solo con Android %s e versioni successive</string>
     <string name="compatibility_message_both">Siamo spiacenti, questa funzione funziona solo da Android %1$s ad Android %2$s</string>
     <string name="compatibility_message_higher">Siamo spiacenti, questa funzione funziona solo tramite Android %s</string>
@@ -316,13 +316,13 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail">Impossibile modificare l\'Impostazione!</string>
+    <string name="write_system_fail_desc">Sfortunatamente, Android ha limitato la possibilità di modificare questa impostazione. Per funzionare, avrai bisogno della mia app add-on o Shizuku. Se hai già installato l\'add-on potrebbe essere necessario aggiornarlo. Se hai già installato Shizuku, assicurati che sia in esecuzione e che SystemUI Tuner sia stato autorizzato.</string>
     <string name="write_system_fail_get_add_on">Ottieni Add-On</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">Scarica Shizuku</string>
+    <string name="open_shizuku">Apri Shizuku</string>
+    <string name="read_setting_fail">Impossibile leggere l\'impostazione!</string>
+    <string name="read_setting_fail_desc">Sfortunatamente, Android ha limitato la possibilità di leggere questa impostazione. Per funzionare, avrai bisogno della mia app add-on o Shizuku. Se hai già installato l\'add-on potrebbe essere necessario aggiornarlo. Se hai già installato Shizuku, assicurati che sia in esecuzione e che SystemUI Tuner sia stato autorizzato.</string>
     <string name="donate">Dona</string>
     <string name="donate_desc">Sviluppo questa app nel mio tempo libero. Se ti piace usarla, considera di comprarmi una tazza di caffè (anche se non bevo caffè). Naturalmente, questa è una donazione, e non devi fare nulla. Non ci sono funzioni a pagamento in SystemUl Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -340,7 +340,7 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="remove_item">Rimuovi oggetto</string>
     <string name="remove_item_desc">Sei sicuro di voler rimuovere questo elemento?</string>
     <string name="custom_persistent_option_summary_template">Tipo d\'impostazioni: %1$s, Chiave: %2$s, Valore: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="settings_read_template">Tipo Impostazioni: %1$s, Chiave: %2$s</string>
     <string name="tile_battery">Batteria</string>
     <string name="tile_clock">Orologio</string>
     <string name="tile_demo">Modalità demo</string>
@@ -380,16 +380,16 @@ Good Lock di QuickStar ti permetterà di farlo, ma le opzioni a volte sono limit
     <string name="setting_applied_dialog_desc">Vuoi mantenere le modifiche? Questa opzione sarà ripristinata dopo %s secondi.</string>
     <string name="keep">Mantieni</string>
     <string name="revert">Ripristina</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="increase" desc="This is in verb form.">Aumenta</string>
+    <string name="decrease" desc="This is in verb form.">Riduci</string>
+    <string name="blocked_reason_read_terms">Per favore leggi i termini prima di continuare.</string>
+    <string name="blocked_reason_write_secure_settings">SystemUI Tuner non può funzionare senza l\'autorizzazione write_secure_permission. Tocca il pulsante \"Aiuto\" se hai problemi ha concederlo.</string>
+    <string name="blocked_reason_choose_os">Per favore scegliere un sistema operativo prima di continuare.</string>
+    <string name="back_up_all_settings">Backup di tutte le impostazioni</string>
+    <string name="back_up_all_settings_desc">Tentativo di salvare il valore corrente di ogni impostazione sicura in un file di Backup.</string>
+    <string name="back_up_changed_settings">Modifiche delle salvate</string>
+    <string name="back_up_changed_settings_desc">Esegue il backup di tutte le impostazioni modificate da SystemUI Tuner in un file.</string>
+    <string name="restore_settings">Ripristino impostazioni</string>
+    <string name="restore_settings_desc">Tentativo di leggere i valori da un file e scriverli nelle impostazioni sicure.</string>
+    <string name="go_back">Indietro</string>
 </resources>

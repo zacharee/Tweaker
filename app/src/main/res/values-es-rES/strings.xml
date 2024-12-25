@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Configurador de IU del sistema</string>
-    <string name="manager_channel">Gestor (Desactivar)</string>
-    <string name="tap_to_disable">Toca para desactivar esta notificación</string>
+    <string name="app_name">Sintonizador SystemUI</string>
+    <string name="manager_channel">Manager (Turn on)</string>
+    <string name="tap_to_disable">Tap to disable this notification</string>
     <string name="home">Inicio</string>
     <string name="category_display">Pantalla</string>
     <string name="category_accessibility">Accesibilidad</string>
     <string name="category_apps">Aplicaciones</string>
-    <string name="category_audio">Audio &amp; sonido</string>
+    <string name="category_audio">Audio y sonido</string>
     <string name="category_developer">Desarrollador</string>
     <string name="category_easter_eggs">Huevos de Pascua</string>
     <string name="category_network">Red</string>
@@ -38,7 +38,7 @@
     <string name="sub_storage">Almacenamiento</string>
     <string name="sub_power">Potencia</string>
     <string name="add_to_blacklist">Añadir a lista negra de iconos</string>
-    <string name="remove_from_blacklist">Eliminar de lista negra de iconos</string>
+    <string name="remove_from_blacklist">Eliminar de la lista negra de iconos</string>
     <string name="flashlight">Linterna</string>
     <string name="sub_demo">Modo de demostración</string>
     <string name="sub_demo_desc">El modo de demostración te permite forzar la barra de estado de tu dispositivo a diferentes estados. Puede usarlo para mostrar u ocultar iconos específicos, especificar puntos fuertes de señal y algunas cosas más.</string>
@@ -54,21 +54,21 @@
     <string name="feature_long_press_delay_desc">En ajustes de accesibilidad, hay una característica llamada \"Retraso al mantener pulsado\" que le permite especificar cuánto tiempo tiene que mantener presionada en la pantalla para que Android reconozca un evento de pulsación larga. Sin embargo, las únicas opciones por defecto son \"corto\", \"mediano\" y \"largo\". Puede establecer su propio retraso.</string>
     <string name="feature_font_scale">Establecer escala de fuente personalizada</string>
     <string name="feature_font_scale_desc">Android le permite establecer el tamaño del texto que se muestra en su dispositivo especificando una escala de fuente en todo el sistema. Este valor se representa típicamente como \"pequeño\", \"normal\", \"grande\", \"gigante\", y \"extra gigante\". Sin embargo, puede establecer su propio valor personalizado.</string>
-    <string name="feature_freeform">Habilitar ventanas de forma libre</string>
-    <string name="feature_freeform_desc">Habilitar o deshabilitar el soporte de ventanas libres múltiples. Requiere reiniciar. Solo funciona en dispositivos con Android 7.0+.</string>
+    <string name="feature_freeform">Activar ventanas flotantes</string>
+    <string name="feature_freeform_desc">Activar o desactivar el soporte de ventanas flotantes. Requiere un reinicio. Solo funciona en dispositivos con Android 7.0+.</string>
     <string name="feature_app_install_location">Establecer ubicación de instalación por defecto para las aplicaciones</string>
     <string name="feature_app_install_location_desc">Ubicación de instalación de la aplicación por defecto. Elija qué aplicaciones de almacenamiento están instaladas de forma predeterminada. Normalmente, las propias aplicaciones deciden especificando el valor en el AndroidManifest, pero puede optar por instalarlas en el medio de almacenamiento adoptable si lo desea.</string>
     <string name="feature_heads_up_notifications">Activador de notificaciones emergentes</string>
     <string name="feature_heads_up_notifications_desc">Cambie para habilitar o deshabilitar globalmente las notificaciones de avisos. Las notificaciones de aviso son las notificaciones que aparecen en la parte superior de la pantalla.</string>
-    <string name="feature_insufficient_storage_warning">Anular la advertencia de \"Espacio insuficiente\"</string>
+    <string name="feature_insufficient_storage_warning">Bypass de la advertencia de \"Espacio insuficiente\"</string>
     <string name="feature_insufficient_storage_warning_desc">Cuando su dispositivo alcanza un cierto valor de límite de almacenamiento disponible, Android muestra una advertencia de que su dispositivo tiene una cantidad insuficiente de almacenamiento disponible. Esto puede evitar que instale nuevas aplicaciones o actualizaciones. Puede reducir manualmente el valor del límite para evitar que se muestre esta advertencia.</string>
-    <string name="feature_keep_screen_on">Mantener el dispositivo encendido cuando se conecta</string>
+    <string name="feature_keep_screen_on">Mantener el dispositivo encendido cuando esté conectado</string>
     <string name="feature_keep_screen_on_desc">En las opciones del desarrollador de Android, puede seleccionar la opción de mantener la pantalla encendida cuando esté conectada a la red eléctrica. Por defecto, esto habilita la función para todas las fuentes de energía. Puede especificar las fuentes de alimentación que quiere que haga que la pantalla de su teléfono se mantenga encendida.</string>
     <string name="feature_custom_animation_scales">Establecer escalas de animación personalizadas</string>
     <string name="feature_custom_animation_scales_desc">En las opciones del desarrollador de Android, puede configurar las escalas de animación para controlar la duración de las animaciones. Si las opciones disponibles son demasiado rápidas o lentas, puede establecer valores personalizados aquí.</string>
     <string name="feature_custom_rotation">Bloquear la orientación de la pantalla al valor personalizado</string>
     <string name="feature_custom_rotation_desc">La mayoría de los teléfonos solo le permiten bloquear la orientación de la pantalla de su teléfono al modo vertical. Con esta configuración, puede bloquear la orientación de la pantalla a cualquier orientación. Primero tendrá que desactivar la rotación automática antes de que esto funcione.</string>
-    <string name="feature_immersive_mode">Modo immersivo</string>
+    <string name="feature_immersive_mode">Modo inmersivo</string>
     <string name="feature_immersive_mode_desc">La mayoría de las aplicaciones que te permiten alternar el Modo inmersivo tienen unas pocas opciones: ocultar la barra de navegación u ocultar la barra de notificaciones. Actualmente es posible establecer esto en una básis por app, en la lista blanca o la lista negra. Ten en cuenta que en Android 11 y versiones posteriores, está opción está rota en AOSP y no puede funcionar más en tu dispositivo.</string>
     <string name="feature_heads_up_snooze_length">Duración del aplazamiento de notificaciones emergentes</string>
     <string name="feature_heads_up_snooze_length_desc">Milisegundos después de que una notificación emergente se retrase antes de que la aplicación pueda interrumpir de nuevo. (por defecto: 60 segundos).</string>
@@ -78,8 +78,8 @@
     <string name="feature_disable_safe_audio_warning_desc">Los reglamentos de la UE exigen que los teléfonos inteligentes adviertan cuando superen ciertos niveles de volumen (85dB). Esta advertencia debe mostrarse una vez cada reinicio o después de 20 horas de reproducción continua de música. Utilice esta opción para cambiar cómo se comporta esa advertencia, o desactivarla por completo. Asegúrese de habilitar esta opción en Opciones persistentes para que se quede.</string>
     <string name="feature_custom_ui_sounds">Establecer sonidos de interfaz de usuario personalizados</string>
     <string name="feature_custom_ui_sounds_desc">Android tiene muchos sonidos para diferentes partes de la IU. Muchos de estos se pueden cambiar a tus propios sonidos personalizados. Solo tienes que especificar el archivo para que Android los use.</string>
-    <string name="feature_fix_tethering">Arreglar anclaje</string>
-    <string name="feature_fix_tethering_desc">En algunos dispositivos y versiones de Android, esto puede eludir las restricciones del operador de anclaje.</string>
+    <string name="feature_fix_tethering">Arreglar el tethering</string>
+    <string name="feature_fix_tethering_desc">En algunos dispositivos y versiones de Android, esto puede hacer un bypass sobre las restricciones del operador en el tethering.</string>
     <string name="feature_shortcode_warning">Desactivar Confirmación SMS de Código Corto</string>
     <string name="feature_shortcode_warning_desc">Al enviar SMS a ciertos códigos cortos, el sistema te advierte de que se te puede cobrar una cuota. Puedes desactivar esa advertencia aquí.</string>
     <string name="feature_sms_limit">Límite de SMS personalizado</string>
@@ -100,7 +100,7 @@
     <string name="feature_battery_percent_desc">Muestra el porcentaje de batería actual en el icono de la batería en la barra de estado. Puede requerir root para activar.</string>
     <string name="feature_header_airplane_mode_radios">Exento</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Cambiable</string>
-    <string name="feature_show_touches">Mostrar pulsaciones</string>
+    <string name="feature_show_touches">Mostrar toques</string>
     <string name="feature_show_touches_desc">Cuando está activado, un indicador se mostrará por un momento dondequiera que toque en la pantalla.</string>
     <string name="option_keep_awake_on_ac">En corriente alterna</string>
     <string name="option_keep_awake_on_usb">En corriente USB</string>
@@ -175,15 +175,15 @@
     <string name="option_touchwiz_qs_column_count_desc">En Samsung TouchWiz Nougat y Oreo, es posible personalizar la cuadrícula de diseño QS con ajustes ocultos. Utilice esto para cambiar el recuento de columnas. Por favor, habilite esto como una opción persistente.</string>
     <string name="option_advanced_force_enable_all">Habilitar todas las opciones desactivadas/ocultas</string>
     <string name="option_advanced_force_enable_all_desc">Ciertas opciones en SystemUI Tuner están ocultas o deshabilitadas dependiendo de su dispositivo y de la versión de Android que se esté ejecutando. Activar esto forzará a estas opciones a ser visibles y activadas. ATENCIÓN: Normalmente hay una buena razón por la que estas opciones están desactivadas u ocultas. Simplemente pueden no funcionar, o pueden hacer que su dispositivo no funcione. ¡Proceda con precaución!</string>
-    <string name="option_advanced_manage_qs_tiles">Administrar fichas QS</string>
-    <string name="option_advanced_manage_qs_tiles_desc">Activa o desactiva los azulejos QS de SystemUI Tuner individualmente.</string>
+    <string name="option_advanced_manage_qs_tiles">Administrar íconos de acceso rápido</string>
+    <string name="option_advanced_manage_qs_tiles_desc">Activa o desactiva los íconos de acceso rápido de Configurador de IU del sistema individualmente.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Desactivar Alerta de Brillo Alto</string>
     <string name="option_touchwiz_disable_high_brightness_warning_desc">En algunas regiones, los dispositivos Samsung mostrarán una advertencia cuando intentes superar un cierto nivel de brillo de pantalla. Este ajuste se reinicia normalmente al reiniciar. Habilite esto y establécelo como una opción persistente para desactivar permanentemente esta advertencia.</string>
     <string name="option_qs_editor">Editor de Ajustes Rápidos</string>
-    <string name="option_qs_editor_desc">Mientras que los azulejos QS personalizados sólo están disponibles en Android Nougat (7.0) y más tarde, Marshmallow (6.0) todavía tiene disponible una edición QS limitada. Puede reordenar, eliminar y añadir baldosas QS por defecto, así como Intentos básicos.</string>
-    <string name="option_qs_fancy_anim">Animación elegante de QS</string>
-    <string name="option_qs_fancy_anim_desc">En dispositivos soportados, puede usar esto para desactivar el movimiento de mosaico QS y desvanecer cuando se expande completamente el centro de notificaciones. Si esto no parece tener un efecto en su dispositivo, manténgalo encendido para evitar otros problemas.</string>
-    <string name="option_qs_move_full_rows">QS Mover filas completas</string>
+    <string name="option_qs_editor_desc">Mientras que los íconos de acceso rápido personalizados solo están disponibles en Android Nougat (7.0) y más tarde, Marshmallow (6.0) todavía tiene disponible una edición de acceso rápido limitada. Puede reordenar, eliminar y añadir íconos de acceso rápido por defecto, así como Intentos básicos.</string>
+    <string name="option_qs_fancy_anim">Animación elegante de los íconos</string>
+    <string name="option_qs_fancy_anim_desc">En dispositivos soportados, puede usar esto para desactivar el movimiento de íconos QS y desvanecer cuando se expande completamente el centro de notificaciones. Si esto no parece tener un efecto en su dispositivo, manténgalo encendido para evitar otros problemas.</string>
+    <string name="option_qs_move_full_rows">Mover filas completas de íconos</string>
     <string name="option_qs_move_full_rows_desc">Lo que esto realmente hace no está bien explicado, pero hace algo y podría intentarlo si lo desea. Tiene algo que ver con la caída del centro de notificaciones.</string>
     <string name="option_back_gesture_inset_scale_left">Ancho del borde trasero (izquierda)</string>
     <string name="option_back_gesture_inset_scale_left_desc">Android 11 introduce una opción para ajustar la sensibilidad del gesto de retroceso de la pantalla ajustando la anchura del área de detección. Utilice esta opción para ajustar el ancho del borde izquierdo más finamente, o eliminarlo totalmente.</string>
@@ -192,7 +192,7 @@
     <string name="option_hide_multi_sim_panel">Ocultar Panel Multi-SIM QS</string>
     <string name="option_hide_multi_sim_panel_desc">En los dispositivos Samsung podemos usar esta opción para ocultar la vista multiSIM que aparece en el panel de ajustes rápidos expandido.</string>
     <string name="option_disable_combined_internet">Desactivar opciones de red combinadas</string>
-    <string name="option_disable_combined_internet_desc">En Android 12, Google combinó la configuración de WiFi, Bluetooth, y celular en un menú. Los azulejos de configuración rápida para WiFi y celular también se combinaron en un solo azulejo de Internet. Al activar esta opción, volverá a traer los antiguos menús en Ajustes y le permitirá restaurar los azulejos QS separados. Puede que necesite reiniciar para que esto surta efecto correctamente. Si no ve el WiFi y los azulejos celulares, puede añadirlos usando la función Editor de Ajustes Rápidos en SystemUI Tuner.</string>
+    <string name="option_disable_combined_internet_desc">En Android 12, Google combinó la configuración de WiFi, Bluetooth, y datos en un menú. Los íconos de configuración rápida para WiFi y datos también se combinaron en un solo ícono de Internet. Al activar esta opción, volverá a traer los antiguos menús en Ajustes y le permitirá restaurar los íconos separados. Puede que necesite reiniciar para que esto surta efecto correctamente. Si no ve el WiFi y los íconos de datos, puede añadirlos usando la función Editor de Ajustes Rápidos en Configurador de IU del sistema.</string>
     <string name="option_disable_lock_screen_ads">Desactivar la pantalla de bloqueo</string>
     <string name="option_disable_lock_screen_ads_desc">Si su Kindle tiene anuncios que se muestran en la pantalla de bloqueo, puede utilizar esta opción para desactivarlos. Para hacerlo permanente, debe activar esta opción también en la pantalla de opciones persistentes.</string>
     <string name="option_allow_custom_left_lock_shortcut">Permitir acceso directo a la pantalla de bloqueo izquierdo personalizado</string>
@@ -239,15 +239,15 @@
     <string name="tile_nav_immersive">Nav Inmersivo</string>
     <string name="tile_status_immersive">Estado inmersivo</string>
     <string name="add">Añadir</string>
-    <string name="add_qs_tile">Añadir Tile QS</string>
+    <string name="add_qs_tile">Añadir ícono de acceso rápido</string>
     <string name="intent">Intento</string>
     <string name="view_online">Ver en línea</string>
     <string name="tile_custom">Personalizado</string>
     <string name="next">Siguiente</string>
     <string name="finish">Terminar</string>
-    <string name="previous">Previous</string>
-    <string name="exit">Exit</string>
-    <string name="done">Done</string>
+    <string name="previous">Anterior</string>
+    <string name="exit">Salir</string>
+    <string name="done">Hecho</string>
     <string name="error">Error</string>
     <string name="status_bar_icons">Iconos de la barra de estado</string>
     <string name="network_states">Estados de la red</string>
@@ -298,9 +298,9 @@
     <string name="intro_allow_notifications_desc">Android 13 introduce una nueva restricción en aplicaciones que requieren permiso del usuario para mostrar notificaciones. System UI Tuner puede mostrar una notificación al ejecutar operaciones en segundo plano. Si desea ver esta notificación, por favor permita que Systems UI Tuner muestre notificaciones.</string>
     <string name="intro_last">¡Gracias por usar mi aplicación!</string>
     <string name="intro_last_desc">Sígueme en Mastodon o en Twitter para las últimas actualizaciones.</string>
-    <string name="intro_crash_reports">Enable Crash Reports</string>
-    <string name="intro_crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner. You can change this setting later.</string>
-    <string name="crash_reports_desc">You can choose to enable anonymous crash reports to help keep the app running smoothly. No personal information is collected. To fully disable collection once enabled, you\'ll need to force stop SystemUI Tuner.</string>
+    <string name="intro_crash_reports">Activar Reportes de errores</string>
+    <string name="intro_crash_reports_desc">Puedes elegir activar reportes de errores anónimos para ayudar a mantener la aplicación funcionando sin problemas. No se recopilan datos personales. Para desactivar completamente la recolección una vez activada, necesitarás detener Configurador de IU del sistema. Puedes cambiar esta configuración más tarde.</string>
+    <string name="crash_reports_desc">Puedes elegir activar reportes de errores anónimos para ayudar a mantener la aplicación funcionando sin problemas. No se recopila información personal. Para desactivar por completo la recolección una vez activada, necesitarás forzar la detención de Configurador de IU del sistema.</string>
     <string name="compatibility_message_lower">Lo sentimos, esta característica solo funciona con Android %s y posterior</string>
     <string name="compatibility_message_both">Lo sentimos, esta característica solo funciona desde Android %1$s a Android %2$s</string>
     <string name="compatibility_message_higher">Lo sentimos, esta característica solo funciona a través de Android %s</string>
@@ -315,13 +315,13 @@
     <string name="android_pie">Pie 9.0</string>
     <string name="android_10">10</string>
     <string name="android_11">11</string>
-    <string name="write_system_fail">Failed to write setting!</string>
-    <string name="write_system_fail_desc">Unfortunately, Android has restricted the ability to change this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="write_system_fail">¡Error al escribir la configuración!</string>
+    <string name="write_system_fail_desc">Desafortunadamente, Android ha restringido la capacidad de cambiar esta configuración. Para solucionar esto, necesitarás mi aplicación de add-on o Shizuku. Si ya tienes el add-on instalado, puede que tengas que actualizarlo. Si ya tienes instalado Shizuku, asegúrate de que se esté ejecutando y que Configurador de IU del sistema tenga el acceso permitido.</string>
     <string name="write_system_fail_get_add_on">Obtener Complemento</string>
-    <string name="download_shizuku">Get Shizuku</string>
-    <string name="open_shizuku">Open Shizuku</string>
-    <string name="read_setting_fail">Failed to read setting!</string>
-    <string name="read_setting_fail_desc">Android has restricted the ability to read this setting. To work around it, you\'ll either need my add-on app or Shizuku. If you already have the add-on installed, you may need to update it. If you already have Shizuku installed, make sure it\'s running and SystemUI Tuner has been allowed access.</string>
+    <string name="download_shizuku">Obtener Shizuku</string>
+    <string name="open_shizuku">Abrir Shizuku</string>
+    <string name="read_setting_fail">¡Error al leer la configuración!</string>
+    <string name="read_setting_fail_desc">Android ha restringido la capacidad de leer esta configuración. Para solucionar esto, necesitarás mi aplicación de add-on o Shizuku. Si ya tienes el add-on instalado, puede que tengas que actualizarlo. Si ya tienes instalado Shizuku, asegúrate de que se esté ejecutando y que Configurador de IU del sistema tenga el acceso permitido.</string>
     <string name="donate">Donar</string>
     <string name="donate_desc">Hago esta aplicación en mi tiempo libre. Si te gusta usarla, considera comprarme una taza de café (aunque no bebo café). Por supuesto, esto es una donación, y usted no tiene que hacer nada, no hay características de pago en SystemUI Tuner.</string>
     <string name="paypal">PayPal</string>
@@ -338,8 +338,8 @@
     <string name="edit_custom_item">Editar elemento personalizado</string>
     <string name="remove_item">Eliminar este elemento</string>
     <string name="remove_item_desc">¿Estás seguro de que quieres eliminar este elemento?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
-    <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
+    <string name="custom_persistent_option_summary_template">Tipo de configuración: %1$s, Clave: %2$s, Valor: %3$s</string>
+    <string name="settings_read_template">Tipo de configuración: %1$s, Clave: %2$s</string>
     <string name="tile_battery">Batería</string>
     <string name="tile_clock">Reloj</string>
     <string name="tile_demo">Modo de demostración</string>
@@ -379,16 +379,16 @@
     <string name="setting_applied_dialog_desc">¿Quieres mantener los cambios? Esta opción se revertirá después de %s segundos.</string>
     <string name="keep">Mantener</string>
     <string name="revert">Restaurar</string>
-    <string name="increase" desc="This is in verb form.">Increase</string>
-    <string name="decrease" desc="This is in verb form.">Decrease</string>
-    <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
-    <string name="blocked_reason_write_secure_settings">SystemUI Tuner can\'t function without the Write Secure Settings permission. Tap the \"Help\" button if you\'re having trouble granting it.</string>
-    <string name="blocked_reason_choose_os">Please choose an operating system before continuing.</string>
-    <string name="back_up_all_settings">Back Up All Settings</string>
-    <string name="back_up_all_settings_desc">Attempt to read the current value of every secure setting and back it up to a file.</string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
-    <string name="restore_settings">Restore Settings</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="increase" desc="This is in verb form.">Aumentar</string>
+    <string name="decrease" desc="This is in verb form.">Reducir</string>
+    <string name="blocked_reason_read_terms">Por favor asegúrate de leer los términos antes de continuar.</string>
+    <string name="blocked_reason_write_secure_settings">Configurador de IU del sistema no puede funcionar sin el permiso de Escribir ajustes seguros. Pulsa el botón \"Ayuda\" si tienes problemas para permitirlo.</string>
+    <string name="blocked_reason_choose_os">Por favor elige un sistema operativo antes de continuar.</string>
+    <string name="back_up_all_settings">Copiar todos los ajustes</string>
+    <string name="back_up_all_settings_desc">Intentar leer el valor actual de cada ajuste seguro y copiarlo a un archivo.</string>
+    <string name="back_up_changed_settings">Copiar todos los ajustes cambiado</string>
+    <string name="back_up_changed_settings_desc">Copia todos los ajustes cambiados por SystemUI Tuner a un archivo.</string>
+    <string name="restore_settings">Restaurar ajustes</string>
+    <string name="restore_settings_desc">Lee desde un archivo de copia de seguridad e intenta escribir los valores en el archivo en la configuración segura.</string>
+    <string name="go_back">Volver</string>
 </resources>

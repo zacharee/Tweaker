@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Správce (vypnout)</string>
+    <string name="manager_channel">Manager (Turn Off)</string>
     <string name="tap_to_disable">Klepnutím zakažte toto oznámení</string>
     <string name="home">Domů</string>
     <string name="category_display">Obrazovka</string>
