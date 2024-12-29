@@ -13,7 +13,7 @@ data class SavedOption(
     var value: String?
 ) : Parcelable {
     companion object {
-        val gson: Gson = GsonBuilder().create()
+        val gson: Gson = GsonBuilder().setLenient().create()
 
         fun fromString(input: String): SavedOption {
             return try {

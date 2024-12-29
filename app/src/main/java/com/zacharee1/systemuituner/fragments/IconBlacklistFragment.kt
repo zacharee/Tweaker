@@ -94,17 +94,19 @@ class IconBlacklistFragment : CoroutinePreferenceFragment(), SearchView.OnQueryT
                     }
 
                     launch {
-                        if (info != null) {
-                            requireContext().apply {
-                                prefManager.blacklistedItems = info.items
-                                prefManager.customBlacklistItems = info.customItems
-                                writeSetting(SettingsType.SECURE, "icon_blacklist", (info.items + info.customItems.map { it.key }).joinToString(","))
+                        try {
+                            if (info != null) {
+                                requireContext().apply {
+                                    prefManager.blacklistedItems = info.items
+                                    prefManager.customBlacklistItems = info.customItems
+                                    writeSetting(SettingsType.SECURE, "icon_blacklist", (info.items + info.customItems.map { it.key }).joinToString(","))
+                                }
+                            } else {
+                                requireContext().prefManager.blacklistedItems =
+                                    HashSet(firstLine.split(","))
+                                requireContext().writeSetting(SettingsType.SECURE, "icon_blacklist", firstLine)
                             }
-                        } else {
-                            requireContext().prefManager.blacklistedItems =
-                                HashSet(firstLine.split(","))
-                            requireContext().writeSetting(SettingsType.SECURE, "icon_blacklist", firstLine)
-                        }
+                        } catch (_: NullPointerException) {}
                     }
                 }
             } catch (e: Exception) {

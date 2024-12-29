@@ -41,7 +41,7 @@ Wenn Ihr Benutzername beispielsweise XYZ lautet und Sie die ZIP-Datei auf Ihren 
     <string name="adb_install_adb_linux_other_1">ADB ZIP von hier herunterladen: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Entpacken Sie die ZIP-Datei an einem geeigneten Ort, z. B. in Ihrem Home-Ordner.</string>
     <string name="adb_install_adb_linux_other_3">Terminal öffnen.</string>
-    <string name="adb_install_adb_linux_other_4">Terminal öffnen.</string>
+    <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_general_end_1">Es sollte sich eine Eingabeaufforderung oder ein Terminalfenster öffnen. Geben Sie darin die folgenden Befehle ein und drücken Sie nach jedem Befehl die Eingabetaste. Wenn auf Ihrem Telefon ein Hinweisfenster zum USB-Debugging angezeigt wird, müssen Sie es zulassen.</string>
     <string name="adb_install_adb_general_end_2">Wenn alles geklappt hat, sollte keine Ausgabe der Befehle angezeigt werden. Ist dies der Fall, blättern Sie ganz nach oben zu der Stelle, an der Sie den Befehl eingegeben haben, um die Fehlermeldung zu überprüfen.</string>
     <string name="adb_install_adb_general_end_3">Die Berechtigungen sollten nun erlaubt sein!</string>

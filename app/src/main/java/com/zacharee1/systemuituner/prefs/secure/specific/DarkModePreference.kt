@@ -10,7 +10,7 @@ import com.zacharee1.systemuituner.prefs.secure.SecureSwitchPreference
 import com.zacharee1.systemuituner.data.SettingsType
 
 class DarkModePreference(context: Context, attrs: AttributeSet) : SecureSwitchPreference(context, attrs) {
-    private val uim = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
+    private val uim by lazy { context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager }
 
     init {
         key = Settings.Secure.UI_NIGHT_MODE
