@@ -387,7 +387,7 @@
     <string name="back_up_all_settings">Back Up All Settings</string>
     <string name="back_up_all_settings_desc"></string>
     <string name="back_up_changed_settings">Back Up Changed Settings</string>
-    <string name="back_up_changed_settings_desc">Back up all settings changed by SystemUI Tuner to a file.</string>
+    <string name="back_up_changed_settings_desc"></string>
     <string name="restore_settings">Restore Settings</string>
     <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
     <string name="go_back">Go Back</string>
