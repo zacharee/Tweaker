@@ -389,6 +389,6 @@
     <string name="back_up_changed_settings">Sao lưu cài đặt đã thay đổi</string>
     <string name="back_up_changed_settings_desc">Sao lưu toàn bộ thay đổi bởi SystemUi Tuner vào một file.</string>
     <string name="restore_settings">Khôi phục cài đặt</string>
-    <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
-    <string name="go_back">Go Back</string>
+    <string name="restore_settings_desc">Đọc từ một tệp sao lưu và cố gắng ghi các giá trị trong tệp vào cài đặt bảo mật.</string>
+    <string name="go_back">Quay lại</string>
 </resources>
