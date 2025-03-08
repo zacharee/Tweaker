@@ -3,7 +3,7 @@
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (Disattiva)</string>
     <string name="tap_to_disable">Tocca per disabilitare questa notifica</string>
-    <string name="home">Home</string>
+    <string name="home">Schermata Principale</string>
     <string name="category_display">Schermo</string>
     <string name="category_accessibility">Accessibilità</string>
     <string name="category_apps">Applicazioni</string>
