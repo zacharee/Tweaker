@@ -98,7 +98,7 @@
     <string name="feature_dnd_in_volume_desc">允许您切换“勿扰”音量弹出窗口。</string>
     <string name="feature_battery_percent">在状态栏中显示电池百分比</string>
     <string name="feature_battery_percent_desc">在状态栏上显示当前电池图标中的电池百分比。可能需要root才能激活。</string>
-    <string name="feature_header_airplane_mode_radios">信任</string>
+    <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">可切换的</string>
     <string name="feature_show_touches">显示触摸操作</string>
     <string name="feature_show_touches_desc">如果启用，一个指示器将会显示在屏幕上的位置.</string>
