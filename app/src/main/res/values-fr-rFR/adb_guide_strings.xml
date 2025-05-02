@@ -7,7 +7,7 @@
     <string name="adb_choose_computer_os_desc">Quel système d\'exploitation (OS) votre ordinateur utilise-t-il ?</string>
     <string name="adb_android_guide">Configuration initiale (sur votre téléphone)</string>
     <string name="adb_final_title">Terminé</string>
-    <string name="adb_final_desc">C\'est tout ! Si tout s\'est bien passé, la ou les autorisations devraient maintenant être accordées.</string>
+    <string name="adb_final_desc">C\'est tout ! Si tout s\'est bien passé, la ou les autorisation(s) devraient maintenant être accordées.</string>
     <string name="adb_install_android_1">Ouvrez l\'application Paramètres et descendez jusqu\'à \"A propos du téléphone\". Appuyez dessus.</string>
     <string name="adb_install_android_2">Selon votre appareil, vous pouvez voir un menu appelé \"Informations sur le logiciel\". Si c\'est le cas, appuyez dessus.</string>
     <string name="adb_install_android_3">Maintenant, trouvez l\'option intitulée \"Numéro de build\". Sur certains appareils, cela peut être simplement appelé \"Version\".</string>
