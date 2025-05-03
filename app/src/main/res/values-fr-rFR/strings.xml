@@ -91,7 +91,7 @@
     <string name="feature_enable_wireless_adb">Activer ADB sans fil</string>
     <string name="feature_enable_wireless_adb_desc">ADB sans fil, présenté aux utilisateurs avec Android 11, vous permet d\'associer des ordinateurs et d\'autres périphériques à votre périphérique et d\'utiliser ADB sans câble ou pilote spécial.</string>
     <string name="feature_dark_mode">Activer le Mode Sombre Universel</string>
-    <string name="feature_dark_mode_desc">Android Pie et 10 ont introduit une option de thème sombre universel, mais cette option fait partie d\'Android depuis un moment maintenant. Ce paramètre peut activer le mode sombre dans les apps qui supportent cette fonctionnalité (comme Instagram par exemple). Un redémarrage peut être requis pour que les changements prennent effet.</string>
+    <string name="feature_dark_mode_desc">Android Pie et 10 ont introduit une option de thème sombre universel, mais cette option fait partie de Android depuis un moment maintenant. Ce paramètre peut activer le mode sombre dans les apps qui supportent cette fonctionnalité (comme Instagram par exemple). Un redémarrage peut être requis pour que les changements prennent effet.</string>
     <string name="feature_clock_seconds">Afficher les secondes sur l\'horloge</string>
     <string name="feature_clock_seconds_desc">Affiche les secondes sur l\'horloge de la barre d\'état. Ceci ne marchera pas sur tous les appareils et toutes les configurations, MIUI et One UI entre autres.</string>
     <string name="feature_dnd_in_volume">Interrupteur Ne pas Déranger dans l\'indicateur de volume</string>
