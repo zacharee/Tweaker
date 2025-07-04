@@ -49,15 +49,17 @@
     <string name="feature_lock_timeout">הגדר.י זמן טרום נעילת מסך מותאם אישית</string>
     <string name="feature_lock_timeout_desc">מתחת ל- \"הגדרות נעילה מאובטחת\", את/ה יכול/ה להגדיר טיימר \"נעילה אוטומטית\". טיימר זה קובע כמה זמן לאחר שהמכשיר נכנס למצב שינה יש להציג את מסך הנעילה. באמצעות אפשרות זו, באפשרותך להגדיר איזה ערך (באלפיות השנייה) שאת/ה רוצה. אם תגדיר ערך גבוה מספיק, אז בעצם מסך הנעילה שלך לעולם לא יופיע (בתנאי שהשבתת את \"לחצן ההפעלה נועל באופן מיידי את תכונת המכשיר).</string>
     <string name="feature_battery_saver_trigger">הגדר/י אחוז הפעלה מותאם אישית של חיסכון בצריכת הסוללה</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">תכונת החיסכון בסוללה של Google מאפשרת להיות מופעלת אוטומטית כאשר רמת הסוללה היא 5 או 15. ניתן ליצור את אחוז הסוללה המותאם אישית שלך שבו זה יהיה מופעל.</string>
     <string name="feature_long_press_delay">הגדר השהיית לחיצה ארוכה בהתאמה אישית</string>
-    <string name="feature_long_press_delay_desc">In Accessibility settings, there\'s a feature called \"touch &amp; hold delay\" which allows you to specify how long you have to hold down on the screen for Android to recognize a long-press event. However, the only options by default are \"short\", “medium\", and \"long.\" You can set your own delay.</string>
+    <string name="feature_long_press_delay_desc">בהגדרות הנגישות, קיימת הגדרה הנקראת \"השהייה לחיצה והחזקה\" (\"touch &amp; hold delay\") המאפשרת לך להחליט כמה זמן תצטרכ/י ללחוץ על המסך עד שאנדרואיד יזהה אירוע של לחיצה ארוכה. האפשרויות היחידות כברירת מחדל הן \"קצר\", \"בינוני\" ו\"ארוך\" - ואת/ה\' יכול/ה להגדיר גם זמן השהייה משלך.</string>
     <string name="feature_font_scale">הגדר גודל גופן מותאם אישית</string>
-    <string name="feature_font_scale_desc">Android allows you to set the size of the text shown on your device by specifying a system-wide font scale. This value is typically represented as \"small\", \"normal\", \"large\", \"huge\", and \"extra huge.\" However, you can set your own custom value.</string>
-    <string name="feature_freeform">Enable Freeform Multiwindow</string>
-    <string name="feature_freeform_desc">Whether to enable freeform multiwindow support. Requires reboot. Only works on Android 7.0+ devices.</string>
+    <string name="feature_font_scale_desc">אנדרואיד מאפשרת לך להגדיר את גודל הטקסט המוצג במכשיר שלך על ידי בחירת ערך בסולם. ערך זה מיוצג בדרך כלל כ\"קטן\", \"רגיל\", \"גדול\", \"ענק\" ו\"ענק במיוחד\" ועם זאת, אתה יכול להגדיר ערך מותאם אישית משלך.</string>
+    <string name="feature_freeform">אפשר חלונות מרובים באופן חופשי</string>
+    <string name="feature_freeform_desc">האם להפעיל את התמיכה בריבוי חלונות באופן חופשי? 
+שימ/י לב שזה דורש מהמכשיר לבצע הפעלה מחדש, ושזה עובד רק במכשירי אנדרואיד 7.0 ומעלה.</string>
     <string name="feature_app_install_location">הגדר מיקום ברירת מחדל להתקנת אפליקציה</string>
-    <string name="feature_app_install_location_desc">Default app install location. Choose which storage apps are installed to by default. Normally, apps themselves decide by specifying the value in the AndroidManifest, but you can choose to have them install to the adoptable storage medium if you want.</string>
+    <string name="feature_app_install_location_desc">זהו מיקום ברירת המחדל של התקנת אפליקציות. בחר/י באילו מיקום באחסון האפליקציות שתתקין/י יהיו מותקנות כברירת מחדל.
+בדרך כלל, האפליקציות עצמן מחליטות על ידי ציון הערך ב-\"AndroidManifest\", אבל את/ה יכול/ה לבחור להתקין אותן באמצעי האחסון הניתן לאימוץ, אם תרצה/י.</string>
     <string name="feature_heads_up_notifications">Heads Up Notification Toggle</string>
     <string name="feature_heads_up_notifications_desc">Toggle to globally enable or disable heads up notifications. Heads up notifications are the notifications that pop up at the top of the screen.</string>
     <string name="feature_insufficient_storage_warning">Bypass \"Insufficient Storage Available\" Warning</string>
