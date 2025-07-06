@@ -105,7 +105,7 @@ Belirli simgeleri göstermek veya gizlemek, sinyal güçlerini belirtmek ve birk
     <string name="feature_header_airplane_mode_radios">Muaf</string>
     <string name="feature_header_airplane_mode_toggleable_radios">Değiştirilebilir</string>
     <string name="feature_show_touches">Dokunmaları Göster</string>
-    <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
+    <string name="feature_show_touches_desc"></string>
     <string name="option_keep_awake_on_ac">AC güç</string>
     <string name="option_keep_awake_on_usb">USB Güçte</string>
     <string name="option_keep_awake_on_wireless">Kablosuz Güçte</string>
