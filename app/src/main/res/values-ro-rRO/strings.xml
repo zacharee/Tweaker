@@ -360,25 +360,25 @@
     <string name="supporters_desc">These people help keep this app (and me) going.</string>
     <string name="demo_mode_status_bar_opaque">Opaque</string>
     <string name="demo_mode_status_bar_semi_transparent">Semi-Transparent</string>
-    <string name="demo_mode_status_bar_translucent">Translucent</string>
+    <string name="demo_mode_status_bar_translucent">Translucid</string>
     <string name="demo_mode_data_type_roaming">Roaming</string>
     <string name="demo_mode_data_type_none">None</string>
-    <string name="demo_mode_data_type_disabled">Disabled</string>
+    <string name="demo_mode_data_type_disabled">Dezactivat</string>
     <string name="demo_mode_data_type_not_default_data">Not Default Data</string>
     <string name="demo_mode_activity_type_none">None</string>
     <string name="demo_mode_activity_type_in">In</string>
     <string name="demo_mode_activity_type_out">Out</string>
     <string name="demo_mode_activity_type_inout">In/Out</string>
-    <string name="safe_audio_state_not_configured">Not Configured</string>
-    <string name="safe_audio_state_disabled">Disabled</string>
-    <string name="safe_audio_state_inactive">Inactive</string>
-    <string name="safe_audio_state_active">Active</string>
+    <string name="safe_audio_state_not_configured">Neconfigurat</string>
+    <string name="safe_audio_state_disabled">Dezactivat</string>
+    <string name="safe_audio_state_inactive">Inactiv</string>
+    <string name="safe_audio_state_active">Activ</string>
     <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
     <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
     <string name="setting_applied_dialog">Opțiune aplicată!</string>
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
-    <string name="keep">Keep</string>
-    <string name="revert">Revert</string>
+    <string name="keep">Păstrează</string>
+    <string name="revert">Restabilire</string>
     <string name="increase" desc="This is in verb form.">Increase</string>
     <string name="decrease" desc="This is in verb form.">Decrease</string>
     <string name="blocked_reason_read_terms">Please make sure to read the terms before continuing.</string>
