@@ -126,7 +126,7 @@
     <string name="option_user_rotation_90">Peisaj CCW</string>
     <string name="option_user_rotation_180">Portret inversat</string>
     <string name="option_user_rotation_270">Peisaj CW</string>
-    <string name="option_sms_limit_count">Max Send Count</string>
+    <string name="option_sms_limit_count">Limită maximă de trimitere</string>
     <string name="option_sms_limit_interval">Interval de Timp</string>
     <string name="option_lockscreen_shortcut_left">Scurtătură stânga</string>
     <string name="option_lockscreen_shortcut_right">Scurtătură dreapta</string>
@@ -154,9 +154,9 @@
     <string name="option_ui_sound_disable_charging_desc">Whether to disable the sound that plays when the device begins charging.</string>
     <string name="option_ui_sound_revoke_system_ui_permission">Permisiuni Sistem UI</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Changing these options requires a restart of System UI. You\'ll also need to restart System UI after a device reboot. The easiest way to restart System UI without rebooting is to revoke the \"Phone\" permission. Tap here to manage permissions.</string>
-    <string name="option_advanced_read_setting">Read Custom Setting</string>
+    <string name="option_advanced_read_setting">Citire setare personalizată</string>
     <string name="option_advanced_read_setting_desc">If you know the key to a particular setting, you can use this to see its current value.</string>
-    <string name="option_advanced_write_setting">Write Custom Setting</string>
+    <string name="option_advanced_write_setting">Scriere setare personalizată</string>
     <string name="option_advanced_write_setting_desc">If you have a particular setting you want to change that isn\'t part of SystemUI Tuner, you can set it here.</string>
     <string name="option_qqs_tiles">Quick Settings Header Count</string>
     <string name="option_qqs_tiles_desc">Android Nougat introduced a new quick settings feature, called the Quick Settings Header, that shows the first few quick settings tiles in a single row in the notification shade. Using this option, it\'s possible to increase or decrease the number of tiles shown in that row. This will not work on One UI.</string>
@@ -165,7 +165,7 @@
     <string name="option_touchwiz_navbar_color">Culoare bară de navigare</string>
     <string name="option_touchwiz_navbar_color_desc">On Samsung Experience and One UI it\'s possible to set the navigation bar color to your own custom color. Use this option to do that.</string>
     <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
-    <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
+    <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 a introdus o opțiune pentru amânarea notificărilor. Puteți folosi această setare pentru a seta valori personalizate pentru durata de amânare.</string>
     <string name="option_night_mode">Night Mode</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
     <string name="night_display_temp">Night Display Temperature</string>
@@ -193,14 +193,14 @@
     <string name="option_hide_multi_sim_panel_desc">On Samsung devices, you can use this option to hide the multi-SIM view that appears in the expanded quick settings panel.</string>
     <string name="option_disable_combined_internet">Disable Combined Network Options</string>
     <string name="option_disable_combined_internet_desc">On Android 12, Google combined the settings for WiFi, Bluetooth, and cellular into one menu. The quick settings tiles for WiFi and cellular were also combined into a single Internet tile. Enabling this option will bring back the old menus in Settings and allow you to restore the separate QS tiles. You may need to reboot for this to properly take effect. If you don\'t see the WiFi and cellular tiles, you can add them using the Quick Settings Editor feature in SystemUI Tuner.</string>
-    <string name="option_disable_lock_screen_ads">Disable Lock Screen Ads</string>
+    <string name="option_disable_lock_screen_ads">Dezactivează Reclamele Ecranului de Blocare</string>
     <string name="option_disable_lock_screen_ads_desc">If your Kindle has ads that show on the lock screen, you can use this option to disable them. In order to make it permanent, you should enable this option in the Persistent Options screen as well.</string>
     <string name="option_allow_custom_left_lock_shortcut">Allow Custom Left Lock Screen Shortcut</string>
     <string name="option_allow_custom_left_lock_shortcut_desc">FireOS normally reserves the left lock screen shortcut for the smart device dashboard, even if you change the shortcut. Enable this here and in Persistent Options to be able to use a custom shortcut.</string>
-    <string name="home_welcome_title">Welcome!</string>
+    <string name="home_welcome_title">Bun venit!</string>
     <string name="search">Search</string>
     <string name="immersive_none">None</string>
-    <string name="immersive_full">Full</string>
+    <string name="immersive_full">Complet</string>
     <string name="immersive_status">Status</string>
     <string name="immersive_nav">Nav</string>
     <string name="immersive_blacklist">Blacklist</string>
@@ -248,7 +248,7 @@
     <string name="previous">Previous</string>
     <string name="exit">Exit</string>
     <string name="done">Done</string>
-    <string name="error">Error</string>
+    <string name="error">Eroare</string>
     <string name="status_bar_icons">Status Bar Icons</string>
     <string name="network_states">Network States</string>
     <string name="volume_visibility">Volume Visibility</string>
@@ -282,9 +282,9 @@
     <string name="back_up">Back Up</string>
     <string name="restore">Restore</string>
     <string name="set_color">Set Color</string>
-    <string name="intro_welcome">Welcome!</string>
+    <string name="intro_welcome">Bun venit!</string>
     <string name="intro_welcome_desc">Your Android device probably has a lot of settings to change, but did you know there\'s a lot of settings that are hidden? This app helps you change those hidden settings! You don\'t need root access, but you do have to follow a few steps to set this app up.</string>
-    <string name="intro_terms">Terms of Use</string>
+    <string name="intro_terms">Termeni de utilizare</string>
     <string name="intro_terms_desc">Please read these terms. I promise they\'re worthwhile. For most of you, they\'ll save you an email.</string>
     <string name="intro_disclaimer">Disclaimer</string>
     <string name="intro_disclaimer_desc">SystemUI Tuner can change hidden settings. Unfortunately, since they\'re hidden, there\'s a chance that your particular device won\'t respond to certain changes. On heavily customized versions of Android, such as EMUI, MIUI, and ColorOS, there will be a lot of features that simply don\'t work. Please keep in mind that there\'s simply nothing I can do about this.</string>
@@ -342,7 +342,7 @@
     <string name="settings_read_template">Settings Type: %1$s, Key: %2$s</string>
     <string name="tile_battery">Battery</string>
     <string name="tile_clock">Clock</string>
-    <string name="tile_demo">Demo Mode</string>
+    <string name="tile_demo">Mod Demo</string>
     <string name="tile_heads_up">Heads Up Notifications</string>
     <string name="tile_night_mode">Night Mode</string>
     <string name="icon_blacklist_rotation_lock">Rotation Lock</string>
@@ -375,7 +375,7 @@
     <string name="safe_audio_state_active">Active</string>
     <string name="persistent_options_not_sticking_title">Options not Resetting on Boot?</string>
     <string name="persistent_options_not_sticking_desc">You may need to whitelist SystemUI Tuner from any battery optimizations. Click here to find out how.</string>
-    <string name="setting_applied_dialog">Option Applied!</string>
+    <string name="setting_applied_dialog">Opțiune aplicată!</string>
     <string name="setting_applied_dialog_desc">Do you want to keep changes? This option will be reverted after %s seconds.</string>
     <string name="keep">Keep</string>
     <string name="revert">Revert</string>
