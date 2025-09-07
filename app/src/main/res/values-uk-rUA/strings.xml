@@ -164,8 +164,8 @@
     <string name="option_oneui_clock_position_desc">В інтерфейсі One UI від Samsung (Android Pie або новішої версії) можна змінити положення годинника в рядку стану. Це можна зробити за допомогою кнопки QuickStar у Good Lock, але її можливості іноді обмежені залежно від пристрою. За допомогою цієї кнопки ви можете встановити його ліворуч, посередині або праворуч. Майте на увазі, що на One UI 2,0 (Android 10) вам потрібно встановити QuickStar, щоб ця опція мала ефект. Щоб зробити цю опцію постійною, увімкніть Чорний список піктограм у Постійних параметрах.</string>
     <string name="option_touchwiz_navbar_color">Колір панелі навігації</string>
     <string name="option_touchwiz_navbar_color_desc">На Samsung Experience та One UI можливо встановити колір панелі навігації на ваш власний. Використовуйте цю опцію, щоб зробити це.</string>
-    <string name="option_custom_notification_snooze_times">Custom Notification Snooze Times</string>
-    <string name="option_custom_notification_snooze_times_desc">Android Oreo 8.1 introduced an option to snooze notifications. You can use this setting to set custom values for the snooze times.</string>
+    <string name="option_custom_notification_snooze_times">Налаштування часу відкладення сповіщень</string>
+    <string name="option_custom_notification_snooze_times_desc">В Android Oreo 8.1 з’явилася опція відкладення сповіщень. Ви можете використовувати цей параметр, щоб встановити власні значення часу відкладення.</string>
     <string name="option_night_mode">Темний режим</string>
     <string name="option_night_mode_desc">Android Nougat introduced a native option to tint the display yellow at night, aptly called Night Mode. It was further refined in Nougat 7.1, and renamed to Night Display. You can enable it here and adjust different options. WARNING: On some devices, activating this will cause the screen to go black!</string>
     <string name="night_display_temp">Night Display Temperature</string>
