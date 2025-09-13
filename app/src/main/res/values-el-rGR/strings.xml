@@ -7,8 +7,8 @@
     <string name="category_display">Display</string>
     <string name="category_accessibility">Accessibility</string>
     <string name="category_apps">Apps</string>
-    <string name="category_audio">Audio &amp; Sound</string>
-    <string name="category_developer">Developer</string>
+    <string name="category_audio">Μουσικό &amp; Ραδιόφωνο</string>
+    <string name="category_developer">Προγραμματιστής</string>
     <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">Network</string>
     <string name="category_notifications">Notifications</string>
@@ -103,7 +103,7 @@
     <string name="feature_show_touches">Show Touches</string>
     <string name="feature_show_touches_desc">When enabled, an indicator will show for a moment wherever you tap on the screen.</string>
     <string name="option_keep_awake_on_ac">On AC Power</string>
-    <string name="option_keep_awake_on_usb">On USB Power</string>
+    <string name="option_keep_awake_on_usb">Σε τροφοδοσία USB</string>
     <string name="option_keep_awake_on_wireless">On Wireless Power</string>
     <string name="option_keep_awake_on_dock">On Dock</string>
     <string name="option_animator_duration_scale">Animator Duration Scale</string>
