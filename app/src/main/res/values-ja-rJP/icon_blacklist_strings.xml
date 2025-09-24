@@ -85,7 +85,7 @@
     <string name="icon_blacklist_call_record">通話の録音</string>
     <string name="icon_blacklist_privacy_mode">プライバシーモード</string>
     <string name="icon_blacklist_ble_unlock_mode">BLE ロック解除モード</string>
-    <string name="icon_blacklist_quiet">Quiet</string>
+    <string name="icon_blacklist_quiet">静音</string>
     <string name="icon_blacklist_missed_call">不在着信</string>
     <string name="icon_blacklist_bluetooth_handsfree_battery">Bluetooth バッテリー残量</string>
     <string name="icon_blacklist_rtt">RTT</string>
