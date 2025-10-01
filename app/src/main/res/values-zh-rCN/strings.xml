@@ -21,7 +21,7 @@
     <string name="screen_persistent">永久选项</string>
     <string name="category_interaction">交互</string>
     <string name="more">更多</string>
-    <string name="tweaks">微调</string>
+    <string name="tweaks">调整</string>
     <string name="failure">失败</string>
     <string name="help_translate">帮助翻译本软件</string>
     <string name="sub_cellular">移动网络</string>
@@ -61,7 +61,7 @@
     <string name="feature_heads_up_notifications">浮动通知模式</string>
     <string name="feature_heads_up_notifications_desc">切换全局启用或禁用浮动通知。浮动通知是在屏幕顶部弹出的通知。</string>
     <string name="feature_insufficient_storage_warning">绕过\"存储可用不足\"警告</string>
-    <string name="feature_insufficient_storage_warning_desc">当您的设备的可用存储达到某个阈值时，安卓系统会显示您的设备可用存储量不足的警告。 这可能会妨碍您安装新的应用或更新。您可以手动降低这一阈值以防止显示此警告。</string>
+    <string name="feature_insufficient_storage_warning_desc">当您的设备的可用存储达到某个阈值时，安卓系统会显示您的设备可用存储量不足的警告。 这可能会妨碍您安装新应用或更新。您可以手动降低这一阈值以防止显示此警告。</string>
     <string name="feature_keep_screen_on">充电时保持设备开启</string>
     <string name="feature_keep_screen_on_desc">在 Android 的开发者设置中，您可以打开”在接入电源时保持屏幕开启“的选项。 默认情况下，这将为所有充电方式启用该功能。 您可以指定在哪种充电方式下保持手机屏幕开启。</string>
     <string name="feature_custom_animation_scales">设置自定义动画缩放</string>
@@ -75,7 +75,7 @@
     <string name="feature_camera_gestures">相机手势</string>
     <string name="feature_camera_gestures_desc">启用此选项可允许您的手机通过双击电源按钮或在背面和正面之间翻转手机以快速启动相机。</string>
     <string name="feature_disable_safe_audio_warning">禁用安全音频警告</string>
-    <string name="feature_disable_safe_audio_warning_desc">欧盟条例要求智能手机在超过特定音量(85dB) 时发出警告。每次重启后或持续播放音乐20小时后此警告必须显示一次。使用此设置可以更改警告的行为方式，或完全禁用警告。请确保在”永久选项“中启用此设置使其生效。</string>
+    <string name="feature_disable_safe_audio_warning_desc">欧盟条例要求智能手机在超过特定音量(85分贝) 时发出警告。每次重启后或持续播放音乐20小时后此警告必须显示一次。使用此设置可以更改警告的行为方式，或完全禁用警告。请确保在”永久选项“中启用此设置使其生效。</string>
     <string name="feature_custom_ui_sounds">设置自定义界面声音</string>
     <string name="feature_custom_ui_sounds_desc">Android 为 UI 的不同部分提供了很多声音。 这些声音很多都可以被切换为您自定义的声音。您只需要指定 Android 要使用的文件。</string>
     <string name="feature_fix_tethering">修复热点</string>
@@ -97,7 +97,7 @@
     <string name="feature_dnd_in_volume">音量指示器切换勿扰模式</string>
     <string name="feature_dnd_in_volume_desc">允许您切换“勿扰”音量弹出窗口。</string>
     <string name="feature_battery_percent">在状态栏中显示电池百分比</string>
-    <string name="feature_battery_percent_desc">在状态栏上显示当前电池图标中的电池百分比。可能需要root才能激活。</string>
+    <string name="feature_battery_percent_desc">在状态栏上显示当前电池图标中的电池百分比。可能需要Root才能激活。</string>
     <string name="feature_header_airplane_mode_radios">Exempt</string>
     <string name="feature_header_airplane_mode_toggleable_radios">可切换的</string>
     <string name="feature_show_touches">显示触摸操作</string>
@@ -386,9 +386,9 @@
     <string name="blocked_reason_choose_os">请在继续之前选择一个操作系统。</string>
     <string name="back_up_all_settings">Back Up All Settings</string>
     <string name="back_up_all_settings_desc"></string>
-    <string name="back_up_changed_settings">Back Up Changed Settings</string>
+    <string name="back_up_changed_settings">退出并更改设置</string>
     <string name="back_up_changed_settings_desc"></string>
-    <string name="restore_settings">Restore Settings</string>
+    <string name="restore_settings">还原设置</string>
     <string name="restore_settings_desc">Read from a backup file and attempt to write the values in the file to the secure settings.</string>
     <string name="go_back">返回</string>
 </resources>
