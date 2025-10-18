@@ -152,16 +152,18 @@
     <string name="option_ui_sound_charging_desc">Ton, der wiedergegeben werden soll, wenn das Gerät geladen wird.</string>
     <string name="option_ui_sound_disable_charging">Aufladeton deaktivieren</string>
     <string name="option_ui_sound_disable_charging_desc">Legt fest, ob der Ton, der beim Beginn des Ladevorgangs wiedergegeben wird, deaktiviert werden soll.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">SystemUI-Berechtigungen</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System-UI-Berechtigungen</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Das Ändern dieser Optionen erfordert einen Neustart der Systembenutzeroberfläche. Sie müssen die Systembenutzeroberfläche auch nach einem Neustart des Geräts neu starten. Der einfachste Weg, die Systembenutzeroberfläche ohne Neustart neu zu starten, besteht darin, die Berechtigung „Telefon” zu entziehen. Tippen Sie hier, um die Berechtigungen zu verwalten.</string>
     <string name="option_advanced_read_setting">Benutzerdefinierte Einstellung einlesen</string>
     <string name="option_advanced_read_setting_desc">Wenn Sie den Schlüssel zu einer bestimmten Einstellung kennen, so kann dieser dazu verwendet werden, den aktuellen Wert anzuzeigen.</string>
     <string name="option_advanced_write_setting">Benutzerdefinierte Einstellung schreiben</string>
     <string name="option_advanced_write_setting_desc">Wenn Sie eine bestimmte Einstellung ändern möchten, die kein Bestandteil von SystemUI Tuner ist, können Sie sie hier festlegen.</string>
     <string name="option_qqs_tiles">Anzahl der Schnelleinstellungskacheln</string>
-    <string name="option_qqs_tiles_desc">Mit Android Nougat wurde eine neue Funktion für die Schnelleinstellungen eingeführt, die „Quick Settings Header” genannt wird und die ersten Kacheln der Schnelleinstellungen in einer einzigen Reihe im Benachrichtigungsbereich anzeigt. Mit dieser Option ist es möglich, die Anzahl der in dieser Reihe angezeigten Elemente zu erhöhen oder zu verringern. Dies funktioniert nicht auf One UI.</string>
+    <string name="option_qqs_tiles_desc">Mit Android Nougat wurde eine neue Funktion für die Schnelleinstellungen eingeführt, den „Quick Settings Header\", der die ersten Kacheln der Schnelleinstellungen in einer einzigen Reihe im Benachrichtigungsbereich anzeigt. Mit dieser Option ist es möglich, die Anzahl der in dieser Reihe angezeigten Elemente zu erhöhen oder zu verringern. Diese Funktion funktioniert jedoch nicht auf One UI.</string>
     <string name="option_oneui_clock_position">Position der Uhr</string>
-    <string name="option_oneui_clock_position_desc">Auf Samsungs One UI (Android Pie oder höher) ist es möglich, die Position der Uhr in der Statusleiste zu ändern. Mit dem QuickStar von Good Lock kann dies erreicht werden, aber die Möglichkeiten sind je nach Gerät teilweise eingeschränkt. Sie können damit die Einstellung „Links”, „Mitte” oder „Rechts” festlegen. Beachten Sie, dass auf One UI 2.0 (Android 10) QuickStar installiert sein muss, damit diese Option genutzt werden kann. Um diese Option dauerhaft zu nutzen, aktivieren Sie die Sperrliste für Symbole in den „Dauerhafte Einstellungen”.</string>
+    <string name="option_oneui_clock_position_desc">Auf Samsungs One UI (Android Pie oder höher) ist es möglich, die Position der Uhr in der Statusleiste zu ändern. Mit dem QuickStar von Good Lock kann dies erreicht werden, wobei die Möglichkeiten je nach Gerät teilweise eingeschränkt sind. Sie können damit die Einstellung „, Links\", „Mitte\" oder „Rechts\" festlegen. Beachten Sie, dass auf One UI 2.0 (Android 10) QuickStar installiert sein muss, damit diese Option genutzt werden kann. Um diese Option dauerhaft zu verwenden, aktivieren Sie die Sperrliste für Symbole in den
+
+„Dauerhaften Einstellungen\".</string>
     <string name="option_touchwiz_navbar_color">Farbe der Navigationsleiste</string>
     <string name="option_touchwiz_navbar_color_desc">Bei Samsung Experience und One UI ist es möglich, die Farbe der Navigationsleiste auf eine eigene Farbe festzulegen. Verwenden Sie dazu diese Option.</string>
     <string name="option_custom_notification_snooze_times">Benutzerdefinierte Zurückstellungszeiten für Benachrichtigungen</string>
@@ -212,7 +214,7 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_msg">Es können keine Berechtigungen auf dem Gerät erteilt werden, da weder Root- noch Shizuku-Zugriff erkannt wurde. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff hat. Andernfalls drücken Sie die Schaltfläche „Hilfe” für ADB- und Shizuku-Anweisungen.</string>
+    <string name="no_root_msg">Es können keine Berechtigungen auf dem Gerät erteilt werden, da weder Root- noch Shizuku-Zugriff erkannt wurde. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff hat. Andernfalls drücken Sie die Schaltfläche „Hilfe\" für ADB- und Shizuku-Anweisungen.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
