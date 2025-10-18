@@ -69,7 +69,7 @@
     <string name="feature_custom_rotation">Bildschirmausrichtung auf benutzerdefinierten Wert festlegen</string>
     <string name="feature_custom_rotation_desc">Bei den meisten Handys können Sie die Bildschirmausrichtung nur im Hochformat festlegen. Mit dieser Einstellung können Sie die Bildschirmausrichtung auf eine beliebige Ausrichtung festlegen. Sie müssen zunächst das automatische Drehen deaktivieren, bevor dies funktioniert.</string>
     <string name="feature_immersive_mode">Immersiver Modus</string>
-    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: Ausblenden der Navigationsleiste oder Ausblenden der Statusleiste. Es ist tatsächlich möglich, dies auf einer pro-App-Basis einzustellen, entweder im Ausnahmen- oder Sperrlisten-Modus. Beachten Sie, dass auf Android 11 und höher, diese Option in AOSP fehlerhaft ist und möglicherweise nicht mehr auf Ihrem Gerät funktioniert.</string>
+    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: das Ausblenden der Navigationsleiste oder das Ausblenden der Statusleiste. Es ist tatsächlich möglich, dies auf einer pro-App-Basis einzustellen, entweder im Ausnahmen- oder im Sperrlisten-Modus. Beachten Sie, dass diese Option unter Android 11 und höher in AOSP fehlerhaft ist und möglicherweise auf Ihrem Gerät nicht mehr funktioniert.</string>
     <string name="feature_heads_up_snooze_length">Zurückstell-Dauer der eingeblendeten Benachrichtigungen</string>
     <string name="feature_heads_up_snooze_length_desc">Millisekunden, nachdem eine eingeblendeten Benachrichtigung zurückgestellt wurde, bevor die App erneut unterbrechen kann. (Standard: 60 Sekunden).</string>
     <string name="feature_camera_gestures">Kameragesten</string>
@@ -89,7 +89,7 @@
     <string name="feature_enable_adb">ADB (Android-Debug-Bridge) deaktivieren</string>
     <string name="feature_enable_adb_desc">Bestimmte Geräte deaktivieren die ADB-Funktion (Android-Debug-Bridge) nach einer gewissen Zeit der Inaktivität automatisch. Aktivieren Sie diese Option und legen Sie diese als dauerhafte Option fest, um ADB zwangsweise zu aktivieren.</string>
     <string name="feature_enable_wireless_adb">Aktiviere drahtlose ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Drahtloses Adb (eingeführt für Benutzer in Android 11) ermöglicht Ihnen Computer und andere Geräte mit Ihrem Gerät zu koppeln und ADB ohne Kabel oder spezielle Treiber zu verwenden.</string>
+    <string name="feature_enable_wireless_adb_desc">Drahtloses ADB (eingeführt für Benutzer in Android 11) ermöglicht es Ihnen, Computer und andere Geräte mit Ihrem Gerät zu koppeln und ADB ohne Kabel oder spezielle Treiber zu verwenden.</string>
     <string name="feature_dark_mode">Dunkel-Modus systemweit aktivieren</string>
     <string name="feature_dark_mode_desc">Android Pie und 10 haben eine übergreifende Option für den dunklen Modus eingeführt, aber diese Option ist schon seit einer Weile Teil von Android. Diese Option kann den dunklen Modus in Apps aktivieren, die diese Funktion unterstützen (z. B. Instagram). Ein Neustart kann erforderlich sein, damit die Änderungen wirksam werden.</string>
     <string name="feature_clock_seconds">Sekunden anzeigen</string>
@@ -105,7 +105,7 @@
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>
-    <string name="option_keep_awake_on_dock"></string>
+    <string name="option_keep_awake_on_dock">Android lässt diese Option standardmäßig oft ausgeschaltet, um Energie zu sparen und zu verhindern, dass der Bildschirm unnötig eingeschaltet bleibt, wenn das Gerät im Dock liegt</string>
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
