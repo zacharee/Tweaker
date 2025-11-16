@@ -72,7 +72,7 @@ category_icon_blacklist_lg</string>
     <string name="icon_blacklist_wifi_oxygen">WiFi Oksijen</string>
     <string name="icon_blacklist_phone_signal_second_stub">Telefon Sinyali İkinci Saptama</string>
     <string name="icon_blacklist_toddler">Bebek</string>
-    <string name="icon_blacklist_keyguard_wakeup">Keyguard Wakeup</string>
+    <string name="icon_blacklist_keyguard_wakeup"></string>
     <string name="icon_blacklist_safezone">GüvenliAlan</string>
     <string name="icon_blacklist_wimax">WiMax</string>
     <string name="icon_blacklist_smart_bonding">Akıllı Yapışma</string>
