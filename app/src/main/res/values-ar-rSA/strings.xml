@@ -9,7 +9,7 @@
     <string name="category_apps">التطبيقات</string>
     <string name="category_audio">ردود الفعل الصوتية و الأصوات</string>
     <string name="category_developer">المطور</string>
-    <string name="category_easter_eggs">بيض عيد الفصح</string>
+    <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">الشبكة</string>
     <string name="category_notifications">الإشعارات</string>
     <string name="category_status_bar">شريط الحالة</string>
@@ -23,7 +23,7 @@
     <string name="more">المزيد</string>
     <string name="tweaks">التعديلات</string>
     <string name="failure">فشل</string>
-    <string name="help_translate">ساعد في الترجمة</string>
+    <string name="help_translate">مساعدة ترجمة</string>
     <string name="sub_cellular">الخلوية</string>
     <string name="sub_wifi">الشبكة اللاسلكية WiFi</string>
     <string name="sub_miscellaneous">إعدادات إضافية</string>
