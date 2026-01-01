@@ -118,7 +118,7 @@
     <string name="option_airplane_mode_radio_bluetooth">Bluetooth</string>
     <string name="option_airplane_mode_radio_wifi">Wi-Fi</string>
     <string name="option_airplane_mode_radio_nfc">NFC</string>
-    <string name="option_airplane_mode_radio_wimax">WiMax</string>
+    <string name="option_airplane_mode_radio_wimax">Cima</string>
     <string name="option_app_install_location_auto">Automático</string>
     <string name="option_app_install_location_internal">Almacenamiento interno</string>
     <string name="option_app_install_location_sd">Tarjeta SD</string>
