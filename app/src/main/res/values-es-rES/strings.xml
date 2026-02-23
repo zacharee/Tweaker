@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sintonizador SystemUI</string>
+    <string name="app_name"></string>
     <string name="manager_channel">Manager (Turn on)</string>
     <string name="tap_to_disable">Toque para desactivar esta notificación</string>
     <string name="home">Inicio</string>
