@@ -3,7 +3,7 @@
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Gerenciador (Desativar)</string>
     <string name="tap_to_disable">Toque para desativar esta notificação</string>
-    <string name="home">Início</string>
+    <string name="home">Página Inicial</string>
     <string name="category_display">Exibição</string>
     <string name="category_accessibility">Acessibilidade</string>
     <string name="category_apps">Aplicativos</string>
