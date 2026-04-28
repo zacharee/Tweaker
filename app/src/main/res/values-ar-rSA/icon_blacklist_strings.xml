@@ -61,7 +61,7 @@
     <string name="icon_blacklist_gesture">الإيماءة</string>
     <string name="icon_blacklist_smart_scroll">تمرير ذكي</string>
     <string name="icon_blacklist_face">الوجه</string>
-    <string name="icon_blacklist_gps">نظام GPS</string>
+    <string name="icon_blacklist_gps">GPS</string>
     <string name="icon_blacklist_lbs">LBS</string>
     <string name="icon_blacklist_wearable_gear">مُعَدَّات قابلة للبس</string>
     <string name="icon_blacklist_femtoicon">Femtocell</string>
