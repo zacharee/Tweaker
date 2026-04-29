@@ -103,7 +103,7 @@
     <string name="feature_show_touches">Pokaż dotknięcia</string>
     <string name="feature_show_touches_desc">Gdy włączone, wskaźnik wyświetli każdorazowe Twoje dotknięcie ekranu.</string>
     <string name="option_keep_awake_on_ac">Podłączony do zasilacza</string>
-    <string name="option_keep_awake_on_usb">Podłączony do zasilacza</string>
+    <string name="option_keep_awake_on_usb">Podłączony przez USB</string>
     <string name="option_keep_awake_on_wireless">Przy zasilaniu bezprzewodowym</string>
     <string name="option_keep_awake_on_dock">Na doku</string>
     <string name="option_animator_duration_scale">Skala czasu trwania animacji</string>
