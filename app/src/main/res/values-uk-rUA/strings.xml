@@ -22,7 +22,7 @@
     <string name="category_interaction">Взаємодія</string>
     <string name="more">Більше</string>
     <string name="tweaks">Налаштування</string>
-    <string name="failure">Помилка</string>
+    <string name="failure">Неуспіх</string>
     <string name="help_translate">Допомога з перекладом</string>
     <string name="sub_cellular">Мобільні дані</string>
     <string name="sub_wifi">Wi-Fi</string>
@@ -37,11 +37,11 @@
     <string name="sub_security">Безпека</string>
     <string name="sub_storage">Пам\'ять</string>
     <string name="sub_power">Заряд</string>
-    <string name="add_to_blacklist">Додати в чорний список</string>
+    <string name="add_to_blacklist">Додати іконку до чорного списку</string>
     <string name="remove_from_blacklist">Забрати з чорного списку</string>
     <string name="flashlight">Ліхтар</string>
-    <string name="sub_demo">Демо-режим</string>
-    <string name="sub_demo_desc">Демо-режим дозволяє примусити рядок стану вашого пристрою в різні стани. Ви можете використовувати їх, щоб показати або приховати певні іконки, задайте сильні сторони сигналу та деякі інші речі.</string>
+    <string name="sub_demo">Демо Режим</string>
+    <string name="sub_demo_desc">Демо Режим дозволяє примусити рядок стану вашого пристрою в різні стани. Ви можете використовувати їх, щоб показати або приховати певні іконки, задайте сильні сторони сигналу та деякі інші речі.</string>
     <string name="special_sub_airplane_mode">Налаштування режиму польоту</string>
     <string name="special_sub_airplane_mode_desc">Режим \"У літаку\" автоматично вимикає всі радіоприймачі на вашому пристрої, коли він включений. Ви можете вказати, які радіоприймачі повинні бути вимкнені (наприклад, при увімкненні режиму польоту). Також ви можете змінити значення параметра \"радіос\" вручну, коли пристрій входить в режим \"У літаку\".</string>
     <string name="special_sub_icon_blacklist">Чорний список</string>
