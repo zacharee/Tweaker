@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (Turn Off)</string>
 
@@ -117,6 +117,10 @@
 
     <string name="feature_enable_wireless_adb">Enable Wireless ADB</string>
     <string name="feature_enable_wireless_adb_desc">Wireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb_searching_port" tools:ignore="MissingTranslation">Searching for active Wireless ADB port…</string>
+    <string name="feature_enable_wireless_adb_desc_with_port" tools:ignore="MissingTranslation">Wireless ADB is active. Current port: %1$d\n\nWireless ADB, introduced to users in Android 11, allows you to pair computers and other devices with your device and use ADB without a cable or special drivers.</string>
+    <string name="feature_enable_wireless_adb_port_not_found" tools:ignore="MissingTranslation">Couldn\'t find the active Wireless ADB port. Make sure Wireless ADB is enabled.</string>
+    <string name="feature_enable_wireless_adb_title_with_port" tools:ignore="MissingTranslation">%1$s (port: %2$d)</string>
 
     <string name="feature_dark_mode">Enable Global Dark Mode</string>
     <string name="feature_dark_mode_desc">Android Pie and 10 introduced a global dark mode option, but this option has been part of Android for a while now. This option can enable dark mode in apps that support this feature (such as Instagram). A reboot may be required for changes to take effect.</string>

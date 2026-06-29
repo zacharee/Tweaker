@@ -90,6 +90,10 @@
     <string name="feature_enable_adb_desc">Некоторые устройства автоматически отключают ADB после периода бездействия. Включите эту опцию и установите её в качестве постоянной настройки для принудительного включения ADB.</string>
     <string name="feature_enable_wireless_adb">Включить беспроводной ADB</string>
     <string name="feature_enable_wireless_adb_desc">Беспроводной ADB, представленный пользователям в Android 11, позволяет соединить компьютеры и другие устройства с вашим устройством и использовать ADB без кабеля или специальных драйверов.</string>
+    <string name="feature_enable_wireless_adb_searching_port">Поиск активного порта беспроводного ADB…</string>
+    <string name="feature_enable_wireless_adb_desc_with_port">Беспроводной ADB активен. Текущий порт: %1$d\n\nБеспроводной ADB, представленный пользователям в Android 11, позволяет соединить компьютеры и другие устройства с вашим устройством и использовать ADB без кабеля или специальных драйверов.</string>
+    <string name="feature_enable_wireless_adb_port_not_found">Не удалось найти активный порт беспроводного ADB. Убедитесь, что беспроводной ADB включён.</string>
+    <string name="feature_enable_wireless_adb_title_with_port">%1$s (порт: %2$d)</string>
     <string name="feature_dark_mode">Включить Глобальный тёмный режим</string>
     <string name="feature_dark_mode_desc">В Android версий Pie и 10 присутствует функция глобального тёмного режима, но она уже была частью Android до этого. Эта опция может включить тёмный режим в приложениях, поддерживающих эту функцию (например, Instagram). Может потребоваться перезагрузка для вступления изменений.</string>
     <string name="feature_clock_seconds">Показывать секунды на часах</string>
