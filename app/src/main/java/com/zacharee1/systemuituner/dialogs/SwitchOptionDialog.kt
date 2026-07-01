@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.CompoundButton
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.zacharee1.systemuituner.R
+import com.zacharee1.systemuituner.prefs.secure.specific.AdbWifiPreference
 import kotlinx.coroutines.launch
 
 class SwitchOptionDialog : BaseOptionDialog() {
@@ -38,6 +39,25 @@ class SwitchOptionDialog : BaseOptionDialog() {
             text = preference.title
             isChecked = shouldBeChecked
 
+            val adbWifiPref = preference as? AdbWifiPreference
+            if (adbWifiPref != null) {
+                fun updateText(port: Int?) {
+                    text = if (port != null) {
+                        context.getString(
+                            R.string.feature_enable_wireless_adb_title_with_port,
+                            preference.title,
+                            port
+                        )
+                    } else {
+                        preference.title
+                    }
+                }
+                updateText(adbWifiPref.discoveredPort)
+                adbWifiPref.onPortDiscoveredListener = { port ->
+                    post { updateText(port) }
+                }
+            }
+
             setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
                 override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
                     val thisRef = this
@@ -53,5 +73,10 @@ class SwitchOptionDialog : BaseOptionDialog() {
                 }
             })
         }
+    }
+
+    override fun onDestroyView() {
+        (preference as? AdbWifiPreference)?.onPortDiscoveredListener = null
+        super.onDestroyView()
     }
 }
