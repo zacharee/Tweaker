@@ -78,8 +78,8 @@
     <string name="feature_disable_safe_audio_warning_desc">Los reglamentos de la UE exigen que los teléfonos inteligentes adviertan cuando superen ciertos niveles de volumen (85dB). Esta advertencia debe mostrarse una vez cada reinicio o después de 20 horas de reproducción continua de música. Utilice esta opción para cambiar cómo se comporta esa advertencia, o desactivarla por completo. Asegúrese de habilitar esta opción en Opciones persistentes para que se quede.</string>
     <string name="feature_custom_ui_sounds">Establecer sonidos de interfaz de usuario personalizados</string>
     <string name="feature_custom_ui_sounds_desc">Android tiene muchos sonidos para diferentes partes de la IU. Muchos de estos se pueden cambiar a tus propios sonidos personalizados. Solo tienes que especificar el archivo para que Android los use.</string>
-    <string name="feature_fix_tethering">Arreglar el tethering</string>
-    <string name="feature_fix_tethering_desc">En algunos dispositivos y versiones de Android, esto puede hacer un bypass sobre las restricciones del operador en el tethering.</string>
+    <string name="feature_fix_tethering">Fix Tethering</string>
+    <string name="feature_fix_tethering_desc">On some devices and Android versions, this may bypass carrier restrictions on tethering.</string>
     <string name="feature_shortcode_warning">Desactivar Confirmación SMS de Código Corto</string>
     <string name="feature_shortcode_warning_desc">Al enviar SMS a ciertos códigos cortos, el sistema te advierte de que se te puede cobrar una cuota. Puedes desactivar esa advertencia aquí.</string>
     <string name="feature_sms_limit">Límite de SMS personalizado</string>
