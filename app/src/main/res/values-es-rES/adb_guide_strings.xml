@@ -48,7 +48,7 @@
     <string name="adb_mac">macOS</string>
     <string name="adb_linux_fedora">Fedora/SUSE</string>
     <string name="adb_linux_debian">Debian/Ubuntu</string>
-    <string name="adb_linux_rhel">RHEL/CentOS</string>
+    <string name="adb_linux_rhel">Conéctese a mi dispositivo abriendo https://start.teamvie</string>
     <string name="adb_linux_other">Linux (Otro)</string>
-    <string name="adb_local">Android (Este Dispositivo)</string>
+    <string name="adb_local">Android</string>
 </resources>
