@@ -172,7 +172,8 @@
     <string name="option_night_mode_desc">Mit Android Nougat wurde eine native Option eingeführt, mit der das Display nachts gelb eingefärbt werden kann, treffend Nachtmodus genannt. Sie wurde in Nougat 7.1 weiter verfeinert und in Night Display umbenannt. Sie können sie hier aktivieren und verschiedene Optionen einstellen. Warnhinweis: Bei einigen Geräten führt die Aktivierung dieser Funktion dazu, dass der Bildschirm schwarz wird!</string>
     <string name="night_display_temp">Nachtmodus Farbtemperatur</string>
     <string name="option_touchwiz_qs_row_count">Anzahl Zeilen der Schnelleinstellungskacheln</string>
-    <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
+    <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.
+</string>
     <string name="option_touchwiz_qs_column_count">Anzahl Spalten der Schnelleinstellungskacheln</string>
     <string name="option_touchwiz_qs_column_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Spaltenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
     <string name="option_advanced_force_enable_all">Alle deaktivierten/ausgeblendeten Optionen aktivieren</string>
