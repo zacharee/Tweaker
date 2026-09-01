@@ -2,9 +2,9 @@
 <resources>
     <string name="app_name">SystemUI Tuner</string>
     <string name="manager_channel">Manager (Turn Off)</string>
-    <string name="tap_to_disable">Tap to disable this notification</string>
+    <string name="tap_to_disable"></string>
     <string name="home">Home</string>
-    <string name="category_display">Display</string>
+    <string name="category_display"></string>
     <string name="category_accessibility">Accessibility</string>
     <string name="category_apps">Apps</string>
     <string name="category_audio">Audio &amp; Sound</string>

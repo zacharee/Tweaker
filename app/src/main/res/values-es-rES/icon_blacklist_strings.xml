@@ -63,10 +63,10 @@
     <string name="icon_blacklist_face">Rostro</string>
     <string name="icon_blacklist_gps">GPS</string>
     <string name="icon_blacklist_lbs">LBS</string>
-    <string name="icon_blacklist_wearable_gear">Equipo Wearable</string>
-    <string name="icon_blacklist_femtoicon">Femtocell</string>
+    <string name="icon_blacklist_wearable_gear">Equipo portátil</string>
+    <string name="icon_blacklist_femtoicon">Femtocelda Femtocelda</string>
     <string name="icon_blacklist_comsamsungrcs">Samsung RCS</string>
-    <string name="icon_blacklist_wifi_p2p">WiFi P2P</string>
+    <string name="icon_blacklist_wifi_p2p">Wi-Fi P2P</string>
     <string name="icon_blacklist_wifi_ap">WiFi AP</string>
     <string name="icon_blacklist_wifi_oxygen">WiFi Oxygen</string>
     <string name="icon_blacklist_phone_signal_second_stub">Señal de Segundo Stub</string>

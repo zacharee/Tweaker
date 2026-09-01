@@ -69,7 +69,7 @@
     <string name="feature_custom_rotation">Bildschirmausrichtung auf benutzerdefinierten Wert festlegen</string>
     <string name="feature_custom_rotation_desc">Bei den meisten Handys können Sie die Bildschirmausrichtung nur im Hochformat festlegen. Mit dieser Einstellung können Sie die Bildschirmausrichtung auf eine beliebige Ausrichtung festlegen. Sie müssen zunächst das automatische Drehen deaktivieren, bevor dies funktioniert.</string>
     <string name="feature_immersive_mode">Immersiver Modus</string>
-    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: Ausblenden der Navigationsleiste oder Ausblenden der Statusleiste. Es ist tatsächlich möglich, dies auf einer pro-App-Basis einzustellen, entweder im Ausnahmen- oder Sperrlisten-Modus. Beachten Sie, dass auf Android 11 und höher, diese Option in AOSP fehlerhaft ist und möglicherweise nicht mehr auf Ihrem Gerät funktioniert.</string>
+    <string name="feature_immersive_mode_desc">Die meisten anderen Anwendungen, bei denen Sie den immersiven Modus umschalten können, bieten nur wenige Optionen: das Ausblenden der Navigationsleiste oder das Ausblenden der Statusleiste. Es ist tatsächlich möglich, dies auf einer pro-App-Basis einzustellen, entweder im Ausnahmen- oder im Sperrlisten-Modus. Beachten Sie, dass diese Option unter Android 11 und höher in AOSP fehlerhaft ist und möglicherweise auf Ihrem Gerät nicht mehr funktioniert.</string>
     <string name="feature_heads_up_snooze_length">Zurückstell-Dauer der eingeblendeten Benachrichtigungen</string>
     <string name="feature_heads_up_snooze_length_desc">Millisekunden, nachdem eine eingeblendeten Benachrichtigung zurückgestellt wurde, bevor die App erneut unterbrechen kann. (Standard: 60 Sekunden).</string>
     <string name="feature_camera_gestures">Kameragesten</string>
@@ -89,7 +89,7 @@
     <string name="feature_enable_adb">ADB (Android-Debug-Bridge) deaktivieren</string>
     <string name="feature_enable_adb_desc">Bestimmte Geräte deaktivieren die ADB-Funktion (Android-Debug-Bridge) nach einer gewissen Zeit der Inaktivität automatisch. Aktivieren Sie diese Option und legen Sie diese als dauerhafte Option fest, um ADB zwangsweise zu aktivieren.</string>
     <string name="feature_enable_wireless_adb">Aktiviere drahtlose ADB</string>
-    <string name="feature_enable_wireless_adb_desc">Drahtloses Adb (eingeführt für Benutzer in Android 11) ermöglicht Ihnen Computer und andere Geräte mit Ihrem Gerät zu koppeln und ADB ohne Kabel oder spezielle Treiber zu verwenden.</string>
+    <string name="feature_enable_wireless_adb_desc">Drahtloses ADB (eingeführt für Benutzer in Android 11) ermöglicht es Ihnen, Computer und andere Geräte mit Ihrem Gerät zu koppeln und ADB ohne Kabel oder spezielle Treiber zu verwenden.</string>
     <string name="feature_dark_mode">Dunkel-Modus systemweit aktivieren</string>
     <string name="feature_dark_mode_desc">Android Pie und 10 haben eine übergreifende Option für den dunklen Modus eingeführt, aber diese Option ist schon seit einer Weile Teil von Android. Diese Option kann den dunklen Modus in Apps aktivieren, die diese Funktion unterstützen (z. B. Instagram). Ein Neustart kann erforderlich sein, damit die Änderungen wirksam werden.</string>
     <string name="feature_clock_seconds">Sekunden anzeigen</string>
@@ -105,7 +105,7 @@
     <string name="option_keep_awake_on_ac">Mit Netzspannung</string>
     <string name="option_keep_awake_on_usb">Mit USB-Stromversorgung</string>
     <string name="option_keep_awake_on_wireless">Mit drahtlose Stromversorgung</string>
-    <string name="option_keep_awake_on_dock">On Dock</string>
+    <string name="option_keep_awake_on_dock">Android lässt diese Option standardmäßig oft ausgeschaltet, um Energie zu sparen und zu verhindern, dass der Bildschirm unnötig eingeschaltet bleibt, wenn das Gerät im Dock liegt</string>
     <string name="option_animator_duration_scale">Dauer der Skalen-Animation</string>
     <string name="option_window_animation_scale">Dauer der Fensteranimation</string>
     <string name="option_transition_animation_scale">Dauer der Übergangsanimation</string>
@@ -152,25 +152,28 @@
     <string name="option_ui_sound_charging_desc">Ton, der wiedergegeben werden soll, wenn das Gerät geladen wird.</string>
     <string name="option_ui_sound_disable_charging">Aufladeton deaktivieren</string>
     <string name="option_ui_sound_disable_charging_desc">Legt fest, ob der Ton, der beim Beginn des Ladevorgangs wiedergegeben wird, deaktiviert werden soll.</string>
-    <string name="option_ui_sound_revoke_system_ui_permission">SystemUI-Berechtigungen</string>
+    <string name="option_ui_sound_revoke_system_ui_permission">System-UI-Berechtigungen</string>
     <string name="option_ui_sound_revoke_system_ui_permission_desc">Das Ändern dieser Optionen erfordert einen Neustart der Systembenutzeroberfläche. Sie müssen die Systembenutzeroberfläche auch nach einem Neustart des Geräts neu starten. Der einfachste Weg, die Systembenutzeroberfläche ohne Neustart neu zu starten, besteht darin, die Berechtigung „Telefon” zu entziehen. Tippen Sie hier, um die Berechtigungen zu verwalten.</string>
     <string name="option_advanced_read_setting">Benutzerdefinierte Einstellung einlesen</string>
     <string name="option_advanced_read_setting_desc">Wenn Sie den Schlüssel zu einer bestimmten Einstellung kennen, so kann dieser dazu verwendet werden, den aktuellen Wert anzuzeigen.</string>
     <string name="option_advanced_write_setting">Benutzerdefinierte Einstellung schreiben</string>
     <string name="option_advanced_write_setting_desc">Wenn Sie eine bestimmte Einstellung ändern möchten, die kein Bestandteil von SystemUI Tuner ist, können Sie sie hier festlegen.</string>
     <string name="option_qqs_tiles">Anzahl der Schnelleinstellungskacheln</string>
-    <string name="option_qqs_tiles_desc">Mit Android Nougat wurde eine neue Funktion für die Schnelleinstellungen eingeführt, die „Quick Settings Header” genannt wird und die ersten Kacheln der Schnelleinstellungen in einer einzigen Reihe im Benachrichtigungsbereich anzeigt. Mit dieser Option ist es möglich, die Anzahl der in dieser Reihe angezeigten Elemente zu erhöhen oder zu verringern. Dies funktioniert nicht auf One UI.</string>
+    <string name="option_qqs_tiles_desc">Mit Android Nougat wurde eine neue Funktion für die Schnelleinstellungen eingeführt, den „Quick Settings Header\", der die ersten Kacheln der Schnelleinstellungen in einer einzigen Reihe im Benachrichtigungsbereich anzeigt. Mit dieser Option ist es möglich, die Anzahl der in dieser Reihe angezeigten Elemente zu erhöhen oder zu verringern. Diese Funktion funktioniert jedoch nicht auf One UI.</string>
     <string name="option_oneui_clock_position">Position der Uhr</string>
-    <string name="option_oneui_clock_position_desc">Auf Samsungs One UI (Android Pie oder höher) ist es möglich, die Position der Uhr in der Statusleiste zu ändern. Mit dem QuickStar von Good Lock kann dies erreicht werden, aber die Möglichkeiten sind je nach Gerät teilweise eingeschränkt. Sie können damit die Einstellung „Links”, „Mitte” oder „Rechts” festlegen. Beachten Sie, dass auf One UI 2.0 (Android 10) QuickStar installiert sein muss, damit diese Option genutzt werden kann. Um diese Option dauerhaft zu nutzen, aktivieren Sie die Sperrliste für Symbole in den „Dauerhafte Einstellungen”.</string>
+    <string name="option_oneui_clock_position_desc">Auf Samsungs One UI (Android Pie oder höher) ist es möglich, die Position der Uhr in der Statusleiste zu ändern. Mit dem QuickStar von Good Lock kann dies erreicht werden, wobei die Möglichkeiten je nach Gerät teilweise eingeschränkt sind. Sie können damit die Einstellung „, Links\", „Mitte\" oder „Rechts\" festlegen. Beachten Sie, dass auf One UI 2.0 (Android 10) QuickStar installiert sein muss, damit diese Option genutzt werden kann. Um diese Option dauerhaft zu verwenden, aktivieren Sie die Sperrliste für Symbole in den
+
+„Dauerhaften Einstellungen\".</string>
     <string name="option_touchwiz_navbar_color">Farbe der Navigationsleiste</string>
     <string name="option_touchwiz_navbar_color_desc">Bei Samsung Experience und One UI ist es möglich, die Farbe der Navigationsleiste auf eine eigene Farbe festzulegen. Verwenden Sie dazu diese Option.</string>
     <string name="option_custom_notification_snooze_times">Benutzerdefinierte Zurückstellungszeiten für Benachrichtigungen</string>
     <string name="option_custom_notification_snooze_times_desc">Mit Android Oreo 8.1 wurde eine Option zum Zurückstellen von Benachrichtigungen eingeführt. Sie können diese Einstellung verwenden, um benutzerdefinierte Werte für die Zurückstellenzeiten festzulegen.</string>
     <string name="option_night_mode">Nachtmodus</string>
     <string name="option_night_mode_desc">Mit Android Nougat wurde eine native Option eingeführt, mit der das Display nachts gelb eingefärbt werden kann, treffend Nachtmodus genannt. Sie wurde in Nougat 7.1 weiter verfeinert und in Night Display umbenannt. Sie können sie hier aktivieren und verschiedene Optionen einstellen. Warnhinweis: Bei einigen Geräten führt die Aktivierung dieser Funktion dazu, dass der Bildschirm schwarz wird!</string>
-    <string name="night_display_temp">Night Display Temperature</string>
+    <string name="night_display_temp">Nachtmodus Farbtemperatur</string>
     <string name="option_touchwiz_qs_row_count">Anzahl Zeilen der Schnelleinstellungskacheln</string>
-    <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
+    <string name="option_touchwiz_qs_row_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Zeilenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.
+</string>
     <string name="option_touchwiz_qs_column_count">Anzahl Spalten der Schnelleinstellungskacheln</string>
     <string name="option_touchwiz_qs_column_count_desc">Bei Samsung TouchWiz Nougat und Oreo ist es möglich, das Schnelleinstellungen-Layout-Raster mit ausgeblendeten Einstellungen anzupassen. Verwenden Sie dies, um die Spaltenanzahl zu ändern. Bitte aktivieren Sie dies als eine dauerhafte Option.</string>
     <string name="option_advanced_force_enable_all">Alle deaktivierten/ausgeblendeten Optionen aktivieren</string>
@@ -212,7 +215,7 @@
     <string name="reset">Reset</string>
     <string name="grant">Erlauben</string>
     <string name="help">Hilfe</string>
-    <string name="no_root_msg">Es können keine Berechtigungen auf dem Gerät erteilt werden, da weder Root- noch Shizuku-Zugriff erkannt wurde. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff hat. Andernfalls drücken Sie die Schaltfläche „Hilfe” für ADB- und Shizuku-Anweisungen.</string>
+    <string name="no_root_msg">Es können keine Berechtigungen auf dem Gerät erteilt werden, da weder Root- noch Shizuku-Zugriff erkannt wurde. Wenn Ihr Gerät gerootet ist, stellen Sie sicher, dass SystemUI Tuner Root-Zugriff hat. Andernfalls drücken Sie die Schaltfläche „Hilfe\" für ADB- und Shizuku-Anweisungen.</string>
     <string name="wss_required_msg">WRITE_SECURE_SETTINGS wurde nicht erteilt.</string>
     <string name="mode">Modus</string>
     <string name="key">Schlüssel</string>
@@ -338,7 +341,7 @@
     <string name="edit_custom_item">Benutzerdefiniertes Element bearbeiten</string>
     <string name="remove_item">Diesen Element entfernen</string>
     <string name="remove_item_desc">Möchtest du dieses Element wirklich entfernen?</string>
-    <string name="custom_persistent_option_summary_template">Settings Type: %1$s, Key: %2$s, Value: %3$s</string>
+    <string name="custom_persistent_option_summary_template">Einstellungsart: %1$s, Schlüssel: %2$s, Wert: %3$s</string>
     <string name="settings_read_template">Einstellungen Typ: %1$s, Schlüssel: %2$s</string>
     <string name="tile_battery">Akku</string>
     <string name="tile_clock">Uhr</string>

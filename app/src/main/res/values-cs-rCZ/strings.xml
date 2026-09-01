@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SystemUI Tuner</string>
-    <string name="manager_channel">Správce (vypnout)</string>
+    <string name="app_name">SystemUI Tunerr</string>
+    <string name="manager_channel">Manager (Turn Off)</string>
     <string name="tap_to_disable">Klepnutím zakažte toto oznámení</string>
     <string name="home">Domů</string>
     <string name="category_display">Obrazovka</string>
@@ -178,7 +178,8 @@
     <string name="option_advanced_manage_qs_tiles">Správa dlaždic rychlého panelu</string>
     <string name="option_advanced_manage_qs_tiles_desc">Povolit nebo zakázat dlaždice rychlého nastavení individuálně.</string>
     <string name="option_touchwiz_disable_high_brightness_warning">Zakázat výstrahu při vysokém jasu</string>
-    <string name="option_touchwiz_disable_high_brightness_warning_desc">V některých oblastech zařízení Samsung zobrazí varování, když se pokusíte přejít nad určitou úroveň jasu obrazovky. Toto nastavení je obvykle obnoveno při restartu. Povolením této možnosti a jejím nastavením jako trvalé možnosti toto upozornění trvale zakážete.</string>
+    <string name="option_touchwiz_disable_high_brightness_warning_desc">V některých oblastech zařízení Samsung zobrazí varování, když se pokusíte přejít nad určitou úroveň jasu obrazovky. Toto nastavení je obvykle obnoveno při restartu. Povolením této možnosti a jejím nastavením jako trvalé možnosti toto upozornění trvale zakážete.
+</string>
     <string name="option_qs_editor">Editor rychlého nastavení</string>
     <string name="option_qs_editor_desc">Zatímco vlastní dlaždice rychlého nastavení jsou k dispozici pouze v systému Android Nougat (7.0) a novějších verzích, v systému Marshmallow (6.0) jsou úpravy rychlého nastavení stále omezené. Můžete měnit pořadí, odstraňovat a přidávat výchozí dlaždice rychlého nastavení.</string>
     <string name="option_qs_fancy_anim">Hezčí animace</string>

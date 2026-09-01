@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="adb_intro_title">ADB Guide</string>
-    <string name="adb_intro_desc">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set. (Note that you will need a computer for this process.)</string>
-    <string name="adb_intro_desc_no_computer">Don\'t know how to use ADB? No problem. Just follow this guide and you should be set.</string>
-    <string name="adb_choose_computer_os">Choose your Operating System.</string>
-    <string name="adb_choose_computer_os_desc">Which operating system is your computer running?</string>
-    <string name="adb_android_guide">Initial Setup (On Your Phone)</string>
-    <string name="adb_final_title">All Done</string>
+    <string name="adb_intro_title">Ghid ADB</string>
+    <string name="adb_intro_desc">Nu știți cum să folosiți ADB? Nicio problemă. Doar urmați acest ghid și ar trebui să reușiți. (Notați că veți avea nevoie de un computer pentru acest proces.)</string>
+    <string name="adb_intro_desc_no_computer">Nu știți cum să folosiți ADB? Nicio problemă. Doar urmați acest ghid și ar trebui să reușiți.</string>
+    <string name="adb_choose_computer_os">Alegeți sistemul tău de operare.</string>
+    <string name="adb_choose_computer_os_desc">Ce sistem de operare rulează computerul tău?</string>
+    <string name="adb_android_guide">Configurare inițială (pe telefon)</string>
+    <string name="adb_final_title">Totul este gata</string>
     <string name="adb_final_desc">That\'s all! If everything went well, the permission(s) should now be granted.</string>
     <string name="adb_install_android_1">Open the Settings app and scroll down to About Phone. Tap it.</string>
     <string name="adb_install_android_2">Depending on your device, you may see a menu called \"Software Information\". If so, tap it.</string>
@@ -33,13 +33,13 @@
     <string name="adb_install_adb_mac_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your desktop, the command would be `cd /Users/Zachary/Desktop/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_debian_1">Open a terminal by pressing CTRL+ALT+T.</string>
     <string name="adb_install_adb_debian_2">Install ADB with the following command: `sudo apt install android-tools-adb android-tools-fastboot`.</string>
-    <string name="adb_install_adb_fedora_1">Open a terminal.</string>
+    <string name="adb_install_adb_fedora_1">Deschide un terminal.</string>
     <string name="adb_install_adb_fedora_2">Install ADB with the following command: `sudo dnf install adb`.</string>
-    <string name="adb_install_adb_rhel_1">Open a terminal.</string>
+    <string name="adb_install_adb_rhel_1">Deschide un terminal.</string>
     <string name="adb_install_adb_rhel_2">Install ADB with the following command: `yum install android-tools`.</string>
     <string name="adb_install_adb_linux_other_1">Download the ADB ZIP from here: https://dl.google.com/android/repository/platform-tools-latest-linux.zip</string>
     <string name="adb_install_adb_linux_other_2">Extract the ZIP to a convenient location, such as your Home directory.</string>
-    <string name="adb_install_adb_linux_other_3">Open a terminal.</string>
+    <string name="adb_install_adb_linux_other_3">Deschide un terminal.</string>
     <string name="adb_install_adb_linux_other_4">Now, browse to the extracted files using the following command: `cd /path/to/files/`. For example, if your username is Zachary and you extracted the ZIP to your Home directory, the command would be `cd /home/Zachary/platform-tools/`, where \"platform-tools\" is the folder with the file named \"adb\" inside.</string>
     <string name="adb_install_adb_general_end_1">A Command Prompt or Terminal window should open. Type the following command(s) inside it, and hit Enter/Return after each one. If a popup appears on your phone about USB Debugging, make sure to allow it.</string>
     <string name="adb_install_adb_general_end_2">If everything\'s gone right, there should be no output from the commands. If there is, make sure to scroll all the way up to where you entered the command to see the error.</string>
@@ -49,6 +49,6 @@
     <string name="adb_linux_fedora">Fedora/SUSE</string>
     <string name="adb_linux_debian">Debian/Ubuntu</string>
     <string name="adb_linux_rhel">RHEL/CentOS</string>
-    <string name="adb_linux_other">Linux (Other)</string>
-    <string name="adb_local">Android (This Device)</string>
+    <string name="adb_linux_other">Linux (Altele)</string>
+    <string name="adb_local">Android (Acest dispozitiv)</string>
 </resources>

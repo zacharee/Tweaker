@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">أداة ضبط واجهة مستخدم النظام</string>
-    <string name="manager_channel">المدير (إيقاف التشغيل)</string>
-    <string name="tap_to_disable">انقر لتعطيل هذا الإشعار</string>
+    <string name="manager_channel">المدير(ايقاف)</string>
+    <string name="tap_to_disable">انقر لتعطيل هذا الإشعار ادم</string>
     <string name="home">الصفحة الرئيسية</string>
-    <string name="category_display">الشاشة</string>
+    <string name="category_display">الشاشة ادم</string>
     <string name="category_accessibility">إمكانية الوصول</string>
     <string name="category_apps">التطبيقات</string>
     <string name="category_audio">ردود الفعل الصوتية و الأصوات</string>
     <string name="category_developer">المطور</string>
-    <string name="category_easter_eggs">بيض عيد الفصح</string>
+    <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">الشبكة</string>
     <string name="category_notifications">الإشعارات</string>
     <string name="category_status_bar">شريط الحالة</string>
@@ -23,7 +23,7 @@
     <string name="more">المزيد</string>
     <string name="tweaks">التعديلات</string>
     <string name="failure">فشل</string>
-    <string name="help_translate">ساعد في الترجمة</string>
+    <string name="help_translate">مساعدة ترجمة</string>
     <string name="sub_cellular">الخلوية</string>
     <string name="sub_wifi">الشبكة اللاسلكية WiFi</string>
     <string name="sub_miscellaneous">إعدادات إضافية</string>
@@ -31,8 +31,8 @@
     <string name="sub_huawei">هواوي/اونر</string>
     <string name="sub_lg">إل جي</string>
     <string name="sub_oneplus">ون بلس</string>
-    <string name="sub_samsung">سامسونج</string>
-    <string name="sub_sony">سوني</string>
+    <string name="sub_samsung">A13سامسونج</string>
+    <string name="sub_sony">A136سوني</string>
     <string name="sub_xiaomi">شاومي</string>
     <string name="sub_security">الحماية</string>
     <string name="sub_storage">التخزين</string>
@@ -49,21 +49,21 @@
     <string name="feature_lock_timeout">تعيين مهلة قفل الجهاز المخصصة</string>
     <string name="feature_lock_timeout_desc">في (إعدادات قفل الحماية), يمكنك ضبط مؤقت(القفل التلقائي). هذا المؤقت يحدد المدة الزمنية لقفل الجهاز بعد دخوله وضع السبات. من خلال هذا الخيار, يمكنك ضبط التوقيت كيفما تريد. اذا قمت بوضع مدة زمنية طويلة جدا حينها لن يظهر قفل الشاشة نهائيا.</string>
     <string name="feature_battery_saver_trigger">ضبط نسبة بطارية مخصصة لوضع توفير الطاقة</string>
-    <string name="feature_battery_saver_trigger_desc" formatted="false">يمكن تشغيل خاصية توفير البطارية في جوجل تلقائياً عندما يكون مستوى البطارية عند 5\% أو 15\٪. مع هذا، يمكنك تعيين مشغل خاص بك بالمئة.</string>
+    <string name="feature_battery_saver_trigger_desc" formatted="false">Google\'s Battery Saver feature can automatically trigger when the battery level is at 5\% or 15\%. With this, you can set your own trigger percent.</string>
     <string name="feature_long_press_delay">تعيين معدل تأخير الضغط المطول</string>
-    <string name="feature_long_press_delay_desc">في إعدادات إمكانية الوصول، هناك ميزة تسمى \"اللمس &amp; الاستمرار بالتأخير\" والتي تسمح لك بتحديد المدة التي يجب عليك خلالها الاستمرار في الضغط على الشاشة للأندرويد للتعرف على حدث الضغط المطول. ومع ذلك، فإن الخيارات الوحيدة بشكل افتراضي هي \"قصير\" و\"متوسط\" و\"طويلة\". يمكنك تحديد تأخيرك الخاص.</string>
+    <string name="feature_long_press_delay_desc">في إعدادات إمكانية الوصول، هناك ميزه تسمى \"اللمس &amp;amp_; الاستمرار بالتأخير\" و التي تسمح لك بتحديد المدة التي يجب عليك خلالها الاستمرار في الضغط على الشاشة للأندرويد_ للتعرف على حدث الضغط المطول. ومع ذلك، فإن الخيارات الوحيدة بشكل افتراضي هي \"قصير\" و\"متوسط\" و\"طويلة\". يمكنك تحديد تأخيرك الخاص.</string>
     <string name="feature_font_scale">تعيين مقياس خط مخصص</string>
     <string name="feature_font_scale_desc">يسمح لك أندرويد بتعيين حجم النص المعروض على جهازك عن طريق تحديد مقياس الخط على نطاق المنظومة. هذه القيمة عادة ما تكون \"صغيرة\"، \"طبيعية\"، \"كبير\"، \"كبير\"، \"ضخم جداً\". ومع ذلك، يمكنك تعيين القيمة المخصصة الخاصة بك.</string>
     <string name="feature_freeform">تمكين النوافذ الحرة المتعددة</string>
     <string name="feature_freeform_desc">سواء لتمكين دعم النوافذ الحرة المتعددة. يتطلب إعادة التشغيل. يعمل فقط على أجهزة أندرويد 7.0+.</string>
     <string name="feature_app_install_location">تعيين موقع تثبيت التطبيق الافتراضي</string>
-    <string name="feature_app_install_location_desc">موقع تثبيت التطبيق الافتراضي. اختر أي تطبيقات تخزين يتم تثبيتها بشكل افتراضي. عادة، تقوم التطبيقات بنفسها بتحديد القيمة في أندرويد مانيست، ولكن يمكنك أن تختار جعلها تثبّت إلى وسيطة تخزين قابلة للتبنّي إذا أردت.</string>
+    <string name="feature_app_install_location_desc">موقع تثبيت التطبيق الافتراضي. اختر أي تطبيقات تخزين يتم تثبيتها بشكل افتراضي. عادة، تقوم التطبيقات بنفسها بتحديد القيمة في أندرويد_مانيست، ولكن يمكنك أن تختار جعلها تثبّت إلى وسيطة تخزين قابلة للتبنّي إذا أردت.</string>
     <string name="feature_heads_up_notifications">الإشعارات العلوية</string>
     <string name="feature_heads_up_notifications_desc">التبديل إلى تمكين أو تعطيل التنبيهات العلوية. التنبيهات العلوية هي التنبيهات التي تظهر في الجزء العلوي من الشاشة.</string>
     <string name="feature_insufficient_storage_warning">تجاوز تحذير \"مساحة التخزين غير كافية\"</string>
     <string name="feature_insufficient_storage_warning_desc">عندما يصل جهازك إلى قيمة حد أدنى معين للتخزين المتاح، يعرض أندرويد تحذيرا بأن جهازك لا يملك مساحة كافية من التخزين المتاح. هذا يمكن أن يمنعك من تثبيت تطبيقات أو تحديثات جديدة. يمكنك خفض قيمة الحد الأدنى يدوياً لمنع هذا التحذير من العرض.</string>
     <string name="feature_keep_screen_on">إبقاء الشاشة مضاءه خلال الشحن</string>
-    <string name="feature_keep_screen_on_desc">في إعدادات مطور الأندرويد، يمكنك تحديد الخِيار للحفاظ على تشغيل الشاشة عند توصيل الجهاز بالشاحن. بشكل افتراضي، هذا يمكن المِيزة لجميع مصادر الطاقة. يمكنك تحديد مصادر الطاقة التي تريد لكي تبقي شاشة هاتفك قيد التشغيل.</string>
+    <string name="feature_keep_screen_on_desc">في إعدادات مطور_الأندرويد، يمكنك تحديد الخِيار للحفاظ على تشغيل الشاشة عند توصيل الجهاز بالشاحن. بشكل افتراضي، هذا يمكن المِيزة لجميع مصادر الطاقة. يمكنك تحديد مصادر الطاقة التي تريد لكي تبقي شاشة هاتفك قيد التشغيل.</string>
     <string name="feature_custom_animation_scales">تعيين مقاييس الرسوم المتحركة المخصصة</string>
     <string name="feature_custom_animation_scales_desc">في إعدادات مطوري الأندرويد، يمكنك تعيين مقاييس الرسوم المتحركة للتحكم في مدة الرسوم المتحركة. إذا كانت الخيارات المتاحة سريعة جدا أو بطيئة بالنسبة لك، يمكنك تعيين قيم مخصصة هنا.</string>
     <string name="feature_custom_rotation">قفل اتجاه الشاشة إلى قيمة مخصصة</string>
@@ -219,7 +219,8 @@
     <string name="value">القيمة</string>
     <string name="label">التسمية</string>
     <string name="hide">إخفاء</string>
-    <string name="show">إظهار</string>
+    <string name="show">	
+إظهار</string>
     <string name="enabled">مفعل</string>
     <string name="enable">تمكين</string>
     <string name="global">شامل</string>
