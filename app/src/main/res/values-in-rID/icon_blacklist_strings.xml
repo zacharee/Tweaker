@@ -85,7 +85,7 @@
     <string name="icon_blacklist_call_record">Riwayat Panggilan</string>
     <string name="icon_blacklist_privacy_mode">Mode Privasi</string>
     <string name="icon_blacklist_ble_unlock_mode">Mode Buka Kunci BLE</string>
-    <string name="icon_blacklist_quiet">Diam</string>
+    <string name="icon_blacklist_quiet">Silenzioso</string>
     <string name="icon_blacklist_missed_call">Panggilan Tak Terjawab</string>
     <string name="icon_blacklist_bluetooth_handsfree_battery">Baterai Bluetooth Handsfree</string>
     <string name="icon_blacklist_rtt">RTT</string>

@@ -11,9 +11,9 @@
     <string name="category_developer">Opsi Pengembang</string>
     <string name="category_easter_eggs">Easter Eggs</string>
     <string name="category_network">Jejaring</string>
-    <string name="category_notifications">Notifikasi</string>
+    <string name="category_notifications">Notifications</string>
     <string name="category_status_bar">Bilah Status</string>
-    <string name="category_oem">Fitur OEM</string>
+    <string name="category_oem">OEM Features</string>
     <string name="category_system">Sistem</string>
     <string name="category_ui">Antarmuka</string>
     <string name="category_lock_screen">Layar Kunci</string>

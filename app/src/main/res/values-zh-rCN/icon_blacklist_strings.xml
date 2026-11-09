@@ -37,7 +37,7 @@
     <string name="icon_blacklist_managed_profile">管理用户配置</string>
     <string name="icon_blacklist_battery">电量</string>
     <string name="icon_blacklist_cast">投射</string>
-    <string name="icon_blacklist_nfc">近场通讯(NFC)</string>
+    <string name="icon_blacklist_nfc">NFC</string>
     <string name="icon_blacklist_location">定位</string>
     <string name="icon_blacklist_su">SU</string>
     <string name="icon_blacklist_otg_mouse">OTG 鼠标</string>
@@ -85,7 +85,7 @@
     <string name="icon_blacklist_call_record">通话录音</string>
     <string name="icon_blacklist_privacy_mode">隐私模式</string>
     <string name="icon_blacklist_ble_unlock_mode">BLE 解锁模式</string>
-    <string name="icon_blacklist_quiet">低音</string>
+    <string name="icon_blacklist_quiet">免打扰</string>
     <string name="icon_blacklist_missed_call">未接来电</string>
     <string name="icon_blacklist_bluetooth_handsfree_battery">无蓝牙电池</string>
     <string name="icon_blacklist_rtt">RTT</string>

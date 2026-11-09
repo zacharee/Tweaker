@@ -51,7 +51,7 @@
     <string name="icon_blacklist_secure">أيقونة الأمان</string>
     <string name="icon_blacklist_power_saver">توفير الطاقة</string>
     <string name="icon_blacklist_data_saver">توفير البيانات</string>
-    <string name="icon_blacklist_hotspot">نقطة الإتصال</string>
+    <string name="icon_blacklist_hotspot">نقطة الإتصال </string>
     <string name="icon_blacklist_bluetooth">البلوتوث</string>
     <string name="icon_blacklist_mute">كتم</string>
     <string name="icon_blacklist_vpn">‏شبكة افتراضية خاصة (VPN)</string>
@@ -61,12 +61,12 @@
     <string name="icon_blacklist_gesture">الإيماءة</string>
     <string name="icon_blacklist_smart_scroll">تمرير ذكي</string>
     <string name="icon_blacklist_face">الوجه</string>
-    <string name="icon_blacklist_gps">نظام GPS</string>
+    <string name="icon_blacklist_gps">GPS</string>
     <string name="icon_blacklist_lbs">LBS</string>
     <string name="icon_blacklist_wearable_gear">مُعَدَّات قابلة للبس</string>
     <string name="icon_blacklist_femtoicon">Femtocell</string>
     <string name="icon_blacklist_comsamsungrcs">سامسونج RCS</string>
-    <string name="icon_blacklist_wifi_p2p">WiFi P2P</string>
+    <string name="icon_blacklist_wifi_p2p"></string>
     <string name="icon_blacklist_wifi_ap">WiFi AP</string>
     <string name="icon_blacklist_wifi_oxygen">أيقونة WiFi Oxygen</string>
     <string name="icon_blacklist_phone_signal_second_stub">إشارة الهاتف الثانية</string>
@@ -78,8 +78,8 @@
     <string name="icon_blacklist_private_mode">الوضع الخاص</string>
     <string name="icon_blacklist_powersavingmode">وضع توفير الطاقة</string>
     <string name="icon_blacklist_earphone">سماعات الأذن</string>
-    <string name="icon_blacklist_unicom_call">مكالمة Unicom</string>
-    <string name="icon_blacklist_volte_call">مكالمة VoLTE</string>
+    <string name="icon_blacklist_unicom_call">Unicom Call</string>
+    <string name="icon_blacklist_volte_call">VoLTE Call</string>
     <string name="icon_blacklist_eyes_protect">حماية العين</string>
     <string name="icon_blacklist_mikey">MiKey</string>
     <string name="icon_blacklist_call_record">تسجيل المكالمة</string>
